@@ -1,4 +1,4 @@
-!["logo"](/instyll/public/instyll_logo.png)
+!["logo"](public/instyll_logo.png)
 
 # Getting Started with Create React App
 
