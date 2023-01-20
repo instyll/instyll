@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#distributions
+dist/
+dist/instyll_0.1.0_amd64.snap
+dist/instyll-0.1.0.AppImage
