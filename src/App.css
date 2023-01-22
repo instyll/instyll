@@ -53,3 +53,6 @@
 .ReactCodeMirror {
   height: 100%;
 }
+.result {
+  padding-left: 10px;
+}
