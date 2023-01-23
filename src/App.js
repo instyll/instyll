@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SplitPane split="vertical" defaultSize="50%" onDragFinished={this.handleDividerMove}>
+        <SplitPane split="vertical" defaultSize="50%">
           <div className="editor-pane" ref={this.leftRef} >
             <Editor className="editor" value={this.state.markdownSrc} onChange={this.onMarkdownChange}/>
           </div>
