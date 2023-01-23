@@ -25,14 +25,10 @@ class App extends Component {
     });
   }
 
-  handleDividerMove() {
-    if (this.leftRef.current) {
-      this.leftRef.current.scrollTop = this.rightRef.current.scrollTop;
-      this.leftRef.current.scrollLeft = this.rightRef.current.scrollLeft;
-    }
+  handleDividerMove(cm) {
     if (this.rightRef.current) {
-      this.rightRef.current.scrollTop = this.leftRef.current.scrollTop;
-      this.rightRef.current.scrollLeft = this.leftRef.current.scrollLeft;
+      this.rightRef.current.firstChild.scrollTop = cm.getScrollInfo().top;
+      this.rightRef.current.firstChild.scrollLeft = cm.getScrollInfo().left;
     }
   }
 
@@ -40,11 +36,13 @@ class App extends Component {
     return (
       <div className="App">
         <SplitPane split="vertical" defaultSize="50%">
-          <div className="editor-pane" ref={this.leftRef} >
-            <Editor className="editor" value={this.state.markdownSrc} onChange={this.onMarkdownChange}/>
+          <div className="editor-pane">
+            <Editor className="editor" value={this.state.markdownSrc} 
+            onChange={this.onMarkdownChange} ref={this.leftRef} 
+            onScroll={(cm) => this.handleDividerMove(cm)}/>
           </div>
-          <div className="view-pane" ref={this.rightRef} >
-            <ReactMarkdown className="result" children={this.state.markdownSrc}/>
+          <div className="view-pane">
+          <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
           </div>
         </SplitPane>
       </div>

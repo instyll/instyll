@@ -56,3 +56,7 @@
 .result {
   padding-left: 10px;
 }
+.view-pane {
+  height: 100%;
+  overflow: auto;
+}
