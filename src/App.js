@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import layout from './layout_icon.png';
 import add from './add_component.png'
 import settings from './settings.png'
+import palette from './palette.png'
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
@@ -38,9 +39,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="menuBar">
-          <img src={layout}/>
-          <img src={add}/>
-          <img src={settings}/>
+          <img src={layout} className="menuIcon"/>
+          <img src={add} className="menuIcon"/>
+          <img src={palette} className="menuIcon"/>
+          <img src={settings} className="menuIcon"/>
         </div>
         <SplitPane split="vertical" defaultSize="50%">
           <div className="editor-pane">

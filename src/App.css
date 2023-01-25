@@ -74,3 +74,8 @@
   position: sticky;
   z-index: 1;
 }
+
+.menuIcon {
+  width: 3%;
+  height: auto;
+}
