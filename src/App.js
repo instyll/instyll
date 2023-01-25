@@ -39,10 +39,18 @@ class App extends Component {
     return (
       <div className="App">
         <div className="menuBar">
-          <img src={layout} className="menuIcon"/>
-          <img src={add} className="menuIcon"/>
-          <img src={palette} className="menuIcon"/>
-          <img src={settings} className="menuIcon"/>
+          <div className="menuIcon">
+            <img src={layout}/>
+          </div>
+          <div className="menuIcon">
+            <img src={add}/>
+          </div>
+          <div className="menuIcon">
+            <img src={palette}/>
+          </div>
+          <div className="menuIcon">
+            <img src={settings}/>
+          </div>       
         </div>
         <SplitPane split="vertical" defaultSize="50%">
           <div className="editor-pane">
