@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import layout from './layout_icon.png';
-import add from './add_component.png'
-import settings from './settings.png'
+import logo from './logo.svg';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
@@ -37,19 +35,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="menuBar">
-          <img src={layout}/>
-          <img src={add}/>
-          <img src={settings}/>
-        </div>
         <SplitPane split="vertical" defaultSize="50%">
           <div className="editor-pane">
             <Editor className="editor" value={this.state.markdownSrc} 
             onChange={this.onMarkdownChange} ref={this.leftRef} 
             onScroll={(cm) => this.handleDividerMove(cm)}/>
           </div>
-          <div className="view-pane">
-          <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
+          <div className="view-pane" ref={this.rightRef}>
+          <ReactMarkdown className="result" children={this.state.markdownSrc} />
           </div>
         </SplitPane>
       </div>
