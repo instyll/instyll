@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 .Resizer {
   background: #000;
   opacity: 0.4;
@@ -49,23 +53,25 @@
   height: 100%;
   padding-top: 20px;
   padding-left: 20px;
+  font-size: 1.5em;
+  font-family: 'SF Pro Display', sans-serif;
 }
 .ReactCodeMirror {
   height: 100%;
 }
 .result {
   padding-left: 10px;
+  font-family: 'SF Pro Display', sans-serif;
 }
 .view-pane {
   height: 100%;
   overflow: auto;
 }
-
 /* menubar */
 
 .menuBar {
   height: 18px;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   color: white;
   padding-top: 2px;
   padding-left: 2px;
@@ -86,4 +92,8 @@ img {
 
 .menuIcon {
   height: 20px;
+}
+
+.rightComponents {
+  float: right;
 }

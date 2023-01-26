@@ -3,6 +3,12 @@ import layout from './layout_icon.png';
 import add from './add_component.png'
 import settings from './settings.png'
 import palette from './palette.png'
+
+import layout2 from './layout_icon_dark.png';
+import add2 from './add_component_dark.png'
+import settings2 from './settings_dark.png'
+import palette2 from './palette_dark.png'
+
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
@@ -38,20 +44,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"></link>
+        <style>
+          @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+        </style>
+
         <div className="menuBar">
           <div className="menuIcon">
-            <img src={layout}/>
+            <img src={layout2}/>
           </div>
           <div className="menuIcon">
-            <img src={add}/>
+            <img src={add2}/>
+          </div>
+          <span class="rightComponents">
+          <div className="menuIcon">
+            <img src={palette2}/>
           </div>
           <div className="menuIcon">
-            <img src={palette}/>
-          </div>
-          <div className="menuIcon">
-            <img src={settings}/>
+            <img src={settings2}/>
           </div>       
+          </span>
         </div>
+
         <SplitPane split="vertical" defaultSize="50%">
           <div className="editor-pane">
             <Editor className="editor" value={this.state.markdownSrc} 
@@ -59,7 +74,7 @@ class App extends Component {
             onScroll={(cm) => this.handleDividerMove(cm)}/>
           </div>
           <div className="view-pane">
-          <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
+            <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
           </div>
         </SplitPane>
       </div>

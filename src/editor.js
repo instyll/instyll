@@ -7,6 +7,8 @@ require('codemirror/mode/python/python');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 require('codemirror/theme/monokai.css');
+require('codemirror/theme/solarized.css');
+
 
 class Editor extends Component {
     constructor(props) {
@@ -21,7 +23,7 @@ class Editor extends Component {
     render () {
         var options = {
             mode: 'markdown',
-            theme: 'monokai',
+            // theme: 'solarized light',
         }
         return (<CodeMirror 
             value={this.props.value} 
