@@ -55,10 +55,33 @@
   padding-left: 20px;
   font-size: 1.5em;
   font-family: 'SF Pro Display', sans-serif;
+  line-height: 1.5em;
 }
 .cm-s-default .cm-header {
   color: black;
 }
+
+/* variable height */
+.cm-header-1 {
+  font-size: 150%;
+}
+.cm-header-2 {
+  font-size: 130%;
+}
+.cm-header-3 {
+  font-size: 120%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+}
+.cm-header-6 {
+  font-size: 90%;
+}
+
+/* preview component */
 .ReactCodeMirror {
   height: 100%;
 }
