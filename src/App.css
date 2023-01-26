@@ -56,6 +56,9 @@
   font-size: 1.5em;
   font-family: 'SF Pro Display', sans-serif;
 }
+.cm-s-default .cm-header {
+  color: black;
+}
 .ReactCodeMirror {
   height: 100%;
 }
@@ -91,7 +94,7 @@ img {
 }
 
 .menuIcon {
-  height: 20px;
+  height: 24px;
 }
 
 .rightComponents {
