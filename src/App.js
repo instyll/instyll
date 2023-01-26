@@ -74,7 +74,9 @@ class App extends Component {
             onScroll={(cm) => this.handleDividerMove(cm)}/>
           </div>
           <div className="view-pane">
-            <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
+            <div className="preview">
+              <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
+            </div>
           </div>
         </SplitPane>
       </div>
