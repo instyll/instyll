@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -17,7 +21,7 @@
   -webkit-transition: all 2s ease;
   transition: all 2s ease;
 }
-.Resizer.horizontal {
+.Resizer.horizontal { 
   height: 11px;
   margin: -5px 0;
   border-top: 5px solid rgba(255, 255, 255, 0);
@@ -117,16 +121,24 @@ h1 {
 
 /* menubar */
 
+.nav {
+  top: 0;
+  position: sticky;
+}
+
 .menuBar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   height: 18px;
-  background-color: #ffffff;
+  background-color: #ffffff; 
   color: white;
   padding-top: 2px;
   padding-left: 2px;
   padding-right: 2px;
   padding-bottom: 2px;
-  position: sticky;
-  z-index: 1;
+  margin-bottom: 5px;
+  z-index: 999;
 }
 
 .menuBar .menuIcon {

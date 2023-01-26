@@ -8,6 +8,7 @@ import layout2 from './layout_icon_dark.png';
 import add2 from './add_component_dark.png'
 import settings2 from './settings_dark.png'
 import palette2 from './palette_dark.png'
+import back2 from './back_dark.png'
 
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
@@ -50,14 +51,18 @@ class App extends Component {
           @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
         </style>
 
+        <div className="nav">
         <div className="menuBar">
+          <div className="menuIcon">
+            <img src={back2}/>
+          </div>
           <div className="menuIcon">
             <img src={layout2}/>
           </div>
           <div className="menuIcon">
             <img src={add2}/>
           </div>
-          <span class="rightComponents">
+          <span className="rightComponents">
           <div className="menuIcon">
             <img src={palette2}/>
           </div>
@@ -65,6 +70,7 @@ class App extends Component {
             <img src={settings2}/>
           </div>       
           </span>
+        </div>
         </div>
 
         <SplitPane split="vertical" defaultSize="50%">
