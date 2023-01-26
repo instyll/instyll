@@ -97,7 +97,6 @@
 .preview {
   width: 100%;
   display: inline;
-  white-space: pre-wrap;
   word-wrap: break-all;
   overflow-wrap: break-word;
   word-break: break-word;
