@@ -2,8 +2,28 @@ html, body {
   height: 100%;
 }
 
-::-webkit-scrollbar {
+/* body {
+  overflow: hidden;
+} */
+
+.App {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+/* ::-webkit-scrollbar {
   display: none;
+} */
+
+.scrollable {
+  height: inherit;
+}
+
+.scroll-allowed {
+  height: 100%;
 }
 
 .Resizer {
@@ -52,6 +72,8 @@ html, body {
 .Resizer.disabled:hover {
   border-color: transparent;
 }
+
+/* CM Editor */
 .editor-pane {
   height: 100%;
 }
@@ -123,15 +145,22 @@ h1 {
 
 /* menubar */
 
+.navRoot {
+  height: 100%;
+  position: -webkit-sticky;
+position: sticky;
+top: 0;
+}
+
 .nav {
-  top: 0;
-  position: sticky;
+  height: 5%;
+  padding-top: 2px;
+position: -webkit-sticky;
+position: sticky;
+top: 0;
 }
 
 .menuBar {
-  /* position: -webkit-sticky;
-  position: sticky;
-  top: 0; */
   height: 18px;
   background-color: #ffffff; 
   color: white;

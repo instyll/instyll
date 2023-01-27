@@ -1,4 +1,13 @@
 import React, { Component } from 'react';
+import { StickyContainer, Sticky } from 'react-sticky';
+import SplitPane from 'react-split-pane';
+import Editor from './editor.js';
+import ReactMarkdown from 'react-markdown';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import  useRef from 'react';
+import './App.css';
+
+// Assets
 import layout from './layout_icon.png';
 import add from './add_component.png'
 import settings from './settings.png'
@@ -9,12 +18,6 @@ import add2 from './add_component_dark.png'
 import settings2 from './settings_dark.png'
 import palette2 from './palette_dark.png'
 import back2 from './back_dark.png'
-
-import SplitPane from 'react-split-pane';
-import Editor from './editor.js';
-import ReactMarkdown from 'react-markdown';
-import  useRef from 'react';
-import './App.css';
 
 
 
@@ -51,41 +54,45 @@ class App extends Component {
           @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
         </style>
 
-        <div className="nav">
-        <div className="menuBar">
-          <div className="menuIcon">
-            <img src={back2}/>
-          </div>
-          <div className="menuIcon">
-            <img src={layout2}/>
-          </div>
-          <div className="menuIcon">
-            <img src={add2}/>
-          </div>
-          <span className="rightComponents">
-          <div className="menuIcon">
-            <img src={palette2}/>
-          </div>
-          <div className="menuIcon">
-            <img src={settings2}/>
-          </div>       
-          </span>
-        </div>
-        </div>
-
-        <SplitPane split="vertical" defaultSize="50%">
-          <div className="editor-pane">
-            <Editor className="editor" value={this.state.markdownSrc} 
-            onChange={this.onMarkdownChange} ref={this.leftRef} 
-            onScroll={(cm) => this.handleDividerMove(cm)}/>
-          </div>
-          <div className="view-pane">
-            <div className="preview">
-              <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
+          <div className='container'>
+              
+              <div className="nav">
+                  <div className="menuBar">
+                      <div className="menuIcon">
+                          <img src={back2}/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={layout2}/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={add2}/>
+                      </div>
+                      <span className="rightComponents">
+                      <div className="menuIcon">
+                          <img src={palette2}/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={settings2}/>
+                      </div>       
+                </span>
+              </div>
             </div>
+
+            <SplitPane split="vertical" defaultSize="50%" id="mainView" style={{height: "95%"}}>
+              <div className="editor-pane">
+                <Editor className="editor" value={this.state.markdownSrc} 
+                onChange={this.onMarkdownChange} ref={this.leftRef} 
+                onScroll={(cm) => this.handleDividerMove(cm)}/>
+              </div>
+              <div className="view-pane">
+                <div className="preview">
+                  <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
+                </div>
+              </div>
+            </SplitPane>
+            </div>
+
           </div>
-        </SplitPane>
-      </div>
     );
   }
 }
