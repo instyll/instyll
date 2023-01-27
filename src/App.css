@@ -14,9 +14,9 @@ html, body {
   height: 100%;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .scrollable {
   height: inherit;
@@ -27,6 +27,7 @@ html, body {
 }
 
 .Resizer {
+  border-radius: 6px;
   background: #000;
   opacity: 0.4;
   z-index: 1;

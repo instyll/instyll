@@ -3,7 +3,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { Scrollbars } from 'react-custom-scrollbars';
 import  useRef from 'react';
 import './App.css';
 
