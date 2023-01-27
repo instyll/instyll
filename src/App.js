@@ -6,18 +6,22 @@ import ReactMarkdown from 'react-markdown';
 import { Scrollbars } from 'react-custom-scrollbars';
 import  useRef from 'react';
 import './App.css';
+import 'katex/dist/katex.min.css'
 
 // Assets
 import layout from './layout_icon.png';
 import add from './add_component.png'
 import settings from './settings.png'
 import palette from './palette.png'
-
 import layout2 from './layout_icon_dark.png';
 import add2 from './add_component_dark.png'
 import settings2 from './settings_dark.png'
 import palette2 from './palette_dark.png'
 import back2 from './back_dark.png'
+
+// Math
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
 
 
@@ -86,7 +90,10 @@ class App extends Component {
               </div>
               <div className="view-pane">
                 <div className="preview">
-                  <ReactMarkdown className="result" ref={this.rightRef} children={this.state.markdownSrc} />
+                  <ReactMarkdown className="result" ref={this.rightRef} 
+                  children={this.state.markdownSrc}
+                  remarkPlugins={[remarkMath]} 
+                  rehypePlugins={[rehypeKatex]}/>
                 </div>
               </div>
             </SplitPane>
