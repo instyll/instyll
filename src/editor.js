@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
+import { indentUnit } from '@codemirror/language';
 
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
@@ -37,7 +38,7 @@ class Editor extends Component {
             // ref={this.editorRef}
             extensions={
                 [markdown({ base: markdownLanguage, codeLanguages: languages }),
-                    EditorView.lineWrapping
+                    EditorView.lineWrapping, indentUnit.of("    ")
                 ]} 
             value={this.props.value} 
             onChange={this.updateCode}
