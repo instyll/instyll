@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
-import CodeMirror from '@skidding/react-codemirror';
+// import CodeMirror from '@skidding/react-codemirror';
+import CodeMirror from '@uiw/react-codemirror';
+
+// Languages
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { languages } from '@codemirror/language-data';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
@@ -8,6 +13,8 @@ require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 require('codemirror/theme/monokai.css');
 require('codemirror/theme/solarized.css');
+
+
 
 
 class Editor extends Component {
@@ -27,6 +34,8 @@ class Editor extends Component {
             // theme: 'solarized light',
         }
         return (<CodeMirror 
+            // ref={this.editorRef}
+            extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]} 
             value={this.props.value} 
             onChange={this.updateCode}
             options={options} 

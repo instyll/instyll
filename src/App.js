@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
-import { StickyContainer, Sticky } from 'react-sticky';
+import React, { Component, createRef } from 'react';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
-import { Scrollbars } from 'react-custom-scrollbars';
-import  useRef from 'react';
 import './App.css';
 import 'katex/dist/katex.min.css'
 
@@ -23,17 +20,20 @@ import back2 from './back_dark.png'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 
+// Languages
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { languages } from '@codemirror/language-data';
+
 
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       markdownSrc: "# Hello World",
     }
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
-    this.leftRef = React.createRef();
-    this.rightRef = React.createRef();
+    // this.handleCursorActivity = this.handleCursorActivity.bind(this);
   }
 
   onMarkdownChange(md) {
@@ -42,12 +42,15 @@ class App extends Component {
     });
   }
 
-  handleDividerMove(cm) {
-    if (this.rightRef.current) {
-      this.rightRef.current.firstChild.scrollTop = cm.getScrollInfo().top;
-      this.rightRef.current.firstChild.scrollLeft = cm.getScrollInfo().left;
-    }
-  }
+  // handleCursorActivity(cursor) {
+  //   const line = cursor.line;
+  //   console.log(0);
+  //   console.log(line);
+  //   const element = document.querySelector(`.result > *:nth-child(${line + 1})`);
+  //   if (element) {
+  //     element.scrollIntoView();
+  //   }
+  // }
 
   render() {
     return (
@@ -82,15 +85,16 @@ class App extends Component {
               </div>
             </div>
 
-            <SplitPane split="vertical" defaultSize="50%" id="mainView" style={{height: "95%"}}>
+            <SplitPane split="vertical" defaultSize="50%" id="mainView" style={{height: "95%", flex: "1"}}>
               <div className="editor-pane">
-                <Editor className="editor" value={this.state.markdownSrc} 
-                onChange={this.onMarkdownChange} ref={this.leftRef} 
-                onScroll={(cm) => this.handleDividerMove(cm)}/>
+                <Editor className="editor"
+                // onCursorActivity={this.handleCursorActivity} 
+                value={this.state.markdownSrc} 
+                onChange={this.onMarkdownChange}/> 
               </div>
               <div className="view-pane">
                 <div className="preview">
-                  <ReactMarkdown className="result" ref={this.rightRef} 
+                  <ReactMarkdown className="result"
                   children={this.state.markdownSrc}
                   remarkPlugins={[remarkMath]} 
                   rehypePlugins={[rehypeKatex]}/>

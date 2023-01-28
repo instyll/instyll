@@ -6,6 +6,11 @@ html, body {
   overflow: hidden;
 } */
 
+/* smooth */
+.cm-cursor {
+  transition: all 80ms;
+}
+
 .App {
   height: 100%;
 }
@@ -14,9 +19,9 @@ html, body {
   height: 100%;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .scrollable {
   height: inherit;
@@ -76,9 +81,11 @@ html, body {
 
 /* CM Editor */
 .editor-pane {
+  overflow: auto;
   height: 100%;
 }
-.CodeMirror {
+
+/* .CodeMirror {
   height: 100%;
   padding-top: 20px;
   padding-left: 20px;
@@ -86,13 +93,30 @@ html, body {
   font-size: 1.3em;
   font-family: 'SF Pro Display', sans-serif;
   line-height: 1.3em;
+} */
+
+.cm-content {
+  font-size: 1.3em;
+  font-family: 'SF Pro Display', sans-serif;
+  line-height: 1.3em;
+  height: 100%;
+  max-height: 100%;
 }
+
+.cm-wrap { 
+  height: 100% 
+}
+
+.cm-scroller { 
+  overflow: auto 
+}
+
 .cm-s-default .cm-header {
   color: black;
 }
 
 /* variable height */
-.cm-header-1 {
+/* .cm-header-1 {
   font-size: 150%;
 }
 .cm-header-2 {
@@ -109,7 +133,7 @@ html, body {
 }
 .cm-header-6 {
   font-size: 90%;
-}
+} */
 
 /* preview component */
 .ReactCodeMirror {
