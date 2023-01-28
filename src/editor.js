@@ -30,7 +30,7 @@ class Editor extends Component {
     render () {
         var options = {
             mode: 'markdown',
-            lineWrapping: true,
+            // lineWrapping: true,
             // theme: 'solarized light',
         }
         return (<CodeMirror 

@@ -1,7 +1,6 @@
 import React, { Component, createRef } from 'react';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
-import { EditorView } from '@codemirror/view';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
 import 'katex/dist/katex.min.css'

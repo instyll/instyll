@@ -100,17 +100,20 @@ html, body {
   font-family: 'SF Pro Display', sans-serif;
   line-height: 1.3em;
   height: 100%;
-  max-height: 100%;
   white-space: pre-wrap
 }
 
-.cm-wrap { 
-  height: 100% 
+.cm-editor .cm-gutter {
+  min-height: 1080px;
 }
 
-/* .cm-scroller { 
-  overflow: auto 
-} */
+.cm-wrap { 
+  height: 100%; 
+}
+
+.cm-scroller { 
+  overflow: auto; 
+}
 
 .cm-s-default .cm-header {
   color: black;
