@@ -98,7 +98,6 @@ class App extends Component {
               </div>
             </SplitPane>
             </div>
-
           </div>
     );
   }
