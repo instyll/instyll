@@ -19,9 +19,9 @@ html, body {
   height: 100%;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .scrollable {
   height: inherit;
@@ -101,15 +101,16 @@ html, body {
   line-height: 1.3em;
   height: 100%;
   max-height: 100%;
+  white-space: pre-wrap
 }
 
 .cm-wrap { 
   height: 100% 
 }
 
-.cm-scroller { 
+/* .cm-scroller { 
   overflow: auto 
-}
+} */
 
 .cm-s-default .cm-header {
   color: black;

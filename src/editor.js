@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-// import CodeMirror from '@skidding/react-codemirror';
 import CodeMirror from '@uiw/react-codemirror';
+import { EditorView } from '@codemirror/view';
 
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
@@ -35,7 +35,10 @@ class Editor extends Component {
         }
         return (<CodeMirror 
             // ref={this.editorRef}
-            extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]} 
+            extensions={
+                [markdown({ base: markdownLanguage, codeLanguages: languages }),
+                    EditorView.lineWrapping
+                ]} 
             value={this.props.value} 
             onChange={this.updateCode}
             options={options} 
