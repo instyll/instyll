@@ -220,4 +220,9 @@ img {
   float: right;
 }
 
-/* Katex */
+/* Highlight specific components */
+code {
+  width: 100%;
+  display: inline-block;
+  background-color: #F7F7F7;
+}
