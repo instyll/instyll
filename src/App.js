@@ -31,6 +31,7 @@ class App extends Component {
     super(props);
     this.state = {
       markdownSrc: "# Hello World",
+      split: "vertical",
     }
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     // this.handleCursorActivity = this.handleCursorActivity.bind(this);
@@ -41,16 +42,6 @@ class App extends Component {
       markdownSrc: md
     });
   }
-
-  // handleCursorActivity(cursor) {
-  //   const line = cursor.line;
-  //   console.log(0);
-  //   console.log(line);
-  //   const element = document.querySelector(`.result > *:nth-child(${line + 1})`);
-  //   if (element) {
-  //     element.scrollIntoView();
-  //   }
-  // }
 
   render() {
     return (
@@ -68,7 +59,10 @@ class App extends Component {
                       <div className="menuIcon">
                           <img src={back2}/>
                       </div>
-                      <div className="menuIcon">
+                      <div className="menuIcon" onClick={() => {
+                        this.setState({split: this.state.split === "vertical"
+                      ? "horizontal" : "vertical"})
+                      }}>
                           <img src={layout2}/>
                       </div>
                       <div className="menuIcon">
@@ -85,7 +79,7 @@ class App extends Component {
               </div>
             </div>
 
-            <SplitPane split="vertical" defaultSize="50%" id="mainView" style={{height: "95%", flex: "1"}}>
+            <SplitPane split={this.state.split} defaultSize="50%" id="mainView" style={{height: "95%", flex: "1"}}>
               <div className="editor-pane">
                 <Editor className="editor"
                 // onCursorActivity={this.handleCursorActivity} 
