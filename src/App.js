@@ -31,7 +31,9 @@ class App extends Component {
     super(props);
     this.state = {
       markdownSrc: "# Hello World",
-      split: "vertical",
+      // split: "vertical",
+      // orientation: "navHorizontal",
+      // size: "50%",
     }
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     // this.handleCursorActivity = this.handleCursorActivity.bind(this);
@@ -54,15 +56,12 @@ class App extends Component {
 
           <div className='container'>
               
-              <div className="nav">
+              <div className="navHorizontal">
                   <div className="menuBar">
                       <div className="menuIcon">
                           <img src={back2}/>
                       </div>
-                      <div className="menuIcon" onClick={() => {
-                        this.setState({split: this.state.split === "vertical"
-                      ? "horizontal" : "vertical"})
-                      }}>
+                      <div className="menuIcon">
                           <img src={layout2}/>
                       </div>
                       <div className="menuIcon">
@@ -79,8 +78,12 @@ class App extends Component {
               </div>
             </div>
 
-            <SplitPane split={this.state.split} defaultSize="50%" id="mainView" style={{height: "95%", flex: "1"}}>
-              <div className="editor-pane">
+            <SplitPane split={this.state.split} defaultSize="50%" id="mainView" 
+            style={{
+              height: "95%",
+            }}>
+
+              <div className="editor-pane" style={{width: "100%"}}>
                 <Editor className="editor"
                 // onCursorActivity={this.handleCursorActivity} 
                 value={this.state.markdownSrc} 
