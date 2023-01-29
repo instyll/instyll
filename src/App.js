@@ -24,8 +24,6 @@ import rehypeKatex from 'rehype-katex'
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
 
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -85,7 +83,6 @@ class App extends Component {
 
               <div className="editor-pane" style={{width: "100%"}}>
                 <Editor className="editor"
-                // onCursorActivity={this.handleCursorActivity} 
                 value={this.state.markdownSrc} 
                 onChange={this.onMarkdownChange}/> 
               </div>
