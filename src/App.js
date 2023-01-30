@@ -68,20 +68,25 @@ class App extends Component {
                       </div>
                       <div className="menuIcon">
                           <img src={image} className="icon"/>
+                          <span class="tooltip">Insert Image</span>
                       </div>
                       <div className="menuIcon">
                           <img src={code} className="icon"/>
+                          <span class="tooltip">Insert Code Block</span>
                       </div>
                       <div className="menuIcon">
                           <img src={table} className="icon"/>
+                          <span class="tooltip">Insert Table</span>
                       </div>
                       <div className="menuIcon">
                           <img src={link} className="icon"/>
+                          <span class="tooltip">Insert Link</span>
                       </div>
                       <div className="menuIcon">
                           <img src={layout2} 
                           onClick=
                           {this.slideToRight} className="icon"/>
+                          <span class="tooltip">Change Layout</span>
                       </div>
                       <span className="rightComponents">
                       <div className="menuIcon">
