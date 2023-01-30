@@ -28,7 +28,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdownSrc: "# Hello World",
+      markdownSrc: "# welcome",
       // split: "vertical",
       // orientation: "navHorizontal",
       // size: "50%",
