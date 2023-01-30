@@ -64,31 +64,31 @@ class App extends Component {
               <div className="navHorizontal">
                   <div className="menuBar">
                       <div className="menuIcon">
-                          <img src={back2}/>
+                          <img src={back2} className="icon"/>
                       </div>
                       <div className="menuIcon">
-                          <img src={image}/>
+                          <img src={image} className="icon"/>
                       </div>
                       <div className="menuIcon">
-                          <img src={code}/>
+                          <img src={code} className="icon"/>
                       </div>
                       <div className="menuIcon">
-                          <img src={table}/>
+                          <img src={table} className="icon"/>
                       </div>
                       <div className="menuIcon">
-                          <img src={link}/>
+                          <img src={link} className="icon"/>
                       </div>
                       <div className="menuIcon">
                           <img src={layout2} 
                           onClick=
-                          {this.slideToRight}/>
+                          {this.slideToRight} className="icon"/>
                       </div>
                       <span className="rightComponents">
                       <div className="menuIcon">
-                          <img src={palette2}/>
+                          <img src={palette2} className="icon"/>
                       </div>
                       <div className="menuIcon">
-                          <img src={settings2}/>
+                          <img src={settings2} className="icon"/>
                       </div>       
                 </span>
               </div>
