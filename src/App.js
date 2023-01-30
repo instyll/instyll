@@ -17,6 +17,10 @@ import add2 from './add_component_dark.png'
 import settings2 from './settings_dark.png'
 import palette2 from './palette_dark.png'
 import back2 from './back_dark.png'
+import code from './code.png'
+import image from './image.png'
+import table from './table.png'
+import link from './link.png'
 
 // Math
 import remarkMath from 'remark-math'
@@ -68,7 +72,16 @@ class App extends Component {
                           {this.slideToRight}/>
                       </div>
                       <div className="menuIcon">
-                          <img src={add2}/>
+                          <img src={image}/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={code}/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={table}/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={link}/>
                       </div>
                       <span className="rightComponents">
                       <div className="menuIcon">
