@@ -67,11 +67,6 @@ class App extends Component {
                           <img src={back2}/>
                       </div>
                       <div className="menuIcon">
-                          <img src={layout2} 
-                          onClick=
-                          {this.slideToRight}/>
-                      </div>
-                      <div className="menuIcon">
                           <img src={image}/>
                       </div>
                       <div className="menuIcon">
@@ -82,6 +77,11 @@ class App extends Component {
                       </div>
                       <div className="menuIcon">
                           <img src={link}/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={layout2} 
+                          onClick=
+                          {this.slideToRight}/>
                       </div>
                       <span className="rightComponents">
                       <div className="menuIcon">
