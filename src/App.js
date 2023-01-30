@@ -2,7 +2,9 @@ import React, { Component, createRef } from 'react';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
+import { useEffect } from "react";
 import './App.css';
+import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
 
 // Assets
@@ -29,12 +31,11 @@ class App extends Component {
     super(props);
     this.state = {
       markdownSrc: "# welcome",
-      // split: "vertical",
-      // orientation: "navHorizontal",
-      // size: "50%",
+      size: "50%",
     }
+    
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
-    // this.handleCursorActivity = this.handleCursorActivity.bind(this);
+    this.slideToRight = this.slideToRight.bind(this);
   }
 
   onMarkdownChange(md) {
@@ -43,14 +44,16 @@ class App extends Component {
     });
   }
 
+  slideToRight() {
+    this.setState({
+      size: this.state.size === "50%" ? "100%" : "50%"
+    });
+  }
+
   render() {
+
     return (
       <div className="App">
-
-        <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"></link>
-        <style>
-          @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
-        </style>
 
           <div className='container'>
               
@@ -60,7 +63,9 @@ class App extends Component {
                           <img src={back2}/>
                       </div>
                       <div className="menuIcon">
-                          <img src={layout2}/>
+                          <img src={layout2} 
+                          onClick=
+                          {this.slideToRight}/>
                       </div>
                       <div className="menuIcon">
                           <img src={add2}/>
@@ -76,7 +81,7 @@ class App extends Component {
               </div>
             </div>
 
-            <SplitPane split={this.state.split} defaultSize="50%" id="mainView" 
+            <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
             style={{
               height: "95%",
             }}>
