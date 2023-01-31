@@ -39,6 +39,7 @@ class App extends Component {
     this.state = {
       markdownSrc: "# welcome",
       size: "50%",
+      wordCount: "0",
     }
     
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -49,6 +50,7 @@ class App extends Component {
     this.setState({
       markdownSrc: md
     });
+    this.getWordCount();
   }
 
   slideToRight() {
@@ -56,6 +58,20 @@ class App extends Component {
     this.setState({
       size: this.state.size !== "100%" ? "100%" : "50%"
     });
+  }
+
+  getWordCount() {
+    var screen = document.getElementById("text");
+    var textContent = screen.textContent;
+    var count = textContent.trim().split(/\s+/).length;
+    console.log(count);
+    this.setState({
+      wordCount: count
+    })
+  }
+
+  componentDidMount() {
+    this.getWordCount();
   }
 
   render() {
@@ -119,10 +135,11 @@ class App extends Component {
               <div className="editor-pane" style={{width: "100%"}}>
                 <Editor className="editor"
                 value={this.state.markdownSrc} 
-                onChange={this.onMarkdownChange}/> 
+                onChange={this.onMarkdownChange}
+                />
               </div>
               <div className="view-pane">
-                <div className="preview">
+                <div className="preview" id="text">
                   <ReactMarkdown className="result"
                   children={this.state.markdownSrc}
                   remarkPlugins={[remarkMath, remarkGfm]} 
@@ -140,7 +157,7 @@ class App extends Component {
                 </span>
                 <span class="rightComponents">
                   <p className="footerInfo">Ln x, Col y</p>
-                  <p className="footerInfo">300 words</p>
+                  <p className="footerInfo">{this.state.wordCount} words</p>
                 </span>
               </div>
             </div>
