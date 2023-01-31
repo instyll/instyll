@@ -6,12 +6,14 @@ import { useEffect } from "react";
 import './App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
+
 // Assets
 import layout from './layout_icon.png';
 import add from './add_component.png'
 import settings from './settings.png'
 import palette from './palette.png'
 import layout2 from './layout_icon_dark.png';
+import layoutPos1 from './layout_icon_position2.png'
 import add2 from './add_component_dark.png'
 import settings2 from './settings_dark.png'
 import palette2 from './palette_dark.png'
@@ -49,8 +51,9 @@ class App extends Component {
   }
 
   slideToRight() {
+    console.log(this.state.size);
     this.setState({
-      size: this.state.size === "50%" ? "100%" : "50%"
+      size: this.state.size !== "100%" ? "100%" : "50%"
     });
   }
 
@@ -82,10 +85,11 @@ class App extends Component {
                           <img src={link} className="icon"/>
                           <span class="tooltip">Insert Link</span>
                       </div>
-                      <div className="menuIcon">
-                          <img src={layout2} 
-                          onClick=
-                          {this.slideToRight} className="icon"/>
+                      <div className="menuIcon"
+                      onClick=
+                      {this.slideToRight}>
+                          <img src={this.state.size === "100%" ? layoutPos1 : layout2} 
+                          className="icon"/>
                           <span class="tooltip">Change Layout</span>
                       </div>
                       <span className="rightComponents">
