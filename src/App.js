@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import './App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
-
 // Assets
 import layout from './layout_icon.png';
 import add from './add_component.png'
@@ -22,9 +21,10 @@ import image from './image.png'
 import table from './table.png'
 import link from './link.png'
 
-// Math
+// Plugins
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import remarkGfm from 'remark-gfm'
 
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
@@ -113,7 +113,7 @@ class App extends Component {
                 <div className="preview">
                   <ReactMarkdown className="result"
                   children={this.state.markdownSrc}
-                  remarkPlugins={[remarkMath]} 
+                  remarkPlugins={[remarkMath, remarkGfm]} 
                   rehypePlugins={[rehypeKatex]}/>
                 </div>
               </div>
