@@ -22,6 +22,7 @@ import code from './code.png'
 import image from './image.png'
 import table from './table.png'
 import link from './link.png'
+import help from './help.png'
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -92,10 +93,13 @@ class App extends Component {
                           className="icon"/>
                           <span class="tooltip">Change Layout</span>
                       </div>
-                      <span className="rightComponents">
+                      <span className="rightComponents">    
                       <div className="menuIcon">
                           <img src={palette2} className="icon"/>
                       </div>
+                      <div className="menuIcon">
+                          <img src={help} className="icon"/>
+                      </div> 
                       <div className="menuIcon">
                           <img src={settings2} className="icon"/>
                       </div>       
