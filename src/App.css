@@ -98,6 +98,10 @@ html {
   min-height: 1080px;
 }
 
+.cm-gutter {
+  background-color: #fff;
+}
+
 .cm-wrap { 
   height: 100%; 
 }
