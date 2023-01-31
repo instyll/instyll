@@ -191,6 +191,10 @@ img {
   float: right;
 }
 
+.leftComponents {
+  float: left;
+}
+
 .menuIcon .tooltip {
   visibility: hidden;
   width: 75px;
@@ -224,6 +228,23 @@ img {
   visibility: visible;
   opacity: 1;
   transition: opacity 0s ease-in-out 1s;
+}
+
+/* footer panel */
+
+.footerPanel {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footerInfo {
+  font-size: 15px;
+  color: #000;
+  display: inline;
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* Highlight specific components */

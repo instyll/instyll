@@ -64,6 +64,8 @@ class App extends Component {
       <div className="App">
 
           <div className='container'>
+
+            {/* navbar */}
               
               <div className="navHorizontal">
                   <div className="menuBar">
@@ -72,26 +74,26 @@ class App extends Component {
                       </div>
                       <div className="menuIcon">
                           <img src={image} className="icon"/>
-                          <span class="tooltip">Insert Image</span>
+                          <span className="tooltip">Insert Image</span>
                       </div>
                       <div className="menuIcon">
                           <img src={code} className="icon"/>
-                          <span class="tooltip">Insert Code Block</span>
+                          <span className="tooltip">Insert Code Block</span>
                       </div>
                       <div className="menuIcon">
                           <img src={table} className="icon"/>
-                          <span class="tooltip">Insert Table</span>
+                          <span className="tooltip">Insert Table</span>
                       </div>
                       <div className="menuIcon">
                           <img src={link} className="icon"/>
-                          <span class="tooltip">Insert Link</span>
+                          <span className="tooltip">Insert Link</span>
                       </div>
                       <div className="menuIcon"
                       onClick=
                       {this.slideToRight}>
                           <img src={this.state.size === "100%" ? layoutPos1 : layout2} 
                           className="icon"/>
-                          <span class="tooltip">Change Layout</span>
+                          <span className="tooltip">Change Layout</span>
                       </div>
                       <span className="rightComponents">    
                       <div className="menuIcon">
@@ -106,6 +108,8 @@ class App extends Component {
                 </span>
               </div>
             </div>
+
+            {/* main editor view */}
 
             <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
             style={{
@@ -126,6 +130,21 @@ class App extends Component {
                 </div>
               </div>
             </SplitPane>
+
+            {/* footer panel */}
+
+            <div className="footerPanel">
+              <div className="menuBar">
+                <span class="leftComponents">
+                  <p className="footerInfo">README.md</p>
+                </span>
+                <span class="rightComponents">
+                  <p className="footerInfo">Ln x, Col y</p>
+                  <p className="footerInfo">300 words</p>
+                </span>
+              </div>
+            </div>
+
             </div>
           </div>
     );
