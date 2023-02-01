@@ -41,8 +41,6 @@ class App extends Component {
       markdownSrc: "# welcome",
       size: "50%",
       wordCount: "0",
-      lineNum: "0",
-      colNum: "0",
       fileName: "README.md"
     }
     
@@ -70,16 +68,6 @@ class App extends Component {
     var count = textContent.trim().split(/\s+/).length;
     this.setState({
       wordCount: count
-    })
-  }
-
-  getLineAndColumn() {
-    var lineNumber = 0;
-    var columnNumber = 0;
-    console.log(lineNumber);
-    this.setState({
-      lineNum: lineNumber,
-      colNum: columnNumber
     })
   }
 
@@ -176,7 +164,6 @@ class App extends Component {
                   <p className="footerInfo">{this.state.fileName}</p>
                 </span>
                 <span class="rightComponents">
-                  <p className="footerInfo">Ln {this.state.lineNum}, Col {this.state.colNum}</p>
                   <p className="footerInfo">{this.state.wordCount} words</p>
                 </span>
               </div>
