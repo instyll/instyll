@@ -107,6 +107,17 @@ class App extends Component {
                           <img src={tcontents} className="icon"/>
                           <span className="tooltip">Outline</span>
                       </div>
+                      <div className="menuIcon"
+                      onClick=
+                      {this.slideToRight}>
+                          <img src={this.state.size === "100%" ? layoutPos1 : layout2} 
+                          className="icon"/>
+                          <span className="tooltip">Change Layout</span>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={link} className="icon"/>
+                          <span className="tooltip">Insert Link</span>
+                      </div>
                       <div className="menuIcon">
                           <img src={image} className="icon"/>
                           <span className="tooltip">Insert Image</span>
@@ -118,17 +129,6 @@ class App extends Component {
                       <div className="menuIcon">
                           <img src={table} className="icon"/>
                           <span className="tooltip">Insert Table</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={link} className="icon"/>
-                          <span className="tooltip">Insert Link</span>
-                      </div>
-                      <div className="menuIcon"
-                      onClick=
-                      {this.slideToRight}>
-                          <img src={this.state.size === "100%" ? layoutPos1 : layout2} 
-                          className="icon"/>
-                          <span className="tooltip">Change Layout</span>
                       </div>
 
                       <span className="rightComponents">    
