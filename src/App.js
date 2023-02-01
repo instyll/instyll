@@ -41,6 +41,7 @@ class App extends Component {
       markdownSrc: "# welcome",
       size: "50%",
       wordCount: "0",
+      delimiter: "word",
       fileName: "README.md"
     }
     
@@ -67,7 +68,8 @@ class App extends Component {
     var textContent = screen.textContent;
     var count = textContent.trim().split(/\s+/).length;
     this.setState({
-      wordCount: count
+      delimiter: this.state.wordCount > 1 ? "words" : "word",
+      wordCount: count,
     })
   }
 
@@ -164,7 +166,7 @@ class App extends Component {
                   <p className="footerInfo">{this.state.fileName}</p>
                 </span>
                 <span class="rightComponents">
-                  <p className="footerInfo">{this.state.wordCount} words</p>
+                  <p className="footerInfo">{this.state.wordCount} {this.state.delimiter}</p>
                 </span>
               </div>
             </div>
