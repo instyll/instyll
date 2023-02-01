@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
-import { useEffect } from "react";
+import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 import './App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
@@ -38,11 +38,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdownSrc: "# welcome",
+      markdownSrc: "# Hello",
       size: "50%",
       wordCount: "0",
       delimiter: "word",
-      fileName: "README.md"
+      fileName: "~/Documents/instyll/notes/README.md"
     }
     
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -73,11 +73,13 @@ class App extends Component {
     })
   }
 
+  handleScrollSync() {
+    console.log(0);
+  }
+
   componentDidMount() {
     this.getWordCount();
   }
-
-  editorRef = createRef();
 
   render() {
 
@@ -137,17 +139,28 @@ class App extends Component {
 
             {/* main editor view */}
 
+            <ScrollSync>
+
             <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
             style={{
               height: "95%",
             }}>
 
-              <div className="editor-pane" style={{width: "100%"}}>
+              <ScrollSyncPane>
+              <div 
+              className="editor-pane" 
+              style={{width: "100%"}} 
+              id="markdown"
+              >
                 <Editor className="editor"
                 value={this.state.markdownSrc} 
                 onChange={this.onMarkdownChange}
                 />
               </div>
+              </ScrollSyncPane>
+
+
+              <ScrollSyncPane>
               <div className="view-pane">
                 <div className="preview" id="text">
                   <ReactMarkdown className="result"
@@ -156,16 +169,20 @@ class App extends Component {
                   rehypePlugins={[rehypeKatex]}/>
                 </div>
               </div>
+              </ScrollSyncPane>
+
             </SplitPane>
+
+            </ScrollSync>
 
             {/* footer panel */}
 
             <div className="footerPanel">
               <div className="menuBar">
-                <span class="leftComponents">
+                <span className="leftComponents">
                   <p className="footerInfo">{this.state.fileName}</p>
                 </span>
-                <span class="rightComponents">
+                <span className="rightComponents">
                   <p className="footerInfo">{this.state.wordCount} {this.state.delimiter}</p>
                 </span>
               </div>
