@@ -141,7 +141,16 @@ h1 {
 }
 
 h2 {
+  margin-top: 0;
   line-height: 1em;
+}
+
+p {
+  margin-top: 0;
+}
+
+ul {
+  margin-top: 0;
 }
 
 .view-pane {
