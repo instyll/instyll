@@ -23,6 +23,7 @@ import image from './image.png'
 import table from './table.png'
 import link from './link.png'
 import help from './help.png'
+import tcontents from './tcontents.png'
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -40,6 +41,9 @@ class App extends Component {
       markdownSrc: "# welcome",
       size: "50%",
       wordCount: "0",
+      lineNum: "0",
+      colNum: "0",
+      fileName: "README.md"
     }
     
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -54,7 +58,7 @@ class App extends Component {
   }
 
   slideToRight() {
-    console.log(this.state.size);
+    // console.log(this.state.size);
     this.setState({
       size: this.state.size !== "100%" ? "100%" : "50%"
     });
@@ -64,15 +68,26 @@ class App extends Component {
     var screen = document.getElementById("text");
     var textContent = screen.textContent;
     var count = textContent.trim().split(/\s+/).length;
-    console.log(count);
     this.setState({
       wordCount: count
+    })
+  }
+
+  getLineAndColumn() {
+    var lineNumber = 0;
+    var columnNumber = 0;
+    console.log(lineNumber);
+    this.setState({
+      lineNum: lineNumber,
+      colNum: columnNumber
     })
   }
 
   componentDidMount() {
     this.getWordCount();
   }
+
+  editorRef = createRef();
 
   render() {
 
@@ -87,6 +102,10 @@ class App extends Component {
                   <div className="menuBar">
                       <div className="menuIcon">
                           <img src={back2} className="icon"/>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={tcontents} className="icon"/>
+                          <span className="tooltip">Outline</span>
                       </div>
                       <div className="menuIcon">
                           <img src={image} className="icon"/>
@@ -111,17 +130,18 @@ class App extends Component {
                           className="icon"/>
                           <span className="tooltip">Change Layout</span>
                       </div>
+
                       <span className="rightComponents">    
-                      <div className="menuIcon">
-                          <img src={palette2} className="icon"/>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={help} className="icon"/>
-                      </div> 
-                      <div className="menuIcon">
-                          <img src={settings2} className="icon"/>
-                      </div>       
-                </span>
+                        <div className="menuIcon">
+                            <img src={palette2} className="icon"/>
+                        </div>
+                        <div className="menuIcon">
+                            <img src={help} className="icon"/>
+                        </div> 
+                        <div className="menuIcon">
+                            <img src={settings2} className="icon"/>
+                        </div>       
+                      </span>
               </div>
             </div>
 
@@ -153,10 +173,10 @@ class App extends Component {
             <div className="footerPanel">
               <div className="menuBar">
                 <span class="leftComponents">
-                  <p className="footerInfo">README.md</p>
+                  <p className="footerInfo">{this.state.fileName}</p>
                 </span>
                 <span class="rightComponents">
-                  <p className="footerInfo">Ln x, Col y</p>
+                  <p className="footerInfo">Ln {this.state.lineNum}, Col {this.state.colNum}</p>
                   <p className="footerInfo">{this.state.wordCount} words</p>
                 </span>
               </div>
