@@ -41,7 +41,9 @@ class App extends Component {
       markdownSrc: "# Hello",
       size: "50%",
       wordCount: "0",
+      charCount: "0",
       delimiter: "word",
+      charDelimiter: "characters",
       fileName: "~/Documents/instyll/notes/README.md"
     }
     
@@ -67,9 +69,12 @@ class App extends Component {
     var screen = document.getElementById("text");
     var textContent = screen.textContent;
     var count = textContent.trim().split(/\s+/).length;
+    var charCount = textContent.length;
     this.setState({
       delimiter: this.state.wordCount > 1 ? "words" : "word",
+      charDelimiter: this.state.charCount === 1 ? "character" : "characters",
       wordCount: count,
+      charCount: charCount,
     })
   }
 
@@ -141,37 +146,37 @@ class App extends Component {
 
             <ScrollSync>
 
-            <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
-            style={{
-              height: "95%",
-            }}>
+              <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
+              style={{
+                height: "95%",
+              }}>
 
-              <ScrollSyncPane>
-              <div 
-              className="editor-pane" 
-              style={{width: "100%"}} 
-              id="markdown"
-              >
-                <Editor className="editor"
-                value={this.state.markdownSrc} 
-                onChange={this.onMarkdownChange}
-                />
-              </div>
-              </ScrollSyncPane>
-
-
-              <ScrollSyncPane>
-              <div className="view-pane">
-                <div className="preview" id="text">
-                  <ReactMarkdown className="result"
-                  children={this.state.markdownSrc}
-                  remarkPlugins={[remarkMath, remarkGfm]} 
-                  rehypePlugins={[rehypeKatex]}/>
+                <ScrollSyncPane>
+                <div 
+                className="editor-pane" 
+                style={{width: "100%"}} 
+                id="markdown"
+                >
+                  <Editor className="editor"
+                  value={this.state.markdownSrc} 
+                  onChange={this.onMarkdownChange}
+                  />
                 </div>
-              </div>
-              </ScrollSyncPane>
+                </ScrollSyncPane>
 
-            </SplitPane>
+
+                <ScrollSyncPane>
+                <div className="view-pane">
+                  <div className="preview" id="text">
+                    <ReactMarkdown className="result"
+                    children={this.state.markdownSrc}
+                    remarkPlugins={[remarkMath, remarkGfm]} 
+                    rehypePlugins={[rehypeKatex]}/>
+                  </div>
+                </div>
+                </ScrollSyncPane>
+
+              </SplitPane>
 
             </ScrollSync>
 
@@ -184,6 +189,7 @@ class App extends Component {
                 </span>
                 <span className="rightComponents">
                   <p className="footerInfo">{this.state.wordCount} {this.state.delimiter}</p>
+                  <p className="footerInfo">{this.state.charCount} {this.state.charDelimiter}</p>
                 </span>
               </div>
             </div>
