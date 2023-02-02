@@ -280,6 +280,20 @@ img {
   font-family: 'SF Pro Display', sans-serif;
   padding: 5px;
   text-align: center;
+  display: block;
+}
+
+.tocLabel {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.outlineElement {
+  padding-bottom: 5px;
 }
 
 /* Highlight specific components */

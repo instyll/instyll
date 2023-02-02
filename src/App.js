@@ -45,7 +45,7 @@ class App extends Component {
       delimiter: "word",
       charDelimiter: "characters",
       fileName: "~/Documents/instyll/notes/README.md",
-      tocOpen: false,
+      tocOpen: true,
     }
     
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -58,6 +58,7 @@ class App extends Component {
       markdownSrc: md
     });
     this.getWordCount();
+    this.constructToc();
   }
 
   slideToRight() {
@@ -84,6 +85,15 @@ class App extends Component {
     this.setState({
       tocOpen: this.state.tocOpen === true ? false : true
     })
+  }
+
+  constructToc() {
+    let headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    let toc = [];
+    headers.forEach(header => {
+      toc.push({ text: header.textContent, id: header.id });
+    });
+    return toc;
   }
 
   componentDidMount() {
@@ -153,7 +163,16 @@ class App extends Component {
               display: this.state.tocOpen === true ? "block" : "none", 
             }}>
               <div className="tableInfo">
-                  Outline
+                  <p className="tocLabel">Outline</p>
+                  <p>
+                    {this.constructToc().map((header, index) => (
+                      <div key={index} className="outlineElement">
+                        <a href={`#${header.id}`}>
+                          {header.text}
+                        </a>
+                      </div>
+                    ))}
+                  </p>
               </div>
             </div>
 
