@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 import './App.css';
 import "highlight.js/styles/github.css";
+import sizzle from 'sizzle'
 import 'katex/dist/katex.min.css'
 
 // Assets
@@ -33,6 +34,7 @@ import remarkGfm from 'remark-gfm'
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
+import Sizzle from 'sizzle';
 
 class App extends Component {
   constructor(props) {
@@ -54,11 +56,11 @@ class App extends Component {
   }
 
   onMarkdownChange(md) {
-    this.setState({
-      markdownSrc: md
-    });
-    this.getWordCount();
-    this.constructToc();
+      this.setState({
+        markdownSrc: md,
+      });
+      this.getWordCount();
+      this.constructToc();
   }
 
   slideToRight() {
@@ -88,10 +90,12 @@ class App extends Component {
   }
 
   constructToc() {
-    let headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-    let toc = [];
+
+    let headers = Sizzle("h1, h2, h3, h4, h5, h6");
+    let toc = []; 
     headers.forEach(header => {
-      toc.push({ text: header.textContent, id: header.id });
+      header.id = header.textContent;
+      toc.push({ text: header.textContent, id: header.id});
     });
     return toc;
   }
@@ -164,15 +168,14 @@ class App extends Component {
             }}>
               <div className="tableInfo">
                   <p className="tocLabel">Outline</p>
-                  <p>
-                    {this.constructToc().map((header, index) => (
+                    {
+                       this.constructToc().map((header, index) => (
                       <div key={index} className="outlineElement">
                         <a href={`#${header.id}`}>
                           {header.text}
                         </a>
                       </div>
                     ))}
-                  </p>
               </div>
             </div>
 
@@ -237,7 +240,7 @@ class App extends Component {
 
             </div>
           </div>
-    );
+    ); 
   }
 }
 
