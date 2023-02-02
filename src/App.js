@@ -78,10 +78,6 @@ class App extends Component {
     })
   }
 
-  handleScrollSync() {
-    console.log(0);
-  }
-
   componentDidMount() {
     this.getWordCount();
   }
@@ -158,7 +154,7 @@ class App extends Component {
                 id="markdown"
                 >
                   <Editor className="editor"
-                  value={this.state.markdownSrc} 
+                  value={this.state.markdownSrc}
                   onChange={this.onMarkdownChange}
                   />
                 </div>
