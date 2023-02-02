@@ -153,7 +153,7 @@ class App extends Component {
               display: this.state.tocOpen === true ? "block" : "none", 
             }}>
               <div className="tableInfo">
-                  asfasf
+                  Outline
               </div>
             </div>
 
@@ -165,6 +165,7 @@ class App extends Component {
               style={{
                 height: "95%",
                 width: this.state.tocOpen === true ? "90%" : "100%",
+                transition: "width 0.5s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
               }}>
@@ -172,7 +173,10 @@ class App extends Component {
                 <ScrollSyncPane>
                 <div 
                 className="editor-pane" 
-                style={{width: "100%"}} 
+                style={{
+                  width: "100%",
+                  borderLeft: this.state.tocOpen === true ? "1px solid rgba(0, 0, 0, 0.4)" : "none",
+                }} 
                 id="markdown"
                 >
                   <Editor className="editor"

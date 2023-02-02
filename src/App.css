@@ -154,6 +154,7 @@ p {
 
 ul {
   margin-top: 0;
+  line-height: 1.2em;
 }
 
 .view-pane {
@@ -228,6 +229,7 @@ img {
   font-size: 0.7em;
   margin-left: -55px;
   opacity: 0;
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 .menuIcon .tooltip::after {
@@ -272,7 +274,12 @@ img {
   float: left;
   width: 10%;
   height: 100%;
-  margin: 0;
+}
+
+.tableInfo {
+  font-family: 'SF Pro Display', sans-serif;
+  padding: 5px;
+  text-align: center;
 }
 
 /* Highlight specific components */
@@ -281,7 +288,7 @@ code {
   display: inline-block;
   background-color: #F7F7F7;
   padding: 5px;
-  font-size: 0.8em;
+  font-size: 0.7em;
   border-radius: 2px;
 }
 
