@@ -44,11 +44,13 @@ class App extends Component {
       charCount: "0",
       delimiter: "word",
       charDelimiter: "characters",
-      fileName: "~/Documents/instyll/notes/README.md"
+      fileName: "~/Documents/instyll/notes/README.md",
+      tocOpen: false,
     }
     
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     this.slideToRight = this.slideToRight.bind(this);
+    this.handleToc = this.handleToc.bind(this);
   }
 
   onMarkdownChange(md) {
@@ -78,6 +80,12 @@ class App extends Component {
     })
   }
 
+  handleToc() {
+    this.setState({
+      tocOpen: this.state.tocOpen === true ? false : true
+    })
+  }
+
   componentDidMount() {
     this.getWordCount();
   }
@@ -96,7 +104,8 @@ class App extends Component {
                       <div className="menuIcon">
                           <img src={back2} className="icon"/>
                       </div>
-                      <div className="menuIcon">
+                      <div className="menuIcon" 
+                      onClick={this.handleToc}>
                           <img src={tcontents} className="icon"/>
                           <span className="tooltip">Outline</span>
                       </div>
@@ -138,6 +147,16 @@ class App extends Component {
               </div>
             </div>
 
+            {/* table of contents*/}
+
+            <div className="tableOfContents" style={{
+              display: this.state.tocOpen === true ? "block" : "none", 
+            }}>
+              <div className="tableInfo">
+                  asfasf
+              </div>
+            </div>
+
             {/* main editor view */}
 
             <ScrollSync>
@@ -145,6 +164,9 @@ class App extends Component {
               <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
               style={{
                 height: "95%",
+                width: this.state.tocOpen === true ? "90%" : "100%",
+                marginRight: this.state.tocOpen === true ? "0" : "0", 
+                marginLeft: this.state.tocOpen === true ? "auto" : "0",
               }}>
 
                 <ScrollSyncPane>
@@ -189,7 +211,7 @@ class App extends Component {
                 </span>
               </div>
             </div>
-            
+
             </div>
           </div>
     );

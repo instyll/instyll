@@ -12,11 +12,6 @@ require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/python/python');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
-require('codemirror/theme/monokai.css');
-require('codemirror/theme/solarized.css');
-
-
-
 
 class Editor extends Component {
     constructor(props) {
@@ -29,20 +24,13 @@ class Editor extends Component {
     }
 
     render () {
-        var options = {
-            mode: 'markdown',
-            // lineWrapping: true,
-            // theme: 'solarized light',
-        }
         return (<CodeMirror 
-            // ref={this.editorRef}
             extensions={
                 [markdown({ base: markdownLanguage, codeLanguages: languages }),
                     EditorView.lineWrapping, indentUnit.of("    ")
                 ]} 
             value={this.props.value} 
             onChange={this.updateCode}
-            options={options} 
             height="100%"/>);
     }
 }

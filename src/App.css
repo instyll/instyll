@@ -87,19 +87,17 @@ html {
 }
 
 .cm-content {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-family: 'SF Pro Display', sans-serif;
-  line-height: 1.2em;
+  line-height: 1.1em;
   height: 100%;
   white-space: pre-wrap;
 }
 
-.cm-editor .cm-gutter {
+.cm-editor {
   min-height: 1080px;
-}
-
-.cm-gutter {
-  background-color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .cm-wrap { 
@@ -110,6 +108,10 @@ html {
   overflow: auto;
 }
 
+.cm-scroller .cm-gutters {
+  display: none;
+}
+
 .cm-s-default .cm-header {
   color: black;
 }
@@ -118,10 +120,11 @@ html {
 .ReactCodeMirror {
   height: 100%;
 }
+
 .result {
   font-family: 'SF Pro Display', sans-serif;
-  font-size: 1.2em;
-  line-height: 1.2em;
+  font-size: 1.1em;
+  line-height: 1.1em;
   max-width: 100%;
 }
 
@@ -261,6 +264,15 @@ img {
   padding-left: 10px;
   padding-right: 10px;
   user-select: none;
+}
+
+/* table of contents */
+
+.tableOfContents {
+  float: left;
+  width: 10%;
+  height: 100%;
+  margin: 0;
 }
 
 /* Highlight specific components */
