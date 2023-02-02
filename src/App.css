@@ -87,9 +87,9 @@ html {
 }
 
 .cm-content {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: 'SF Pro Display', sans-serif;
-  line-height: 1.3em;
+  line-height: 1.2em;
   height: 100%;
   white-space: pre-wrap;
 }
@@ -120,8 +120,8 @@ html {
 }
 .result {
   font-family: 'SF Pro Display', sans-serif;
-  font-size: 1.3em;
-  line-height: 1.3em;
+  font-size: 1.2em;
+  line-height: 1.2em;
   max-width: 100%;
 }
 
@@ -253,6 +253,7 @@ img {
 }
 
 .footerInfo {
+  font-family: 'SF Pro Display', sans-serif;
   font-size: 15px;
   color: #000;
   display: inline;
