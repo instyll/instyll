@@ -186,7 +186,7 @@ class App extends Component {
               <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
               style={{
                 height: "95%",
-                width: this.state.tocOpen === true ? "90%" : "100%",
+                width: this.state.tocOpen === true ? "85%" : "100%",
                 transition: "width 0.5s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",

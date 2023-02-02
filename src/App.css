@@ -2,7 +2,7 @@ html, body {
   height: 100%;
 }
 
-html {
+.App {
   scroll-behavior: smooth;
 }
 
@@ -272,8 +272,8 @@ img {
 
 .tableOfContents {
   float: left;
-  width: 10%;
-  height: 100%;
+  width: 15%;
+  height: 95vh;
 }
 
 .tableInfo {
@@ -281,6 +281,8 @@ img {
   padding: 5px;
   text-align: center;
   display: block;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 .tocLabel {
@@ -293,7 +295,9 @@ a {
 }
 
 .outlineElement {
-  padding-bottom: 5px;
+  padding-bottom: 20px;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 /* Highlight specific components */
