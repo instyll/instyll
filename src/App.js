@@ -94,7 +94,7 @@ class App extends Component {
     headers.forEach(header => {
       let id = header.id || uuid();
       header.id = id;
-      toc.push({ text: header.textContent, id: id});
+      toc.push({ text: header.textContent, id: id, type: header.tagName});
     });
     return toc;
   }
@@ -174,7 +174,11 @@ class App extends Component {
                 </div>
                     {
                        this.constructToc().map((header, index) => (
-                      <div key={index} className="outlineElement">
+                      <div key={index} className="outlineElement"
+                      style={{
+                        marginLeft: header.type === 'H2' ? '20px' : 
+                        header.type === 'H3' ? '40px' : '0',
+                      }}>
                         <a href={`#${header.id}`}>
                           {header.text}
                         </a>

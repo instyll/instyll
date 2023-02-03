@@ -306,9 +306,9 @@ a {
 }
 
 .outlineElement {
-  padding-bottom: 20px;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
   font-size: 1em;
   text-align: left;
 }
