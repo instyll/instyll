@@ -5,7 +5,8 @@ import ReactMarkdown from 'react-markdown';
 import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 import './App.css';
 import "highlight.js/styles/github.css";
-import sizzle from 'sizzle'
+import Sizzle from 'sizzle'
+import {v4 as uuid} from 'uuid';
 import 'katex/dist/katex.min.css'
 
 // Assets
@@ -34,7 +35,6 @@ import remarkGfm from 'remark-gfm'
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
-import Sizzle from 'sizzle';
 
 class App extends Component {
   constructor(props) {
@@ -60,7 +60,6 @@ class App extends Component {
         markdownSrc: md,
       });
       this.getWordCount();
-      this.constructToc();
   }
 
   slideToRight() {
@@ -90,12 +89,12 @@ class App extends Component {
   }
 
   constructToc() {
-
     let headers = Sizzle("h1, h2, h3, h4, h5, h6");
     let toc = []; 
     headers.forEach(header => {
-      header.id = header.textContent;
-      toc.push({ text: header.textContent, id: header.id});
+      let id = header.id || uuid();
+      header.id = id;
+      toc.push({ text: header.textContent, id: id});
     });
     return toc;
   }
@@ -167,7 +166,12 @@ class App extends Component {
               display: this.state.tocOpen === true ? "block" : "none", 
             }}>
               <div className="tableInfo">
-                  <p className="tocLabel">Outline</p>
+                <div id="outline">
+                  <p className="tocLabel" >Outline</p>
+                </div>
+                <div id="notebook">
+                  <p className="tocLabel" >Notes</p>
+                </div>
                     {
                        this.constructToc().map((header, index) => (
                       <div key={index} className="outlineElement">
@@ -186,7 +190,7 @@ class App extends Component {
               <SplitPane split={this.state.split} defaultSize={this.state.size} id="mainView" 
               style={{
                 height: "95%",
-                width: this.state.tocOpen === true ? "85%" : "100%",
+                width: this.state.tocOpen === true ? "80%" : "100%",
                 transition: "width 0.5s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
@@ -197,7 +201,7 @@ class App extends Component {
                 className="editor-pane" 
                 style={{
                   width: "100%",
-                  borderLeft: this.state.tocOpen === true ? "1px solid rgba(0, 0, 0, 0.4)" : "none",
+                  borderLeft: this.state.tocOpen === true ? "1px solid rgba(0, 0, 0, 0.2)" : "none",
                 }} 
                 id="markdown"
                 >
