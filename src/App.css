@@ -310,6 +310,7 @@ a {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 1em;
+  text-align: left;
 }
 
 /* Highlight specific components */
