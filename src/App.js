@@ -1,7 +1,5 @@
 import React, { Component, createRef } from 'react';
 import SplitPane from 'react-split-pane';
-import { Allotment } from "allotment";
-import "allotment/dist/style.css";
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
 import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
@@ -106,7 +104,7 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <div className="App">
 
@@ -194,19 +192,22 @@ class App extends Component {
 
             {/* main editor view */}
 
-              <Allotment defaultSizes={[500, 500]}  
+            <ScrollSync>
+
+              <SplitPane 
+              split={this.state.split} 
+              defaultSize={this.state.size} 
+              maxSize="60%"
+              id="mainView" 
               style={{
                 height: "95%",
                 width: this.state.tocOpen === true ? "80%" : "100%",
                 transition: "width 0.5s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
-              }} vertical="false">
+              }}>
 
-                
-
-                <Allotment.Pane snap>
-
+                <ScrollSyncPane>
                 <div 
                 className="editor-pane" 
                 style={{
@@ -220,17 +221,10 @@ class App extends Component {
                   onChange={this.onMarkdownChange}
                   />
                 </div>
-
-                </Allotment.Pane>
-
-                 
+                </ScrollSyncPane>
 
 
-                
-
-                <Allotment.Pane>
-
-
+                <ScrollSyncPane>
                 <div className="view-pane">
                   <div className="preview" id="text">
                     <ReactMarkdown className="result"
@@ -239,13 +233,11 @@ class App extends Component {
                     rehypePlugins={[rehypeKatex]}/>
                   </div>
                 </div>
+                </ScrollSyncPane>
 
-                </Allotment.Pane>
+              </SplitPane>
 
-      
-
-
-              </Allotment>
+            </ScrollSync>
 
             {/* footer panel */}
 
