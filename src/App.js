@@ -185,15 +185,14 @@ class App extends Component {
                 <div>                
                     {
                        this.constructToc().map((header, index) => (
-                      <div key={index} className="outlineElement"
-                      style={{
-                        marginLeft: header.type === 'H2' ? '20px' :
-                        header.type === 'H3' ? '40px' :
-                        header.type === 'H4' ? '60px' :
-                        header.type === 'H5' ? '80px' :
-                        header.type === 'H6' ? '100px' : '0',
-                      }}>
+                      <div key={index} className="outlineElement">
                         <a href={`#${header.id}`}>
+                          { 
+                          header.type === 'H2' ? '## ' :
+                          header.type === 'H3' ? '### ' :
+                          header.type === 'H4' ? '#### ' :
+                          header.type === 'H5' ? '##### ' :
+                          header.type === 'H6' ? '###### ' : '# '}
                           {header.text}
                         </a>
                       </div>
