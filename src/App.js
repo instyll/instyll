@@ -47,7 +47,7 @@ class App extends Component {
       charCount: "0",
       delimiter: "word",
       charDelimiter: "characters",
-      fileName: "~/Documents/instyll/notes/README.md",
+      fileName: "README.md",
       tocOpen: true,
     }
     
@@ -167,14 +167,22 @@ class App extends Component {
               display: this.state.tocOpen === true ? "block" : "none", 
             }}>
               <div className="tableInfo">
-                <div className="tableHeaders">
-                <div id="outline">
-                  <p className="tocLabel" >Outline</p>
+                <p className="tocLabel" >{this.state.fileName}</p>
+                <hr></hr>
+                <div className="pageInfo">
+                  <span className="leftComponents">
+                    <span className="infoDisplay">Characters</span><br></br>
+                    Words
+                  </span>
+                  <span className="rightComponents">
+                    <span className="infoDisplay">{this.state.charCount}</span><br></br>
+                    {this.state.wordCount}
+                  </span>
                 </div>
-                <div id="notebook">
-                  <p className="tocLabel" >Notes</p>
-                </div>                  
-                </div>
+                <br></br>
+                <br></br>
+                <hr></hr>
+                <div>                
                     {
                        this.constructToc().map((header, index) => (
                       <div key={index} className="outlineElement"
@@ -190,6 +198,7 @@ class App extends Component {
                         </a>
                       </div>
                     ))}
+                  </div>
               </div>
             </div>
 
@@ -242,22 +251,6 @@ class App extends Component {
               </SplitPane>
 
             </ScrollSync>
-
-            {/* footer panel */}
-
-            {/* <div className="footerPanel" style={{
-              height: "3%",
-            }}>
-              <div className="menuBar">
-                <span className="leftComponents">
-                  <p className="footerInfo">{this.state.fileName}</p>
-                </span>
-                <span className="rightComponents">
-                  <p className="footerInfo">{this.state.wordCount} {this.state.delimiter}</p>
-                  <p className="footerInfo">{this.state.charCount} {this.state.charDelimiter}</p>
-                </span>
-              </div>
-            </div> */}
 
             </div>
           </div>
