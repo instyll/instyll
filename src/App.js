@@ -171,12 +171,12 @@ class App extends Component {
                 <hr></hr>
                 <div className="pageInfo">
                   <span className="leftComponents">
-                    <span className="infoDisplay">Characters</span><br></br>
+                    <div className="infoDisplay">Characters</div>
                     Words
                   </span>
                   <span className="rightComponents">
-                    <span className="infoDisplay">{this.state.charCount}</span><br></br>
-                    {this.state.wordCount}
+                    <div className="infoDisplay">{this.state.charCount}/{this.state.charCount}</div>
+                    {this.state.wordCount}/{this.state.wordCount}
                   </span>
                 </div>
                 <br></br>
@@ -187,12 +187,14 @@ class App extends Component {
                        this.constructToc().map((header, index) => (
                       <div key={index} className="outlineElement">
                         <a href={`#${header.id}`}>
+                          <span className="headerDelim">
                           { 
                           header.type === 'H2' ? '## ' :
                           header.type === 'H3' ? '### ' :
                           header.type === 'H4' ? '#### ' :
                           header.type === 'H5' ? '##### ' :
                           header.type === 'H6' ? '###### ' : '# '}
+                          </span>
                           {header.text}
                         </a>
                       </div>
