@@ -26,6 +26,7 @@ import table from './table.png'
 import link from './link.png'
 import help from './help.png'
 import tcontents from './tcontents.png'
+import openmenu from './openmenu.png'
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -112,7 +113,7 @@ class App extends Component {
 
             {/* navbar */}
               
-              <div className="navHorizontal">
+              {/* <div className="navHorizontal">
                   <div className="menuBar">
                       <div className="menuIcon">
                           <img src={back2} className="icon"/>
@@ -158,7 +159,7 @@ class App extends Component {
                         </div>       
                       </span>
               </div>
-            </div>
+            </div> */}
 
             {/* table of contents*/}
 
@@ -166,11 +167,13 @@ class App extends Component {
               display: this.state.tocOpen === true ? "block" : "none", 
             }}>
               <div className="tableInfo">
+                <div className="tableHeaders">
                 <div id="outline">
                   <p className="tocLabel" >Outline</p>
                 </div>
                 <div id="notebook">
                   <p className="tocLabel" >Notes</p>
+                </div>                  
                 </div>
                     {
                        this.constructToc().map((header, index) => (
@@ -199,8 +202,9 @@ class App extends Component {
               defaultSize={this.state.size} 
               maxSize="60%"
               id="mainView" 
+              allowResize
               style={{
-                height: "95%",
+                height: "100%",
                 width: this.state.tocOpen === true ? "80%" : "100%",
                 transition: "width 0.5s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
@@ -241,7 +245,9 @@ class App extends Component {
 
             {/* footer panel */}
 
-            <div className="footerPanel">
+            {/* <div className="footerPanel" style={{
+              height: "3%",
+            }}>
               <div className="menuBar">
                 <span className="leftComponents">
                   <p className="footerInfo">{this.state.fileName}</p>
@@ -251,7 +257,7 @@ class App extends Component {
                   <p className="footerInfo">{this.state.charCount} {this.state.charDelimiter}</p>
                 </span>
               </div>
-            </div>
+            </div> */}
 
             </div>
           </div>

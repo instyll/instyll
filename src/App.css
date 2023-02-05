@@ -116,6 +116,10 @@ html, body {
   color: black;
 }
 
+.cm-editor .cm-activeLine .cm-line {
+  background-color: transparent;
+}
+
 /* preview component */
 .ReactCodeMirror {
   height: 100%;
@@ -176,7 +180,7 @@ ul {
 }
 
 .menuBar {
-  height: 18px;
+  /* height: 18px; */
   background-color: #ffffff; 
   color: white;
   padding-top: 2px;
@@ -199,6 +203,10 @@ img {
 .menuIcon {
   height: 24px;
   user-select: none;
+}
+
+.open {
+  height: 24px;
 }
 
 .icon:hover {
@@ -273,7 +281,7 @@ img {
 .tableOfContents {
   float: left;
   width: 20%;
-  height: 95vh;
+  height: 100vh;
   background-color: #F7F7F7;
 }
 
