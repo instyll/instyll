@@ -31,6 +31,7 @@ import openmenu from './openmenu.png'
 // Plugins
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import rehypeMathjax from 'rehype-mathjax'
 import remarkGfm from 'remark-gfm'
 
 // Languages
@@ -244,7 +245,7 @@ class App extends Component {
                     <ReactMarkdown className="result"
                     children={this.state.markdownSrc}
                     remarkPlugins={[remarkMath, remarkGfm]} 
-                    rehypePlugins={[rehypeKatex]}/>
+                    rehypePlugins={[rehypeMathjax]}/>
                   </div>
                 </div>
                 </ScrollSyncPane>
