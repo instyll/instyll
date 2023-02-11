@@ -305,6 +305,9 @@ img {
   height: 100%;
   overflow-x: hidden;
   bottom: 0;
+  word-wrap: break-all;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .pageInfo {
