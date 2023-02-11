@@ -211,11 +211,11 @@ class App extends Component {
               <SplitPane 
               split={this.state.split} 
               defaultSize={this.state.size} 
-              maxSize="60%"
+              // maxSize="60%"
               id="mainView" 
-              allowResize
               style={{
-                height: "100%",
+                height: "95%",
+                bottom: "0",
                 width: this.state.tocOpen === true ? "80%" : "100%",
                 transition: "width 0.5s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
@@ -227,7 +227,6 @@ class App extends Component {
                 className="editor-pane" 
                 style={{
                   width: "100%",
-                  borderLeft: this.state.tocOpen === true ? "1px solid rgba(0, 0, 0, 0.2)" : "none",
                 }} 
                 id="markdown"
                 >

@@ -23,9 +23,9 @@ html, body {
   height: 100%;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .scrollable {
   height: inherit;
@@ -138,7 +138,6 @@ html, body {
   word-wrap: break-all;
   overflow-wrap: break-word;
   word-break: break-word;
-
 }
 
 h1 {
