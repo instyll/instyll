@@ -167,7 +167,9 @@ class App extends Component {
             <div className="tableOfContents" style={{
               display: this.state.tocOpen === true ? "block" : "none", 
             }}>
-              <div className="tableInfo">
+              <div className="tableInfo" style={{
+                borderRight: this.state.tocOpen === true ? "1px solid rgba(0, 0, 0, 0.2)" : "none",
+              }}>
                 <p className="tocLabel" >{this.state.fileName}</p>
                 <hr></hr>
                 <div className="pageInfo">
