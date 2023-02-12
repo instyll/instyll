@@ -126,6 +126,15 @@ body {
   background-color: transparent;
 }
 
+.cm-editor .ͼ5 {
+  color: rgba(180,180,182, 0.4);
+}
+
+.cm-editor .ͼ7 {
+  text-decoration: none;
+}
+
+
 /* preview component */
 .ReactCodeMirror {
   height: 100%;
