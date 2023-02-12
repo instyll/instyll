@@ -129,6 +129,10 @@ body {
   text-decoration: none;
 }
 
+.cm-editor .ͼc {
+  color: rgba(180,180,182, 0.4);
+}
+
 
 /* preview component */
 .ReactCodeMirror {
