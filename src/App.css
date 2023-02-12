@@ -12,7 +12,6 @@ body {
 
 /* smooth */
 .cm-cursor {
-  transition: all 80ms;
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
@@ -116,10 +115,6 @@ body {
 
 .cm-editor .cm-activeLine .cm-line {
   background-color: transparent;
-}
-
-.cm-content .cm-lineWrapping {
-  word-break: break-all;
 }
 
 .cm-editor .cm-activeLine {
