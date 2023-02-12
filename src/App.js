@@ -168,7 +168,7 @@ class App extends Component {
               display: this.state.tocOpen === true ? "block" : "none", 
             }}>
               <div className="tableInfo" style={{
-                borderRight: this.state.tocOpen === true ? "1px solid rgba(0, 0, 0, 0.2)" : "none",
+                borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
                 <p className="tocLabel" >{this.state.fileName}</p>
                 <hr></hr>
@@ -248,7 +248,7 @@ class App extends Component {
                     remarkPlugins={[remarkMath, remarkGfm]} 
                     rehypePlugins={[rehypeMathjax]}/>
                   </div>
-                </div>
+                </div> 
                 </ScrollSyncPane>
 
               </SplitPane>

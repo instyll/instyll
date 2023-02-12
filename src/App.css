@@ -6,13 +6,15 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* body {
-  overflow: hidden;
-} */
+body {
+  background-color: #1b1b1d;
+} 
 
 /* smooth */
 .cm-cursor {
   transition: all 80ms;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .App {
@@ -23,9 +25,9 @@ html, body {
   height: 100%;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .scrollable {
   height: inherit;
@@ -37,8 +39,7 @@ html, body {
 
 .Resizer {
   border-radius: 6px;
-  background: #000;
-  opacity: 0.2;
+  background: rgba(180,180,182, 0.2);
   z-index: 1;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -57,11 +58,6 @@ html, body {
   cursor: row-resize;
   width: 100%; 
 
-}
-
-.Resizer:hover {
-  opacity: 0.6;
-  transition: 0.5s;
 }
 
 .Resizer.vertical {
@@ -92,12 +88,14 @@ html, body {
   line-height: 1.1em;
   height: 100%;
   white-space: pre-wrap;
+  color: #c5c5c5;
 }
 
 .cm-editor {
   min-height: 1080px;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: #1b1b1d;
 }
 
 .cm-wrap { 
@@ -120,6 +118,14 @@ html, body {
   background-color: transparent;
 }
 
+.cm-content .cm-lineWrapping {
+  word-break: break-all;
+}
+
+.cm-editor .cm-activeLine {
+  background-color: transparent;
+}
+
 /* preview component */
 .ReactCodeMirror {
   height: 100%;
@@ -127,6 +133,7 @@ html, body {
 
 .result {
   font-family: 'SF Pro Display', sans-serif;
+  color: #c5c5c5;
   font-size: 1.1em;
   line-height: 1.1em;
   max-width: 100%;
@@ -170,6 +177,7 @@ ul {
   overflow: auto;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: #1b1b1d;
 }
 
 /* menubar */
@@ -291,10 +299,12 @@ img {
   width: 20%;
   height: 99vh;
   padding-bottom: 1vh;
-  background-color: #F7F7F7;
+  /* background-color: #F7F7F7; light mode */
+  background-color: #2a2a2b;
 }
 
 .tableInfo {
+  color: #c5c5c5;
   font-family: 'SF Pro Display', sans-serif;
   padding-top: 5px;
   padding-left: 5px;
@@ -316,7 +326,8 @@ img {
 }
 
 .tocLabel {
-  color: rgba(0, 0, 0, 0.4);
+  /* color: rgba(0, 0, 0, 0.4); light mode */
+  color: rgba(180,180,182, 0.4);
   text-align: left;
   padding-left: 5px;
   padding-top: 5px;
@@ -327,17 +338,19 @@ img {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #c5c5c5;
 }
 
 .headerDelim {
-  color: rgba(0, 0, 0, 0.4);
+  /* color: rgba(0, 0, 0, 0.4); light mode */
+  color: rgba(180,180,182, 0.4);
 }
 
 hr {
   border: none;
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); light mode */
+  background-color: rgba(180,180,182, 0.2);
 }
 
 .infoDisplay {
