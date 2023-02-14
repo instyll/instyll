@@ -33,6 +33,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeMathjax from 'rehype-mathjax'
 import remarkGfm from 'remark-gfm'
+import emoji from 'remark-emoji'
 
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
@@ -245,7 +246,7 @@ class App extends Component {
                   <div className="preview" id="text">
                     <ReactMarkdown className="result"
                     children={this.state.markdownSrc}
-                    remarkPlugins={[remarkMath, remarkGfm]} 
+                    remarkPlugins={[remarkMath, remarkGfm, emoji]} 
                     rehypePlugins={[rehypeMathjax]}/>
                   </div>
                 </div> 
