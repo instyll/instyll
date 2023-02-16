@@ -2,6 +2,8 @@ html, body {
   height: 100%;
 }
 
+/* main view */
+
 .App {
   scroll-behavior: smooth;
 }
@@ -9,12 +11,6 @@ html, body {
 body {
   background-color: #1b1b1d;
 } 
-
-/* smooth */
-.cm-cursor {
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-}
 
 .App {
   height: 100%;
@@ -79,6 +75,11 @@ body {
 .editor-pane {
   overflow: auto;
   height: 100%;
+}
+
+.cm-cursor {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .cm-content {
@@ -159,26 +160,6 @@ body {
   word-wrap: break-all;
   overflow-wrap: break-word;
   word-break: break-word;
-}
-
-h1 {
-  line-height: 1em;
-  margin-top: 0;
-
-}
-
-h2 {
-  margin-top: 0;
-  line-height: 1em;
-}
-
-p {
-  margin-top: 0;
-}
-
-ul {
-  margin-top: 0;
-  line-height: 1.2em;
 }
 
 .view-pane {
@@ -345,21 +326,9 @@ img {
   margin-bottom: 0%;
 }
 
-a {
-  text-decoration: none;
-  color: #c5c5c5;
-}
-
 .headerDelim {
   /* color: rgba(0, 0, 0, 0.4); light mode */
   color: rgba(180,180,182, 0.4);
-}
-
-hr {
-  border: none;
-  height: 1px;
-  /* background-color: rgba(0, 0, 0, 0.2); light mode */
-  background-color: rgba(180,180,182, 0.4);
 }
 
 .infoDisplay {
@@ -373,6 +342,39 @@ hr {
   padding-right: 5px;
   font-size: 1em;
   text-align: left;
+}
+
+/* elements */
+h1 {
+  line-height: 1em;
+  margin-top: 0;
+
+}
+
+h2 {
+  margin-top: 0;
+  line-height: 1em;
+}
+
+p {
+  margin-top: 0;
+}
+
+ul {
+  margin-top: 0;
+  line-height: 1.2em;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  /* background-color: rgba(0, 0, 0, 0.2); light mode */
+  background-color: rgba(180,180,182, 0.4);
+}
+
+a {
+  text-decoration: none;
+  color: #c5c5c5;
 }
 
 /* Highlight specific components */

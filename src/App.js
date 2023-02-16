@@ -66,7 +66,6 @@ class App extends Component {
   }
 
   slideToRight() {
-    // console.log(this.state.size);
     this.setState({
       size: this.state.size !== "100%" ? "100%" : "50%"
     });
