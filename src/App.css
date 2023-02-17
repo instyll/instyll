@@ -95,7 +95,7 @@ body {
   /* min-height: 1080px; */
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #1b1b1d;
+  background-color: transparent;
   outline: none !important;
 }
 
@@ -174,7 +174,7 @@ body {
 
 .navHorizontal {
   float: right;
-  width: 80%;
+  /* width: 80%; */
   height: 5%;
   padding-top: 2px;
   position: -webkit-sticky;
@@ -187,9 +187,9 @@ body {
   /* height: 18px; */
   background-color: #1b1b1b; 
   color: white;
-  padding-top: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-bottom: 2px;
   margin-bottom: 5px;
   z-index: 999;

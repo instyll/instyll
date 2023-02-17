@@ -104,7 +104,10 @@ class App extends Component {
 
             {/* navbar */}
               
-              <div className="navHorizontal">
+              <div className="navHorizontal" style={{
+                transition: "width 0.3s",
+                width: this.state.tocOpen === true ? "80%" : "100%",
+              }}>
                   <div className="menuBar">
                       <div className="menuIcon" 
                       onClick={this.handleToc}>
@@ -196,10 +199,11 @@ class App extends Component {
               // maxSize="60%"
               id="mainView" 
               style={{
+                zIndex: "1",
                 height: "95%",
                 bottom: "0",
                 width: this.state.tocOpen === true ? "80%" : "100%",
-                transition: "width 0.5s",
+                transition: "width 0.3s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
               }}>
