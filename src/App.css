@@ -173,6 +173,8 @@ body {
 /* menubar */
 
 .navHorizontal {
+  float: right;
+  width: 80%;
   height: 5%;
   padding-top: 2px;
   position: -webkit-sticky;
@@ -183,7 +185,7 @@ body {
 
 .menuBar {
   /* height: 18px; */
-  background-color: #ffffff; 
+  background-color: #1b1b1b; 
   color: white;
   padding-top: 2px;
   padding-left: 2px;

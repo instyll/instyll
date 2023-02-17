@@ -10,27 +10,18 @@ import {v4 as uuid} from 'uuid';
 import 'katex/dist/katex.min.css'
 
 // Assets
-import layout from './layout_icon.png';
 import add from './add_component.png'
 import settings from './settings.png'
 import palette from './palette.png'
-import layout2 from './layout_icon_dark.png';
-import layoutPos1 from './layout_icon_position2.png'
-import add2 from './add_component_dark.png'
-import settings2 from './settings_dark.png'
-import palette2 from './palette_dark.png'
-import back2 from './back_dark.png'
 import code from './code.png'
 import image from './image.png'
 import table from './table.png'
 import link from './link.png'
 import help from './help.png'
 import tcontents from './tcontents.png'
-import openmenu from './openmenu.png'
 
 // Plugins
 import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
 import rehypeMathjax from 'rehype-mathjax'
 import remarkGfm from 'remark-gfm'
 import emoji from 'remark-emoji'
@@ -62,12 +53,11 @@ class App extends Component {
       this.setState({
         markdownSrc: md,
       });
-      this.getWordCount();
   }
 
   slideToRight() {
     this.setState({
-      size: this.state.size !== "100%" ? "100%" : "50%"
+      size: this.state.size !== "100%" ? "100%" : "50%",
     });
   }
 
@@ -114,22 +104,12 @@ class App extends Component {
 
             {/* navbar */}
               
-              {/* <div className="navHorizontal">
+              <div className="navHorizontal">
                   <div className="menuBar">
-                      <div className="menuIcon">
-                          <img src={back2} className="icon"/>
-                      </div>
                       <div className="menuIcon" 
                       onClick={this.handleToc}>
                           <img src={tcontents} className="icon"/>
                           <span className="tooltip">Outline</span>
-                      </div>
-                      <div className="menuIcon"
-                      onClick=
-                      {this.slideToRight}>
-                          <img src={this.state.size === "100%" ? layoutPos1 : layout2} 
-                          className="icon"/>
-                          <span className="tooltip">Change Layout</span>
                       </div>
                       <div className="menuIcon">
                           <img src={link} className="icon"/>
@@ -150,17 +130,17 @@ class App extends Component {
 
                       <span className="rightComponents">    
                         <div className="menuIcon">
-                            <img src={palette2} className="icon"/>
+                            <img src={palette} className="icon"/>
                         </div>
                         <div className="menuIcon">
                             <img src={help} className="icon"/>
                         </div> 
                         <div className="menuIcon">
-                            <img src={settings2} className="icon"/>
+                            <img src={settings} className="icon"/>
                         </div>       
                       </span>
               </div>
-            </div> */}
+            </div>
 
             {/* table of contents*/}
 
