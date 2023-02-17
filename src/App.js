@@ -105,7 +105,6 @@ class App extends Component {
             {/* navbar */}
               
               <div className="navHorizontal" style={{
-                transition: "width 0.3s",
                 width: this.state.tocOpen === true ? "80%" : "100%",
               }}>
                   <div className="menuBar">
@@ -113,6 +112,10 @@ class App extends Component {
                       onClick={this.handleToc}>
                           <img src={tcontents} className="icon"/>
                           <span className="tooltip">Outline</span>
+                      </div>
+                      <div className="menuIcon">
+                          <img src={add} className="icon"/>
+                          <span className="tooltip">Add Component</span>
                       </div>
                       <div className="menuIcon">
                           <img src={link} className="icon"/>
@@ -203,7 +206,6 @@ class App extends Component {
                 height: "95%",
                 bottom: "0",
                 width: this.state.tocOpen === true ? "80%" : "100%",
-                transition: "width 0.3s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
               }}>
