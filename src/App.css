@@ -269,7 +269,7 @@ img {
 
 .tableOfContents {
   float: left;
-  width: 20%;
+  /* width: 20%; */
   height: 99vh;
   padding-bottom: 1vh;
   /* background-color: #F7F7F7; light mode */

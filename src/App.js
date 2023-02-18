@@ -106,6 +106,7 @@ class App extends Component {
               
               <div className="navHorizontal" style={{
                 width: this.state.tocOpen === true ? "80%" : "100%",
+                transition: "width 0.2s",
               }}>
                   <div className="menuBar">
                       <div className="menuIcon" 
@@ -148,7 +149,8 @@ class App extends Component {
             {/* table of contents*/}
 
             <div className="tableOfContents" style={{
-              display: this.state.tocOpen === true ? "block" : "none", 
+              width: this.state.tocOpen === true ? "20%" : "0%", 
+              transition: "width 0.2s",
             }}>
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
@@ -203,6 +205,7 @@ class App extends Component {
                 height: "95%",
                 bottom: "0",
                 width: this.state.tocOpen === true ? "80%" : "100%",
+                transition: "width 0.2s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
               }}>
