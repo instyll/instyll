@@ -319,6 +319,11 @@ img {
   margin-bottom: 0%;
 }
 
+.headerNav {
+  text-decoration: none;
+  color: #c5c5c5;
+}
+
 .headerDelim {
   /* color: rgba(0, 0, 0, 0.4); light mode */
   color: rgba(180,180,182, 0.4);
@@ -353,6 +358,15 @@ p {
   margin-top: 0;
 }
 
+a {
+  color: #5271ff;
+  opacity: 0.8;
+}
+
+a:hover {
+  opacity: 1;
+}
+
 ul {
   margin-top: 0;
   line-height: 1.2em;
@@ -363,11 +377,6 @@ hr {
   height: 1px;
   /* background-color: rgba(0, 0, 0, 0.2); light mode */
   background-color: rgba(180,180,182, 0.4);
-}
-
-a {
-  text-decoration: none;
-  color: #c5c5c5;
 }
 
 /* Highlight specific components */

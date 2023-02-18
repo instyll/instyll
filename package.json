@@ -40,6 +40,8 @@
     "remark-mermaid": "^0.2.0",
     "remark-mermaid-plugin": "^1.0.2",
     "remark-mermaidjs": "^4.1.1",
+    "remark-wiki-link": "^1.0.4",
+    "remark-wiki-link-plus": "^1.1.1",
     "sizzle": "^2.3.9",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13",

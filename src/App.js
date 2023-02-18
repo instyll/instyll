@@ -25,6 +25,7 @@ import remarkMath from 'remark-math'
 import rehypeMathjax from 'rehype-mathjax'
 import remarkGfm from 'remark-gfm'
 import emoji from 'remark-emoji'
+import wikiLinkPlugin from 'remark-wiki-link'
 
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
@@ -175,7 +176,7 @@ class App extends Component {
                     {
                        this.constructToc().map((header, index) => (
                       <div key={index} className="outlineElement">
-                        <a href={`#${header.id}`}>
+                        <a href={`#${header.id}`} class="headerNav">
                           <span className="headerDelim">
                           { 
                           header.type === 'H2' ? '## ' :
@@ -233,7 +234,7 @@ class App extends Component {
                   <div className="preview" id="text">
                     <ReactMarkdown className="result"
                     children={this.state.markdownSrc}
-                    remarkPlugins={[remarkMath, remarkGfm, emoji]} 
+                    remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]} 
                     rehypePlugins={[rehypeMathjax]}/>
                   </div>
                 </div> 
