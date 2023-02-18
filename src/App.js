@@ -149,8 +149,8 @@ class App extends Component {
             {/* table of contents*/}
 
             <div className="tableOfContents" style={{
-              width: this.state.tocOpen === true ? "20%" : "0%", 
-              transition: "width 0.2s",
+              // width: this.state.tocOpen === true ? "20%" : "0%", 
+              // transition: "width 0.2s",
             }}>
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
@@ -201,7 +201,8 @@ class App extends Component {
               // maxSize="60%"
               id="mainView" 
               style={{
-                zIndex: "1",
+                position: "absolute",
+                zIndex: "999",
                 height: "95%",
                 bottom: "0",
                 width: this.state.tocOpen === true ? "80%" : "100%",
