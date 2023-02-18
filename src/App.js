@@ -111,36 +111,36 @@ class App extends Component {
                   <div className="menuBar">
                       <div className="menuIcon" 
                       onClick={this.handleToc}>
-                          <img src={tcontents} className="icon"/>
+                          <img src={tcontents} className="icon" draggable={false}/>
                           <span className="tooltip">Outline</span>
                       </div>
                       <div className="menuIcon">
-                          <img src={add} className="icon"/>
+                          <img src={add} className="icon" draggable={false}/>
                           <span className="tooltip">Add Component</span>
                       </div>
                       <div className="menuIcon">
-                          <img src={image} className="icon"/>
+                          <img src={image} className="icon" draggable={false}/>
                           <span className="tooltip">Insert Image</span>
                       </div>
                       <div className="menuIcon">
-                          <img src={code} className="icon"/>
+                          <img src={code} className="icon" draggable={false}/>
                           <span className="tooltip">Insert Code Block</span>
                       </div>
                       <div className="menuIcon">
-                          <img src={table} className="icon"/>
+                          <img src={table} className="icon" draggable={false}/>
                           <span className="tooltip">Insert Table</span>
                       </div>
                       <div className="menuIcon">
-                          <img src={link} className="icon"/>
+                          <img src={link} className="icon" draggable={false}/>
                           <span className="tooltip">Insert Link</span>
                       </div>
 
                       <span className="rightComponents">    
                         <div className="menuIcon">
-                            <img src={palette} className="icon"/>
+                            <img src={palette} className="icon" draggable={false}/>
                         </div>
                         <div className="menuIcon">
-                            <img src={settings} className="icon"/>
+                            <img src={settings} className="icon" draggable={false}/>
                         </div>       
                       </span>
               </div>
