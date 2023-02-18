@@ -76,7 +76,6 @@ body {
   overflow: auto;
   height: 100%;
   background-color: #1b1b1b;
-
 }
 
 .cm-cursor {
@@ -128,6 +127,10 @@ body {
   color: rgba(180,180,182, 0.4);
 }
 
+.cm-editor .ͼ6 {
+  color: #5271ff;
+}
+
 .cm-editor .ͼ7 {
   text-decoration: none;
 }
@@ -137,7 +140,7 @@ body {
 }
 
 .cm-editor .ͼe {
-  color: rgba(180,180,182, 0.4);
+  color: #5271ff;
 }
 
 

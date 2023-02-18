@@ -106,7 +106,8 @@ class App extends Component {
               
               <div className="navHorizontal" style={{
                 width: this.state.tocOpen === true ? "80%" : "100%",
-                transition: "width 0.2s",
+                transition: "width 0.1s",
+
               }}>
                   <div className="menuBar">
                       <div className="menuIcon" 
@@ -198,15 +199,14 @@ class App extends Component {
               <SplitPane 
               split={this.state.split} 
               defaultSize={this.state.size} 
-              // maxSize="60%"
-              id="mainView" 
+              id="mainView"
               style={{
                 position: "absolute",
                 zIndex: "999",
                 height: "95%",
                 bottom: "0",
                 width: this.state.tocOpen === true ? "80%" : "100%",
-                transition: "width 0.2s",
+                transition: "width 0.1s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
               }}>
@@ -216,6 +216,7 @@ class App extends Component {
                 className="editor-pane" 
                 style={{
                   width: "100%",
+                  transition: "transform 0.2s",
                 }} 
                 id="markdown"
                 >
