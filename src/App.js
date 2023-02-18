@@ -118,10 +118,6 @@ class App extends Component {
                           <span className="tooltip">Add Component</span>
                       </div>
                       <div className="menuIcon">
-                          <img src={link} className="icon"/>
-                          <span className="tooltip">Insert Link</span>
-                      </div>
-                      <div className="menuIcon">
                           <img src={image} className="icon"/>
                           <span className="tooltip">Insert Image</span>
                       </div>
@@ -133,14 +129,15 @@ class App extends Component {
                           <img src={table} className="icon"/>
                           <span className="tooltip">Insert Table</span>
                       </div>
+                      <div className="menuIcon">
+                          <img src={link} className="icon"/>
+                          <span className="tooltip">Insert Link</span>
+                      </div>
 
                       <span className="rightComponents">    
                         <div className="menuIcon">
                             <img src={palette} className="icon"/>
                         </div>
-                        <div className="menuIcon">
-                            <img src={help} className="icon"/>
-                        </div> 
                         <div className="menuIcon">
                             <img src={settings} className="icon"/>
                         </div>       
@@ -156,7 +153,7 @@ class App extends Component {
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
-                <p className="tocLabel" >{this.state.fileName}</p>
+                <p className="tocLabel" >Tabs</p>
                 <hr></hr>
                 <div className="pageInfo">
                   <span className="leftComponents">

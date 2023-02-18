@@ -176,7 +176,7 @@ body {
   float: right;
   /* width: 80%; */
   height: 5%;
-  padding-top: 2px;
+  padding-top: 5px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -263,25 +263,6 @@ img {
   visibility: visible;
   opacity: 1;
   transition: opacity 0s ease-in-out 1s;
-}
-
-/* footer panel */
-
-.footerPanel {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
-
-.footerInfo {
-  font-family: 'SF Pro Display', sans-serif;
-  font-size: 15px;
-  color: #000;
-  display: inline;
-  vertical-align: middle;
-  padding-left: 10px;
-  padding-right: 10px;
-  user-select: none;
 }
 
 /* table of contents */
