@@ -92,7 +92,6 @@ body {
 }
 
 .cm-editor {
-  /* min-height: 1080px; */
   padding-left: 20px;
   padding-right: 20px;
   background-color: transparent;
@@ -132,6 +131,10 @@ body {
 }
 
 .cm-editor .ͼc {
+  color: rgba(180,180,182, 0.4);
+}
+
+.cm-editor .ͼe {
   color: rgba(180,180,182, 0.4);
 }
 
