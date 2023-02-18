@@ -322,6 +322,7 @@ img {
 .headerNav {
   text-decoration: none;
   color: #c5c5c5;
+  opacity: 1;
 }
 
 .headerDelim {
@@ -392,8 +393,9 @@ code {
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #3a3a3b;
   border-collapse: collapse;
+  padding: 10px;
 }
 
 table {
