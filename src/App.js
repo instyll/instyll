@@ -19,6 +19,7 @@ import table from './table.png'
 import link from './link.png'
 import help from './help.png'
 import tcontents from './tcontents.png'
+import calendar from './calendar.png'
 import tabplus from './tabplus.png'
 
 // Plugins
@@ -131,6 +132,10 @@ class App extends Component {
                           <span className="tooltip">Insert Code Block</span>
                       </div>
                       <div className="menuIcon">
+                          <img src={calendar} className="icon" draggable={false}/>
+                          <span className="tooltip">Add Component</span>
+                      </div>
+                      <div className="menuIcon">
                           <img src={table} className="icon" draggable={false}/>
                           <span className="tooltip">Insert Table</span>
                       </div>
@@ -161,9 +166,9 @@ class App extends Component {
               }}>
                 <hr></hr>
                 <div className="tocLabel">
-                  <button className="tab">README.md<span className="rightComponents"><img src={tabplus} width="80%" className='tabPlus'></img></span></button><br></br>
-                  <button className="tab">markdown.md<span className="rightComponents"><img src={tabplus} width="80%" className='tabPlus'></img></span></button><br></br>
-                  <button className="tab">note.md<span className="rightComponents"><img src={tabplus} width="80%" className='tabPlus'></img></span></button>
+                  <button className="tab">README.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
+                  <button className="tab">markdown.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
+                  <button className="tab">note.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                 </div>
                 <hr></hr>
                 <div className="pageInfo">

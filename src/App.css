@@ -350,7 +350,8 @@ img {
 }
 
 .tabPlus:hover {
-  filter: invert(22%) sepia(1%) saturate(0%) hue-rotate(19deg) brightness(98%) contrast(90%);
+  background-color: rgba(180,180,182, 0.2);
+  border-radius: 2px;
 }
 
 .headerNav {
