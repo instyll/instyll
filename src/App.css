@@ -287,7 +287,7 @@ img {
   height: 99vh;
   padding-bottom: 1vh;
   /* background-color: #F7F7F7; light mode */
-  background-color: #2a2a2b;
+  background-color: #1b1b1b;
 }
 
 .tableInfo {
@@ -376,6 +376,11 @@ img {
   padding-right: 5px;
   font-size: 1em;
   text-align: left;
+}
+
+.outlineElement:hover {
+  background-color: rgba(180,180,182, 0.2);
+  border-radius: 2px;
 }
 
 /* elements */
