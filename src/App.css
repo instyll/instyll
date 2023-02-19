@@ -344,6 +344,15 @@ img {
   border-radius: 2px;
 }
 
+.tabPlus {
+  color: #c5c5c5;
+  opacity: 1;
+}
+
+.tabPlus:hover {
+  filter: invert(22%) sepia(1%) saturate(0%) hue-rotate(19deg) brightness(98%) contrast(90%);
+}
+
 .headerNav {
   text-decoration: none;
   opacity: 1;
