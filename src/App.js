@@ -157,7 +157,12 @@ class App extends Component {
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
-                <p className="tocLabel" >Tabs</p>
+                <hr></hr>
+                <div className="tocLabel">
+                  <button className="tab">README.md</button><br></br>
+                  <button className="tab">markdown.md</button><br></br>
+                  <button className="tab">note.md</button>
+                </div>
                 <hr></hr>
                 <div className="pageInfo">
                   <span className="leftComponents">
