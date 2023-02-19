@@ -164,26 +164,26 @@ class App extends Component {
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
-                <hr></hr>
+                <p className='tocTitleFirst'>Tabs</p>
                 <div className="tocLabel">
                   <button className="tab">README.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
                   <button className="tab">markdown.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
                   <button className="tab">note.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                 </div>
-                <hr></hr>
+                <p className='tocTitle'>Stats</p>
                 <div className="pageInfo">
                   <span className="leftComponents">
                     <div className="infoDisplay">Characters</div>
                     Words
                   </span>
                   <span className="rightComponents">
-                    <div className="infoDisplay">{this.state.charCount}/{this.state.charCount}</div>
-                    {this.state.wordCount}/{this.state.wordCount}
+                    <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
+                    <span className="precount">{this.state.wordCount}</span>/{this.state.wordCount}
                   </span>
                 </div>
                 <br></br>
                 <br></br>
-                <hr></hr>
+                <p className='tocTitle'>Outline</p>
                 <div>                
                     {
                        this.constructToc().map((header, index) => (
