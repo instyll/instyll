@@ -429,8 +429,7 @@ img {
   width: 100%;
   box-sizing: border-box;
   font-size: 1em;
-  background-color: rgba(180,180,182, 0.2);
-  color: rgba(180,180,182, 0.4);
+  background-color: rgba(180,180,182, 0.1);
   font-family: 'SF Pro Display', sans-serif;
   padding-left: 5px;
   padding-right: 5px;
@@ -441,6 +440,9 @@ img {
   margin-bottom: 20px;
   margin-top: 5px;
   text-align: left;
+}
+::placeholder {
+  color: rgba(180,180,182, 0.4);
 }
 
 .searchIcon {
