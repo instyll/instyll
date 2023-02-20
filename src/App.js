@@ -20,6 +20,7 @@ import link from './link.png'
 import help from './help.png'
 import tcontents from './tcontents.png'
 import calendar from './calendar.png'
+import notionLogo from './notion.png'
 import tabplus from './tabplus.png'
 
 // Plugins
@@ -143,8 +144,12 @@ class App extends Component {
                           <img src={link} className="icon" draggable={false}/>
                           <span className="tooltip">Insert Link</span>
                       </div>
+                      <div className="menuIcon">
+                          <img src={notionLogo} className="icon" draggable={false}/>
+                          <span className="tooltip">Add Component</span>
+                      </div>  
 
-                      <span className="rightComponents">    
+                      <span className="rightComponents">  
                         <div className="menuIcon">
                             <img src={palette} className="icon" draggable={false}/>
                         </div>

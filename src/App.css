@@ -86,7 +86,7 @@ body {
 .cm-content {
   font-size: 1.1em;
   font-family: 'SF Pro Display', sans-serif;
-  line-height: 1.1em;
+  line-height: 1.4em;
   height: 100%;
   white-space: pre-wrap;
   color: #c5c5c5;
@@ -157,7 +157,7 @@ body {
   font-family: 'SF Pro Display', sans-serif;
   color: #c5c5c5;
   font-size: 1.1em;
-  line-height: 1.1em;
+  line-height: 1.4;
   max-width: 100%;
 }
 
