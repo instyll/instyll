@@ -379,6 +379,52 @@ img {
   border-radius: 2px;
 }
 
+.fileElem {
+  text-align: left;
+  font-family: 'SF Pro Display', sans-serif;
+  font-size: 1em;
+  padding: 5px;
+  width: 100%;
+  color: #c5c5c5;
+  background-color: transparent;
+  border: none;
+}
+
+.fileElem:focus {
+  background-color: rgba(180,180,182, 0.2);
+  border-radius: 2px;
+}
+
+.fileElem:hover {
+  background-color: rgba(180,180,182, 0.2);
+  border-radius: 2px;
+}
+
+.fileElemChild {
+  text-align: left;
+  font-family: 'SF Pro Display', sans-serif;
+  font-size: 1em;
+  padding-left: 20px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  color: #c5c5c5;
+  background-color: transparent;
+  border: none;
+}
+
+.fileElemChild:focus {
+  background-color: rgba(180,180,182, 0.2);
+  border-radius: 2px;
+}
+
+.fileElemChild:hover {
+  background-color: rgba(180,180,182, 0.2);
+  border-radius: 2px;
+}
+
+
 .headerNav {
   text-decoration: none;
   opacity: 1;

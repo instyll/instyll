@@ -164,7 +164,16 @@ class App extends Component {
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
-                <p className='tocTitleFirst'>Tabs</p>
+                <p className="tocTitleFirst">Files</p>
+                <div className="fileSys">
+                  <button className="fileElem">Folder 1</button>
+                  <div className="fileChildren">
+                    <button className="fileElemChild">markdown.md</button> <br></br>
+                    <button className="fileElemChild">note.md</button> <br></br>
+                    <button className="fileElemChild">README.md</button> <br></br>
+                  </div>
+                </div>
+                <p className='tocTitle'>Tabs</p>
                 <div className="tocLabel">
                   <button className="tab">README.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
                   <button className="tab">markdown.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
