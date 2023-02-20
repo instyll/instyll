@@ -187,8 +187,9 @@ body {
 .navHorizontal {
   float: right;
   /* width: 80%; */
-  height: 5%;
-  padding-top: 5px;
+  height: 29px;
+  margin-top: 5px;
+  /* padding-top: 5px; */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -422,6 +423,28 @@ img {
 .fileElemChild:hover {
   background-color: rgba(180,180,182, 0.2);
   border-radius: 2px;
+}
+
+.search {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+  background-color: rgba(180,180,182, 0.2);
+  color: rgba(180,180,182, 0.4);
+  font-family: 'SF Pro Display', sans-serif;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+  border: none;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.searchIcon {
+  height: 24px;
 }
 
 

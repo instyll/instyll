@@ -22,6 +22,7 @@ import tcontents from './tcontents.png'
 import calendar from './calendar.png'
 import notionLogo from './notion.png'
 import tabplus from './tabplus.png'
+import search from "./search.png"
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -169,6 +170,10 @@ class App extends Component {
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
+                <div class="searchContainer">
+                  <input className="search" placeholder="Search">
+                  </input>
+                </div>
                 <p className="tocTitleFirst">Files</p>
                 <div className="fileSys">
                   <button className="fileElem">Folder 1</button>
