@@ -506,6 +506,11 @@ a:hover {
   opacity: 1;
 }
 
+blockquote {
+  border-left: 4px solid rgba(180,180,182, 0.4);
+  padding-left: 20px;
+}
+
 ul {
   margin-top: 0;
   line-height: 1.4em;
