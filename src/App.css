@@ -457,14 +457,14 @@ img {
 
 /* elements */
 h1 {
-  line-height: 1em;
+  line-height: 1.2em;
   margin-top: 0;
 
 }
 
 h2 {
   margin-top: 0;
-  line-height: 1em;
+  line-height: 1.2em;
 }
 
 p {
@@ -482,7 +482,7 @@ a:hover {
 
 ul {
   margin-top: 0;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 hr {
