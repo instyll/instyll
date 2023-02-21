@@ -31,10 +31,6 @@ import remarkGfm from 'remark-gfm'
 import emoji from 'remark-emoji'
 import wikiLinkPlugin from 'remark-wiki-link'
 
-// Languages
-import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
-import { languages } from '@codemirror/language-data';
-
 class App extends Component {
   constructor(props) {
     super(props);

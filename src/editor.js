@@ -6,6 +6,10 @@ import { indentUnit } from '@codemirror/language';
 // Languages
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
+import { syntaxHighlighting, HighlightStyle } from '@codemirror/language'
+import { tags } from '@lezer/highlight';
+import { Tag, styleTags } from '@lezer/highlight';
+import { Emoji, MarkdownConfig } from '@lezer/markdown';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
@@ -23,11 +27,64 @@ class Editor extends Component {
         this.props.onChange(e);
     }
 
+    headingMark = Tag.define();
+
+    MarkStylingExtension: MarkdownConfig = {
+        props: [ styleTags({HeaderMark: this.headingMark}) ],
+    };
+    
+    markdownHighlighting = HighlightStyle.define([
+        {
+          tag: 
+          this.headingMark,
+          color: "rgba(180,180,182, 0.4)"
+        },
+        { tag: 
+        tags.heading1, 
+        fontSize: "1.6em", 
+        fontWeight: "bold", 
+        lineHeight: "1.4em"
+        },
+        {
+        tag: tags.heading2,
+        fontSize: "1.4em",
+        fontWeight: "bold",
+        lineHeight: "1.4em"
+        },
+        {
+        tag: tags.heading3,
+        fontSize: "1.2em",
+        fontWeight: "bold",
+        lineHeight: "1.4em"
+        },
+        {
+        tag: tags.heading4,
+        fontSize: "1em",
+        fontWeight: "bold",
+        lineHeight: "1.4em"
+        },
+        {
+        tag: tags.heading5,
+        fontSize: "1em",
+        fontWeight: "bold",
+        lineHeight: "1.4em"
+        },
+        {
+        tag: tags.emphasis,
+        fontStyle: "italic",
+        },
+        {
+        tag: tags.strong,
+        fontWeight: "bold",
+        },
+    ]);
+
     render () {
         return (<CodeMirror 
             extensions={
-                [markdown({ base: markdownLanguage, codeLanguages: languages }),
-                    EditorView.lineWrapping, indentUnit.of("    ")
+                [markdown({ base: markdownLanguage, codeLanguages: languages, extensions: [this.MarkStylingExtension, Emoji] }),
+                    EditorView.lineWrapping, indentUnit.of("    "),
+                    syntaxHighlighting(this.markdownHighlighting),
                 ]} 
             value={this.props.value} 
             onChange={this.updateCode}

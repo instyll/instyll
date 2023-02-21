@@ -428,6 +428,7 @@ img {
 .search {
   width: 100%;
   box-sizing: border-box;
+  outline: none;
   font-size: 1em;
   background-color: rgba(180,180,182, 0.1);
   font-family: 'SF Pro Display', sans-serif;
@@ -483,14 +484,13 @@ img {
 
 /* elements */
 h1 {
-  line-height: 1.2em;
+  line-height: 1.4em;
   margin-top: 0;
-
 }
 
 h2 {
   margin-top: 0;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 p {
