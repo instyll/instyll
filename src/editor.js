@@ -30,14 +30,16 @@ class Editor extends Component {
     headingMark = Tag.define();
 
     MarkStylingExtension: MarkdownConfig = {
-        props: [ styleTags({HeaderMark: this.headingMark}) ],
+        props: [ styleTags({
+            HeaderMark: this.headingMark
+        }) ],
     };
     
     markdownHighlighting = HighlightStyle.define([
         {
-          tag: 
-          this.headingMark,
-          color: "rgba(180,180,182, 0.4)"
+        tag: 
+        this.headingMark,
+        color: "rgba(180,180,182, 0.4)"
         },
         { tag: 
         tags.heading1, 
@@ -76,6 +78,10 @@ class Editor extends Component {
         {
         tag: tags.strong,
         fontWeight: "bold",
+        },
+        {
+        tag: tags.strikethrough,
+        color: "rgba(180,180,182, 0.4)",
         },
     ]);
 
