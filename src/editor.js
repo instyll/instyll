@@ -29,11 +29,13 @@ class Editor extends Component {
 
     headingMark = Tag.define();
     emphasisMark = Tag.define();
+    refMark = Tag.define();
     
     MarkStylingExtension: MarkdownConfig = {
         props: [ styleTags({
             HeaderMark: this.headingMark,
             EmphasisMark: this.emphasisMark,
+            Link: this.refMark,
         }) ],
     };
     
@@ -47,6 +49,11 @@ class Editor extends Component {
         tag: 
         this.emphasisMark,
         color: "rgba(180,180,182, 0.4)"
+        },
+        {
+        tag: 
+        this.refMark,
+        color: "#5271ff",
         },
         { tag: 
         tags.heading1, 
