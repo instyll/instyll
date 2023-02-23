@@ -287,12 +287,17 @@ img {
   width: 20%;
   height: 99vh;
   padding-bottom: 1vh;
-  /* background-color: #F7F7F7; light mode */
-  background-color: #1b1b1b;
+  /* light mode */
+  /* background-color: white;  */
+  /* dark mode */
+  background-color: #1b1b1b; 
 }
 
 .tableInfo {
+  /* dark mode */
   color: #c5c5c5;
+  /* light mode */ 
+  /* color: black; */
   font-family: 'SF Pro Display', sans-serif;
   padding-top: 5px;
   padding-left: 5px;
@@ -314,11 +319,16 @@ img {
 }
 
 .precount {
+  /* dark mode */
   color: rgba(180,180,182, 0.4);
+  /* light mode */
+  /* color: #c1c1c1; */
 }
 
 .tocLabel {
-  /* color: rgba(0, 0, 0, 0.4); light mode */
+  /* light mode */
+  /* color: rgba(0, 0, 0, 0.4); */
+  /* dark mode */
   color: rgba(180,180,182, 0.4);
   text-align: left;
   /* text-align: center; */
@@ -330,7 +340,10 @@ img {
 }
 
 .tocTitle {
+  /* dark mode */
   color: rgba(180,180,182, 0.4);
+  /* light mode */
+  /* color: #c1c1c1; */
   text-align: left;
   padding-left: 5px;
   padding-right: 5px;
@@ -340,7 +353,10 @@ img {
 }
 
 .tocTitleFirst {
+  /* dark mode */
   color: rgba(180,180,182, 0.4);
+  /* light mode */
+  /* color: #c1c1c1; */
   text-align: left;
   padding-left: 5px;
   padding-right: 5px;
@@ -355,7 +371,10 @@ img {
   font-size: 1em;
   padding: 5px;
   width: 100%;
+  /* dark mode */
   color: #c5c5c5;
+  /* light mode */
+  /* color: black; */
   background-color: transparent;
   border: none;
 }
@@ -371,8 +390,11 @@ img {
 }
 
 .tabPlus {
+  /* dark mode */
   color: #c5c5c5;
-  opacity: 1;
+  /* light mode */
+  /* color: black; */
+  opacity: 01;
 }
 
 .tabPlus:hover {
@@ -386,7 +408,10 @@ img {
   font-size: 1em;
   padding: 5px;
   width: 100%;
+  /* dark mode */
   color: #c5c5c5;
+  /* light mode */
+  /* color: black; */
   background-color: transparent;
   border: none;
 }
