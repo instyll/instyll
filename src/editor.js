@@ -30,12 +30,16 @@ class Editor extends Component {
     headingMark = Tag.define();
     emphasisMark = Tag.define();
     refMark = Tag.define();
+    imgMark = Tag.define();
+    urlMark = Tag.define();
     
     MarkStylingExtension: MarkdownConfig = {
         props: [ styleTags({
             HeaderMark: this.headingMark,
             EmphasisMark: this.emphasisMark,
             Link: this.refMark,
+            Image: this.imgMark,
+            URL: this.urlMark,
         }) ],
     };
     
@@ -54,6 +58,16 @@ class Editor extends Component {
         tag: 
         this.refMark,
         color: "#5271ff",
+        },
+        {
+        tag: 
+        this.imgMark,
+        color: "#5271ff",
+        },
+        {
+        tag:
+        this.urlMark,
+        color: "#5271ff"
         },
         { tag: 
         tags.heading1, 
