@@ -90,31 +90,31 @@ class Editor extends Component {
         },
         { tag: 
         tags.heading1, 
-        fontSize: "1.6em", 
+        fontSize: "2em", 
         fontWeight: "bold", 
         lineHeight: "1.4em"
         },
         {
         tag: tags.heading2,
-        fontSize: "1.4em",
+        fontSize: "1.8em",
         fontWeight: "bold",
         lineHeight: "1.4em"
         },
         {
         tag: tags.heading3,
-        fontSize: "1.2em",
+        fontSize: "1.6em",
         fontWeight: "bold",
         lineHeight: "1.4em"
         },
         {
         tag: tags.heading4,
-        fontSize: "1em",
+        fontSize: "1.4em",
         fontWeight: "bold",
         lineHeight: "1.4em"
         },
         {
         tag: tags.heading5,
-        fontSize: "1em",
+        fontSize: "1.2em",
         fontWeight: "bold",
         lineHeight: "1.4em"
         },
