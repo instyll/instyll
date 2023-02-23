@@ -34,6 +34,7 @@ class Editor extends Component {
     urlMark = Tag.define();
     hRuleMark = Tag.define();
     codeBlockMark = Tag.define();
+    listMark = Tag.define();
     
     MarkStylingExtension: MarkdownConfig = {
         props: [ styleTags({
@@ -44,6 +45,7 @@ class Editor extends Component {
             URL: this.urlMark,
             HorizontalRule: this.hRuleMark,
             CodeMark: this.codeBlockMark,
+            ListMark: this.listMark,
         }) ],
     };
     
@@ -80,6 +82,10 @@ class Editor extends Component {
         },
         {
         tag: this.codeBlockMark,
+        color: "rgba(180,180,182, 0.4)"
+        },
+        {
+        tag: this.listMark,
         color: "rgba(180,180,182, 0.4)"
         },
         { tag: 
