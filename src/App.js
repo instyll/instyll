@@ -181,9 +181,15 @@ class App extends Component {
                 </div>
                 <p className='tocTitle'>Tabs</p>
                 <div className="tocLabel">
-                  <button className="tab">README.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
-                  <button className="tab">markdown.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button><br></br>
+                  <div className="tabHolder">
+                  <button className="tab">README.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                  </div>
+                  <div className="tabHolder">
+                  <button className="tab">markdown.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                  </div>
+                  <div className="tabHolder">
                   <button className="tab">note.md<span className="rightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                  </div>
                 </div>
                 <p className='tocTitle'>Stats</p>
                 <div className="pageInfo">

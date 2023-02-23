@@ -32,6 +32,7 @@ class Editor extends Component {
     refMark = Tag.define();
     imgMark = Tag.define();
     urlMark = Tag.define();
+    hRuleMark = Tag.define();
     
     MarkStylingExtension: MarkdownConfig = {
         props: [ styleTags({
@@ -40,6 +41,7 @@ class Editor extends Component {
             Link: this.refMark,
             Image: this.imgMark,
             URL: this.urlMark,
+            HorizontalRule: this.hRuleMark,
         }) ],
     };
     
@@ -68,6 +70,11 @@ class Editor extends Component {
         tag:
         this.urlMark,
         color: "#5271ff"
+        },
+        {
+        tag: 
+        this.hRuleMark,
+        color: "rgba(180,180,182, 0.4)",
         },
         { tag: 
         tags.heading1, 
@@ -109,6 +116,18 @@ class Editor extends Component {
         },
         {
         tag: tags.strikethrough,
+        color: "rgba(180,180,182, 0.4)",
+        },
+        {
+        tag: tags.bracket,
+        color: "rgba(180,180,182, 0.4)",
+        },
+        {
+        tag: tags.squareBracket,
+        color: "rgba(180,180,182, 0.4)",
+        },
+        {
+        tag: tags.brace,
         color: "rgba(180,180,182, 0.4)",
         },
     ]);
