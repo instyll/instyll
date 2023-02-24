@@ -555,6 +555,10 @@ ul {
   line-height: 1.4em;
 }
 
+li::marker {
+  color: rgba(180,180,182, 0.4);
+}
+
 hr {
   border: none;
   height: 1px;

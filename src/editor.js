@@ -35,6 +35,7 @@ class Editor extends Component {
     hRuleMark = Tag.define();
     codeBlockMark = Tag.define();
     listMark = Tag.define();
+    emojiMark = Tag.define();
     
     MarkStylingExtension: MarkdownConfig = {
         props: [ styleTags({
@@ -46,6 +47,7 @@ class Editor extends Component {
             HorizontalRule: this.hRuleMark,
             CodeMark: this.codeBlockMark,
             ListMark: this.listMark,
+            Emoji: this.emojiMark,
         }) ],
     };
     
@@ -87,6 +89,10 @@ class Editor extends Component {
         {
         tag: this.listMark,
         color: "rgba(180,180,182, 0.4)"
+        },
+        {
+        tag: this.emojiMark,
+        color: "rgba(180,180,182, 0.2)"
         },
         { tag: 
         tags.heading1, 
