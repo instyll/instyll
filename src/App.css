@@ -97,6 +97,10 @@ body {
   padding-top: 0;
 }
 
+.ͼ1 .cm-line {
+  padding: 0;
+}
+
 .cm-editor {
   padding-left: 20px;
   padding-right: 20px;
@@ -127,31 +131,6 @@ body {
 .cm-editor .cm-activeLine {
   background-color: transparent;
 }
-
-.cm-editor .ͼ5 {
-  color: rgba(180,180,182, 0.4);
-}
-
-.cm-editor .ͼ6 {
-  color: #5271ff;
-}
-
-.cm-editor .ͼ7 {
-  text-decoration: none;
-}
-
-.cm-editor .ͼc {
-  color: rgba(180,180,182, 0.4);
-}
-
-.cm-editor .ͼe {
-  color: rgba(180,180,182, 0.4);
-}
-
-.cm-editor .ͼf {
-  color: #c5c5c5;
-}
-
 
 /* preview component */
 .ReactCodeMirror {
