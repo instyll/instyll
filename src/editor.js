@@ -102,25 +102,25 @@ class Editor extends Component {
         },
         {
         tag: tags.heading2,
-        fontSize: "1.8em",
-        fontWeight: "bold",
-        lineHeight: "1.4em"
-        },
-        {
-        tag: tags.heading3,
         fontSize: "1.6em",
         fontWeight: "bold",
         lineHeight: "1.4em"
         },
         {
-        tag: tags.heading4,
+        tag: tags.heading3,
         fontSize: "1.4em",
         fontWeight: "bold",
         lineHeight: "1.4em"
         },
         {
-        tag: tags.heading5,
+        tag: tags.heading4,
         fontSize: "1.2em",
+        fontWeight: "bold",
+        lineHeight: "1.4em"
+        },
+        {
+        tag: tags.heading5,
+        fontSize: "1.1em",
         fontWeight: "bold",
         lineHeight: "1.4em"
         },
