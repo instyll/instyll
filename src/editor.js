@@ -10,7 +10,7 @@ import { syntaxHighlighting, HighlightStyle } from '@codemirror/language'
 import { tags } from '@lezer/highlight';
 import { Tag, styleTags } from '@lezer/highlight';
 import { Emoji, MarkdownConfig } from '@lezer/markdown';
-import { MarkdownMathExtension } from './MarkdownTexParser.ts';
+import { inlineMathTag, mathTag, MarkdownMathExtension } from './MarkdownTexParser.ts';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
@@ -147,6 +147,16 @@ class Editor extends Component {
         },
         {
         tag: tags.brace,
+        color: "rgba(180,180,182, 0.4)",
+        },
+        {
+        tag: inlineMathTag,
+        fontFamily: "monospace",
+        color: "rgba(180,180,182, 0.4)",
+        },
+        {
+        tag: mathTag,
+        fontFamily: "monospace",
         color: "rgba(180,180,182, 0.4)",
         },
     ]);
