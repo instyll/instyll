@@ -152,12 +152,12 @@ class Editor extends Component {
         {
         tag: inlineMathTag,
         fontFamily: "monospace",
-        color: "rgba(180,180,182, 0.4)",
+        color: "#5271ff",
         },
         {
         tag: mathTag,
         fontFamily: "monospace",
-        color: "rgba(180,180,182, 0.4)",
+        color: "#5271ff",
         },
     ]);
 
