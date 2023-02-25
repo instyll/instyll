@@ -35,6 +35,8 @@ class Editor extends Component {
     urlMark = Tag.define();
     hRuleMark = Tag.define();
     codeBlockMark = Tag.define();
+    inlineCodeMark = Tag.define();
+    blockCodeMark = Tag.define();
     listMark = Tag.define();
     emojiMark = Tag.define();
     
@@ -47,6 +49,8 @@ class Editor extends Component {
             URL: this.urlMark,
             HorizontalRule: this.hRuleMark,
             CodeMark: this.codeBlockMark,
+            InlineCode: this.inlineCodeMark,
+            CodeText: this.blockCodeMark,
             ListMark: this.listMark,
             Emoji: this.emojiMark,
         }) ],
@@ -94,6 +98,14 @@ class Editor extends Component {
         {
         tag: this.emojiMark,
         color: "rgba(180,180,182, 0.2)"
+        },
+        {
+        tag: this.inlineCodeMark,
+        fontFamily: "monospace",
+        },
+        {
+        tag: this.blockCodeMark,
+        fontFamily: "monospace",
         },
         { tag: 
         tags.heading1, 

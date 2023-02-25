@@ -66,8 +66,9 @@ class App extends Component {
   getWordCount() {
     var screen = document.getElementById("text");
     var textContent = screen.textContent;
+    console.log(textContent)
     var count = textContent.trim().split(/\s+/).length;
-    var charCount = textContent.length;
+    var charCount = textContent.trim().length;
     this.setState({
       delimiter: this.state.wordCount > 1 ? "words" : "word",
       charDelimiter: this.state.charCount === 1 ? "character" : "characters",
