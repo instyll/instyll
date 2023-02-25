@@ -35,7 +35,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdownSrc: "# Hello",
+      markdownSrc: "# :pencil: The perfect note-taking app.",
       size: "50%",
       wordCount: "0",
       charCount: "0",
@@ -159,10 +159,7 @@ class App extends Component {
 
             {/* table of contents*/}
 
-            <div className="tableOfContents" style={{
-              // width: this.state.tocOpen === true ? "20%" : "0%", 
-              // transition: "width 0.2s",
-            }}>
+            <div className="tableOfContents">
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
@@ -248,11 +245,6 @@ class App extends Component {
                 <ScrollSyncPane>
                 <div 
                 className="editor-pane" 
-                style={{
-                  width: "100%",
-                  transition: "transform 0.2s",
-                }} 
-                id="markdown"
                 >
                   <Editor className="editor"
                   value={this.state.markdownSrc}
