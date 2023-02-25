@@ -77,7 +77,6 @@ body {
   height: 100%;
   background-color: #1b1b1b;
   width: 100%;
-  padding-top: 20px;
 }
 
 .cm-cursor {
@@ -165,7 +164,6 @@ body {
   overflow: auto;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 20px;
   background-color: #1b1b1d;
 }
 
