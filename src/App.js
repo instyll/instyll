@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
@@ -17,12 +17,10 @@ import code from './code.png'
 import image from './image.png'
 import table from './table.png'
 import link from './link.png'
-import help from './help.png'
 import tcontents from './tcontents.png'
 import calendar from './calendar.png'
 import notionLogo from './notion.png'
 import tabplus from './tabplus.png'
-import search from "./search.png"
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -164,7 +162,7 @@ class App extends Component {
               <div className="tableInfo" style={{
                 borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
-                <div class="searchContainer">
+                <div className="searchContainer">
                   <input className="search" placeholder="Search">
                   </input>
                 </div>
@@ -193,7 +191,7 @@ class App extends Component {
                 <div className="pageInfo">
                   <span className="leftComponents">
                     <div className="infoDisplay">Characters</div>
-                    Words
+                    <div className="infoDisplay">Words</div>
                   </span>
                   <span className="rightComponents">
                     <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
@@ -207,7 +205,7 @@ class App extends Component {
                     {
                        this.constructToc().map((header, index) => (
                       <div key={index} className="outlineElement">
-                        <a href={`#${header.id}`} class="headerNav">
+                        <a href={`#${header.id}`} className="headerNav">
                           <span className="headerDelim">
                           { 
                           header.type === 'H2' ? '## ' :
