@@ -421,11 +421,6 @@ img {
   border: none;
 }
 
-.fileElemChild:focus {
-  background-color: rgba(180, 180, 182, 0.2);
-  border-radius: 2px;
-}
-
 .fileElemChild:hover {
   background-color: rgba(180, 180, 182, 0.2);
   border-radius: 2px;

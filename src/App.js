@@ -195,7 +195,7 @@ class App extends Component {
                   </span>
                   <span className="rightComponents">
                     <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
-                    <span className="precount">{this.state.wordCount}</span>/{this.state.wordCount}
+                    <div className="infoDisplay"><span className="precount">{this.state.wordCount}</span>/{this.state.wordCount} </div>
                   </span>
                 </div>
                 <br></br>
