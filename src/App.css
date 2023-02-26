@@ -299,10 +299,6 @@ img {
   word-break: break-word;
 }
 
-.pageInfo {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 
 .precount {
   /* dark mode */
@@ -464,6 +460,10 @@ img {
 }
 
 
+.pageInfo {
+  padding-bottom: 20px;
+}
+
 .headerNav {
   text-decoration: none;
   opacity: 1;
@@ -478,6 +478,7 @@ img {
 
 .infoDisplay {
   padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .outlineElement {
