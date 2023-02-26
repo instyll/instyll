@@ -288,8 +288,6 @@ img {
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
-  /* padding-bottom: 5px; */
-  /* text-align: center; */
   display: block;
   height: 100%;
   overflow-x: hidden;
@@ -297,6 +295,7 @@ img {
   word-wrap: break-all;
   overflow-wrap: break-word;
   word-break: break-word;
+  user-select: none;
 }
 
 
