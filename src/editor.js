@@ -93,7 +93,7 @@ class Editor extends Component {
         },
         {
         tag: this.listMark,
-        color: "rgba(180,180,182, 0.4)"
+        color: "rgba(180,180,182, 0.4)",
         },
         {
         tag: this.emojiMark,
