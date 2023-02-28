@@ -375,13 +375,26 @@ img {
   color: #c5c5c5;
   /* light mode */
   /* color: black; */
-  opacity: 01;
+  opacity: 1;
+  margin-top: 2px;
 }
 
 .tabPlus:hover {
   background-color: rgba(180, 180, 182, 0.2);
   border-radius: 2px;
 }
+
+.tabRightComponents {
+  float: right;
+  text-align: right;
+  padding-right: 5px;
+  vertical-align: middle;
+}
+
+/* .tabHolder {
+  display: flex;
+  align-items: center;
+} */
 
 .fileElem {
   text-align: left;
