@@ -81,7 +81,6 @@ body {
 }
 
 .cm-cursor {
-  border-left: 1px solid white;
   border-right: 1px solid white;
 }
 
@@ -172,10 +171,8 @@ body {
 
 .navHorizontal {
   float: right;
-  /* width: 80%; */
   height: 5%;
   margin-top: 5px;
-  /* padding-top: 5px; */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -184,7 +181,6 @@ body {
 }
 
 .menuBar {
-  /* height: 18px; */
   background-color: #1b1b1b;
   color: white;
   padding-top: 5px;
@@ -312,11 +308,6 @@ img {
   /* dark mode */
   color: rgba(180, 180, 182, 0.4);
   text-align: left;
-  /* text-align: center; */
-  /* padding-left: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 20px; */
   margin-bottom: 0%;
 }
 
@@ -390,11 +381,6 @@ img {
   padding-right: 5px;
   vertical-align: middle;
 }
-
-/* .tabHolder {
-  display: flex;
-  align-items: center;
-} */
 
 .fileElem {
   text-align: left;
