@@ -70,17 +70,17 @@ class Editor extends Component {
         {
         tag: 
         this.refMark,
-        color: "#5271ff",
+        color: "rgba(180,180,182, 0.4)",
         },
         {
         tag: 
         this.imgMark,
-        color: "#5271ff",
+        color: "rgba(180,180,182, 0.4)",
         },
         {
         tag:
         this.urlMark,
-        color: "#5271ff"
+        color: "rgba(180,180,182, 0.4)"
         },
         {
         tag: 
