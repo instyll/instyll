@@ -82,7 +82,7 @@ body {
 
 @media only screen and (max-height: 850px) {
   .editor-pane {
-    margin-top: 5%;
+    margin-top: 3%;
   }
 }
 
@@ -175,7 +175,7 @@ body {
 
 @media only screen and (max-height: 850px) {
   .view-pane {
-    margin-top: 5%;
+    margin-top: 3%;
   }
 }
 
