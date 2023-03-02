@@ -158,9 +158,7 @@ class App extends Component {
             {/* table of contents*/}
 
             <div className="tableOfContents">
-              <div className="tableInfo" style={{
-                borderRight: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
-              }}>
+              <div className="tableInfo">
                 <div className="searchContainer">
                   <input className="search" placeholder="Search">
                   </input>
@@ -238,6 +236,7 @@ class App extends Component {
                 transition: "width 0.1s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
+                borderLeft: this.state.tocOpen === true ? "1px solid rgba(180,180,182, 0.2)" : "none",
               }}>
 
                 <ScrollSyncPane>
