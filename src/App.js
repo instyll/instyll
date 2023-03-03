@@ -105,7 +105,7 @@ class App extends Component {
             {/* navbar */}
               
               <div className="navHorizontal" style={{
-                width: this.state.tocOpen === true ? "80%" : "100%",
+                width: this.state.tocOpen === true ? "calc(100% - 300px)" : "100%",
                 transition: "width 0.1s",
 
               }}>
