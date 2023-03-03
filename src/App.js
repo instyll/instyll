@@ -105,7 +105,7 @@ class App extends Component {
             {/* navbar */}
               
               <div className="navHorizontal" style={{
-                width: this.state.tocOpen === true ? "calc(100% - 300px)" : "100%",
+                width: this.state.tocOpen === true ? "calc(100% - 250px)" : "100%",
                 transition: "width 0.1s",
 
               }}>
@@ -232,7 +232,7 @@ class App extends Component {
                 zIndex: "999",
                 height: "95%",
                 bottom: "0",
-                width: this.state.tocOpen === true ? "calc(100% - 300px)" : "100%",
+                width: this.state.tocOpen === true ? "calc(100% - 250px)" : "100%",
                 transition: "width 0.1s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
