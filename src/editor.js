@@ -40,6 +40,8 @@ class Editor extends Component {
         content = content.replace(/\\ty/g, "thank you");
         content = content.replace(/\\pyth/g, "$a^2 + b^2 = c^2$");
         content = content.replace(/\\quad/g, "$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$");
+        content = content.replace(/\\slp/g, "$$m = \\frac{y_2 - y_2}{x_2 - x_1}$$");
+        content = content.replace(/\\bl/g, "$$$$\n\\begin{aligned}\n\\end{aligned}\n$$$$");
         this.props.onChange(content);
       }
 
