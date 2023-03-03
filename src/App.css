@@ -278,7 +278,7 @@ img {
 .tableOfContents {
   position: absolute;
   float: left;
-  width: 250px;
+  width: 230px;
   height: 99vh;
   padding-bottom: 1vh;
   /* light mode */
