@@ -25,7 +25,11 @@ class Editor extends Component {
     }
 
     updateCode(e) {
-        this.props.onChange(e);
+        const content = e.toString();
+        const today = new Date();
+        const dateString = `${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}`;
+        const updatedContent = content.replace(/\\date/g, dateString);
+        this.props.onChange(updatedContent);
     }
 
     headingMark = Tag.define();
@@ -172,6 +176,7 @@ class Editor extends Component {
         color: "#5271ff",
         },
     ]);
+
 
     render () {
         return (<CodeMirror 
