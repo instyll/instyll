@@ -187,8 +187,8 @@ class App extends Component {
                 <p className='tocTitle'>Stats</p>
                 <div className="pageInfo">
                   <span className="leftComponents">
-                    <div className="infoDisplay">Characters</div>
-                    <div className="infoDisplay">Words</div>
+                    <div className="infoDisplay"><div className="label">Characters</div></div>
+                    <div className="infoDisplay"><div className="label">Words</div></div>
                   </span>
                   <span className="rightComponents">
                     <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
@@ -232,7 +232,7 @@ class App extends Component {
                 zIndex: "999",
                 height: "95%",
                 bottom: "0",
-                width: this.state.tocOpen === true ? "80%" : "100%",
+                width: this.state.tocOpen === true ? "calc(100% - 300px)" : "100%",
                 transition: "width 0.1s",
                 marginRight: this.state.tocOpen === true ? "0" : "0", 
                 marginLeft: this.state.tocOpen === true ? "auto" : "0",
