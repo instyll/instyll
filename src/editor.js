@@ -24,13 +24,24 @@ class Editor extends Component {
         this.updateCode = this.updateCode.bind(this);
     }
 
+    // updateCode(e) {
+    //     const content = e.toString();
+    //     const today = new Date();
+    //     const dateString = `${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}`;
+    //     const updatedContent = content.replace(/\\date/g, dateString);
+    //     this.props.onChange(updatedContent);
+    // }
+
     updateCode(e) {
-        const content = e.toString();
+        let content = e.toString();
         const today = new Date();
         const dateString = `${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}`;
-        const updatedContent = content.replace(/\\date/g, dateString);
-        this.props.onChange(updatedContent);
-    }
+        content = content.replace(/\\date/g, dateString);
+        content = content.replace(/\\ty/g, "thank you");
+        content = content.replace(/\\pyth/g, "$a^2 + b^2 = c^2$");
+        content = content.replace(/\\quad/g, "$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$");
+        this.props.onChange(content);
+      }
 
     headingMark = Tag.define();
     emphasisMark = Tag.define();
