@@ -64,6 +64,7 @@ class App extends Component {
   getWordCount() {
     var screen = document.getElementById("text");
     var textContent = screen.textContent;
+    console.log(textContent);
     var count = textContent.trim().split(/\s+/).length;
     var charCount = textContent.trim().length;
     this.setState({
