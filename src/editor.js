@@ -43,6 +43,7 @@ class Editor extends Component {
         content = content.replace(/\\lin/g, "$f(x) = mx + b$");
         content = content.replace(/\\fn/g, "$f(x)$");
         content = content.replace(/\\fin/g, "$f^{-1}(x)$");
+        content = content.replace(/\\lm/g, "$\\lim\\limits_{h\\to 0}$");
         content = content.replace(/\\qf/g, "$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$");
         content = content.replace(/\\slp/g, "$$m = \\frac{y_2 - y_2}{x_2 - x_1}$$");
         content = content.replace(/\\bl/g, "$$$$\n\\begin{aligned}\n\\end{aligned}\n$$$$");
