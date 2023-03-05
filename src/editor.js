@@ -23,15 +23,7 @@ class Editor extends Component {
         super(props);
         this.updateCode = this.updateCode.bind(this);
     }
-
-    // updateCode(e) {
-    //     const content = e.toString();
-    //     const today = new Date();
-    //     const dateString = `${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}`;
-    //     const updatedContent = content.replace(/\\date/g, dateString);
-    //     this.props.onChange(updatedContent);
-    // }
-
+    
     updateCode(e) {
         let content = e.toString();
         const today = new Date();
