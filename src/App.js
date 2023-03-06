@@ -48,6 +48,8 @@ class App extends Component {
     this.handleToc = this.handleToc.bind(this);
   }
 
+  // Update view pane on each edit
+
   onMarkdownChange(md) {
       this.setState({
         markdownSrc: md,
@@ -55,11 +57,15 @@ class App extends Component {
       this.getWordCount();
   }
 
+  // Full editor view
+
   slideToRight() {
     this.setState({
       size: this.state.size !== "100%" ? "100%" : "50%",
     });
   }
+
+  // Getting document statistics
 
   getWordCount() {
     var screen = document.getElementById("text");
@@ -75,11 +81,15 @@ class App extends Component {
     })
   }
 
+  // Sidebar toggle
+
   handleToc() {
     this.setState({
       tocOpen: this.state.tocOpen === true ? false : true
     })
   }
+
+  // Get headers for sidebar outline
 
   constructToc() {
     let headers = Sizzle("h1, h2, h3, h4, h5, h6");

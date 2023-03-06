@@ -44,6 +44,8 @@ class Editor extends Component {
         this.props.onChange(content);
       }
 
+    // Defining tags for markdown highlighting
+
     headingMark = Tag.define();
     emphasisMark = Tag.define();
     refMark = Tag.define();
