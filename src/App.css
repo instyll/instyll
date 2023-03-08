@@ -1,3 +1,19 @@
+:root {
+  --bg-color: #1b1b1b;
+  --primary-text: #c5c5c5;
+  --secondary-text: rgba(180, 180, 182, 0.4);
+  --muted-text:rgba(180,180,182, 0.2);
+  --search-background: rgba(180, 180, 182, 0.1);
+}
+
+[data-theme="light"] {
+  --bg-color: #fff;
+  --primary-text: #000;
+  --secondary-text: #6b6b6d;
+  --muted-text: #999696;
+  --search-background: #f7f7f5; 
+}
+
 html,
 body {
   height: 100%;
@@ -10,7 +26,7 @@ body {
 }
 
 body {
-  background-color: #1b1b1d;
+  background-color: var(--bg-color);
 }
 
 .App {
@@ -35,7 +51,7 @@ body {
 
 .Resizer {
   border-radius: 6px;
-  background: rgba(180, 180, 182, 0.2);
+  background: var(--muted-text);
   z-index: 1;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -76,7 +92,7 @@ body {
 .editor-pane {
   overflow: auto;
   height: 100%;
-  background-color: #1b1b1b;
+  background-color: var(--bg-color);
   width: 100%;
 }
 
@@ -96,7 +112,7 @@ body {
   line-height: 1.4em;
   height: 100%;
   white-space: pre-wrap;
-  color: #c5c5c5;
+  color: var(--primary-text);
   padding-top: 0;
 }
 
@@ -111,7 +127,7 @@ body {
 .cm-editor {
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #1b1b1b;
+  background-color: var(--bg-color);
   outline: none !important;
 }
 
@@ -146,7 +162,7 @@ body {
 
 .result {
   font-family: 'SF Pro Display', sans-serif;
-  color: #c5c5c5;
+  color: var(--primary-text);
   font-size: 1.2em;
   line-height: 1.4;
   max-width: 100%;
@@ -170,7 +186,7 @@ body {
   overflow: auto;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #1b1b1d;
+  background-color: var(--bg-color);
 }
 
 @media only screen and (max-height: 850px) {
@@ -189,11 +205,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: #1b1b1b;
+  background-color: var(--bg-color);
 }
 
 .menuBar {
-  background-color: #1b1b1b;
+  background-color: var(--bg-color);
   color: white;
   padding-top: 5px;
   padding-left: 20px;
@@ -284,12 +300,12 @@ img {
   /* light mode */
   /* background-color: white;  */
   /* dark mode */
-  background-color: #1b1b1b;
+  background-color: var(--bg-color);
 }
 
 .tableInfo {
   /* dark mode */
-  color: #c5c5c5;
+  color: var(--primary-text);
   /* light mode */
   /* color: black; */
   font-family: 'SF Pro Display', sans-serif;
@@ -309,7 +325,7 @@ img {
 
 .precount {
   /* dark mode */
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
   /* light mode */
   /* color: #c1c1c1; */
 }
@@ -318,14 +334,14 @@ img {
   /* light mode */
   /* color: rgba(0, 0, 0, 0.4); */
   /* dark mode */
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
   text-align: left;
   margin-bottom: 0%;
 }
 
 .tocTitle {
   /* dark mode */
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
   /* light mode */
   /* color: #c1c1c1; */
   text-align: left;
@@ -338,7 +354,7 @@ img {
 
 .tocTitleFirst {
   /* dark mode */
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
   /* light mode */
   /* color: #c1c1c1; */
   text-align: left;
@@ -356,7 +372,7 @@ img {
   padding: 5px;
   width: 100%;
   /* dark mode */
-  color: #c5c5c5;
+  color: var(--primary-text);
   /* light mode */
   /* color: black; */
   background-color: transparent;
@@ -364,12 +380,12 @@ img {
 }
 
 .tab:focus {
-  background-color: rgba(180, 180, 182, 0.2);
+  background-color: var(--muted-text);
   border-radius: 2px;
 }
 
 .tab:hover {
-  background-color: rgba(180, 180, 182, 0.2);
+  background-color: var(--muted-text);
   border-radius: 2px;
 }
 
@@ -383,7 +399,7 @@ img {
 }
 
 .tabPlus:hover {
-  background-color: rgba(180, 180, 182, 0.2);
+  background-color: var(--muted-text);
   border-radius: 2px;
 }
 
@@ -402,7 +418,7 @@ img {
   padding: 5px;
   width: 100%;
   /* dark mode */
-  color: #c5c5c5;
+  color: var(--primary-text);
   /* light mode */
   /* color: black; */
   background-color: transparent;
@@ -410,12 +426,12 @@ img {
 }
 
 .fileElem:focus {
-  background-color: rgba(180, 180, 182, 0.2);
+  background-color: var(--muted-text);
   border-radius: 2px;
 }
 
 .fileElem:hover {
-  background-color: rgba(180, 180, 182, 0.2);
+  background-color: var(--muted-text);
   border-radius: 2px;
 }
 
@@ -434,7 +450,7 @@ img {
 }
 
 .fileElemChild:hover {
-  background-color: rgba(180, 180, 182, 0.2);
+  background-color: var(--muted-text);
   border-radius: 2px;
 }
 
@@ -443,9 +459,9 @@ img {
   box-sizing: border-box;
   outline: none;
   font-size: 1em;
-  background-color: rgba(180, 180, 182, 0.1);
+  background-color: var(--search-background);
   font-family: 'SF Pro Display', sans-serif;
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 2px;
@@ -458,7 +474,7 @@ img {
 }
 
 ::placeholder {
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
 }
 
 .searchIcon {
@@ -479,7 +495,7 @@ img {
 
 .headerDelim {
   /* color: rgba(0, 0, 0, 0.4); light mode */
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
 }
 
 .infoDisplay {
@@ -497,7 +513,7 @@ img {
 }
 
 .outlineElement:hover {
-  background-color: rgba(180, 180, 182, 0.2);
+  background-color: var(--muted-text);
   border-radius: 2px;
 }
 
@@ -531,7 +547,7 @@ p {
 }
 
 a {
-  color: rgba(180,180,182, 0.4);
+  color: var(--secondary-text);
   opacity: 0.8;
 }
 
@@ -540,7 +556,7 @@ a:hover {
 }
 
 blockquote {
-  border-left: 4px solid rgba(180, 180, 182, 0.4);
+  border-left: 4px solid var(--secondary-text);
   padding-left: 20px;
   margin-left: 0;
 }
@@ -551,14 +567,14 @@ ul {
 }
 
 li::marker {
-  color: rgba(180, 180, 182, 0.4);
+  color: var(--secondary-text);
 }
 
 hr {
   border: none;
   height: 1px;
   /* background-color: rgba(0, 0, 0, 0.2); light mode */
-  background-color: rgba(180, 180, 182, 0.4);
+  background-color: var(--secondary-text);
 }
 
 /* Highlight specific components */
