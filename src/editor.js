@@ -78,44 +78,44 @@ class Editor extends Component {
         {
         tag: 
         this.headingMark,
-        color: "rgba(180,180,182, 0.4)"
+        color: "var(--secondary-text)"
         },
         {
         tag: 
         this.emphasisMark,
-        color: "rgba(180,180,182, 0.4)"
+        color: "var(--secondary-text)"
         },
         {
         tag: 
         this.refMark,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag: 
         this.imgMark,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag:
         this.urlMark,
-        color: "rgba(180,180,182, 0.4)"
+        color: "var(--secondary-text)"
         },
         {
         tag: 
         this.hRuleMark,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag: this.codeBlockMark,
-        color: "rgba(180,180,182, 0.4)"
+        color: "var(--secondary-text)"
         },
         {
         tag: this.listMark,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag: this.emojiMark,
-        color: "rgba(180,180,182, 0.2)"
+        color: "var(--muted-text)"
         },
         {
         tag: this.inlineCodeMark,
@@ -165,19 +165,19 @@ class Editor extends Component {
         },
         {
         tag: tags.strikethrough,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag: tags.bracket,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag: tags.squareBracket,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag: tags.brace,
-        color: "rgba(180,180,182, 0.4)",
+        color: "var(--secondary-text)",
         },
         {
         tag: inlineMathTag,
