@@ -350,7 +350,8 @@ img {
   /* background-color: white;  */
   /* dark mode */
   background-color: var(--elevated-bg);
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .tableInfo {
