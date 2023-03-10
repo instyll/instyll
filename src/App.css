@@ -343,13 +343,10 @@ img {
   position: absolute;
   float: left;
   width: 270px;
-  height: 94vh;
-  padding-bottom: 1vh;
+  height: 100%;
   bottom: 0;
-  /* light mode */
-  /* background-color: white;  */
-  /* dark mode */
   background-color: var(--elevated-bg);
+  border-top: 1px solid var(--muted-text);
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 }
@@ -412,7 +409,7 @@ img {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
-  padding-top: 5px;
+  padding-top: 20px;
   margin-bottom: 0;
 }
 
