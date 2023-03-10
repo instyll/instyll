@@ -1,16 +1,21 @@
 :root {
-  /* --bg-color: #1b1b1b;
+  --bg-color: #1b1b1b;
   --primary-text: #c5c5c5;
   --secondary-text: rgba(180, 180, 182, 0.4);
   --muted-text:rgba(180,180,182, 0.2);
-  --search-background: rgba(180, 180, 182, 0.1); */
-  --bg-color: #fff;
+  --search-background: rgba(180, 180, 182, 0.1); 
+  --elevated-bg: #262626;
+  --icon-filter: none;
+  --base: #262626;
+ 
+  /* --bg-color: #fff;
   --primary-text: rgb(41, 37, 36);
   --secondary-text: #8a8a8e;
   --muted-text: #e4e4e4;
   --search-background: #f7f7f5;
   --base: #fdfcfa;
   --elevated-bg: #f9fafb;
+  --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg); */
 }
 
 [data-theme="light"] {
@@ -60,7 +65,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--bg-color);
   box-sizing: border-box;
   height: 95vh;
   width: calc(100% - 20px);
@@ -261,7 +266,7 @@ img {
 }
 
 .icon {
-  filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
+  filter: var(--icon-filter);
   padding-left: 2px;
   padding-right: 2px;
 }
