@@ -6,7 +6,7 @@ import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 import './App.css';
 import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
 
 // Assets
@@ -42,7 +42,7 @@ class App extends Component {
       fileName: "README.md",
       tocOpen: true,
     }
-    
+
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     this.slideToRight = this.slideToRight.bind(this);
     this.handleToc = this.handleToc.bind(this);
@@ -51,10 +51,10 @@ class App extends Component {
   // Update view pane on each edit
 
   onMarkdownChange(md) {
-      this.setState({
-        markdownSrc: md,
-      });
-      this.getWordCount();
+    this.setState({
+      markdownSrc: md,
+    });
+    this.getWordCount();
   }
 
   // Full editor view
@@ -93,11 +93,11 @@ class App extends Component {
 
   constructToc() {
     let headers = Sizzle("h1, h2, h3, h4, h5, h6");
-    let toc = []; 
+    let toc = [];
     headers.forEach(header => {
       let id = header.id || uuid();
       header.id = id;
-      toc.push({ text: header.textContent, id: id, type: header.tagName});
+      toc.push({ text: header.textContent, id: id, type: header.tagName });
     });
     return toc;
   }
@@ -111,69 +111,64 @@ class App extends Component {
     return (
       <div className="App">
 
-          <div className='container'>
+        <div className='container'>
 
-            {/* navbar */}
-              
-              <div className="navHorizontal" style={{
-                width: this.state.tocOpen === true ? "calc(100% - 250px)" : "100%",
-                transition: "width 0.1s",
+          {/* navbar */}
 
-              }}>
-                  <div className="menuBar">
-                      <div className="menuIcon" 
-                      onClick={this.handleToc}>
-                          <img src={tcontents} className="icon" draggable={false}/>
-                          <span className="tooltip">Outline</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={add} className="icon" draggable={false}/>
-                          <span className="tooltip">Add Component</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={image} className="icon" draggable={false}/>
-                          <span className="tooltip">Insert Image</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={code} className="icon" draggable={false}/>
-                          <span className="tooltip">Insert Code Block</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={calendar} className="icon" draggable={false}/>
-                          <span className="tooltip">Add Component</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={table} className="icon" draggable={false}/>
-                          <span className="tooltip">Insert Table</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={link} className="icon" draggable={false}/>
-                          <span className="tooltip">Insert Link</span>
-                      </div>
-                      <div className="menuIcon">
-                          <img src={notionLogo} className="icon" draggable={false}/>
-                          <span className="tooltip">Add Component</span>
-                      </div>  
+          <div className="navHorizontal">
 
-                      <span className="rightComponents">  
-                        <div className="menuIcon">
-                            <img src={palette} className="icon" draggable={false}/>
-                        </div>
-                        <div className="menuIcon">
-                            <img src={settings} className="icon" draggable={false}/>
-                        </div>       
-                      </span>
+            <div className="menuBar">
+              <div className="menuIcon"
+                onClick={this.handleToc}>
+                <img src={tcontents} className="icon" draggable={false} />
+                <span className="tooltip">Outline</span>
               </div>
+              <div className="menuIcon">
+                <img src={add} className="icon" draggable={false} />
+                <span className="tooltip">Add Component</span>
+              </div>
+              <div className="menuIcon">
+                <img src={image} className="icon" draggable={false} />
+                <span className="tooltip">Insert Image</span>
+              </div>
+              <div className="menuIcon">
+                <img src={code} className="icon" draggable={false} />
+                <span className="tooltip">Insert Code Block</span>
+              </div>
+              <div className="menuIcon">
+                <img src={calendar} className="icon" draggable={false} />
+                <span className="tooltip">Add Component</span>
+              </div>
+              <div className="menuIcon">
+                <img src={table} className="icon" draggable={false} />
+                <span className="tooltip">Insert Table</span>
+              </div>
+              <div className="menuIcon">
+                <img src={link} className="icon" draggable={false} />
+                <span className="tooltip">Insert Link</span>
+              </div>
+              <div className="menuIcon">
+                <img src={notionLogo} className="icon" draggable={false} />
+                <span className="tooltip">Add Component</span>
+              </div>
+
+              <span className="rightComponents">
+                <div className="menuIcon">
+                  <img src={palette} className="icon" draggable={false} />
+                </div>
+                <div className="menuIcon">
+                  <img src={settings} className="icon" draggable={false} />
+                </div>
+              </span>
             </div>
+          </div>
+
+          <div className="elevated">
 
             {/* table of contents*/}
 
             <div className="tableOfContents">
               <div className="tableInfo">
-                <div className="searchContainer">
-                  <input className="search" placeholder="Search">
-                  </input>
-                </div>
                 <p className="tocTitleFirst">Files</p>
                 <div className="fileSys">
                   <button className="fileElem">Folder 1</button>
@@ -186,13 +181,13 @@ class App extends Component {
                 <p className='tocTitle'>Tabs</p>
                 <div className="tocLabel">
                   <div className="tabHolder">
-                  <button className="tab">README.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                    <button className="tab">README.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                   </div>
                   <div className="tabHolder">
-                  <button className="tab">markdown.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                    <button className="tab">markdown.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                   </div>
                   <div className="tabHolder">
-                  <button className="tab">note.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                    <button className="tab">note.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                   </div>
                 </div>
                 <p className='tocTitle'>Stats</p>
@@ -209,24 +204,24 @@ class App extends Component {
                 <br></br>
                 <br></br>
                 <p className='tocTitle'>Outline</p>
-                <div>                
-                    {
-                       this.constructToc().map((header, index) => (
+                <div>
+                  {
+                    this.constructToc().map((header, index) => (
                       <div key={index} className="outlineElement">
                         <a href={`#${header.id}`} className="headerNav">
                           <span className="headerDelim">
-                          { 
-                          header.type === 'H2' ? '## ' :
-                          header.type === 'H3' ? '### ' :
-                          header.type === 'H4' ? '#### ' :
-                          header.type === 'H5' ? '##### ' :
-                          header.type === 'H6' ? '###### ' : '# '}
+                            {
+                              header.type === 'H2' ? '## ' :
+                                header.type === 'H3' ? '### ' :
+                                  header.type === 'H4' ? '#### ' :
+                                    header.type === 'H5' ? '##### ' :
+                                      header.type === 'H6' ? '###### ' : '# '}
                           </span>
                           {header.text}
                         </a>
                       </div>
                     ))}
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -234,52 +229,55 @@ class App extends Component {
 
             <ScrollSync>
 
-              <SplitPane 
-              split={this.state.split} 
-              defaultSize={this.state.size} 
-              id="mainView"
-              style={{
-                position: "absolute",
-                zIndex: "999",
-                height: "95%",
-                bottom: "0",
-                width: this.state.tocOpen === true ? "calc(100% - 250px)" : "100%",
-                transition: "width 0.1s",
-                marginRight: this.state.tocOpen === true ? "0" : "0", 
-                marginLeft: this.state.tocOpen === true ? "auto" : "0",
-                borderLeft: this.state.tocOpen === true ? "1px solid var(--muted-text)" : "none",
-              }}>
+              <SplitPane
+                split={this.state.split}
+                defaultSize={this.state.size}
+                id="mainView"
+                style={{
+                  position: "absolute",
+                  zIndex: "999",
+                  height: "98%",
+                  bottom: "0",
+                  width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+                  transition: "width 0.1s",
+                  marginRight: this.state.tocOpen === true ? "0" : "0",
+                  marginLeft: this.state.tocOpen === true ? "auto" : "0",
+                  // borderLeft: this.state.tocOpen === true ? "1px solid var(--muted-text)" : "none",
+                  borderRadius: "10px",
+                }}>
 
                 <ScrollSyncPane>
-                <div 
-                className="editor-pane" 
-                >
-                  <Editor className="editor"
-                  value={this.state.markdownSrc}
-                  onChange={this.onMarkdownChange}
-                  />
-                </div>
+                  <div
+                    className="editor-pane"
+                  >
+                    <Editor className="editor"
+                      value={this.state.markdownSrc}
+                      onChange={this.onMarkdownChange}
+                    />
+                  </div>
                 </ScrollSyncPane>
 
 
                 <ScrollSyncPane>
-                <div className="view-pane">
-                  <div className="preview" id="text">
-                    <ReactMarkdown className="result"
-                    children={this.state.markdownSrc}
-                    remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]} 
-                    rehypePlugins={[rehypeMathjax]}/>
+                  <div className="view-pane">
+                    <div className="preview" id="text">
+                      <ReactMarkdown className="result"
+                        children={this.state.markdownSrc}
+                        remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
+                        rehypePlugins={[rehypeMathjax]} />
+                    </div>
                   </div>
-                </div> 
                 </ScrollSyncPane>
 
               </SplitPane>
 
             </ScrollSync>
 
-            </div>
           </div>
-    ); 
+        </div>
+
+      </div>
+    );
   }
 }
 
