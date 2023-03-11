@@ -1,21 +1,21 @@
 :root {
-  --bg-color: #1b1b1b;
+  /* --bg-color: #1b1b1b;
   --primary-text: #c5c5c5;
   --secondary-text: rgba(180, 180, 182, 0.4);
   --muted-text:rgba(180,180,182, 0.2);
   --search-background: rgba(180, 180, 182, 0.1); 
   --elevated-bg: #262626;
   --icon-filter: none;
-  --base: #262626;
+  --base: #262626; */
  
-  /* --bg-color: #fff;
+  --bg-color: #fff;
   --primary-text: rgb(41, 37, 36);
   --secondary-text: #8a8a8e;
   --muted-text: #e4e4e4;
   --search-background: #f7f7f5;
   --base: #fdfcfa;
   --elevated-bg: #f9fafb;
-  --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg); */
+  --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
 }
 
 [data-theme="light"] {
@@ -71,9 +71,14 @@ body {
   width: calc(100% - 20px);
   margin: 0 auto;
   border-radius: 10px;
-  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
-  box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0);
   border: 1px solid var(--muted-text);
+}
+
+@media only screen and (max-height: 900px) {
+  .elevated {
+    height: 94vh;
+    padding-bottom: 1vh;
+  }
 }
 
 .Resizer {
@@ -121,6 +126,7 @@ body {
   height: 100%;
   background-color: var(--bg-color);
   width: 100%;
+  padding-top: 20px;
 }
 
 @media only screen and (max-height: 850px) {
@@ -214,6 +220,7 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   background-color: var(--bg-color);
+  padding-top: 20px;
 }
 
 @media only screen and (max-height: 850px) {

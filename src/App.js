@@ -236,7 +236,7 @@ class App extends Component {
                 style={{
                   position: "absolute",
                   zIndex: "999",
-                  height: "98%",
+                  height: "100%",
                   bottom: "0",
                   width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
                   transition: "width 0.1s",
