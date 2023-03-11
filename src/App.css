@@ -7,7 +7,7 @@
   --elevated-bg: #262626;
   --icon-filter: none;
   --base: #262626; */
- 
+
   --bg-color: #fff;
   --primary-text: rgb(41, 37, 36);
   --secondary-text: #8a8a8e;
@@ -251,9 +251,10 @@ body {
   padding-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  /* padding-bottom: 5%; */
+  box-sizing: border-box;
   margin-bottom: 5px;
   z-index: 9999;
+  height: 32px;
 }
 
 .menuBar .menuIcon {
@@ -284,8 +285,14 @@ img {
   filter: invert(22%) sepia(0%) saturate(0%) hue-rotate(19deg) brightness(98%) contrast(90%);
 }
 
+.searchContainer {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
 .search {
-  width: 190px;
+  width: 250px;
+  height: 24px;
   box-sizing: border-box;
   outline: none;
   font-size: 1em;
@@ -298,9 +305,15 @@ img {
   padding-bottom: 2px;
   border-radius: 2px;
   border: none;
-  margin-bottom: 20px;
-  margin-top: 5px;
   text-align: left;
+  position: absolute;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-left: 2px;
+}
+
+.search .icon {
+  display: inline-block;
 }
 
 .rightComponents {
@@ -452,17 +465,10 @@ img {
 }
 
 .tabPlus {
-  /* dark mode */
   color: #c5c5c5;
-  /* light mode */
-  /* color: black; */
   opacity: 1;
   margin-top: 2px;
-}
-
-.tabPlus:hover {
-  background-color: var(--muted-text);
-  border-radius: 2px;
+  filter: var(--icon-filter);
 }
 
 .tabRightComponents {
@@ -616,8 +622,7 @@ li::marker {
 hr {
   border: none;
   height: 1px;
-  /* background-color: rgba(0, 0, 0, 0.2); light mode */
-  background-color: var(--secondary-text);
+  background-color: var(--muted-text);
 }
 
 /* Highlight specific components */

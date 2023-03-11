@@ -137,7 +137,7 @@ class App extends Component {
               </div>
               <div className="menuIcon">
                 <img src={calendar} className="icon" draggable={false} />
-                <span className="tooltip">Add Component</span>
+                <span className="tooltip">Daily Note</span>
               </div>
               <div className="menuIcon">
                 <img src={table} className="icon" draggable={false} />
@@ -149,8 +149,12 @@ class App extends Component {
               </div>
               <div className="menuIcon">
                 <img src={notionLogo} className="icon" draggable={false} />
-                <span className="tooltip">Add Component</span>
+                <span className="tooltip">Write To Notion</span>
               </div>
+
+                <input className="search" placeholder="Search">
+                </input>
+
 
               <span className="rightComponents">
                 <div className="menuIcon">
