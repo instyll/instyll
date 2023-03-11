@@ -127,6 +127,7 @@ body {
   background-color: var(--bg-color);
   width: 100%;
   padding-top: 20px;
+  box-sizing: border-box;
 }
 
 /* @media only screen and (max-height: 850px) {
@@ -135,9 +136,10 @@ body {
   }
 } */
 
-/* .cm-cursor {
-  border-right: 1px solid var(--primary-text);
-} */
+.cm-cursor {
+  /* border-right: 1px solid var(--primary-text); */
+  background-color: var(--primary-text);
+}
 
 .cm-content {
   font-size: 1.2em;
@@ -327,7 +329,7 @@ img {
   z-index: 999;
   top: 100%;
   font-size: 0.7em;
-  margin-left: -55px;
+  margin-left: -56px;
   opacity: 0;
   font-family: 'SF Pro Display', sans-serif;
 }
