@@ -126,13 +126,14 @@ body {
   height: 100%;
   background-color: var(--bg-color);
   width: 100%;
+  padding-top: 20px;
 }
 
-@media only screen and (max-height: 850px) {
+/* @media only screen and (max-height: 850px) {
   .editor-pane {
     margin-top: 3%;
   }
-}
+} */
 
 /* .cm-cursor {
   border-right: 1px solid var(--primary-text);
@@ -157,7 +158,6 @@ body {
 }
 
 .cm-editor {
-  margin-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: var(--bg-color);
@@ -220,14 +220,14 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   background-color: var(--bg-color);
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
-@media only screen and (max-height: 850px) {
+/* @media only screen and (max-height: 850px) {
   .view-pane {
     margin-top: 3%;
   }
-}
+} */
 
 /* menubar */
 
