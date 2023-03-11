@@ -147,13 +147,13 @@ class App extends Component {
                 <img src={link} className="icon" draggable={false} />
                 <span className="tooltip">Insert Link</span>
               </div>
-              <div className="menuIcon">
+              <input className="search" placeholder="Search">
+                </input>
+              {/* <div className="menuIcon">
                 <img src={notionLogo} className="icon" draggable={false} />
                 <span className="tooltip">Write To Notion</span>
-              </div>
+              </div> */}
 
-                <input className="search" placeholder="Search">
-                </input>
 
 
               <span className="rightComponents">

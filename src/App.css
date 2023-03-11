@@ -12,7 +12,7 @@
   --primary-text: rgb(41, 37, 36);
   --secondary-text: #8a8a8e;
   --muted-text: #e4e4e4;
-  --search-background: #f7f7f5;
+  --search-background: #f7f7f7;
   --base: #fdfcfa;
   --elevated-bg: #f9fafb;
   --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
@@ -291,7 +291,7 @@ img {
 }
 
 .search {
-  width: 250px;
+  width: calc(100% -  286px);
   height: 24px;
   box-sizing: border-box;
   outline: none;
@@ -303,7 +303,7 @@ img {
   padding-right: 5px;
   padding-top: 2px;
   padding-bottom: 2px;
-  border-radius: 2px;
+  border-radius: 10px;
   border: none;
   text-align: left;
   position: absolute;
@@ -312,8 +312,12 @@ img {
   margin-left: 2px;
 }
 
-.search .icon {
+.search .menuIcon {
   display: inline-block;
+}
+
+.afterSearch {
+  margin-left: 252px;
 }
 
 .rightComponents {
