@@ -126,7 +126,6 @@ body {
   height: 100%;
   background-color: var(--bg-color);
   width: 100%;
-  padding-top: 20px;
 }
 
 @media only screen and (max-height: 850px) {
@@ -158,6 +157,7 @@ body {
 }
 
 .cm-editor {
+  margin-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: var(--bg-color);
@@ -220,7 +220,7 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   background-color: var(--bg-color);
-  padding-top: 20px;
+  margin-top: 20px;
 }
 
 @media only screen and (max-height: 850px) {
