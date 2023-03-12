@@ -20,10 +20,24 @@
 
 [data-theme="light"] {
   --bg-color: #fff;
-  --primary-text: #000;
-  --secondary-text: #6b6b6d;
-  --muted-text: #dcdcdd;
-  --search-background: #f7f7f5;
+  --primary-text: rgb(41, 37, 36);
+  --secondary-text: #8a8a8e;
+  --muted-text: #e4e4e4;
+  --search-background: #f7f7f7;
+  --base: #fdfcfa;
+  --elevated-bg: #f9fafb;
+  --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
+}
+
+[data-theme="dark"] {
+  --bg-color: #1b1b1b;
+  --primary-text: #c5c5c5;
+  --secondary-text: rgba(180, 180, 182, 0.4);
+  --muted-text:rgba(180,180,182, 0.2);
+  --search-background: rgba(180, 180, 182, 0.1); 
+  --elevated-bg: #262626;
+  --icon-filter: none;
+  --base: #262626;
 }
 
 html,
@@ -91,7 +105,7 @@ body {
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
   background-clip: padding-box;
-  transition: 0.5s;
+  /* transition: 0.5s; */
 }
 
 .Resizer.horizontal {

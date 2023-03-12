@@ -41,11 +41,13 @@ class App extends Component {
       charDelimiter: "characters",
       fileName: "README.md",
       tocOpen: true,
+      isDark: true,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     this.slideToRight = this.slideToRight.bind(this);
     this.handleToc = this.handleToc.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
   }
 
   // Update view pane on each edit
@@ -100,6 +102,28 @@ class App extends Component {
       toc.push({ text: header.textContent, id: id, type: header.tagName });
     });
     return toc;
+  }
+
+  // dark / light mode 
+
+  handleTheme() {
+    const html = document.querySelector("html");
+    var theme = "";
+    if (this.state.isDark === true) {
+      theme = "dark";
+    }
+    else if (this.state.isDark === false) {
+      theme = "light";
+    }
+    console.log(theme);
+    html.setAttribute("data-theme", theme);
+  }
+  
+  toggleTheme() {
+    this.setState({
+      isDark: !this.state.isDark, 
+    });
+    this.handleTheme();
   }
 
   componentDidMount() {
@@ -157,7 +181,8 @@ class App extends Component {
 
 
               <span className="rightComponents">
-                <div className="menuIcon">
+                <div className="menuIcon"
+                onClick={this.toggleTheme}>
                   <img src={palette} className="icon" draggable={false} />
                 </div>
                 <div className="menuIcon">
