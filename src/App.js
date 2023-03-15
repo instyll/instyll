@@ -275,6 +275,7 @@ class App extends Component {
               borderRadius: "10px",
             }}
   id="mainView"
+  snap={true}
 >
   <div className="editor-pane" allotment="editor">
     <Editor
