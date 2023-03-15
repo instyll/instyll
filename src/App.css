@@ -127,11 +127,12 @@ body {
 }
 
 .cm-editor .cm-line {
-  padding: 0;
+  padding-left: 1px;
+  padding-right: 1px;
 }
 
 .cm-cursor {
-  border-left: 1px solid var(--primary-text);
+  z-index: 999;
 }
 
 .cm-editor {
@@ -176,6 +177,8 @@ body {
   font-size: 1.2em;
   line-height: 1.4;
   max-width: 100%;
+  padding-left: 1px;
+  padding-right: 1px;
 }
 
 .result mjx-container {

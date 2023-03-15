@@ -68,7 +68,7 @@ class Editor extends Component {
             HorizontalRule: this.hRuleMark,
             CodeMark: this.codeBlockMark,
             InlineCode: this.inlineCodeMark,
-            CodeText: this.blockCodeMark,
+            CodeBlock: this.blockCodeMark,
             ListMark: this.listMark,
             Emoji: this.emojiMark,
         }) ],
