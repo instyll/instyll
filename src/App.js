@@ -119,10 +119,10 @@ class App extends Component {
     console.log(theme);
     html.setAttribute("data-theme", theme);
   }
-  
+
   toggleTheme() {
     this.setState({
-      isDark: !this.state.isDark, 
+      isDark: !this.state.isDark,
     });
     this.handleTheme();
   }
@@ -173,7 +173,7 @@ class App extends Component {
                 <span className="tooltip">Insert Link</span>
               </div>
               <input className="search" placeholder="Search">
-                </input>
+              </input>
               {/* <div className="menuIcon">
                 <img src={notionLogo} className="icon" draggable={false} />
                 <span className="tooltip">Write To Notion</span>
@@ -183,7 +183,7 @@ class App extends Component {
 
               <span className="rightComponents">
                 <div className="menuIcon"
-                onClick={this.toggleTheme}>
+                  onClick={this.toggleTheme}>
                   <img src={palette} className="icon" draggable={false} />
                 </div>
                 <div className="menuIcon">
@@ -259,45 +259,45 @@ class App extends Component {
 
             {/* <ScrollSync> */}
 
-<div className="allotment-container"   style={{
-    position: "absolute",
-    zIndex: "998",
-    height: "100%",
-    bottom: "0",
-    width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-    // transition: "width 0s",
-    marginRight: this.state.tocOpen === true ? "0" : "0",
-    marginLeft: this.state.tocOpen === true ? "270px" : "0",
-    borderRadius: "10px",
-  }}>
-            <Allotment
-            style={{
+            <div className="allotment-container" style={{
+              position: "absolute",
+              zIndex: "998",
+              height: "100%",
+              bottom: "0",
+              width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+              // transition: "width 0s",
+              marginRight: this.state.tocOpen === true ? "0" : "0",
+              marginLeft: this.state.tocOpen === true ? "270px" : "0",
               borderRadius: "10px",
-            }}
-  id="mainView"
-  snap={true}
-  vertical={false}
->
-  <div className="editor-pane" allotment="editor">
-    <Editor
-      className="editor"
-      value={this.state.markdownSrc}
-      onChange={this.onMarkdownChange}
-    />
-  </div>
-  <div className="view-pane" allotment="preview">
-    <div className="preview" id="text">
-      <ReactMarkdown
-        className="result"
-        children={this.state.markdownSrc}
-        remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
-        rehypePlugins={[rehypeMathjax]}
-      />
-    </div>
-  </div>
-</Allotment>
+            }}>
+              <Allotment
+                style={{
+                  borderRadius: "10px",
+                }}
+                id="mainView"
+                snap={true}
+                vertical={false}
+              >
+                <div className="editor-pane" allotment="editor">
+                  <Editor
+                    className="editor"
+                    value={this.state.markdownSrc}
+                    onChange={this.onMarkdownChange}
+                  />
+                </div>
+                <div className="view-pane" allotment="preview">
+                  <div className="preview" id="text">
+                    <ReactMarkdown
+                      className="result"
+                      children={this.state.markdownSrc}
+                      remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
+                      rehypePlugins={[rehypeMathjax]}
+                    />
+                  </div>
+                </div>
+              </Allotment>
 
-</div>
+            </div>
 
             {/* </ScrollSync> */}
 
