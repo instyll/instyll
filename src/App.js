@@ -265,12 +265,15 @@ class App extends Component {
     height: "100%",
     bottom: "0",
     width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-    transition: "transform 0.1s",
+    // transition: "width 0s",
     marginRight: this.state.tocOpen === true ? "0" : "0",
     marginLeft: this.state.tocOpen === true ? "270px" : "0",
     borderRadius: "10px",
   }}>
             <Allotment
+            style={{
+              borderRadius: "10px",
+            }}
   id="mainView"
 >
   <div className="editor-pane" allotment="editor">

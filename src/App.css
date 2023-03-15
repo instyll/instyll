@@ -8,6 +8,7 @@
   --icon-filter: none;
   --base: #262626;
   --code: #3a3a3a;
+  --separator-border: rgba(180, 180, 182, 0.2);
 
   /* --bg-color: #fff;
   --primary-text: rgb(41, 37, 36);
@@ -29,6 +30,7 @@
   --elevated-bg: #f9fafb;
   --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
   --code: #e4e4e4;
+  --separator-border: #e4e4e4;
 }
 
 [data-theme="dark"] {
@@ -41,6 +43,7 @@
   --icon-filter: none;
   --base: #262626;
   --code: #3a3a3a;
+  --separator-border: rgba(180, 180, 182, 0.2);
 }
 
 html,
@@ -98,45 +101,6 @@ body {
   }
 }
 
-.Resizer {
-  border-radius: 6px;
-  background: var(--muted-text);
-  z-index: 1;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding;
-  background-clip: padding-box;
-  /* transition: 0.5s; */
-}
-
-.Resizer.horizontal {
-  height: 11px;
-  margin: -5px 0;
-  border-top: 5px solid rgba(255, 255, 255, 0);
-  border-bottom: 5px solid rgba(255, 255, 255, 0);
-  cursor: row-resize;
-  width: 100%;
-
-}
-
-.Resizer.vertical {
-  width: 11px;
-  margin: 0 -5px;
-  border-left: 5px solid rgba(255, 255, 255, 0);
-  border-right: 5px solid rgba(255, 255, 255, 0);
-  cursor: col-resize;
-}
-
-.Resizer.disabled {
-  cursor: not-allowed;
-}
-
-.Resizer.disabled:hover {
-  border-color: transparent;
-}
-
 /* CM Editor */
 .editor-pane {
   overflow: auto;
@@ -145,7 +109,8 @@ body {
   width: 100%;
   padding-top: 20px;
   box-sizing: border-box;
-
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .cm-content {
@@ -234,7 +199,9 @@ body {
   padding-right: 20px;
   background-color: var(--bg-color);
   padding-top: 20px;
-
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  box-sizing: border-box;
 }
 
 /* menubar */
