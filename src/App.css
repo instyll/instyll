@@ -109,8 +109,7 @@ body {
   width: 100%;
   padding-top: 20px;
   box-sizing: border-box;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
 }
 
 .cm-content {
@@ -199,8 +198,7 @@ body {
   padding-right: 20px;
   background-color: var(--bg-color);
   padding-top: 20px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+border-radius: 10px;
   box-sizing: border-box;
 }
 

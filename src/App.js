@@ -276,6 +276,7 @@ class App extends Component {
             }}
   id="mainView"
   snap={true}
+  vertical={false}
 >
   <div className="editor-pane" allotment="editor">
     <Editor
