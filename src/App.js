@@ -72,7 +72,6 @@ class App extends Component {
   getWordCount() {
     var screen = document.getElementById("text");
     var textContent = screen.textContent;
-    console.log(textContent);
     var count = textContent.trim().split(/\s+/).length;
     var charCount = textContent.trim().length;
     this.setState({
@@ -256,7 +255,7 @@ class App extends Component {
 
             {/* main editor view */}
 
-            <ScrollSync>
+            {/* <ScrollSync> */}
 
               <SplitPane
                 split={this.state.split}
@@ -271,11 +270,10 @@ class App extends Component {
                   transition: "width 0.1s",
                   marginRight: this.state.tocOpen === true ? "0" : "0",
                   marginLeft: this.state.tocOpen === true ? "auto" : "0",
-                  // borderLeft: this.state.tocOpen === true ? "1px solid var(--muted-text)" : "none",
                   borderRadius: "10px",
                 }}>
 
-                <ScrollSyncPane>
+                {/* <ScrollSyncPane> */}
                   <div
                     className="editor-pane"
                   >
@@ -284,10 +282,10 @@ class App extends Component {
                       onChange={this.onMarkdownChange}
                     />
                   </div>
-                </ScrollSyncPane>
+                {/* </ScrollSyncPane> */}
 
 
-                <ScrollSyncPane>
+                {/* <ScrollSyncPane> */}
                   <div className="view-pane">
                     <div className="preview" id="text">
                       <ReactMarkdown className="result"
@@ -296,11 +294,11 @@ class App extends Component {
                         rehypePlugins={[rehypeMathjax]} />
                     </div>
                   </div>
-                </ScrollSyncPane>
+                {/* </ScrollSyncPane> */}
 
               </SplitPane>
 
-            </ScrollSync>
+            {/* </ScrollSync> */}
 
           </div>
         </div>

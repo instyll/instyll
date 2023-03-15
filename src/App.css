@@ -145,17 +145,7 @@ body {
   width: 100%;
   padding-top: 20px;
   box-sizing: border-box;
-}
 
-/* @media only screen and (max-height: 850px) {
-  .editor-pane {
-    margin-top: 3%;
-  }
-} */
-
-.cm-cursor {
-  /* border-right: 1px solid var(--primary-text); */
-  background-color: var(--primary-text);
 }
 
 .cm-content {
@@ -174,6 +164,10 @@ body {
 
 .cm-editor .cm-line {
   padding: 0;
+}
+
+.cm-cursor {
+  border-right: 1px solid var(--primary-text);
 }
 
 .cm-editor {
@@ -240,13 +234,8 @@ body {
   padding-right: 20px;
   background-color: var(--bg-color);
   padding-top: 20px;
-}
 
-/* @media only screen and (max-height: 850px) {
-  .view-pane {
-    margin-top: 3%;
-  }
-} */
+}
 
 /* menubar */
 
