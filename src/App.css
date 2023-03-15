@@ -2,8 +2,8 @@
   --bg-color: #1b1b1b;
   --primary-text: #c5c5c5;
   --secondary-text: rgba(180, 180, 182, 0.4);
-  --muted-text:rgba(180,180,182, 0.2);
-  --search-background: rgba(180, 180, 182, 0.1); 
+  --muted-text: rgba(180, 180, 182, 0.2);
+  --search-background: rgba(180, 180, 182, 0.1);
   --elevated-bg: #262626;
   --icon-filter: none;
   --base: #262626;
@@ -35,8 +35,8 @@
   --bg-color: #1b1b1b;
   --primary-text: #c5c5c5;
   --secondary-text: rgba(180, 180, 182, 0.4);
-  --muted-text:rgba(180,180,182, 0.2);
-  --search-background: rgba(180, 180, 182, 0.1); 
+  --muted-text: rgba(180, 180, 182, 0.2);
+  --search-background: rgba(180, 180, 182, 0.1);
   --elevated-bg: #262626;
   --icon-filter: none;
   --base: #262626;
@@ -167,7 +167,7 @@ body {
 }
 
 .cm-cursor {
-  border-right: 1px solid var(--primary-text);
+  border-left: 1px solid var(--primary-text);
 }
 
 .cm-editor {
@@ -297,7 +297,7 @@ img {
 }
 
 .search {
-  width: calc(100% -  284px);
+  width: calc(100% - 284px);
   height: 24px;
   box-sizing: border-box;
   outline: none;
@@ -645,11 +645,12 @@ code {
   font-size: 0.7em;
   border-radius: 2px;
 }
-  
+
 code {
-  white-space: pre-wrap; /* This property ensures that the code is displayed with line breaks */
+  white-space: pre-wrap;
+  /* This property ensures that the code is displayed with line breaks */
 }
-  
+
 pre {
   box-sizing: border-box;
   width: 100%;
@@ -657,7 +658,8 @@ pre {
   padding: 10px;
   font-size: 0.9em;
   border-radius: 2px;
-  overflow-x: auto; /* This property ensures that the code block is horizontally scrollable if necessary */
+  overflow-x: auto;
+  /* This property ensures that the code block is horizontally scrollable if necessary */
 }
 
 table,

@@ -8,6 +8,8 @@ import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
 import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
+import { Allotment } from "allotment";
+import "allotment/dist/style.css";
 
 // Assets
 import add from './add_component.png'
@@ -257,46 +259,40 @@ class App extends Component {
 
             {/* <ScrollSync> */}
 
-              <SplitPane
-                split={this.state.split}
-                defaultSize={this.state.size}
-                id="mainView"
-                style={{
-                  position: "absolute",
-                  zIndex: "998",
-                  height: "100%",
-                  bottom: "0",
-                  width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-                  transition: "width 0.1s",
-                  marginRight: this.state.tocOpen === true ? "0" : "0",
-                  marginLeft: this.state.tocOpen === true ? "auto" : "0",
-                  borderRadius: "10px",
-                }}>
-
-                {/* <ScrollSyncPane> */}
-                  <div
-                    className="editor-pane"
-                  >
-                    <Editor className="editor"
-                      value={this.state.markdownSrc}
-                      onChange={this.onMarkdownChange}
-                    />
-                  </div>
-                {/* </ScrollSyncPane> */}
-
-
-                {/* <ScrollSyncPane> */}
-                  <div className="view-pane">
-                    <div className="preview" id="text">
-                      <ReactMarkdown className="result"
-                        children={this.state.markdownSrc}
-                        remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
-                        rehypePlugins={[rehypeMathjax]} />
-                    </div>
-                  </div>
-                {/* </ScrollSyncPane> */}
-
-              </SplitPane>
+<div>
+            <Allotment
+  id="mainView"
+  style={{
+    position: "absolute",
+    zIndex: "998",
+    height: "100%",
+    bottom: "0",
+    width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+    transition: "width 0.1s",
+    marginRight: this.state.tocOpen === true ? "0" : "0",
+    marginLeft: this.state.tocOpen === true ? "auto" : "0",
+    borderRadius: "10px",
+  }}
+>
+  <div className="editor-pane" allotment="editor">
+    <Editor
+      className="editor"
+      value={this.state.markdownSrc}
+      onChange={this.onMarkdownChange}
+    />
+  </div>
+  <div className="view-pane" allotment="preview">
+    <div className="preview" id="text">
+      <ReactMarkdown
+        className="result"
+        children={this.state.markdownSrc}
+        remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
+        rehypePlugins={[rehypeMathjax]}
+      />
+    </div>
+  </div>
+</Allotment>
+</div>
 
             {/* </ScrollSync> */}
 
