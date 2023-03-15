@@ -259,20 +259,19 @@ class App extends Component {
 
             {/* <ScrollSync> */}
 
-<div>
-            <Allotment
-  id="mainView"
-  style={{
+<div className="allotment-container"   style={{
     position: "absolute",
     zIndex: "998",
     height: "100%",
     bottom: "0",
     width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-    transition: "width 0.1s",
+    transition: "transform 0.1s",
     marginRight: this.state.tocOpen === true ? "0" : "0",
-    marginLeft: this.state.tocOpen === true ? "auto" : "0",
+    marginLeft: this.state.tocOpen === true ? "270px" : "0",
     borderRadius: "10px",
-  }}
+  }}>
+            <Allotment
+  id="mainView"
 >
   <div className="editor-pane" allotment="editor">
     <Editor
@@ -292,6 +291,7 @@ class App extends Component {
     </div>
   </div>
 </Allotment>
+
 </div>
 
             {/* </ScrollSync> */}
