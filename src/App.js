@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
@@ -48,12 +48,14 @@ class App extends Component {
       fileName: "README.md",
       tocOpen: true,
       isDark: true,
+      fileNames: [],
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     this.slideToRight = this.slideToRight.bind(this);
     this.handleToc = this.handleToc.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
+    this.fetchFiles = this.fetchFiles.bind(this);
   }
 
   // Update view pane on each edit
@@ -131,187 +133,214 @@ class App extends Component {
     this.handleTheme();
   }
 
-  componentDidMount() {
-    this.getWordCount();
+  // const[fileNames, setFileNames] = useState([]);
+
+  // setFileNames(files) {
+  //   this.setState({
+  //     fileNames: files, 
+  //   })
+  // }
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const files = await getFilesInDirectory('/home/wou/Documents/instyllnotes');
+  //     setFileNames(files);
+  //   }
+  //   fetchData();
+  // }, []);
+
+  async fetchFiles() {
+    const files = await getFilesInDirectory('/home/wou/Documents/instyllnotes');
+    this.setState({ fileNames: files });
   }
 
-  render() {
+componentDidMount() {
+  this.getWordCount();
+  this.fetchFiles();
+}
+
+render() {
 
 
-    return (
-      <div className="App">
+  return (
+    <div className="App">
 
-        <div className='container'>
+      <div className='container'>
 
-          {/* navbar */}
+        {/* navbar */}
 
-          <div className="navHorizontal">
+        <div className="navHorizontal">
 
-            <div className="menuBar">
-              <div className="menuIcon"
-                onClick={this.handleToc}>
-                <img src={tcontents} className="icon" draggable={false} />
-                <span className="tooltip">Outline</span>
-              </div>
-              <div className="menuIcon">
-                <img src={add} className="icon" draggable={false} />
-                <span className="tooltip">Add Component</span>
-              </div>
-              <div className="menuIcon">
-                <img src={image} className="icon" draggable={false} />
-                <span className="tooltip">Insert Image</span>
-              </div>
-              <div className="menuIcon">
-                <img src={code} className="icon" draggable={false} />
-                <span className="tooltip">Insert Code Block</span>
-              </div>
-              <div className="menuIcon">
-                <img src={calendar} className="icon" draggable={false} />
-                <span className="tooltip">Daily Note</span>
-              </div>
-              <div className="menuIcon">
-                <img src={table} className="icon" draggable={false} />
-                <span className="tooltip">Insert Table</span>
-              </div>
-              <div className="menuIcon">
-                <img src={link} className="icon" draggable={false} />
-                <span className="tooltip">Insert Link</span>
-              </div>
-              <input className="search" placeholder="Search">
-              </input>
-              {/* <div className="menuIcon">
+          <div className="menuBar">
+            <div className="menuIcon"
+              onClick={this.handleToc}>
+              <img src={tcontents} className="icon" draggable={false} />
+              <span className="tooltip">Outline</span>
+            </div>
+            <div className="menuIcon">
+              <img src={add} className="icon" draggable={false} />
+              <span className="tooltip">Add Component</span>
+            </div>
+            <div className="menuIcon">
+              <img src={image} className="icon" draggable={false} />
+              <span className="tooltip">Insert Image</span>
+            </div>
+            <div className="menuIcon">
+              <img src={code} className="icon" draggable={false} />
+              <span className="tooltip">Insert Code Block</span>
+            </div>
+            <div className="menuIcon">
+              <img src={calendar} className="icon" draggable={false} />
+              <span className="tooltip">Daily Note</span>
+            </div>
+            <div className="menuIcon">
+              <img src={table} className="icon" draggable={false} />
+              <span className="tooltip">Insert Table</span>
+            </div>
+            <div className="menuIcon">
+              <img src={link} className="icon" draggable={false} />
+              <span className="tooltip">Insert Link</span>
+            </div>
+            <input className="search" placeholder="Search">
+            </input>
+            {/* <div className="menuIcon">
                 <img src={notionLogo} className="icon" draggable={false} />
                 <span className="tooltip">Write To Notion</span>
               </div> */}
 
 
 
-              <span className="rightComponents">
-                <div className="menuIcon"
-                  onClick={this.toggleTheme}>
-                  <img src={palette} className="icon" draggable={false} />
-                </div>
-                <div className="menuIcon">
-                  <img src={settings} className="icon" draggable={false} />
-                </div>
-              </span>
-            </div>
+            <span className="rightComponents">
+              <div className="menuIcon"
+                onClick={this.toggleTheme}>
+                <img src={palette} className="icon" draggable={false} />
+              </div>
+              <div className="menuIcon">
+                <img src={settings} className="icon" draggable={false} />
+              </div>
+            </span>
           </div>
+        </div>
 
-          <div className="elevated">
+        <div className="elevated">
 
-            {/* table of contents*/}
+          {/* table of contents*/}
 
-            <div className="tableOfContents">
-              <div className="tableInfo">
-                <p className="tocTitleFirst">Files</p>
-                <div className="fileSys">
+          <div className="tableOfContents">
+            <div className="tableInfo">
+              <p className="tocTitleFirst">Files</p>
+              {/* <div className="fileSys">
                   <button className="fileElem">Folder 1</button>
                   <div className="fileChildren">
                     <button className="fileElemChild">markdown.md</button> <br></br>
                     <button className="fileElemChild">note.md</button> <br></br>
                     <button className="fileElemChild">README.md</button> <br></br>
                   </div>
+                </div> */}
+              <div className="fileSys">
+                {this.state.fileNames.map((file, index) => (
+                  <button key={index} className="fileElemChild">{file}</button>
+                ))}
+              </div>
+              <p className='tocTitle'>Tabs</p>
+              <div className="tocLabel">
+                <div className="tabHolder">
+                  <button className="tab">README.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                 </div>
-                <p className='tocTitle'>Tabs</p>
-                <div className="tocLabel">
-                  <div className="tabHolder">
-                    <button className="tab">README.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
-                  </div>
-                  <div className="tabHolder">
-                    <button className="tab">markdown.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
-                  </div>
-                  <div className="tabHolder">
-                    <button className="tab">note.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
-                  </div>
+                <div className="tabHolder">
+                  <button className="tab">markdown.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                 </div>
-                <p className='tocTitle'>Stats</p>
-                <div className="pageInfo">
-                  <span className="leftComponents">
-                    <div className="infoDisplay"><div className="label">Characters</div></div>
-                    <div className="infoDisplay"><div className="label">Words</div></div>
-                  </span>
-                  <span className="rightComponents">
-                    <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
-                    <div className="infoDisplay"><span className="precount">{this.state.wordCount}</span>/{this.state.wordCount} </div>
-                  </span>
-                </div>
-                <br></br>
-                <br></br>
-                <p className='tocTitle'>Outline</p>
-                <div>
-                  {
-                    this.constructToc().map((header, index) => (
-                      <div key={index} className="outlineElement">
-                        <a href={`#${header.id}`} className="headerNav">
-                          <span className="headerDelim">
-                            {
-                              header.type === 'H2' ? '## ' :
-                                header.type === 'H3' ? '### ' :
-                                  header.type === 'H4' ? '#### ' :
-                                    header.type === 'H5' ? '##### ' :
-                                      header.type === 'H6' ? '###### ' : '# '}
-                          </span>
-                          {header.text}
-                        </a>
-                      </div>
-                    ))}
+                <div className="tabHolder">
+                  <button className="tab">note.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                 </div>
               </div>
+              <p className='tocTitle'>Stats</p>
+              <div className="pageInfo">
+                <span className="leftComponents">
+                  <div className="infoDisplay"><div className="label">Characters</div></div>
+                  <div className="infoDisplay"><div className="label">Words</div></div>
+                </span>
+                <span className="rightComponents">
+                  <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
+                  <div className="infoDisplay"><span className="precount">{this.state.wordCount}</span>/{this.state.wordCount} </div>
+                </span>
+              </div>
+              <br></br>
+              <br></br>
+              <p className='tocTitle'>Outline</p>
+              <div>
+                {
+                  this.constructToc().map((header, index) => (
+                    <div key={index} className="outlineElement">
+                      <a href={`#${header.id}`} className="headerNav">
+                        <span className="headerDelim">
+                          {
+                            header.type === 'H2' ? '## ' :
+                              header.type === 'H3' ? '### ' :
+                                header.type === 'H4' ? '#### ' :
+                                  header.type === 'H5' ? '##### ' :
+                                    header.type === 'H6' ? '###### ' : '# '}
+                        </span>
+                        {header.text}
+                      </a>
+                    </div>
+                  ))}
+              </div>
             </div>
+          </div>
 
-            {/* main editor view */}
+          {/* main editor view */}
 
-            {/* <ScrollSync> */}
+          {/* <ScrollSync> */}
 
-            <div className="allotment-container" style={{
-              position: "absolute",
-              zIndex: "998",
-              height: "100%",
-              bottom: "0",
-              width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-              // transition: "width 0s",
-              marginRight: this.state.tocOpen === true ? "0" : "0",
-              marginLeft: this.state.tocOpen === true ? "270px" : "0",
-              borderRadius: "10px",
-            }}>
-              <Allotment
-                style={{
-                  borderRadius: "10px",
-                }}
-                id="mainView"
-                snap={true}
-                vertical={false}
-              >
-                <div className="editor-pane" allotment="editor">
-                  <Editor
-                    className="editor"
-                    value={this.state.markdownSrc}
-                    onChange={this.onMarkdownChange}
+          <div className="allotment-container" style={{
+            position: "absolute",
+            zIndex: "998",
+            height: "100%",
+            bottom: "0",
+            width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+            // transition: "width 0s",
+            marginRight: this.state.tocOpen === true ? "0" : "0",
+            marginLeft: this.state.tocOpen === true ? "270px" : "0",
+            borderRadius: "10px",
+          }}>
+            <Allotment
+              style={{
+                borderRadius: "10px",
+              }}
+              id="mainView"
+              snap={true}
+              vertical={false}
+            >
+              <div className="editor-pane" allotment="editor">
+                <Editor
+                  className="editor"
+                  value={this.state.markdownSrc}
+                  onChange={this.onMarkdownChange}
+                />
+              </div>
+              <div className="view-pane" allotment="preview">
+                <div className="preview" id="text">
+                  <ReactMarkdown
+                    className="result"
+                    children={this.state.markdownSrc}
+                    remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
+                    rehypePlugins={[rehypeMathjax]}
                   />
                 </div>
-                <div className="view-pane" allotment="preview">
-                  <div className="preview" id="text">
-                    <ReactMarkdown
-                      className="result"
-                      children={this.state.markdownSrc}
-                      remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
-                      rehypePlugins={[rehypeMathjax]}
-                    />
-                  </div>
-                </div>
-              </Allotment>
-
-            </div>
-
-            {/* </ScrollSync> */}
+              </div>
+            </Allotment>
 
           </div>
-        </div>
 
+          {/* </ScrollSync> */}
+
+        </div>
       </div>
-    );
-  }
+
+    </div>
+  );
+}
 }
 
 
