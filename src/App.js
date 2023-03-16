@@ -229,7 +229,7 @@ class App extends Component {
                 <p className="tocTitleFirst">Files</p>
                 <div className="fileSys">
                   {this.state.fileNames.map((file, index) => (
-                    <button key={index} className="fileElemChild">{file}</button>
+                    <button key={index} className="fileElem">{file}</button>
                   ))}
                 </div>
                 <p className='tocTitle'>Tabs</p>
