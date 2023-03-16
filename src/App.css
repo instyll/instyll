@@ -7,7 +7,7 @@
   --elevated-bg: #262626;
   --icon-filter: none;
   --base: #262626;
-  --code: #3a3a3a;
+  --code: #242424;
   --separator-border: rgba(180, 180, 182, 0.2);
 
   /* --bg-color: #fff;
@@ -29,7 +29,7 @@
   --base: #fdfcfa;
   --elevated-bg: #f9fafb;
   --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
-  --code: #e4e4e4;
+  --code: #f6f8fa;
   --separator-border: #e4e4e4;
 }
 
@@ -42,7 +42,7 @@
   --elevated-bg: #262626;
   --icon-filter: none;
   --base: #262626;
-  --code: #3a3a3a;
+  --code: #242424;
   --separator-border: rgba(180, 180, 182, 0.2);
 }
 
