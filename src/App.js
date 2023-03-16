@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
@@ -133,22 +133,6 @@ class App extends Component {
     this.handleTheme();
   }
 
-  // const[fileNames, setFileNames] = useState([]);
-
-  // setFileNames(files) {
-  //   this.setState({
-  //     fileNames: files, 
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const files = await getFilesInDirectory('/home/wou/Documents/instyllnotes');
-  //     setFileNames(files);
-  //   }
-  //   fetchData();
-  // }, []);
-
   async fetchFiles() {
     const files = await getFilesInDirectory('/home/wou/Documents/instyllnotes');
     this.setState({ fileNames: files });
@@ -203,12 +187,6 @@ render() {
             </div>
             <input className="search" placeholder="Search">
             </input>
-            {/* <div className="menuIcon">
-                <img src={notionLogo} className="icon" draggable={false} />
-                <span className="tooltip">Write To Notion</span>
-              </div> */}
-
-
 
             <span className="rightComponents">
               <div className="menuIcon"
@@ -229,14 +207,6 @@ render() {
           <div className="tableOfContents">
             <div className="tableInfo">
               <p className="tocTitleFirst">Files</p>
-              {/* <div className="fileSys">
-                  <button className="fileElem">Folder 1</button>
-                  <div className="fileChildren">
-                    <button className="fileElemChild">markdown.md</button> <br></br>
-                    <button className="fileElemChild">note.md</button> <br></br>
-                    <button className="fileElemChild">README.md</button> <br></br>
-                  </div>
-                </div> */}
               <div className="fileSys">
                 {this.state.fileNames.map((file, index) => (
                   <button key={index} className="fileElemChild">{file}</button>
