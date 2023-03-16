@@ -131,8 +131,9 @@ body {
   padding-right: 1px;
 }
 
-.cm-cursor {
+.cm-editor .cm-cursor {
   z-index: 999;
+  border-left: 1px solid var(--primary-text);
 }
 
 .cm-editor {
