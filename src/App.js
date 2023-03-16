@@ -10,6 +10,10 @@ import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
 import "allotment/dist/style.css";
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/themes/prism.css';
+import { getFilesInDirectory } from './fileUtils';
 
 // Assets
 import add from './add_component.png'
@@ -132,6 +136,7 @@ class App extends Component {
   }
 
   render() {
+
 
     return (
       <div className="App">

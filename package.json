@@ -25,6 +25,7 @@
     "highlight.js": "^11.7.0",
     "hypermd": "^0.3.11",
     "mermaid.cli": "^0.5.1",
+    "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-collapsible": "^2.10.0",
     "react-custom-scrollbars": "^4.2.1",
