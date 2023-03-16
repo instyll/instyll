@@ -14,6 +14,7 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/themes/prism.css';
 import { getFilesInDirectory } from './fileUtils';
+import chokidar from 'chokidar'
 
 // Assets
 import add from './add_component.png'
@@ -136,6 +137,17 @@ class App extends Component {
   async fetchFiles() {
     const files = await getFilesInDirectory('/home/wou/Documents/instyllnotes');
     this.setState({ fileNames: files });
+    const watcher = chokidar.watch('/home/wou/Documents/instyllnotes');
+    watcher.on('add', (path) => {
+      this.setState((prevState) => ({
+        fileNames: [...prevState.fileNames, path],
+      }));
+    });
+    watcher.on('unlink', (path) => {
+      this.setState((prevState) => ({
+        fileNames: prevState.fileNames.filter((fileName) => fileName !== path),
+      }));
+    });
   }
 
 componentDidMount() {
