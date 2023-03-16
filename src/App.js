@@ -139,190 +139,198 @@ class App extends Component {
     this.setState({ fileNames: files });
     const watcher = chokidar.watch('/home/wou/Documents/instyllnotes');
     watcher.on('add', (path) => {
-      this.setState((prevState) => ({
-        fileNames: [...prevState.fileNames, path],
-      }));
+      console.log(path);
+      console.log(this.state.fileNames)
+        const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
+        // this.setState((prevState) => ({
+        //   fileNames: [...prevState.fileNames, fileName],
+        // }));
+        this.setState((prevState) => ({
+          fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
+        }));
     });
+
     watcher.on('unlink', (path) => {
+      const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
       this.setState((prevState) => ({
-        fileNames: prevState.fileNames.filter((fileName) => fileName !== path),
+        fileNames: prevState.fileNames.filter((fileName) => fileName !== fileName),
       }));
     });
   }
 
-componentDidMount() {
-  this.getWordCount();
-  this.fetchFiles();
-}
+  componentDidMount() {
+    this.getWordCount();
+    this.fetchFiles();
+  }
 
-render() {
+  render() {
 
 
-  return (
-    <div className="App">
+    return (
+      <div className="App">
 
-      <div className='container'>
+        <div className='container'>
 
-        {/* navbar */}
+          {/* navbar */}
 
-        <div className="navHorizontal">
+          <div className="navHorizontal">
 
-          <div className="menuBar">
-            <div className="menuIcon"
-              onClick={this.handleToc}>
-              <img src={tcontents} className="icon" draggable={false} />
-              <span className="tooltip">Outline</span>
-            </div>
-            <div className="menuIcon">
-              <img src={add} className="icon" draggable={false} />
-              <span className="tooltip">Add Component</span>
-            </div>
-            <div className="menuIcon">
-              <img src={image} className="icon" draggable={false} />
-              <span className="tooltip">Insert Image</span>
-            </div>
-            <div className="menuIcon">
-              <img src={code} className="icon" draggable={false} />
-              <span className="tooltip">Insert Code Block</span>
-            </div>
-            <div className="menuIcon">
-              <img src={calendar} className="icon" draggable={false} />
-              <span className="tooltip">Daily Note</span>
-            </div>
-            <div className="menuIcon">
-              <img src={table} className="icon" draggable={false} />
-              <span className="tooltip">Insert Table</span>
-            </div>
-            <div className="menuIcon">
-              <img src={link} className="icon" draggable={false} />
-              <span className="tooltip">Insert Link</span>
-            </div>
-            <input className="search" placeholder="Search">
-            </input>
-
-            <span className="rightComponents">
+            <div className="menuBar">
               <div className="menuIcon"
-                onClick={this.toggleTheme}>
-                <img src={palette} className="icon" draggable={false} />
+                onClick={this.handleToc}>
+                <img src={tcontents} className="icon" draggable={false} />
+                <span className="tooltip">Outline</span>
               </div>
               <div className="menuIcon">
-                <img src={settings} className="icon" draggable={false} />
+                <img src={add} className="icon" draggable={false} />
+                <span className="tooltip">Add Component</span>
               </div>
-            </span>
-          </div>
-        </div>
+              <div className="menuIcon">
+                <img src={image} className="icon" draggable={false} />
+                <span className="tooltip">Insert Image</span>
+              </div>
+              <div className="menuIcon">
+                <img src={code} className="icon" draggable={false} />
+                <span className="tooltip">Insert Code Block</span>
+              </div>
+              <div className="menuIcon">
+                <img src={calendar} className="icon" draggable={false} />
+                <span className="tooltip">Daily Note</span>
+              </div>
+              <div className="menuIcon">
+                <img src={table} className="icon" draggable={false} />
+                <span className="tooltip">Insert Table</span>
+              </div>
+              <div className="menuIcon">
+                <img src={link} className="icon" draggable={false} />
+                <span className="tooltip">Insert Link</span>
+              </div>
+              <input className="search" placeholder="Search">
+              </input>
 
-        <div className="elevated">
-
-          {/* table of contents*/}
-
-          <div className="tableOfContents">
-            <div className="tableInfo">
-              <p className="tocTitleFirst">Files</p>
-              <div className="fileSys">
-                {this.state.fileNames.map((file, index) => (
-                  <button key={index} className="fileElemChild">{file}</button>
-                ))}
-              </div>
-              <p className='tocTitle'>Tabs</p>
-              <div className="tocLabel">
-                <div className="tabHolder">
-                  <button className="tab">README.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+              <span className="rightComponents">
+                <div className="menuIcon"
+                  onClick={this.toggleTheme}>
+                  <img src={palette} className="icon" draggable={false} />
                 </div>
-                <div className="tabHolder">
-                  <button className="tab">markdown.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                <div className="menuIcon">
+                  <img src={settings} className="icon" draggable={false} />
                 </div>
-                <div className="tabHolder">
-                  <button className="tab">note.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
-                </div>
-              </div>
-              <p className='tocTitle'>Stats</p>
-              <div className="pageInfo">
-                <span className="leftComponents">
-                  <div className="infoDisplay"><div className="label">Characters</div></div>
-                  <div className="infoDisplay"><div className="label">Words</div></div>
-                </span>
-                <span className="rightComponents">
-                  <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
-                  <div className="infoDisplay"><span className="precount">{this.state.wordCount}</span>/{this.state.wordCount} </div>
-                </span>
-              </div>
-              <br></br>
-              <br></br>
-              <p className='tocTitle'>Outline</p>
-              <div>
-                {
-                  this.constructToc().map((header, index) => (
-                    <div key={index} className="outlineElement">
-                      <a href={`#${header.id}`} className="headerNav">
-                        <span className="headerDelim">
-                          {
-                            header.type === 'H2' ? '## ' :
-                              header.type === 'H3' ? '### ' :
-                                header.type === 'H4' ? '#### ' :
-                                  header.type === 'H5' ? '##### ' :
-                                    header.type === 'H6' ? '###### ' : '# '}
-                        </span>
-                        {header.text}
-                      </a>
-                    </div>
-                  ))}
-              </div>
+              </span>
             </div>
           </div>
 
-          {/* main editor view */}
+          <div className="elevated">
 
-          {/* <ScrollSync> */}
+            {/* table of contents*/}
 
-          <div className="allotment-container" style={{
-            position: "absolute",
-            zIndex: "998",
-            height: "100%",
-            bottom: "0",
-            width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-            // transition: "width 0s",
-            marginRight: this.state.tocOpen === true ? "0" : "0",
-            marginLeft: this.state.tocOpen === true ? "270px" : "0",
-            borderRadius: "10px",
-          }}>
-            <Allotment
-              style={{
-                borderRadius: "10px",
-              }}
-              id="mainView"
-              snap={true}
-              vertical={false}
-            >
-              <div className="editor-pane" allotment="editor">
-                <Editor
-                  className="editor"
-                  value={this.state.markdownSrc}
-                  onChange={this.onMarkdownChange}
-                />
-              </div>
-              <div className="view-pane" allotment="preview">
-                <div className="preview" id="text">
-                  <ReactMarkdown
-                    className="result"
-                    children={this.state.markdownSrc}
-                    remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
-                    rehypePlugins={[rehypeMathjax]}
-                  />
+            <div className="tableOfContents">
+              <div className="tableInfo">
+                <p className="tocTitleFirst">Files</p>
+                <div className="fileSys">
+                  {this.state.fileNames.map((file, index) => (
+                    <button key={index} className="fileElemChild">{file}</button>
+                  ))}
+                </div>
+                <p className='tocTitle'>Tabs</p>
+                <div className="tocLabel">
+                  <div className="tabHolder">
+                    <button className="tab">README.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                  </div>
+                  <div className="tabHolder">
+                    <button className="tab">markdown.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                  </div>
+                  <div className="tabHolder">
+                    <button className="tab">note.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
+                  </div>
+                </div>
+                <p className='tocTitle'>Stats</p>
+                <div className="pageInfo">
+                  <span className="leftComponents">
+                    <div className="infoDisplay"><div className="label">Characters</div></div>
+                    <div className="infoDisplay"><div className="label">Words</div></div>
+                  </span>
+                  <span className="rightComponents">
+                    <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
+                    <div className="infoDisplay"><span className="precount">{this.state.wordCount}</span>/{this.state.wordCount} </div>
+                  </span>
+                </div>
+                <br></br>
+                <br></br>
+                <p className='tocTitle'>Outline</p>
+                <div>
+                  {
+                    this.constructToc().map((header, index) => (
+                      <div key={index} className="outlineElement">
+                        <a href={`#${header.id}`} className="headerNav">
+                          <span className="headerDelim">
+                            {
+                              header.type === 'H2' ? '## ' :
+                                header.type === 'H3' ? '### ' :
+                                  header.type === 'H4' ? '#### ' :
+                                    header.type === 'H5' ? '##### ' :
+                                      header.type === 'H6' ? '###### ' : '# '}
+                          </span>
+                          {header.text}
+                        </a>
+                      </div>
+                    ))}
                 </div>
               </div>
-            </Allotment>
+            </div>
+
+            {/* main editor view */}
+
+            {/* <ScrollSync> */}
+
+            <div className="allotment-container" style={{
+              position: "absolute",
+              zIndex: "998",
+              height: "100%",
+              bottom: "0",
+              width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+              // transition: "width 0s",
+              marginRight: this.state.tocOpen === true ? "0" : "0",
+              marginLeft: this.state.tocOpen === true ? "270px" : "0",
+              borderRadius: "10px",
+            }}>
+              <Allotment
+                style={{
+                  borderRadius: "10px",
+                }}
+                id="mainView"
+                snap={true}
+                vertical={false}
+              >
+                <div className="editor-pane" allotment="editor">
+                  <Editor
+                    className="editor"
+                    value={this.state.markdownSrc}
+                    onChange={this.onMarkdownChange}
+                  />
+                </div>
+                <div className="view-pane" allotment="preview">
+                  <div className="preview" id="text">
+                    <ReactMarkdown
+                      className="result"
+                      children={this.state.markdownSrc}
+                      remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
+                      rehypePlugins={[rehypeMathjax]}
+                    />
+                  </div>
+                </div>
+              </Allotment>
+
+            </div>
+
+            {/* </ScrollSync> */}
 
           </div>
-
-          {/* </ScrollSync> */}
-
         </div>
-      </div>
 
-    </div>
-  );
-}
+      </div>
+    );
+  }
 }
 
 
