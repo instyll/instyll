@@ -10,11 +10,12 @@ import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
 import "allotment/dist/style.css";
-import Prism from 'prismjs';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/themes/prism.css';
+// import Prism from 'prismjs';
+// import 'prismjs/components/prism-jsx';
+// import 'prismjs/themes/prism.css';
 import { getFilesInDirectory } from './fileUtils';
 import chokidar from 'chokidar'
+import fs from 'fs';
 
 // Assets
 import add from './add_component.png'
@@ -40,7 +41,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdownSrc: "# :pencil: The perfect note-taking app.",
+      markdownSrc: "",
       size: "50%",
       wordCount: "0",
       charCount: "0",
@@ -50,6 +51,7 @@ class App extends Component {
       tocOpen: true,
       isDark: true,
       fileNames: [],
+      selectedFile: null,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -57,6 +59,7 @@ class App extends Component {
     this.handleToc = this.handleToc.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
     this.fetchFiles = this.fetchFiles.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   // Update view pane on each edit
@@ -141,12 +144,8 @@ class App extends Component {
     watcher.on('add', (path) => {
       console.log(path);
       console.log(this.state.fileNames)
-        const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
-        // this.setState((prevState) => ({
-        //   fileNames: [...prevState.fileNames, fileName],
-        // }));
         this.setState((prevState) => ({
-          fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
+          fileNames: Array.from(new Set([...prevState.fileNames, path])),
         }));
     });
 
@@ -157,6 +156,11 @@ class App extends Component {
       }));
     });
   }
+
+  handleClick = async (path) => {
+    const fileContent = await fs.promises.readFile(path, 'utf-8');
+    this.setState({ selectedFile: path, markdownSrc: fileContent });
+  };
 
   componentDidMount() {
     this.getWordCount();
@@ -229,7 +233,10 @@ class App extends Component {
                 <p className="tocTitleFirst">Files</p>
                 <div className="fileSys">
                   {this.state.fileNames.map((file, index) => (
-                    <button key={index} className="fileElem">{file}</button>
+                    <button 
+                    key={index} 
+                    className="fileElem" 
+                    onClick={() => this.handleClick(file)}>{file.replace(/^.*[\\/]/, '')}</button>
                   ))}
                 </div>
                 <p className='tocTitle'>Tabs</p>
