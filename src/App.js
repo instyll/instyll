@@ -63,10 +63,11 @@ class App extends Component {
   // Update view pane on each edit
 
   onMarkdownChange(md) {
-    this.setState({
+    this.setState({ 
       markdownSrc: md,
+    }, () => {
+      this.getWordCount();
     });
-    this.getWordCount();
   }
 
   // Full editor view
@@ -81,15 +82,15 @@ class App extends Component {
 
   getWordCount() {
     var screen = document.getElementById("text");
+    var charCount = screen.textContent.trim().length; // update charCount here
     var textContent = screen.textContent;
     var count = textContent.trim().split(/\s+/).length;
-    var charCount = textContent.trim().length;
     this.setState({
-      delimiter: this.state.wordCount > 1 ? "words" : "word",
-      charDelimiter: this.state.charCount === 1 ? "character" : "characters",
+      delimiter: count > 1 ? "words" : "word", // use count variable here
+      charDelimiter: charCount === 1 ? "character" : "characters", // use charCount variable here
       wordCount: count,
       charCount: charCount,
-    })
+    });
   }
 
   // Sidebar toggle
@@ -143,9 +144,9 @@ class App extends Component {
       console.log(path);
       console.log(this.state.fileNames)
       const fileName = path.replace(/^.*[\\/]/, '');
-        this.setState((prevState) => ({
-          fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
-        }));
+      this.setState((prevState) => ({
+        fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
+      }));
     });
 
     watcher.on('unlink', (path) => {
@@ -157,7 +158,7 @@ class App extends Component {
   }
 
   handleClick = async (path) => {
-    const fileContent = await fs.promises.readFile(this.state.notesDirectory  + "" + path, 'utf-8');
+    const fileContent = await fs.promises.readFile(this.state.notesDirectory + "" + path, 'utf-8');
     this.setState({ selectedFile: path, markdownSrc: fileContent });
   };
 
@@ -232,10 +233,10 @@ class App extends Component {
                 <p className="tocTitleFirst">Files</p>
                 <div className="fileSys">
                   {this.state.fileNames.map((file, index) => (
-                    <button 
-                    key={index} 
-                    className="fileElem" 
-                    onClick={() => this.handleClick(file)}>{file.replace(/^.*[\\/]/, '')}</button>
+                    <button
+                      key={index}
+                      className="fileElem"
+                      onClick={() => this.handleClick(file)}>{file.replace(/^.*[\\/]/, '')}</button>
                   ))}
                 </div>
                 <p className='tocTitle'>Tabs</p>
