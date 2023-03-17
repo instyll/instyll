@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import SplitPane from 'react-split-pane';
 import Editor from './editor.js';
 import ReactMarkdown from 'react-markdown';
-import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 import './App.css';
 import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
@@ -27,7 +25,6 @@ import table from './table.png'
 import link from './link.png'
 import tcontents from './tcontents.png'
 import calendar from './calendar.png'
-import notionLogo from './notion.png'
 import tabplus from './tabplus.png'
 
 // Plugins
@@ -52,6 +49,7 @@ class App extends Component {
       isDark: true,
       fileNames: [],
       selectedFile: null,
+      notesDirectory: "/home/wou/Documents/instyllnotes/"
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -138,14 +136,15 @@ class App extends Component {
   }
 
   async fetchFiles() {
-    const files = await getFilesInDirectory('/home/wou/Documents/instyllnotes');
+    const files = await getFilesInDirectory(this.state.notesDirectory);
     this.setState({ fileNames: files });
-    const watcher = chokidar.watch('/home/wou/Documents/instyllnotes');
+    const watcher = chokidar.watch(this.state.notesDirectory);
     watcher.on('add', (path) => {
       console.log(path);
       console.log(this.state.fileNames)
+      const fileName = path.replace(/^.*[\\/]/, '');
         this.setState((prevState) => ({
-          fileNames: Array.from(new Set([...prevState.fileNames, path])),
+          fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
         }));
     });
 
@@ -158,7 +157,7 @@ class App extends Component {
   }
 
   handleClick = async (path) => {
-    const fileContent = await fs.promises.readFile(path, 'utf-8');
+    const fileContent = await fs.promises.readFile(this.state.notesDirectory  + "" + path, 'utf-8');
     this.setState({ selectedFile: path, markdownSrc: fileContent });
   };
 

@@ -3,7 +3,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const isDev = require('electron-is-dev');
 const path = require('path');
-const { ipcMain } = require('electron');
+const { app, ipcMain } = require('electron');
 const fs = require('fs');
 
 let mainWindow;
@@ -41,4 +41,3 @@ ipcMain.handle('getFilesInDirectory', (event, directory) => {
     const files = fs.readdirSync(directory);
     return files.filter(file => fs.statSync(`${directory}/${file}`).isFile());
 });
-
