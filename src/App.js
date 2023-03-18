@@ -38,7 +38,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdownSrc: "",
+      markdownSrc: "hello",
       size: "50%",
       wordCount: "0",
       charCount: "0",
@@ -49,7 +49,8 @@ class App extends Component {
       isDark: true,
       fileNames: [],
       selectedFile: null,
-      notesDirectory: "/home/wou/Documents/instyllnotes/"
+      notesDirectory: "/home/wou/Documents/instyllnotes/",
+      tocHeaders: [],
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -58,6 +59,7 @@ class App extends Component {
     this.toggleTheme = this.toggleTheme.bind(this);
     this.fetchFiles = this.fetchFiles.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.updateToc = this.updateToc.bind(this);
   }
 
   // Update view pane on each edit
@@ -114,6 +116,13 @@ class App extends Component {
     return toc;
   }
 
+  updateToc() {
+    var toc = this.constructToc();
+    this.setState({
+      tocHeaders: toc,
+    });
+  }
+
   // dark / light mode 
 
   handleTheme() {
@@ -165,6 +174,15 @@ class App extends Component {
   componentDidMount() {
     this.getWordCount();
     this.fetchFiles();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.state.markdownSrc);
+    console.log(prevState.markdownSrc);
+    if (this.state.markdownSrc !== prevState.markdownSrc) {
+      console.log("remaking TOC")
+      this.updateToc();
+    }
   }
 
   render() {
@@ -267,7 +285,7 @@ class App extends Component {
                 <p className='tocTitle'>Outline</p>
                 <div>
                   {
-                    this.constructToc().map((header, index) => (
+                    this.state.tocHeaders.map((header, index) => (
                       <div key={index} className="outlineElement">
                         <a href={`#${header.id}`} className="headerNav">
                           <span className="headerDelim">
