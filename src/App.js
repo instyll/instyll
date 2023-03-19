@@ -14,6 +14,7 @@ import "allotment/dist/style.css";
 import { getFilesInDirectory } from './fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
+import debounce from 'lodash/debounce';
 
 // Assets
 import add from './add_component.png'
@@ -51,6 +52,7 @@ class App extends Component {
       selectedFile: null,
       notesDirectory: "/home/wou/Documents/instyllnotes/",
       tocHeaders: [],
+      cleanup: null,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -174,6 +176,29 @@ class App extends Component {
   componentDidMount() {
     this.getWordCount();
     this.fetchFiles();
+
+    const editor = document.querySelector('.editor-pane');
+    const preview = document.querySelector('.view-pane');
+
+    const syncScroll = (event) => {
+      const percentage = event.target.scrollTop / (event.target.scrollHeight - event.target.offsetHeight);
+      preview.scrollTop = percentage * (preview.scrollHeight - preview.offsetHeight);
+    }
+  
+    const debouncedSyncScroll = debounce(syncScroll, 10); // debounce the syncScroll function
+  
+    const editorPane = document.querySelector('.editor-pane');
+    const viewPane = document.querySelector('.view-pane');
+  
+    editorPane.onscroll = debouncedSyncScroll; // use the onscroll attribute instead of addEventListener
+    viewPane.onscroll = debouncedSyncScroll;
+  
+    const cleanup = () => {
+      editorPane.onscroll = null; // remove the event listeners
+      viewPane.onscroll = null;
+    }
+  
+    this.setState({cleanup: cleanup});
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -182,6 +207,12 @@ class App extends Component {
     if (this.state.markdownSrc !== prevState.markdownSrc) {
       console.log("remaking TOC")
       this.updateToc();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.state.cleanup) {
+      this.state.cleanup();
     }
   }
 
