@@ -215,7 +215,7 @@ border-radius: 10px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 999;
+  /* z-index: 999; */
   background-color: var(--base);
   width: 100%;
 }
@@ -228,7 +228,7 @@ border-radius: 10px;
   padding-right: 10px;
   box-sizing: border-box;
   margin-bottom: 5px;
-  z-index: 9999;
+  /* z-index: 1; */
   height: 32px;
 }
 

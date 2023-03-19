@@ -30,6 +30,7 @@
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-collapsible": "^2.10.0",
+    "react-command-palette": "^0.22.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-grid-layout": "^1.3.4",

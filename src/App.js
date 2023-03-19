@@ -15,6 +15,7 @@ import { getFilesInDirectory } from './fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
+import CommandPalette from 'react-command-palette';
 
 // Assets
 import add from './add_component.png'
@@ -67,7 +68,7 @@ class App extends Component {
   // Update view pane on each edit
 
   onMarkdownChange(md) {
-    this.setState({ 
+    this.setState({
       markdownSrc: md,
     }, () => {
       this.getWordCount();
@@ -86,8 +87,11 @@ class App extends Component {
 
   getWordCount() {
     var screen = document.getElementById("text");
+    console.log(screen)
+    // var screen = document.querySelector("#text *:not")
     var charCount = screen.textContent.trim().length; // update charCount here
     var textContent = screen.textContent;
+    console.log(textContent)
     var count = textContent.trim().split(/\s+/).length;
     this.setState({
       delimiter: count > 1 ? "words" : "word", // use count variable here
@@ -184,21 +188,21 @@ class App extends Component {
       const percentage = event.target.scrollTop / (event.target.scrollHeight - event.target.offsetHeight);
       preview.scrollTop = percentage * (preview.scrollHeight - preview.offsetHeight);
     }
-  
+
     const debouncedSyncScroll = debounce(syncScroll, 10); // debounce the syncScroll function
-  
+
     const editorPane = document.querySelector('.editor-pane');
     const viewPane = document.querySelector('.view-pane');
-  
+
     editorPane.onscroll = debouncedSyncScroll; // use the onscroll attribute instead of addEventListener
     viewPane.onscroll = debouncedSyncScroll;
-  
+
     const cleanup = () => {
       editorPane.onscroll = null; // remove the event listeners
       viewPane.onscroll = null;
     }
-  
-    this.setState({cleanup: cleanup});
+
+    this.setState({ cleanup: cleanup });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -218,9 +222,25 @@ class App extends Component {
 
   render() {
 
+    const commands = [{
+      name: "Foo",
+      command() { }
+    }, {
+      name: "Bar",
+      command() { }
+    }
+    ];
 
     return (
       <div className="App">
+
+        <CommandPalette 
+        commands={commands} 
+        style={{
+          zIndex: "999",
+        }}
+        trigger={null}
+        ></CommandPalette>
 
         <div className='container'>
 
@@ -341,7 +361,7 @@ class App extends Component {
 
             <div className="allotment-container" style={{
               position: "absolute",
-              zIndex: "998",
+              // zIndex: "998",
               height: "100%",
               bottom: "0",
               width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
