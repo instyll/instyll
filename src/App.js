@@ -55,7 +55,7 @@ class App extends Component {
       notesDirectory: "/home/wou/Documents/instyllnotes/",
       tocHeaders: [],
       cleanup: null,
-      orientation: true,
+      orientation: false,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -303,6 +303,7 @@ class App extends Component {
           hotKeys={['ctrl+k']}
           closeOnSelect={true}
           alwaysRenderCommands={true}
+          resetInputOnOpen={true}
         ></CommandPalette>
 
         <div className='container'>
@@ -455,6 +456,7 @@ class App extends Component {
                       children={this.state.markdownSrc}
                       remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
                       rehypePlugins={[rehypeMathjax]}
+                      escapeHtml={false}
                     />
                   </div>
                 </div>
