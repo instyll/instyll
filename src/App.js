@@ -35,6 +35,7 @@ import rehypeMathjax from 'rehype-mathjax'
 import remarkGfm from 'remark-gfm'
 import emoji from 'remark-emoji'
 import wikiLinkPlugin from 'remark-wiki-link'
+import { chrome } from 'process';
 
 class App extends Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class App extends Component {
     this.fetchFiles = this.fetchFiles.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.updateToc = this.updateToc.bind(this);
+    // this.setDark = this.setDark.bind(this);
   }
 
   // Update view pane on each edit
@@ -144,6 +146,13 @@ class App extends Component {
     html.setAttribute("data-theme", theme);
   }
 
+  // setDark() {
+  //   html.setAttribute("data-theme", "dark");
+  //   this.setState({
+  //     isDark: true,
+  //   })
+  // }
+
   toggleTheme() {
     this.setState({
       isDark: !this.state.isDark,
@@ -223,13 +232,37 @@ class App extends Component {
   render() {
 
     const commands = [{
-      name: "Foo",
-      command() { }
+      name: "Set Theme: Dark",
+      command() { 
+        
+      }
     }, {
-      name: "Bar",
+      name: "Set Theme: Light",
       command() { }
-    }
+    },
+    {
+      name: "Layout: Vertical",
+      command() { }
+    },
+    {
+      name: "Layout: Horizontal",
+      command() { }
+    },
+    {
+      name: "File: Export as PDF",
+      command() { }
+    },
+    {
+      name: "File: Export as LaTeX",
+      command() { }
+    },
+    {
+      name: "File: Print",
+      command() { }
+    },
     ];
+
+    const openPalette = [11, 12, 13, 14];
 
     return (
       <div className="App">
@@ -240,6 +273,7 @@ class App extends Component {
           zIndex: "999",
         }}
         trigger={null}
+        hotKeys={['ctrl+k']}
         ></CommandPalette>
 
         <div className='container'>
