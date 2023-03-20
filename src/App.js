@@ -146,12 +146,14 @@ class App extends Component {
     html.setAttribute("data-theme", theme);
   }
 
-  // setDark() {
-  //   html.setAttribute("data-theme", "dark");
-  //   this.setState({
-  //     isDark: true,
-  //   })
-  // }
+  setDark = (isTrue) => {
+    if (isTrue) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+    this.setState({ isDark: isTrue });
+  };
 
   toggleTheme() {
     this.setState({
@@ -233,12 +235,14 @@ class App extends Component {
 
     const commands = [{
       name: "Set Theme: Dark",
-      command() { 
-        
+      command: () => {
+        this.setDark(true);
       }
     }, {
       name: "Set Theme: Light",
-      command() { }
+      command: () => {
+        this.setDark(false);
+      }
     },
     {
       name: "Layout: Vertical",
