@@ -8,7 +8,7 @@
   --icon-filter: none;
   --base: #262626;
   --code: #242424;
-  --separator-border: rgba(180, 180, 182, 0.2);
+  --separator-border: rgba(180, 180, 182, 0.2) !important; 
 
   /* --bg-color: #fff;
   --primary-text: rgb(41, 37, 36);
@@ -30,7 +30,7 @@
   --elevated-bg: #f9fafb;
   --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
   --code: #f6f8fa;
-  --separator-border: #e4e4e4;
+  --separator-border: #e4e4e4 !important;
 }
 
 [data-theme="dark"] {
@@ -43,7 +43,7 @@
   --icon-filter: none;
   --base: #262626;
   --code: #242424;
-  --separator-border: rgba(180, 180, 182, 0.2);
+  --separator-border: rgba(180, 180, 182, 0.2) !important;
 }
 
 html,
