@@ -55,6 +55,7 @@ class App extends Component {
       notesDirectory: "/home/wou/Documents/instyllnotes/",
       tocHeaders: [],
       cleanup: null,
+      orientation: true,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -64,7 +65,8 @@ class App extends Component {
     this.fetchFiles = this.fetchFiles.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.updateToc = this.updateToc.bind(this);
-    // this.setDark = this.setDark.bind(this);
+    this.setDark = this.setDark.bind(this);
+    this.changeLayout = this.changeLayout.bind(this);
   }
 
   // Update view pane on each edit
@@ -83,6 +85,23 @@ class App extends Component {
     this.setState({
       size: this.state.size !== "100%" ? "100%" : "50%",
     });
+  }
+
+  // change layout
+
+  changeLayout = (orient) => {
+    if (orient == "vertical") {
+      this.setState({
+        orientation: false,
+      });
+      console.log("stacked:" + this.state.orientation)
+    }
+    else {
+      this.setState({
+        orientation: true,
+      });
+      console.log("stacked:" + this.state.orientation)
+    }
   }
 
   // Getting document statistics
@@ -246,11 +265,15 @@ class App extends Component {
     },
     {
       name: "Layout: Vertical",
-      command() { }
+      command: () => {
+        this.changeLayout("vertical");
+      }
     },
     {
       name: "Layout: Horizontal",
-      command() { }
+      command: () => {
+        this.changeLayout("horizontal");
+      }
     },
     {
       name: "File: Export as PDF",
@@ -271,14 +294,15 @@ class App extends Component {
     return (
       <div className="App">
 
-        <CommandPalette 
-        commands={commands} 
-        style={{
-          zIndex: "999",
-        }}
-        trigger={null}
-        hotKeys={['ctrl+k']}
-        closeOnSelect={true}
+        <CommandPalette
+          commands={commands}
+          style={{
+            zIndex: "999",
+          }}
+          trigger={null}
+          hotKeys={['ctrl+k']}
+          closeOnSelect={true}
+          alwaysRenderCommands={true}
         ></CommandPalette>
 
         <div className='container'>
@@ -414,7 +438,8 @@ class App extends Component {
                 }}
                 id="mainView"
                 snap={true}
-                vertical={false}
+                vertical={this.state.orientation}
+                key={this.state.orientation}
               >
                 <div className="editor-pane" allotment="editor">
                   <Editor
