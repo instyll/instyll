@@ -278,6 +278,7 @@ class App extends Component {
         }}
         trigger={null}
         hotKeys={['ctrl+k']}
+        closeOnSelect={true}
         ></CommandPalette>
 
         <div className='container'>
