@@ -88,7 +88,7 @@ body {
   background-color: var(--bg-color);
   box-sizing: border-box;
   /* height: 95vh; */
-  height: calc(100vh - 50px);
+  height: calc(100vh - 52px);
   width: calc(100% - 20px);
   margin: 0 auto;
   border-radius: 10px;

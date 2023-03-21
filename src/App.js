@@ -256,7 +256,7 @@ class App extends Component {
       name: "Set Theme: Dark",
       command: () => {
         this.setDark(true);
-      }
+      },
     }, {
       name: "Set Theme: Light",
       command: () => {
