@@ -25,7 +25,7 @@
   --primary-text: rgb(41, 37, 36);
   --secondary-text: #8a8a8e;
   --muted-text: #e4e4e4;
-  --search-background: #f7f7f7;
+  --search-background: #f8f7f7;
   --base: #fdfcfa;
   --elevated-bg: #f9fafb;
   --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
@@ -465,11 +465,6 @@ img {
   /* color: black; */
   background-color: transparent;
   border: none;
-}
-
-.fileElem:focus {
-  background-color: var(--muted-text);
-  border-radius: 2px;
 }
 
 .fileElem:hover {
