@@ -95,13 +95,6 @@ body {
   border: 1px solid var(--muted-text);
 }
 
-@media only screen and (max-height: 900px) {
-  .elevated {
-    height: 94vh;
-    padding-bottom: 1vh;
-  }
-}
-
 /* CM Editor */
 .editor-pane {
   overflow: auto;
