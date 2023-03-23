@@ -29,6 +29,7 @@ import tcontents from './tcontents.png'
 import calendar from './calendar.png'
 import tabplus from './tabplus.png'
 import focus from './focus.png'
+import focusFilled from './focus-filled.png'
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -37,6 +38,7 @@ import remarkGfm from 'remark-gfm'
 import emoji from 'remark-emoji'
 import wikiLinkPlugin from 'remark-wiki-link'
 import { chrome } from 'process';
+import { timeStamp } from 'console';
 
 class App extends Component {
   constructor(props) {
@@ -57,12 +59,14 @@ class App extends Component {
       tocHeaders: [],
       cleanup: null,
       orientation: false,
+      focused: false,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     this.slideToRight = this.slideToRight.bind(this);
     this.handleToc = this.handleToc.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
+    this.toggleFocus = this.toggleFocus.bind(this);
     this.fetchFiles = this.fetchFiles.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.updateToc = this.updateToc.bind(this);
@@ -180,6 +184,26 @@ class App extends Component {
       isDark: !this.state.isDark,
     });
     this.handleTheme();
+  }
+
+  handleFocus() {
+    const html = document.querySelector("html");
+    var theme = "";
+    if (this.state.focused === true && this.state.isDark === true) {
+      theme = "dark-focus";
+    }
+    else if (this.state.focused === true && this.state.isDark === false) {
+      theme = "light-focus";
+    }
+    console.log(theme);
+    html.setAttribute("data-theme", theme);
+  }
+
+  toggleFocus() {
+    this.setState({
+      focused: !this.state.focused,
+    });
+    this.handleFocus();
   }
 
   async fetchFiles() {
@@ -347,9 +371,13 @@ class App extends Component {
               </input>
 
               <span className="rightComponents">
-              <div className="menuIcon"
-                  onClick={this.toggleTheme}>
-                  <img src={focus} className="icon" draggable={false} />
+                <div className="menuIcon"
+                  onClick={this.toggleFocus}>
+                  {this.state.focused ? (
+                    <img src={focusFilled} className="icon" id="focus" draggable={false} />
+                  ) : (
+                    <img src={focus} className="icon" id="focus" draggable={false} />
+                  )}
                 </div>
                 <div className="menuIcon"
                   onClick={this.toggleTheme}>
