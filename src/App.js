@@ -170,15 +170,6 @@ class App extends Component {
     html.setAttribute("data-theme", theme);
   }
 
-  setDark = (isTrue) => {
-    if (document.documentElement.getAttribute("data-theme") != "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-    }
-    this.setState({ isDark: isTrue });
-  };
-
   toggleTheme() {
     this.setState({
       isDark: !this.state.isDark,

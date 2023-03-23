@@ -10,15 +10,6 @@
   --code: #242424;
   --separator-border: rgba(180, 180, 182, 0.2) !important; 
   --nonfocused-opacity: 1;
-
-  /* --bg-color: #fff;
-  --primary-text: rgb(41, 37, 36);
-  --secondary-text: #8a8a8e;
-  --muted-text: #e4e4e4;
-  --search-background: #f7f7f7;
-  --base: #fdfcfa;
-  --elevated-bg: #f9fafb;
-  --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg); */
 }
 
 [data-theme="light"] {
