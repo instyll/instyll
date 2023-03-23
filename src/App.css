@@ -60,7 +60,7 @@
   --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
   --code: #f6f8fa;
   --separator-border: #e4e4e4 !important;
-  --nonfocused-opacity: 0.5;
+  --nonfocused-opacity: 0.2;
 }
 
 [data-theme="dark-focus"] {
@@ -74,7 +74,7 @@
   --base: #262626;
   --code: #242424;
   --separator-border: rgba(180, 180, 182, 0.2) !important;
-  --nonfocused-opacity: 0.5;
+  --nonfocused-opacity: 0.2;
 }
 
 html,

@@ -186,24 +186,40 @@ class App extends Component {
     this.handleTheme();
   }
 
+  toggleTheme() {
+    this.setState(
+      {
+        isDark: !this.state.isDark,
+      },
+      () => {
+        this.handleTheme();
+      }
+    );
+  }
+
   handleFocus() {
     const html = document.querySelector("html");
-    var theme = "";
-    if (this.state.focused === true && this.state.isDark === true) {
+    let theme = "";
+    if (this.state.focused && this.state.isDark) {
       theme = "dark-focus";
-    }
-    else if (this.state.focused === true && this.state.isDark === false) {
+    } else if (this.state.focused && !this.state.isDark) {
       theme = "light-focus";
+    } else {
+      theme = this.state.isDark ? "dark" : "light";
     }
     console.log(theme);
     html.setAttribute("data-theme", theme);
   }
 
   toggleFocus() {
-    this.setState({
-      focused: !this.state.focused,
-    });
-    this.handleFocus();
+    this.setState(
+      {
+        focused: !this.state.focused,
+      },
+      () => {
+        this.handleFocus();
+      }
+    );
   }
 
   async fetchFiles() {
