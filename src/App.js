@@ -70,7 +70,6 @@ class App extends Component {
     this.fetchFiles = this.fetchFiles.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.updateToc = this.updateToc.bind(this);
-    this.setDark = this.setDark.bind(this);
     this.changeLayout = this.changeLayout.bind(this);
   }
 
