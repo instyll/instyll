@@ -28,6 +28,7 @@ import link from './link.png'
 import tcontents from './tcontents.png'
 import calendar from './calendar.png'
 import tabplus from './tabplus.png'
+import focus from './focus.png'
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -166,7 +167,7 @@ class App extends Component {
   }
 
   setDark = (isTrue) => {
-    if (isTrue) {
+    if (document.documentElement.getAttribute("data-theme") != "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
     } else {
       document.documentElement.setAttribute("data-theme", "light");
@@ -346,6 +347,10 @@ class App extends Component {
               </input>
 
               <span className="rightComponents">
+              <div className="menuIcon"
+                  onClick={this.toggleTheme}>
+                  <img src={focus} className="icon" draggable={false} />
+                </div>
                 <div className="menuIcon"
                   onClick={this.toggleTheme}>
                   <img src={palette} className="icon" draggable={false} />
@@ -425,7 +430,6 @@ class App extends Component {
 
             <div className="allotment-container" style={{
               position: "absolute",
-              // zIndex: "998",
               height: "100%",
               bottom: "0",
               width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
@@ -447,6 +451,7 @@ class App extends Component {
                     className="editor"
                     value={this.state.markdownSrc}
                     onChange={this.onMarkdownChange}
+                    onPaste={(editor, e) => this.handlePaste(editor, e)}
                   />
                 </div>
                 <div className="view-pane" allotment="preview">

@@ -125,6 +125,7 @@ body {
   padding-right: 1px;
 }
 
+
 .cm-editor .cm-cursor {
   z-index: 999;
   border-left: 1px solid var(--primary-text);
@@ -260,7 +261,7 @@ img {
 }
 
 .search {
-  width: calc(100% - 284px);
+  width: calc(100% - 310px);
   height: 24px;
   box-sizing: border-box;
   outline: none;
