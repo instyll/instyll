@@ -159,11 +159,17 @@ class App extends Component {
   handleTheme() {
     const html = document.querySelector("html");
     var theme = "";
-    if (this.state.isDark === true) {
+    if (this.state.isDark === true && this.state.focused !== true) {
       theme = "dark";
     }
-    else if (this.state.isDark === false) {
+    else if (this.state.isDark === true && this.state.focused === true) {
+      theme = "dark-focus";
+    }
+    else if (this.state.isDark === false && this.state.focused !== true) {
       theme = "light";
+    }
+    else if (this.state.isDark === false && this.state.focused === true) {
+      theme = "light-focus";
     }
     console.log(theme);
     html.setAttribute("data-theme", theme);
