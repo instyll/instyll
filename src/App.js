@@ -345,7 +345,7 @@ class App extends Component {
           resetInputOnOpen={true}
         ></CommandPalette>
 
-        <TemplateModal isOpen={this.state.modalOpen} closeModal={() => this.setState({ modalOpen: false })} />
+        <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />
 
         <div className='container'>
 
