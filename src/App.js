@@ -7,6 +7,7 @@ import Sizzle from 'sizzle'
 import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
+import TemplateModal from "./TemplateModal";
 import "allotment/dist/style.css";
 // import Prism from 'prismjs';
 // import 'prismjs/components/prism-jsx';
@@ -60,6 +61,7 @@ class App extends Component {
       cleanup: null,
       orientation: false,
       focused: false,
+      modalOpen: false,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -343,6 +345,8 @@ class App extends Component {
           resetInputOnOpen={true}
         ></CommandPalette>
 
+        <TemplateModal isOpen={this.state.modalOpen} closeModal={() => this.setState({ modalOpen: false })} />
+
         <div className='container'>
 
           {/* navbar */}
@@ -355,7 +359,7 @@ class App extends Component {
                 <img src={tcontents} className="icon" draggable={false} />
                 <span className="tooltip">Outline</span>
               </div>
-              <div className="menuIcon">
+              <div className="menuIcon" onClick={() => this.setState({ modalOpen: true })}>
                 <img src={add} className="icon" draggable={false} />
                 <span className="tooltip">Add Component</span>
               </div>

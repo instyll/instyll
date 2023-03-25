@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
 import { indentUnit } from '@codemirror/language';
@@ -23,47 +23,47 @@ class Editor extends Component {
         super(props);
         this.updateCode = this.updateCode.bind(this);
     }
-    
+
     updateCode(e) {
         let content = e.toString();
         const today = new Date();
-        const dateString = `${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}`;
+        const dateString = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
         content = content.replace(/\\date/g, dateString);
         content = content.replace(/\\ty/g, "thank you");
         content = content.replace(/\\pyth/g, "$a^2 + b^2 = c^2$");
         this.props.onChange(content);
-      }
+    }
 
     // Defining tags for markdown highlighting
 
     headingMark = Tag.define();
-    
+
     MarkStylingExtension: MarkdownConfig = {
-        props: [ styleTags({
+        props: [styleTags({
             HeaderMark: this.headingMark,
-        }) ],
+        })],
     };
-    
+
     markdownHighlighting = HighlightStyle.define([
         {
-        tag: 
-        this.headingMark,
-        color: "var(--secondary-text)"
+            tag:
+                this.headingMark,
+            color: "var(--secondary-text)"
         },
-    
+
     ]);
 
 
-    render () {
-        return (<CodeMirror 
+    render() {
+        return (<CodeMirror
             extensions={
                 [markdown({ base: markdownLanguage, codeLanguages: languages, extensions: [this.MarkStylingExtension, Emoji, MarkdownMathExtension] }),
-                    EditorView.lineWrapping, indentUnit.of("    "),
-                    syntaxHighlighting(this.markdownHighlighting),
-                ]} 
-            value={this.props.value} 
+                EditorView.lineWrapping, indentUnit.of("    "),
+                syntaxHighlighting(this.markdownHighlighting),
+                ]}
+            value={this.props.value}
             onChange={this.updateCode}
-            height="100%"/>);
+            height="100%" />);
     }
 }
 
