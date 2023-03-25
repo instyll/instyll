@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import './App.css';
 
 // Example templates
 const templates = [
-  { id: 1, name: 'Template 1', content: 'This is the content of template 1' },
-  { id: 2, name: 'Template 2', content: 'This is the content of template 2' },
-  { id: 3, name: 'Template 3', content: 'This is the content of template 3' },
-  { id: 4, name: 'Template 4', content: 'This is the content of template 4' },
-  { id: 5, name: 'Template 5', content: 'This is the content of template 5' },
-  { id: 6, name: 'Template 6', content: 'This is the content of template 6' },
-  { id: 7, name: 'Template 7', content: 'This is the content of template 7' },
+  { id: 1, name: 'To-do List', content: 'This is the content of template 1' },
+  { id: 2, name: 'Meeting Notes', content: 'This is the content of template 2' },
+  { id: 3, name: 'Daily Journal', content: 'This is the content of template 3' },
+  { id: 4, name: 'Project Management', content: 'This is the content of template 4' },
+  { id: 5, name: 'Brainstorming', content: 'This is the content of template 5' },
+  { id: 6, name: 'Goal Setting', content: 'This is the content of template 6' },
+  { id: 7, name: 'Meeting Agenda', content: 'This is the content of template 7' },
 ];
 
 const TemplateModal = ({ isOpen, closeModal }) => {
@@ -26,8 +25,25 @@ const TemplateModal = ({ isOpen, closeModal }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={closeModal}>
-      <div style={{ display: 'flex' }}>
+    <Modal isOpen={isOpen} onRequestClose={closeModal} style={{
+        overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+        },
+        content: {
+            backgroundColor: "var(--bg-color)",
+            border: "none",
+            borderRadius: "10px",
+            width: "50%",
+            height: "60vh",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+        }
+    }}>
+      <div style={{ 
+        display: 'flex', 
+    }}>
         <div style={{ flex: '1 1 auto', paddingRight: '16px' }}>
           {templates.map((template) => (
             <button
