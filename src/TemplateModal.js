@@ -35,7 +35,13 @@ const TemplateModal = ({ show, onHide }) => {
     >
       <div className="modal-header">
         <h2>Select Template</h2>
-        <button onClick={onHide}>Close</button>
+        <button
+        style={{
+          fontFamily: "SF Pro Display",
+          padding: "5px 5px 5px 5px",
+          fontSize: "1em",
+        }} 
+        onClick={onHide}>Close</button>
       </div>
       <div className="modal-body">
         <div>
@@ -127,8 +133,20 @@ const TemplateModal = ({ show, onHide }) => {
           </table>
         </div>
         <div>
-          <button onClick={() => setSelectedTemplate(null)}>Preview</button>
-          <button onClick={handleInsert} disabled={!selectedTemplate}>Insert</button>
+          <button
+                  style={{
+                    fontFamily: "SF Pro Display",
+                    padding: "5px 5px 5px 5px",
+                    fontSize: "1em",
+                  }} 
+          onClick={() => setSelectedTemplate(null)}>Preview</button>
+          <button
+                  style={{
+                    fontFamily: "SF Pro Display",
+                    padding: "5px 5px 5px 5px",
+                    fontSize: "1em",
+                  }} 
+          onClick={handleInsert} disabled={!selectedTemplate}>Insert</button>
         </div>
       </div>
     </Modal>
