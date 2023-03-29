@@ -421,7 +421,7 @@ class App extends Component {
                       onClick={() => this.handleClick(file)}>{file.replace(/^.*[\\/]/, '')}</button>
                   ))}
                 </div>
-                <p className='tocTitle'>Tabs</p>
+                {/* <p className='tocTitle'>Tabs</p>
                 <div className="tocLabel">
                   <div className="tabHolder">
                     <button className="tab">README.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
@@ -432,7 +432,7 @@ class App extends Component {
                   <div className="tabHolder">
                     <button className="tab">note.md<span className="tabRightComponents"><img src={tabplus} width="70%" className='tabPlus'></img></span></button>
                   </div>
-                </div>
+                </div> */}
                 <p className='tocTitle'>Stats</p>
                 <div className="pageInfo">
                   <span className="leftComponents">

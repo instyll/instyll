@@ -11,7 +11,7 @@ import { tags } from '@lezer/highlight';
 import { Tag, styleTags } from '@lezer/highlight';
 import { Emoji, MarkdownConfig } from '@lezer/markdown';
 import { inlineMathTag, mathTag, MarkdownMathExtension } from './MarkdownTexParser.ts';
-import {CompletionContext} from "@codemirror/autocomplete"; 
+import { CompletionContext, completeFromList } from "@codemirror/autocomplete";
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
@@ -198,9 +198,33 @@ class Editor extends Component {
 
 
     render() {
+        // const emojiList = Emoji.names.map(name => `:${name}:`);
+        const emojiList = [
+            ':smile:',
+            ':laughing:',
+            ':heart:',
+            ':+1:',
+            ':tada:',
+            ':rocket:',
+            ':sunglasses:',
+            ':muscle:',
+            ':pray:',
+            ':pizza:',
+            ':taco:',
+            ':hamburger:',
+            ':fries:',
+            ':beer:',
+            ':cocktail:',
+            ':iphone:',
+            ':computer:',
+            ':watch:',
+            ':fire:',
+            ':zap:'
+        ];
         return (<CodeMirror
             extensions={
-                [markdown({ base: markdownLanguage, codeLanguages: languages, extensions: [this.MarkStylingExtension, Emoji, MarkdownMathExtension] }),
+                [
+                markdown({ base: markdownLanguage, codeLanguages: languages, extensions: [this.MarkStylingExtension, Emoji, MarkdownMathExtension,] }),
                 EditorView.lineWrapping, indentUnit.of("    "),
                 syntaxHighlighting(this.markdownHighlighting),
                 ]}
