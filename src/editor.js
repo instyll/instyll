@@ -11,7 +11,7 @@ import { tags } from '@lezer/highlight';
 import { Tag, styleTags } from '@lezer/highlight';
 import { Emoji, MarkdownConfig } from '@lezer/markdown';
 import { inlineMathTag, mathTag, MarkdownMathExtension } from './MarkdownTexParser.ts';
-import { CompletionContext, completeFromList } from "@codemirror/autocomplete";
+import { CompletionContext, completeFromList, autocompletion } from "@codemirror/autocomplete";
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
@@ -43,7 +43,31 @@ class Editor extends Component {
         content = content.replace(/\\sd/g, "$\\sigma = \\sqrt{\\frac{1}{N}\\sum_{i=1}^N (x_i - \\mu)^2}$");
         content = content.replace(/\\img/g, "![]()");
         this.props.onChange(content);
+        // console.log(this.myCompletions().options)
     }
+
+    // Autocomplete provider function
+    myCompletions(context: CompletionContext) {
+        let word = context.matchBefore(/\w*/)
+        if (word.from == word.to && !context.explicit)
+          return null
+        return {
+          from: word.from,
+          options: [
+            {label: ":zap:", type: "text", apply: "zap:"},
+            {label: ":smile:", type: "text", apply: "smile:"},
+            {label: ":frog:", type: "text", apply: "frog:"},
+            {label: ":fire:", type: "text", apply: "fire:"},
+            {label: ":fir:", type: "text", apply: "fire:"},
+            {label: ":heart:", type: "text", apply: "heart:"},
+            {label: ":rocket:", type: "text", apply: "rocket:"},
+            {label: ":thumbsup:", type: "text", apply: "thumbsup:"},
+            {label: ":raised_hands:", type: "text", apply: "raised_hands:"},
+            {label: ":bulb:", type: "text", apply: "bulb:"},
+            {label: ":tada:", type: "text", apply: "tada:"},
+          ]
+        }
+      }
 
     // TeX 
 
@@ -77,6 +101,10 @@ class Editor extends Component {
             Emoji: this.emojiMark,
         })],
     };
+
+    mdCompletions = markdownLanguage.data.of({
+        autocomplete: this.myCompletions,
+    })
 
     markdownHighlighting = HighlightStyle.define([
         {
@@ -199,34 +227,13 @@ class Editor extends Component {
 
     render() {
         // const emojiList = Emoji.names.map(name => `:${name}:`);
-        const emojiList = [
-            ':smile:',
-            ':laughing:',
-            ':heart:',
-            ':+1:',
-            ':tada:',
-            ':rocket:',
-            ':sunglasses:',
-            ':muscle:',
-            ':pray:',
-            ':pizza:',
-            ':taco:',
-            ':hamburger:',
-            ':fries:',
-            ':beer:',
-            ':cocktail:',
-            ':iphone:',
-            ':computer:',
-            ':watch:',
-            ':fire:',
-            ':zap:'
-        ];
         return (<CodeMirror
             extensions={
                 [
                 markdown({ base: markdownLanguage, codeLanguages: languages, extensions: [this.MarkStylingExtension, Emoji, MarkdownMathExtension,] }),
                 EditorView.lineWrapping, indentUnit.of("    "),
                 syntaxHighlighting(this.markdownHighlighting),
+                this.mdCompletions,
                 ]}
             value={this.props.value}
             onChange={this.updateCode}

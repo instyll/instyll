@@ -188,6 +188,23 @@ body {
   background-color: transparent;
 }
 
+.cm-tooltip-autocomplete > ul > li {
+  font-family: 'SF Pro Display', sans-serif;
+  font-size: 1em;
+  color: var(--primary-text);
+}
+
+.cm-tooltip-autocomplete > ul > li {
+  background-color: var(--bg-color);
+  color: var(--primary-text);
+  outline: none;
+  border-radius: 2px;
+}
+
+.cm-tooltip-below {
+  background-color: var(--bg-color);
+}
+
 /* preview component */
 .ReactCodeMirror {
   height: 100%;
