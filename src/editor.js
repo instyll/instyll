@@ -49,7 +49,7 @@ class Editor extends Component {
     }
 
     // Autocomplete provider function
-    myCompletions(context: CompletionContext) {
+    emojiCompletion(context: CompletionContext) {
         let word = context.matchBefore(/\S*/);
         if (!word || word.text[0] !== ":") {
           return null;
@@ -94,7 +94,7 @@ class Editor extends Component {
     };
 
     mdCompletions = markdownLanguage.data.of({
-        autocomplete: this.myCompletions,
+        autocomplete: this.emojiCompletion,
     })
 
     markdownHighlighting = HighlightStyle.define([
