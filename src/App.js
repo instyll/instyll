@@ -83,6 +83,7 @@ class App extends Component {
     }, () => {
       this.getWordCount();
     });
+    console.log(document.getElementById("root"));
   }
 
   // Full editor view
