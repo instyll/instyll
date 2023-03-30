@@ -54,6 +54,7 @@ class Editor extends Component {
         if (!word || word.text[0] !== ":") {
           return null;
         }
+
         return {
           from: word.from,
           options: options,
@@ -62,6 +63,21 @@ class Editor extends Component {
 
     // TeX 
 
+    latexCompletion(context: CompletionContext) {
+        let word = context.matchBefore(/\S*/);
+        if (!word || word.text[0] !== "\\") {
+            return null;
+          }
+          const options1 = [
+            { label: "\\alpha", type: "text", apply: "\\alpha" },
+            { label: "\\begin{aligned}", type: "text", apply: "\\begin{aligned}" },
+            { label: "\\end{aligned}", type: "text", apply: "\\end{aligned}" },
+        ];
+          return {
+          from: word.from,
+          options: options1,
+        };
+      }
 
     // Defining tags for markdown highlighting
 
@@ -93,8 +109,12 @@ class Editor extends Component {
         })],
     };
 
-    mdCompletions = markdownLanguage.data.of({
+    emojiCompletions = markdownLanguage.data.of({
         autocomplete: this.emojiCompletion,
+    })
+
+    texCompletions = markdownLanguage.data.of({
+        autocomplete: this.latexCompletion,
     })
 
     markdownHighlighting = HighlightStyle.define([
@@ -224,7 +244,8 @@ class Editor extends Component {
                     markdown({ base: markdownLanguage, codeLanguages: languages, extensions: [this.MarkStylingExtension, Emoji, MarkdownMathExtension,] }),
                     EditorView.lineWrapping, indentUnit.of("    "),
                     syntaxHighlighting(this.markdownHighlighting),
-                    this.mdCompletions,
+                    this.emojiCompletions, 
+                    this.texCompletions
                 ]}
             value={this.props.value}
             onChange={this.updateCode}
