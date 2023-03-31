@@ -20,6 +20,7 @@ require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 
 const options = require("./emojiOptions");
+const texOptions = require("./TeXOptions");
 
 class Editor extends Component {
     constructor(props) {
@@ -68,14 +69,9 @@ class Editor extends Component {
         if (!word || word.text[0] !== "\\") {
             return null;
           }
-          const options1 = [
-            { label: "\\alpha", type: "text", apply: "\\alpha" },
-            { label: "\\begin{aligned}", type: "text", apply: "\\begin{aligned}" },
-            { label: "\\end{aligned}", type: "text", apply: "\\end{aligned}" },
-        ];
           return {
           from: word.from,
-          options: options1,
+          options: texOptions,
         };
       }
 
