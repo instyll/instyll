@@ -17,6 +17,11 @@ import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
+// import chromeTheme from 'react-command-palette/dist/themes/sublime-theme';
+// import 'react-command-palette/dist/themes/sublime.css';
+
+import cpTheme from './commandPalette';
+import './commandPalette.css';
 
 // Assets
 import add from './add_component.png'
@@ -344,6 +349,7 @@ class App extends Component {
           closeOnSelect={true}
           alwaysRenderCommands={true}
           resetInputOnOpen={true}
+          theme={cpTheme}
         ></CommandPalette>
 
         <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />
