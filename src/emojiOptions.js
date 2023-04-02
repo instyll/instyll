@@ -121,6 +121,12 @@ const options = [
     { label: ":train2:", type: "text", apply: ":train2:" },
     { label: ":metro:", type: "text", apply: ":metro:" },
     { label: ":taxi:", type: "text", apply: ":taxi:" },
+    { label: ":moyai:", type: "text", apply: ":moyai:" },
+    { label: ":satisfied:", type: "text", apply: ":satisfied:" },
+    { label: ":rage:", type: "text", apply: ":rage:" },
+    { label: ":zzz:", type: "text", apply: ":zzz:" },
+    { label: ":punch:", type: "text", apply: ":punch:" },
+    { label: ":question:", type: "text", apply: ":question:" },
 ];
 
 module.exports = options;
