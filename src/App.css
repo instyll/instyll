@@ -205,6 +205,14 @@ body {
   background-color: transparent;
 }
 
+.cm-search {
+  font-family: 'SF Pro Display', sans-serif;
+  background-color: var(--elevated-bg);
+  color: var(--primary-text);
+  border-radius: 2px;
+  border: 1px solid var(--muted-text);
+}
+
 /* preview component */
 .ReactCodeMirror {
   height: 100%;
