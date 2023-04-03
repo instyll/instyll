@@ -213,6 +213,14 @@ body {
   border: 1px solid var(--muted-text);
 }
 
+.cm-editor .cm-panels {
+  background-color: var(--elevated-bg);
+}
+
+.cm-editor .cm-panels-bottom {
+  border-top: none;
+}
+
 /* preview component */
 .ReactCodeMirror {
   height: 100%;
