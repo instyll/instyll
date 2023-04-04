@@ -221,6 +221,23 @@ body {
   border-top: none;
 }
 
+.cm-editor .cm-textfield {
+  background-color: var(--search-background);
+  color: var(--secondary-text);
+  border: none;
+}
+
+.cm-editor .cm-button {
+  background: var(--muted-text);
+  background-image: none;
+  border: none;
+  color: var(--primary-text);
+}
+
+button {
+  color: var(--primary-text);
+}
+
 /* preview component */
 .ReactCodeMirror {
   height: 100%;
