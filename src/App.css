@@ -225,6 +225,7 @@ body {
   background-color: var(--search-background);
   color: var(--secondary-text);
   border: none;
+  border-radius: 2px;
 }
 
 .cm-editor .cm-button {
@@ -232,6 +233,7 @@ body {
   background-image: none;
   border: none;
   color: var(--primary-text);
+  border-radius: 2px;
 }
 
 button {
