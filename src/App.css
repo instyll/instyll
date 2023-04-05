@@ -8,7 +8,7 @@
   --icon-filter: none;
   --base: #262626;
   --code: #242424;
-  --separator-border: rgba(180, 180, 182, 0.2) !important; 
+  --separator-border: rgba(180, 180, 182, 0.2) !important;
   --nonfocused-opacity: 1;
 }
 
@@ -188,13 +188,13 @@ body {
   background-color: transparent;
 }
 
-.cm-tooltip-autocomplete > ul > li {
+.cm-tooltip-autocomplete>ul>li {
   font-family: 'SF Pro Display', sans-serif;
   font-size: 1em;
   color: var(--primary-text);
 }
 
-.cm-tooltip-autocomplete > ul > li {
+.cm-tooltip-autocomplete>ul>li {
   background-color: var(--bg-color);
   color: var(--primary-text);
   outline: none;
@@ -275,7 +275,7 @@ button {
   padding-right: 32px;
   background-color: var(--bg-color);
   padding-top: 32px;
-border-radius: 10px;
+  border-radius: 10px;
   box-sizing: border-box;
 }
 
@@ -715,4 +715,12 @@ td {
 
 table {
   margin-bottom: 10px;
+}
+
+/* Modals */
+
+.modalDefaultButton {
+  font-family: SF Pro Display;
+  padding: 5px 5px 5px 5px;
+  font-size: 1em;
 }
