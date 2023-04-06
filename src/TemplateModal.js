@@ -32,13 +32,14 @@ const TemplateModal = ({ show, onHide }) => {
             borderRadius: "10px",
             border: "1px solid var(--muted-text)",
             fontSize: "1.2em",
+            boxSizing: "border-box",
         }
       }}
     >
       <div className="modal-header">
         <h2>Select Template</h2>
         <button
-        className="modalDefaultButton"
+        className="modalCloseButton"
         onClick={onHide}>Close</button>
       </div>
       <div className="modal-body">
