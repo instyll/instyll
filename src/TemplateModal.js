@@ -37,21 +37,16 @@ const TemplateModal = ({ show, onHide }) => {
       }}
     >
       <div className="modal-header">
-        <h2>Select Template</h2>
+        <h2>Insert Block</h2>
         <button
         className="modalCloseButton"
-        onClick={onHide}>Close</button>
+        onClick={onHide}>X</button>
       </div>
       <div className="modal-body">
         <div>
-          <label>Search bar:</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>Categories:</label>
-          <button className="modalDefaultButton">Business</button>
-          <button className="modalDefaultButton">Education</button>
-          <button className="modalDefaultButton">Creative</button>
+          <button className="modalCategoryButton">Business</button>
+          <button className="modalCategoryButton">Education</button>
+          <button className="modalCategoryButton">Creative</button>
         </div>
         <div>
           <table>

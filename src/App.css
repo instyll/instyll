@@ -737,7 +737,7 @@ table {
   font-family: SF Pro Display;
   padding: 5px 5px 5px 5px;
   font-size: 1em;
-  background-color: var(--muted-text);
+  background-color: transparent;
   border: none;
   color: var(--primary-text);
   border-radius: 2px;
@@ -747,6 +747,33 @@ table {
   right: 0;
 }
 
+.modalCloseButton:hover {
+  background-color: var(--muted-text);
+}
+
 .modalDefaultButton:disabled {
   opacity: 0.5;
+}
+
+.modalCategoryButton {
+  font-family: SF Pro Display;
+  padding: 5px 10px 5px 10px;
+  width: 100px;
+  margin-right: 5px;
+  font-size: 1em;
+  border: none;
+  color: var(--primary-text);
+  background-color: var(--muted-text);
+  border-radius: 35px;
+  opacity: 0.5;
+}
+
+.modalCategoryButton:hover {
+  opacity: 1;
+}
+
+.modalCategoryButton:focus {
+  background-color: #5271ff;
+  opacity: 1;
+  color: #f8f8f8;
 }
