@@ -23,6 +23,7 @@ const TemplateModal = ({ show, onHide }) => {
       style={{
         overlay: {
             backgroundColor: "rgba(0,0,0,0.4)",
+            zIndex: "999",
         },
         content: {
             backgroundColor: "var(--bg-color)",

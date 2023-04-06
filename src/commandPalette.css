@@ -3,6 +3,7 @@
 }
 .my-overlay {
     background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
  }
 .my-container {
 

@@ -723,4 +723,12 @@ table {
   font-family: SF Pro Display;
   padding: 5px 5px 5px 5px;
   font-size: 1em;
+  background-color: var(--muted-text);
+  border: none;
+  color: var(--primary-text);
+  border-radius: 2px;
+}
+
+.modalDefaultButton:disabled {
+  opacity: 0.5;
 }
