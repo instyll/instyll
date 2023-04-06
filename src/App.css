@@ -777,3 +777,11 @@ table {
   opacity: 1;
   color: #f8f8f8;
 }
+
+.templateSelectorContainer td {
+  border: none;
+}
+
+.templateSelectorContainer {
+  border: 0px !important;
+}

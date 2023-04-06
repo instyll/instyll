@@ -49,7 +49,7 @@ const TemplateModal = ({ show, onHide }) => {
           <button className="modalCategoryButton">Creative</button>
         </div>
         <div>
-          <table>
+          <table className="templateSelectorContainer">
             <tbody>
               <tr>
                 <td><button 
