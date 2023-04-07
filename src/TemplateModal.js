@@ -31,8 +31,14 @@ const TemplateModal = ({ show, onHide }) => {
             fontFamily: "SF Pro Display",
             borderRadius: "10px",
             border: "1px solid var(--muted-text)",
-            fontSize: "1.2em",
+            fontSize: "1em",
             boxSizing: "border-box",
+            width: "calc(100% - 800px)",
+            height: "calc(100% - 200px)",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
         }
       }}
     >
@@ -40,7 +46,7 @@ const TemplateModal = ({ show, onHide }) => {
         <h2>Insert Block</h2>
         <button
         className="modalCloseButton"
-        onClick={onHide}>X</button>
+        onClick={onHide}>✕</button>
       </div>
       <div className="modal-body">
         <div>
