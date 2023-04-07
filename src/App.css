@@ -811,6 +811,12 @@ table {
   padding-bottom: 10px;
 }
 
+.templateSelectorBody {
+  height: 700px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
 .templateSelectorContainer td {
   border: none;
 }
