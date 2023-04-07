@@ -59,35 +59,44 @@ const TemplateModal = ({ show, onHide }) => {
           <table className="templateSelectorContainer">
             <tbody>
               <tr>
-                <td><div 
+                <td><div
+                tabIndex={1} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 1')}><span className="templateName"><div className="templateNameLabel">Project Management</div></span></div></td>
-                <td><div 
+                <td><div
+                tabIndex={2} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 2')}><span className="templateName"><div className="templateNameLabel">Meeting Notes</div></span></div></td>
-                <td><div 
+                <td><div
+                tabIndex={3} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 3')}><span className="templateName"><div className="templateNameLabel">Meeting Agenda</div></span></div></td>
               </tr>
               <tr>
-                <td><div 
+                <td><div
+                tabIndex={4} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 4')}><span className="templateName"><div className="templateNameLabel">Report</div></span></div></td>
                 <td><div 
+                tabIndex={5} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 5')}><span className="templateName"><div className="templateNameLabel">Lecture Notes</div></span></div></td>
-                <td><div 
+                <td><div
+                tabIndex={6} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 6')}><span className="templateName"><div className="templateNameLabel">Brainstorming</div></span></div></td>
               </tr>
               <tr>
-                <td><div 
+                <td><div
+                tabIndex={7} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 7')}><span className="templateName"><div className="templateNameLabel">Daily Journal</div></span></div></td>
-                <td><div 
+                <td><div
+                tabIndex={8} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 8')}><span className="templateName"><div className="templateNameLabel">Goal Setting</div></span></div></td>
-                <td><div 
+                <td><div
+                tabIndex={9} 
                 className="templateSelector"
                 onClick={() => handleSelectTemplate('Template 9')}><span className="templateName"><div className="templateNameLabel">To-do List</div></span></div></td>
               </tr>

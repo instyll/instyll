@@ -841,6 +841,16 @@ table {
   border: 1px solid var(--muted-text);
   position: relative;
   border-radius: 10px;
+  transition: 0.2s;
+}
+
+.templateSelector:focus {
+  border: 1px solid #5271ff;
+}
+
+.templateSelector:focus .templateName {
+  background-color: #5271ff;
+  color: #f8f8f8;
 }
 
 .templateName {
@@ -849,9 +859,10 @@ table {
   background-color: var(--muted-text);
   width: 100%;
   height: 32px;
-  border-bottom-left-radius: 9px;
-  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   text-align: center;
+  transition: 0.2s;
 }
 
 .templateNameLabel {
