@@ -785,3 +785,9 @@ table {
 .templateSelectorContainer {
   border: 0px !important;
 }
+
+.templateSelector {
+  width: 300px;
+  height: 300px;
+  border: 1px solid var(--muted-text);
+}

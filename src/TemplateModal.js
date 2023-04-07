@@ -58,37 +58,37 @@ const TemplateModal = ({ show, onHide }) => {
           <table className="templateSelectorContainer">
             <tbody>
               <tr>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 1')}>Template 1</button></td>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 2')}>Template 2</button></td>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 3')}>Template 3</button></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 1')}>Template 1</div></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 2')}>Template 2</div></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 3')}>Template 3</div></td>
               </tr>
               <tr>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 4')}>Template 4</button></td>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 5')}>Template 5</button></td>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 6')}>Template 6</button></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 4')}>Template 4</div></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 5')}>Template 5</div></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 6')}>Template 6</div></td>
               </tr>
               <tr>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 7')}>Template 7</button></td>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 8')}>Template 8</button></td>
-                <td><button 
-                className="modalDefaultButton"
-                onClick={() => handleSelectTemplate('Template 9')}>Template 9</button></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 7')}>Template 7</div></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 8')}>Template 8</div></td>
+                <td><div 
+                className="templateSelector"
+                onClick={() => handleSelectTemplate('Template 9')}>Template 9</div></td>
               </tr>
             </tbody>
           </table>
