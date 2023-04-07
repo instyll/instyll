@@ -811,3 +811,7 @@ table {
   border-bottom-right-radius: 10px;
   text-align: center;
 }
+
+.templateNameLabel {
+  line-height: 32px;
+}
