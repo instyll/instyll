@@ -769,6 +769,7 @@ table {
 
 .modalActionContainer {
   text-align: center;
+  padding-top: 20px;
 }
 
 .modalCloseButton {
@@ -837,7 +838,7 @@ table {
 
 .templateSelector {
   width: 300px;
-  height: 324px;
+  height: 332px;
   border: 1px solid var(--muted-text);
   position: relative;
   border-radius: 10px;
@@ -851,6 +852,16 @@ table {
 .templateSelector:focus .templateName {
   background-color: #5271ff;
   color: #f8f8f8;
+}
+
+.templateSelectorThumbnail {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 .templateName {
