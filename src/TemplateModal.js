@@ -49,10 +49,11 @@ const TemplateModal = ({ show, onHide }) => {
         onClick={onHide}>✕</button>
       </div>
       <div className="modal-body">
-        <div>
+        <div className="modalCategorySelectorContainer">
           <button className="modalCategoryButton">Business</button>
           <button className="modalCategoryButton">Education</button>
           <button className="modalCategoryButton">Creative</button>
+          <button className="modalCategoryButton">Lifestyle</button>
         </div>
         <div>
           <table className="templateSelectorContainer">
@@ -60,35 +61,35 @@ const TemplateModal = ({ show, onHide }) => {
               <tr>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 1')}>Template 1</div></td>
+                onClick={() => handleSelectTemplate('Template 1')}><span className="templateName">Project Management</span></div></td>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 2')}>Template 2</div></td>
+                onClick={() => handleSelectTemplate('Template 2')}><span className="templateName">Meeting Notes</span></div></td>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 3')}>Template 3</div></td>
+                onClick={() => handleSelectTemplate('Template 3')}><span className="templateName">Meeting Agenda</span></div></td>
               </tr>
               <tr>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 4')}>Template 4</div></td>
+                onClick={() => handleSelectTemplate('Template 4')}><span className="templateName">Report</span></div></td>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 5')}>Template 5</div></td>
+                onClick={() => handleSelectTemplate('Template 5')}><span className="templateName">Lecture Notes</span></div></td>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 6')}>Template 6</div></td>
+                onClick={() => handleSelectTemplate('Template 6')}><span className="templateName">Brainstorming</span></div></td>
               </tr>
               <tr>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 7')}>Template 7</div></td>
+                onClick={() => handleSelectTemplate('Template 7')}><span className="templateName">Daily Journal</span></div></td>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 8')}>Template 8</div></td>
+                onClick={() => handleSelectTemplate('Template 8')}><span className="templateName">Goal Setting</span></div></td>
                 <td><div 
                 className="templateSelector"
-                onClick={() => handleSelectTemplate('Template 9')}>Template 9</div></td>
+                onClick={() => handleSelectTemplate('Template 9')}><span className="templateName">To-do List</span></div></td>
               </tr>
             </tbody>
           </table>
