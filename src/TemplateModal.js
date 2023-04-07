@@ -94,12 +94,12 @@ const TemplateModal = ({ show, onHide }) => {
             </tbody>
           </table>
         </div>
-        <div>
+        <div className="modalActionContainer">
           <button
           className="modalDefaultButton"
           onClick={() => setSelectedTemplate(null)}>Preview</button>
           <button
-          className="modalDefaultButton"
+          className="modalActionButton"
           onClick={handleInsert} disabled={!selectedTemplate}>Insert</button>
         </div>
       </div>

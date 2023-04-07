@@ -730,7 +730,39 @@ table {
   background-color: var(--muted-text);
   border: none;
   color: var(--primary-text);
-  border-radius: 2px;
+  border-radius: 35px;
+  width: 100px;
+  opacity: 0.5;
+  margin-right: 5px;
+}
+
+.modalDefaultButton:hover {
+  opacity: 1;
+}
+
+.modalActionButton {
+  font-family: SF Pro Display;
+  padding: 5px 5px 5px 5px;
+  font-size: 1em;
+  background-color: #5271ff;
+  border: none;
+  color: #f8f8f8;
+  border-radius: 35px;
+  width: 100px;
+  opacity: 0.5;
+  margin-right: 5px;
+}
+
+.modalActionButton:disabled {
+  opacity: 0.3;
+}
+
+.modalActionButton:enabled:hover {
+  opacity: 1;
+}
+
+.modalActionContainer {
+  text-align: center;
 }
 
 .modalCloseButton {
@@ -749,10 +781,6 @@ table {
 
 .modalCloseButton:hover {
   background-color: var(--muted-text);
-}
-
-.modalDefaultButton:disabled {
-  opacity: 0.5;
 }
 
 .modalCategoryButton {
