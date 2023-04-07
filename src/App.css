@@ -548,6 +548,7 @@ img {
   /* color: black; */
   background-color: transparent;
   border: none;
+  transition: 0.2s;
 }
 
 .fileElem:hover {
@@ -611,6 +612,8 @@ img {
   padding-right: 5px;
   font-size: 1em;
   text-align: left;
+  transition: 0.2s;
+
 }
 
 .outlineElement:hover {
@@ -734,6 +737,8 @@ table {
   width: 100px;
   opacity: 0.5;
   margin-right: 5px;
+  transition: 0.2s;
+
 }
 
 .modalDefaultButton:hover {
@@ -751,6 +756,7 @@ table {
   width: 100px;
   opacity: 0.5;
   margin-right: 5px;
+  transition: 0.2s;
 }
 
 .modalActionButton:disabled {
@@ -777,6 +783,7 @@ table {
   position: absolute;
   top: 0; 
   right: 0;
+  transition: 0.2s;
 }
 
 .modalCloseButton:hover {
@@ -794,6 +801,7 @@ table {
   background-color: var(--muted-text);
   border-radius: 35px;
   opacity: 0.5;
+  transition: 0.2s;
 }
 
 .modalCategoryButton:hover {
