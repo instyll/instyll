@@ -9,34 +9,15 @@ import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
 import TemplateModal from "./TemplateModal";
 import "allotment/dist/style.css";
-// import Prism from 'prismjs';
-// import 'prismjs/components/prism-jsx';
-// import 'prismjs/themes/prism.css';
 import { getFilesInDirectory } from './fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
 import MenuBar from './menuBar';
-// import chromeTheme from 'react-command-palette/dist/themes/sublime-theme';
-// import 'react-command-palette/dist/themes/sublime.css';
 
 import cpTheme from './commandPalette';
 import './commandPalette.css';
-
-// Assets
-import add from './add_component.png'
-import settings from './settings.png'
-import palette from './palette.png'
-import code from './code.png'
-import image from './image.png'
-import table from './table.png'
-import link from './link.png'
-import tcontents from './tcontents.png'
-import calendar from './calendar.png'
-import tabplus from './tabplus.png'
-import focus from './focus.png'
-import focusFilled from './focus-filled.png'
 
 // Plugins
 import remarkMath from 'remark-math'
