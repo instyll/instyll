@@ -17,6 +17,7 @@ import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
+import MenuBar from './menuBar';
 // import chromeTheme from 'react-command-palette/dist/themes/sublime-theme';
 // import 'react-command-palette/dist/themes/sublime.css';
 
@@ -45,6 +46,7 @@ import emoji from 'remark-emoji'
 import wikiLinkPlugin from 'remark-wiki-link'
 import { chrome } from 'process';
 import { timeStamp } from 'console';
+import { Menu } from 'electron';
 
 class App extends Component {
   constructor(props) {
@@ -78,6 +80,7 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.updateToc = this.updateToc.bind(this);
     this.changeLayout = this.changeLayout.bind(this);
+    this.setModalOpen = this.setModalOpen.bind(this);
   }
 
   // Update view pane on each edit
@@ -226,6 +229,12 @@ class App extends Component {
     );
   }
 
+  setModalOpen(value) {
+    this.setState({
+      modalOpen: value
+    });
+  }
+
   async fetchFiles() {
     const files = await getFilesInDirectory(this.state.notesDirectory);
     this.setState({ fileNames: files });
@@ -359,58 +368,12 @@ class App extends Component {
           {/* navbar */}
 
           <div className="navHorizontal">
-
-            <div className="menuBar">
-              <div className="menuIcon"
-                onClick={this.handleToc}>
-                <img src={tcontents} className="icon" draggable={false} />
-                <span className="tooltip">Outline</span>
-              </div>
-              <div className="menuIcon" onClick={() => this.setState({ modalOpen: true })}>
-                <img src={add} className="icon" draggable={false} />
-                <span className="tooltip">Add Component</span>
-              </div>
-              <div className="menuIcon">
-                <img src={image} className="icon" draggable={false} />
-                <span className="tooltip">Insert Image</span>
-              </div>
-              <div className="menuIcon">
-                <img src={code} className="icon" draggable={false} />
-                <span className="tooltip">Insert Code Block</span>
-              </div>
-              <div className="menuIcon">
-                <img src={calendar} className="icon" draggable={false} />
-                <span className="tooltip">Daily Note</span>
-              </div>
-              <div className="menuIcon">
-                <img src={table} className="icon" draggable={false} />
-                <span className="tooltip">Insert Table</span>
-              </div>
-              <div className="menuIcon">
-                <img src={link} className="icon" draggable={false} />
-                <span className="tooltip">Insert Link</span>
-              </div>
-              <input className="search" placeholder="Search">
-              </input>
-
-              <span className="rightComponents">
-                <div className="menuIcon"
-                  onClick={this.toggleFocus}>
-                  {this.state.focused ? (
-                    <img src={focusFilled} className="icon" id="focus" draggable={false} />
-                  ) : (
-                    <img src={focus} className="icon" id="focus" draggable={false} />
-                  )}
-                </div>
-                <div className="menuIcon"
-                  onClick={this.toggleTheme}>
-                  <img src={palette} className="icon" draggable={false} />
-                </div>
-                <div className="menuIcon">
-                  <img src={settings} className="icon" draggable={false} />
-                </div>
-              </span>
-            </div>
+            <MenuBar
+              handleToc={this.handleToc}
+              setModalOpen={this.setModalOpen}
+              toggleFocus={this.toggleFocus}
+              toggleTheme={this.toggleTheme}
+              focused={this.state.focused}/>
           </div>
 
           <div className="elevated">
