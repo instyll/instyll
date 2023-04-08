@@ -733,7 +733,7 @@ table {
   background-color: var(--muted-text);
   border: none;
   color: var(--primary-text);
-  border-radius: 35px;
+  border-radius: 2px;
   width: 100px;
   opacity: 0.5;
   margin-right: 5px;
@@ -752,7 +752,7 @@ table {
   background-color: #5271ff;
   border: none;
   color: #f8f8f8;
-  border-radius: 35px;
+  border-radius: 2px;
   width: 100px;
   opacity: 0.5;
   margin-right: 5px;
@@ -800,7 +800,7 @@ table {
   border: none;
   color: var(--primary-text);
   background-color: var(--muted-text);
-  border-radius: 35px;
+  border-radius: 2px;
   opacity: 0.5;
   transition: 0.2s;
 }
