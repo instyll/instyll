@@ -6,6 +6,8 @@ async function getFilesInDirectory(directory) {
     return files;
   }
 
-module.exports = {
-  getFilesInDirectory,
-};
+// module.exports = {
+//   getFilesInDirectory
+// };
+
+export default getFilesInDirectory;

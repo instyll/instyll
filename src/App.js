@@ -9,7 +9,7 @@ import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
 import TemplateModal from "./TemplateModal";
 import "allotment/dist/style.css";
-import { getFilesInDirectory } from './fileUtils';
+import getFilesInDirectory from './fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';

@@ -77,7 +77,7 @@
     "electron-start": "electron .",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://127.0.0.1:3000 && electron .\" ",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder -c.extraMetadata.main=build/main.js"
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/main.js GENERATE_SOURCEMAP=false"
   },
   "eslintConfig": {
     "extends": [
