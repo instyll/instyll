@@ -15,6 +15,7 @@ import fs from 'fs';
 import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
 import MenuBar from './menuBar';
+import TableOfContents from './toc.js';
 
 import cpTheme from './commandPalette';
 import './commandPalette.css';
@@ -354,58 +355,20 @@ class App extends Component {
               setModalOpen={this.setModalOpen}
               toggleFocus={this.toggleFocus}
               toggleTheme={this.toggleTheme}
-              focused={this.state.focused}/>
+              focused={this.state.focused} />
           </div>
 
           <div className="elevated">
 
             {/* table of contents*/}
 
-            <div className="tableOfContents">
-              <div className="tableInfo">
-                <p className="tocTitleFirst">Files</p>
-                <div className="fileSys">
-                  {this.state.fileNames.map((file, index) => (
-                    <button
-                      key={index}
-                      className="fileElem"
-                      onClick={() => this.handleClick(file)}>{file.replace(/^.*[\\/]/, '')}</button>
-                  ))}
-                </div>
-                <p className='tocTitle'>Stats</p>
-                <div className="pageInfo">
-                  <span className="leftComponents">
-                    <div className="infoDisplay"><div className="label">Characters</div></div>
-                    <div className="infoDisplay"><div className="label">Words</div></div>
-                  </span>
-                  <span className="rightComponents">
-                    <div className="infoDisplay"><span className="precount">{this.state.charCount}</span>/{this.state.charCount}</div>
-                    <div className="infoDisplay"><span className="precount">{this.state.wordCount}</span>/{this.state.wordCount} </div>
-                  </span>
-                </div>
-                <br></br>
-                <br></br>
-                <p className='tocTitle'>Outline</p>
-                <div>
-                  {
-                    this.state.tocHeaders.map((header, index) => (
-                      <div key={index} className="outlineElement">
-                        <a href={`#${header.id}`} className="headerNav">
-                          <span className="headerDelim">
-                            {
-                              header.type === 'H2' ? '## ' :
-                                header.type === 'H3' ? '### ' :
-                                  header.type === 'H4' ? '#### ' :
-                                    header.type === 'H5' ? '##### ' :
-                                      header.type === 'H6' ? '###### ' : '# '}
-                          </span>
-                          {header.text}
-                        </a>
-                      </div>
-                    ))}
-                </div>
-              </div>
-            </div>
+            <TableOfContents
+              fileNames={this.state.fileNames}
+              handleClick={this.handleClick}
+              charCount={this.state.charCount}
+              wordCount={this.state.wordCount}
+              tocHeaders={this.state.tocHeaders}
+            />
 
             {/* main editor view */}
 
