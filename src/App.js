@@ -16,6 +16,7 @@ import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
 import MenuBar from './menuBar';
 import TableOfContents from './toc.js';
+import { FILE, SET_THEME, LAYOUT } from './constants.ts';
 
 import cpTheme from './commandPalette';
 import './commandPalette.css';
@@ -34,7 +35,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdownSrc: "hello",
+      markdownSrc: "# Welcome to instyll",
       size: "50%",
       wordCount: "0",
       charCount: "0",
@@ -73,7 +74,7 @@ class App extends Component {
     }, () => {
       this.getWordCount();
     });
-    console.log(document.getElementById("root"));
+    // console.log(document.getElementById("root"));
   }
 
   // Full editor view
@@ -289,38 +290,38 @@ class App extends Component {
   render() {
 
     const commands = [{
-      name: "Set Theme: Dark",
+      name: SET_THEME + "Dark",
       command: () => {
         this.setDark(true);
       },
     }, {
-      name: "Set Theme: Light",
+      name: SET_THEME + "Light",
       command: () => {
         this.setDark(false);
       }
     },
     {
-      name: "Layout: Vertical",
+      name: LAYOUT + "Vertical",
       command: () => {
         this.changeLayout("vertical");
       }
     },
     {
-      name: "Layout: Horizontal",
+      name: LAYOUT + "Horizontal",
       command: () => {
         this.changeLayout("horizontal");
       }
     },
     {
-      name: "File: Export as PDF",
+      name: FILE + "Export as PDF",
       command() { }
     },
     {
-      name: "File: Export as LaTeX",
+      name: FILE + "Export as LaTeX",
       command() { }
     },
     {
-      name: "File: Print",
+      name: FILE + "Print",
       command() { }
     },
     ];

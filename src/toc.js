@@ -51,4 +51,4 @@ function TableOfContents(props) {
   );
 }
 
-export default TableOfContents;
+export default React.memo(TableOfContents);
