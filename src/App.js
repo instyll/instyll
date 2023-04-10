@@ -383,6 +383,7 @@ class App extends Component {
               marginRight: this.state.tocOpen === true ? "0" : "0",
               marginLeft: this.state.tocOpen === true ? "270px" : "0",
               borderRadius: "10px",
+              transition: "0.2s",
             }}>
               <Allotment
                 style={{

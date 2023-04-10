@@ -337,6 +337,7 @@ img {
   filter: var(--icon-filter);
   padding-left: 2px;
   padding-right: 2px;
+  transition: 0.2s;
 }
 
 .icon:hover {
@@ -405,7 +406,7 @@ img {
   padding-top: 2px;
   padding-bottom: 2px;
   position: absolute;
-  z-index: 999;
+  z-index: 9999;
   top: 100%;
   font-size: 0.7em;
   margin-left: -56px;
@@ -792,7 +793,7 @@ table {
   border-radius: 2px;
   display: inline-block;
   position: absolute;
-  top: 0; 
+  top: 0;
   right: 0;
   transition: 0.2s;
 }
