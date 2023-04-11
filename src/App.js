@@ -274,12 +274,9 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.markdownSrc);
-    console.log(prevState.markdownSrc);
-    if (this.state.markdownSrc !== prevState.markdownSrc) {
-      console.log("remaking TOC")
-      this.updateToc();
-    }
+
+      // this.updateToc();
+    
   }
 
   componentWillUnmount() {
@@ -422,7 +419,7 @@ class App extends Component {
               width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
               marginRight: this.state.tocOpen === true ? "0" : "0",
               marginLeft: this.state.tocOpen === true ? "270px" : "0",
-              // borderRadius: "10px",
+              borderRadius: "10px",
               transition: "0.2s",
               boxSizing: "border-box",
               overflow: "auto",
