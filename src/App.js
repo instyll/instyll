@@ -375,11 +375,11 @@ class App extends Component {
             {/* main editor view */}
 
             {/* <ScrollSync> */}
-
+            {/* 
             <div className="allotment-container" style={{
-              position: "absolute",
-              height: "100%",
-              bottom: "0",
+              // position: "absolute",
+              // height: "100%",
+              // bottom: "0",
               width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
               marginRight: this.state.tocOpen === true ? "0" : "0",
               marginLeft: this.state.tocOpen === true ? "270px" : "0",
@@ -394,8 +394,8 @@ class App extends Component {
                 snap={true}
                 vertical={this.state.orientation}
                 key={this.state.orientation}
-              >
-                {/* <div className="editor-pane" allotment="editor">
+              > */}
+            {/* <div className="editor-pane" allotment="editor">
                   <Editor
                     className="editor"
                     value={this.state.markdownSrc}
@@ -415,11 +415,24 @@ class App extends Component {
                   </div>
                 </div> */}
 
-
-                <MilkdownEditorWrapper></MilkdownEditorWrapper>
-              </Allotment>
-
+            <div style={{
+              position: "relative",
+              height: "100%",
+              bottom: "0",
+              width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+              marginRight: this.state.tocOpen === true ? "0" : "0",
+              marginLeft: this.state.tocOpen === true ? "270px" : "0",
+              // borderRadius: "10px",
+              transition: "0.2s",
+              boxSizing: "border-box",
+              overflow: "auto",
+            }}>
+            <MilkdownEditorWrapper
+            ></MilkdownEditorWrapper>
             </div>
+            {/* </Allotment> */}
+
+            {/* </div> */}
 
             {/* </ScrollSync> */}
 

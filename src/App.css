@@ -136,10 +136,22 @@
     /* height: 100vh; */
     white-space: pre-wrap;
     color: var(--primary-text);
+    width: 100%;
+    /* position: absolute; */
+    box-sizing: border-box;
+    bottom: 0;
+    display: inline-block;
   }
 
   .ProseMirror {
     height: 100vh;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 32px;
+    /* overflow: auto; */
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    border-radius: 10px;
   }
 
   .ProseMirror:focus {
