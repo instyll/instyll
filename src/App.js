@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Editor from './editor.js';
+// import Editor from './legacyEditor.js';
+import { MilkdownEditorWrapper } from './mdWrapper.js';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
 import "highlight.js/styles/github.css";
@@ -104,21 +105,21 @@ class App extends Component {
 
   // Getting document statistics
 
-  getWordCount() {
-    var screen = document.getElementById("text");
-    console.log(screen)
-    // var screen = document.querySelector("#text *:not")
-    var charCount = screen.textContent.trim().length; // update charCount here
-    var textContent = screen.textContent;
-    console.log(textContent)
-    var count = textContent.trim().split(/\s+/).length;
-    this.setState({
-      delimiter: count > 1 ? "words" : "word", // use count variable here
-      charDelimiter: charCount === 1 ? "character" : "characters", // use charCount variable here
-      wordCount: count,
-      charCount: charCount,
-    });
-  }
+  // getWordCount() {
+  //   var screen = document.getElementById("text");
+  //   console.log(screen)
+  //   // var screen = document.querySelector("#text *:not")
+  //   var charCount = screen.textContent.trim().length; // update charCount here
+  //   var textContent = screen.textContent;
+  //   console.log(textContent)
+  //   var count = textContent.trim().split(/\s+/).length;
+  //   this.setState({
+  //     delimiter: count > 1 ? "words" : "word", // use count variable here
+  //     charDelimiter: charCount === 1 ? "character" : "characters", // use charCount variable here
+  //     wordCount: count,
+  //     charCount: charCount,
+  //   });
+  // }
 
   // Sidebar toggle
 
@@ -245,31 +246,31 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getWordCount();
+    // this.getWordCount();
     this.fetchFiles();
 
-    const editor = document.querySelector('.editor-pane');
-    const preview = document.querySelector('.view-pane');
+    // const editor = document.querySelector('.editor-pane');
+    // const preview = document.querySelector('.view-pane');
 
-    const syncScroll = (event) => {
-      const percentage = event.target.scrollTop / (event.target.scrollHeight - event.target.offsetHeight);
-      preview.scrollTop = percentage * (preview.scrollHeight - preview.offsetHeight);
-    }
+    // const syncScroll = (event) => {
+    //   const percentage = event.target.scrollTop / (event.target.scrollHeight - event.target.offsetHeight);
+    //   preview.scrollTop = percentage * (preview.scrollHeight - preview.offsetHeight);
+    // }
 
-    const debouncedSyncScroll = debounce(syncScroll, 10); // debounce the syncScroll function
+    // const debouncedSyncScroll = debounce(syncScroll, 10); // debounce the syncScroll function
 
-    const editorPane = document.querySelector('.editor-pane');
-    const viewPane = document.querySelector('.view-pane');
+    // const editorPane = document.querySelector('.editor-pane');
+    // const viewPane = document.querySelector('.view-pane');
 
-    editorPane.onscroll = debouncedSyncScroll; // use the onscroll attribute instead of addEventListener
-    viewPane.onscroll = debouncedSyncScroll;
+    // editorPane.onscroll = debouncedSyncScroll; // use the onscroll attribute instead of addEventListener
+    // viewPane.onscroll = debouncedSyncScroll;
 
-    const cleanup = () => {
-      editorPane.onscroll = null; // remove the event listeners
-      viewPane.onscroll = null;
-    }
+    // const cleanup = () => {
+    //   editorPane.onscroll = null; // remove the event listeners
+    //   viewPane.onscroll = null;
+    // }
 
-    this.setState({ cleanup: cleanup });
+    // this.setState({ cleanup: cleanup });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -394,7 +395,7 @@ class App extends Component {
                 vertical={this.state.orientation}
                 key={this.state.orientation}
               >
-                <div className="editor-pane" allotment="editor">
+                {/* <div className="editor-pane" allotment="editor">
                   <Editor
                     className="editor"
                     value={this.state.markdownSrc}
@@ -412,7 +413,10 @@ class App extends Component {
                       escapeHtml={false}
                     />
                   </div>
-                </div>
+                </div> */}
+
+
+                <MilkdownEditorWrapper></MilkdownEditorWrapper>
               </Allotment>
 
             </div>

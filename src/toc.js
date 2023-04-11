@@ -20,10 +20,10 @@ function TableOfContents(props) {
             <div className="infoDisplay"><div className="label">Characters</div></div>
             <div className="infoDisplay"><div className="label">Words</div></div>
           </span>
-          <span className="rightComponents">
+          {/* <span className="rightComponents">
             <div className="infoDisplay"><span className="precount">{props.charCount}</span>/{props.charCount}</div>
             <div className="infoDisplay"><span className="precount">{props.wordCount}</span>/{props.wordCount} </div>
-          </span>
+          </span> */}
         </div>
         <br></br>
         <br></br>
