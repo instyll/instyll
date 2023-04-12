@@ -105,21 +105,21 @@ class App extends Component {
 
   // Getting document statistics
 
-  // getWordCount() {
-  //   var screen = document.getElementById("text");
-  //   console.log(screen)
-  //   // var screen = document.querySelector("#text *:not")
-  //   var charCount = screen.textContent.trim().length; // update charCount here
-  //   var textContent = screen.textContent;
-  //   console.log(textContent)
-  //   var count = textContent.trim().split(/\s+/).length;
-  //   this.setState({
-  //     delimiter: count > 1 ? "words" : "word", // use count variable here
-  //     charDelimiter: charCount === 1 ? "character" : "characters", // use charCount variable here
-  //     wordCount: count,
-  //     charCount: charCount,
-  //   });
-  // }
+  getWordCount() {
+    var screen = document.getElementById("text");
+    console.log(screen)
+    // var screen = document.querySelector("#text *:not")
+    var charCount = screen.textContent.trim().length; // update charCount here
+    var textContent = screen.textContent;
+    console.log(textContent)
+    var count = textContent.trim().split(/\s+/).length;
+    this.setState({
+      delimiter: count > 1 ? "words" : "word", // use count variable here
+      charDelimiter: charCount === 1 ? "character" : "characters", // use charCount variable here
+      wordCount: count,
+      charCount: charCount,
+    });
+  }
 
   // Sidebar toggle
 
@@ -246,7 +246,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // this.getWordCount();
+    this.getWordCount();
     this.fetchFiles();
 
     // const editor = document.querySelector('.editor-pane');
@@ -423,7 +423,7 @@ class App extends Component {
               transition: "0.2s",
               boxSizing: "border-box",
               overflow: "auto",
-            }}>
+            }} id="text">
             <MilkdownEditorWrapper
             ></MilkdownEditorWrapper>
             </div>

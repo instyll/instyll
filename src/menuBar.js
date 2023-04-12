@@ -12,6 +12,7 @@ import tcontents from './icons/tcontents.png'
 import calendar from './icons/calendar.png'
 import focus from './icons/focus.png'
 import focusFilled from './icons/focus-filled.png'
+import nodes from './icons/nodes.png'
 
 function MenuBar(props) {
   return (
@@ -49,17 +50,21 @@ function MenuBar(props) {
       </input>
 
       <span className="rightComponents">
-        <div className="menuIcon"
+        {/* <div className="menuIcon"
           onClick={props.toggleFocus}>
           {props.focused ? (
             <img src={focusFilled} className="icon" id="focus" draggable={false} />
           ) : (
             <img src={focus} className="icon" id="focus" draggable={false} />
           )}
-        </div>
+        </div> */}
         <div className="menuIcon"
           onClick={props.toggleTheme}>
           <img src={palette} className="icon" draggable={false} />
+        </div>
+        <div className="menuIcon"
+          onClick={props.toggleTheme}>
+          <img src={nodes} className="icon" draggable={false} />
         </div>
         <div className="menuIcon">
           <img src={settings} className="icon" draggable={false} />
