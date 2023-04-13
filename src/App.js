@@ -275,8 +275,8 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
 
-      // this.updateToc();
-    
+    // this.updateToc();
+
   }
 
   componentWillUnmount() {
@@ -357,75 +357,31 @@ class App extends Component {
               focused={this.state.focused} />
           </div>
 
+          <TableOfContents
+            fileNames={this.state.fileNames}
+            handleClick={this.handleClick}
+            charCount={this.state.charCount}
+            wordCount={this.state.wordCount}
+            tocHeaders={this.state.tocHeaders}
+          />
+
+
           <div className="elevated">
-
-            {/* table of contents*/}
-
-            <TableOfContents
-              fileNames={this.state.fileNames}
-              handleClick={this.handleClick}
-              charCount={this.state.charCount}
-              wordCount={this.state.wordCount}
-              tocHeaders={this.state.tocHeaders}
-            />
-
-            {/* main editor view */}
-
-            {/* <ScrollSync> */}
-            {/* 
-            <div className="allotment-container" style={{
-              // position: "absolute",
-              // height: "100%",
-              // bottom: "0",
-              width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-              marginRight: this.state.tocOpen === true ? "0" : "0",
-              marginLeft: this.state.tocOpen === true ? "270px" : "0",
-              borderRadius: "10px",
-              transition: "0.2s",
-            }}>
-              <Allotment
-                style={{
-                  borderRadius: "10px",
-                }}
-                id="mainView"
-                snap={true}
-                vertical={this.state.orientation}
-                key={this.state.orientation}
-              > */}
-            {/* <div className="editor-pane" allotment="editor">
-                  <Editor
-                    className="editor"
-                    value={this.state.markdownSrc}
-                    onChange={this.onMarkdownChange}
-                    onPaste={(editor, e) => this.handlePaste(editor, e)}
-                  />
-                </div>
-                <div className="view-pane" allotment="preview">
-                  <div className="preview" id="text">
-                    <ReactMarkdown
-                      className="result"
-                      children={this.state.markdownSrc}
-                      remarkPlugins={[remarkMath, remarkGfm, emoji, wikiLinkPlugin]}
-                      rehypePlugins={[rehypeMathjax]}
-                      escapeHtml={false}
-                    />
-                  </div>
-                </div> */}
 
             <div style={{
               position: "relative",
               height: "100%",
               bottom: "0",
-              width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-              marginRight: this.state.tocOpen === true ? "0" : "0",
-              marginLeft: this.state.tocOpen === true ? "270px" : "0",
+              // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+              // marginRight: this.state.tocOpen === true ? "0px" : "0px",
+              // marginLeft: this.state.tocOpen === true ? "270px" : "0",
               borderRadius: "10px",
               transition: "0.2s",
               boxSizing: "border-box",
               overflow: "auto",
             }} id="text">
-            <MilkdownEditorWrapper
-            ></MilkdownEditorWrapper>
+              <MilkdownEditorWrapper
+              ></MilkdownEditorWrapper>
             </div>
             {/* </Allotment> */}
 
@@ -435,7 +391,6 @@ class App extends Component {
 
           </div>
         </div>
-
       </div>
     );
   }

@@ -13,16 +13,18 @@ import calendar from './icons/calendar.png'
 import focus from './icons/focus.png'
 import focusFilled from './icons/focus-filled.png'
 import nodes from './icons/nodes.png'
+import star from './icons/star.png'
+import logo from './icons/keylight.png'
 
 function MenuBar(props) {
   return (
     <div className="menuBar">
       <div className="menuIcon"
         onClick={props.handleToc}>
-        <img src={tcontents} className="icon" draggable={false} />
+        <img src={tcontents} className="icon" id="firstIcon" draggable={false} />
         <span className="tooltip">Outline</span>
       </div>
-      <div className="menuIcon" onClick={() => props.setModalOpen(true)}>
+      {/* <div className="menuIcon" onClick={() => props.setModalOpen(true)}>
         <img src={add} className="icon" draggable={false} />
         <span className="tooltip">Add Component</span>
       </div>
@@ -45,9 +47,14 @@ function MenuBar(props) {
       <div className="menuIcon">
         <img src={link} className="icon" draggable={false} />
         <span className="tooltip">Insert Link</span>
+      </div> */}
+      <div className="menuIconLogo">
+        <img src={logo} className="icon" draggable={false} />
       </div>
+      <div className="searchContainer">
       <input className="search" placeholder="Search">
       </input>
+      </div>
 
       <span className="rightComponents">
         {/* <div className="menuIcon"
@@ -58,6 +65,11 @@ function MenuBar(props) {
             <img src={focus} className="icon" id="focus" draggable={false} />
           )}
         </div> */}
+        <button className="menuAddOptionButton">New</button>
+        <div className="menuIcon"
+          onClick={props.toggleTheme}>
+          <img src={star} className="icon" draggable={false} />
+        </div>
         <div className="menuIcon"
           onClick={props.toggleTheme}>
           <img src={palette} className="icon" draggable={false} />
