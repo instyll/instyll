@@ -14,7 +14,7 @@ import focus from './icons/focus.png'
 import focusFilled from './icons/focus-filled.png'
 import nodes from './icons/nodes.png'
 import star from './icons/star.png'
-import logo from './icons/keylight.png'
+import logo from './icons/keylight3.png'
 import search from './icons/search.png'
 
 function MenuBar(props) {
@@ -55,7 +55,7 @@ function MenuBar(props) {
           <img src={logo} className="icon" draggable={false} />
         </div>
         <div className='searchWrapper'>
-      <img src={search} className="searchIcon"></img>
+      <img src={search} className="searchIcon" draggable={false}></img>
       </div>
       <input className="search" placeholder="Search anything">
       </input>
