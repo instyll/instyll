@@ -15,15 +15,16 @@ import focusFilled from './icons/focus-filled.png'
 import nodes from './icons/nodes.png'
 import star from './icons/star.png'
 import logo from './icons/keylight.png'
+import search from './icons/search.png'
 
 function MenuBar(props) {
   return (
     <div className="menuBar">
-      <div className="menuIcon"
+      {/* <div className="menuIcon"
         onClick={props.handleToc}>
         <img src={tcontents} className="icon" id="firstIcon" draggable={false} />
         <span className="tooltip">Outline</span>
-      </div>
+      </div> */}
       {/* <div className="menuIcon" onClick={() => props.setModalOpen(true)}>
         <img src={add} className="icon" draggable={false} />
         <span className="tooltip">Add Component</span>
@@ -48,15 +49,20 @@ function MenuBar(props) {
         <img src={link} className="icon" draggable={false} />
         <span className="tooltip">Insert Link</span>
       </div> */}
-      <div className="menuIconLogo">
-        <img src={logo} className="icon" draggable={false} />
+      {/* <div className="searchContainer"> */}
+      <div className="menuIconLogo"
+          onClick={props.toggleTheme}>
+          <img src={logo} className="icon" draggable={false} />
+        </div>
+        <div className='searchWrapper'>
+      <img src={search} className="searchIcon"></img>
       </div>
-      <div className="searchContainer">
-      <input className="search" placeholder="Search">
+      <input className="search" placeholder="Search anything">
       </input>
-      </div>
+      <button className="menuAddOptionButton"><span className="addSymbol">＋</span>&nbsp;&nbsp;New</button>
+      {/* </div> */}
 
-      <span className="rightComponents">
+      {/* <span className="rightComponents"> */}
         {/* <div className="menuIcon"
           onClick={props.toggleFocus}>
           {props.focused ? (
@@ -65,12 +71,12 @@ function MenuBar(props) {
             <img src={focus} className="icon" id="focus" draggable={false} />
           )}
         </div> */}
-        <button className="menuAddOptionButton">New</button>
-        <div className="menuIcon"
+        {/* <button className="menuAddOptionButton">New</button> */}
+        {/* <div className="menuIcon"
           onClick={props.toggleTheme}>
           <img src={star} className="icon" draggable={false} />
-        </div>
-        <div className="menuIcon"
+        </div> */}
+        {/* <div className="menuIcon"
           onClick={props.toggleTheme}>
           <img src={palette} className="icon" draggable={false} />
         </div>
@@ -80,8 +86,8 @@ function MenuBar(props) {
         </div>
         <div className="menuIcon">
           <img src={settings} className="icon" draggable={false} />
-        </div>
-      </span>
+        </div> */}
+      {/* </span> */}
     </div>
   );
 }

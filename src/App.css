@@ -21,7 +21,7 @@
   --muted-text: #e4e4e4;
   --search-background: #f8f8fa;
   --base: #fff;
-  --elevated-bg: #f9fafb;
+  --elevated-bg: #f8f8fa;
   --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
   --code: #f6f8fa;
   --separator-border: #e4e4e4 !important;
@@ -120,13 +120,16 @@ body {
   background-color: var(--bg-color);
   box-sizing: border-box;
 
-  height: calc(100vh - 62px);
+  height: calc(100vh - 78px);
   width: calc(100% - 290px);
+  bottom: 0;
   /* margin: 0 auto; */
 
   margin-left: 280px;
   border-radius: 10px;
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
+  -webkit-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.2); 
+  box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.2);
 }
 
 /* Milkdown Editor */
@@ -345,7 +348,8 @@ button {
   box-sizing: border-box;
   margin-bottom: 5px;
   /* z-index: 1; */
-  height: 42px;
+  height: 58px;
+  text-align: center;
 }
 
 .menuBar .menuIcon {
@@ -366,12 +370,12 @@ img {
 }
 
 .menuIcon {
-  height: 24px;
+  height: 30px;
   user-select: none;
 }
 
 .menuIconLogo {
-  height: 32px;
+  height: 45px;
   user-select: none;
 }
 
@@ -409,45 +413,88 @@ img {
 
 .menuAddOptionButton {
   background-color: var(--button-highlight);
+  /* background-color: var(--bg-color); */
+
   border: none;
-  border-radius: 35px;
+  border-radius: 7px;
   color: var(--button-highlight-text);
-  width: 100px;
+  /* color: var(--button-highlight); */
+  /* border: 2px solid var(--button-highlight); */
+  width: 120px;
   /* text-align: right; */
   font-size: 1em;
+  font-weight: bold;
   padding: 5px;
-  height: 32px;
+  height: 42px;
   margin-left: 5px;
   margin-right: 5px;
   font-family: 'SF Pro Display', sans-serif;
+  transition: 0.2s;
 
 }
 
+.menuAddOptionButton:hover {
+  /* background-color: var(--button-highlight); */
+  background-color: var(--bg-color);
+
+  
+  /* color: var(--button-highlight-text); */
+  color: var(--button-highlight);
+  border: 1px solid var(--button-highlight);
+}
+
+.addSymbol {
+  font-weight: normal;
+}
+
 .search {
-  width: calc(100% - 360px);
-  height: 32px;
+  width: 500px;
+  height: 42px;
   box-sizing: border-box;
   outline: none;
   font-size: 1em;
   background-color: var(--search-background);
   font-family: 'SF Pro Display', sans-serif;
   color: var(--secondary-text);
-  padding-left: 10px;
+  padding-left: 45px;
   padding-right: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-radius: 35px;
+  border-radius: 45px;
   border: none;
   text-align: left;
-  position: absolute;
+  position: relative;
   display: inline-block;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   margin-left: 5px;
   margin-right: 5px;
+  z-index: 0;
+}
+
+.searchContainer {
+  display: inline-block;
 }
 
 .search .menuIcon {
   display: inline-block;
+}
+
+.search .menuAddOptionButton {
+  vertical-align: middle;
+}
+
+.searchWrapper {
+  display: inline-block;
+  z-index: 999;
+  width: 24px;
+  position: relative;
+  vertical-align: middle;
+  margin-right: -45px;
+  padding-left: 15px;
+}
+
+.searchIcon {
+  /* margin-right: -85px; */
 }
 
 .afterSearch {
