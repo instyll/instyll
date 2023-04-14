@@ -32,6 +32,10 @@ import { chrome } from 'process';
 import { timeStamp } from 'console';
 import { Menu } from 'electron';
 
+// Assets
+import moreDots from './icons/more.png';
+import exportIcon from './icons/export.png';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -367,7 +371,18 @@ class App extends Component {
 
 
           <div className="elevated">
-
+            <div className="optionsContainer">
+              <div className='rightComponents'>
+                <div className="optionObject">
+                  <button className="exportButton"><img src={exportIcon} class="buttonIcon"></img>Export</button>
+                </div>
+                <div className="optionObject">
+                  <div className="moreDots">
+                    <img src={moreDots} draggable={false}></img>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div style={{
               position: "relative",
               height: "100%",

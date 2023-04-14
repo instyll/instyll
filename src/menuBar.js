@@ -57,7 +57,7 @@ function MenuBar(props) {
         <div className='searchWrapper'>
       <img src={search} className="searchIcon" draggable={false}></img>
       </div>
-      <input className="search" placeholder="Search anything">
+      <input className="search" placeholder="Search your notes">
       </input>
       <button className="menuAddOptionButton"><span className="addSymbol">＋</span>&nbsp;&nbsp;New</button>
       {/* </div> */}
