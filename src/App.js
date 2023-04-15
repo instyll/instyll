@@ -35,6 +35,7 @@ import { Menu } from 'electron';
 // Assets
 import moreDots from './icons/more.png';
 import exportIcon from './icons/export.png';
+import star from './icons/star.png';
 
 class App extends Component {
   constructor(props) {
@@ -373,12 +374,21 @@ class App extends Component {
           <div className="elevated">
             <div className="optionsContainer">
               <div className='rightComponents'>
+              {/* <div className="optionObjectIcon"> */}
+                  {/* <div className="star"> */}
+                    <img className="star" src={star} draggable={false}></img>
+                  {/* </div> */}
+                {/* </div> */}
                 <div className="optionObject">
-                  <button className="exportButton"><img src={exportIcon} class="buttonIcon"></img>Export</button>
+                  <button className="exportButton">
+         
+                    <img src={exportIcon} class="buttonIcon"></img>
+
+                    Export</button>
                 </div>
                 <div className="optionObject">
                   <div className="moreDots">
-                    <img src={moreDots} draggable={false}></img>
+                    <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
                   </div>
                 </div>
               </div>
