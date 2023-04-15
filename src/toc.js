@@ -5,7 +5,7 @@ function TableOfContents(props) {
   return (
     <div className="tableOfContents">
       <div className="tableInfo">
-        <p className="tocTitleFirst">Files</p>
+        <p className="tocTitleFirst">Notes</p>
         <div className="fileSys">
           {props.fileNames.map((file, index) => (
             <button

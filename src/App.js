@@ -17,10 +17,13 @@ import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
 import MenuBar from './menuBar';
 import TableOfContents from './toc.js';
+import Calendar from 'react-calendar';
+// import moment from 'moment';
 import { FILE, SET_THEME, LAYOUT } from './constants.ts';
 
 import cpTheme from './commandPalette';
 import './commandPalette.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 // Plugins
 import remarkMath from 'remark-math'
@@ -38,6 +41,8 @@ import exportIcon from './icons/export.png';
 import star from './icons/star.png';
 import add from './icons/add_component.png';
 import back from './icons/back.png';
+
+// const localizer = momentLocalizer(moment)
 
 class App extends Component {
   constructor(props) {
@@ -421,7 +426,9 @@ class App extends Component {
             </div>
             </div>
             <div className="elevatedRight">
-
+              <div className="calendarContainer">
+                <Calendar></Calendar>
+              </div>
             </div>
           </div>
         </div>
