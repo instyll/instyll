@@ -16,11 +16,11 @@ function TableOfContents(props) {
         </div>
         <p className='tocTitle'>Stats</p>
         <div className="pageInfo">
-          <span className="leftComponents">
+          <span className="leftStatComponents">
             <div className="infoDisplay"><div className="label">Characters</div></div>
             <div className="infoDisplay"><div className="label">Words</div></div>
           </span>
-          <span className="rightComponents">
+          <span className="rightStatComponents">
             <div className="infoDisplay"><span className="precount">{props.charCount}</span>/{props.charCount}</div>
             <div className="infoDisplay"><span className="precount">{props.wordCount}</span>/{props.wordCount} </div>
           </span>

@@ -36,6 +36,8 @@ import { Menu } from 'electron';
 import moreDots from './icons/more.png';
 import exportIcon from './icons/export.png';
 import star from './icons/star.png';
+import add from './icons/add_component.png';
+import back from './icons/back.png';
 
 class App extends Component {
   constructor(props) {
@@ -371,49 +373,56 @@ class App extends Component {
           />
 
 
-          <div className="elevated">
-            <div className="optionsContainer">
-              <div className='rightComponents'>
-              {/* <div className="optionObjectIcon"> */}
-                  {/* <div className="star"> */}
-                    <img className="star" src={star} draggable={false}></img>
-                  {/* </div> */}
-                {/* </div> */}
-                <div className="optionObject">
-                  <button className="exportButton">
-         
-                    <img src={exportIcon} class="buttonIcon"></img>
+          <div className="editingView">
+            <div className="elevatedLeft">
+            <div className="elevated">
+              <div className="optionsContainer">
+                <div className="leftComponents">
+                  <img className="back" src={back} draggable={false}></img>
+                  <div className="optionObject">
+                    <button className="addTopicButton">
 
-                    Export</button>
+                      <img src={add} class="buttonIcon"></img>
+
+                      Add topic</button>
+                  </div>
                 </div>
-                <div className="optionObject">
-                  <div className="moreDots">
-                    <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
+                <div className='rightComponents'>
+                  <img className="star" src={star} draggable={false}></img>
+                  <div className="optionObject">
+                    <button className="exportButton">
+
+                      <img src={exportIcon} class="buttonIcon"></img>
+
+                      Export</button>
+                  </div>
+                  <div className="optionObject">
+                    <div className="moreDots">
+                      <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div style={{
+                position: "relative",
+                height: "100%",
+                bottom: "0",
+                // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+                // marginRight: this.state.tocOpen === true ? "0px" : "0px",
+                // marginLeft: this.state.tocOpen === true ? "270px" : "0",
+                borderRadius: "10px",
+                transition: "0.2s",
+                boxSizing: "border-box",
+                overflow: "auto",
+              }} id="text">
+                <MilkdownEditorWrapper
+                ></MilkdownEditorWrapper>
+              </div>
             </div>
-            <div style={{
-              position: "relative",
-              height: "100%",
-              bottom: "0",
-              // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-              // marginRight: this.state.tocOpen === true ? "0px" : "0px",
-              // marginLeft: this.state.tocOpen === true ? "270px" : "0",
-              borderRadius: "10px",
-              transition: "0.2s",
-              boxSizing: "border-box",
-              overflow: "auto",
-            }} id="text">
-              <MilkdownEditorWrapper
-              ></MilkdownEditorWrapper>
             </div>
-            {/* </Allotment> */}
+            <div className="elevatedRight">
 
-            {/* </div> */}
-
-            {/* </ScrollSync> */}
-
+            </div>
           </div>
         </div>
       </div>
