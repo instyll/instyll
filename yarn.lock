@@ -2069,6 +2069,14 @@
     twemoji "^14.0.1"
     unist-util-visit "^4.0.0"
 
+"@milkdown/plugin-history@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-history/-/plugin-history-7.2.0.tgz#dfce41351e0f567184fc2bade2a81fc3aac5699f"
+  integrity sha512-1B4jAQAW5pRe0M0gtwUTTepcg4RMPbHCx9/Y2W727PpU83oohKAt6Zp5fY67ZJaS4jkjwG4BgochOJrGsq/EHA==
+  dependencies:
+    "@milkdown/utils" "7.2.0"
+    tslib "^2.5.0"
+
 "@milkdown/plugin-math@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-math/-/plugin-math-7.2.0.tgz#9162cf17eeb72bb11c124324c51b0bff7cb316a9"

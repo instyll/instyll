@@ -1,5 +1,5 @@
 import React from 'react';
-import { Editor, rootCtx } from '@milkdown/core';
+import { Editor, rootCtx, defaultValueCtx } from '@milkdown/core';
 import { nord } from '@milkdown/theme-nord';
 import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react';
 import { commonmark } from '@milkdown/preset-commonmark';
@@ -7,7 +7,10 @@ import { gfm } from '@milkdown/preset-gfm';
 import { math } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
 import { diagram } from '@milkdown/plugin-diagram';
+import { history } from '@milkdown/plugin-history';
 import 'katex/dist/katex.min.css';
+
+const defaultValue = '# Hello milkdown';
 
 const MilkdownEditor: React.FC = () => {
   const { editor } = useEditor((root) =>
@@ -20,7 +23,8 @@ const MilkdownEditor: React.FC = () => {
       .use(gfm)
       .use(math)
       .use(emoji)
-      .use(diagram),
+      .use(diagram)
+      .use(history),
   );
 
   return <Milkdown />;

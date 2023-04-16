@@ -18,6 +18,7 @@
     "@milkdown/ctx": "^7.2.0",
     "@milkdown/plugin-diagram": "^7.2.0",
     "@milkdown/plugin-emoji": "^7.2.0",
+    "@milkdown/plugin-history": "^7.2.0",
     "@milkdown/plugin-math": "^7.2.0",
     "@milkdown/preset-commonmark": "^7.2.0",
     "@milkdown/preset-gfm": "^7.2.0",
