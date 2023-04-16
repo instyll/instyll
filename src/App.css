@@ -127,7 +127,7 @@ body {
   flex-direction: column;
   background-color: var(--bg-color);
   box-sizing: border-box;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 90px);
   width: 100%;
   bottom: 0;
   border-radius: 10px;
@@ -137,7 +137,7 @@ body {
 
 .elevatedLeft {
   display: inline-block;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 90px);
   width: calc((100% - 322px) / 2);
   margin-left: 302px;
 
@@ -147,7 +147,7 @@ body {
 position: relative;
   /* background-color: var(--search-background); */
   box-sizing: border-box;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 90px);
   width: calc((100% - 322px) / 2);
   bottom: 0;
   border-radius: 10px;
@@ -533,7 +533,8 @@ button {
   box-sizing: border-box;
   margin-bottom: 5px;
   /* z-index: 1; */
-  height: 55px;
+  /* height: 55px; */
+  height: 70px;
   text-align: center;
 }
 
