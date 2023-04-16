@@ -16,6 +16,7 @@ import nodes from './icons/nodes.png'
 import star from './icons/star.png'
 import logo from './icons/keylight3.png'
 import search from './icons/search.png'
+import create from './icons/create.png'
 
 function MenuBar(props) {
   return (
@@ -59,7 +60,11 @@ function MenuBar(props) {
       </div>
       <input className="search" placeholder="Search your notes">
       </input>
-      <button className="menuAddOptionButton"><span className="addSymbol">＋</span>&nbsp;&nbsp;New</button>
+      <button className="menuAddOptionButton">
+        {/* <span className="addSymbol">＋</span> */
+        }
+        <img src={create} class="buttonIcon"></img>
+        <span className="buttonText">Create</span></button>
       {/* </div> */}
 
       {/* <span className="rightComponents"> */}
