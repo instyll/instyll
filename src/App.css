@@ -328,6 +328,18 @@ position: relative;
   padding-right: 22px;
 }
 
+.react-calendar {
+  width: 100% !important;
+  border-radius: 10px;
+  border: none !important;
+  font-family: 'SF Pro Display', sans-serif !important;
+  background-color: var(--search-background) !important;
+}
+
+abbr[title] {
+  text-decoration: none !important;
+}
+
 .rightComponents {
   float: right;
   text-align: right;
