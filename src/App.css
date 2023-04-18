@@ -138,13 +138,44 @@ body {
 .elevatedLeft {
   display: inline-block;
   height: calc(100vh - 90px);
-  width: calc((100% - 310px - 400px));
+  width: calc((100% - 310px - 500px));
   /* margin-left: 302px; */
   margin-left: 290px;
   /* 270 toc +32 */
 
 }
 
+.elevatedRight {
+  position: relative;
+  /* background-color: var(--search-background); */
+  box-sizing: border-box;
+  height: calc(100vh - 90px);
+  /* width: calc((100% - 310px) / 2); */
+  width: 500px;
+  /* width: calc(100% - calc(100% - 800px)); */
+  bottom: 0;
+  border-radius: 10px;
+  /* -webkit-box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.2); */
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+
+@media only screen and (max-width: 1600px) {
+.elevatedLeft {
+  display: inline-block;
+  height: calc(100vh - 90px);
+  width: calc((100% - 310px - 400px));
+  /* margin-left: 302px; */
+  margin-left: 290px;
+  /* 270 toc +32 */
+
+}
+}
+
+@media only screen and (max-width: 1600px) {
 .elevatedRight {
   position: relative;
   /* background-color: var(--search-background); */
@@ -160,6 +191,7 @@ body {
   display: inline-block;
   margin-left: 10px;
   vertical-align: top;
+}
 }
 
 .elevatedLeft .elevatedRight {
@@ -330,10 +362,12 @@ body {
   /* padding-top: 16px; */
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 10px;
 }
 
 .react-calendar {
   width: 100% !important;
+  height: auto;
   border-radius: 10px;
   border: none !important;
   font-family: 'SF Pro Display', sans-serif !important;
@@ -346,11 +380,19 @@ body {
 }
 
 .react-calendar__tile:hover {
-  background-color: transparent !important;
+  background-color: var(--muted-text) !important;
 }
 
 .react-calendar__tile--now {
-  background-color: transparent !important;
+  background-color: var(--button-highlight) !important;
+  color: var(--button-highlight-text) !important;
+  font-weight: bold;
+}
+
+.react-calendar__tile--now:hover {
+  background-color: var(--button-highlight) !important;
+  color: var(--button-highlight-text) !important;
+  font-weight: bold;
 }
 
 abbr[title] {
@@ -358,7 +400,7 @@ abbr[title] {
 }
 
 abbr {
- width: 24px !important;
+  width: 24px !important;
 }
 
 .rightComponents {
