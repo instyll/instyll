@@ -138,17 +138,21 @@ body {
 .elevatedLeft {
   display: inline-block;
   height: calc(100vh - 90px);
-  width: calc((100% - 322px) / 2);
-  margin-left: 302px;
+  width: calc((100% - 310px - 400px));
+  /* margin-left: 302px; */
+  margin-left: 290px;
+  /* 270 toc +32 */
 
 }
 
 .elevatedRight {
-position: relative;
+  position: relative;
   /* background-color: var(--search-background); */
   box-sizing: border-box;
   height: calc(100vh - 90px);
-  width: calc((100% - 322px) / 2);
+  /* width: calc((100% - 310px) / 2); */
+  width: 400px;
+  /* width: calc(100% - calc(100% - 800px)); */
   bottom: 0;
   border-radius: 10px;
   /* -webkit-box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.2);
@@ -323,9 +327,9 @@ position: relative;
 .calendarContainer {
   text-align: center;
   box-sizing: border-box;
-  padding-top: 16px;
-  padding-left: 22px;
-  padding-right: 22px;
+  /* padding-top: 16px; */
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .react-calendar {
@@ -336,8 +340,25 @@ position: relative;
   background-color: var(--search-background) !important;
 }
 
+.react-calendar__tile {
+  line-height: 1.4em !important;
+  border-radius: 5px;
+}
+
+.react-calendar__tile:hover {
+  background-color: transparent !important;
+}
+
+.react-calendar__tile--now {
+  background-color: transparent !important;
+}
+
 abbr[title] {
   text-decoration: none !important;
+}
+
+abbr {
+ width: 24px !important;
 }
 
 .rightComponents {
@@ -453,21 +474,19 @@ img {
 }
 
 .menuAddOptionButton {
-  background-image: linear-gradient(
-    35deg,
-    hsl(229deg 100% 66%) 25%,
-    hsl(224deg 93% 64%) 66%,
-    hsl(219deg 86% 63%) 79%,
-    hsl(214deg 80% 61%) 86%,
-    hsl(209deg 75% 59%) 90%,
-    hsl(204deg 70% 57%) 93%,
-    hsl(198deg 65% 55%) 95%,
-    hsl(193deg 61% 54%) 96%,
-    hsl(188deg 57% 52%) 97%,
-    hsl(183deg 53% 50%) 98%,
-    hsl(178deg 53% 48%) 99%,
-    hsl(173deg 53% 47%) 100%
-  );
+  background-image: linear-gradient(35deg,
+      hsl(229deg 100% 66%) 25%,
+      hsl(224deg 93% 64%) 66%,
+      hsl(219deg 86% 63%) 79%,
+      hsl(214deg 80% 61%) 86%,
+      hsl(209deg 75% 59%) 90%,
+      hsl(204deg 70% 57%) 93%,
+      hsl(198deg 65% 55%) 95%,
+      hsl(193deg 61% 54%) 96%,
+      hsl(188deg 57% 52%) 97%,
+      hsl(183deg 53% 50%) 98%,
+      hsl(178deg 53% 48%) 99%,
+      hsl(173deg 53% 47%) 100%);
   border: none;
   border-radius: 45px;
   color: var(--button-highlight-text);
@@ -809,29 +828,29 @@ img {
 
 /* elements */
 h1 {
-  font-size: 2em;
+  font-size: 1.8em;
   line-height: 1.4em;
   margin-top: 0;
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 1.4em;
   margin-top: 0;
   line-height: 1.4em;
 }
 
 h3 {
-  font-size: 1.4em;
-  line-height: 1.4em;
-}
-
-h4 {
   font-size: 1.2em;
   line-height: 1.4em;
 }
 
+h4 {
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
 h5 {
-  font-size: 1.1em;
+  font-size: 0.9em;
   line-height: 1.4em;
 }
 

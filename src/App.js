@@ -375,56 +375,57 @@ class App extends Component {
             handleClick={this.handleClick}
             charCount={this.state.charCount}
             wordCount={this.state.wordCount}
-            tocHeaders={this.state.tocHeaders}
-          />
+            tocHeaders={this.state.tocHeaders} />
 
 
           <div className="editingView">
             <div className="elevatedLeft">
-            <div className="elevated">
-              <div className="optionsContainer">
-                <div className="leftComponents">
-                  <img className="back" src={back} draggable={false}></img>
-                  <div className="optionObject">
-                    <button className="addTopicButton">
+              <div className="elevated">
+                <div className="optionsContainer">
+                  <div className="leftComponents" onClick={this.handleToc} >
+                    <img
+                      onClick={this.handleToc}
+                      className="back" src={back} draggable={false}></img>
+                    <div className="optionObject">
+                      <button className="addTopicButton">
 
-                      <img src={add} class="buttonIcon"></img>
+                        <img src={add} class="buttonIcon"></img>
 
-                      Add topic</button>
+                        Add topic</button>
+                    </div>
                   </div>
-                </div>
-                <div className='rightComponents'>
-                  <img className="star" src={star} draggable={false}></img>
-                  <div className="optionObject">
-                    <button className="exportButton">
+                  <div className='rightComponents'>
+                    <img className="star" src={star} draggable={false}></img>
+                    <div className="optionObject">
+                      <button className="exportButton">
 
-                      <img src={exportIcon} class="buttonIcon"></img>
+                        <img src={exportIcon} class="buttonIcon"></img>
 
-                      Export</button>
-                  </div>
-                  <div className="optionObject">
-                    <div className="moreDots">
-                      <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
+                        Export</button>
+                    </div>
+                    <div className="optionObject">
+                      <div className="moreDots">
+                        <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div style={{
+                  position: "relative",
+                  height: "100%",
+                  bottom: "0",
+                  // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+                  // marginRight: this.state.tocOpen === true ? "0px" : "0px",
+                  // marginLeft: this.state.tocOpen === true ? "270px" : "0",
+                  borderRadius: "10px",
+                  transition: "0.2s",
+                  boxSizing: "border-box",
+                  overflow: "auto",
+                }} id="text">
+                  <MilkdownEditorWrapper
+                  ></MilkdownEditorWrapper>
+                </div>
               </div>
-              <div style={{
-                position: "relative",
-                height: "100%",
-                bottom: "0",
-                // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-                // marginRight: this.state.tocOpen === true ? "0px" : "0px",
-                // marginLeft: this.state.tocOpen === true ? "270px" : "0",
-                borderRadius: "10px",
-                transition: "0.2s",
-                boxSizing: "border-box",
-                overflow: "auto",
-              }} id="text">
-                <MilkdownEditorWrapper
-                ></MilkdownEditorWrapper>
-              </div>
-            </div>
             </div>
             <div className="elevatedRight">
               <div className="calendarContainer">
