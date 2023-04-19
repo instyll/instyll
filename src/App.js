@@ -412,7 +412,7 @@ class App extends Component {
                 </div>
                 <div style={{
                   position: "relative",
-                  height: "100%",
+                  height: "calc(100% - 55px)",
                   bottom: "0",
                   // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
                   // marginRight: this.state.tocOpen === true ? "0px" : "0px",
@@ -428,9 +428,9 @@ class App extends Component {
               </div>
             </div>
             <div className="elevatedRight">
-              <div className="calendarContainer">
+              {/* <div className="calendarContainer">
                 <Calendar></Calendar>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

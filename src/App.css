@@ -138,60 +138,28 @@ body {
 .elevatedLeft {
   display: inline-block;
   height: calc(100vh - 90px);
-  width: calc((100% - 310px - 500px));
-  /* margin-left: 302px; */
-  margin-left: 290px;
-  /* 270 toc +32 */
-
-}
-
-.elevatedRight {
-  position: relative;
-  /* background-color: var(--search-background); */
-  box-sizing: border-box;
-  height: calc(100vh - 90px);
-  /* width: calc((100% - 310px) / 2); */
-  width: 500px;
-  /* width: calc(100% - calc(100% - 800px)); */
-  bottom: 0;
-  border-radius: 10px;
-  /* -webkit-box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.2); */
-  display: inline-block;
-  margin-left: 10px;
-  vertical-align: top;
-}
-
-
-@media only screen and (max-width: 1600px) {
-.elevatedLeft {
-  display: inline-block;
-  height: calc(100vh - 90px);
   width: calc((100% - 310px - 400px));
+  /* width: calc((100% - 310px) / 2); */
   /* margin-left: 302px; */
   margin-left: 290px;
   /* 270 toc +32 */
 
 }
-}
 
-@media only screen and (max-width: 1600px) {
 .elevatedRight {
   position: relative;
-  /* background-color: var(--search-background); */
+  background-color: var(--search-background);
   box-sizing: border-box;
   height: calc(100vh - 90px);
   /* width: calc((100% - 310px) / 2); */
-  width: 400px;
+  width: 380px;
   /* width: calc(100% - calc(100% - 800px)); */
   bottom: 0;
   border-radius: 10px;
-  /* -webkit-box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.2); */
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 20px;
   vertical-align: top;
-}
+  text-align: center;
 }
 
 .elevatedLeft .elevatedRight {
@@ -215,7 +183,7 @@ body {
 }
 
 .ProseMirror {
-  height: 100vh;
+  /* height: 100vh; */
   padding-left: 32px;
   padding-right: 32px;
   padding-top: 32px;
@@ -359,23 +327,25 @@ body {
 .calendarContainer {
   text-align: center;
   box-sizing: border-box;
-  /* padding-top: 16px; */
-  padding-left: 10px;
-  padding-right: 10px;
+  background-color: var(--bg-color);
+  height: 360px;
+  width: 360px;
+  margin-top: 20px;
+  margin-left: 20px;
   border-radius: 10px;
 }
 
 .react-calendar {
-  width: 100% !important;
-  height: auto;
+  /* width: 100% !important;
+  height: auto; */
   border-radius: 10px;
   border: none !important;
   font-family: 'SF Pro Display', sans-serif !important;
-  background-color: var(--search-background) !important;
+  /* background-color: var(--search-background) !important; */
 }
 
 .react-calendar__tile {
-  line-height: 1.4em !important;
+  /* line-height: 1.4em !important; */
   border-radius: 5px;
 }
 
