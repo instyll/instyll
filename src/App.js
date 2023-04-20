@@ -431,6 +431,12 @@ class App extends Component {
               {/* <div className="calendarContainer">
                 <Calendar></Calendar>
               </div> */}
+              <div className="elevatedRightTop">
+
+              </div>
+              <div className="elevatedRightBottom">
+                
+                </div>
             </div>
           </div>
         </div>

@@ -148,7 +148,7 @@ body {
 
 .elevatedRight {
   position: relative;
-  background-color: var(--search-background);
+  /* background-color: var(--search-background); */
   box-sizing: border-box;
   height: calc(100vh - 90px);
   /* width: calc((100% - 310px) / 2); */
@@ -161,6 +161,22 @@ body {
   vertical-align: top;
   text-align: center;
 }
+
+.elevatedRightTop {
+  height: calc((100vh - 110px) / 2);
+  border-radius: 10px;
+  /* background-color: var(--search-background); */
+  background-color: var(--elevated-bg);
+}
+
+.elevatedRightBottom {
+  height: calc((100vh - 110px) / 2);
+  border-radius: 10px;
+  /* background-color: var(--search-background); */
+  background-color: var(--elevated-bg);
+  margin-top: 20px;
+}
+
 
 .elevatedLeft .elevatedRight {
   display: inline-block;
@@ -419,7 +435,7 @@ button {
   padding-right: 10px;
   box-sizing: border-box;
   margin-bottom: 5px;
-  height: 70px;
+  height: 60px;
   text-align: center;
 }
 
@@ -770,7 +786,7 @@ img {
 
 .fileElem:hover {
   background-color: var(--muted-text);
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .fileElemChild {
@@ -840,7 +856,7 @@ img {
 
 /* elements */
 h1 {
-  font-size: 1.8em;
+  font-size: 2em;
   line-height: 1.4em;
   margin-top: 0;
 }
