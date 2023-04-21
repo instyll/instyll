@@ -1,3 +1,5 @@
+Type "/" to get started
+
 :root {
   --bg-color: #1b1b1b;
   --primary-text: #c5c5c5;
@@ -205,7 +207,7 @@ body {
   /* height: 100vh; */
   padding-left: 32px;
   padding-right: 32px;
-  padding-top: 32px;
+  padding-top: 12px;
   /* overflow: hidden; */
   box-sizing: border-box;
   background-color: var(--bg-color);
@@ -861,36 +863,36 @@ img {
 h1 {
   font-size: 1.8em;
   line-height: 1.4em;
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 
 h2 {
   font-size: 1.4em;
-  margin-top: 0;
+  /* margin-top: 0; */
   line-height: 1.4em;
 }
 
 h3 {
   font-size: 1.2em;
   line-height: 1.4em;
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 
 h4 {
   font-size: 1em;
   line-height: 1.4em;
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 
 h5 {
   font-size: 0.9em;
   line-height: 1.4em;
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 0;
+  /* margin-top: 0;
+  margin-bottom: 0; */
 }
 
 a {
@@ -1128,3 +1130,4 @@ table {
 .templateNameLabel {
   line-height: 32px;
 }
+
