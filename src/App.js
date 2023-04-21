@@ -25,6 +25,7 @@ import cpTheme from './commandPalette';
 import './commandPalette.css';
 // import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-calendar/dist/Calendar.css';
+import 'prism-themes/themes/prism-ghcolors.css'
 
 // Plugins
 import remarkMath from 'remark-math'

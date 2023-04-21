@@ -10,8 +10,17 @@ import { diagram } from '@milkdown/plugin-diagram';
 import { history } from '@milkdown/plugin-history';
 import { block } from '@milkdown/plugin-block';
 import { BlockView } from './Block.tsx';
+import { prism, prismConfig } from '@milkdown/plugin-prism';
 // import { usePluginViewFactory } from '@prosemirror-adapter/react';
 import 'katex/dist/katex.min.css';
+
+// refractor languages
+import markdown from 'refractor/lang/markdown'
+import css from 'refractor/lang/css'
+import javascript from 'refractor/lang/javascript'
+import typescript from 'refractor/lang/typescript'
+import jsx from 'refractor/lang/jsx'
+import tsx from 'refractor/lang/tsx'
 
 const defaultValue = 'Type "/" to get started';
 
@@ -25,6 +34,16 @@ const MilkdownEditor: React.FC = () => {
       .config((ctx) => {
         ctx.set(rootCtx, root)
         ctx.set(defaultValueCtx, defaultValue);
+        ctx.set(prismConfig.key, {
+          configureRefractor: (refractor) => {
+            refractor.register(markdown)
+            refractor.register(css)
+            refractor.register(javascript)
+            refractor.register(typescript)
+            refractor.register(jsx)
+            refractor.register(tsx)
+          },
+        })
       })
       .use(commonmark)
       .use(gfm)
@@ -32,7 +51,8 @@ const MilkdownEditor: React.FC = () => {
       .use(emoji)
       .use(diagram)
       .use(history)
-      .use(block),
+      .use(block)
+      .use(prism),
   );
 
   return <Milkdown />;
