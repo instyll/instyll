@@ -27,7 +27,7 @@ function TableOfContents(props) {
         </div>
         <br></br>
         <br></br>
-        <p className='tocTitle'>Outline</p>
+        {/* <p className='tocTitle'>Outline</p>
         <div>
           {
             props.tocHeaders.map((header, index) => (
@@ -45,7 +45,7 @@ function TableOfContents(props) {
                 </a>
               </div>
             ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
