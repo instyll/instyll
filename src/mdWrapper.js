@@ -12,6 +12,7 @@ import { block } from '@milkdown/plugin-block';
 import { BlockView } from './Block.tsx';
 import { prism, prismConfig } from '@milkdown/plugin-prism';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
+import { clipboard } from '@milkdown/plugin-clipboard';
 // import { usePluginViewFactory } from '@prosemirror-adapter/react';
 import 'katex/dist/katex.min.css';
 
@@ -64,7 +65,8 @@ const MilkdownEditor: React.FC = () => {
       .use(history)
       .use(block)
       .use(prism)
-      .use(listener),
+      .use(listener)
+      .use(clipboard),
   );
 
   return <Milkdown />;

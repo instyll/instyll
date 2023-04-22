@@ -2041,6 +2041,13 @@
   dependencies:
     tslib "^2.5.0"
 
+"@milkdown/exception@7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/exception/-/exception-7.2.1.tgz#3e77510eca3405f60f773701f26d59f6f0054d91"
+  integrity sha512-xHdCfaM587+jT5kbt6+6vgZ+P5gn8oKfTpRxcSQ8g9y9W9UMgclRxEfPOYmv7xlstTuOJr+1B1n4WMwiavwv2A==
+  dependencies:
+    tslib "^2.5.0"
+
 "@milkdown/plugin-block@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-block/-/plugin-block-7.2.0.tgz#ea8461538f34d9475e1874b68813dfa1ce7c2556"
@@ -2051,6 +2058,14 @@
     "@types/lodash.debounce" "^4.0.7"
     lodash.debounce "^4.0.8"
     tippy.js "^6.3.7"
+    tslib "^2.5.0"
+
+"@milkdown/plugin-clipboard@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-clipboard/-/plugin-clipboard-7.2.1.tgz#6ff1325945082f3f80bb142ca8f0f3e0fdc1c11e"
+  integrity sha512-xmIQFMP8uC7pDip+gSnXOusqWamw3/str+PStjlmhEfGp2Q9c4NyWpxOikeVXzkx2H0CuF9XXmmva/uXauecCg==
+  dependencies:
+    "@milkdown/utils" "7.2.1"
     tslib "^2.5.0"
 
 "@milkdown/plugin-diagram@^7.2.0":
@@ -2199,6 +2214,15 @@
   integrity sha512-gjELvC1RC36XPjlJXiyhgPpvlhfxZyYk2uLRECAcgzglm8642pEeHa5sCnqBvCyddAkKiSCizRdMSgYcmUG89Q==
   dependencies:
     "@milkdown/exception" "7.2.0"
+    nanoid "^4.0.0"
+    tslib "^2.5.0"
+
+"@milkdown/utils@7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-7.2.1.tgz#4502ba257825bb797ca7cb5dea0bc79f13ebeb1d"
+  integrity sha512-X1PioEtMYLExh5q3u+gD+9axHUbce76IDbr0fC8q02LnJIxfI6MGUdajcXAB3Ny2aZEDzkd7w+O7Q5Eo7DMHng==
+  dependencies:
+    "@milkdown/exception" "7.2.1"
     nanoid "^4.0.0"
     tslib "^2.5.0"
 

@@ -17,6 +17,7 @@
     "@milkdown/core": "^7.2.0",
     "@milkdown/ctx": "^7.2.0",
     "@milkdown/plugin-block": "^7.2.0",
+    "@milkdown/plugin-clipboard": "^7.2.1",
     "@milkdown/plugin-diagram": "^7.2.0",
     "@milkdown/plugin-emoji": "^7.2.0",
     "@milkdown/plugin-history": "^7.2.0",
