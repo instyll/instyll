@@ -422,7 +422,7 @@ class App extends Component {
                       this.state.tocHeaders.map((header, index) => (
                         <div key={index} className="outlineElement"
                         style={{
-                          marginLeft: header.type === 'H2' ? '20px' :
+                          paddingLeft: header.type === 'H2' ? '20px' :
                             header.type === 'H3' ? '40px' :
                               header.type === 'H4' ? '60px' :
                                 header.type === 'H5' ? '80px' :
