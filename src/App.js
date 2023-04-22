@@ -148,9 +148,23 @@ class App extends Component {
   constructToc() {
     let headers = Sizzle("h1, h2, h3, h4, h5, h6");
     let toc = [];
-    headers.forEach(header => {
-      let id = header.id;
-      toc.push({ text: header.textContent, id: id, type: header.tagName });
+    // headers.forEach(header => {
+    //   let id = header.id;
+    //   toc.push({ text: header.innerText, id: id, type: header.tagName });
+    // });
+    headers.forEach((header) => {
+      const id = header.id;
+      let text = "";
+      const headerText = header.childNodes;
+      headerText.forEach((child) => {
+        if (child.nodeName === "SPAN" && child.dataset.type === "emoji") {
+          const img = child.querySelector("img");
+          text += img.alt;
+        } else {
+          text += child.textContent;
+        }
+      });
+      toc.push({ text, id, type: header.tagName });
     });
     return toc;
   }
@@ -415,20 +429,20 @@ class App extends Component {
               </div> */}
               <div className="elevatedRightTop">
 
-              <div className='outlineContainer'>
+                <div className='outlineContainer'>
                   <p className='tocTitle'>Outline</p>
                   <div>
                     {
                       this.state.tocHeaders.map((header, index) => (
                         <div key={index} className="outlineElement"
-                        style={{
-                          paddingLeft: header.type === 'H2' ? '20px' :
-                            header.type === 'H3' ? '40px' :
-                              header.type === 'H4' ? '60px' :
-                                header.type === 'H5' ? '80px' :
-                                  header.type === 'H6' ? '100px' : '5px',
-                          // fontWeight: header.type === 'H1' ? "bold" : "normal",
-                        }}>
+                          style={{
+                            paddingLeft: header.type === 'H2' ? '20px' :
+                              header.type === 'H3' ? '40px' :
+                                header.type === 'H4' ? '60px' :
+                                  header.type === 'H5' ? '80px' :
+                                    header.type === 'H6' ? '100px' : '5px',
+                            // fontWeight: header.type === 'H1' ? "bold" : "normal",
+                          }}>
                           <a href={`#${header.id}`} className="headerNav">
                             {header.text}
                           </a>
