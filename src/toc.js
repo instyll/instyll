@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
 
+// assets
+import tags from './icons/tag.png';
+
 function TableOfContents(props) {
   return (
     <div className="tableOfContents">
       <div className="tableInfo">
-        <p className="tocTitleFirst">Notes</p>
+        <p className="tocTitleFirst">
+        <img src={tags} className="tocIcon"></img>
+          <span className="tocInnerText">Topics</span></p>
         <div className="fileSys">
           {props.fileNames.map((file, index) => (
             <button

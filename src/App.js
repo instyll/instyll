@@ -387,7 +387,7 @@ class App extends Component {
 
                         <img src={add} class="buttonIcon"></img>
 
-                        Add topic</button>
+                        <span className="buttonText">Add topic</span></button>
                     </div>
                   </div>
                   <div className='rightComponents'>
@@ -397,7 +397,7 @@ class App extends Component {
 
                         <img src={exportIcon} class="buttonIcon"></img>
 
-                        Export</button>
+                        <span className="buttonText">Export</span></button>
                     </div>
                     <div className="optionObject">
                       <div className="moreDots">

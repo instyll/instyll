@@ -29,15 +29,19 @@
   --nonfocused-opacity: 1;
   --button-highlight: #5271ff;
   --button-highlight-text: #F8F8F8;
+  --editorIconFilter: none;
+  --editorBoxShadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] {
-  --bg-color: #1b1b1b;
+  /* --bg-color: #1b1b1b; */
+  --bg-color: #262626;
   --primary-text: #c5c5c5;
   --secondary-text: rgba(180, 180, 182, 0.4);
   --muted-text: rgba(180, 180, 182, 0.2);
   --search-background: rgba(180, 180, 182, 0.1);
-  --elevated-bg: #262626;
+  /* --elevated-bg: #262626; */
+  --elevated-bg: #1b1b1b;
   --icon-filter: none;
   --base: #262626;
   --code: #242424;
@@ -45,6 +49,8 @@
   --nonfocused-opacity: 1;
   --button-highlight: #5271ff;
   --button-highlight-text: #F8F8F8;
+  --editorIconFilter: invert(89%) sepia(0%) saturate(70%) hue-rotate(134deg) brightness(94%) contrast(82%);
+  --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="light-focus"] {
@@ -132,8 +138,7 @@ body {
   bottom: 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  -webkit-box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--editorBoxShadow);
 }
 
 .elevatedLeft {
@@ -231,10 +236,11 @@ body {
   width: 24px;
   padding-right: 22px;
   margin-left: auto;
+  filter: var(--editorIconFilter);
 }
 
 .moreDots:hover {
-  filter: brightness(90%);
+  /* filter: brightness(90%); */
 }
 
 .star {
@@ -248,6 +254,7 @@ body {
   padding-right: 5px;
   vertical-align: middle;
   display: inline-block;
+  filter: var(--editorIconFilter);
 }
 
 .back {
@@ -261,6 +268,7 @@ body {
   padding-right: 5px;
   vertical-align: middle;
   display: inline-block;
+  filter: var(--editorIconFilter);
 }
 
 .optionsBarIcon {
@@ -332,6 +340,23 @@ body {
   vertical-align: middle;
   padding-right: 5px;
   /* display: block; */
+}
+
+.tocIcon {
+  /* height: auto; */
+  object-fit: cover;
+  width: 19px;
+  vertical-align: middle;
+  padding-right: 5px;
+  /* display: block; */
+}
+
+.tocInnerText {
+  vertical-align: middle;
+}
+
+.buttonIcon .tocTitle {
+  display: inline-block;
 }
 
 /* .exportButton .moreDots {
@@ -667,6 +692,7 @@ img {
   height: 100%;
   bottom: 0;
   background-color: var(--elevated-bg);
+
   border-top: 1px solid var(--muted-text);
   border-bottom-left-radius: 10px;
   overflow: auto;
@@ -718,7 +744,7 @@ img {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
-  padding-top: 20px;
+  padding-top: 24px;
   margin-bottom: 0;
   margin-top: 0;
   font-family: 'SF Pro Display', sans-serif;
@@ -899,7 +925,7 @@ h4 {
   font-size: 1em;
   line-height: 1.4em;
   /* margin-top: 0; */
-    padding-bottom: 0.3em;
+  padding-bottom: 0.3em;
   border-bottom: 1px solid var(--muted-text);
 }
 
