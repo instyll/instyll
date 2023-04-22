@@ -11,6 +11,7 @@ import { history } from '@milkdown/plugin-history';
 import { block } from '@milkdown/plugin-block';
 import { BlockView } from './Block.tsx';
 import { prism, prismConfig } from '@milkdown/plugin-prism';
+import { listener, listenerCtx } from '@milkdown/plugin-listener';
 // import { usePluginViewFactory } from '@prosemirror-adapter/react';
 import 'katex/dist/katex.min.css';
 
@@ -32,6 +33,16 @@ const MilkdownEditor: React.FC = () => {
     Editor.make()
       .config(nord)
       .config((ctx) => {
+
+        const listener = ctx.get(listenerCtx);
+
+        listener.markdownUpdated((ctx, markdown, prevMarkdown) => {
+          if (markdown !== prevMarkdown) {
+            // YourMarkdownUpdater(markdown);
+            window.parent.postMessage({type: "updateToc"}, "*");
+          }
+        })
+
         ctx.set(rootCtx, root)
         ctx.set(defaultValueCtx, defaultValue);
         ctx.set(prismConfig.key, {
@@ -52,7 +63,8 @@ const MilkdownEditor: React.FC = () => {
       .use(diagram)
       .use(history)
       .use(block)
-      .use(prism),
+      .use(prism)
+      .use(listener),
   );
 
   return <Milkdown />;

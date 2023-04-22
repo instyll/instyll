@@ -2089,6 +2089,16 @@
     "@milkdown/utils" "7.2.0"
     tslib "^2.5.0"
 
+"@milkdown/plugin-listener@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-listener/-/plugin-listener-7.2.0.tgz#d7017e90d4021948acb98489f2a2e5ede73efbc6"
+  integrity sha512-nN6/G1xYLXZ6n4nVpKRiHeaQKFCcgpHifyF/oixvIZZ1SvXlmp5m/rffSEGKXrL8FGs6sMgeqPVL/czVxQqH1A==
+  dependencies:
+    "@milkdown/utils" "7.2.0"
+    "@types/lodash.debounce" "^4.0.7"
+    lodash.debounce "^4.0.8"
+    tslib "^2.5.0"
+
 "@milkdown/plugin-math@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-math/-/plugin-math-7.2.0.tgz#9162cf17eeb72bb11c124324c51b0bff7cb316a9"

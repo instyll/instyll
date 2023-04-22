@@ -149,8 +149,7 @@ class App extends Component {
     let headers = Sizzle("h1, h2, h3, h4, h5, h6");
     let toc = [];
     headers.forEach(header => {
-      let id = header.id || uuid();
-      header.id = id;
+      let id = header.id;
       toc.push({ text: header.textContent, id: id, type: header.tagName });
     });
     return toc;
@@ -260,31 +259,9 @@ class App extends Component {
   };
 
   componentDidMount() {
+    window.addEventListener("message", this.handleMessage);
     this.getWordCount();
     this.fetchFiles();
-
-    // const editor = document.querySelector('.editor-pane');
-    // const preview = document.querySelector('.view-pane');
-
-    // const syncScroll = (event) => {
-    //   const percentage = event.target.scrollTop / (event.target.scrollHeight - event.target.offsetHeight);
-    //   preview.scrollTop = percentage * (preview.scrollHeight - preview.offsetHeight);
-    // }
-
-    // const debouncedSyncScroll = debounce(syncScroll, 10); // debounce the syncScroll function
-
-    // const editorPane = document.querySelector('.editor-pane');
-    // const viewPane = document.querySelector('.view-pane');
-
-    // editorPane.onscroll = debouncedSyncScroll; // use the onscroll attribute instead of addEventListener
-    // viewPane.onscroll = debouncedSyncScroll;
-
-    // const cleanup = () => {
-    //   editorPane.onscroll = null; // remove the event listeners
-    //   viewPane.onscroll = null;
-    // }
-
-    // this.setState({ cleanup: cleanup });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -294,8 +271,12 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    if (this.state.cleanup) {
-      this.state.cleanup();
+    window.removeEventListener("message", this.handleMessage);
+  }
+
+  handleMessage = (event) => {
+    if (event.data.type === "updateToc") {
+      this.updateToc();
     }
   }
 
@@ -437,24 +418,26 @@ class App extends Component {
               </div>
               <div className="elevatedRightBottom">
 
-                <p className='tocTitle'>Outline</p>
-                <div>
-                  {
-                    this.state.tocHeaders.map((header, index) => (
-                      <div key={index} className="outlineElement">
-                        <a href={`#${header.id}`} className="headerNav">
-                          <span className="headerDelim">
-                            {
-                              header.type === 'H2' ? '## ' :
-                                header.type === 'H3' ? '### ' :
-                                  header.type === 'H4' ? '#### ' :
-                                    header.type === 'H5' ? '##### ' :
-                                      header.type === 'H6' ? '###### ' : '# '}
-                          </span>
-                          {header.text}
-                        </a>
-                      </div>
-                    ))}
+                <div className='outlineContainer'>
+                  <p className='tocTitle'>Outline</p>
+                  <div>
+                    {
+                      this.state.tocHeaders.map((header, index) => (
+                        <div key={index} className="outlineElement">
+                          <a href={`#${header.id}`} className="headerNav">
+                            <span className="headerDelim">
+                              {
+                                header.type === 'H2' ? '## ' :
+                                  header.type === 'H3' ? '### ' :
+                                    header.type === 'H4' ? '#### ' :
+                                      header.type === 'H5' ? '##### ' :
+                                        header.type === 'H6' ? '###### ' : '# '}
+                            </span>
+                            {header.text}
+                          </a>
+                        </div>
+                      ))}
+                  </div>
                 </div>
 
               </div>

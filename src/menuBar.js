@@ -63,7 +63,7 @@ function MenuBar(props) {
       <button className="menuAddOptionButton">
         {/* <span className="addSymbol">＋</span> */
         }
-        <img src={create} class="buttonIcon"></img>
+        <img src={create} className="buttonIcon"></img>
         <span className="buttonText">Create</span></button>
       {/* </div> */}
 
