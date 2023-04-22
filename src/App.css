@@ -789,7 +789,7 @@ img {
   /* color: black; */
   background-color: transparent;
   border: none;
-  transition: 0.2s;
+  /* transition: 0.2s; */
 }
 
 .fileElem:hover {
@@ -875,30 +875,40 @@ h1 {
   font-size: 1.8em;
   line-height: 1.4em;
   /* margin-top: 0; */
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--muted-text);
 }
 
 h2 {
   font-size: 1.4em;
   /* margin-top: 0; */
   line-height: 1.4em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--muted-text);
 }
 
 h3 {
   font-size: 1.2em;
   line-height: 1.4em;
   /* margin-top: 0; */
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--muted-text);
 }
 
 h4 {
   font-size: 1em;
   line-height: 1.4em;
   /* margin-top: 0; */
+    padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--muted-text);
 }
 
 h5 {
   font-size: 0.9em;
   line-height: 1.4em;
   /* margin-top: 0; */
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--muted-text);
 }
 
 p {

@@ -426,8 +426,8 @@ class App extends Component {
                             header.type === 'H3' ? '40px' :
                               header.type === 'H4' ? '60px' :
                                 header.type === 'H5' ? '80px' :
-                                  header.type === 'H6' ? '100px' : '0',
-                          fontWeight: header.type === 'H1' ? "bold" : "normal",
+                                  header.type === 'H6' ? '100px' : '5px',
+                          // fontWeight: header.type === 'H1' ? "bold" : "normal",
                         }}>
                           <a href={`#${header.id}`} className="headerNav">
                             {header.text}
