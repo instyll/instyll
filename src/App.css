@@ -170,6 +170,7 @@ body {
   border-radius: 10px;
   background-color: var(--search-background);
   background-color: var(--elevated-bg);
+  overflow: auto;
 }
 
 .elevatedRightBottom {
@@ -838,6 +839,7 @@ img {
 .headerDelim {
   /* color: rgba(0, 0, 0, 0.4); light mode */
   color: var(--secondary-text);
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 .infoDisplay {
@@ -848,6 +850,7 @@ img {
 .outlineContainer {
   padding-left: 20px;
   padding-right: 20px;
+  overflow: auto;
 }
 
 .outlineElement {
@@ -858,7 +861,7 @@ img {
   font-size: 1em;
   text-align: left;
   transition: 0.2s;
-
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 .outlineElement:hover {

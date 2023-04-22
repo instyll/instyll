@@ -415,30 +415,31 @@ class App extends Component {
               </div> */}
               <div className="elevatedRightTop">
 
-              </div>
-              <div className="elevatedRightBottom">
-
-                <div className='outlineContainer'>
+              <div className='outlineContainer'>
                   <p className='tocTitle'>Outline</p>
                   <div>
                     {
                       this.state.tocHeaders.map((header, index) => (
-                        <div key={index} className="outlineElement">
+                        <div key={index} className="outlineElement"
+                        style={{
+                          marginLeft: header.type === 'H2' ? '20px' :
+                            header.type === 'H3' ? '40px' :
+                              header.type === 'H4' ? '60px' :
+                                header.type === 'H5' ? '80px' :
+                                  header.type === 'H6' ? '100px' : '0',
+                          fontWeight: header.type === 'H1' ? "bold" : "normal",
+                        }}>
                           <a href={`#${header.id}`} className="headerNav">
-                            <span className="headerDelim">
-                              {
-                                header.type === 'H2' ? '## ' :
-                                  header.type === 'H3' ? '### ' :
-                                    header.type === 'H4' ? '#### ' :
-                                      header.type === 'H5' ? '##### ' :
-                                        header.type === 'H6' ? '###### ' : '# '}
-                            </span>
                             {header.text}
                           </a>
                         </div>
                       ))}
                   </div>
                 </div>
+
+              </div>
+              <div className="elevatedRightBottom">
+
 
               </div>
             </div>
