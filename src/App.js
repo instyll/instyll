@@ -427,7 +427,24 @@ class App extends Component {
               {/* <div className="calendarContainer">
                 <Calendar></Calendar>
               </div> */}
-              <div className="elevatedRightTop">
+              <div className="elevatedRightTopTop">
+
+                <div className="statsContainer">
+                  <p className='tocTitle'>Stats</p>
+                  <div className="pageInfo">
+                    <span className="leftStatComponents">
+                      <div className="infoDisplay"><div className="label">Words</div></div>
+                      <div className="infoDisplay"><div className="label">Characters</div></div>
+                    </span>
+                    <span className="rightStatComponents">
+                      <div className="infoDisplay"><span className="precount"></span></div>
+                      <div className="infoDisplay"><span className="precount"></span></div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="elevatedRightTopBottom">
 
                 <div className='outlineContainer'>
                   <p className='tocTitle'>Outline</p>
@@ -453,8 +470,9 @@ class App extends Component {
 
               </div>
               <div className="elevatedRightBottom">
-
-
+                <div className='stylingContainer'>
+                  <p className='tocTitle'>Styling</p>
+                </div>
               </div>
             </div>
           </div>

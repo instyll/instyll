@@ -50,7 +50,7 @@
   --button-highlight: #5271ff;
   --button-highlight-text: #F8F8F8;
   --editorIconFilter: invert(89%) sepia(0%) saturate(70%) hue-rotate(134deg) brightness(94%) contrast(82%);
-  --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.15);
+  --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="light-focus"] {
@@ -169,22 +169,41 @@ body {
   text-align: center;
 }
 
-.elevatedRightTop {
-  height: calc((100vh - 90px) / 2);
+.elevatedRightTopBottom {
+  height: calc((100vh - 90px) / 2 - 146px);
   border-radius: 10px;
   background-color: var(--search-background);
   background-color: var(--elevated-bg);
   overflow: auto;
   box-sizing: border-box;
+  border: 1px solid var(--muted-text);
+  /* box-shadow: var(--editorBoxShadow); */
+
+}
+
+.elevatedRightTopTop {
+  /* height: calc((100vh - 90px) / 2); */
+  height: 126px;
+  border-radius: 10px;
+  background-color: var(--search-background);
+  background-color: var(--elevated-bg);
+  overflow: auto;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  border: 1px solid var(--muted-text);
+  /* box-shadow: var(--editorBoxShadow); */
+
 }
 
 .elevatedRightBottom {
-  height: calc((100vh - 90px) / 2);
+  height: calc((100vh - 90px) / 2 - 2px);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--search-background);
   background-color: var(--elevated-bg);
   margin-top: 20px;
+  border: 1px solid var(--muted-text);
+  /* box-shadow: var(--editorBoxShadow); */
 }
 
 
@@ -597,6 +616,9 @@ img {
   margin-right: 5px;
   z-index: 0;
   transition: 0.2s;
+  box-shadow: var(--editorBoxShadow);
+  /* box-shadow: 0px 2px 20px 0px #F3F3F5; */
+  border: 1px solid #F3F3F5;
 }
 
 .search:hover {
@@ -693,7 +715,9 @@ img {
   bottom: 0;
   background-color: var(--elevated-bg);
 
-  border-top: 1px solid var(--muted-text);
+  border-right: 1px solid var(--muted-text);
+  /* box-shadow: var(--editorBoxShadow); */
+
   border-bottom-left-radius: 10px;
   overflow: auto;
   z-index: 9999;
@@ -724,6 +748,11 @@ img {
   color: var(--secondary-text);
   /* light mode */
   /* color: #c1c1c1; */
+}
+
+.label {
+  font-family: 'SF Pro Display', sans-serif;
+  color: var(--primary-text);
 }
 
 .tocLabel {
@@ -873,6 +902,13 @@ img {
   padding-top: 5px;
 }
 
+.statsContainer {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  overflow: auto;
+}
+
 .outlineContainer {
   padding-left: 20px;
   padding-right: 20px;
@@ -894,6 +930,13 @@ img {
 .outlineElement:hover {
   background-color: var(--muted-text);
   border-radius: 2px;
+}
+
+.stylingContainer {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  overflow: auto;
 }
 
 /* elements */

@@ -9,7 +9,7 @@ function TableOfContents(props) {
     <div className="tableOfContents">
       <div className="tableInfo">
         <p className="tocTitleFirst">
-        <img src={tags} className="tocIcon"></img>
+        {/* <img src={tags} className="tocIcon"></img> */}
           <span className="tocInnerText">Topics</span></p>
         <div className="fileSys">
           {props.fileNames.map((file, index) => (
@@ -19,7 +19,7 @@ function TableOfContents(props) {
               onClick={() => props.handleClick(file)}>{file.replace(/^.*[\\/]/, '')}</button>
           ))}
         </div>
-        <p className='tocTitle'>Stats</p>
+        {/* <p className='tocTitle'>Stats</p>
         <div className="pageInfo">
           <span className="leftStatComponents">
             <div className="infoDisplay"><div className="label">Characters</div></div>
@@ -29,7 +29,7 @@ function TableOfContents(props) {
             <div className="infoDisplay"><span className="precount">{props.charCount}</span>/{props.charCount}</div>
             <div className="infoDisplay"><span className="precount">{props.wordCount}</span>/{props.wordCount} </div>
           </span>
-        </div>
+        </div> */}
         <br></br>
         <br></br>
         {/* <p className='tocTitle'>Outline</p>
