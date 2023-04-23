@@ -176,7 +176,7 @@ body {
   background-color: var(--elevated-bg);
   overflow: auto;
   box-sizing: border-box;
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 
 }
@@ -190,19 +190,19 @@ body {
   overflow: auto;
   box-sizing: border-box;
   margin-bottom: 20px;
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 
 }
 
 .elevatedRightBottom {
-  height: calc((100vh - 90px) / 2 - 2px);
+  height: calc((100vh - 90px) / 2 );
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--search-background);
   background-color: var(--elevated-bg);
   margin-top: 20px;
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 }
 
@@ -231,7 +231,7 @@ body {
   /* height: 100vh; */
   padding-left: 32px;
   padding-right: 32px;
-  padding-top: 12px;
+  padding-top: 5px;
   /* overflow: hidden; */
   box-sizing: border-box;
   background-color: var(--bg-color);
@@ -715,7 +715,7 @@ img {
   bottom: 0;
   background-color: var(--elevated-bg);
 
-  border-right: 1px solid var(--muted-text);
+  /* border-right: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 
   border-bottom-left-radius: 10px;
