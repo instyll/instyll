@@ -613,12 +613,12 @@ img {
   display: inline-block;
   /* margin-bottom: 5px; */
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 10px;
   z-index: 0;
   transition: 0.2s;
   box-shadow: var(--editorBoxShadow);
   /* box-shadow: 0px 2px 20px 0px #F3F3F5; */
-  border: 1px solid #F3F3F5;
+  /* border: 1px solid #F3F3F5; */
 }
 
 .search:hover {
@@ -644,7 +644,7 @@ img {
   position: relative;
   vertical-align: middle;
   margin-right: -45px;
-  padding-left: 20px;
+  padding-left: 25px;
   user-select: none;
 }
 
@@ -720,7 +720,7 @@ img {
 
   border-bottom-left-radius: 10px;
   overflow: auto;
-  z-index: 9999;
+  /* z-index: 9999; */
 }
 
 .tableInfo {
@@ -777,6 +777,7 @@ img {
   margin-bottom: 0;
   margin-top: 0;
   font-family: 'SF Pro Display', sans-serif;
+  user-select: none;
 }
 
 .tocTitleFirst {

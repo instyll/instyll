@@ -19,17 +19,7 @@ function TableOfContents(props) {
               onClick={() => props.handleClick(file)}>{file.replace(/^.*[\\/]/, '')}</button>
           ))}
         </div>
-        {/* <p className='tocTitle'>Stats</p>
-        <div className="pageInfo">
-          <span className="leftStatComponents">
-            <div className="infoDisplay"><div className="label">Characters</div></div>
-            <div className="infoDisplay"><div className="label">Words</div></div>
-          </span>
-          <span className="rightStatComponents">
-            <div className="infoDisplay"><span className="precount">{props.charCount}</span>/{props.charCount}</div>
-            <div className="infoDisplay"><span className="precount">{props.wordCount}</span>/{props.wordCount} </div>
-          </span>
-        </div> */}
+        <p className="tocTitle">Starred</p>
         <br></br>
         <br></br>
         {/* <p className='tocTitle'>Outline</p>
