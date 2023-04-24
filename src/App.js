@@ -437,8 +437,8 @@ class App extends Component {
                       <div className="infoDisplay"><div className="label">Characters</div></div>
                     </span>
                     <span className="rightStatComponents">
-                      <div className="infoDisplay"><span className="precount"></span></div>
-                      <div className="infoDisplay"><span className="precount"></span></div>
+                      <div className="infoDisplay"><span className="precount"></span>300</div>
+                      <div className="infoDisplay"><span className="precount"></span>800</div>
                     </span>
                   </div>
                 </div>

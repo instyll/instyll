@@ -170,7 +170,8 @@ body {
 }
 
 .elevatedRightTopBottom {
-  height: calc((100vh - 90px) / 2 - 146px);
+  /* height: calc((100vh - 90px) / 2 - 146px); */
+  height: calc((100vh - 90px - 146px) / 2);
   border-radius: 10px;
   background-color: var(--search-background);
   background-color: var(--elevated-bg);
@@ -196,7 +197,8 @@ body {
 }
 
 .elevatedRightBottom {
-  height: calc((100vh - 90px) / 2 );
+  /* height: calc((100vh - 90px) / 2 ); */
+  height: calc((100vh - 90px - 146px) / 2);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--search-background);
@@ -644,7 +646,7 @@ img {
   position: relative;
   vertical-align: middle;
   margin-right: -45px;
-  padding-left: 25px;
+  padding-left: 26px;
   user-select: none;
 }
 
@@ -901,6 +903,8 @@ img {
 .infoDisplay {
   padding-bottom: 5px;
   padding-top: 5px;
+  font-family: 'SF Pro Display', sans-serif;
+  color: var(--primary-text);
 }
 
 .statsContainer {
