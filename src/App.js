@@ -430,7 +430,7 @@ class App extends Component {
               <div className="elevatedRightTopTop">
 
                 <div className="statsContainer">
-                  <p className='tocTitle'>Stats</p>
+                  <p className='paneTitle'>Stats</p>
                   <div className="pageInfo">
                     <span className="leftStatComponents">
                       <div className="infoDisplay"><div className="label">Words</div></div>
@@ -447,7 +447,7 @@ class App extends Component {
               <div className="elevatedRightTopBottom">
 
                 <div className='outlineContainer'>
-                  <p className='tocTitle'>Outline</p>
+                  <p className='paneTitle'>Outline</p>
                   <div>
                     {
                       this.state.tocHeaders.map((header, index) => (
@@ -471,7 +471,7 @@ class App extends Component {
               </div>
               <div className="elevatedRightBottom">
                 <div className='stylingContainer'>
-                  <p className='tocTitle'>Styling</p>
+                  <p className='paneTitle'>Styling</p>
                 </div>
               </div>
             </div>
