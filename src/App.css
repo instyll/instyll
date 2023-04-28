@@ -790,6 +790,11 @@ img {
 
 }
 
+.tocTitle:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
+}
+
 .paneTitle {
   /* dark mode */
   color: var(--secondary-text);
@@ -810,7 +815,7 @@ img {
 }
 
 #breakSection {
-  padding-top: 24px;
+  margin-top: 24px;
 }
 
 .tocTitleFirst {
@@ -824,9 +829,14 @@ img {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
-  padding-top: 20px;
+  padding-top: 5px;
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: 20px;
+}
+
+.tocTitleFirst:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
 }
 
 .tab {
@@ -928,6 +938,7 @@ img {
   width: 100%;
   /* dark mode */
   color: var(--primary-text);
+  /* color: #3e424b; */
   /* light mode */
   /* color: black; */
   background-color: transparent;
