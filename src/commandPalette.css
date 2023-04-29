@@ -57,7 +57,7 @@
 }
 
 .my-container {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'SF Pro Display', sans-serif;
     font-weight: lighter;
     font-size: 12px;
 }
@@ -66,15 +66,16 @@
 
 .my-input {
     font-size: 14px;
-    border-radius: 7px;
+    /* border-radius: 7px; */
     border: none;
     width: 590px;
     padding: 6px;
     outline: none;
-    background-color: var(--muted-text);
+    /* background-color: var(--muted-text); */
+    background-color: transparent;
     color: var(--secondary-text);
-    caret-color: #568af2;
-    border: 2px solid var(--muted-text);
+    /* caret-color: #568af2; */
+    border-bottom: 1px solid var(--muted-text);
 }
 
 .my-inputOpen {}
@@ -88,11 +89,11 @@
 
 .my-suggestionsContainerOpen {
     overflow: auto;
-    border-top: 1px solid var(--muted-text);
-    border-bottom: 1px solid var(--muted-text);
+    /* border-top: 1px solid var(--muted-text);
+    border-bottom: 1px solid var(--muted-text); */
     max-height: 315px;
     margin-top: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px;s */
 }
 
 .my-suggestionsList {
@@ -104,11 +105,13 @@
 
 .my-suggestion {
     color: var(--primary-text);
-    border: 1px solid var(--muted-text);
+    /* border: 1px solid var(--muted-text); */
+    border: none;
     border-top: 0px none;
     background-color: var(--elevated-bg);
     padding: 14px 12px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .my-suggestion b {
@@ -117,8 +120,8 @@
 }
 
 .my-suggestionFirst {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
 }
 
 .my-suggestionHighlighted {
