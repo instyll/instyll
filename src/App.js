@@ -21,6 +21,7 @@ import Calendar from 'react-calendar';
 import sampleHeader from './commandPaletteHeader.js';
 // import moment from 'moment';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from './constants.ts';
+import AnchorLink from 'react-anchor-link-smooth-scroll-v2';
 
 // import cpTheme from './commandPalette';
 import './commandPalette.css';
@@ -339,6 +340,18 @@ class App extends Component {
     },
     {
       name: FILE + "Export as LaTeX",
+      command() { }
+    },
+    {
+      name: FILE + "Export as Docx",
+      command() { }
+    },
+    {
+      name: FILE + "Export to Google Drive",
+      command() { }
+    },
+    {
+      name: FILE + "Export to Notion",
       command() { }
     },
     {
