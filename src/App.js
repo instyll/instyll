@@ -296,241 +296,273 @@ class App extends Component {
     }
   }
 
-  render() {
 
-    const theme = {
-      modal:         "my-modal",
-      overlay:       "my-overlay",
-      container:     "my-container",
-      header:        "my-header",
-      content:       "my-content",
-      input:         "my-input",
-      suggestionsList: "my-suggestionsList",
-      suggestion: "my-suggestion",
-      suggestionHighlighted: "my-suggestionHighlighted",
-      suggestionsContainerOpen: "my-suggestionsContainerOpen",
+sampleChromeCommand(suggestion) {
+  const { name, highlight, category, shortcut } = suggestion;
+  return (
+    <div className="">
+      <span className={`my-category ${category}`}>{category}</span>
+      
+        <span>{name}</span>
+   
+      {/* <kbd className="my-shortcut">{shortcut}</kbd> */}
+    </div>
+  );
+}
+
+render() {
+
+  const theme = {
+    modal: "my-modal",
+    overlay: "my-overlay",
+    container: "my-container",
+    header: "my-header",
+    content: "my-content",
+    input: "my-input",
+    suggestionsList: "my-suggestionsList",
+    suggestion: "my-suggestion",
+    suggestionHighlighted: "my-suggestionHighlighted",
+    suggestionsContainerOpen: "my-suggestionsContainerOpen",
+  }
+
+  const commands = [{
+    name: SET_THEME + "Dark",
+    category: "Command",
+    command: () => {
+      this.setDark(true);
+    },
+  }, {
+    name: SET_THEME + "Light",
+    category: "Command",
+    command: () => {
+      this.setDark(false);
     }
+  },
+  {
+    name: DAILY + "Open Daily Note",
+    category: "Command",
+    command() { }
+  },
+  {
+    name: OPEN + "Settings",
+    category: "Navigate",
+    command: () => {
+      // this.changeLayout("vertical");
+    }
+  },
+  {
+    name: CLOSE + "Current File",
+    category: "Navigate",
+    command: () => {
+      // this.changeLayout("horizontal");
+    }
+  },
+  {
+    name: FILE + "Export as PDF",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export as LaTeX",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export as Docx",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export to Google Drive",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export to Notion",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Print",
+    category: "Action",
+    shortcut: "Ctrl + P",
+    command() { }
+  },
+  {
+    name: FILE + "Star",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: TOGGLE + "Left Sidebar",
+    category: "Command",
+    command() { }
+  },
+  {
+    name: TOGGLE + "Right Panel",
+    category: "Command",
+    command() { }
+  },
+  {
+    name: CREATE + "New Note",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: CREATE + "New Note From Template",
+    category: "Action",
+    command() { }
+  },
+  ];
 
-    const commands = [{
-      name: SET_THEME + "Dark",
-      command: () => {
-        this.setDark(true);
-      },
-    }, {
-      name: SET_THEME + "Light",
-      command: () => {
-        this.setDark(false);
-      }
-    },
-    {
-      name: OPEN + "Settings",
-      command: () => {
-        // this.changeLayout("vertical");
-      }
-    },
-    {
-      name: CLOSE + "Current File",
-      command: () => {
-        // this.changeLayout("horizontal");
-      }
-    },
-    {
-      name: FILE + "Export as PDF",
-      command() { }
-    },
-    {
-      name: FILE + "Export as LaTeX",
-      command() { }
-    },
-    {
-      name: FILE + "Export as Docx",
-      command() { }
-    },
-    {
-      name: FILE + "Export to Google Drive",
-      command() { }
-    },
-    {
-      name: FILE + "Export to Notion",
-      command() { }
-    },
-    {
-      name: FILE + "Print",
-      command() { }
-    },
-    {
-      name: FILE + "Star",
-      command() { }
-    },
-    {
-      name: TOGGLE + "Left Sidebar",
-      command() { }
-    },
-    {
-      name: TOGGLE + "Right Panel",
-      command() { }
-    },
-    {
-      name: CREATE + "New Note",
-      command() { }
-    },
-    {
-      name: CREATE + "New Note From Template",
-      command() { }
-    },
-    {
-      name: DAILY + "Open Daily Note",
-      command() { }
-    },
-    ];
+  return (
+    <div className="App">
 
-    return (
-      <div className="App">
+      <CommandPalette
+        commands={commands}
+        style={{
+          zIndex: "999",
+        }}
+        trigger={null}
+        hotKeys={['ctrl+k']}
+        closeOnSelect={true}
+        alwaysRenderCommands={true}
+        renderCommand={this.sampleChromeCommand}
+        resetInputOnOpen={true}
+        theme={theme}
+        header={sampleHeader()}
+        maxDisplayed={500}
+      ></CommandPalette>
 
-        <CommandPalette
-          commands={commands}
-          style={{
-            zIndex: "999",
-          }}
-          trigger={null}
-          hotKeys={['ctrl+k']}
-          closeOnSelect={true}
-          alwaysRenderCommands={true}
-          resetInputOnOpen={true}
-          theme={theme}
-          header={sampleHeader()}
-          maxDisplayed={500}
-        ></CommandPalette>
+      <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />
 
-        <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />
+      <div className='container'>
 
-        <div className='container'>
+        {/* navbar */}
 
-          {/* navbar */}
+        <div className="navHorizontal">
+          <MenuBar
+            handleToc={this.handleToc}
+            setModalOpen={this.setModalOpen}
+            toggleFocus={this.toggleFocus}
+            toggleTheme={this.toggleTheme}
+            focused={this.state.focused} />
+        </div>
 
-          <div className="navHorizontal">
-            <MenuBar
-              handleToc={this.handleToc}
-              setModalOpen={this.setModalOpen}
-              toggleFocus={this.toggleFocus}
-              toggleTheme={this.toggleTheme}
-              focused={this.state.focused} />
-          </div>
-
-          <TableOfContents
-            fileNames={this.state.fileNames}
-            handleClick={this.handleClick}
-            charCount={this.state.charCount}
-            wordCount={this.state.wordCount}
-            tocHeaders={this.state.tocHeaders} />
+        <TableOfContents
+          fileNames={this.state.fileNames}
+          handleClick={this.handleClick}
+          charCount={this.state.charCount}
+          wordCount={this.state.wordCount}
+          tocHeaders={this.state.tocHeaders} />
 
 
-          <div className="editingView">
-            <div className="elevatedLeft">
-              <div className="elevated">
-                <div className="optionsContainer">
-                  <div className="leftComponents" onClick={this.handleToc} >
-                    <img
-                      onClick={this.handleToc}
-                      className="back" src={back} draggable={false}></img>
-                    <div className="optionObject">
-                      <button className="addTopicButton">
+        <div className="editingView">
+          <div className="elevatedLeft">
+            <div className="elevated">
+              <div className="optionsContainer">
+                <div className="leftComponents" onClick={this.handleToc} >
+                  <img
+                    onClick={this.handleToc}
+                    className="back" src={back} draggable={false}></img>
+                  <div className="optionObject">
+                    <button className="addTopicButton">
 
-                        <img src={add} class="buttonIcon"></img>
+                      <img src={add} class="buttonIcon"></img>
 
-                        <span className="buttonText">Add topic</span></button>
-                    </div>
+                      <span className="buttonText">Add topic</span></button>
                   </div>
-                  <div className='rightComponents'>
-                    <img className="star" src={star} draggable={false}></img>
-                    <div className="optionObject">
-                      <button className="exportButton">
+                </div>
+                <div className='rightComponents'>
+                  <img className="star" src={star} draggable={false}></img>
+                  <div className="optionObject">
+                    <button className="exportButton">
 
-                        <img src={exportIcon} class="buttonIcon"></img>
+                      <img src={exportIcon} class="buttonIcon"></img>
 
-                        <span className="buttonText">Export</span></button>
-                    </div>
-                    <div className="optionObject">
-                      <div className="moreDots">
-                        <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
-                      </div>
+                      <span className="buttonText">Export</span></button>
+                  </div>
+                  <div className="optionObject">
+                    <div className="moreDots">
+                      <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
                     </div>
                   </div>
                 </div>
-                <div style={{
-                  position: "relative",
-                  height: "calc(100% - 55px)",
-                  bottom: "0",
-                  // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-                  // marginRight: this.state.tocOpen === true ? "0px" : "0px",
-                  // marginLeft: this.state.tocOpen === true ? "270px" : "0",
-                  borderRadius: "10px",
-                  transition: "0.2s",
-                  boxSizing: "border-box",
-                  overflow: "auto",
-                }} id="text">
-                  <MilkdownEditorWrapper
-                  ></MilkdownEditorWrapper>
+              </div>
+              <div style={{
+                position: "relative",
+                height: "calc(100% - 55px)",
+                bottom: "0",
+                // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+                // marginRight: this.state.tocOpen === true ? "0px" : "0px",
+                // marginLeft: this.state.tocOpen === true ? "270px" : "0",
+                borderRadius: "10px",
+                transition: "0.2s",
+                boxSizing: "border-box",
+                overflow: "auto",
+              }} id="text">
+                <MilkdownEditorWrapper
+                ></MilkdownEditorWrapper>
+              </div>
+            </div>
+          </div>
+          <div className="elevatedRight">
+            {/* <div className="calendarContainer">
+                <Calendar></Calendar>
+              </div> */}
+            <div className="elevatedRightTopTop">
+
+              <div className="statsContainer">
+                <p className='paneTitle'>Stats</p>
+                <div className="pageInfo">
+                  <span className="leftStatComponents">
+                    <div className="infoDisplay"><div className="label">Words</div></div>
+                    <div className="infoDisplay"><div className="label">Characters</div></div>
+                  </span>
+                  <span className="rightStatComponents">
+                    <div className="infoDisplay"><span className="precount"></span>300</div>
+                    <div className="infoDisplay"><span className="precount"></span>800</div>
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="elevatedRight">
-              {/* <div className="calendarContainer">
-                <Calendar></Calendar>
-              </div> */}
-              <div className="elevatedRightTopTop">
 
-                <div className="statsContainer">
-                  <p className='paneTitle'>Stats</p>
-                  <div className="pageInfo">
-                    <span className="leftStatComponents">
-                      <div className="infoDisplay"><div className="label">Words</div></div>
-                      <div className="infoDisplay"><div className="label">Characters</div></div>
-                    </span>
-                    <span className="rightStatComponents">
-                      <div className="infoDisplay"><span className="precount"></span>300</div>
-                      <div className="infoDisplay"><span className="precount"></span>800</div>
-                    </span>
-                  </div>
+            <div className="elevatedRightTopBottom">
+
+              <div className='outlineContainer'>
+                <p className='paneTitle'>Outline</p>
+                <div>
+                  {
+                    this.state.tocHeaders.map((header, index) => (
+                      <div key={index} className="outlineElement"
+                        style={{
+                          paddingLeft: header.type === 'H2' ? '20px' :
+                            header.type === 'H3' ? '40px' :
+                              header.type === 'H4' ? '60px' :
+                                header.type === 'H5' ? '80px' :
+                                  header.type === 'H6' ? '100px' : '5px',
+                          // fontWeight: header.type === 'H1' ? "bold" : "normal",
+                        }}>
+                        <a href={`#${header.id}`} className="headerNav">
+                          {header.text}
+                        </a>
+                      </div>
+                    ))}
                 </div>
               </div>
 
-              <div className="elevatedRightTopBottom">
-
-                <div className='outlineContainer'>
-                  <p className='paneTitle'>Outline</p>
-                  <div>
-                    {
-                      this.state.tocHeaders.map((header, index) => (
-                        <div key={index} className="outlineElement"
-                          style={{
-                            paddingLeft: header.type === 'H2' ? '20px' :
-                              header.type === 'H3' ? '40px' :
-                                header.type === 'H4' ? '60px' :
-                                  header.type === 'H5' ? '80px' :
-                                    header.type === 'H6' ? '100px' : '5px',
-                            // fontWeight: header.type === 'H1' ? "bold" : "normal",
-                          }}>
-                          <a href={`#${header.id}`} className="headerNav">
-                            {header.text}
-                          </a>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-
-              </div>
-              <div className="elevatedRightBottom">
-                <div className='stylingContainer'>
-                  <p className='paneTitle'>Styling</p>
-                </div>
+            </div>
+            <div className="elevatedRightBottom">
+              <div className='stylingContainer'>
+                <p className='paneTitle'>Styling</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 }
 
 
