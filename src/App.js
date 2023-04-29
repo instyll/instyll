@@ -20,7 +20,7 @@ import TableOfContents from './toc.js';
 import Calendar from 'react-calendar';
 import sampleHeader from './commandPaletteHeader.js';
 // import moment from 'moment';
-import { FILE, SET_THEME, LAYOUT } from './constants.ts';
+import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from './constants.ts';
 
 // import cpTheme from './commandPalette';
 import './commandPalette.css';
@@ -322,15 +322,15 @@ class App extends Component {
       }
     },
     {
-      name: LAYOUT + "Vertical",
+      name: OPEN + "Settings",
       command: () => {
-        this.changeLayout("vertical");
+        // this.changeLayout("vertical");
       }
     },
     {
-      name: LAYOUT + "Horizontal",
+      name: CLOSE + "Current File",
       command: () => {
-        this.changeLayout("horizontal");
+        // this.changeLayout("horizontal");
       }
     },
     {
@@ -345,9 +345,31 @@ class App extends Component {
       name: FILE + "Print",
       command() { }
     },
+    {
+      name: FILE + "Star",
+      command() { }
+    },
+    {
+      name: TOGGLE + "Left Sidebar",
+      command() { }
+    },
+    {
+      name: TOGGLE + "Right Panel",
+      command() { }
+    },
+    {
+      name: CREATE + "New Note",
+      command() { }
+    },
+    {
+      name: CREATE + "New Note From Template",
+      command() { }
+    },
+    {
+      name: DAILY + "Open Daily Note",
+      command() { }
+    },
     ];
-
-    const openPalette = [11, 12, 13, 14];
 
     return (
       <div className="App">
@@ -364,6 +386,7 @@ class App extends Component {
           resetInputOnOpen={true}
           theme={theme}
           header={sampleHeader()}
+          maxDisplayed={500}
         ></CommandPalette>
 
         <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />

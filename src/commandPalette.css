@@ -39,7 +39,7 @@
   }
   
   .my-content {
-    box-shadow: rgb(0, 0, 0) 0px 2px 4px 0px;
+    /* box-shadow: rgb(0, 0, 0) 0px 2px 4px 0px; */
     position: absolute;
     top: 80px;
     left: 50%;
@@ -67,7 +67,7 @@
   
   .my-input {
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 7px;
     border: none;
     width: 590px;
     padding: 6px;
@@ -90,12 +90,12 @@
   }
   
   .my-suggestionsContainerOpen {
-    overflow: hidden;
+    overflow: auto;
     border-top: 1px solid var(--muted-text);
     border-bottom: 1px solid var(--muted-text);
     max-height: 315px;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
   }
   
   .my-suggestionsList {
