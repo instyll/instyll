@@ -33,7 +33,9 @@
   }
 
   .my-header {
-    color: #d7dae0;
+    color: var(--secondary-text);
+    padding-bottom: 6px;
+    text-align: center;
   }
   
   .my-content {

@@ -363,7 +363,7 @@ class App extends Component {
           alwaysRenderCommands={true}
           resetInputOnOpen={true}
           theme={theme}
-          header={sampleHeader}
+          header={sampleHeader()}
         ></CommandPalette>
 
         <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />

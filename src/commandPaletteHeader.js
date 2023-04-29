@@ -4,15 +4,15 @@ import React from "react";
 const wrapperStyle = {
   fontFamily: "arial",
   fontSize: "12px",
-  color: "rgb(172, 172, 172)",
+  color: "var(--secondary-text)",
   marginBottom: "6px",
   display: "inline-block"
 };
 
 const kbdStyle = {
-  backgroundColor: "rgb(23, 23, 23)",
+  backgroundColor: "var(--muted-text)",
   fontSize: "12px",
-  color: "#b9b9b9",
+  color: "var(--primary-text)",
   padding: "2px 4px",
   marginRight: "6px",
   borderRadius: "4px"
