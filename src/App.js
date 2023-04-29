@@ -18,10 +18,11 @@ import CommandPalette from 'react-command-palette';
 import MenuBar from './menuBar';
 import TableOfContents from './toc.js';
 import Calendar from 'react-calendar';
+import sampleHeader from './commandPaletteHeader.js';
 // import moment from 'moment';
 import { FILE, SET_THEME, LAYOUT } from './constants.ts';
 
-import cpTheme from './commandPalette';
+// import cpTheme from './commandPalette';
 import './commandPalette.css';
 // import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-calendar/dist/Calendar.css';
@@ -296,6 +297,19 @@ class App extends Component {
 
   render() {
 
+    const theme = {
+      modal:         "my-modal",
+      overlay:       "my-overlay",
+      container:     "my-container",
+      header:        "my-header",
+      content:       "my-content",
+      input:         "my-input",
+      suggestionsList: "my-suggestionsList",
+      suggestion: "my-suggestion",
+      suggestionHighlighted: "my-suggestionHighlighted",
+      suggestionsContainerOpen: "my-suggestionsContainerOpen",
+    }
+
     const commands = [{
       name: SET_THEME + "Dark",
       command: () => {
@@ -348,7 +362,8 @@ class App extends Component {
           closeOnSelect={true}
           alwaysRenderCommands={true}
           resetInputOnOpen={true}
-          theme={cpTheme}
+          theme={theme}
+          header={sampleHeader}
         ></CommandPalette>
 
         <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />

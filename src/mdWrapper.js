@@ -1,8 +1,19 @@
 import React from 'react';
 import { Editor, rootCtx, defaultValueCtx } from '@milkdown/core';
 import { nord } from '@milkdown/theme-nord';
+import { $view, getMarkdown } from "@milkdown/utils";
+import {
+  useNodeViewFactory,
+  usePluginViewFactory,
+  useWidgetViewFactory,
+} from "@prosemirror-adapter/react";
 import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react';
-import { commonmark } from '@milkdown/preset-commonmark';
+// import { commonmark } from '@milkdown/preset-commonmark';
+import {
+  codeBlockSchema,
+  commonmark,
+  listItemSchema,
+} from "@milkdown/preset-commonmark";
 import { gfm } from '@milkdown/preset-gfm';
 import { math } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
@@ -13,8 +24,14 @@ import { BlockView } from './Block.tsx';
 import { prism, prismConfig } from '@milkdown/plugin-prism';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { clipboard } from '@milkdown/plugin-clipboard';
-// import { usePluginViewFactory } from '@prosemirror-adapter/react';
+import { trailing } from '@milkdown/plugin-trailing';
+
+import { useCustomNodeViewFactory } from './useCustomNodeviewFactory.ts';
+
 import 'katex/dist/katex.min.css';
+
+// components
+import { ListItem } from './ListItem.tsx';
 
 // refractor languages
 import markdown from 'refractor/lang/markdown'
@@ -25,22 +42,22 @@ import jsx from 'refractor/lang/jsx'
 import tsx from 'refractor/lang/tsx'
 
 const defaultValue = 'Type "/" to get started';
-
 const MilkdownEditor: React.FC = () => {
 
-  // const pluginViewFactory = usePluginViewFactory();
-
   const { editor } = useEditor((root) =>
+
     Editor.make()
       .config(nord)
       .config((ctx) => {
 
         const listener = ctx.get(listenerCtx);
 
+        // const nodeViewFactory = useCustomNodeViewFactory();
+
         listener.markdownUpdated((ctx, markdown, prevMarkdown) => {
           if (markdown !== prevMarkdown) {
             // YourMarkdownUpdater(markdown);
-            window.parent.postMessage({type: "updateToc"}, "*");
+            window.parent.postMessage({ type: "updateToc" }, "*");
           }
         })
 
@@ -66,7 +83,8 @@ const MilkdownEditor: React.FC = () => {
       .use(block)
       .use(prism)
       .use(listener)
-      .use(clipboard),
+      .use(clipboard)
+      .use(trailing),
   );
 
   return <Milkdown />;

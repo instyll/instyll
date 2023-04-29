@@ -1,16 +1,136 @@
-.my-modal { 
 
-}
 .my-overlay {
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 999;
- }
-.my-container {
-
- }
-.my-header {
-
- }
-.my-input {
-
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    transition: 0.2s;
 }
+
+.my-modal {
+
+    width: 605px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    border: 0px none;
+    /* background: rgb(48, 51, 56); */
+    background: var(--elevated-bg);
+    overflow: hidden;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px 0px;
+    margin-right: -50%;
+    transform: translate(-50%, 0px);
+  
+  }
+
+  .my-header {
+    color: #d7dae0;
+  }
+  
+  .my-content {
+    box-shadow: rgb(0, 0, 0) 0px 2px 4px 0px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+    border: 0px none;
+    background: rgb(48, 51, 56);
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
+    outline: none;
+    padding: 10px;
+    min-width: 600px;
+  }
+  
+  .my-container {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-weight: lighter;
+    font-size: 12px;
+  }
+  
+  .my-containerOpen {}
+  
+  .my-input {
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    width: 590px;
+    padding: 6px;
+    outline: none;
+    background-color: var(--muted-text);
+    color: var(--secondary-text);
+    caret-color: #568af2;
+    border: 2px solid var(--muted-text);
+  }
+  
+  .my-inputOpen {}
+  
+  .my-inputFocused {
+    border: 2px solid #568af2;
+    background-color: #1b1d23;
+  }
+  
+  .my-suggestionsContainer {
+    
+  }
+  
+  .my-suggestionsContainerOpen {
+    overflow: hidden;
+    border-top: 1px solid var(--muted-text);
+    border-bottom: 1px solid var(--muted-text);
+    max-height: 315px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .my-suggestionsList {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  
+  .my-suggestion {
+    /* color: #9da5b4; */
+    color: var(--primary-text);
+    border: 1px solid var(--muted-text);
+    border-top: 0px none;
+    /* background-color: #2c313a; */
+    background-color: var(--elevated-bg);
+    padding: 14px 12px;
+    cursor: pointer;
+  }
+  
+  .my-suggestion b {
+    color: var(--primary-text);
+    font-weight: bold;
+  }
+  .my-suggestionFirst {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .my-suggestionHighlighted {
+    color: var(--primary-text);
+    background-color: var(--muted-text);
+  }
+  
+  .my-spinner {
+    border-top: 0.4em solid rgba(255, 255, 255, 0.2);
+    border-right: 0.4em solid rgba(255, 255, 255, 0.2);
+    border-bottom: 0.4em solid rgba(255, 255, 255, 0.2);
+    border-left: 0.4em solid rgb(255, 255, 255);
+  }

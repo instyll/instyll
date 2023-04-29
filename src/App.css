@@ -929,6 +929,10 @@ img {
   color: rgba(220, 20, 60, 1);
 }
 
+.fileViewTopicsContainer {
+  padding-bottom: 5px;
+}
+
 
 .fileElem {
   text-align: left;

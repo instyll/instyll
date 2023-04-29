@@ -2135,6 +2135,14 @@
     refractor "^4.0.0"
     tslib "^2.5.0"
 
+"@milkdown/plugin-trailing@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-trailing/-/plugin-trailing-7.2.1.tgz#7c9f931fa4adeced04307cbe03148e6b97519daa"
+  integrity sha512-3RX4hMvz6t4L7sPxxDVfzK29rRCJn4CrOxuvAx7yLEp1A60f0j5qkDN421Xxu8N4XkDPKSC61i9zMPbL9AzmHQ==
+  dependencies:
+    "@milkdown/utils" "7.2.1"
+    tslib "^2.5.0"
+
 "@milkdown/preset-commonmark@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/preset-commonmark/-/preset-commonmark-7.2.0.tgz#1617de431750b0742d92c5989432e5fc2cb69d40"
