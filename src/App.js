@@ -43,7 +43,7 @@ import { Menu } from 'electron';
 import moreDots from './icons/more.png';
 import exportIcon from './icons/export.png';
 import star from './icons/star.png';
-import add from './icons/add_component.png';
+import add from './icons/add_component2.png';
 import back from './icons/back.png';
 
 // const localizer = momentLocalizer(moment)

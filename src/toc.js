@@ -43,6 +43,9 @@ function TableOfContents(props) {
           <button className="topic" >
             marketing
           </button>
+          <button className="topic" >
+            daily note
+          </button>
         </div>
         <p className="tocTitle" id="breakSection">
           <img src={favorites} className="tocIcon"></img>
