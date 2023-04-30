@@ -207,7 +207,7 @@ body {
 
 .elevatedRightBottom {
   /* height: calc((100vh - 90px) / 2 ); */
-  height: calc((100vh - 95px - 146px) / 2 - 2px);
+  height: calc((100vh - 95px - 146px) / 2);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--search-background);
@@ -642,6 +642,32 @@ img {
 }
 
 .search {
+  width: 800px;
+  height: 42px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 1em;
+  background-color: var(--search-background);
+  font-family: 'SF Pro Display', sans-serif;
+  color: var(--secondary-text);
+  padding-left: 48px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 45px;
+  border: none;
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  /* margin-bottom: 5px; */
+  margin-left: 5px;
+  margin-right: 10px;
+  z-index: 0;
+  transition: 0.2s;
+}
+
+@media only screen and (max-width: 1600px) {
+.search {
   width: 500px;
   height: 42px;
   box-sizing: border-box;
@@ -664,9 +690,7 @@ img {
   margin-right: 10px;
   z-index: 0;
   transition: 0.2s;
-  /* box-shadow: 0px 2px 20px 0px #F3F3F5; */
-  /* box-shadow: 0px 2px 20px 0px #F3F3F5; */
-  /* border: 1px solid var(--muted-text); */
+}
 }
 
 .search:hover {
