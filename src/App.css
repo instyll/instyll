@@ -155,7 +155,7 @@ body {
 
 .elevatedRight {
   position: relative;
-  /* background-color: var(--search-background); */
+  /* background-color: var(--elevated-bg); */
   box-sizing: border-box;
   height: calc(100vh - 70px);
   /* width: calc((100% - 310px) / 2); */
@@ -168,13 +168,15 @@ body {
   margin-left: 20px;
   vertical-align: top;
   text-align: center;
+  /* border: 1px solid var(--muted-text); */
+
 }
 
 .elevatedRightTopBottom {
   /* height: calc((100vh - 90px) / 2 - 146px); */
   height: calc((100vh - 90px - 146px) / 2);
   border-radius: 10px;
-  background-color: var(--search-background);
+  /* background-color: var(--search-background); */
   background-color: var(--elevated-bg);
   overflow: auto;
   box-sizing: border-box;
@@ -263,13 +265,14 @@ body {
 .moreDots {
   height: auto;
   width: 24px;
-  padding-right: 22px;
+  margin-right: 22px;
   margin-left: auto;
   filter: var(--editorIconFilter);
 }
 
 .moreDots:hover {
-  /* filter: brightness(90%); */
+  background-color: var(--muted-text);
+  border-radius: 5px;
 }
 
 .star {
@@ -278,7 +281,7 @@ body {
   /* padding-right: 22px; */
   margin-left: auto;
   /* padding: 5px; */
-  padding-top: 16px;
+  margin-top: 16px;
   padding-left: 5px;
   padding-right: 5px;
   vertical-align: middle;
@@ -292,12 +295,17 @@ body {
   /* padding-right: 22px; */
   margin-left: auto;
   /* padding: 5px; */
-  padding-top: 16px;
+  margin-top: 16px;
   /* padding-left: 5px; */
-  padding-right: 5px;
+  margin-right: 5px;
   vertical-align: middle;
   display: inline-block;
   filter: var(--editorIconFilter);
+}
+
+.back:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
 }
 
 .optionsBarIcon {
