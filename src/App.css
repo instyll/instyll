@@ -133,7 +133,7 @@ body {
   flex-direction: column;
   background-color: var(--bg-color);
   box-sizing: border-box;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 75px);
   width: 100%;
   bottom: 0;
   border-top-left-radius: 10px;
@@ -144,7 +144,7 @@ body {
 
 .elevatedLeft {
   display: inline-block;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 95px);
   width: calc((100% - 310px - 370px));
   /* width: calc((100% - 310px) / 2); */
   /* margin-left: 302px; */
@@ -157,7 +157,7 @@ body {
   position: relative;
   /* background-color: var(--elevated-bg); */
   box-sizing: border-box;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 75px);
   /* width: calc((100% - 310px) / 2); */
   width: 350px;
   /* width: calc(100% - calc(100% - 800px)); */
@@ -174,14 +174,14 @@ body {
 
 .elevatedRightTopBottom {
   /* height: calc((100vh - 90px) / 2 - 146px); */
-  height: calc((100vh - 90px - 146px) / 2);
+  height: calc((100vh - 95px - 146px) / 2);
   border-radius: 10px;
   /* background-color: var(--search-background); */
   background-color: var(--elevated-bg);
   overflow: auto;
   box-sizing: border-box;
   /* border: 1px solid #F3F3F5; */
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 
 }
@@ -200,21 +200,21 @@ body {
   box-sizing: border-box;
   margin-bottom: 20px;
   /* border: 1px solid #F3F3F5; */
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 
 }
 
 .elevatedRightBottom {
   /* height: calc((100vh - 90px) / 2 ); */
-  height: calc((100vh - 90px - 146px) / 2 - 2px);
+  height: calc((100vh - 95px - 146px) / 2 - 2px);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--search-background);
   background-color: var(--elevated-bg);
   margin-top: 20px;
   /* border: 1px solid #F3F3F5; */
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 }
 
@@ -500,12 +500,12 @@ button {
 .menuBar {
   background-color: var(--base);
   color: white;
-  padding-top: 5px;
+  padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   box-sizing: border-box;
   margin-bottom: 5px;
-  height: 60px;
+  height: 65px;
   text-align: center;
 }
 
@@ -515,6 +515,32 @@ button {
 
 .menuBar .menuIconLogo {
   display: inline-block;
+}
+
+.menuBar .logo {
+  display: inline-block;
+}
+
+.logo .icon {
+  height: 24px;
+  user-select: none;
+  /* padding-right: 10px; */
+  border-radius: 50%;
+}
+
+.logo {
+  padding-right: 5px;
+}
+
+.logo .icon {
+  filter: none;
+  transition: 0.3s;
+}
+
+.logo .icon:hover {
+  /* border-radius: 50%; */
+  filter: brightness(90%);
+
 }
 
 .menuBar .menuAddOptionButton {
@@ -532,8 +558,9 @@ img {
 }
 
 .menuIconLogo {
-  height: 32px;
+  height: 18px;
   user-select: none;
+  padding-right: 10px;
 }
 
 .menuIconLogo .icon {
@@ -593,7 +620,7 @@ img {
   font-weight: bold;
   padding: 5px;
   height: 36px;
-  margin-left: 5px;
+  margin-left: 10px;
   margin-right: 5px;
   font-family: 'SF Pro Display', sans-serif;
   transition: 0.3s;
@@ -620,7 +647,7 @@ img {
   box-sizing: border-box;
   outline: none;
   font-size: 1em;
-  /* background-color: var(--search-background); */
+  background-color: var(--search-background);
   font-family: 'SF Pro Display', sans-serif;
   color: var(--secondary-text);
   padding-left: 48px;
@@ -638,8 +665,8 @@ img {
   z-index: 0;
   transition: 0.2s;
   /* box-shadow: 0px 2px 20px 0px #F3F3F5; */
-  box-shadow: 0px 2px 20px 0px #F3F3F5;
-  border: 1px solid #F3F3F5;
+  /* box-shadow: 0px 2px 20px 0px #F3F3F5; */
+  /* border: 1px solid var(--muted-text); */
 }
 
 .search:hover {
@@ -665,7 +692,7 @@ img {
   position: relative;
   vertical-align: middle;
   margin-right: -45px;
-  padding-left: 26px;
+  padding-left: 20px;
   user-select: none;
 }
 
@@ -736,7 +763,7 @@ img {
   bottom: 0;
   background-color: var(--elevated-bg);
   /* border-right: 1px solid #F3F3F5; */
-  border-right: 1px solid var(--muted-text);
+  /* border-right: 1px solid var(--muted-text); */
   /* border-right: 1px solid var(--muted-text); */
   /* box-shadow: var(--editorBoxShadow); */
 
