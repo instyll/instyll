@@ -5,3 +5,4 @@ export const CLOSE = "Close: ";
 export const TOGGLE = "Toggle: ";
 export const CREATE = "Create: ";
 export const DAILY = "Daily Note: ";
+    
