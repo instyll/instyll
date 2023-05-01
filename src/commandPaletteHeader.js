@@ -2,7 +2,7 @@
 import React from "react";
 
 const wrapperStyle = {
-  fontFamily: "arial",
+  fontFamily: "Proxima Soft",
   fontSize: "12px",
   color: "var(--secondary-text)",
   marginBottom: "6px",

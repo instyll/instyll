@@ -1,3 +1,11 @@
+@import url(//db.onlinewebfonts.com/c/4679956de12dd2d8fc06ed0333e1d21b?family=Proxima+Soft);
+
+@font-face {
+  font-family: "Proxima Soft";
+  src: url("//db.onlinewebfonts.com/t/4679956de12dd2d8fc06ed0333e1d21b.eot");
+  src: url("//db.onlinewebfonts.com/t/4679956de12dd2d8fc06ed0333e1d21b.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/4679956de12dd2d8fc06ed0333e1d21b.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/4679956de12dd2d8fc06ed0333e1d21b.woff") format("woff"), url("//db.onlinewebfonts.com/t/4679956de12dd2d8fc06ed0333e1d21b.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/4679956de12dd2d8fc06ed0333e1d21b.svg#Proxima Soft") format("svg");
+}
+
 :root {
   --bg-color: #1b1b1b;
   --primary-text: #c5c5c5;
@@ -32,7 +40,7 @@
   --editorIconFilter: none;
   --editorBoxShadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
   --muted-translucent: rgba(228, 228, 228, 0.2);
-  --font: "Inter", sans-serif;
+  --font: "Proxima Soft", sans-serif;
 }
 
 [data-theme="dark"] {
@@ -53,14 +61,14 @@
   --button-highlight-text: #F8F8F8;
   --editorIconFilter: invert(89%) sepia(0%) saturate(70%) hue-rotate(134deg) brightness(94%) contrast(82%);
   --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.2);
-  --font: "SF Pro Display", sans-serif;
+  --font: "Proxima Soft", sans-serif;
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
-  font-size: 15px;
+  /* font-size: 15px; */
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -147,7 +155,7 @@ body {
 
 .elevatedRightTopBottom {
   /* height: calc((100vh - 90px) / 2 - 146px); */
-  height: calc((100vh - 95px - 146px) / 2);
+  height: calc((100vh - 95px - 140px) / 2);
   border-radius: 10px;
   /* background-color: var(--search-background); */
   background-color: var(--elevated-bg);
@@ -165,7 +173,7 @@ body {
 
 .elevatedRightTopTop {
   /* height: calc((100vh - 90px) / 2); */
-  height: 126px;
+  height: 120px;
   border-radius: 10px;
   background-color: var(--search-background);
   background-color: var(--elevated-bg);
@@ -180,7 +188,7 @@ body {
 
 .elevatedRightBottom {
   /* height: calc((100vh - 90px) / 2 ); */
-  height: calc((100vh - 95px - 146px) / 2);
+  height: calc((100vh - 95px - 140px) / 2);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--search-background);
@@ -295,6 +303,7 @@ body {
   padding: 5px;
   height: 36px;
   font-family: var(--font);
+  /* font-weight: bold; */
   transition: 0.3s;
   box-shadow: 0px 5px 9px 0px #5271ff1f;
   vertical-align: middle;
@@ -787,7 +796,6 @@ img {
   margin-top: 0;
   font-family: var(--font);
   user-select: none;
-  /* font-weight: bold; */
 
 }
 
@@ -881,6 +889,7 @@ img {
 .topic {
   text-align: center;
   font-family: var(--font);
+  /* font-weight: bold; */
   font-size: 1em;
   /* padding: 5px; */
   padding-left: 5px;
@@ -1032,7 +1041,7 @@ img {
 }
 
 .infoDisplay {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   padding-top: 5px;
   font-family: var(--font);
   color: var(--primary-text);
@@ -1041,7 +1050,7 @@ img {
 .statsContainer {
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   overflow: auto;
 }
 
@@ -1104,16 +1113,16 @@ h4 {
   font-size: 1em;
   line-height: 1.4em;
   /* margin-top: 0; */
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--muted-text);
+  /* padding-bottom: 0.3em; */
+  /* border-bottom: 1px solid var(--muted-text); */
 }
 
 h5 {
   font-size: 0.9em;
   line-height: 1.4em;
   /* margin-top: 0; */
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--muted-text);
+  /* padding-bottom: 0.3em; */
+  /* border-bottom: 1px solid var(--muted-text); */
 }
 
 p {
