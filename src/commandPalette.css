@@ -57,7 +57,7 @@
 }
 
 .my-container {
-    font-family: 'SF Pro Display', sans-serif;
+    font-family: var(--font);
     font-weight: lighter;
     font-size: 12px;
 }
@@ -74,6 +74,7 @@
     /* background-color: var(--muted-text); */
     background-color: transparent;
     color: var(--secondary-text);
+    font-family: var(--font);
     /* caret-color: #568af2; */
     border-bottom: 1px solid var(--muted-text);
 }

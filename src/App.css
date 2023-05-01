@@ -32,6 +32,7 @@
   --editorIconFilter: none;
   --editorBoxShadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
   --muted-translucent: rgba(228, 228, 228, 0.2);
+  --font: "Inter", sans-serif;
 }
 
 [data-theme="dark"] {
@@ -52,44 +53,15 @@
   --button-highlight-text: #F8F8F8;
   --editorIconFilter: invert(89%) sepia(0%) saturate(70%) hue-rotate(134deg) brightness(94%) contrast(82%);
   --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.2);
-}
-
-[data-theme="light-focus"] {
-  --bg-color: #fff;
-  --primary-text: rgb(41, 37, 36);
-  --secondary-text: #8a8a8e;
-  --muted-text: #e4e4e4;
-  --search-background: #f8f7f7;
-  --base: #fdfcfa;
-  --elevated-bg: #f9fafb;
-  --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
-  --code: #f6f8fa;
-  --separator-border: #e4e4e4 !important;
-  --nonfocused-opacity: 0.2;
-  --button-highlight: #5271ff;
-  --button-highlight-text: #F8F8F8;
-}
-
-[data-theme="dark-focus"] {
-  --bg-color: #1b1b1b;
-  --primary-text: #c5c5c5;
-  --secondary-text: rgba(180, 180, 182, 0.4);
-  --muted-text: rgba(180, 180, 182, 0.2);
-  --search-background: rgba(180, 180, 182, 0.1);
-  --elevated-bg: #262626;
-  --icon-filter: none;
-  --base: #262626;
-  --code: #242424;
-  --separator-border: rgba(180, 180, 182, 0.2) !important;
-  --nonfocused-opacity: 0.2;
-  --button-highlight: #5271ff;
-  --button-highlight-text: #F8F8F8;
+  --font: "SF Pro Display", sans-serif;
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
+  font-size: 15px;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 /* main view */
@@ -228,7 +200,7 @@ body {
 
 .milkdown {
   font-size: 1.2em;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   line-height: 1.4em;
   /* height: 100vh; */
   white-space: pre-wrap;
@@ -322,7 +294,7 @@ body {
   font-size: 1em;
   padding: 5px;
   height: 36px;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   transition: 0.3s;
   box-shadow: 0px 5px 9px 0px #5271ff1f;
   vertical-align: middle;
@@ -339,7 +311,7 @@ body {
   font-size: 1em;
   padding: 2px;
   height: 36px;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   transition: 0.3s;
   box-shadow: 0px 5px 9px 0px var(--muted-translucent);
   vertical-align: middle;
@@ -405,7 +377,7 @@ body {
 } */
 
 .optionMenuText {
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   color: var(--primary-text);
   font-size: 1em;
   padding-left: 27px;
@@ -420,44 +392,6 @@ body {
   margin-top: 20px;
   margin-left: 20px;
   border-radius: 10px;
-}
-
-.react-calendar {
-  /* width: 100% !important;
-  height: auto; */
-  border-radius: 10px;
-  border: none !important;
-  font-family: 'SF Pro Display', sans-serif !important;
-  /* background-color: var(--search-background) !important; */
-}
-
-.react-calendar__tile {
-  /* line-height: 1.4em !important; */
-  border-radius: 5px;
-}
-
-.react-calendar__tile:hover {
-  background-color: var(--muted-text) !important;
-}
-
-.react-calendar__tile--now {
-  background-color: var(--button-highlight) !important;
-  color: var(--button-highlight-text) !important;
-  font-weight: bold;
-}
-
-.react-calendar__tile--now:hover {
-  background-color: var(--button-highlight) !important;
-  color: var(--button-highlight-text) !important;
-  font-weight: bold;
-}
-
-abbr[title] {
-  text-decoration: none !important;
-}
-
-abbr {
-  width: 24px !important;
 }
 
 .rightComponents {
@@ -623,7 +557,7 @@ img {
   height: 36px;
   margin-left: 10px;
   margin-right: 5px;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   transition: 0.3s;
   box-shadow: 0px 5px 9px 0px #5271ff1f;
   vertical-align: middle;
@@ -649,7 +583,7 @@ img {
   outline: none;
   font-size: 1em;
   background-color: var(--search-background);
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   color: var(--secondary-text);
   padding-left: 48px;
   padding-right: 5px;
@@ -675,7 +609,7 @@ img {
     outline: none;
     font-size: 1em;
     background-color: var(--search-background);
-    font-family: 'SF Pro Display', sans-serif;
+    font-family: var(--font);
     color: var(--secondary-text);
     padding-left: 48px;
     padding-right: 5px;
@@ -747,7 +681,7 @@ img {
   font-size: 0.7em;
   margin-left: -56px;
   opacity: 0;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
 }
 
 .menuIcon .tooltip::after {
@@ -802,7 +736,7 @@ img {
   color: var(--primary-text);
   /* light mode */
   /* color: black; */
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   /* padding-top: 5px; */
   padding-left: 20px;
   padding-right: 20px;
@@ -825,7 +759,7 @@ img {
 }
 
 .label {
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   color: var(--primary-text);
 }
 
@@ -851,7 +785,7 @@ img {
   padding-top: 5px;
   margin-bottom: 0;
   margin-top: 0;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   user-select: none;
   /* font-weight: bold; */
 
@@ -875,7 +809,7 @@ img {
   padding-top: 24px;
   margin-bottom: 0;
   margin-top: 0;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   user-select: none;
   /* font-weight: bold; */
 
@@ -908,7 +842,7 @@ img {
 
 .tab {
   text-align: left;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   font-size: 1em;
   padding: 5px;
   width: 100%;
@@ -946,7 +880,7 @@ img {
 
 .topic {
   text-align: center;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   font-size: 1em;
   /* padding: 5px; */
   padding-left: 5px;
@@ -1033,7 +967,7 @@ img {
 
 .fileElem {
   text-align: left;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   font-size: 1em;
   padding: 5px;
   width: 100%;
@@ -1054,7 +988,7 @@ img {
 
 .fileElemChild {
   text-align: left;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   font-size: 1em;
   padding-left: 20px;
   padding-right: 5px;
@@ -1094,13 +1028,13 @@ img {
 .headerDelim {
   /* color: rgba(0, 0, 0, 0.4); light mode */
   color: var(--secondary-text);
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
 }
 
 .infoDisplay {
   padding-bottom: 5px;
   padding-top: 5px;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
   color: var(--primary-text);
 }
 
@@ -1126,7 +1060,7 @@ img {
   font-size: 1em;
   text-align: left;
   transition: 0.2s;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: var(--font);
 }
 
 .outlineElement:hover {
@@ -1276,7 +1210,7 @@ table {
 }
 
 .modalDefaultButton {
-  font-family: SF Pro Display;
+  font-family: var(--font);
   padding: 5px 5px 5px 5px;
   font-size: 1em;
   background-color: var(--muted-text);
@@ -1295,7 +1229,7 @@ table {
 }
 
 .modalActionButton {
-  font-family: SF Pro Display;
+  font-family: var(--font);
   padding: 5px 5px 5px 5px;
   font-size: 1em;
   background-color: var(--button-highlight);
@@ -1322,7 +1256,7 @@ table {
 }
 
 .modalCloseButton {
-  font-family: SF Pro Display;
+  font-family: var(--font);
   padding: 5px 5px 5px 5px;
   font-size: 1em;
   background-color: transparent;
@@ -1341,7 +1275,7 @@ table {
 }
 
 .modalCategoryButton {
-  font-family: SF Pro Display;
+  font-family: var(--font);
   padding: 5px 10px 5px 10px;
   width: 100px;
   margin-right: 5px;
