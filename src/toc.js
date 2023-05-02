@@ -3,12 +3,12 @@ import './App.css';
 import randomColor from 'randomcolor';
 
 // assets
-import tags from './icons/tag.png';
+import tags from './icons/tag2.png';
 import home from './icons/home.png';
 import recent from './icons/recent.png';
-import template from './icons/template.png';
-import favorites from './icons/starMenu.png';
-import note from './icons/note.png';
+import template from './icons/template2.png';
+import favorites from './icons/bookmark2.png';
+import note from './icons/note2.png';
 
 function TableOfContents(props) {
 
@@ -49,7 +49,7 @@ function TableOfContents(props) {
         </div>
         <p className="tocTitle" id="breakSection">
           <img src={favorites} className="tocIcon"></img>
-          <span className="tocInnerText">Starred</span></p>
+          <span className="tocInnerText">Bookmarks</span></p>
         <div className="fileSys">
           {props.fileNames.map((file, index) => (
             <button
