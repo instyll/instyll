@@ -9,6 +9,10 @@ import recent from './icons/recent.png';
 import template from './icons/template2.png';
 import favorites from './icons/bookmark2.png';
 import note from './icons/note2.png';
+import trash from './icons/trash.png';
+import calendar from './icons/calendar.png';
+import help from './icons/help.png';
+import feedback from './icons/feedback.png';
 
 function TableOfContents(props) {
 
@@ -17,17 +21,23 @@ function TableOfContents(props) {
       <div className="tableInfo">
         <p className="tocTitleFirst">
           <img src={home} className="tocIcon"></img>
-          <span className="tocInnerText">Home</span></p>
+          <span className="tocInnerText">Dashboard</span></p>
+
         <p className="tocTitle">
+          <img src={calendar} className="tocIcon"></img>
+          <span className="tocInnerText">Timeline</span></p>
+
+        <p className="tocTitle" id="breakSection">
           <img src={recent} className="tocIcon"></img>
           <span className="tocInnerText">Recent</span></p>
         <p className="tocTitle">
           <img src={template} className="tocIcon"></img>
           <span className="tocInnerText">Templates</span></p>
-        <p className="tocTitle" id="breakSection">
+        <p className="tocTitle">
           <img src={tags} className="tocIcon"></img>
           <span className="tocInnerText">Topics</span></p>
-        <div className="fileViewTopicsContainer">
+          
+        {/* <div className="fileViewTopicsContainer">
           <button className="topic" >
             chemistry
           </button>
@@ -46,11 +56,13 @@ function TableOfContents(props) {
           <button className="topic" >
             daily note
           </button>
-        </div>
-        <p className="tocTitle" id="breakSection">
+        </div> */}
+
+        <p className="tocTitle">
           <img src={favorites} className="tocIcon"></img>
           <span className="tocInnerText">Bookmarks</span></p>
-        <div className="fileSys">
+
+        {/* <div className="fileSys">
           {props.fileNames.map((file, index) => (
             <button
               key={index}
@@ -60,9 +72,17 @@ function TableOfContents(props) {
               <span className="tocInnerText">{file.replace(/^.*[\\/]/, '')}</span>
             </button>
           ))}
-        </div>
-        <br></br>
-        <br></br>
+        </div> */}
+
+        <p className="tocTitle" id="breakSection">
+          <img src={help} className="tocIcon"></img>
+          <span className="tocInnerText">Get Help</span></p>
+        <p className="tocTitle" >
+          <img src={feedback} className="tocIcon"></img>
+          <span className="tocInnerText">Submit Feedback</span></p>
+        <p className="tocTitle" id="breakSection">
+          <img src={trash} className="tocIcon"></img>
+          <span className="tocInnerText">Recycling</span></p>
       </div>
     </div>
   );

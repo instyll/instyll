@@ -507,10 +507,7 @@ render() {
             </div>
           </div>
           <div className="elevatedRight">
-            {/* <div className="calendarContainer">
-                <Calendar></Calendar>
-              </div> */}
-            <div className="elevatedRightTopTop">
+            {/* <div className="elevatedRightTopTop">
 
               <div className="statsContainer">
                 <p className='paneTitle'>Stats</p>
@@ -525,9 +522,9 @@ render() {
                   </span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="elevatedRightTopBottom">
+            {/* <div className="elevatedRightTopBottom">
 
               <div className='outlineContainer'>
                 <p className='paneTitle'>Outline</p>
@@ -541,7 +538,6 @@ render() {
                               header.type === 'H4' ? '60px' :
                                 header.type === 'H5' ? '80px' :
                                   header.type === 'H6' ? '100px' : '5px',
-                          // fontWeight: header.type === 'H1' ? "bold" : "normal",
                         }}>
                         <a href={`#${header.id}`} className="headerNav">
                           {header.text}
@@ -551,12 +547,7 @@ render() {
                 </div>
               </div>
 
-            </div>
-            <div className="elevatedRightBottom">
-              <div className='stylingContainer'>
-                <p className='paneTitle'>Styling</p>
-              </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
