@@ -19,7 +19,19 @@ function TableOfContents(props) {
   return (
     <div className="tableOfContents">
       <div className="tableInfo">
-        <p className="tocTitleFirst">
+        
+    <label className="switch">
+      <input type="checkbox">
+      </input>
+      <span className="slider">
+      <span className="sliderLeft">Light</span>
+        <span className="sliderRight">Dark</span>
+      </span>
+    </label>
+
+      <p className="tocTitle" id="breakSection">
+          <span className="tocInnerText">Home</span></p>
+        <p className="tocTitle">
           <img src={home} className="tocIcon"></img>
           <span className="tocInnerText">Dashboard</span></p>
 
@@ -28,6 +40,8 @@ function TableOfContents(props) {
           <span className="tocInnerText">Timeline</span></p>
 
         <p className="tocTitle" id="breakSection">
+          <span className="tocInnerText">Notes</span></p>
+        <p className="tocTitle">
           <img src={recent} className="tocIcon"></img>
           <span className="tocInnerText">Recent</span></p>
         <p className="tocTitle">
@@ -36,7 +50,7 @@ function TableOfContents(props) {
         <p className="tocTitle">
           <img src={tags} className="tocIcon"></img>
           <span className="tocInnerText">Topics</span></p>
-          
+
         {/* <div className="fileViewTopicsContainer">
           <button className="topic" >
             chemistry
@@ -61,6 +75,9 @@ function TableOfContents(props) {
         <p className="tocTitle">
           <img src={favorites} className="tocIcon"></img>
           <span className="tocInnerText">Bookmarks</span></p>
+          <p className="tocTitle">
+          <img src={trash} className="tocIcon"></img>
+          <span className="tocInnerText">Recycling</span></p>
 
         {/* <div className="fileSys">
           {props.fileNames.map((file, index) => (
@@ -73,16 +90,14 @@ function TableOfContents(props) {
             </button>
           ))}
         </div> */}
-
         <p className="tocTitle" id="breakSection">
+          <span className="tocInnerText">Support</span></p>
+        <p className="tocTitle">
           <img src={help} className="tocIcon"></img>
           <span className="tocInnerText">Get Help</span></p>
         <p className="tocTitle" >
           <img src={feedback} className="tocIcon"></img>
           <span className="tocInnerText">Submit Feedback</span></p>
-        <p className="tocTitle" id="breakSection">
-          <img src={trash} className="tocIcon"></img>
-          <span className="tocInnerText">Recycling</span></p>
       </div>
     </div>
   );

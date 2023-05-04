@@ -474,7 +474,7 @@ render() {
                   </div>
                 </div>
                 <div className='rightComponents'>
-                  <img className="star" src={star} draggable={false}></img>
+                  {/* <img className="star" src={star} draggable={false}></img>
                   <div className="optionObject">
                     <button className="exportButton">
 
@@ -486,7 +486,7 @@ render() {
                     <div className="moreDots">
                       <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div style={{
