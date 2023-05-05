@@ -414,7 +414,13 @@ body {
 }
 
 #closeTOC {
-  margin-left: 62px;
+  margin-left: 67px;
+  padding-right: 0px;
+}
+
+#closeTOC:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
 }
 
 .buttonIcon .tocTitle {
