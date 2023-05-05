@@ -28,10 +28,10 @@ function MenuBar(props) {
           <img src={logo} className="icon" draggable={false} />
         </div>
         <div className="menuIconLogo">
-          <img src={back} className="icon" draggable={false}></img>
+          <img src={back} className="icon" id="navLeft" draggable={false}></img>
         </div>
         <div className="menuIconLogo">
-          <img src={forward} className="icon" draggable={false}></img>
+          <img src={forward} className="icon" id="navRight" draggable={false}></img>
         </div>
         <div className='searchWrapper'>
       <img src={search} className="searchIcon" draggable={false}></img>

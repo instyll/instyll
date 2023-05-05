@@ -494,7 +494,6 @@ button {
 
 .menuBar .menuIconLogo {
   display: inline-block;
-  filter: var(--icon-filter);
 }
 
 .menuBar .logo {
@@ -515,6 +514,14 @@ button {
 .logo .icon {
   filter: none;
   transition: 0.3s;
+}
+
+#navLeft {
+  filter: var(--editorIconFilter);
+}
+
+#navRight {
+  filter: var(--editorIconFilter);
 }
 
 .logo .icon:hover {
@@ -544,14 +551,7 @@ img {
 }
 
 .menuIconLogo .icon {
-  filter: none;
-  transition: 0.3s;
-}
-
-.menuIconLogo .icon:hover {
-  border-radius: 50%;
-  filter: brightness(90%);
-
+  filter: var(--icon-filter);
 }
 
 .open {
@@ -836,7 +836,7 @@ img {
   bottom: 4px;
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 8px;
+  border-radius: 10px;
   content: 'Light';
   color: var(--secondary-text);
   display: block;
