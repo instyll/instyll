@@ -199,12 +199,12 @@ class App extends Component {
     html.setAttribute("data-theme", theme);
   }
 
-  toggleTheme() {
-    this.setState({
-      isDark: !this.state.isDark,
-    });
-    this.handleTheme();
-  }
+  // toggleTheme() {
+  //   this.setState({
+  //     isDark: !this.state.isDark,
+  //   });
+  //   this.handleTheme();
+  // }
 
   toggleTheme() {
     this.setState(

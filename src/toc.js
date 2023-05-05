@@ -13,12 +13,18 @@ import trash from './icons/trash.png';
 import calendar from './icons/calendar.png';
 import help from './icons/help.png';
 import feedback from './icons/feedback.png';
+import banner from './icons/key500.png';
 
 function TableOfContents(props) {
 
   return (
     <div className="tableOfContents">
       <div className="tableInfo">
+
+        <div className="tocBanner">
+          <img src={banner} className="tocBannerIcon"></img>
+          <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>
+        </div>
         
     <label className="switch">
       <input type="checkbox">
@@ -29,9 +35,9 @@ function TableOfContents(props) {
       </span>
     </label>
 
-      <p className="tocTitle" id="breakSection">
-          <span className="tocInnerText">Home</span></p>
-        <p className="tocTitle">
+      {/* <p className="tocTitle" id="breakSection">
+          <span className="tocInnerText">Home</span></p> */}
+        <p className="tocTitleFirst">
           <img src={home} className="tocIcon"></img>
           <span className="tocInnerText">Dashboard</span></p>
 
