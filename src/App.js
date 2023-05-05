@@ -416,7 +416,7 @@ render() {
           zIndex: "999",
         }}
         trigger={null}
-        hotKeys={['ctrl+k']}
+        hotKeys={['ctrl+k', 'command+k']}
         closeOnSelect={true}
         alwaysRenderCommands={true}
         renderCommand={this.sampleChromeCommand}
