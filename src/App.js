@@ -197,10 +197,11 @@ class App extends Component {
     html.setAttribute("data-theme", theme);
   }
 
-  toggleTheme() {
+  toggleTheme(isChecked) {
     this.setState(
       {
-        isDark: !this.state.isDark,
+        // isDark: !this.state.isDark,
+        isDark: !isChecked,
       },
       () => {
         this.handleTheme();
@@ -445,7 +446,8 @@ render() {
           handleClick={this.handleClick}
           charCount={this.state.charCount}
           wordCount={this.state.wordCount}
-          tocHeaders={this.state.tocHeaders} />
+          tocHeaders={this.state.tocHeaders}
+          handleTheme={this.toggleTheme} />
 
 
         <div className="editingView">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import randomColor from 'randomcolor';
 
@@ -17,6 +17,19 @@ import banner from './icons/key500.png';
 
 function TableOfContents(props) {
 
+  function toggleTheme() {
+    const toggleSwitch = document.querySelector('.toggleSwitch');
+    toggleSwitch.addEventListener('change', (event) => {
+      const isChecked = event.target.checked;
+      props.handleTheme(isChecked);
+    });
+  }
+
+  useEffect(() => {
+    toggleTheme();
+  }, []);
+
+
   return (
     <div className="tableOfContents">
       <div className="tableInfo">
@@ -27,7 +40,7 @@ function TableOfContents(props) {
         </div>
         
     <label className="switch">
-      <input type="checkbox">
+      <input type="checkbox" className="toggleSwitch">
       </input>
       <span className="slider">
       <span className="sliderLeft">Light</span>
