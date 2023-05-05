@@ -181,30 +181,21 @@ class App extends Component {
   // dark / light mode 
 
   handleTheme() {
+
     const html = document.querySelector("html");
+
     var theme = "";
-    if (this.state.isDark === true && this.state.focused !== true) {
+
+    if (this.state.isDark === false) {
       theme = "dark";
     }
-    else if (this.state.isDark === true && this.state.focused === true) {
-      theme = "dark-focus";
-    }
-    else if (this.state.isDark === false && this.state.focused !== true) {
+    else {
       theme = "light";
     }
-    else if (this.state.isDark === false && this.state.focused === true) {
-      theme = "light-focus";
-    }
+
     console.log(theme);
     html.setAttribute("data-theme", theme);
   }
-
-  // toggleTheme() {
-  //   this.setState({
-  //     isDark: !this.state.isDark,
-  //   });
-  //   this.handleTheme();
-  // }
 
   toggleTheme() {
     this.setState(

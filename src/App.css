@@ -92,7 +92,7 @@
   --button-highlight-text: #F8F8F8;
   --editorIconFilter: invert(89%) sepia(0%) saturate(70%) hue-rotate(134deg) brightness(94%) contrast(82%);
   --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.2);
-  --font: "SF Pro Display", sans-serif;
+  --font: "Inter", sans-serif;
 }
 
 html,
