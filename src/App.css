@@ -413,6 +413,10 @@ body {
   vertical-align: middle;
 }
 
+#closeTOC {
+  margin-left: 62px;
+}
+
 .buttonIcon .tocTitle {
   display: inline-block;
 }

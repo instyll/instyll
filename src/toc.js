@@ -14,6 +14,7 @@ import calendar from './icons/calendar.png';
 import help from './icons/help.png';
 import feedback from './icons/feedback.png';
 import banner from './icons/key500.png';
+import closeTOC from './icons/doubleleft.png';
 
 function TableOfContents(props) {
 
@@ -37,6 +38,7 @@ function TableOfContents(props) {
         <div className="tocBanner">
           <img src={banner} className="tocBannerIcon"></img>
           <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>
+          <img src={closeTOC} className="tocIcon" id="closeTOC"></img>
         </div>
         
     <label className="switch">
