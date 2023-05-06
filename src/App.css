@@ -833,7 +833,7 @@ img {
   background-color: var(--muted-text);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 10px;
+  border-radius: 14px;
   vertical-align: middle;
 }
 
@@ -888,7 +888,7 @@ img {
   background-color: var(--elevated-bg);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 8px;
+  border-radius: 10px;
   content: 'Light';
   color: var(--button-highlight);
   display: block;
