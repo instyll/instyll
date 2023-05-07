@@ -45,6 +45,12 @@ import exportIcon from './icons/export.png';
 import star from './icons/star.png';
 import add from './icons/add_component2.png';
 import back from './icons/back.png';
+import stats from './icons/stats.png';
+import doc from './icons/document.png';
+import outline from './icons/outline.png';
+import reference from './icons/reference.png';
+import edit from './icons/edit.png';
+import doubleRight from './icons/doubleright.png'
 
 // const localizer = momentLocalizer(moment)
 
@@ -461,7 +467,7 @@ render() {
                   <div className="optionObject">
                     <button className="addTopicButton">
 
-                      <img src={add} class="buttonIcon"></img>
+                      <img src={add} class="buttonIcon" draggable={false}></img>
 
                       <span className="buttonText">Add topic</span></button>
                   </div>
@@ -500,6 +506,29 @@ render() {
             </div>
           </div>
           <div className="elevatedRight">
+
+              <div className="elevatedRightInner">
+                <div>
+                <img src={stats} className="tocIconRightFirst"></img>
+                </div>
+                <div>
+                <img src={outline} className="tocIconRight"></img>
+                </div>
+                <div>
+                <img src={doc} className="tocIconRight"></img>
+                </div>
+                <div>
+                <img src={edit} className="tocIconRight"></img>
+                </div>
+                <div>
+                <img src={reference} className="tocIconRight"></img>
+                </div>
+                <div className="bottomToc">
+                <img src={doubleRight} className="tocIconRightLast"></img>
+                </div>
+              </div>
+
+
             {/* <div className="elevatedRightTopTop">
 
               <div className="statsContainer">
