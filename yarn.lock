@@ -2015,6 +2015,17 @@
     commander "^9.0.0"
     puppeteer "^19.0.0"
 
+"@milkdown/core@^7":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/core/-/core-7.2.1.tgz#089ac5c826d1922266d24c6035d793ab1ffdc9f3"
+  integrity sha512-NmyarMh11fHDAGZHPDpXk4CsgcqgLQeUTyiGnN+ivE+OL2L23n4B6tx4wpTcCiBr39TdjPrAFU0TJy4Mq2HmtA==
+  dependencies:
+    "@milkdown/exception" "7.2.1"
+    remark-parse "^10.0.1"
+    remark-stringify "^10.0.2"
+    tslib "^2.5.0"
+    unified "^10.1.0"
+
 "@milkdown/core@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/core/-/core-7.2.0.tgz#0c47f53b4996bfdeee3c942f7a6137d4171eecf7"
@@ -2026,12 +2037,12 @@
     tslib "^2.5.0"
     unified "^10.1.0"
 
-"@milkdown/ctx@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@milkdown/ctx/-/ctx-7.2.0.tgz#a56752c5dd818c737dc7d9c1d1509c7c62b48853"
-  integrity sha512-KDsXnE/myaZUH4U/hqWOyU8kaX2bdkc+WL8ux+ZCUmu12n7Arl0cYkj3+ZYY+WUQazA4p1q4eS+wH4hoL+jGxw==
+"@milkdown/ctx@^7", "@milkdown/ctx@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/ctx/-/ctx-7.2.1.tgz#0f5348f7e623062a0cac8ed2f72560764d590dfa"
+  integrity sha512-TlTLV3c8BemKJ3/t0Dfy82ZZstYR7arbKk40olsZ02h5cfFd1xTcfyCJgeC2ytICdGUADVlixrdU0h9dzFR0nQ==
   dependencies:
-    "@milkdown/exception" "7.2.0"
+    "@milkdown/exception" "7.2.1"
     tslib "^2.5.0"
 
 "@milkdown/exception@7.2.0":
@@ -2165,6 +2176,27 @@
     remark-gfm "^3.0.0"
     tslib "^2.5.0"
 
+"@milkdown/prose@^7":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/prose/-/prose-7.2.1.tgz#145c234407a59563e7e9ef9e5eecb766c2480b0b"
+  integrity sha512-Z27FIoodWNU/34o62sDURB3heLSqyoxI8apRjGee/7FpwDr5RlCoQ+Iy+n+ENesFUhyhlzFu4QUO12mSdvwpog==
+  dependencies:
+    "@milkdown/exception" "7.2.1"
+    prosemirror-changeset "^2.2.0"
+    prosemirror-commands "^1.5.0"
+    prosemirror-dropcursor "^1.7.0"
+    prosemirror-gapcursor "^1.3.1"
+    prosemirror-history "^1.3.0"
+    prosemirror-inputrules "^1.2.0"
+    prosemirror-keymap "^1.2.1"
+    prosemirror-model "^1.19.0"
+    prosemirror-schema-list "^1.2.2"
+    prosemirror-state "^1.4.2"
+    prosemirror-tables "^1.3.2"
+    prosemirror-transform "^1.7.1"
+    prosemirror-view "^1.30.1"
+    tslib "^2.5.0"
+
 "@milkdown/prose@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/prose/-/prose-7.2.0.tgz#f157ede063560b3b626c9ee23d01437ab3236f7d"
@@ -2201,6 +2233,20 @@
   dependencies:
     clsx "^1.2.1"
     tslib "^2.5.0"
+
+"@milkdown/transformer@^7":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/transformer/-/transformer-7.2.1.tgz#08cfd4128ef47a0579fa6181377fa572b9b161af"
+  integrity sha512-xC581lre5JnNVPvdybkzF7tUoHZF7DGV7ZaugHgBe1TX/Lz+txV/Xk8p5zd3vVroCYCFOTAHivt3xrPf6jshKA==
+  dependencies:
+    "@milkdown/exception" "7.2.1"
+    "@types/mdast" "^3.0.10"
+    "@types/unist" "^2.0.6"
+    remark "^14.0.1"
+    remark-parse "^10.0.1"
+    remark-stringify "^10.0.2"
+    tslib "^2.5.0"
+    unified "^10.1.0"
 
 "@milkdown/transformer@^7.2.0":
   version "7.2.0"
@@ -10601,6 +10647,15 @@ micromatch@^4.0.2, micromatch@^4.0.4, micromatch@^4.0.5:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
+"milkdown-plugin-placeholder@https://github.com/HexMox/milkdown-plugin-placeholder":
+  version "0.2.0"
+  resolved "https://github.com/HexMox/milkdown-plugin-placeholder#61341c8201e4a1eb1c3cbe4020c6741e0f3cf309"
+  dependencies:
+    "@milkdown/core" "^7"
+    "@milkdown/ctx" "^7"
+    "@milkdown/prose" "^7"
+    "@milkdown/transformer" "^7"
+
 miller-rabin@^4.0.0:
   version "4.0.1"
   resolved "https://registry.npmjs.org/miller-rabin/-/miller-rabin-4.0.1.tgz"
@@ -12039,12 +12094,13 @@ prosemirror-gapcursor@^1.3.1:
     prosemirror-view "^1.0.0"
 
 prosemirror-history@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-history/-/prosemirror-history-1.3.0.tgz#bf5a1ff7759aca759ddf0c722c2fa5b14fb0ddc1"
-  integrity sha512-qo/9Wn4B/Bq89/YD+eNWFbAytu6dmIM85EhID+fz9Jcl9+DfGEo8TTSrRhP15+fFEoaPqpHSxlvSzSEbmlxlUA==
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-history/-/prosemirror-history-1.3.1.tgz#d0dba9ed1cc2bce55a45ce9c7c8224e641f276b8"
+  integrity sha512-YMV/IWBZ+LZSfaNcBbPcaQUiAiJRYFyJW2aapuNzL8nhIRsI7fIO0ykJFSe802+mWeoTsVJ1jxvRWPYqaUqljQ==
   dependencies:
     prosemirror-state "^1.2.2"
     prosemirror-transform "^1.0.0"
+    prosemirror-view "^1.31.0"
     rope-sequence "^1.3.0"
 
 prosemirror-inputrules@^1.2.0:
@@ -12106,10 +12162,10 @@ prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0, prosemirror-transfor
   dependencies:
     prosemirror-model "^1.0.0"
 
-prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.27.0, prosemirror-view@^1.30.1:
-  version "1.30.2"
-  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.30.2.tgz#57a9d15c5baa454f0d0f4a3028ddbd9be1e8ed9b"
-  integrity sha512-nTNzZvalQf9kHeEyO407LiV6DoOs/pXsid88UqW9Vvybo4ozJW2PJhkfZUxCUF1hR/9vJLdhxX84wuw9P9HsXA==
+prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.27.0, prosemirror-view@^1.30.1, prosemirror-view@^1.31.0:
+  version "1.31.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.31.1.tgz#706611f134018a4dd832110911bdd908e3af92c1"
+  integrity sha512-9NKJdXnGV4+1qFRi16XFZxpnx6zNok9MEj/HElkqUJ1HtOyKOICffKxqoXUUCAdHrrP+yMDvdXc6wT7GGWBL3A==
   dependencies:
     prosemirror-model "^1.16.0"
     prosemirror-state "^1.0.0"
@@ -12945,7 +13001,7 @@ remark-mermaidjs@^4.1.1:
 
 remark-parse@^10.0.0, remark-parse@^10.0.1:
   version "10.0.1"
-  resolved "https://registry.npmjs.org/remark-parse/-/remark-parse-10.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/remark-parse/-/remark-parse-10.0.1.tgz#6f60ae53edbf0cf38ea223fe643db64d112e0775"
   integrity sha512-1fUyHr2jLsVOkhbvPRBJ5zTKZZyD6yZzYaWCS6BPBdQ8vEMBCH+9zNCDA6tET/zHCi/jLqjCWtlJZUPk+DbnFw==
   dependencies:
     "@types/mdast" "^3.0.0"
@@ -14483,7 +14539,7 @@ unicode-property-aliases-ecmascript@^2.0.0:
 
 unified@^10.0.0, unified@^10.1.0, unified@^10.1.2:
   version "10.1.2"
-  resolved "https://registry.npmjs.org/unified/-/unified-10.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/unified/-/unified-10.1.2.tgz#b1d64e55dafe1f0b98bb6c719881103ecf6c86df"
   integrity sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==
   dependencies:
     "@types/unist" "^2.0.0"

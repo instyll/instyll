@@ -318,6 +318,7 @@ body {
   vertical-align: middle;
   display: inline-block;
   filter: var(--editorIconFilter);
+  user-select: none;
 }
 
 .back:hover {
@@ -397,6 +398,7 @@ body {
   width: 19px;
   vertical-align: middle;
   padding-right: 5px;
+  user-select: none;
   /* display: block; */
 }
 
@@ -628,6 +630,7 @@ img {
 
 .buttonText {
   vertical-align: middle;
+  user-select: none;
 }
 
 .addSymbol {
@@ -657,6 +660,10 @@ img {
   margin-right: 10px;
   z-index: 0;
   transition: 0.2s;
+}
+
+.search::placeholder {
+  user-select: none;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -1008,6 +1015,7 @@ input:checked+.slider:before {
   margin-top: 32px;
   padding-bottom: 10px;
   filter: brightness(120%);
+  padding-left: 8px;
 }
 
 #breakSection:hover {

@@ -114,21 +114,22 @@ function TableOfContents(props) {
           ))}
         </div> */}
         <p className="tocTitle" id="breakSection">
-          <span className="tocInnerText">Support</span></p>
-        <p className="tocTitle">
-          <img src={help} className="tocIcon"></img>
-          <span className="tocInnerText">Get Help</span></p>
-        <p className="tocTitle" >
-          <img src={feedback} className="tocIcon"></img>
-          <span className="tocInnerText">Submit Feedback</span></p>
-
-        <div className="bottomToc">
+          <span className="tocInnerText">Utilities</span></p>
           <p className="tocTitle" >
             <img src={settings} className="tocIcon"></img>
             <span className="tocInnerText">Settings</span></p>
           <p className="tocTitle" >
             <img src={cmd} className="tocIcon"></img>
             <span className="tocInnerText">Command Palette</span></p>
+
+
+        <div className="bottomToc">
+            <p className="tocTitle">
+          <img src={help} className="tocIcon"></img>
+          <span className="tocInnerText">Get Help</span></p>
+        <p className="tocTitle" >
+          <img src={feedback} className="tocIcon"></img>
+          <span className="tocInnerText">Submit Feedback</span></p>
         </div>
 
       </div>

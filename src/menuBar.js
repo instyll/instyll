@@ -39,7 +39,7 @@ function MenuBar(props) {
       <input className="search" placeholder="Search your notes">
       </input>
       <button className="menuAddOptionButton">
-        <img src={create} className="buttonIcon"></img>
+        <img src={create} className="buttonIcon" draggable={false}></img>
         <span className="buttonText">Create</span></button>
     </div>
   );

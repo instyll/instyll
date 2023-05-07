@@ -25,6 +25,7 @@ import { prism, prismConfig } from '@milkdown/plugin-prism';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { clipboard } from '@milkdown/plugin-clipboard';
 import { trailing } from '@milkdown/plugin-trailing';
+// import { placeholder, placeholderCtx } from 'milkdown-plugin-placeholder';
 
 import { useCustomNodeViewFactory } from './useCustomNodeviewFactory.ts';
 
@@ -41,7 +42,7 @@ import typescript from 'refractor/lang/typescript'
 import jsx from 'refractor/lang/jsx'
 import tsx from 'refractor/lang/tsx'
 
-const defaultValue = 'Type "/" to get started';
+// const defaultValue = 'Type "/" to get started';
 const MilkdownEditor: React.FC = () => {
 
   const { editor } = useEditor((root) =>
@@ -62,7 +63,8 @@ const MilkdownEditor: React.FC = () => {
         })
 
         ctx.set(rootCtx, root)
-        ctx.set(defaultValueCtx, defaultValue);
+        ctx.set(defaultValueCtx, '')
+        // ctx.set(placeholderCtx, 'Have fun!');
         ctx.set(prismConfig.key, {
           configureRefractor: (refractor) => {
             refractor.register(markdown)
@@ -85,6 +87,7 @@ const MilkdownEditor: React.FC = () => {
       .use(listener)
       .use(clipboard)
       .use(trailing),
+      // .use(placeholder),
   );
 
   return <Milkdown />;
