@@ -38,9 +38,9 @@ function TableOfContents(props) {
       <div className="tableInfo">
 
         <div className="tocBanner">
-          <img src={banner} className="tocBannerIcon"></img>
+          <img src={banner} className="tocBannerIcon" draggable={false}></img>
           <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>
-          <img src={closeTOC} className="tocIcon" id="closeTOC"></img>
+          <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false}></img>
         </div>
 
         <label className="switch">
@@ -55,23 +55,23 @@ function TableOfContents(props) {
         {/* <p className="tocTitle" id="breakSection">
           <span className="tocInnerText">Home</span></p> */}
         <p className="tocTitleFirst">
-          <img src={home} className="tocIcon"></img>
+          <img src={home} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Dashboard</span></p>
 
         <p className="tocTitle">
-          <img src={calendar} className="tocIcon"></img>
+          <img src={calendar} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Timeline</span></p>
 
         <p className="tocTitle" id="breakSection">
           <span className="tocInnerText">Notes</span></p>
         <p className="tocTitle">
-          <img src={recent} className="tocIcon"></img>
+          <img src={recent} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Recent</span></p>
         <p className="tocTitle">
-          <img src={template} className="tocIcon"></img>
+          <img src={template} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Templates</span></p>
         <p className="tocTitle">
-          <img src={tags} className="tocIcon"></img>
+          <img src={tags} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Topics</span></p>
 
         {/* <div className="fileViewTopicsContainer">
@@ -96,10 +96,10 @@ function TableOfContents(props) {
         </div> */}
 
         <p className="tocTitle">
-          <img src={favorites} className="tocIcon"></img>
+          <img src={favorites} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Bookmarks</span></p>
         <p className="tocTitle">
-          <img src={trash} className="tocIcon"></img>
+          <img src={trash} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Recycling</span></p>
 
         {/* <div className="fileSys">
@@ -116,19 +116,19 @@ function TableOfContents(props) {
         <p className="tocTitle" id="breakSection">
           <span className="tocInnerText">Utilities</span></p>
           <p className="tocTitle" >
-            <img src={settings} className="tocIcon"></img>
+            <img src={settings} className="tocIcon" draggable={false}></img>
             <span className="tocInnerText">Settings</span></p>
           <p className="tocTitle" >
-            <img src={cmd} className="tocIcon"></img>
+            <img src={cmd} className="tocIcon" draggable={false}></img>
             <span className="tocInnerText">Command Palette</span></p>
 
 
         <div className="bottomToc">
             <p className="tocTitle">
-          <img src={help} className="tocIcon"></img>
+          <img src={help} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Get Help</span></p>
         <p className="tocTitle" >
-          <img src={feedback} className="tocIcon"></img>
+          <img src={feedback} className="tocIcon" draggable={false}></img>
           <span className="tocInnerText">Submit Feedback</span></p>
         </div>
 
