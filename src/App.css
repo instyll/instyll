@@ -531,7 +531,7 @@ button {
   position: sticky;
   top: 0;
   background-color: var(--base);
-  width: calc(100% - 270px);
+  width: calc(100% - 240px);
 }
 
 .menuBar {
@@ -667,6 +667,46 @@ img {
   vertical-align: middle;
 }
 
+@media only screen and (max-width: 1100px) {
+  .menuAddOptionButton {
+    background-image: linear-gradient(35deg,
+        hsl(229deg 100% 66%) 25%,
+        hsl(224deg 93% 64%) 66%,
+        hsl(219deg 86% 63%) 79%,
+        hsl(214deg 80% 61%) 86%,
+        hsl(209deg 75% 59%) 90%,
+        hsl(204deg 70% 57%) 93%,
+        hsl(198deg 65% 55%) 95%,
+        hsl(193deg 61% 54%) 96%,
+        hsl(188deg 57% 52%) 97%,
+        hsl(183deg 53% 50%) 98%,
+        hsl(178deg 53% 48%) 99%,
+        hsl(173deg 53% 47%) 100%);
+    /* background-color: var(--button-highlight); */
+    border: none;
+    border-radius: 50%;
+    color: var(--button-highlight-text);
+    width: 36px;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px;
+    height: 36px;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-family: var(--font);
+    transition: 0.3s;
+    box-shadow: 0px 5px 9px 0px #5271ff1f;
+    vertical-align: middle;
+  }
+  .menuAddOptionButton .buttonText {
+    display: none;
+    width: 0px;
+  }
+  .menuAddOptionButton .buttonIcon {
+    padding-right: 0px;
+  }
+}
+
 .menuAddOptionButton:hover {
   /* border-radius: 5px; */
   filter: brightness(90%);
@@ -713,6 +753,33 @@ img {
 @media only screen and (max-width: 1600px) {
   .search {
     width: 500px;
+    height: 42px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 1em;
+    background-color: var(--search-background);
+    font-family: var(--font);
+    color: var(--secondary-text);
+    padding-left: 48px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 16px;
+    border: none;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    /* margin-bottom: 5px; */
+    margin-left: 5px;
+    margin-right: 10px;
+    z-index: 0;
+    transition: 0.2s;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .search {
+    width: 400px;
     height: 42px;
     box-sizing: border-box;
     outline: none;
