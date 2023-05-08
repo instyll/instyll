@@ -509,22 +509,22 @@ render() {
 
               <div className="elevatedRightInner">
                 <div>
-                <img src={stats} className="tocIconRightFirst"></img>
+                <img src={stats} className="tocIconRightFirst" draggable={false}></img>
                 </div>
                 <div>
-                <img src={outline} className="tocIconRight"></img>
+                <img src={outline} className="tocIconRight" draggable={false}></img>
                 </div>
                 <div>
-                <img src={doc} className="tocIconRight"></img>
+                <img src={doc} className="tocIconRight" draggable={false}></img>
                 </div>
                 <div>
-                <img src={edit} className="tocIconRight"></img>
+                <img src={edit} className="tocIconRight" draggable={false}></img>
                 </div>
                 <div>
-                <img src={reference} className="tocIconRight"></img>
+                <img src={reference} className="tocIconRight" draggable={false}></img>
                 </div>
                 <div className="bottomToc">
-                <img src={doubleRight} className="tocIconRightLast"></img>
+                <img src={doubleRight} className="tocIconRightLast" draggable={false}></img>
                 </div>
               </div>
 
