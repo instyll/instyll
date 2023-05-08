@@ -44,7 +44,7 @@ import moreDots from './icons/more.png';
 import exportIcon from './icons/export.png';
 import star from './icons/star.png';
 import add from './icons/add_component2.png';
-import back from './icons/back.png';
+import back from './icons/arrowback.png';
 import stats from './icons/stats.png';
 import doc from './icons/document.png';
 import outline from './icons/outline.png';
