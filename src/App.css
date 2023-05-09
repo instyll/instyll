@@ -203,11 +203,16 @@ body {
   object-fit: cover;
   width: 24px;
   vertical-align: middle;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   /* padding-right: 5px; */
   /* display: block; */
   filter: var(--editorIconFilter);
+}
+
+.tocIconRight:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
 }
 
 .tocIconRightFirst {
@@ -216,11 +221,16 @@ body {
   width: 24px;
   vertical-align: middle;
   /* padding-top: 5px; */
-  padding-bottom: 10px;
-  padding-top: 24px;
+  margin-bottom: 10px;
+  margin-top: 24px;
   /* padding-right: 5px; */
   /* display: block; */
   filter: var(--editorIconFilter);
+}
+
+.tocIconRightFirst:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
 }
 
 .tocIconRightLast {
@@ -466,6 +476,11 @@ body {
 }
 
 #closeTOC:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
+}
+
+#closeDock:hover {
   background-color: var(--muted-text);
   border-radius: 5px;
 }

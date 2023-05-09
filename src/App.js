@@ -524,7 +524,7 @@ render() {
                 <img src={reference} className="tocIconRight" draggable={false}></img>
                 </div>
                 <div className="bottomToc">
-                <img src={doubleRight} className="tocIconRightLast" draggable={false}></img>
+                <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}></img>
                 </div>
               </div>
 
