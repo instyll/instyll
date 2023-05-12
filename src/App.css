@@ -1444,7 +1444,6 @@ hr {
   border: none;
   height: 0.25em;
   background-color: var(--muted-text);
-  border-radius: 1em;
 }
 
 /* Highlight specific components */
@@ -1489,14 +1488,17 @@ table {
 
 .emoji {
   width: 1em;
-  height: auto;
-  vertical-align: middle;
+  height: 1em;
+  display: inline;
+  vertical-align: text-top;
+  /* vertical-align: middle; */
 }
 
-span [data-type=emoji] {
+/* span[data-type=emoji] {
   display: inline-block;
-  line-height: 1.4;
-}
+  height: 1em;
+  vertical-align: middle;
+} */
 
 /* Modals */
 
