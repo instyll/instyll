@@ -14,7 +14,7 @@ import {
   commonmark,
   listItemSchema,
 } from "@milkdown/preset-commonmark";
-import { gfm } from '@milkdown/preset-gfm';
+import { gfm, strikethroughKeymap } from '@milkdown/preset-gfm';
 import { math } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
 import { diagram } from '@milkdown/plugin-diagram';
@@ -74,6 +74,11 @@ const MilkdownEditor: React.FC = () => {
             refractor.register(jsx)
             refractor.register(tsx)
           },
+        })
+        ctx.set(strikethroughKeymap.key, {
+          ToggleStrikethrough: 'Mod-Shift-s',
+          // or you may want to bind multiple keys:
+          ToggleStrikethrough: ['Mod-Shift-s', 'Mod-s'],
         })
       })
       .use(commonmark)
