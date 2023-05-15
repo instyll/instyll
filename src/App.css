@@ -151,7 +151,7 @@ body {
   /* width: calc((100% - 280px) - 116px); */
   /* margin-left: 268px; */
   /* 270 toc +32 */
-
+  transition: 0.2s;
 }
 
 .elevatedRight {
