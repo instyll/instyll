@@ -110,6 +110,10 @@ body {
   height: 100%;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .container {
   height: 100%;
 }
@@ -145,7 +149,7 @@ body {
   display: inline-block;
   height: calc(100vh - 95px);
   width: calc((100% - 280px) - 116px);
-  margin-left: 260px;
+  margin-left: 268px;
   /* 270 toc +32 */
 
 }
