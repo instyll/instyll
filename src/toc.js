@@ -34,45 +34,74 @@ function TableOfContents(props) {
 
 
   return (
-    <div className="tableOfContents">
+    <div className="tableOfContents" style={{
+      width: props.tocOpen ? "240px" : "125px",
+      transition: "0.2s",
+    }}>
       <div className="tableInfo">
 
-        <div className="tocBanner">
+        <div className="tocBanner" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
           <img src={banner} className="tocBannerIcon" draggable={false}></img>
-          <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>
-          <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false}></img>
+          {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>}
+          <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={props.handleToc} style={{
+            marginLeft: props.tocOpen ? "67px" : "22px",
+            marginTop: props.tocOpen ? "initial" : "10px",
+            display: props.tocOpen ? "initial" : "block",
+            transform: props.tocOpen ? "none" : "rotate(180deg)",
+          }}></img>
         </div>
 
         <label className="switch">
           <input type="checkbox" className="toggleSwitch">
           </input>
-          <span className="slider">
+          {props.tocOpen && <span className="slider">
             <span className="sliderLeft">Light</span>
             <span className="sliderRight">Dark</span>
-          </span>
+          </span>}
         </label>
 
-        {/* <p className="tocTitle" id="breakSection">
-          <span className="tocInnerText">Home</span></p> */}
-        <p className="tocTitleFirst">
-          <img src={home} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Dashboard</span></p>
+        <p className="tocTitleFirst" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={home} className="tocIcon" draggable={false} />
+          {props.tocOpen && <span className="tocInnerText">Dashboard</span>}
+        </p>
 
-        <p className="tocTitle">
-          <img src={calendar} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Timeline</span></p>
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={calendar} className="tocIcon" draggable={false} />
+          {props.tocOpen && <span className="tocInnerText">Timeline</span>}
+        </p>
 
-        <p className="tocTitle" id="breakSection">
-          <span className="tocInnerText">Notes</span></p>
-        <p className="tocTitle">
-          <img src={recent} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Recent</span></p>
-        <p className="tocTitle">
-          <img src={template} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Templates</span></p>
-        <p className="tocTitle">
-          <img src={tags} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Topics</span></p>
+        <p className="tocTitle" id="breakSection" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <span className="tocInnerText">Notes</span>
+        </p>
+
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={recent} className="tocIcon" draggable={false} />
+          {props.tocOpen && <span className="tocInnerText">Recent</span>}
+        </p>
+
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={template} className="tocIcon" draggable={false} />
+          {props.tocOpen && <span className="tocInnerText">Templates</span>}
+        </p>
+
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={tags} className="tocIcon" draggable={false} />
+          {props.tocOpen && <span className="tocInnerText">Topics</span>}
+        </p>
 
         {/* <div className="fileViewTopicsContainer">
           <button className="topic" >
@@ -95,12 +124,16 @@ function TableOfContents(props) {
           </button>
         </div> */}
 
-        <p className="tocTitle">
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
           <img src={favorites} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Bookmarks</span></p>
-        <p className="tocTitle">
+          {props.tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
           <img src={trash} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Recycling</span></p>
+          {props.tocOpen && <span className="tocInnerText">Recycling</span>}</p>
 
         {/* <div className="fileSys">
           {props.fileNames.map((file, index) => (
@@ -113,23 +146,41 @@ function TableOfContents(props) {
             </button>
           ))}
         </div> */}
-        <p className="tocTitle" id="breakSection">
+
+        <p className="tocTitle" id="breakSection" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
           <span className="tocInnerText">Utilities</span></p>
-          <p className="tocTitle" >
-            <img src={settings} className="tocIcon" draggable={false}></img>
-            <span className="tocInnerText">Settings</span></p>
-          <p className="tocTitle" >
-            <img src={cmd} className="tocIcon" draggable={false}></img>
-            <span className="tocInnerText">Command Palette</span></p>
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={settings} className="tocIcon" draggable={false}></img>
+          {props.tocOpen && <span className="tocInnerText">Settings</span>}</p>
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={cmd} className="tocIcon" draggable={false}></img>
+          {props.tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
 
 
-        <div className="bottomToc">
-            <p className="tocTitle">
-          <img src={help} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Get Help</span></p>
-        <p className="tocTitle" >
-          <img src={feedback} className="tocIcon" draggable={false}></img>
-          <span className="tocInnerText">Submit Feedback</span></p>
+        <div className="bottomToc" style={{
+          // textAlign: props.tocOpen ? "left" : "center",
+          left: props.tocOpen ? "auto" : "0",
+          right: props.tocOpen ? "auto" : "0",
+          marginLeft: props.tocOpen ? "0" : "auto",
+          marginRight: props.tocOpen ? "0" : "auto",
+          width: props.tocOpen ? "initial" : "69px",
+        }}>
+          <p className="tocTitle" style={{
+            textAlign: props.tocOpen ? "left" : "center",
+          }}>
+            <img src={help} className="tocIcon" draggable={false}></img>
+            {props.tocOpen && <span className="tocInnerText">Get Help</span>}</p>
+          <p className="tocTitle" style={{
+            textAlign: props.tocOpen ? "left" : "center",
+          }}>
+            <img src={feedback} className="tocIcon" draggable={false}></img>
+            {props.tocOpen && <span className="tocInnerText">Submit Feedback</span>}</p>
         </div>
 
       </div>

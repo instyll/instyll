@@ -149,6 +149,7 @@ class App extends Component {
     this.setState({
       tocOpen: this.state.tocOpen === true ? false : true
     })
+    console.log(this.state.tocOpen);
   }
 
   // Get headers for sidebar outline
@@ -453,7 +454,10 @@ class App extends Component {
             charCount={this.state.charCount}
             wordCount={this.state.wordCount}
             tocHeaders={this.state.tocHeaders}
-            handleTheme={this.toggleTheme} />
+            handleTheme={this.toggleTheme} 
+            handleToc={this.handleToc} 
+            tocOpen={this.state.tocOpen}
+            />
 
 
           <div className="editingView">
