@@ -503,7 +503,7 @@ button {
   position: sticky;
   top: 0;
   background-color: var(--base);
-  width: calc(100% - 240px);
+  /* width: calc(100% - 240px); */
 }
 
 .menuBar {
@@ -751,6 +751,32 @@ img {
 @media only screen and (max-width: 1100px) {
   .search {
     width: 400px;
+    height: 42px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 1em;
+    background-color: var(--search-background);
+    font-family: var(--font);
+    color: var(--secondary-text);
+    padding-left: 48px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 16px;
+    border: none;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 10px;
+    z-index: 0;
+    transition: 0.2s;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .search {
+    width: 300px;
     height: 42px;
     box-sizing: border-box;
     outline: none;

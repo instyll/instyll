@@ -439,13 +439,17 @@ class App extends Component {
 
           {/* navbar */}
 
-          <div className="navHorizontal">
+          <div className="navHorizontal"
+          style={{
+            width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
+          }}>
             <MenuBar
               handleToc={this.handleToc}
               setModalOpen={this.setModalOpen}
               toggleFocus={this.toggleFocus}
               toggleTheme={this.toggleTheme}
-              focused={this.state.focused} />
+              focused={this.state.focused}
+            />
           </div>
 
           <TableOfContents
@@ -454,18 +458,18 @@ class App extends Component {
             charCount={this.state.charCount}
             wordCount={this.state.wordCount}
             tocHeaders={this.state.tocHeaders}
-            handleTheme={this.toggleTheme} 
-            handleToc={this.handleToc} 
+            handleTheme={this.toggleTheme}
+            handleToc={this.handleToc}
             tocOpen={this.state.tocOpen}
-            />
+          />
 
 
           <div className="editingView">
             <div className="elevatedLeft"
-            style={{
-              width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
-              marginLeft: this.state.tocOpen ? "268px" : "153px",
-            }}>
+              style={{
+                width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
+                marginLeft: this.state.tocOpen ? "268px" : "153px",
+              }}>
               <div className="elevated">
                 <div className="optionsContainer">
                   <div className="leftComponents" onClick={this.handleToc} >
@@ -510,8 +514,8 @@ class App extends Component {
                   overflow: "auto",
                 }} id="text">
 
-                    <MilkdownEditorWrapper
-                    ></MilkdownEditorWrapper>
+                  <MilkdownEditorWrapper
+                  ></MilkdownEditorWrapper>
 
                 </div>
 
