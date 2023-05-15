@@ -50,16 +50,17 @@ function TableOfContents(props) {
             marginTop: props.tocOpen ? "initial" : "10px",
             display: props.tocOpen ? "initial" : "block",
             transform: props.tocOpen ? "none" : "rotate(180deg)",
+            transition: "transform 0.3s",
           }}></img>
         </div>
 
         <label className="switch">
           <input type="checkbox" className="toggleSwitch">
           </input>
-          {props.tocOpen && <span className="slider">
-            <span className="sliderLeft">Light</span>
-            <span className="sliderRight">Dark</span>
-          </span>}
+           <span className="slider">
+           {props.tocOpen && <span className="sliderLeft">Light</span>}
+           {props.tocOpen && <span className="sliderRight">Dark</span>}
+          </span>
         </label>
 
         <p className="tocTitleFirst" style={{
