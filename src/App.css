@@ -67,7 +67,8 @@
   /* --bg-color: #2a2e34; */
   --primary-text: #c5c5c5;
   /* --primary-text: #f7f7fa; */
-  --secondary-text: rgba(180, 180, 182, 0.4);
+  /* --secondary-text: rgba(180, 180, 182, 0.4); */
+  --secondary-text: #717374;
   --muted-text: rgba(180, 180, 182, 0.2);
   --search-background: rgba(180, 180, 182, 0.1);
   /* --elevated-bg: #262626; */
