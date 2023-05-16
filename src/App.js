@@ -442,7 +442,7 @@ class App extends Component {
           <div className="navHorizontal"
           style={{
             width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
-            transition: "0.2s",
+            transition: "width 0.2s",
           }}>
             <MenuBar
               handleToc={this.handleToc}
