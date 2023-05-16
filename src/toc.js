@@ -54,14 +54,37 @@ function TableOfContents(props) {
           }}></img>
         </div>
 
-        <label className="switch">
-          <input type="checkbox" className="toggleSwitch">
+        <div style={{
+          display: props.tocOpen ? "initial" : "none",
+          height: props.tocOpen ? "initial" : "0px",
+        }}>
+
+          <label className="switch">
+            <input type="checkbox" className="toggleSwitch">
+            </input>
+            <span className="slider">
+              {props.tocOpen && <span className="sliderLeft">Light</span>}
+              {props.tocOpen && <span className="sliderRight">Dark</span>}
+            </span>
+          </label>
+
+        </div>
+
+        <div style={{
+          display: props.tocOpen ? "none" : "initial",
+          height: props.tocOpen ? "0px" : "initial",
+        }}>
+
+        <label className="switchMin">
+          <input type="checkbox" className="toggleSwitchMin">
           </input>
-           <span className="slider">
-           {props.tocOpen && <span className="sliderLeft">Light</span>}
-           {props.tocOpen && <span className="sliderRight">Dark</span>}
+          <span className="sliderMin">
+            <span className="sliderLeftMin">L</span>
+            <span className="sliderRightMin">D</span>
           </span>
         </label>
+
+        </div>
 
         <p className="tocTitleFirst" style={{
           textAlign: props.tocOpen ? "left" : "center",
