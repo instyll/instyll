@@ -473,9 +473,9 @@ class App extends Component {
               }}>
               <div className="elevated">
                 <div className="optionsContainer">
-                  <div className="leftComponents" onClick={this.handleToc} >
+                  <div className="leftComponents" >
                     <img
-                      onClick={this.handleToc}
+                      
                       className="back" src={back} draggable={false}></img>
                     <div className="optionObject">
                       <button className="addTopicButton">
