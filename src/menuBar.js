@@ -17,16 +17,16 @@ import star from './icons/star.png'
 import logo from './icons/keylight3.png'
 import search from './icons/search.png'
 import create from './icons/create.png'
-import back from './icons/back.png';
-import forward from './icons/forward.png';
+import back from './icons/arrowback.png';
+import forward from './icons/arrowforward.png';
 
 function MenuBar(props) {
   return (
     <div className="menuBar">
-      <div className="logo"
+      {/* <div className="logo"
           onClick={props.toggleTheme}>
           <img src={logo} className="icon" draggable={false} />
-        </div>
+        </div> */}
         <div className="menuIconLogo">
           <img src={back} className="icon" id="navLeft" draggable={false}></img>
         </div>

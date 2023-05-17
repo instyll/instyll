@@ -207,7 +207,6 @@ class App extends Component {
   toggleTheme(isChecked) {
     this.setState(
       {
-        // isDark: !this.state.isDark,
         isDark: !isChecked,
       },
       () => {
@@ -326,7 +325,7 @@ class App extends Component {
 
     const commands = [{
       name: SET_THEME + "Dark",
-      category: "Command",
+      category: "Command",  
       command: () => {
         // this.setDark(true);
         const html = document.querySelector("html");
@@ -476,6 +475,7 @@ class App extends Component {
             handleTheme={this.toggleTheme}
             handleToc={this.handleToc}
             tocOpen={this.state.tocOpen}
+            toggleTheme={this.toggleTheme}
           />
 
 

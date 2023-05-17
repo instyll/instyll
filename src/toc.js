@@ -63,6 +63,8 @@ function TableOfContents(props) {
           }}></img>
         </div>
 
+        {/* expanded switch */}
+
         <div style={{
           display: props.tocOpen ? "initial" : "none",
           height: props.tocOpen ? "initial" : "0px",
@@ -78,6 +80,8 @@ function TableOfContents(props) {
           </label>
 
         </div>
+
+        {/* collapsed switch */}
 
         <div style={{
           display: props.tocOpen ? "none" : "initial",
