@@ -328,13 +328,19 @@ class App extends Component {
       name: SET_THEME + "Dark",
       category: "Command",
       command: () => {
-        this.setDark(true);
+        // this.setDark(true);
+        const html = document.querySelector("html");
+        html.setAttribute("data-theme", "dark");
+
       },
     }, {
       name: SET_THEME + "Light",
       category: "Command",
       command: () => {
-        this.setDark(false);
+        
+        const html = document.querySelector("html");
+        html.setAttribute("data-theme", "light");
+
       }
     },
     {
@@ -398,7 +404,7 @@ class App extends Component {
       name: TOGGLE + "Left Sidebar",
       category: "Command",
       command: () => {
-        
+
         this.setState({
           tocOpen: this.state.tocOpen === true ? false : true
         });
