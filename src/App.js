@@ -66,6 +66,7 @@ class App extends Component {
       charDelimiter: "characters",
       fileName: "README.md",
       tocOpen: true,
+      dockOpen: true,
       isDark: true,
       fileNames: [],
       selectedFile: null,
@@ -80,6 +81,7 @@ class App extends Component {
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
     this.slideToRight = this.slideToRight.bind(this);
     this.handleToc = this.handleToc.bind(this);
+    this.handleDock = this.handleDock.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
     this.toggleFocus = this.toggleFocus.bind(this);
     this.fetchFiles = this.fetchFiles.bind(this);
@@ -150,6 +152,13 @@ class App extends Component {
       tocOpen: this.state.tocOpen === true ? false : true
     })
     console.log(this.state.tocOpen);
+  }
+
+  handleDock() {
+    this.setState({
+      dockOpen: this.state.dockOpen === true ? false : true
+    })
+    console.log(this.state.dockOpen);
   }
 
   // Get headers for sidebar outline
@@ -536,26 +545,34 @@ class App extends Component {
 
               </div>
             </div>
-            <div className="elevatedRight">
+            <div className="elevatedRight" style={{
+              backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
+            }}>
 
               <div className="elevatedRightInner">
                 <div>
-                  <img src={stats} className="tocIconRightFirst" draggable={false}></img>
+                  {this.state.dockOpen && <img src={stats} className="tocIconRightFirst" draggable={false}></img>}
                 </div>
                 <div>
-                  <img src={outline} className="tocIconRight" draggable={false}></img>
+                {this.state.dockOpen && <img src={outline} className="tocIconRight" draggable={false}></img>}
                 </div>
                 <div>
-                  <img src={doc} className="tocIconRight" draggable={false}></img>
+                {this.state.dockOpen && <img src={doc} className="tocIconRight" draggable={false}></img>}
                 </div>
                 <div>
-                  <img src={edit} className="tocIconRight" draggable={false}></img>
+                {this.state.dockOpen && <img src={edit} className="tocIconRight" draggable={false}></img>}
                 </div>
                 <div>
-                  <img src={reference} className="tocIconRight" draggable={false}></img>
+                {this.state.dockOpen && <img src={reference} className="tocIconRight" draggable={false}></img>}
                 </div>
-                <div className="bottomToc">
-                  <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}></img>
+                <div className="bottomToc" style={{
+                  borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none", 
+                }}>
+                  <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
+                  onClick={this.handleDock} style={{
+                    transform: this.state.dockOpen ? "none" : "rotate(180deg)",
+                    transition: "transform 0.3s",
+                  }}></img>
                 </div>
               </div>
 
