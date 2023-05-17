@@ -422,7 +422,9 @@ class App extends Component {
     {
       name: TOGGLE + "Right Panel",
       category: "Command",
-      command() { }
+      command: () => {
+        this.handleDock();
+      }
     },
     {
       name: CREATE + "New Note",
