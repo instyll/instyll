@@ -21,7 +21,7 @@ import Calendar from 'react-calendar';
 import sampleHeader from './commandPaletteHeader.js';
 // import moment from 'moment';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from './constants.ts';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+// import { Scrollbars } from 'react-custom-scrollbars-2';
 
 // import cpTheme from './commandPalette';
 import './commandPalette.css';
@@ -379,7 +379,9 @@ class App extends Component {
     {
       name: FILE + "Export to Notion",
       category: "Action",
-      command() { }
+      command: () => { 
+        this.handleToc();
+      }
     },
     {
       name: FILE + "Print",
@@ -395,7 +397,13 @@ class App extends Component {
     {
       name: TOGGLE + "Left Sidebar",
       category: "Command",
-      command() { }
+      command: () => {
+        
+        this.setState({
+          tocOpen: this.state.tocOpen === true ? false : true
+        });
+
+       }
     },
     {
       name: TOGGLE + "Right Panel",
