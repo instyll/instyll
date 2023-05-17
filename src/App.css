@@ -1106,7 +1106,7 @@ input:checked+.slider:before {
 }
 
 input:checked+.sliderMin:before {
-  transform: translateX(92px);
+  transform: translateX(34px);
   content: 'D';
   color: var(--button-highlight);
   text-align: center;

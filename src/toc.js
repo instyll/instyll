@@ -28,8 +28,17 @@ function TableOfContents(props) {
     });
   }
 
+  function toggleThemeMin() {
+    const toggleSwitch = document.querySelector('.toggleSwitchMin');
+    toggleSwitch.addEventListener('change', (event) => {
+      const isChecked = event.target.checked;
+      props.handleTheme(isChecked);
+    });
+  }
+
   useEffect(() => {
     toggleTheme();
+    toggleThemeMin();
   }, []);
 
 
