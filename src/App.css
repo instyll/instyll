@@ -722,7 +722,34 @@ img {
   user-select: none;
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1400px) {
+  .search {
+    width: 600px;
+    height: 42px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 1em;
+    background-color: var(--search-background);
+    font-family: var(--font);
+    color: var(--secondary-text);
+    padding-left: 48px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 16px;
+    border: none;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    /* margin-bottom: 5px; */
+    margin-left: 5px;
+    margin-right: 10px;
+    z-index: 0;
+    transition: 0.2s;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
   .search {
     width: 500px;
     height: 42px;
