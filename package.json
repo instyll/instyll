@@ -63,6 +63,7 @@
     "react-calendar": "^4.2.1",
     "react-collapsible": "^2.10.0",
     "react-command-palette": "^0.22.1",
+    "react-contexify": "^6.0.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-custom-scrollbars-2": "^4.5.0",
     "react-dom": "^18.2.0",
