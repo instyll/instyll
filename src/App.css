@@ -968,6 +968,7 @@ img {
   transition: .4s;
   border-radius: 10px;
   vertical-align: middle;
+  z-index: 1;
 }
 
 .sliderRight {
@@ -1027,8 +1028,8 @@ img {
   display: block;
   line-height: 2em;
   text-align: center;
-  z-index: 999;
   font-weight: 600;
+  z-index: 2;
 }
 
 input:checked+.slider:before {
