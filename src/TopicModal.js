@@ -27,6 +27,10 @@ const TopicModal = ({ show, onHide }) => {
         }
     };
 
+    const handleClose = () => {
+        onHide();
+    }
+
     return (
         <Modal isOpen={show} onRequestClose={onHide} style={{
             overlay: {
@@ -55,7 +59,7 @@ const TopicModal = ({ show, onHide }) => {
           />
           <button onClick={handleAddTag}>Add Tag</button>
         </div>
-        <button onClick={() => setModalIsOpen(false)}>Close</button>
+        <button onClick={handleClose}>Close</button>
       </Modal >
   );
 };
