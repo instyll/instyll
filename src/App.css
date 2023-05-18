@@ -7,7 +7,7 @@
   --elevated-bg: #262626;
   --icon-filter: none;
   --base: #262626;
-  --code: #242424;
+  --code: #f6f8fa;
   --separator-border: rgba(180, 180, 182, 0.2) !important;
   --nonfocused-opacity: 1;
   --button-highlight: #5271ff;
@@ -78,7 +78,7 @@
   --icon-filter: none;
   --base: #262626;
   /* --base: #2a2e34; */
-  --code: #242424;
+  --code: #f6f8fa;
   --separator-border: rgba(180, 180, 182, 0.2) !important;
   --nonfocused-opacity: 1;
   --button-highlight: #5271ff;
@@ -1610,6 +1610,7 @@ code {
   border-radius: 6px;
   vertical-align: middle;
   line-height: 1.4;
+  color: rgb(41, 37, 36);
 }
 
 code {
