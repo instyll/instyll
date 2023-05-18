@@ -27,7 +27,7 @@ import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from './constants
 import './commandPalette.css';
 // import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-calendar/dist/Calendar.css';
-import 'prism-themes/themes/prism-ghcolors.css'
+import 'prism-themes/themes/prism-nord.css';
 
 // Plugins
 import remarkMath from 'remark-math'
