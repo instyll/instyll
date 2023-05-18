@@ -1,7 +1,8 @@
+import { prosePluginsCtx } from '@milkdown/core';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
-const TopicModal = ({ show, onHide }) => {
+const TopicModal = ({ show, onHide, tocOpen }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [tags, setTags] = useState(['tag1', 'tag2', 'tag3']);
     const [selectedTags, setSelectedTags] = useState([]);
@@ -51,11 +52,8 @@ const TopicModal = ({ show, onHide }) => {
                 // height: "calc(100% - 190px)",
                 height: "400px",
                 position: "absolute",
-                marginLeft: "290px",
+                marginLeft: tocOpen ? "290px" : "175px",
                 marginTop: "100px",
-                // top: "50%",
-                // left: "50%",
-                // transform: "translate(-50%, -50%)",
             }
         }}>
             <h2>Select Tags</h2>

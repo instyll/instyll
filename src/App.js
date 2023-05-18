@@ -440,7 +440,7 @@ render() {
       ></CommandPalette>
 
       <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />
-       <TopicModal show={this.state.topicModalOpen} onHide={() => this.setState({ topicModalOpen: false })} />
+       <TopicModal show={this.state.topicModalOpen} onHide={() => this.setState({ topicModalOpen: false })} tocOpen={this.state.tocOpen}/>
 
       <div className='container'>
 
