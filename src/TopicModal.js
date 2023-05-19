@@ -1,20 +1,26 @@
-import { prosePluginsCtx } from '@milkdown/core';
-import React, { useState } from 'react';
+// import { prosePluginsCtx } from '@milkdown/core';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './App.css';
 
-const TopicModal = ({ show, onHide, tocOpen }) => {
+const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [tags, setTags] = useState(['math', 'physics', 'marketing', 'english', 'daily notes', 'projects']);
-    const [selectedTags, setSelectedTags] = useState([]);
+    const [tags, setTags] = useState([
+        'math',
+        'physics',
+        'marketing',
+        'english',
+        'daily notes',
+        'projects',
+    ]);
     const [newTag, setNewTag] = useState('');
 
     const handleTagSelect = (tag) => {
-        if (selectedTags.includes(tag)) {
-            setSelectedTags(selectedTags.filter((selectedTag) => selectedTag !== tag));
-        } else {
-            setSelectedTags([...selectedTags, tag]);
-        }
+        const updatedTags = selectedTags.includes(tag)
+            ? selectedTags.filter((selectedTag) => selectedTag !== tag)
+            : [...selectedTags, tag];
+
+        onSelectTags(updatedTags);
     };
 
     const handleNewTagChange = (event) => {
@@ -23,15 +29,16 @@ const TopicModal = ({ show, onHide, tocOpen }) => {
 
     const handleAddTag = () => {
         if (newTag && !tags.includes(newTag)) {
-            setTags([...tags, newTag]);
-            setSelectedTags([...selectedTags, newTag]);
+            const updatedTags = [...tags, newTag];
+            setTags(updatedTags);
+            onSelectTags(updatedTags);
             setNewTag('');
         }
     };
 
     const handleClose = () => {
         onHide();
-    }
+    };
 
     return (
         <Modal isOpen={show} onRequestClose={onHide} style={{
@@ -78,8 +85,8 @@ const TopicModal = ({ show, onHide, tocOpen }) => {
                 <button onClick={handleAddTag} className='modalDefaultButton'>Add Tag</button>
             </div>
             <div className="modalActionContainer">
-            <button onClick={handleClose} className='modalDefaultButton'>Close</button>
-            <button onClick={handleClose} className='modalActionButton'>Add</button>
+                <button onClick={handleClose} className='modalDefaultButton'>Close</button>
+                <button className='modalActionButton'>Add</button>
             </div>
         </Modal >
     );

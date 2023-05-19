@@ -76,6 +76,7 @@ class App extends Component {
       focused: false,
       modalOpen: false,
       topicModalOpen: false,
+      selectedTags: [],
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -89,6 +90,7 @@ class App extends Component {
     this.changeLayout = this.changeLayout.bind(this);
     this.setModalOpen = this.setModalOpen.bind(this);
     this.setTopicModalOpen = this.setTopicModalOpen.bind(this);
+    this.handleTagsSelection = this.handleTagsSelection.bind(this);
   }
 
   // Update view pane on each edit
@@ -237,6 +239,13 @@ class App extends Component {
     console.log(this.state.topicModalOpen);
   }
 
+  /* handle tags */
+
+  handleTagsSelection = (selectedTags) => {
+    this.setState({ selectedTags });
+    console.log(this.state.selectedTags);
+  };
+
   async fetchFiles() {
     const files = await getFilesInDirectory(this.state.notesDirectory);
     this.setState({ fileNames: files });
@@ -299,202 +308,209 @@ class App extends Component {
     );
   }
 
-render() {
+  render() {
 
-  const theme = {
-    modal: "my-modal",
-    overlay: "my-overlay",
-    container: "my-container",
-    header: "my-header",
-    content: "my-content",
-    input: "my-input",
-    suggestionsList: "my-suggestionsList",
-    suggestion: "my-suggestion",
-    suggestionHighlighted: "my-suggestionHighlighted",
-    suggestionsContainerOpen: "my-suggestionsContainerOpen",
-  }
+    const theme = {
+      modal: "my-modal",
+      overlay: "my-overlay",
+      container: "my-container",
+      header: "my-header",
+      content: "my-content",
+      input: "my-input",
+      suggestionsList: "my-suggestionsList",
+      suggestion: "my-suggestion",
+      suggestionHighlighted: "my-suggestionHighlighted",
+      suggestionsContainerOpen: "my-suggestionsContainerOpen",
+    }
 
-  const commands = [{
-    name: SET_THEME + "Dark",
-    category: "Command",
-    command: () => {
-      // this.setDark(true);
-      const html = document.querySelector("html");
-      html.setAttribute("data-theme", "dark");
+    const commands = [{
+      name: SET_THEME + "Dark",
+      category: "Command",
+      command: () => {
+        // this.setDark(true);
+        const html = document.querySelector("html");
+        html.setAttribute("data-theme", "dark");
 
+      },
+    }, {
+      name: SET_THEME + "Light",
+      category: "Command",
+      command: () => {
+
+        const html = document.querySelector("html");
+        html.setAttribute("data-theme", "light");
+
+      }
     },
-  }, {
-    name: SET_THEME + "Light",
-    category: "Command",
-    command: () => {
+    {
+      name: DAILY + "Open Daily Note",
+      category: "Command",
+      command() { }
+    },
+    {
+      name: OPEN + "Settings",
+      category: "Navigate",
+      command: () => {
+        // this.changeLayout("vertical");
+      }
+    },
+    {
+      name: CLOSE + "Current File",
+      category: "Navigate",
+      command: () => {
+        // this.changeLayout("horizontal");
+      }
+    },
+    {
+      name: FILE + "Export as PDF",
+      category: "Action",
+      command() { }
+    },
+    {
+      name: FILE + "Export as LaTeX",
+      category: "Action",
+      command() { }
+    },
+    {
+      name: FILE + "Export as Docx",
+      category: "Action",
+      command() { }
+    },
+    {
+      name: FILE + "Export to Google Drive",
+      category: "Action",
+      command() { }
+    },
+    {
+      name: FILE + "Export to Notion",
+      category: "Action",
+      command: () => {
+        this.handleToc();
+      }
+    },
+    {
+      name: FILE + "Print",
+      category: "Action",
+      shortcut: "Ctrl + P",
+      command() { }
+    },
+    {
+      name: FILE + "Star",
+      category: "Action",
+      command() { }
+    },
+    {
+      name: TOGGLE + "Left Sidebar",
+      category: "Command",
+      command: () => {
 
-      const html = document.querySelector("html");
-      html.setAttribute("data-theme", "light");
+        this.setState({
+          tocOpen: this.state.tocOpen === true ? false : true
+        });
 
-    }
-  },
-  {
-    name: DAILY + "Open Daily Note",
-    category: "Command",
-    command() { }
-  },
-  {
-    name: OPEN + "Settings",
-    category: "Navigate",
-    command: () => {
-      // this.changeLayout("vertical");
-    }
-  },
-  {
-    name: CLOSE + "Current File",
-    category: "Navigate",
-    command: () => {
-      // this.changeLayout("horizontal");
-    }
-  },
-  {
-    name: FILE + "Export as PDF",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export as LaTeX",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export as Docx",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export to Google Drive",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export to Notion",
-    category: "Action",
-    command: () => {
-      this.handleToc();
-    }
-  },
-  {
-    name: FILE + "Print",
-    category: "Action",
-    shortcut: "Ctrl + P",
-    command() { }
-  },
-  {
-    name: FILE + "Star",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: TOGGLE + "Left Sidebar",
-    category: "Command",
-    command: () => {
+      }
+    },
+    {
+      name: TOGGLE + "Right Panel",
+      category: "Command",
+      command: () => {
+        this.handleDock();
+      }
+    },
+    {
+      name: CREATE + "New Note",
+      category: "Action",
+      command() { }
+    },
+    {
+      name: CREATE + "New Note From Template",
+      category: "Action",
+      command() { }
+    },
+    ];
 
-      this.setState({
-        tocOpen: this.state.tocOpen === true ? false : true
-      });
+    return (
+      <div className="App">
 
-    }
-  },
-  {
-    name: TOGGLE + "Right Panel",
-    category: "Command",
-    command: () => {
-      this.handleDock();
-    }
-  },
-  {
-    name: CREATE + "New Note",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: CREATE + "New Note From Template",
-    category: "Action",
-    command() { }
-  },
-  ];
-
-  return (
-    <div className="App">
-
-      <CommandPalette
-        commands={commands}
-        style={{
-          zIndex: "999",
-        }}
-        trigger={null}
-        hotKeys={['ctrl+k', 'command+k']}
-        closeOnSelect={true}
-        alwaysRenderCommands={true}
-        renderCommand={this.sampleChromeCommand}
-        resetInputOnOpen={true}
-        theme={theme}
-        header={sampleHeader()}
-        maxDisplayed={500}
-      ></CommandPalette>
-
-      <TemplateModal show={this.state.modalOpen} onHide={() => this.setState({ modalOpen: false })} />
-       <TopicModal show={this.state.topicModalOpen} onHide={() => this.setState({ topicModalOpen: false })} tocOpen={this.state.tocOpen}/>
-
-      <div className='container'>
-
-        {/* navbar */}
-
-        <div className="navHorizontal"
+        <CommandPalette
+          commands={commands}
           style={{
-            width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
-            transition: "width 0.2s",
-          }}>
-          <MenuBar
-            handleToc={this.handleToc}
-            setModalOpen={this.setModalOpen}
-            toggleFocus={this.toggleFocus}
-            toggleTheme={this.toggleTheme}
-            focused={this.state.focused}
-          />
-        </div>
+            zIndex: "999",
+          }}
+          trigger={null}
+          hotKeys={['ctrl+k', 'command+k']}
+          closeOnSelect={true}
+          alwaysRenderCommands={true}
+          renderCommand={this.sampleChromeCommand}
+          resetInputOnOpen={true}
+          theme={theme}
+          header={sampleHeader()}
+          maxDisplayed={500}
+        ></CommandPalette>
 
-        <TableOfContents
-          fileNames={this.state.fileNames}
-          handleClick={this.handleClick}
-          charCount={this.state.charCount}
-          wordCount={this.state.wordCount}
-          tocHeaders={this.state.tocHeaders}
-          handleTheme={this.toggleTheme}
-          handleToc={this.handleToc}
+        <TemplateModal
+          show={this.state.modalOpen}
+          onHide={() => this.setState({ modalOpen: false })} />
+        <TopicModal
+          show={this.state.topicModalOpen}
+          onHide={() => this.setState({ topicModalOpen: false })}
           tocOpen={this.state.tocOpen}
-          toggleTheme={this.toggleTheme}
-        />
+          selectedTags={this.state.selectedTags}
+          onSelectTags={this.handleTagsSelection} />
 
+        <div className='container'>
 
-        <div className="editingView">
-          <div className="elevatedLeft"
+          {/* navbar */}
+
+          <div className="navHorizontal"
             style={{
-              width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
-              marginLeft: this.state.tocOpen ? "268px" : "153px",
+              width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
+              transition: "width 0.2s",
             }}>
-            <div className="elevated">
-              <div className="optionsContainer">
-                <div className="leftComponents" >
-                  <img
+            <MenuBar
+              handleToc={this.handleToc}
+              setModalOpen={this.setModalOpen}
+              toggleFocus={this.toggleFocus}
+              toggleTheme={this.toggleTheme}
+              focused={this.state.focused}
+            />
+          </div>
 
-                    className="back" src={back} draggable={false}></img>
-                  <div className="optionObject">
-                    <button className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+          <TableOfContents
+            fileNames={this.state.fileNames}
+            handleClick={this.handleClick}
+            charCount={this.state.charCount}
+            wordCount={this.state.wordCount}
+            tocHeaders={this.state.tocHeaders}
+            handleTheme={this.toggleTheme}
+            handleToc={this.handleToc}
+            tocOpen={this.state.tocOpen}
+            toggleTheme={this.toggleTheme}
+          />
 
-                      <img src={add} class="buttonIcon" draggable={false}></img>
 
-                      <span className="buttonText">Add topic</span></button>
+          <div className="editingView">
+            <div className="elevatedLeft"
+              style={{
+                width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
+                marginLeft: this.state.tocOpen ? "268px" : "153px",
+              }}>
+              <div className="elevated">
+                <div className="optionsContainer">
+                  <div className="leftComponents" >
+                    <img
+
+                      className="back" src={back} draggable={false}></img>
+                    <div className="optionObject">
+                      <button className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+
+                        <img src={add} class="buttonIcon" draggable={false}></img>
+
+                        <span className="buttonText">Add topic</span></button>
+                    </div>
                   </div>
-                </div>
-                <div className='rightComponents'>
-                  {/* <img className="star" src={star} draggable={false}></img>
+                  <div className='rightComponents'>
+                    {/* <img className="star" src={star} draggable={false}></img>
                   <div className="optionObject">
                     <button className="exportButton">
 
@@ -507,62 +523,62 @@ render() {
                       <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
                     </div>
                   </div> */}
+                  </div>
+                </div>
+
+                <div style={{
+                  position: "relative",
+                  height: "calc(100% - 55px)",
+                  bottom: "0",
+                  // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
+                  // marginRight: this.state.tocOpen === true ? "0px" : "0px",
+                  // marginLeft: this.state.tocOpen === true ? "270px" : "0",
+                  borderRadius: "10px",
+                  transition: "0.2s",
+                  boxSizing: "border-box",
+                  overflow: "auto",
+                }} id="text">
+
+                  <MilkdownEditorWrapper
+                  ></MilkdownEditorWrapper>
+
+                </div>
+
+              </div>
+            </div>
+            <div className="elevatedRight" style={{
+              backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
+            }}>
+
+              <div className="elevatedRightInner">
+                <div>
+                  {this.state.dockOpen && <img src={stats} className="tocIconRightFirst" draggable={false}></img>}
+                </div>
+                <div>
+                  {this.state.dockOpen && <img src={outline} className="tocIconRight" draggable={false}></img>}
+                </div>
+                <div>
+                  {this.state.dockOpen && <img src={doc} className="tocIconRight" draggable={false}></img>}
+                </div>
+                <div>
+                  {this.state.dockOpen && <img src={edit} className="tocIconRight" draggable={false}></img>}
+                </div>
+                <div>
+                  {this.state.dockOpen && <img src={reference} className="tocIconRight" draggable={false}></img>}
+                </div>
+                <div className="bottomToc" style={{
+                  borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none",
+                }}>
+                  <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
+                    onClick={this.handleDock} style={{
+                      transform: this.state.dockOpen ? "none" : "rotate(180deg)",
+                      transition: "transform 0.3s",
+                    }}></img>
                 </div>
               </div>
 
-              <div style={{
-                position: "relative",
-                height: "calc(100% - 55px)",
-                bottom: "0",
-                // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-                // marginRight: this.state.tocOpen === true ? "0px" : "0px",
-                // marginLeft: this.state.tocOpen === true ? "270px" : "0",
-                borderRadius: "10px",
-                transition: "0.2s",
-                boxSizing: "border-box",
-                overflow: "auto",
-              }} id="text">
 
-                <MilkdownEditorWrapper
-                ></MilkdownEditorWrapper>
-
-              </div>
-
-            </div>
-          </div>
-          <div className="elevatedRight" style={{
-            backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
-          }}>
-
-            <div className="elevatedRightInner">
-              <div>
-                {this.state.dockOpen && <img src={stats} className="tocIconRightFirst" draggable={false}></img>}
-              </div>
-              <div>
-                {this.state.dockOpen && <img src={outline} className="tocIconRight" draggable={false}></img>}
-              </div>
-              <div>
-                {this.state.dockOpen && <img src={doc} className="tocIconRight" draggable={false}></img>}
-              </div>
-              <div>
-                {this.state.dockOpen && <img src={edit} className="tocIconRight" draggable={false}></img>}
-              </div>
-              <div>
-                {this.state.dockOpen && <img src={reference} className="tocIconRight" draggable={false}></img>}
-              </div>
-              <div className="bottomToc" style={{
-                borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none",
-              }}>
-                <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
-                  onClick={this.handleDock} style={{
-                    transform: this.state.dockOpen ? "none" : "rotate(180deg)",
-                    transition: "transform 0.3s",
-                  }}></img>
-              </div>
-            </div>
-
-
-            {/* <div className="elevatedRightTopTop">
+              {/* <div className="elevatedRightTopTop">
 
               <div className="statsContainer">
                 <p className='paneTitle'>Stats</p>
@@ -579,7 +595,7 @@ render() {
               </div>
             </div> */}
 
-            {/* <div className="elevatedRightTopBottom">
+              {/* <div className="elevatedRightTopBottom">
 
               <div className='outlineContainer'>
                 <p className='paneTitle'>Outline</p>
@@ -603,12 +619,12 @@ render() {
               </div>
 
             </div> */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 }
 
 
