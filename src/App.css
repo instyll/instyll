@@ -1834,6 +1834,7 @@ table {
   margin-bottom: 10px;
   user-select: none;
   transition: 0.2s;
+  color: var(--primary-text);
 }
 
 .tagItem {
@@ -1849,6 +1850,7 @@ table {
   user-select: none;
   transition: 0.2s;
   vertical-align: middle;
+  color: var(--primary-text);
 }
 
 .tagsList li.selected {
