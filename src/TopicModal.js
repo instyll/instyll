@@ -31,9 +31,9 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
         if (newTag && !tags.includes(newTag)) {
             const updatedTags = [...tags, newTag];
             setTags(updatedTags);
-            onSelectTags(updatedTags);
+            onSelectTags([newTag]); // Clear the selected tags and select the new tag only
             setNewTag('');
-        }
+          }
     };
 
     const handleAddTags = () => {
