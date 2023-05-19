@@ -87,7 +87,7 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
                     onChange={handleNewTagChange}
                     className="topicCreationInput"
                 />
-                <button onClick={handleAddTag} className='modalDefaultButton'>Add Tag</button>
+                <button onClick={handleAddTag} className='modalDefaultButton'>Create</button>
             </div>
             <div className="modalActionContainer">
                 <button onClick={handleClose} className='modalDefaultButton'>Close</button>
