@@ -82,7 +82,7 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
             <div className="tagCreationContainer">
                 <input
                     type="text"
-                    placeholder="New Tag"
+                    placeholder="New Topic"
                     value={newTag}
                     onChange={handleNewTagChange}
                     className="topicCreationInput"
