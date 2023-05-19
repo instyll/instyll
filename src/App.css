@@ -1831,6 +1831,7 @@ table {
   border-radius: 20px;
   margin-right: 10px;
   margin-bottom: 10px;
+  transition: 0.2s;
 }
 
 .tagsList li.selected {
