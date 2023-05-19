@@ -74,10 +74,14 @@ const TopicModal = ({ show, onHide, tocOpen }) => {
                     placeholder="New Tag"
                     value={newTag}
                     onChange={handleNewTagChange}
+                    className="topicCreationInput"
                 />
-                <button onClick={handleAddTag} className='modalActionButton'>Add Tag</button>
+                <button onClick={handleAddTag} className='modalDefaultButton'>Add Tag</button>
             </div>
+            <div className="modalActionContainer">
             <button onClick={handleClose} className='modalDefaultButton'>Close</button>
+            <button onClick={handleClose} className='modalActionButton'>Add</button>
+            </div>
         </Modal >
     );
 };
