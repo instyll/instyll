@@ -57,7 +57,7 @@ const TopicModal = ({ show, onHide, tocOpen }) => {
                 marginTop: "100px",
             }
         }}>
-            <ul className="tags">
+            <ul className="tagsList">
                 {tags.map((tag) => (
                     <li
                         key={tag}
