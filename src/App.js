@@ -77,6 +77,7 @@ class App extends Component {
       modalOpen: false,
       topicModalOpen: false,
       selectedTags: [],
+      addedTags: [],
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -91,6 +92,7 @@ class App extends Component {
     this.setModalOpen = this.setModalOpen.bind(this);
     this.setTopicModalOpen = this.setTopicModalOpen.bind(this);
     this.handleTagsSelection = this.handleTagsSelection.bind(this);
+    this.handleAddTags = this.handleAddTags.bind(this);
   }
 
   // Update view pane on each edit
@@ -248,6 +250,10 @@ class App extends Component {
   handleAddTags = () => {
     // Logic to handle adding the selected tags
     console.log('Selected Tags:', this.state.selectedTags);
+    this.setState((prevState) => ({
+      addedTags: [...prevState.addedTags, ...prevState.selectedTags],
+      selectedTags: [],
+    }));
   };
 
   async fetchFiles() {
@@ -460,7 +466,7 @@ class App extends Component {
           onHide={() => this.setState({ topicModalOpen: false })}
           tocOpen={this.state.tocOpen}
           selectedTags={this.state.selectedTags}
-          onSelectTags={this.handleTagsSelection} 
+          onSelectTags={this.handleTagsSelection}
           onAddTags={this.handleAddTags} />
 
         <div className='container'>
@@ -512,6 +518,11 @@ class App extends Component {
                         <img src={add} class="buttonIcon" draggable={false}></img>
 
                         <span className="buttonText">Add topic</span></button>
+                      {this.state.addedTags.map((tag) => (
+                        <span key={tag} className="tagItem">
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                   <div className='rightComponents'>
