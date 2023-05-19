@@ -1668,16 +1668,15 @@ table {
   background-color: var(--muted-text);
   border: none;
   color: var(--primary-text);
-  border-radius: 2px;
+  border-radius: 5px;
   width: 100px;
-  opacity: 0.5;
   margin-right: 5px;
   transition: 0.2s;
 
 }
 
 .modalDefaultButton:hover {
-  opacity: 1;
+  filter: brightness(90%);
 }
 
 .modalActionButton {
@@ -1687,19 +1686,14 @@ table {
   background-color: var(--button-highlight);
   border: none;
   color: var(--button-highlight-text);
-  border-radius: 2px;
+  border-radius: 5px;
   width: 100px;
-  opacity: 0.5;
   margin-right: 5px;
   transition: 0.2s;
 }
 
-.modalActionButton:disabled {
-  opacity: 0.3;
-}
-
-.modalActionButton:enabled:hover {
-  opacity: 1;
+.modalActionButton:hover {
+  filter: brightness(90%);
 }
 
 .modalActionContainer {

@@ -1,10 +1,11 @@
 import { prosePluginsCtx } from '@milkdown/core';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import './App.css';
 
 const TopicModal = ({ show, onHide, tocOpen }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [tags, setTags] = useState(['tag1', 'tag2', 'tag3']);
+    const [tags, setTags] = useState(['math', 'physics', 'marketing', 'english', 'daily notes', 'projects']);
     const [selectedTags, setSelectedTags] = useState([]);
     const [newTag, setNewTag] = useState('');
 
@@ -56,7 +57,6 @@ const TopicModal = ({ show, onHide, tocOpen }) => {
                 marginTop: "100px",
             }
         }}>
-            <h2>Select Tags</h2>
             <ul className="tags">
                 {tags.map((tag) => (
                     <li
@@ -68,16 +68,16 @@ const TopicModal = ({ show, onHide, tocOpen }) => {
                     </li>
                 ))}
             </ul>
-            <div className="new-tag">
+            <div className="tagCreationContainer">
                 <input
                     type="text"
                     placeholder="New Tag"
                     value={newTag}
                     onChange={handleNewTagChange}
                 />
-                <button onClick={handleAddTag}>Add Tag</button>
+                <button onClick={handleAddTag} className='modalActionButton'>Add Tag</button>
             </div>
-            <button onClick={handleClose}>Close</button>
+            <button onClick={handleClose} className='modalDefaultButton'>Close</button>
         </Modal >
     );
 };
