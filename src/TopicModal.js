@@ -38,7 +38,6 @@ const TopicModal = ({ show, onHide, tocOpen }) => {
             overlay: {
                 backgroundColor: "transparent",
                 zIndex: "999",
-                // backdropFilter: "blur(8px)",
             },
             content: {
                 backgroundColor: "var(--elevated-bg)",

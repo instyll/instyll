@@ -1841,6 +1841,7 @@ table {
 
 .topicCreationInput {
   font-family: var(--font);
+  color: var(--primary-text);
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
@@ -1853,4 +1854,5 @@ table {
   outline: none;
   font-size: 1em;
   margin-right: 10px;
+  width: 235px;
 }
