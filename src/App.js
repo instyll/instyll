@@ -243,7 +243,11 @@ class App extends Component {
 
   handleTagsSelection = (selectedTags) => {
     this.setState({ selectedTags });
-    console.log(this.state.selectedTags);
+  };
+
+  handleAddTags = () => {
+    // Logic to handle adding the selected tags
+    console.log('Selected Tags:', this.state.selectedTags);
   };
 
   async fetchFiles() {
@@ -456,7 +460,8 @@ class App extends Component {
           onHide={() => this.setState({ topicModalOpen: false })}
           tocOpen={this.state.tocOpen}
           selectedTags={this.state.selectedTags}
-          onSelectTags={this.handleTagsSelection} />
+          onSelectTags={this.handleTagsSelection} 
+          onAddTags={this.handleAddTags} />
 
         <div className='container'>
 

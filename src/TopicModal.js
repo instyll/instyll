@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './App.css';
 
-const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags }) => {
+const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [tags, setTags] = useState([
         'math',
@@ -34,6 +34,11 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags }) => {
             onSelectTags(updatedTags);
             setNewTag('');
         }
+    };
+
+    const handleAddTags = () => {
+        onAddTags();
+        onHide();
     };
 
     const handleClose = () => {
@@ -86,7 +91,7 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags }) => {
             </div>
             <div className="modalActionContainer">
                 <button onClick={handleClose} className='modalDefaultButton'>Close</button>
-                <button className='modalActionButton'>Add</button>
+                <button onClick={handleAddTags} className='modalActionButton'>Add</button>
             </div>
         </Modal >
     );
