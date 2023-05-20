@@ -22,6 +22,7 @@ import sampleHeader from './commandPaletteHeader.js';
 // import moment from 'moment';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from './constants.ts';
 import TopicModal from './TopicModal.js';
+import OutlineContainer from './OutlineContainer.js';
 
 // import cpTheme from './commandPalette';
 import './commandPalette.css';
@@ -576,26 +577,11 @@ class App extends Component {
             </div>
 
             <div className="elevatedRightPanel">
-            <div className='outlineContainer'>
-                <p className='paneTitle'>Outline</p>
-                <div>
-                  {
-                    this.state.tocHeaders.map((header, index) => (
-                      <div key={index} className="outlineElement"
-                        style={{
-                          paddingLeft: header.type === 'H2' ? '20px' :
-                            header.type === 'H3' ? '40px' :
-                              header.type === 'H4' ? '60px' :
-                                header.type === 'H5' ? '80px' :
-                                  header.type === 'H6' ? '100px' : '5px',
-                        }}>
-                        <a href={`#${header.id}`} className="headerNav">
-                          {header.text}
-                        </a>
-                      </div>
-                    ))}
-                </div>
-              </div>
+
+                <OutlineContainer
+                tocHeaders={this.state.tocHeaders}>
+                </OutlineContainer>
+           
             </div>
 
             <div className="elevatedRight" style={{
