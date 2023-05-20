@@ -75,6 +75,7 @@ class App extends Component {
       topicModalOpen: false,
       selectedTags: [],
       addedTags: [],
+      rightPanelOpen: false,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -91,6 +92,7 @@ class App extends Component {
     this.handleTagsSelection = this.handleTagsSelection.bind(this);
     this.handleAddTags = this.handleAddTags.bind(this);
     this.handleRemoveTags = this.handleRemoveTags.bind(this);
+    this.handleRightPanel = this.handleRightPanel.bind(this);
   }
 
   // Update view pane on each edit
@@ -160,7 +162,13 @@ class App extends Component {
     this.setState({
       dockOpen: this.state.dockOpen === true ? false : true
     })
-    console.log(this.state.dockOpen);
+  }
+
+  handleRightPanel() {
+    this.setState({
+      rightPanelOpen: this.state.rightPanelOpen === true ? false : true
+    })
+    console.log(this.state.rightPanelOpen);
   }
 
   // Get headers for sidebar outline
@@ -508,7 +516,14 @@ class App extends Component {
             <div className="elevatedLeft"
               style={{
                 // width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
-                width: this.state.tocOpen ? "calc((100% - 280px) - 392px)" : "calc((100% - 165px) - 392px)",
+                // width: this.state.tocOpen ? "calc((100% - 280px) - 392px)" : "calc((100% - 165px) - 392px)",
+                width: this.state.tocOpen && this.state.rightPanelOpen
+                  ? "calc((100% - 280px) - 384px)"
+                  : !this.state.tocOpen && this.state.rightPanelOpen
+                    ? "calc((100% - 165px) - 384px)"
+                    : this.state.tocOpen && !this.state.rightPanelOpen
+                      ? "calc((100% - 280px) - 116px)"
+                      : "calc((100% - 165px) - 116px)",
                 marginLeft: this.state.tocOpen ? "268px" : "153px",
               }}>
               <div className="elevated">
@@ -524,11 +539,11 @@ class App extends Component {
 
                         <span className="buttonText">Add topic</span></button>
                       {this.state.addedTags.map((tag) => (
-                        <span 
-                        key={tag} 
-                        className="tagItem"
-                        onClick={
-                          () => this.handleRemoveTags(tag)}>
+                        <span
+                          key={tag}
+                          className="tagItem"
+                          onClick={
+                            () => this.handleRemoveTags(tag)}>
                           {tag}
                         </span>
                       ))}
@@ -572,12 +587,16 @@ class App extends Component {
               </div>
             </div>
 
-            <div className="elevatedRightPanel">
+            <div className="elevatedRightPanel" style={{
+              width: this.state.rightPanelOpen ? "240px" : "0px",
+              marginLeft: this.state.rightPanelOpen ? "28px" : "0px",
+            }}>
 
-                <OutlineContainer
-                tocHeaders={this.state.tocHeaders}>
-                </OutlineContainer>
-           
+              <OutlineContainer
+                tocHeaders={this.state.tocHeaders}
+                rightPanelOpen={this.state.rightPanelOpen}>
+              </OutlineContainer>
+
             </div>
 
             <div className="elevatedRight" style={{
@@ -586,7 +605,10 @@ class App extends Component {
 
               <div className="elevatedRightInner">
                 <div>
-                  {this.state.dockOpen && <img src={stats} className="tocIconRightFirst" draggable={false}></img>}
+                  {this.state.dockOpen && <img src={stats}
+                    className="tocIconRightFirst"
+                    draggable={false}
+                    onClick={this.handleRightPanel}></img>}
                 </div>
                 <div>
                   {this.state.dockOpen && <img src={outline} className="tocIconRight" draggable={false}></img>}
