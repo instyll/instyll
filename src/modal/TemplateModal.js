@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import './App.css';
-import ProjectManagement from './ProjectManagementThumbnail.png';
-import MeetingNotes from './MeetingNotesThumbnail.png';
-import MeetingAgenda from './MeetingAgendaThumbnail.png';
-import Report from './ReportThumbnail.png';
-import LectureNotes from './LectureNotesThumbnail.png';
-import Brainstorm from './BrainstormThumbnail.png';
-import Journal from './JournalThumbnail.png';
-import GoalSetting from './GoalSettingThumbnail.png';
-import Todo from './TodoThumbnail.png';
+import '../App.css';
+import ProjectManagement from '../ProjectManagementThumbnail.png';
+import MeetingNotes from '../MeetingNotesThumbnail.png';
+import MeetingAgenda from '../MeetingAgendaThumbnail.png';
+import Report from '../ReportThumbnail.png';
+import LectureNotes from '../LectureNotesThumbnail.png';
+import Brainstorm from '../BrainstormThumbnail.png';
+import Journal from '../JournalThumbnail.png';
+import GoalSetting from '../GoalSettingThumbnail.png';
+import Todo from '../TodoThumbnail.png';
 
 const TemplateModal = ({ show, onHide }) => {
 

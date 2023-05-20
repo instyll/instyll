@@ -1,7 +1,7 @@
 // import { prosePluginsCtx } from '@milkdown/core';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import './App.css';
+import '../App.css';
 
 const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);

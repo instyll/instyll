@@ -8,25 +8,23 @@ import Sizzle from 'sizzle'
 import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
-import TemplateModal from "./TemplateModal";
+import TemplateModal from "./modal/TemplateModal";
 import "allotment/dist/style.css";
 import getFilesInDirectory from './fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
-import MenuBar from './menuBar';
-import TableOfContents from './toc.js';
+import MenuBar from './components/menuBar';
+import TableOfContents from './components/toc.js';
 import Calendar from 'react-calendar';
-import sampleHeader from './commandPaletteHeader.js';
+import sampleHeader from './command-palette/commandPaletteHeader.js';
 // import moment from 'moment';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from './constants.ts';
-import TopicModal from './TopicModal.js';
-import OutlineContainer from './OutlineContainer.js';
+import TopicModal from './modal/TopicModal.js';
+import OutlineContainer from './components/OutlineContainer.js';
 
-// import cpTheme from './commandPalette';
-import './commandPalette.css';
-// import 'react-big-calendar/lib/css/react-big-calendar.css';
+import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
@@ -51,8 +49,6 @@ import outline from './icons/outline.png';
 import reference from './icons/reference.png';
 import edit from './icons/edit.png';
 import doubleRight from './icons/doubleright.png'
-
-const MENU_ID = 'blahblah';
 
 class App extends Component {
   constructor(props) {

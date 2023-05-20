@@ -1,24 +1,11 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 // Assets
-import add from './icons/add_component.png'
-import settings from './icons/settings.png'
-import palette from './icons/palette.png'
-import code from './icons/code.png'
-import image from './icons/image.png'
-import table from './icons/table.png'
-import link from './icons/link.png'
-import tcontents from './icons/tcontents.png'
-import calendar from './icons/calendar.png'
-import focus from './icons/focus.png'
-import focusFilled from './icons/focus-filled.png'
-import nodes from './icons/nodes.png'
-import star from './icons/star.png'
-import logo from './icons/keylight3.png'
-import search from './icons/search.png'
-import create from './icons/create.png'
-import back from './icons/arrowback.png';
-import forward from './icons/arrowforward.png';
+import logo from '../icons/keylight3.png'
+import search from '../icons/search.png'
+import create from '../icons/create.png'
+import back from '../icons/arrowback.png';
+import forward from '../icons/arrowforward.png';
 
 function MenuBar(props) {
   return (

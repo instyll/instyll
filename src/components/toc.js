@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import '../App.css';
 import randomColor from 'randomcolor';
 
 // assets
-import tags from './icons/tag2.png';
-import home from './icons/home.png';
-import recent from './icons/recent.png';
-import template from './icons/template2.png';
-import favorites from './icons/bookmark2.png';
-import note from './icons/note2.png';
-import trash from './icons/trash.png';
-import calendar from './icons/calendar.png';
-import help from './icons/help.png';
-import feedback from './icons/feedback.png';
-import banner from './icons/key500.png';
-import closeTOC from './icons/doubleleft.png';
-import settings from './icons/settings.png';
-import cmd from './icons/cmd.png';
+import tags from '../icons/tag2.png';
+import home from '../icons/home.png';
+import recent from '../icons/recent.png';
+import template from '../icons/template2.png';
+import favorites from '../icons/bookmark2.png';
+import note from '../icons/note2.png';
+import trash from '../icons/trash.png';
+import calendar from '../icons/calendar.png';
+import help from '../icons/help.png';
+import feedback from '../icons/feedback.png';
+import banner from '../icons/key500.png';
+import closeTOC from '../icons/doubleleft.png';
+import settings from '../icons/settings.png';
+import cmd from '../icons/cmd.png';
 
 function TableOfContents(props) {
 

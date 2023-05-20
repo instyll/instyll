@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Editor from './legacyEditor.js';
+import Editor from './legacy/legacyEditor.js';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
 import "highlight.js/styles/github.css";
@@ -7,18 +7,18 @@ import Sizzle from 'sizzle'
 import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
-import TemplateModal from "./TemplateModal";
+import TemplateModal from "./modal/TemplateModal";
 import "allotment/dist/style.css";
 import getFilesInDirectory from './fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
-import MenuBar from './menuBar';
+import MenuBar from './components/menuBar';
 import TableOfContents from './toc.js';
 import { FILE, SET_THEME, LAYOUT } from './constants.ts';
 
-import cpTheme from './commandPalette';
+import cpTheme from './command-palette/commandPalette';
 import './commandPalette.css';
 
 // Plugins
