@@ -510,7 +510,8 @@ class App extends Component {
           <div className="editingView">
             <div className="elevatedLeft"
               style={{
-                width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
+                // width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
+                width: this.state.tocOpen ? "calc((100% - 280px) - 392px)" : "calc((100% - 165px) - 392px)",
                 marginLeft: this.state.tocOpen ? "268px" : "153px",
               }}>
               <div className="elevated">
@@ -573,6 +574,30 @@ class App extends Component {
 
               </div>
             </div>
+
+            <div className="elevatedRightPanel">
+            <div className='outlineContainer'>
+                <p className='paneTitle'>Outline</p>
+                <div>
+                  {
+                    this.state.tocHeaders.map((header, index) => (
+                      <div key={index} className="outlineElement"
+                        style={{
+                          paddingLeft: header.type === 'H2' ? '20px' :
+                            header.type === 'H3' ? '40px' :
+                              header.type === 'H4' ? '60px' :
+                                header.type === 'H5' ? '80px' :
+                                  header.type === 'H6' ? '100px' : '5px',
+                        }}>
+                        <a href={`#${header.id}`} className="headerNav">
+                          {header.text}
+                        </a>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
+
             <div className="elevatedRight" style={{
               backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
             }}>
