@@ -93,6 +93,7 @@ class App extends Component {
     this.setTopicModalOpen = this.setTopicModalOpen.bind(this);
     this.handleTagsSelection = this.handleTagsSelection.bind(this);
     this.handleAddTags = this.handleAddTags.bind(this);
+    this.handleRemoveTags = this.handleRemoveTags.bind(this);
   }
 
   // Update view pane on each edit
@@ -248,13 +249,19 @@ class App extends Component {
   };
 
   handleAddTags = () => {
-    // Logic to handle adding the selected tags
     console.log('Selected Tags:', this.state.selectedTags);
     this.setState((prevState) => ({
       addedTags: [...prevState.addedTags, ...prevState.selectedTags],
       selectedTags: [],
     }));
   };
+
+  handleRemoveTags = (tag) => {
+    console.log(tag);
+    this.setState((prevState) => ({
+      addedTags: prevState.addedTags.filter((t) => t !== tag),
+    }));
+  }
 
   async fetchFiles() {
     const files = await getFilesInDirectory(this.state.notesDirectory);
@@ -519,7 +526,11 @@ class App extends Component {
 
                         <span className="buttonText">Add topic</span></button>
                       {this.state.addedTags.map((tag) => (
-                        <span key={tag} className="tagItem">
+                        <span 
+                        key={tag} 
+                        className="tagItem"
+                        onClick={
+                          () => this.handleRemoveTags(tag)}>
                           {tag}
                         </span>
                       ))}
