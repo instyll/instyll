@@ -1673,7 +1673,7 @@ table {
   width: 100px;
   margin-right: 5px;
   transition: 0.2s;
-
+  user-select: none;
 }
 
 .modalDefaultButton:hover {
@@ -1691,6 +1691,7 @@ table {
   width: 100px;
   margin-right: 5px;
   transition: 0.2s;
+  user-select: none;
 }
 
 .modalActionButton:hover {
@@ -1875,4 +1876,5 @@ table {
   font-size: 1em;
   margin-right: 10px;
   width: 235px;
+  user-select: none;
 }
