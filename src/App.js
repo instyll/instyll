@@ -518,9 +518,9 @@ class App extends Component {
                 // width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
                 // width: this.state.tocOpen ? "calc((100% - 280px) - 392px)" : "calc((100% - 165px) - 392px)",
                 width: this.state.tocOpen && this.state.rightPanelOpen
-                  ? "calc((100% - 280px) - 384px)"
+                  ? "calc((100% - 280px) - 376px)"
                   : !this.state.tocOpen && this.state.rightPanelOpen
-                    ? "calc((100% - 165px) - 384px)"
+                    ? "calc((100% - 165px) - 376px)"
                     : this.state.tocOpen && !this.state.rightPanelOpen
                       ? "calc((100% - 280px) - 116px)"
                       : "calc((100% - 165px) - 116px)",
@@ -601,6 +601,7 @@ class App extends Component {
 
             <div className="elevatedRight" style={{
               backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
+              marginLeft: this.state.rightPanelOpen ? "20px" : "28px",
             }}>
 
               <div className="elevatedRightInner">
