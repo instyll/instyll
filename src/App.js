@@ -609,7 +609,7 @@ class App extends Component {
                   {this.state.dockOpen && (
                     <img
                       src={stats}
-                      className={`tocIconRightFirst ${this.state.rightPanelSetting === "stats" ? "selected" : ""}`}
+                      className={`tocIconRightFirst ${this.state.rightPanelSetting === "stats" && this.state.rightPanelOpen ? "selected" : ""}`}
                       draggable={false}
                       onClick={() => this.handleRightPanel("stats")}
                     ></img>
@@ -619,7 +619,7 @@ class App extends Component {
                   {this.state.dockOpen && (
                     <img
                       src={outline}
-                      className={`tocIconRight ${this.state.rightPanelSetting === "outline" ? "selected" : ""}`}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "outline" && this.state.rightPanelOpen ? "selected" : ""}`}
                       draggable={false}
                       onClick={() => this.handleRightPanel("outline")}
                     ></img>
@@ -629,7 +629,7 @@ class App extends Component {
                   {this.state.dockOpen && (
                     <img
                       src={doc}
-                      className={`tocIconRight ${this.state.rightPanelSetting === "info" ? "selected" : ""}`}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "info" && this.state.rightPanelOpen ? "selected" : ""}`}
                       draggable={false}
                       onClick={() => this.handleRightPanel("info")}
                     ></img>
@@ -639,7 +639,7 @@ class App extends Component {
                   {this.state.dockOpen && (
                     <img
                       src={edit}
-                      className={`tocIconRight ${this.state.rightPanelSetting === "style" ? "selected" : ""}`}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "style"  && this.state.rightPanelOpen ? "selected" : ""}`}
                       draggable={false}
                       onClick={() => this.handleRightPanel("style")}
                     ></img>
@@ -649,7 +649,7 @@ class App extends Component {
                   {this.state.dockOpen && (
                     <img
                       src={reference}
-                      className={`tocIconRight ${this.state.rightPanelSetting === "pane" ? "selected" : ""}`}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "pane" && this.state.rightPanelOpen ? "selected" : ""}`}
                       draggable={false}
                       onClick={() => this.handleRightPanel("pane")}
                     ></img>
