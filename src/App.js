@@ -166,10 +166,11 @@ class App extends Component {
   }
 
   handleRightPanel(setting) {
-    this.setState({
-      rightPanelOpen: this.state.rightPanelOpen === true ? false : true,
+    this.setState((prevState) => ({
+      rightPanelOpen:
+        prevState.rightPanelOpen && prevState.rightPanelSetting === setting ? false : true,
       rightPanelSetting: setting,
-    })
+    }));
     console.log(this.state.rightPanelOpen);
   }
 
@@ -605,34 +606,54 @@ class App extends Component {
 
               <div className="elevatedRightInner">
                 <div>
-                  {this.state.dockOpen && <img src={stats}
-                    className="tocIconRightFirst"
-                    draggable={false}
-                    onClick={() => this.handleRightPanel("stats")}></img>}
+                  {this.state.dockOpen && (
+                    <img
+                      src={stats}
+                      className={`tocIconRightFirst ${this.state.rightPanelSetting === "stats" ? "selected" : ""}`}
+                      draggable={false}
+                      onClick={() => this.handleRightPanel("stats")}
+                    ></img>
+                  )}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={outline}
-                    className="tocIconRight"
-                    draggable={false}
-                    onClick={() => this.handleRightPanel("outline")}></img>}
+                  {this.state.dockOpen && (
+                    <img
+                      src={outline}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "outline" ? "selected" : ""}`}
+                      draggable={false}
+                      onClick={() => this.handleRightPanel("outline")}
+                    ></img>
+                  )}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={doc}
-                    className="tocIconRight"
-                    draggable={false}
-                    onClick={() => this.handleRightPanel("info")}></img>}
+                  {this.state.dockOpen && (
+                    <img
+                      src={doc}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "info" ? "selected" : ""}`}
+                      draggable={false}
+                      onClick={() => this.handleRightPanel("info")}
+                    ></img>
+                  )}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={edit}
-                    className="tocIconRight"
-                    draggable={false}
-                    onClick={() => this.handleRightPanel("style")}></img>}
+                  {this.state.dockOpen && (
+                    <img
+                      src={edit}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "style" ? "selected" : ""}`}
+                      draggable={false}
+                      onClick={() => this.handleRightPanel("style")}
+                    ></img>
+                  )}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={reference}
-                    className="tocIconRight"
-                    draggable={false}
-                    onClick={() => this.handleRightPanel("pane")}></img>}
+                  {this.state.dockOpen && (
+                    <img
+                      src={reference}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "pane" ? "selected" : ""}`}
+                      draggable={false}
+                      onClick={() => this.handleRightPanel("pane")}
+                    ></img>
+                  )}
                 </div>
                 <div className="bottomToc" style={{
                   borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none",

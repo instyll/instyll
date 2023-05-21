@@ -169,6 +169,11 @@ body {
   text-align: center;
 }
 
+.selected {
+  background-color: var(--muted-text);
+  border-radius: 5px;
+}
+
 .elevatedRightPanel {
   position: relative;
   background-color: var(--elevated-bg);
