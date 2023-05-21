@@ -1524,7 +1524,7 @@ input:checked+.sliderMin:before {
   padding-left: 28px;
   padding-right: 28px;
   padding-bottom: 20px;
-  padding-top: 24px;
+  /* padding-top: 24px; */
   overflow: auto;
 }
 

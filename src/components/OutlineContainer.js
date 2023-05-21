@@ -12,6 +12,7 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
     <div>
       {rightPanelOpen && (
         <div className='outlineContainer'>
+          <p className="paneTitle">Outline</p>
           {tocHeaders.map((header, index) => (
             <div
               key={index}
