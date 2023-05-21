@@ -49,6 +49,7 @@ import outline from './icons/outline.png';
 import reference from './icons/reference.png';
 import edit from './icons/edit.png';
 import doubleRight from './icons/doubleright.png'
+import deleteX from './icons/delete.png';
 import { initial } from 'lodash';
 
 class App extends Component {
@@ -558,9 +559,12 @@ class App extends Component {
                         <span
                           key={tag}
                           className="tagItem"
-                          onClick={
-                            () => this.handleRemoveTags(tag)}>
+                         >
                           {tag}
+                          <img src={deleteX} 
+                          className="buttonIconSmall"
+                          onClick={
+                            () => this.handleRemoveTags(tag)}></img>
                         </span>
                       ))}
                     </div>
