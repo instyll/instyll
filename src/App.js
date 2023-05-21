@@ -554,10 +554,7 @@ class App extends Component {
                 marginLeft: this.state.tocOpen ? "268px" : "153px",
               }}>
               <div className="elevated">
-                <div className="optionsContainer" style={{
-                  backgroundColor: "var(--bg-color)",
-                  background: this.state.isScrolled ? "var(--scrollGradient)" : "var(--bg-color)",
-                }}>
+                <div className="optionsContainer">
                   <div className="leftComponents" >
                     <img
 
