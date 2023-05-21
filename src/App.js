@@ -436,10 +436,22 @@ class App extends Component {
       }
     },
     {
-      name: TOGGLE + "Right Panel",
+      name: TOGGLE + "Dock",
       category: "Command",
       command: () => {
         this.handleDock();
+        this.setState ({
+          rightPanelOpen: false,
+        })
+      }
+    },
+    {
+      name: TOGGLE + "Right Panel",
+      category: "Command",
+      command: () => {
+        this.setState ({
+          rightPanelOpen: this.state.rightPanelOpen ? false : true,
+        })
       }
     },
     {
