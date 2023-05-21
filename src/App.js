@@ -564,7 +564,10 @@ class App extends Component {
                           <img src={deleteX} 
                           className="buttonIconSmall"
                           onClick={
-                            () => this.handleRemoveTags(tag)}></img>
+                            () => this.handleRemoveTags(tag)}
+                            style={{
+                              filter: "var(--editorIconFilter)",
+                            }}></img>
                         </span>
                       ))}
                     </div>

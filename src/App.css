@@ -189,33 +189,33 @@ body {
 }
 
 .elevatedRightInner {
-    color: var(--primary-text);
-    font-family: var(--font);
-    padding-left: 28px;
-    padding-right: 28px;
-    display: block;
-    height: 100%;
-    overflow-x: hidden;
-    bottom: 0;
-    word-wrap: break-all;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    user-select: none;
+  color: var(--primary-text);
+  font-family: var(--font);
+  padding-left: 28px;
+  padding-right: 28px;
+  display: block;
+  height: 100%;
+  overflow-x: hidden;
+  bottom: 0;
+  word-wrap: break-all;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  user-select: none;
 }
 
 .elevatedRightInner {
-    color: var(--primary-text);
-    font-family: var(--font);
-    padding-left: 28px;
-    padding-right: 28px;
-    display: block;
-    height: 100%;
-    overflow-x: hidden;
-    bottom: 0;
-    word-wrap: break-all;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    user-select: none;
+  color: var(--primary-text);
+  font-family: var(--font);
+  padding-left: 28px;
+  padding-right: 28px;
+  display: block;
+  height: 100%;
+  overflow-x: hidden;
+  bottom: 0;
+  word-wrap: break-all;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  user-select: none;
 }
 
 .tocIconRight {
@@ -454,7 +454,6 @@ body {
   vertical-align: middle;
   padding-left: 5px;
   user-select: none;
-  filter: brightness(130%);
 }
 
 .tocIcon {
@@ -714,10 +713,12 @@ img {
     box-shadow: 0px 5px 9px 0px #5271ff1f;
     vertical-align: middle;
   }
+
   .menuAddOptionButton .buttonText {
     display: none;
     width: 0px;
   }
+
   .menuAddOptionButton .buttonIcon {
     padding-right: 0px;
   }
