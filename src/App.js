@@ -161,7 +161,8 @@ class App extends Component {
 
   handleDock() {
     this.setState({
-      dockOpen: this.state.dockOpen === true ? false : true
+      dockOpen: this.state.dockOpen === true ? false : true,
+      rightPanelOpen: this.state.rightPanelOpen === true ? false : true,
     })
   }
 
