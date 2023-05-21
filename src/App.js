@@ -76,6 +76,7 @@ class App extends Component {
       selectedTags: [],
       addedTags: [],
       rightPanelOpen: false,
+      rightPanelSetting: "",
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -164,9 +165,10 @@ class App extends Component {
     })
   }
 
-  handleRightPanel() {
+  handleRightPanel(setting) {
     this.setState({
-      rightPanelOpen: this.state.rightPanelOpen === true ? false : true
+      rightPanelOpen: this.state.rightPanelOpen === true ? false : true,
+      rightPanelSetting: setting,
     })
     console.log(this.state.rightPanelOpen);
   }
@@ -515,8 +517,6 @@ class App extends Component {
           <div className="editingView">
             <div className="elevatedLeft"
               style={{
-                // width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
-                // width: this.state.tocOpen ? "calc((100% - 280px) - 392px)" : "calc((100% - 165px) - 392px)",
                 width: this.state.tocOpen && this.state.rightPanelOpen
                   ? "calc((100% - 280px) - 376px)"
                   : !this.state.tocOpen && this.state.rightPanelOpen
@@ -570,9 +570,6 @@ class App extends Component {
                   position: "relative",
                   height: "calc(100% - 55px)",
                   bottom: "0",
-                  // width: this.state.tocOpen === true ? "calc(100% - 270px)" : "100%",
-                  // marginRight: this.state.tocOpen === true ? "0px" : "0px",
-                  // marginLeft: this.state.tocOpen === true ? "270px" : "0",
                   borderRadius: "10px",
                   transition: "0.2s",
                   boxSizing: "border-box",
@@ -592,10 +589,12 @@ class App extends Component {
               marginLeft: this.state.rightPanelOpen ? "28px" : "0px",
             }}>
 
-              <OutlineContainer
-                tocHeaders={this.state.tocHeaders}
-                rightPanelOpen={this.state.rightPanelOpen}>
-              </OutlineContainer>
+              {this.state.rightPanelSetting === "outline" && (
+                <OutlineContainer
+                  tocHeaders={this.state.tocHeaders}
+                  rightPanelOpen={this.state.rightPanelOpen}
+                />
+              )}
 
             </div>
 
@@ -609,19 +608,31 @@ class App extends Component {
                   {this.state.dockOpen && <img src={stats}
                     className="tocIconRightFirst"
                     draggable={false}
-                    onClick={this.handleRightPanel}></img>}
+                    onClick={() => this.handleRightPanel("stats")}></img>}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={outline} className="tocIconRight" draggable={false}></img>}
+                  {this.state.dockOpen && <img src={outline}
+                    className="tocIconRight"
+                    draggable={false}
+                    onClick={() => this.handleRightPanel("outline")}></img>}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={doc} className="tocIconRight" draggable={false}></img>}
+                  {this.state.dockOpen && <img src={doc}
+                    className="tocIconRight"
+                    draggable={false}
+                    onClick={() => this.handleRightPanel("info")}></img>}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={edit} className="tocIconRight" draggable={false}></img>}
+                  {this.state.dockOpen && <img src={edit}
+                    className="tocIconRight"
+                    draggable={false}
+                    onClick={() => this.handleRightPanel("style")}></img>}
                 </div>
                 <div>
-                  {this.state.dockOpen && <img src={reference} className="tocIconRight" draggable={false}></img>}
+                  {this.state.dockOpen && <img src={reference}
+                    className="tocIconRight"
+                    draggable={false}
+                    onClick={() => this.handleRightPanel("pane")}></img>}
                 </div>
                 <div className="bottomToc" style={{
                   borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none",
