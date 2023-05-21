@@ -49,6 +49,7 @@ import outline from './icons/outline.png';
 import reference from './icons/reference.png';
 import edit from './icons/edit.png';
 import doubleRight from './icons/doubleright.png'
+import { initial } from 'lodash';
 
 class App extends Component {
   constructor(props) {
@@ -162,18 +163,19 @@ class App extends Component {
   handleDock() {
     this.setState({
       dockOpen: this.state.dockOpen === true ? false : true,
-      rightPanelOpen: this.state.rightPanelOpen === true ? false : true,
+      rightPanelOpen: false,
     })
   }
 
   handleRightPanel(setting) {
     this.setState((prevState) => ({
-      rightPanelOpen:
-        prevState.rightPanelOpen && prevState.rightPanelSetting === setting ? false : true,
+      rightPanelOpen: this.state.dockOpen ? (!prevState.rightPanelOpen || prevState.rightPanelSetting !== setting) : false,
       rightPanelSetting: setting,
-    }));
-    console.log(this.state.rightPanelOpen);
+    }), () => {
+      console.log(this.state.rightPanelOpen);
+    });
   }
+  
 
   // Get headers for sidebar outline
 
