@@ -79,6 +79,7 @@ class App extends Component {
       addedTags: [],
       rightPanelOpen: false,
       rightPanelSetting: "",
+      isScrolled: false,
     }
 
     this.onMarkdownChange = this.onMarkdownChange.bind(this);
@@ -96,6 +97,7 @@ class App extends Component {
     this.handleAddTags = this.handleAddTags.bind(this);
     this.handleRemoveTags = this.handleRemoveTags.bind(this);
     this.handleRightPanel = this.handleRightPanel.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   // Update view pane on each edit
@@ -176,7 +178,7 @@ class App extends Component {
       console.log(this.state.rightPanelOpen);
     });
   }
-  
+
 
   // Get headers for sidebar outline
 
@@ -305,7 +307,15 @@ class App extends Component {
     window.addEventListener("message", this.handleMessage);
     this.getWordCount();
     this.fetchFiles();
+    const textDiv = document.getElementById('text');
+    textDiv.addEventListener('scroll', this.handleScroll);
   }
+
+  handleScroll = () => {
+    const textDiv = document.getElementById('text');
+    const isScrolled = textDiv.scrollTop > 0;
+    this.setState({ isScrolled });
+  };
 
   componentDidUpdate(prevProps, prevState) {
 
@@ -444,7 +454,7 @@ class App extends Component {
       category: "Command",
       command: () => {
         this.handleDock();
-        this.setState ({
+        this.setState({
           rightPanelOpen: false,
         })
       }
@@ -453,7 +463,7 @@ class App extends Component {
       name: TOGGLE + "Right Panel",
       category: "Command",
       command: () => {
-        this.setState ({
+        this.setState({
           rightPanelOpen: this.state.rightPanelOpen ? false : true,
         })
       }
@@ -544,7 +554,10 @@ class App extends Component {
                 marginLeft: this.state.tocOpen ? "268px" : "153px",
               }}>
               <div className="elevated">
-                <div className="optionsContainer">
+                <div className="optionsContainer" style={{
+                  backgroundColor: "var(--bg-color)",
+                  background: this.state.isScrolled ? "var(--scrollGradient)" : "var(--bg-color)",
+                }}>
                   <div className="leftComponents" >
                     <img
 
@@ -559,12 +572,12 @@ class App extends Component {
                         <span
                           key={tag}
                           className="tagItem"
-                         >
+                        >
                           {tag}
-                          <img src={deleteX} 
-                          className="buttonIconSmall"
-                          onClick={
-                            () => this.handleRemoveTags(tag)}
+                          <img src={deleteX}
+                            className="buttonIconSmall"
+                            onClick={
+                              () => this.handleRemoveTags(tag)}
                             style={{
                               filter: "var(--editorIconFilter)",
                             }}></img>
@@ -661,7 +674,7 @@ class App extends Component {
                   {this.state.dockOpen && (
                     <img
                       src={edit}
-                      className={`tocIconRight ${this.state.rightPanelSetting === "style"  && this.state.rightPanelOpen ? "selected" : ""}`}
+                      className={`tocIconRight ${this.state.rightPanelSetting === "style" && this.state.rightPanelOpen ? "selected" : ""}`}
                       draggable={false}
                       onClick={() => this.handleRightPanel("style")}
                     ></img>
