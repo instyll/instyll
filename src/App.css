@@ -1539,6 +1539,10 @@ input:checked+.sliderMin:before {
   border-radius: 5px;
 }
 
+.lastClickedHeader {
+  font-weight: bold;
+}
+
 .stylingContainer {
   padding-left: 20px;
   padding-right: 20px;
