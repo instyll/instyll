@@ -188,6 +188,7 @@ body {
   margin-top: 16px;
   vertical-align: top;
   text-align: center;
+  overflow: auto;
 }
 
 .elevatedRightInner {
