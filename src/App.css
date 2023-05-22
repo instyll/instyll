@@ -476,6 +476,7 @@ body {
 }
 
 .tocInnerText {
+  font-size: 16px;
   vertical-align: middle;
 }
 
@@ -1594,6 +1595,7 @@ h5 {
 p {
   /* margin-top: 0;
   margin-bottom: 0; */
+  font-size: 16px;
 }
 
 a {
