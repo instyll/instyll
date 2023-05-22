@@ -783,7 +783,7 @@ img {
     font-size: 1em;
     background-color: var(--search-background);
     font-family: var(--font);
-    color: var(--secondary-text);
+    color: var(--primary-text);
     padding-left: 48px;
     padding-right: 5px;
     padding-top: 5px;
@@ -810,7 +810,7 @@ img {
     font-size: 1em;
     background-color: var(--search-background);
     font-family: var(--font);
-    color: var(--secondary-text);
+    color: var(--primary-text);
     padding-left: 48px;
     padding-right: 5px;
     padding-top: 5px;
@@ -837,7 +837,7 @@ img {
     font-size: 1em;
     background-color: var(--search-background);
     font-family: var(--font);
-    color: var(--secondary-text);
+    color: var(--primary-text);
     padding-left: 48px;
     padding-right: 5px;
     padding-top: 5px;
@@ -863,7 +863,7 @@ img {
     font-size: 1em;
     background-color: var(--search-background);
     font-family: var(--font);
-    color: var(--secondary-text);
+    color: var(--primary-text);
     padding-left: 48px;
     padding-right: 5px;
     padding-top: 5px;
