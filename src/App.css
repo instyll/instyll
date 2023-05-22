@@ -664,7 +664,7 @@ img {
   background-color: var(--button-highlight);
   /* border-radius: 45px; */
   border: none;
-  border-radius: 10px;
+  border-radius: 45px;
   color: var(--button-highlight-text);
   width: 100px;
   font-size: 1em;
