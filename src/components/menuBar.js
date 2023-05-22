@@ -27,7 +27,7 @@ function MenuBar(props) {
       </input>
       <button className="menuAddOptionButton">
         <img src={create} className="buttonIcon" draggable={false}></img>
-        <span className="buttonText">Create</span></button>
+        <span className="buttonText">New</span></button>
     </div>
   );
 }

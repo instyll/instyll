@@ -661,24 +661,12 @@ img {
 }
 
 .menuAddOptionButton {
-  background-image: linear-gradient(35deg,
-      hsl(229deg 100% 66%) 25%,
-      hsl(224deg 93% 64%) 66%,
-      hsl(219deg 86% 63%) 79%,
-      hsl(214deg 80% 61%) 86%,
-      hsl(209deg 75% 59%) 90%,
-      hsl(204deg 70% 57%) 93%,
-      hsl(198deg 65% 55%) 95%,
-      hsl(193deg 61% 54%) 96%,
-      hsl(188deg 57% 52%) 97%,
-      hsl(183deg 53% 50%) 98%,
-      hsl(178deg 53% 48%) 99%,
-      hsl(173deg 53% 47%) 100%);
-  /* background-color: var(--button-highlight); */
+  background-color: var(--button-highlight);
+  /* border-radius: 45px; */
   border: none;
-  border-radius: 45px;
+  border-radius: 10px;
   color: var(--button-highlight-text);
-  width: 110px;
+  width: 100px;
   font-size: 1em;
   font-weight: bold;
   padding: 5px;
@@ -693,20 +681,7 @@ img {
 
 @media only screen and (max-width: 1100px) {
   .menuAddOptionButton {
-    background-image: linear-gradient(35deg,
-        hsl(229deg 100% 66%) 25%,
-        hsl(224deg 93% 64%) 66%,
-        hsl(219deg 86% 63%) 79%,
-        hsl(214deg 80% 61%) 86%,
-        hsl(209deg 75% 59%) 90%,
-        hsl(204deg 70% 57%) 93%,
-        hsl(198deg 65% 55%) 95%,
-        hsl(193deg 61% 54%) 96%,
-        hsl(188deg 57% 52%) 97%,
-        hsl(183deg 53% 50%) 98%,
-        hsl(178deg 53% 48%) 99%,
-        hsl(173deg 53% 47%) 100%);
-    /* background-color: var(--button-highlight); */
+    background-color: var(--button-highlight);
     border: none;
     border-radius: 50%;
     color: var(--button-highlight-text);
