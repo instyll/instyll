@@ -454,8 +454,14 @@ body {
   object-fit: cover;
   width: 14px;
   vertical-align: middle;
-  padding-left: 5px;
+  margin-left: 5px;
   user-select: none;
+  transition: 0.2s;
+}
+
+.buttonIconSmall:hover {
+  background-color: var(--muted-text);
+  border-radius: 24px;
 }
 
 .tocIcon {
@@ -1902,10 +1908,6 @@ table {
   transition: 0.2s;
   vertical-align: middle;
   color: var(--primary-text);
-}
-
-.tagItem:hover {
-  background-color: var(--muted-text);
 }
 
 .tagsList li.selected {
