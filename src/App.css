@@ -1904,6 +1904,10 @@ table {
   color: var(--primary-text);
 }
 
+.tagItem:hover {
+  background-color: var(--muted-text);
+}
+
 .tagsList li.selected {
   background-color: var(--button-highlight);
   color: var(--button-highlight-text);

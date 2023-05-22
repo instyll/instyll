@@ -538,6 +538,7 @@ class App extends Component {
             handleToc={this.handleToc}
             tocOpen={this.state.tocOpen}
             toggleTheme={this.toggleTheme}
+            isDark={this.state.isDark}
           />
 
 
