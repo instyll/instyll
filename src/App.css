@@ -316,6 +316,7 @@ body {
 
 .milkdown p {
   font-size: 16px;
+  line-height: 1.5em;
 }
 
 .ProseMirror {
@@ -1599,7 +1600,6 @@ p {
   /* margin-top: 0;
   margin-bottom: 0; */
   /* font-size: 16px; */
-  line-height: 1.5em;
 }
 
 a {
