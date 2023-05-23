@@ -1283,6 +1283,14 @@ input:checked+.sliderMin:before {
   background-color: var(--elevated-bg);
 }
 
+.bottomTocRight {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--muted-text);
+}
+
 .tocTitleFirst {
   /* dark mode */
   color: var(--secondary-text);

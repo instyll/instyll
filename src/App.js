@@ -688,7 +688,7 @@ class App extends Component {
                     ></img>
                   )}
                 </div>
-                <div className="bottomToc" style={{
+                <div className="bottomTocRight" style={{
                   borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none",
                 }}>
                   <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
