@@ -419,6 +419,18 @@ body {
   margin-right: 10px;
 }
 
+@media only screen and (max-width: 1100px) {
+  .addTopicButton {
+    width: 45px;
+  }
+  .addTopicButton .buttonText {
+    display: none;
+  }
+  .addTopicButton .buttonIcon {
+    padding-right: 0px;
+  }
+}
+
 .exportButton:hover {
   filter: brightness(90%);
 }
