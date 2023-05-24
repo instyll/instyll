@@ -574,6 +574,7 @@ class App extends Component {
                           {tag}
                           <img src={deleteX}
                             className="buttonIconSmall"
+                            draggable={false}
                             onClick={
                               () => this.handleRemoveTags(tag)}
                             style={{
