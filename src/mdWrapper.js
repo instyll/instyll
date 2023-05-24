@@ -25,6 +25,7 @@ import { prism, prismConfig } from '@milkdown/plugin-prism';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { clipboard } from '@milkdown/plugin-clipboard';
 import { trailing } from '@milkdown/plugin-trailing';
+import { indent } from '@milkdown/plugin-indent';
 // import { placeholder, placeholderCtx } from 'milkdown-plugin-placeholder';
 
 import { useCustomNodeViewFactory } from './useCustomNodeviewFactory.ts';
@@ -91,7 +92,8 @@ const MilkdownEditor: React.FC = () => {
       .use(prism)
       .use(listener)
       .use(clipboard)
-      .use(trailing),
+      .use(trailing)
+      .use(indent),
       // .use(placeholder),
   );
 

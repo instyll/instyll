@@ -21,6 +21,7 @@
     "@milkdown/plugin-diagram": "^7.2.0",
     "@milkdown/plugin-emoji": "^7.2.0",
     "@milkdown/plugin-history": "^7.2.0",
+    "@milkdown/plugin-indent": "^7.2.1",
     "@milkdown/plugin-listener": "^7.2.0",
     "@milkdown/plugin-math": "^7.2.0",
     "@milkdown/plugin-prism": "^7.2.0",

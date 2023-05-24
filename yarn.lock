@@ -2115,6 +2115,14 @@
     "@milkdown/utils" "7.2.0"
     tslib "^2.5.0"
 
+"@milkdown/plugin-indent@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-indent/-/plugin-indent-7.2.1.tgz#6a7a0489a9f1a2954a72f33d4fe149fe4a21686c"
+  integrity sha512-NyIjrYY0xW3VTa9tLA8oRu+4eMf1+kvKCSVT7fOrTjDmJceVZEfvguIYzSuTiN/yh1c6rSzJBbZI6uFmF53W2g==
+  dependencies:
+    "@milkdown/utils" "7.2.1"
+    tslib "^2.5.0"
+
 "@milkdown/plugin-listener@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-listener/-/plugin-listener-7.2.0.tgz#d7017e90d4021948acb98489f2a2e5ede73efbc6"
