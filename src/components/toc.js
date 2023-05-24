@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import randomColor from 'randomcolor';
+import { Link } from 'react-router-dom';
 
 // assets
 import tags from '../icons/tag2.png';
@@ -139,27 +139,6 @@ function TableOfContents(props) {
           <img src={tags} className="tocIcon" draggable={false} />
           {props.tocOpen && <span className="tocInnerText">Topics</span>}
         </p>
-
-        {/* <div className="fileViewTopicsContainer">
-          <button className="topic" >
-            chemistry
-          </button>
-          <button className="topic" >
-            physics
-          </button>
-          <button className="topic" >
-            projects
-          </button>
-          <button className="topic" >
-            english
-          </button>
-          <button className="topic" >
-            marketing
-          </button>
-          <button className="topic" >
-            daily note
-          </button>
-        </div> */}
 
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",

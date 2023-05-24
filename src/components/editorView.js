@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 // import Editor from './legacyEditor.js';
-import { MilkdownEditorWrapper } from './mdWrapper.js';
-import ReactMarkdown from 'react-markdown';
-import './App.css';
+import { MilkdownEditorWrapper } from '../mdWrapper.js';
+import '../App.css';
 import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
-import { v4 as uuid } from 'uuid';
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
-import TemplateModal from "./modal/TemplateModal";
+import TemplateModal from "../modal/TemplateModal";
 import "allotment/dist/style.css";
-import getFilesInDirectory from './fileUtils';
+import getFilesInDirectory from '../fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
-import MenuBar from './components/menuBar';
-import TableOfContents from './components/toc.js';
-import Calendar from 'react-calendar';
-import sampleHeader from './command-palette/commandPaletteHeader.js';
+import MenuBar from '../components/menuBar';
+import TableOfContents from '../components/toc.js';
+import sampleHeader from '../command-palette/commandPaletteHeader.js';
 // import moment from 'moment';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from './constants.ts';
-import TopicModal from './modal/TopicModal.js';
-import OutlineContainer from './components/OutlineContainer.js';
+import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
+import TopicModal from '../modal/TopicModal.js';
+import OutlineContainer from '../components/OutlineContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/home.js';
-import EditorView from './components/editorView.js';
+import Home from '../components/home.js';
 
-import './command-palette/commandPalette.css';
+import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
@@ -41,21 +37,21 @@ import { chrome } from 'process';
 import { timeStamp } from 'console';
 
 // Assets
-import moreDots from './icons/more.png';
-import exportIcon from './icons/export.png';
-import star from './icons/star.png';
-import add from './icons/add_component2.png';
-import back from './icons/arrowback.png';
-import stats from './icons/stats.png';
-import doc from './icons/document.png';
-import outline from './icons/outline.png';
-import reference from './icons/reference.png';
-import edit from './icons/edit.png';
-import doubleRight from './icons/doubleright.png'
-import deleteX from './icons/delete.png';
+import moreDots from '../icons/more.png';
+import exportIcon from '../icons/export.png';
+import star from '../icons/star.png';
+import add from '../icons/add_component2.png';
+import back from '../icons/arrowback.png';
+import stats from '../icons/stats.png';
+import doc from '../icons/document.png';
+import outline from '../icons/outline.png';
+import reference from '../icons/reference.png';
+import edit from '../icons/edit.png';
+import doubleRight from '../icons/doubleright.png'
+import deleteX from '../icons/delete.png';
 import { initial } from 'lodash';
 
-class App extends Component {
+class EditorView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -484,11 +480,256 @@ class App extends Component {
     ];
 
     return (
-      <div className="App">
+      <div className="EditorView">
 
         {/* <Router> */}
 
-<EditorView></EditorView>
+          <CommandPalette
+            commands={commands}
+            style={{
+              zIndex: "999",
+            }}
+            trigger={null}
+            hotKeys={['ctrl+k', 'command+k']}
+            closeOnSelect={true}
+            alwaysRenderCommands={true}
+            renderCommand={this.sampleChromeCommand}
+            resetInputOnOpen={true}
+            theme={theme}
+            header={sampleHeader()}
+            maxDisplayed={500}
+          ></CommandPalette>
+
+          <TemplateModal
+            show={this.state.modalOpen}
+            onHide={() => this.setState({ modalOpen: false })} />
+          <TopicModal
+            show={this.state.topicModalOpen}
+            onHide={() => this.setState({ topicModalOpen: false })}
+            tocOpen={this.state.tocOpen}
+            selectedTags={this.state.selectedTags}
+            onSelectTags={this.handleTagsSelection}
+            onAddTags={this.handleAddTags} />
+
+          <div className='container'>
+
+          {/* <Routes>
+            <Route path='/' element={<App />}/>
+            <Route path='/home1' element={<Home />} />
+          </Routes> */}
+
+            {/* navbar */}
+
+            <div className="navHorizontal"
+              style={{
+                width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
+                transition: "width 0.2s",
+              }}>
+              <MenuBar
+                handleToc={this.handleToc}
+                setModalOpen={this.setModalOpen}
+                toggleFocus={this.toggleFocus}
+                toggleTheme={this.toggleTheme}
+                focused={this.state.focused}
+              />
+            </div>
+
+            <TableOfContents
+              fileNames={this.state.fileNames}
+              handleClick={this.handleClick}
+              charCount={this.state.charCount}
+              wordCount={this.state.wordCount}
+              tocHeaders={this.state.tocHeaders}
+              handleTheme={this.toggleTheme}
+              handleToc={this.handleToc}
+              tocOpen={this.state.tocOpen}
+              toggleTheme={this.toggleTheme}
+              isDark={this.state.isDark}
+            />
+
+
+            <div className="editingView">
+              <div className="elevatedLeft"
+                style={{
+                  width: this.state.tocOpen && this.state.rightPanelOpen
+                    ? "calc((100% - 280px) - 376px)"
+                    : !this.state.tocOpen && this.state.rightPanelOpen
+                      ? "calc((100% - 165px) - 376px)"
+                      : this.state.tocOpen && !this.state.rightPanelOpen
+                        ? "calc((100% - 280px) - 116px)"
+                        : "calc((100% - 165px) - 116px)",
+                  marginLeft: this.state.tocOpen ? "268px" : "153px",
+                }}>
+                <div className="elevated">
+                  <div className="optionsContainer">
+                    <div className="leftComponents" >
+                      <img
+
+                        className="back" src={back} draggable={false}></img>
+                      <div className="optionObject">
+                        <button className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+
+                          <img src={add} class="buttonIcon" draggable={false}></img>
+
+                          <span className="buttonText">Add topic</span></button>
+                        {this.state.addedTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="tagItem"
+                          >
+                            {tag}
+                            <img src={deleteX}
+                              className="buttonIconSmall"
+                              draggable={false}
+                              onClick={
+                                () => this.handleRemoveTags(tag)}
+                              style={{
+                                filter: "var(--editorIconFilter)",
+                              }}></img>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className='rightComponents'>
+                      {/* <img className="star" src={star} draggable={false}></img>
+                  <div className="optionObject">
+                    <button className="exportButton">
+
+                      <img src={exportIcon} class="buttonIcon"></img>
+
+                      <span className="buttonText">Export</span></button>
+                  </div>
+                  <div className="optionObject">
+                    <div className="moreDots">
+                      <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
+                    </div>
+                  </div> */}
+                    </div>
+                  </div>
+
+                  <div style={{
+                    position: "relative",
+                    height: "calc(100% - 55px)",
+                    bottom: "0",
+                    borderRadius: "10px",
+                    transition: "0.2s",
+                    boxSizing: "border-box",
+                    overflow: "auto",
+                  }} id="text">
+
+                    <MilkdownEditorWrapper
+                    ></MilkdownEditorWrapper>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div className="elevatedRightPanel" style={{
+                width: this.state.rightPanelOpen ? "240px" : "0px",
+                marginLeft: this.state.rightPanelOpen ? "28px" : "0px",
+              }}>
+
+                {this.state.rightPanelSetting === "outline" && (
+                  <OutlineContainer
+                    tocHeaders={this.state.tocHeaders}
+                    rightPanelOpen={this.state.rightPanelOpen}
+                  />
+                )}
+
+              </div>
+
+              <div className="elevatedRight" style={{
+                backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
+                marginLeft: this.state.rightPanelOpen ? "20px" : "28px",
+              }}>
+
+                <div className="elevatedRightInner">
+                  <div>
+                    {this.state.dockOpen && (
+                      <img
+                        src={stats}
+                        className={`tocIconRightFirst ${this.state.rightPanelSetting === "stats" && this.state.rightPanelOpen ? "selected" : ""}`}
+                        draggable={false}
+                        onClick={() => this.handleRightPanel("stats")}
+                      ></img>
+                    )}
+                  </div>
+                  <div>
+                    {this.state.dockOpen && (
+                      <img
+                        src={outline}
+                        className={`tocIconRight ${this.state.rightPanelSetting === "outline" && this.state.rightPanelOpen ? "selected" : ""}`}
+                        draggable={false}
+                        onClick={() => this.handleRightPanel("outline")}
+                      ></img>
+                    )}
+                  </div>
+                  <div>
+                    {this.state.dockOpen && (
+                      <img
+                        src={doc}
+                        className={`tocIconRight ${this.state.rightPanelSetting === "info" && this.state.rightPanelOpen ? "selected" : ""}`}
+                        draggable={false}
+                        onClick={() => this.handleRightPanel("info")}
+                      ></img>
+                    )}
+                  </div>
+                  <div>
+                    {this.state.dockOpen && (
+                      <img
+                        src={edit}
+                        className={`tocIconRight ${this.state.rightPanelSetting === "style" && this.state.rightPanelOpen ? "selected" : ""}`}
+                        draggable={false}
+                        onClick={() => this.handleRightPanel("style")}
+                      ></img>
+                    )}
+                  </div>
+                  <div>
+                    {this.state.dockOpen && (
+                      <img
+                        src={reference}
+                        className={`tocIconRight ${this.state.rightPanelSetting === "pane" && this.state.rightPanelOpen ? "selected" : ""}`}
+                        draggable={false}
+                        onClick={() => this.handleRightPanel("pane")}
+                      ></img>
+                    )}
+                  </div>
+                  <div className="bottomTocRight" style={{
+                    borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none",
+                  }}>
+                    <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
+                      onClick={this.handleDock} style={{
+                        transform: this.state.dockOpen ? "none" : "rotate(180deg)",
+                        transition: "transform 0.3s",
+                      }}></img>
+                  </div>
+                </div>
+
+
+                {/* <div className="elevatedRightTopTop">
+
+              <div className="statsContainer">
+                <p className='paneTitle'>Stats</p>
+                <div className="pageInfo">
+                  <span className="leftStatComponents">
+                    <div className="infoDisplay"><div className="label">Words</div></div>
+                    <div className="infoDisplay"><div className="label">Characters</div></div>
+                  </span>
+                  <span className="rightStatComponents">
+                    <div className="infoDisplay"><span className="precount"></span>300</div>
+                    <div className="infoDisplay"><span className="precount"></span>800</div>
+                  </span>
+                </div>
+              </div>
+            </div> */}
+
+                {/* <div className="elevatedRightTopBottom">
+
+            </div> */}
+              </div>
+            </div>
+          </div>
 
         {/* </Router> */}
 
@@ -498,4 +739,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default EditorView;
