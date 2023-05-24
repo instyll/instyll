@@ -103,7 +103,7 @@ function TableOfContents(props) {
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={home} className="tocIcon" draggable={false} />
-          {props.tocOpen && <span className="tocInnerText">Dashboard</span>}
+          {props.tocOpen && <span className="tocInnerText"><Link to="/home">Dashboard</Link></span>}
         </p>
 
         <p className="tocTitle" style={{

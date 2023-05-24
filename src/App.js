@@ -40,7 +40,13 @@ class App extends Component {
 
         {/* <Router> */}
 
-        <EditorView></EditorView>
+        {/* <EditorView></EditorView> */}
+        <Router>
+          <Routes>
+            <Route path="/" element={<EditorView />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </Router>
 
         {/* </Router> */}
 
