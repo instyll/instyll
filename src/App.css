@@ -496,6 +496,11 @@ body {
   vertical-align: middle;
 }
 
+.tocInnerText a {
+  text-decoration: none;
+  opacity: 1;
+}
+
 #closeTOC {
   /* margin-left: 67px; */
   padding-right: 0px;
