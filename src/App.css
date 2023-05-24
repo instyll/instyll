@@ -1076,7 +1076,7 @@ img {
   display: block;
   line-height: 2em;
   text-align: center;
-  font-weight: 600;
+  font-weight: bold;
   z-index: 2;
 }
 
@@ -1085,7 +1085,7 @@ input:checked+.slider:before {
   content: 'Dark';
   color: var(--primary-text);
   text-align: center;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 /* min */
@@ -1178,7 +1178,7 @@ input:checked+.slider:before {
   line-height: 2em;
   text-align: center;
   z-index: 999;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 input:checked+.sliderMin:before {
@@ -1186,7 +1186,7 @@ input:checked+.sliderMin:before {
   content: 'D';
   color: var(--primary-text);
   text-align: center;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .tocBanner {
