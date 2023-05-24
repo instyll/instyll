@@ -14,7 +14,7 @@ function MenuBar(props) {
           onClick={props.toggleTheme}>
           <img src={logo} className="icon" draggable={false} />
         </div> */}
-        <div className="menuIconLogo">
+        <div className="menuIconLogo" id="left">
           <img src={back} className="icon" id="navLeft" draggable={false}></img>
         </div>
         <div className="menuIconLogo">

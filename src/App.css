@@ -619,6 +619,10 @@ button {
   filter: var(--editorIconFilter);
 }
 
+#left {
+  padding-right: 0px;
+}
+
 #navRight {
   filter: var(--editorIconFilter);
 }
