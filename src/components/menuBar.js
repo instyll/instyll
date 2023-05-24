@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 // Assets
 import logo from '../icons/keylight3.png'
@@ -8,16 +9,27 @@ import back from '../icons/arrowback.png';
 import forward from '../icons/arrowforward.png';
 
 function MenuBar(props) {
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1); // Go back one step in the navigation history
+  };
+
+  const goForward = () => {
+    navigate(1); // Go forward one step in the navigation history
+  };
+
   return (
     <div className="menuBar">
       {/* <div className="logo"
           onClick={props.toggleTheme}>
           <img src={logo} className="icon" draggable={false} />
         </div> */}
-        <div className="menuIconLogo" id="left">
+        <div className="menuIconLogo" id="left" onClick={goBack}>
           <img src={back} className="icon" id="navLeft" draggable={false}></img>
         </div>
-        <div className="menuIconLogo">
+        <div className="menuIconLogo" onClick={goForward}>
           <img src={forward} className="icon" id="navRight" draggable={false}></img>
         </div>
         <div className='searchWrapper'>
