@@ -769,7 +769,7 @@ img {
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 16px;
+    border-radius: 45px;
     border: none;
     text-align: left;
     position: relative;
@@ -999,7 +999,7 @@ img {
   background-color: var(--muted-text);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 10px;
+  border-radius: 45px;
   vertical-align: middle;
   z-index: 1;
 }
@@ -1055,9 +1055,9 @@ img {
   background-color: var(--elevated-bg);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 7px;
+  border-radius: 35px;
   content: 'Light';
-  color: var(--secondary-text);
+  color: var(--primary-text);
   display: block;
   line-height: 2em;
   text-align: center;
@@ -1068,7 +1068,7 @@ img {
 input:checked+.slider:before {
   transform: translateX(92px);
   content: 'Dark';
-  color: var(--secondary-text);
+  color: var(--primary-text);
   text-align: center;
   font-weight: 600;
 }
@@ -1101,7 +1101,7 @@ input:checked+.slider:before {
   background-color: var(--muted-text);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 10px;
+  border-radius: 45px;
   vertical-align: middle;
 }
 
@@ -1149,16 +1149,16 @@ input:checked+.slider:before {
   position: absolute;
   content: "";
   height: 28px;
-  /* width: 26px; */
-  width: calc((100% / 2) - 8px);
+  width: 28px;
+  /* width: calc((100% / 2) - 8px); */
   left: 4px;
   bottom: 4px;
   background-color: var(--elevated-bg);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 7px;
+  border-radius: 35px;
   content: 'L';
-  color: var(--secondary-text);
+  color: var(--primary-text);
   display: block;
   line-height: 2em;
   text-align: center;
@@ -1167,9 +1167,9 @@ input:checked+.slider:before {
 }
 
 input:checked+.sliderMin:before {
-  transform: translateX(34px);
+  transform: translateX(33px);
   content: 'D';
-  color: var(--secondary-text);
+  color: var(--primary-text);
   text-align: center;
   font-weight: 600;
 }
