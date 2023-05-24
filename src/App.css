@@ -407,7 +407,7 @@ body {
 .addTopicButton {
   background-color: transparent;
   border: 1px solid var(--muted-text);
-  border-radius: 10px;
+  border-radius: 45px;
   color: var(--secondary-text);
   width: 110px;
   font-size: 1em;
@@ -740,7 +740,7 @@ img {
   padding-right: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-radius: 16px;
+  border-radius: 45px;
   border: none;
   text-align: left;
   position: relative;
@@ -796,7 +796,7 @@ img {
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 16px;
+    border-radius: 45px;
     border: none;
     text-align: left;
     position: relative;
@@ -823,7 +823,7 @@ img {
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 16px;
+    border-radius: 45px;
     border: none;
     text-align: left;
     position: relative;
@@ -849,7 +849,7 @@ img {
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 16px;
+    border-radius: 45px;
     border: none;
     text-align: left;
     position: relative;
