@@ -102,7 +102,7 @@ function TableOfContents(props) {
         </div>
 
         <Link to="/home">
-        <p className={`tocTitleFirst ${location.pathname === '/home' ? 'active' : ''}`} style={{
+        <p className={`tocTitleFirst ${location.pathname === '/home' && props.tocOpen ? 'active' : props.tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={home} className="tocIcon" draggable={false} />

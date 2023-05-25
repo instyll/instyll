@@ -1277,11 +1277,6 @@ input:checked+.sliderMin:before {
   border-radius: 10px;
 }
 
-.tocTitleFirst.active {
-  background-color: var(--muted-text);
-  border-radius: 10px;
-}
-
 .paneTitle {
   /* dark mode */
   color: var(--secondary-text);
@@ -1342,11 +1337,42 @@ input:checked+.sliderMin:before {
   padding-top: 6px;
   margin-bottom: 0;
   margin-top: 32px;
+  position: relative;
 }
 
 .tocTitleFirst:hover {
   background-color: var(--muted-text);
   border-radius: 5px;
+}
+
+.tocTitleFirst.active {
+  font-weight: 600;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 112%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  /* right: 0; */
+  width: 5px; /* Adjust the width to your preference */
+  height: 100%;
+  background-color: var(--muted-text); /* Adjust the color to your preference */
+}
+
+.activeMin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 132%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  /* right: 0; */
+  width: 5px; /* Adjust the width to your preference */
+  height: 100%;
+  background-color: var(--muted-text); /* Adjust the color to your preference */
 }
 
 .tab {
