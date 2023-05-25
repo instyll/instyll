@@ -632,6 +632,10 @@ button {
   filter: var(--editorIconFilter);
 }
 
+.icon.disabled {
+  opacity: 0.5;
+}
+
 .logo .icon:hover {
   /* border-radius: 50%; */
   filter: brightness(90%);

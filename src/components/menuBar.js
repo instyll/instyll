@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../App.css';
 // Assets
 import logo from '../icons/keylight3.png'
@@ -12,28 +12,43 @@ function MenuBar(props) {
 
   const navigate = useNavigate();
 
-  const goBack = () => {
-    navigate(-1); // Go back one step in the navigation history
+  const location = useLocation();
+
+  const handleGoBack = () => {
+    navigate(-1); // Go back to the previous route
   };
 
-  const goForward = () => {
-    navigate(1); // Go forward one step in the navigation history
+  const handleGoForward = () => {
+    navigate(1); // Go forward to the next route
   };
 
   return (
     <div className="menuBar">
-      {/* <div className="logo"
-          onClick={props.toggleTheme}>
-          <img src={logo} className="icon" draggable={false} />
-        </div> */}
-        <div className="menuIconLogo" id="left" onClick={goBack}>
-          <img src={back} className="icon" id="navLeft" draggable={false}></img>
-        </div>
-        <div className="menuIconLogo" onClick={goForward}>
-          <img src={forward} className="icon" id="navRight" draggable={false}></img>
-        </div>
-        <div className='searchWrapper'>
-      <img src={search} className="searchIcon" draggable={false}></img>
+      <div className="menuIconLogo" id="left">
+        <img
+          src={back}
+          className={`icon ${location.key === "default" ? "disabled" : ""}`}
+          id="navLeft"
+          draggable={false}
+          onClick={() => {
+            if (location.key !== 'default') {
+              handleGoBack();
+            }
+          }
+          }
+        />
+      </div>
+      <div className="menuIconLogo">
+        <img
+          src={forward}
+          className="icon"
+          id="navRight"
+          draggable={false}
+          onClick={handleGoForward}
+        />
+      </div>
+      <div className='searchWrapper'>
+        <img src={search} className="searchIcon" draggable={false}></img>
       </div>
       <input className="search" placeholder="Search your notes">
       </input>
