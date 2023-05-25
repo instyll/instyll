@@ -102,7 +102,7 @@ function TableOfContents(props) {
         </div>
 
         <Link to="/home">
-        <p className={`tocTitleFirst ${location.pathname === '/home' && props.tocOpen ? 'active' : props.tocOpen === false ? 'activeMin' : ''}`} style={{
+        <p className={`tocTitleFirst ${location.pathname === '/home' && props.tocOpen ? 'active' : location.pathname === '/home' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={home} className="tocIcon" draggable={false} />
@@ -110,12 +110,14 @@ function TableOfContents(props) {
         </p>
         </Link>
 
-        <p className="tocTitle" style={{
+        <Link to="/timeline">
+        <p className={`tocTitle ${location.pathname === '/timeline' && props.tocOpen ? 'active' : location.pathname === '/timeline' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={calendar} className="tocIcon" draggable={false} />
           {props.tocOpen && <span className="tocInnerText">Timeline</span>}
         </p>
+        </Link>
 
         <p className="tocTitle" id="breakSection" style={{
           textAlign: props.tocOpen ? "left" : "center",

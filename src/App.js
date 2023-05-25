@@ -26,6 +26,7 @@ import OutlineContainer from './components/OutlineContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home.js';
 import EditorView from './components/editorView.js';
+import Timeline from './components/timeline.js';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -45,6 +46,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<EditorView />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/timeline" element={<Timeline />} />
           </Routes>
         </Router>
 
