@@ -1991,6 +1991,6 @@ table {
 .heroGreeting {
   font-family: var(--font);
   color: var(--primary-text);
-  font-size: 2em;
+  font-size: 32.4px;
   border-bottom: none;
 }

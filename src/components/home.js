@@ -79,7 +79,7 @@ class Home extends Component {
       rightPanelSetting: "",
       isScrolled: false,
     }
-    
+
     this.handleToc = this.handleToc.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
     this.fetchFiles = this.fetchFiles.bind(this);
@@ -440,7 +440,7 @@ class Home extends Component {
                 <span className="greetingTime">9:32 AM</span>
               </div>
               <h1 className="heroGreeting">
-                Good Morning
+                Welcome Back
               </h1>
               </div>
             </div>
