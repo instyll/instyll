@@ -1971,6 +1971,7 @@ table {
   display: inline-block;
   height: calc(100vh - 95px);
   padding-left: 27px;
+  padding-right: 27px;
 }
 
 .greetingDateContainer {
