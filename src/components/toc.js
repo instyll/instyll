@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // assets
 import tags from '../icons/tag2.png';
@@ -35,6 +35,8 @@ function TableOfContents(props) {
       props.handleTheme(isChecked);
     });
   }
+
+  const location = useLocation();
 
   useEffect(() => {
     toggleTheme();
@@ -99,12 +101,14 @@ function TableOfContents(props) {
 
         </div>
 
-        <p className="tocTitleFirst" style={{
+        <Link to="/home">
+        <p className={`tocTitleFirst ${location.pathname === '/home' ? 'active' : ''}`} style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={home} className="tocIcon" draggable={false} />
-          {props.tocOpen && <span className="tocInnerText"><Link to="/home">Dashboard</Link></span>}
+          {props.tocOpen && <span className="tocInnerText">Dashboard</span>}
         </p>
+        </Link>
 
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",

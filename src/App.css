@@ -1001,6 +1001,11 @@ img {
   user-select: none;
 }
 
+.tableInfo a {
+  text-decoration: none;
+  opacity: 1;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -1268,6 +1273,11 @@ input:checked+.sliderMin:before {
 }
 
 .tocTitle:hover {
+  background-color: var(--muted-text);
+  border-radius: 5px;
+}
+
+.tocTitleFirst.active {
   background-color: var(--muted-text);
   border-radius: 5px;
 }
