@@ -1943,3 +1943,28 @@ table {
   width: 235px;
   user-select: none;
 }
+
+/* home page */
+
+.dashboardView {
+  width: 100%;
+  display: inline-block;
+}
+
+.dashboardWrapper {
+  float: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  box-sizing: border-box;
+  /* width: 100%; */
+  bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.dashboardGreetingContainer {
+  display: inline-block;
+  height: calc(100vh - 95px);
+}

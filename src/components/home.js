@@ -399,11 +399,6 @@ class Home extends Component {
 
           <div className='container'>
 
-          {/* <Routes>
-            <Route path='/' element={<App />}/>
-            <Route path='/home1' element={<Home />} />
-          </Routes> */}
-
             {/* navbar */}
 
             <div className="navHorizontal"
@@ -432,6 +427,19 @@ class Home extends Component {
               toggleTheme={this.toggleTheme}
               isDark={this.state.isDark}
             />
+
+            <div className="dashboardView">
+              <div className="dashboardWrapper" style={{
+                marginLeft: this.state.tocOpen ? "268px" : "153px",
+              }}>
+            <div className="dashboardGreetingContainer">
+              <h1 className="heroGreeting">
+                Welcome Back
+              </h1>
+            </div>
+                            
+            </div>
+            </div>
 
           </div>
 
