@@ -1032,7 +1032,7 @@ img {
   background-color: var(--muted-text);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 45px;
+  border-radius: 10px;
   vertical-align: middle;
   z-index: 1;
 }
@@ -1088,22 +1088,22 @@ img {
   background-color: var(--elevated-bg);
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 35px;
+  border-radius: 7px;
   content: 'Light';
-  color: var(--primary-text);
+  color: var(--button-highlight);
   display: block;
   line-height: 2em;
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
   z-index: 2;
 }
 
 input:checked+.slider:before {
   transform: translateX(92px);
   content: 'Dark';
-  color: var(--primary-text);
+  color: var(--button-highlight);
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* min */
@@ -1262,9 +1262,9 @@ input:checked+.sliderMin:before {
   text-align: left;
   padding-left: 5px;
   padding-right: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
   /* padding-top: 24px; */
-  padding-top: 5px;
+  padding-top: 6px;
   margin-bottom: 0;
   margin-top: 0;
   font-family: var(--font);
@@ -1274,12 +1274,12 @@ input:checked+.sliderMin:before {
 
 .tocTitle:hover {
   background-color: var(--muted-text);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .tocTitleFirst.active {
   background-color: var(--muted-text);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .paneTitle {
@@ -1338,8 +1338,8 @@ input:checked+.sliderMin:before {
   text-align: left;
   padding-left: 5px;
   padding-right: 5px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-top: 6px;
   margin-bottom: 0;
   margin-top: 32px;
 }
