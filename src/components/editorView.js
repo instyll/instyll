@@ -567,7 +567,14 @@ class EditorView extends Component {
 
                         className="back" src={back} draggable={false}></img>
                       <div className="optionObject">
-                      {this.state.addedTags.map((tag) => (
+                      
+                        <button className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+
+                          <img src={add} class="buttonIcon" draggable={false}></img>
+
+                          <span className="buttonText">Add topic</span></button>
+                    
+                          {this.state.addedTags.map((tag) => (
                           <span
                             key={tag}
                             className="tagItem"
@@ -583,11 +590,7 @@ class EditorView extends Component {
                               }}></img>
                           </span>
                         ))}
-                        <button className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
 
-                          <img src={add} class="buttonIcon" draggable={false}></img>
-
-                          <span className="buttonText">Add topic</span></button>
                       </div>
                     </div>
                     <div className='rightComponents'>
