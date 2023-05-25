@@ -412,7 +412,7 @@ body {
   width: 110px;
   font-size: 1em;
   padding: 2px;
-  height: 36px;
+  height: 30px;
   font-family: var(--font);
   transition: 0.3s;
   vertical-align: middle;
@@ -1908,7 +1908,7 @@ table {
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  /* border: 1px solid var(--muted-text); */
+  border: 1px solid var(--elevated-bg);
   background-color: var(--elevated-bg);
   text-align: center;
   border-radius: 20px;
