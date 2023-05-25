@@ -1956,15 +1956,41 @@ table {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-color);
+  background-color: transparent;
   box-sizing: border-box;
   /* width: 100%; */
   bottom: 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  transition: 0.2s;
 }
 
 .dashboardGreetingContainer {
   display: inline-block;
   height: calc(100vh - 95px);
+  padding-left: 27px;
+}
+
+.greetingDateContainer {
+  display: inline-block;
+  width: 100%;
+  color: var(--primary-text);
+  font-family: var(--font);
+}
+
+.greetingDate .greetingTime {
+  display: inline-block;
+}
+
+.greetingDate {
+  padding-right: 20px;
+}
+
+.heroGreetingWrapper {
+  margin-top: 24px;
+}
+
+.heroGreeting {
+  font-family: var(--font);
+  color: var(--primary-text);
+  font-size: 2em;
+  border-bottom: none;
 }

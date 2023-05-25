@@ -431,11 +431,18 @@ class Home extends Component {
             <div className="dashboardView">
               <div className="dashboardWrapper" style={{
                 marginLeft: this.state.tocOpen ? "268px" : "153px",
+                width: this.state.tocOpen ? "calc((100% - 280px) - 116px)" : "calc((100% - 165px) - 116px)",
               }}>
             <div className="dashboardGreetingContainer">
+              <div className="heroGreetingWrapper">
+              <div className="greetingDateContainer">
+                <span className="greetingDate">May 25, 2023</span>
+                <span className="greetingTime">9:32 AM</span>
+              </div>
               <h1 className="heroGreeting">
-                Welcome Back
+                Good Morning
               </h1>
+              </div>
             </div>
                             
             </div>
