@@ -161,7 +161,7 @@ body {
   position: relative;
   background-color: var(--elevated-bg);
   box-sizing: border-box;
-  height: calc(100vh - 95px - 16px);
+  height: calc(100vh - 95px - 22px);
   width: 80px;
   border-radius: 16px;
   display: inline-block;
@@ -180,7 +180,7 @@ body {
   position: relative;
   background-color: var(--elevated-bg);
   box-sizing: border-box;
-  height: calc(100vh - 95px - 16px);
+  height: calc(100vh - 95px - 22px);
   width: 240px;
   border-radius: 16px;
   display: inline-block;
@@ -585,7 +585,7 @@ button {
 .menuBar {
   background-color: var(--base);
   color: white;
-  padding-top: 16px;
+  padding-top: 18px;
   padding-left: 10px;
   padding-right: 10px;
   box-sizing: border-box;
