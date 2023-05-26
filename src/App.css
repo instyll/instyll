@@ -406,8 +406,10 @@ body {
 
 .addTopicButton {
   background-color: transparent;
+  /* background-color: var(--elevated-bg); */
   border: 1px solid var(--muted-text);
-  border-radius: 45px;
+  /* border: none; */
+  border-radius: 10px;
   color: var(--secondary-text);
   width: 110px;
   font-size: 1em;
@@ -416,7 +418,7 @@ body {
   font-family: var(--font);
   transition: 0.3s;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -1635,7 +1637,7 @@ input:checked+.sliderMin:before {
 
 .outlineElement:hover {
   background-color: var(--muted-text);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .lastClickedHeader {
