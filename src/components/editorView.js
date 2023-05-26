@@ -555,11 +555,11 @@ class EditorView extends Component {
                                 width: this.state.tocOpen && this.state.rightPanelOpen
                                     ? "calc((100% - 280px) - 376px)"
                                     : !this.state.tocOpen && this.state.rightPanelOpen
-                                        ? "calc((100% - 165px) - 376px)"
+                                        ? "calc((100% - 170px) - 376px)"
                                         : this.state.tocOpen && !this.state.rightPanelOpen
                                             ? "calc((100% - 280px) - 116px)"
-                                            : "calc((100% - 165px) - 116px)",
-                                marginLeft: this.state.tocOpen ? "268px" : "153px",
+                                            : "calc((100% - 170px) - 116px)",
+                                marginLeft: this.state.tocOpen ? "268px" : "158px",
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">

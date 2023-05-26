@@ -46,7 +46,7 @@ function TableOfContents(props) {
 
   return (
     <div className="tableOfContents" style={{
-      width: props.tocOpen ? "240px" : "125px",
+      width: props.tocOpen ? "240px" : "130px",
       transition: "0.2s",
     }}>
       <div className="tableInfo">
