@@ -1,18 +1,33 @@
 // import { prosePluginsCtx } from '@milkdown/core';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTag } from '../tagSlice';
 import '../App.css';
 
 const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
+   
+   
+    const dispatch = useDispatch();
+
+   
+   
+   
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [tags, setTags] = useState([
-        'math',
-        'physics',
-        'marketing',
-        'english',
-        'daily notes',
-        'projects',
-    ]);
+
+
+    // const [tags, setTags] = useState([
+    //     'math',
+    //     'physics',
+    //     'marketing',
+    //     'english',
+    //     'daily notes',
+    //     'projects',
+    // ]);
+
+    const tags = useSelector((state) => state.tags.tags);
+
+
     const [newTag, setNewTag] = useState('');
 
     const handleTagSelect = (tag) => {
@@ -27,13 +42,21 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
         setNewTag(event.target.value);
     };
 
+    // const handleAddTag = () => {
+    //     if (newTag && !tags.includes(newTag)) {
+    //         const updatedTags = [...tags, newTag];
+    //         setTags(updatedTags);
+    //         onSelectTags([newTag]); // Clear the selected tags and select the new tag only
+    //         setNewTag('');
+    //       }
+    // };
+
     const handleAddTag = () => {
         if (newTag && !tags.includes(newTag)) {
-            const updatedTags = [...tags, newTag];
-            setTags(updatedTags);
-            onSelectTags([newTag]); // Clear the selected tags and select the new tag only
-            setNewTag('');
-          }
+          dispatch(addTag(newTag));
+          onSelectTags([newTag]); // Clear the selected tags and select the new tag only
+          setNewTag('');
+        }
     };
 
     const handleAddTags = () => {

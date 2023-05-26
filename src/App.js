@@ -27,6 +27,8 @@ import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-rou
 import Home from './components/home.js';
 import EditorView from './components/editorView.js';
 import Timeline from './components/timeline.js';
+import { Provider } from 'react-redux';
+import store from './store.js';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -37,11 +39,10 @@ class App extends Component {
   render() {
 
     return (
+
+      <Provider store={store}>
+
       <div className="App">
-
-        {/* <Router> */}
-
-        {/* <EditorView></EditorView> */}
         <Router>
           <Routes>
             <Route path="/" element={<EditorView />} />
@@ -49,10 +50,10 @@ class App extends Component {
             <Route path="/timeline" element={<Timeline />} />
           </Routes>
         </Router>
-
-        {/* </Router> */}
-
       </div>
+
+    </Provider>
+    
     );
   }
 }
