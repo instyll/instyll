@@ -57,7 +57,7 @@ function TableOfContents(props) {
           <img src={banner} className="tocBannerIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>}
           <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={props.handleToc} style={{
-            marginLeft: props.tocOpen ? "57px" : "22px",
+            marginLeft: props.tocOpen ? "67px" : "22px",
             marginTop: props.tocOpen ? "initial" : "10px",
             display: props.tocOpen ? "initial" : "block",
             transform: props.tocOpen ? "none" : "rotate(180deg)",
@@ -104,11 +104,11 @@ function TableOfContents(props) {
           </p>
         </Link>
 
-        <p className="tocTitle" id="breakSection" style={{
+        {/* <p className="tocTitle" id="breakSection" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <span className="tocInnerText">Notes</span>
-        </p>
+        </p> */}
 
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",
@@ -136,11 +136,7 @@ function TableOfContents(props) {
         }}>
           <img src={favorites} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
-        <p className="tocTitle" style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <img src={trash} className="tocIcon" draggable={false}></img>
-          {props.tocOpen && <span className="tocInnerText">Recycling</span>}</p>
+      
 
         {/* <div className="fileSys">
           {props.fileNames.map((file, index) => (
@@ -163,12 +159,21 @@ function TableOfContents(props) {
         }}>
           <img src={settings} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Settings</span>}</p>
+       
+          <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={trash} className="tocIcon" draggable={false}></img>
+          {props.tocOpen && <span className="tocInnerText">Recycling</span>}</p>
+       
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={cmd} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
 
+       
+       
         <p className="tocTitle" id="breakSection" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
