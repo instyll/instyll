@@ -22,6 +22,7 @@ import TopicModal from '../modal/TopicModal.js';
 import OutlineContainer from '../components/OutlineContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DateTime from '../components/dateTime.js';
+import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -437,13 +438,15 @@ class Home extends Component {
             <div className="dashboardGreetingContainer">
               <div className="heroGreetingWrapper">
               <div className="greetingDateContainer">
-                {/* <span className="greetingDate">May 25, 2023</span>
-                <span className="greetingTime">9:32 AM</span> */}
                 <DateTime></DateTime>
               </div>
               <h1 className="heroGreeting">
-                Welcome Back
+                Welcome Back, Wesley
               </h1>
+              <div className='dailyQuoteContainer'>
+                <p>{QUOTE1.at(0)}</p>
+                <p>- {QUOTE1.at(1)}</p>
+              </div>
               </div>
             </div>
                             

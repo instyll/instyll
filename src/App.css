@@ -2067,4 +2067,13 @@ table {
   color: var(--primary-text);
   font-size: 32.4px;
   border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.dailyQuoteContainer {
+  font-family: var(--font);
+  color: var(--secondary-text);
+  background-color: var(--elevated-bg);
+  border-radius: 16px;
+  padding: 10px 20px;
 }

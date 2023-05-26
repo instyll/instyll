@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 const DateTime = () => {
-  const [currentDate, setCurrentDate] = useState('');
-  const [currentTime, setCurrentTime] = useState('');
+  const [currentDate, setCurrentDate] = useState('Loading...');
+  const [currentTime, setCurrentTime] = useState('Loading...');
 
   useEffect(() => {
     const intervalID = setInterval(() => {
