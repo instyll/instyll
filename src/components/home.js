@@ -23,6 +23,7 @@ import OutlineContainer from '../components/OutlineContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DateTime from '../components/dateTime.js';
 import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
+import DailyQuote from '../components/dailyQuote.js';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -443,10 +444,7 @@ class Home extends Component {
               <h1 className="heroGreeting">
                 Welcome Back, Wesley
               </h1>
-              <div className='dailyQuoteContainer'>
-                <p className='quoteText'>{QUOTE1.at(0)}</p>
-                <p className='quoteAuthor'>{QUOTE1.at(1)}</p>
-              </div>
+              <DailyQuote></DailyQuote>
               </div>
             </div>
                             

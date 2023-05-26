@@ -17,7 +17,7 @@ const DateTime = () => {
 
       const formattedTime = dateObj.toLocaleTimeString([], {
         hour: 'numeric',
-        minute: '2-digit'
+        minute: '2-digit',
       });
 
       setCurrentDate(formattedDate);
