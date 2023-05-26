@@ -9,6 +9,7 @@ const DateTime = () => {
       const dateObj = new Date();
 
       const formattedDate = dateObj.toLocaleDateString(undefined, {
+        weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric'
