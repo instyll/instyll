@@ -57,7 +57,7 @@ function TableOfContents(props) {
           <img src={banner} className="tocBannerIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>}
           <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={props.handleToc} style={{
-            marginLeft: props.tocOpen ? "67px" : "22px",
+            marginLeft: props.tocOpen ? "67px" : "23px",
             marginTop: props.tocOpen ? "initial" : "10px",
             display: props.tocOpen ? "initial" : "block",
             transform: props.tocOpen ? "none" : "rotate(180deg)",
