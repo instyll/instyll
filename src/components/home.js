@@ -444,8 +444,8 @@ class Home extends Component {
                 Welcome Back, Wesley
               </h1>
               <div className='dailyQuoteContainer'>
-                <p>{QUOTE1.at(0)}</p>
-                <p>- {QUOTE1.at(1)}</p>
+                <p className='quoteText'>{QUOTE1.at(0)}</p>
+                <p className='quoteAuthor'>{QUOTE1.at(1)}</p>
               </div>
               </div>
             </div>

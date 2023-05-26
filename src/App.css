@@ -2041,6 +2041,7 @@ table {
   height: calc(100vh - 95px);
   padding-left: 27px;
   padding-right: 27px;
+  text-align: center;
 }
 
 .greetingDateContainer {
@@ -2055,7 +2056,8 @@ table {
 }
 
 .greetingDate {
-  padding-right: 20px;
+  /* padding-right: 20px; */
+  /* float: right; */
 }
 
 .heroGreetingWrapper {
@@ -2068,12 +2070,18 @@ table {
   font-size: 32.4px;
   border-bottom: none;
   padding-bottom: 0px;
+  text-align: center;
 }
 
 .dailyQuoteContainer {
   font-family: var(--font);
-  color: var(--secondary-text);
+  color: var(--primary-text);
   background-color: var(--elevated-bg);
   border-radius: 16px;
   padding: 10px 20px;
+  text-align: center;
+}
+
+.quoteText {
+  font-size: 20px;
 }
