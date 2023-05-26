@@ -57,7 +57,7 @@ function TableOfContents(props) {
           <img src={banner} className="tocBannerIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>}
           <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={props.handleToc} style={{
-            marginLeft: props.tocOpen ? "67px" : "22px",
+            marginLeft: props.tocOpen ? "57px" : "22px",
             marginTop: props.tocOpen ? "initial" : "10px",
             display: props.tocOpen ? "initial" : "block",
             transform: props.tocOpen ? "none" : "rotate(180deg)",
@@ -67,7 +67,7 @@ function TableOfContents(props) {
 
         {/* expanded switch */}
 
-        <div style={{
+        {/* <div style={{
           display: props.tocOpen ? "initial" : "none",
           height: props.tocOpen ? "initial" : "0px",
         }}>
@@ -81,42 +81,27 @@ function TableOfContents(props) {
             </span>
           </label>
 
-        </div>
+        </div> */}
 
         {/* collapsed switch */}
 
-        <div style={{
-          display: props.tocOpen ? "none" : "initial",
-          height: props.tocOpen ? "0px" : "initial",
-        }}>
-
-        <label className="switchMin">
-          <input type="checkbox" className="toggleSwitchMin">
-          </input>
-          <span className="sliderMin">
-            <span className="sliderLeftMin">L</span>
-            <span className="sliderRightMin">D</span>
-          </span>
-        </label>
-
-        </div>
 
         <Link to="/home">
-        <p className={`tocTitleFirst ${location.pathname === '/home' && props.tocOpen ? 'active' : location.pathname === '/home' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <img src={home} className="tocIcon" draggable={false} />
-          {props.tocOpen && <span className="tocInnerText">Dashboard</span>}
-        </p>
+          <p className={`tocTitleFirst ${location.pathname === '/home' && props.tocOpen ? 'active' : location.pathname === '/home' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
+            textAlign: props.tocOpen ? "left" : "center",
+          }}>
+            <img src={home} className="tocIcon" draggable={false} />
+            {props.tocOpen && <span className="tocInnerText">Dashboard</span>}
+          </p>
         </Link>
 
         <Link to="/timeline">
-        <p className={`tocTitle ${location.pathname === '/timeline' && props.tocOpen ? 'active' : location.pathname === '/timeline' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <img src={calendar} className="tocIcon" draggable={false} />
-          {props.tocOpen && <span className="tocInnerText">Timeline</span>}
-        </p>
+          <p className={`tocTitle ${location.pathname === '/timeline' && props.tocOpen ? 'active' : location.pathname === '/timeline' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
+            textAlign: props.tocOpen ? "left" : "center",
+          }}>
+            <img src={calendar} className="tocIcon" draggable={false} />
+            {props.tocOpen && <span className="tocInnerText">Timeline</span>}
+          </p>
         </Link>
 
         <p className="tocTitle" id="breakSection" style={{
@@ -184,6 +169,20 @@ function TableOfContents(props) {
           <img src={cmd} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
 
+        <p className="tocTitle" id="breakSection" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <span className="tocInnerText">Support</span></p>
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={help} className="tocIcon" draggable={false}></img>
+          {props.tocOpen && <span className="tocInnerText">Get Help</span>}</p>
+        <p className="tocTitle" style={{
+          textAlign: props.tocOpen ? "left" : "center",
+        }}>
+          <img src={feedback} className="tocIcon" draggable={false}></img>
+          {props.tocOpen && <span className="tocInnerText">Submit Feedback</span>}</p>
 
         <div className="bottomToc" style={{
           // textAlign: props.tocOpen ? "left" : "center",
@@ -191,18 +190,42 @@ function TableOfContents(props) {
           right: props.tocOpen ? "auto" : "0",
           marginLeft: props.tocOpen ? "0" : "auto",
           marginRight: props.tocOpen ? "0" : "auto",
-          width: props.tocOpen ? "initial" : "69px",
+          width: props.tocOpen ? "184px" : "69px",
         }}>
-          <p className="tocTitle" style={{
-            textAlign: props.tocOpen ? "left" : "center",
+
+          <div style={{
+            display: props.tocOpen ? "initial" : "none",
+            height: props.tocOpen ? "initial" : "0px",
           }}>
-            <img src={help} className="tocIcon" draggable={false}></img>
-            {props.tocOpen && <span className="tocInnerText">Get Help</span>}</p>
-          <p className="tocTitle" style={{
-            textAlign: props.tocOpen ? "left" : "center",
+
+            <label className="switch">
+              <input type="checkbox" className="toggleSwitch">
+              </input>
+              <span className="slider">
+                {props.tocOpen && <span className="sliderLeft">Light</span>}
+                {props.tocOpen && <span className="sliderRight">Dark</span>}
+              </span>
+            </label>
+
+          </div>
+
+          <div style={{
+            display: props.tocOpen ? "none" : "initial",
+            height: props.tocOpen ? "0px" : "initial",
           }}>
-            <img src={feedback} className="tocIcon" draggable={false}></img>
-            {props.tocOpen && <span className="tocInnerText">Submit Feedback</span>}</p>
+
+            <label className="switchMin">
+              <input type="checkbox" className="toggleSwitchMin">
+              </input>
+              <span className="sliderMin">
+                <span className="sliderLeftMin">L</span>
+                <span className="sliderRightMin">D</span>
+              </span>
+            </label>
+
+          </div>
+
+
         </div>
 
       </div>

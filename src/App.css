@@ -1028,6 +1028,7 @@ img {
   overflow-wrap: break-word;
   word-break: break-word;
   user-select: none;
+  position: relative;
 }
 
 .tableInfo a {
@@ -1040,7 +1041,8 @@ img {
   display: inline-block;
   width: 100%;
   height: 36px;
-  margin-top: 34px;
+  /* margin-top: 34px; */
+  /* margin-top: 24px; */
 }
 
 /* Hide default HTML checkbox */
@@ -1239,6 +1241,8 @@ input:checked+.sliderMin:before {
 .tocBanner {
   margin-top: 24px;
   /* text-align: center; */
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .tocBannerIcon {
