@@ -2020,7 +2020,7 @@ table {
 /* home page */
 
 .childContainer {
-
+  transition: 0.2s;
 }
 
 .dashboardView {
