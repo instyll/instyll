@@ -47,7 +47,6 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
     return (
         <Modal isOpen={show} 
         onRequestClose={onHide} 
-        parentSelector={() => document.querySelector('.optionsContainer')}
         style={{
             overlay: {
                 backgroundColor: "rgba(0, 0, 0, 0.1)",

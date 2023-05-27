@@ -292,17 +292,6 @@ class Home extends Component {
             maxDisplayed={500}
           ></CommandPalette>
 
-          <TemplateModal
-            show={this.state.modalOpen}
-            onHide={() => this.setState({ modalOpen: false })} />
-          <TopicModal
-            show={this.state.topicModalOpen}
-            onHide={() => this.setState({ topicModalOpen: false })}
-            tocOpen={this.state.tocOpen}
-            selectedTags={this.state.selectedTags}
-            onSelectTags={this.handleTagsSelection}
-            onAddTags={this.handleAddTags} />
-
           <div className='container'>
 
             <div className="dashboardView">
