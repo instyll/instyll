@@ -6,9 +6,9 @@ import { addTag } from '../tagSlice';
 import '../App.css';
 
 const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
-   
+
     const dispatch = useDispatch();
-  
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const tags = useSelector((state) => state.tags.tags);
@@ -29,9 +29,9 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
 
     const handleAddTag = () => {
         if (newTag && !tags.includes(newTag)) {
-          dispatch(addTag(newTag));
-          onSelectTags([newTag]); // Clear the selected tags and select the new tag only
-          setNewTag('');
+            dispatch(addTag(newTag));
+            onSelectTags([newTag]); // Clear the selected tags and select the new tag only
+            setNewTag('');
         }
     };
 
@@ -45,10 +45,14 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
     };
 
     return (
-        <Modal isOpen={show} onRequestClose={onHide} style={{
+        <Modal isOpen={show} 
+        onRequestClose={onHide} 
+        parentSelector={() => document.querySelector('.optionsContainer')}
+        style={{
             overlay: {
-                backgroundColor: "transparent",
+                backgroundColor: "rgba(0, 0, 0, 0.1)",
                 zIndex: "999",
+                backdropFilter: "blur(8px)",
             },
             content: {
                 backgroundColor: "var(--elevated-bg)",
@@ -63,10 +67,12 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
                 // height: "calc(100% - 190px)",
                 height: "400px",
                 position: "absolute",
-                marginLeft: tocOpen ? "290px" : "175px",
-                marginTop: "100px",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
             }
         }}>
+
             <ul className="tagsList">
                 {tags.map((tag) => (
                     <li
