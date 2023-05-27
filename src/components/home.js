@@ -83,95 +83,15 @@ class Home extends Component {
       isScrolled: false,
     }
 
-    this.handleToc = this.handleToc.bind(this);
-    this.toggleTheme = this.toggleTheme.bind(this);
     this.fetchFiles = this.fetchFiles.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.updateToc = this.updateToc.bind(this);
     this.setModalOpen = this.setModalOpen.bind(this);
-  }
-
-
-
-  // Sidebar toggle
-
-  handleToc() {
-    this.setState({
-      tocOpen: this.state.tocOpen === true ? false : true
-    })
-    console.log(this.state.tocOpen);
-  }
-
-
-  updateToc() {
-    var toc = this.constructToc();
-    this.setState({
-      tocHeaders: toc,
-    });
-  }
-
-  // dark / light mode 
-
-  handleTheme() {
-
-    const html = document.querySelector("html");
-
-    var theme = "";
-
-    if (this.state.isDark === false) {
-      theme = "dark";
-    }
-    else {
-      theme = "light";
-    }
-
-    console.log(theme);
-    html.setAttribute("data-theme", theme);
-  }
-
-  toggleTheme(isChecked) {
-    this.setState(
-      {
-        isDark: !isChecked,
-      },
-      () => {
-        this.handleTheme();
-      }
-    );
   }
 
   setModalOpen(value) {
     this.setState({
       modalOpen: value
     });
-  }
-
-  setTopicModalOpen(value) {
-    this.setState({
-      topicModalOpen: value
-    });
-    console.log(this.state.topicModalOpen);
-  }
-
-  /* handle tags */
-
-  handleTagsSelection = (selectedTags) => {
-    this.setState({ selectedTags });
-  };
-
-  handleAddTags = () => {
-    console.log('Selected Tags:', this.state.selectedTags);
-    this.setState((prevState) => ({
-      addedTags: [...prevState.addedTags, ...prevState.selectedTags],
-      selectedTags: [],
-    }));
-  };
-
-  handleRemoveTags = (tag) => {
-    console.log(tag);
-    this.setState((prevState) => ({
-      addedTags: prevState.addedTags.filter((t) => t !== tag),
-    }));
   }
 
   async fetchFiles() {
@@ -201,24 +121,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener("message", this.handleMessage);
     this.fetchFiles();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-    // this.updateToc();
-
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("message", this.handleMessage);
-  }
-
-  handleMessage = (event) => {
-    if (event.data.type === "updateToc") {
-      this.updateToc();
-    }
   }
 
 
@@ -402,40 +305,9 @@ class Home extends Component {
 
           <div className='container'>
 
-            {/* navbar */}
-
-            {/* <div className="navHorizontal"
-              style={{
-                width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
-                transition: "width 0.2s",
-              }}>
-              <MenuBar
-                handleToc={this.handleToc}
-                setModalOpen={this.setModalOpen}
-                toggleFocus={this.toggleFocus}
-                toggleTheme={this.toggleTheme}
-                focused={this.state.focused}
-              />
-            </div>
-
-            <TableOfContents
-              fileNames={this.state.fileNames}
-              handleClick={this.handleClick}
-              charCount={this.state.charCount}
-              wordCount={this.state.wordCount}
-              tocHeaders={this.state.tocHeaders}
-              handleTheme={this.toggleTheme}
-              handleToc={this.handleToc}
-              tocOpen={this.state.tocOpen}
-              toggleTheme={this.toggleTheme}
-              isDark={this.state.isDark}
-            /> */}
-
             <div className="dashboardView">
               <div className="dashboardWrapper" style={{
                 width: "100%",
-                // marginLeft: this.state.tocOpen ? "268px" : "153px",
-                // width: this.state.tocOpen ? "calc((100% - 280px) - 16px)" : "calc((100% - 165px) - 16px)",
               }}>
             <div className="dashboardGreetingContainer">
               <div className="heroGreetingWrapper">
