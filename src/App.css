@@ -2019,6 +2019,10 @@ table {
 
 /* home page */
 
+.childContainer {
+
+}
+
 .dashboardView {
   width: 100%;
   display: inline-block;

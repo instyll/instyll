@@ -478,7 +478,12 @@ class Layout extends Component {
                         isDark={this.state.isDark}
                     />
 
-                    {children}
+                    <div className='childContainer' style={{
+                        width: this.state.tocOpen ? "calc((100% - 280px) )" : "calc((100% - 170px) )",
+                        marginLeft: this.state.tocOpen ? "260px" : "150px",
+                    }}>
+                        {children}
+                    </div>
 
 
                 </div>

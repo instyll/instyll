@@ -514,14 +514,9 @@ class EditorView extends Component {
 
                 <div className='container'>
 
-                    {/* <Routes>
-            <Route path='/' element={<App />}/>
-            <Route path='/home1' element={<Home />} />
-          </Routes> */}
-
                     {/* navbar */}
 
-                    <div className="navHorizontal"
+                    {/* <div className="navHorizontal"
                         style={{
                             width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
                             transition: "width 0.2s",
@@ -546,20 +541,20 @@ class EditorView extends Component {
                         tocOpen={this.state.tocOpen}
                         toggleTheme={this.toggleTheme}
                         isDark={this.state.isDark}
-                    />
+                    /> */}
 
 
                     <div className="editingView">
                         <div className="elevatedLeft"
                             style={{
                                 width: this.state.tocOpen && this.state.rightPanelOpen
-                                    ? "calc((100% - 280px) - 376px)"
+                                    ? "calc((100%) - 360px)"
                                     : !this.state.tocOpen && this.state.rightPanelOpen
-                                        ? "calc((100% - 170px) - 376px)"
+                                        ? "calc((100%) - 360px)"
                                         : this.state.tocOpen && !this.state.rightPanelOpen
-                                            ? "calc((100% - 280px) - 116px)"
-                                            : "calc((100% - 170px) - 116px)",
-                                marginLeft: this.state.tocOpen ? "268px" : "158px",
+                                            ? "calc((100%) - 100px)"
+                                            : "calc((100%) - 100px)",
+                                // marginLeft: this.state.tocOpen ? "268px" : "158px",
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">
@@ -631,7 +626,7 @@ class EditorView extends Component {
 
                         <div className="elevatedRightPanel" style={{
                             width: this.state.rightPanelOpen ? "240px" : "0px",
-                            marginLeft: this.state.rightPanelOpen ? "28px" : "0px",
+                            marginLeft: this.state.rightPanelOpen ? "20px" : "0px",
                         }}>
 
                             {this.state.rightPanelSetting === "outline" && (
@@ -645,7 +640,7 @@ class EditorView extends Component {
 
                         <div className="elevatedRight" style={{
                             backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
-                            marginLeft: this.state.rightPanelOpen ? "20px" : "28px",
+                            marginLeft: this.state.rightPanelOpen ? "20px" : "20px",
                         }}>
 
                             <div className="elevatedRightInner">

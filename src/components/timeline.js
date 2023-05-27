@@ -366,7 +366,7 @@ class Timeline extends Component {
     ];
 
     return (
-      <div className="EditorView">
+      <div className="timeline">
 
         {/* <Router> */}
 
@@ -386,47 +386,9 @@ class Timeline extends Component {
             maxDisplayed={500}
           ></CommandPalette>
 
-          <TemplateModal
-            show={this.state.modalOpen}
-            onHide={() => this.setState({ modalOpen: false })} />
-          <TopicModal
-            show={this.state.topicModalOpen}
-            onHide={() => this.setState({ topicModalOpen: false })}
-            tocOpen={this.state.tocOpen}
-            selectedTags={this.state.selectedTags}
-            onSelectTags={this.handleTagsSelection}
-            onAddTags={this.handleAddTags} />
-
           <div className='container'>
 
             {/* navbar */}
-
-            <div className="navHorizontal"
-              style={{
-                width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
-                transition: "width 0.2s",
-              }}>
-              <MenuBar
-                handleToc={this.handleToc}
-                setModalOpen={this.setModalOpen}
-                toggleFocus={this.toggleFocus}
-                toggleTheme={this.toggleTheme}
-                focused={this.state.focused}
-              />
-            </div>
-
-            <TableOfContents
-              fileNames={this.state.fileNames}
-              handleClick={this.handleClick}
-              charCount={this.state.charCount}
-              wordCount={this.state.wordCount}
-              tocHeaders={this.state.tocHeaders}
-              handleTheme={this.toggleTheme}
-              handleToc={this.handleToc}
-              tocOpen={this.state.tocOpen}
-              toggleTheme={this.toggleTheme}
-              isDark={this.state.isDark}
-            />
 
             <div className="dashboardView">
               <div className="dashboardWrapper" style={{

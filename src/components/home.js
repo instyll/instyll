@@ -433,8 +433,9 @@ class Home extends Component {
 
             <div className="dashboardView">
               <div className="dashboardWrapper" style={{
-                marginLeft: this.state.tocOpen ? "268px" : "153px",
-                width: this.state.tocOpen ? "calc((100% - 280px) - 16px)" : "calc((100% - 165px) - 16px)",
+                width: "100%",
+                // marginLeft: this.state.tocOpen ? "268px" : "153px",
+                // width: this.state.tocOpen ? "calc((100% - 280px) - 16px)" : "calc((100% - 165px) - 16px)",
               }}>
             <div className="dashboardGreetingContainer">
               <div className="heroGreetingWrapper">

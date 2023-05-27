@@ -46,9 +46,9 @@ class App extends Component {
       <div className="App">
         <Router>
           <Routes>
-            <Route path="/" element={<EditorView />} />
+            <Route path="/" element={<Layout> <EditorView /> </Layout>} />
             <Route path="/home" element={<Layout> <Home /> </Layout>} />
-            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/timeline" element={<Layout> <Timeline /> </Layout>} />
           </Routes>
         </Router>
       </div>
