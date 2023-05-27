@@ -82,85 +82,16 @@ class EditorView extends Component {
             isScrolled: false,
         }
 
-        this.onMarkdownChange = this.onMarkdownChange.bind(this);
-        this.slideToRight = this.slideToRight.bind(this);
-        this.handleToc = this.handleToc.bind(this);
         this.handleDock = this.handleDock.bind(this);
-        this.toggleTheme = this.toggleTheme.bind(this);
         this.fetchFiles = this.fetchFiles.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.updateToc = this.updateToc.bind(this);
-        this.changeLayout = this.changeLayout.bind(this);
         this.setModalOpen = this.setModalOpen.bind(this);
         this.setTopicModalOpen = this.setTopicModalOpen.bind(this);
         this.handleTagsSelection = this.handleTagsSelection.bind(this);
         this.handleAddTags = this.handleAddTags.bind(this);
         this.handleRemoveTags = this.handleRemoveTags.bind(this);
         this.handleRightPanel = this.handleRightPanel.bind(this);
-        this.handleScroll = this.handleScroll.bind(this);
-    }
-
-    // Update view pane on each edit
-
-    onMarkdownChange(md) {
-        this.setState({
-            markdownSrc: md,
-        }, () => {
-            this.getWordCount();
-        });
-        // console.log(document.getElementById("root"));
-    }
-
-    // Full editor view
-
-    slideToRight() {
-        this.setState({
-            size: this.state.size !== "100%" ? "100%" : "50%",
-        });
-    }
-
-    // change layout
-
-    changeLayout = (orient) => {
-        if (orient == "vertical") {
-            this.setState({
-                orientation: false,
-            });
-            console.log("stacked:" + this.state.orientation)
-        }
-        else {
-            this.setState({
-                orientation: true,
-            });
-            console.log("stacked:" + this.state.orientation)
-        }
-    }
-
-    // Getting document statistics
-
-    getWordCount() {
-        var screen = document.getElementById("text");
-        console.log(screen)
-        // var screen = document.querySelector("#text *:not")
-        var charCount = screen.textContent.trim().length; // update charCount here
-        var textContent = screen.textContent;
-        console.log(textContent)
-        var count = textContent.trim().split(/\s+/).length;
-        this.setState({
-            delimiter: count > 1 ? "words" : "word", // use count variable here
-            charDelimiter: charCount === 1 ? "character" : "characters", // use charCount variable here
-            wordCount: count,
-            charCount: charCount,
-        });
-    }
-
-    // Sidebar toggle
-
-    handleToc() {
-        this.setState({
-            tocOpen: this.state.tocOpen === true ? false : true
-        })
-        console.log(this.state.tocOpen);
     }
 
     handleDock() {
@@ -185,10 +116,6 @@ class EditorView extends Component {
     constructToc() {
         let headers = Sizzle("h1, h2, h3, h4, h5, h6");
         let toc = [];
-        // headers.forEach(header => {
-        //   let id = header.id;
-        //   toc.push({ text: header.innerText, id: id, type: header.tagName });
-        // });
         headers.forEach((header) => {
             const id = header.id;
             let text = "";
@@ -211,36 +138,6 @@ class EditorView extends Component {
         this.setState({
             tocHeaders: toc,
         });
-    }
-
-    // dark / light mode 
-
-    handleTheme() {
-
-        const html = document.querySelector("html");
-
-        var theme = "";
-
-        if (this.state.isDark === false) {
-            theme = "dark";
-        }
-        else {
-            theme = "light";
-        }
-
-        console.log(theme);
-        html.setAttribute("data-theme", theme);
-    }
-
-    toggleTheme(isChecked) {
-        this.setState(
-            {
-                isDark: !isChecked,
-            },
-            () => {
-                this.handleTheme();
-            }
-        );
     }
 
     setModalOpen(value) {
@@ -305,22 +202,7 @@ class EditorView extends Component {
 
     componentDidMount() {
         window.addEventListener("message", this.handleMessage);
-        this.getWordCount();
         this.fetchFiles();
-        const textDiv = document.getElementById('text');
-        textDiv.addEventListener('scroll', this.handleScroll);
-    }
-
-    handleScroll = () => {
-        const textDiv = document.getElementById('text');
-        const isScrolled = textDiv.scrollTop > 0;
-        this.setState({ isScrolled });
-    };
-
-    componentDidUpdate(prevProps, prevState) {
-
-        // this.updateToc();
-
     }
 
     componentWillUnmount() {
@@ -513,37 +395,6 @@ class EditorView extends Component {
                     onAddTags={this.handleAddTags} />
 
                 <div className='container'>
-
-                    {/* navbar */}
-
-                    {/* <div className="navHorizontal"
-                        style={{
-                            width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
-                            transition: "width 0.2s",
-                        }}>
-                        <MenuBar
-                            handleToc={this.handleToc}
-                            setModalOpen={this.setModalOpen}
-                            toggleFocus={this.toggleFocus}
-                            toggleTheme={this.toggleTheme}
-                            focused={this.state.focused}
-                        />
-                    </div>
-
-                    <TableOfContents
-                        fileNames={this.state.fileNames}
-                        handleClick={this.handleClick}
-                        charCount={this.state.charCount}
-                        wordCount={this.state.wordCount}
-                        tocHeaders={this.state.tocHeaders}
-                        handleTheme={this.toggleTheme}
-                        handleToc={this.handleToc}
-                        tocOpen={this.state.tocOpen}
-                        toggleTheme={this.toggleTheme}
-                        isDark={this.state.isDark}
-                    /> */}
-
-
                     <div className="editingView">
                         <div className="elevatedLeft"
                             style={{
