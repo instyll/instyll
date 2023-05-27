@@ -404,7 +404,7 @@ class Home extends Component {
 
             {/* navbar */}
 
-            <div className="navHorizontal"
+            {/* <div className="navHorizontal"
               style={{
                 width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
                 transition: "width 0.2s",
@@ -429,7 +429,7 @@ class Home extends Component {
               tocOpen={this.state.tocOpen}
               toggleTheme={this.toggleTheme}
               isDark={this.state.isDark}
-            />
+            /> */}
 
             <div className="dashboardView">
               <div className="dashboardWrapper" style={{

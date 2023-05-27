@@ -29,6 +29,7 @@ import EditorView from './components/editorView.js';
 import Timeline from './components/timeline.js';
 import { Provider } from 'react-redux';
 import store from './store.js';
+import Layout from './components/layout.js';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -46,14 +47,14 @@ class App extends Component {
         <Router>
           <Routes>
             <Route path="/" element={<EditorView />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Layout> <Home /> </Layout>} />
             <Route path="/timeline" element={<Timeline />} />
           </Routes>
         </Router>
       </div>
 
     </Provider>
-    
+
     );
   }
 }
