@@ -1330,7 +1330,7 @@ input:checked+.sliderMin:before {
 #breakSection {
   margin-top: 32px;
   padding-bottom: 10px;
-  filter: brightness(120%);
+  /* filter: brightness(120%); */
   padding-left: 8px;
 }
 
