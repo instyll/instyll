@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Editor from './legacyEditor.js';
 import { MilkdownEditorWrapper } from '../mdWrapper.js';
 import '../App.css';
@@ -19,275 +19,223 @@ import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
+const Home = () => {
+  const [dockOpen, setDockOpen] = useState(true);
+  const [fileNames, setFileNames] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
+  const [modalOpen, setModalOpen] = useState(false);
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      markdownSrc: "# Welcome to instyll",
-      size: "50%",
-      wordCount: "0",
-      charCount: "0",
-      delimiter: "word",
-      charDelimiter: "characters",
-      fileName: "README.md",
-      tocOpen: true,
-      dockOpen: true,
-      isDark: true,
-      fileNames: [],
-      selectedFile: null,
-      notesDirectory: "/home/wou/Documents/instyllnotes/",
-      tocHeaders: [],
-      cleanup: null,
-      orientation: false,
-      focused: false,
-      modalOpen: false,
-      topicModalOpen: false,
-      selectedTags: [],
-      addedTags: [],
-      rightPanelOpen: false,
-      rightPanelSetting: "",
-      isScrolled: false,
-    }
-
-    this.fetchFiles = this.fetchFiles.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.setModalOpen = this.setModalOpen.bind(this);
-  }
-
-  setModalOpen(value) {
-    this.setState({
-      modalOpen: value
-    });
-  }
-
-  async fetchFiles() {
-    const files = await getFilesInDirectory(this.state.notesDirectory);
-    this.setState({ fileNames: files });
-    const watcher = chokidar.watch(this.state.notesDirectory);
+  const fetchFiles = async () => {
+    const files = await getFilesInDirectory(notesDirectory);
+    setFileNames(files);
+    const watcher = chokidar.watch(notesDirectory);
     watcher.on('add', (path) => {
       console.log(path);
-      console.log(this.state.fileNames)
+      console.log(fileNames)
       const fileName = path.replace(/^.*[\\/]/, '');
-      this.setState((prevState) => ({
-        fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
-      }));
+      setFileNames(prevFileNames => Array.from(new Set([...prevFileNames, fileName])));
     });
 
     watcher.on('unlink', (path) => {
       const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
-      this.setState((prevState) => ({
-        fileNames: prevState.fileNames.filter((fileName) => fileName !== fileName),
-      }));
+      setFileNames(prevFileNames => prevFileNames.filter(name => name !== fileName));
     });
   }
 
-  handleClick = async (path) => {
-    const fileContent = await fs.promises.readFile(this.state.notesDirectory + "" + path, 'utf-8');
-    this.setState({ selectedFile: path, markdownSrc: fileContent });
+  const handleClick = async (path) => {
+    const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
+    setSelectedFile(path);
+    // setMarkdownSrc(fileContent);
   };
 
-  componentDidMount() {
-    this.fetchFiles();
-  }
+  useEffect(() => {
+    fetchFiles();
+  }, []);
 
-
-  sampleChromeCommand(suggestion) {
+  const sampleChromeCommand = (suggestion) => {
     const { name, highlight, category, shortcut } = suggestion;
     return (
       <div className="">
         <span className={`my-category ${category}`}>{category}</span>
-
         <span>{name}</span>
-
         {/* <kbd className="my-shortcut">{shortcut}</kbd> */}
       </div>
     );
   }
 
-  render() {
+  const theme = {
+    modal: "my-modal",
+    overlay: "my-overlay",
+    container: "my-container",
+    header: "my-header",
+    content: "my-content",
+    input: "my-input",
+    suggestionsList: "my-suggestionsList",
+    suggestion: "my-suggestion",
+    suggestionHighlighted: "my-suggestionHighlighted",
+    suggestionsContainerOpen: "my-suggestionsContainerOpen",
+  }
 
-    const theme = {
-      modal: "my-modal",
-      overlay: "my-overlay",
-      container: "my-container",
-      header: "my-header",
-      content: "my-content",
-      input: "my-input",
-      suggestionsList: "my-suggestionsList",
-      suggestion: "my-suggestion",
-      suggestionHighlighted: "my-suggestionHighlighted",
-      suggestionsContainerOpen: "my-suggestionsContainerOpen",
+  const commands = [{
+    name: SET_THEME + "Dark",
+    category: "Command",
+    command: () => {
+      const html = document.querySelector("html");
+      html.setAttribute("data-theme", "dark");
+    },
+  }, {
+    name: SET_THEME + "Light",
+    category: "Command",
+    command: () => {
+      const html = document.querySelector("html");
+      html.setAttribute("data-theme", "light");
     }
+  },
+  {
+    name: DAILY + "Open Daily Note",
+    category: "Command",
+    command() { }
+  },
+  {
+    name: OPEN + "Settings",
+    category: "Navigate",
+    command: () => {
+      // this.changeLayout("vertical");
+    }
+  },
+  {
+    name: CLOSE + "Current File",
+    category: "Navigate",
+    command: () => {
+      // this.changeLayout("horizontal");
+    }
+  },
+  {
+    name: FILE + "Export as PDF",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export as LaTeX",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export as Docx",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export to Google Drive",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: FILE + "Export to Notion",
+    category: "Action",
+    command: () => {
+      // this.handleToc();
+    }
+  },
+  {
+    name: FILE + "Print",
+    category: "Action",
+    shortcut: "Ctrl + P",
+    command() { }
+  },
+  {
+    name: FILE + "Star",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: TOGGLE + "Left Sidebar",
+    category: "Command",
+    command: () => {
+      // this.setState({
+      //   tocOpen: this.state.tocOpen === true ? false : true
+      // });
+    }
+  },
+  {
+    name: TOGGLE + "Dock",
+    category: "Command",
+    command: () => {
+      // this.handleDock();
+      // this.setState({
+      //   rightPanelOpen: false,
+      // })
+    }
+  },
+  {
+    name: TOGGLE + "Right Panel",
+    category: "Command",
+    command: () => {
+      // this.setState({
+      //   rightPanelOpen: this.state.rightPanelOpen ? false : true,
+      // })
+    }
+  },
+  {
+    name: CREATE + "New Note",
+    category: "Action",
+    command() { }
+  },
+  {
+    name: CREATE + "New Note From Template",
+    category: "Action",
+    command() { }
+  },
+  ];
 
-    const commands = [{
-      name: SET_THEME + "Dark",
-      category: "Command",
-      command: () => {
-        // this.setDark(true);
-        const html = document.querySelector("html");
-        html.setAttribute("data-theme", "dark");
+  return (
+    <div className="EditorView">
 
-      },
-    }, {
-      name: SET_THEME + "Light",
-      category: "Command",
-      command: () => {
+      {/* <Router> */}
 
-        const html = document.querySelector("html");
-        html.setAttribute("data-theme", "light");
+      <CommandPalette
+        commands={commands}
+        style={{
+          zIndex: "999",
+        }}
+        trigger={null}
+        hotKeys={['ctrl+k', 'command+k']}
+        closeOnSelect={true}
+        alwaysRenderCommands={true}
+        renderCommand={sampleChromeCommand}
+        resetInputOnOpen={true}
+        theme={theme}
+        header={sampleHeader()}
+        maxDisplayed={500}
+      ></CommandPalette>
 
-      }
-    },
-    {
-      name: DAILY + "Open Daily Note",
-      category: "Command",
-      command() { }
-    },
-    {
-      name: OPEN + "Settings",
-      category: "Navigate",
-      command: () => {
-        // this.changeLayout("vertical");
-      }
-    },
-    {
-      name: CLOSE + "Current File",
-      category: "Navigate",
-      command: () => {
-        // this.changeLayout("horizontal");
-      }
-    },
-    {
-      name: FILE + "Export as PDF",
-      category: "Action",
-      command() { }
-    },
-    {
-      name: FILE + "Export as LaTeX",
-      category: "Action",
-      command() { }
-    },
-    {
-      name: FILE + "Export as Docx",
-      category: "Action",
-      command() { }
-    },
-    {
-      name: FILE + "Export to Google Drive",
-      category: "Action",
-      command() { }
-    },
-    {
-      name: FILE + "Export to Notion",
-      category: "Action",
-      command: () => {
-        this.handleToc();
-      }
-    },
-    {
-      name: FILE + "Print",
-      category: "Action",
-      shortcut: "Ctrl + P",
-      command() { }
-    },
-    {
-      name: FILE + "Star",
-      category: "Action",
-      command() { }
-    },
-    {
-      name: TOGGLE + "Left Sidebar",
-      category: "Command",
-      command: () => {
+      <div className='container'>
 
-        this.setState({
-          tocOpen: this.state.tocOpen === true ? false : true
-        });
-
-      }
-    },
-    {
-      name: TOGGLE + "Dock",
-      category: "Command",
-      command: () => {
-        this.handleDock();
-        this.setState({
-          rightPanelOpen: false,
-        })
-      }
-    },
-    {
-      name: TOGGLE + "Right Panel",
-      category: "Command",
-      command: () => {
-        this.setState({
-          rightPanelOpen: this.state.rightPanelOpen ? false : true,
-        })
-      }
-    },
-    {
-      name: CREATE + "New Note",
-      category: "Action",
-      command() { }
-    },
-    {
-      name: CREATE + "New Note From Template",
-      category: "Action",
-      command() { }
-    },
-    ];
-
-    return (
-      <div className="EditorView">
-
-        {/* <Router> */}
-
-          <CommandPalette
-            commands={commands}
-            style={{
-              zIndex: "999",
-            }}
-            trigger={null}
-            hotKeys={['ctrl+k', 'command+k']}
-            closeOnSelect={true}
-            alwaysRenderCommands={true}
-            renderCommand={this.sampleChromeCommand}
-            resetInputOnOpen={true}
-            theme={theme}
-            header={sampleHeader()}
-            maxDisplayed={500}
-          ></CommandPalette>
-
-          <div className='container'>
-
-            <div className="dashboardView">
-              <div className="dashboardWrapper" style={{
-                width: "100%",
-              }}>
+        <div className="dashboardView">
+          <div className="dashboardWrapper" style={{
+            width: "100%",
+          }}>
             <div className="dashboardGreetingContainer">
               <div className="heroGreetingWrapper">
-              <div className="greetingDateContainer">
-                <DateTime></DateTime>
+                <div className="greetingDateContainer">
+                  <DateTime></DateTime>
+                </div>
+                <h1 className="heroGreeting">
+                  Welcome Back, Wesley
+                </h1>
+                <DailyQuote></DailyQuote>
               </div>
-              <h1 className="heroGreeting">
-                Welcome Back, Wesley
-              </h1>
-              <DailyQuote></DailyQuote>
-              </div>
             </div>
-                            
-            </div>
-            </div>
-
           </div>
-
-        {/* </Router> */}
+        </div>
 
       </div>
-    );
-  }
-}
 
+      {/* </Router> */}
+
+    </div>
+  );
+}
 
 export default Home;
