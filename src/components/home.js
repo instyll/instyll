@@ -14,6 +14,7 @@ import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constant
 import DateTime from '../components/dateTime.js';
 import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
 import DailyQuote from '../components/dailyQuote.js';
+import { useSelector, useDispatch } from 'react-redux';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -25,6 +26,10 @@ const Home = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
   const [modalOpen, setModalOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const tags = useSelector((state) => state.tags.tags);
 
   const fetchFiles = async () => {
     const files = await getFilesInDirectory(notesDirectory);
@@ -226,7 +231,17 @@ const Home = () => {
                 </h1>
                 <DailyQuote></DailyQuote>
               </div>
+              <div className='dashboardTopicsContainer'>
+            {tags.map((tag) => (
+                    <li
+                        key={tag}
+                    >
+                        {tag}
+                    </li>
+                ))}
             </div>
+            </div>
+
           </div>
         </div>
 
