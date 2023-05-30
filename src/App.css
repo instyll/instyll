@@ -2109,6 +2109,12 @@ table {
   border-radius: 16px;
   margin-bottom: 32px;
   margin-right: 28px;
+  color: var(--primary-text);
+}
+
+.topicItem h2 {
+  border-bottom: none;
+  margin-left: 28px;
 }
 
 .topicItem:nth-child(3n) {

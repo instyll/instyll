@@ -236,7 +236,7 @@ const Home = () => {
                     <li className='topicItem'
                         key={tag}
                     >
-                        {tag}
+                        <h2>{tag}</h2>
                     </li>
                 ))}
             </div>
