@@ -2118,13 +2118,15 @@ table {
 
 .topicItem {
   display: inline-block;
-  width: calc(100%/3 - 19px);
+  width: calc(100%/3 - 22px);
   height: 240px;
-  background-color: var(--elevated-bg);
+  /* background-color: var(--elevated-bg); */
+  border: 1px solid var(--muted-text);
   border-radius: 16px;
   margin-bottom: 32px;
   margin-right: 28px;
   color: var(--primary-text);
+  position: relative;
 }
 
 .topicTitle {
@@ -2149,4 +2151,9 @@ table {
 .topicTitleContainer {
   display: inline-block;
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background-color: var(--elevated-bg);
 }
