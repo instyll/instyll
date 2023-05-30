@@ -2059,7 +2059,7 @@ table {
 
 .dashboardGreetingContainer {
   display: inline-block;
-  height: calc(100vh - 95px);
+  height: calc(100vh - 96px);
   padding-left: 27px;
   padding-right: 27px;
   text-align: center;
@@ -2112,7 +2112,7 @@ table {
   list-style-type: none;
   padding-left: 0;
   /* overflow: auto; */
-  margin-top: 32px;
+  /* margin-top: 32px; */
   text-align: left;
 }
 
@@ -2123,7 +2123,7 @@ table {
   /* background-color: var(--elevated-bg); */
   border: 1px solid var(--muted-text);
   border-radius: 16px;
-  margin-bottom: 32px;
+  margin-top: 31px;
   margin-right: 28px;
   color: var(--primary-text);
   position: relative;
