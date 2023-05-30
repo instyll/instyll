@@ -2118,7 +2118,7 @@ table {
 
 .topicItem {
   display: inline-block;
-  width: calc(100%/3 - 22px);
+  width: calc(100%/3 - 19px);
   height: 240px;
   /* background-color: var(--elevated-bg); */
   /* border: 1px solid var(--muted-text); */
