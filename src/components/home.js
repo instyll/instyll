@@ -239,7 +239,7 @@ const Home = () => {
                         key={tag}
                     >
                         <div className="topicTitleContainer">
-                          <div className='optionObject'>
+                          <div className='optionObjectLeft'>
                           <div className='topicTitle'>
                           <h2>{tag}</h2>                           
                           </div>
