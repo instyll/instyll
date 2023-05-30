@@ -449,11 +449,18 @@ body {
 }
 
 .optionObject {
-  padding-top: 16px;
+  /* padding-top: 16px; */
   vertical-align: middle;
   display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px;
+}
+
+.optionObjectRight {
+  /* padding-top: 16px; */
+  /* vertical-align: middle; */
+  display: inline-block;
+  float: right;
+  margin-top: 21px;
+
 }
 
 .optionObjectIcon {
@@ -2112,11 +2119,26 @@ table {
   color: var(--primary-text);
 }
 
-.topicItem h2 {
+.topicTitle {
   border-bottom: none;
   margin-left: 28px;
+  width: fit-content;
+}
+
+.topicTitle h2 {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.moreDots .topicTitle {
+    display: inline-block;
 }
 
 .topicItem:nth-child(3n) {
   margin-right: 0px;
+}
+
+.topicTitleContainer {
+  display: inline-block;
+  width: 100%;
 }

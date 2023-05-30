@@ -20,6 +20,8 @@ import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
+import moreDots from '../icons/more.png';
+
 const Home = () => {
   const [dockOpen, setDockOpen] = useState(true);
   const [fileNames, setFileNames] = useState([]);
@@ -236,7 +238,19 @@ const Home = () => {
                     <li className='topicItem'
                         key={tag}
                     >
-                        <h2>{tag}</h2>
+                        <div className="topicTitleContainer">
+                          <div className='optionObject'>
+                          <div className='topicTitle'>
+                          <h2>{tag}</h2>                           
+                          </div>
+                          </div>
+                          <div className='optionObjectRight'>
+
+                           <div className="moreDots">
+                           <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
+                           </div>
+                         </div>
+                        </div>
                     </li>
                 ))}
             </div>
