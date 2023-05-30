@@ -2131,6 +2131,10 @@ table {
   background-size: cover;
 }
 
+.topicItem:hover {
+  filter: brightness(90%);
+}
+
 .topicTitle {
   border-bottom: none;
   margin-left: 28px;
