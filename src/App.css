@@ -2121,12 +2121,14 @@ table {
   width: calc(100%/3 - 22px);
   height: 240px;
   /* background-color: var(--elevated-bg); */
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   border-radius: 16px;
   margin-top: 31px;
   margin-right: 28px;
   color: var(--primary-text);
   position: relative;
+  background-image: url(testimage.jpg);
+  background-size: cover;
 }
 
 .topicTitle {
@@ -2153,7 +2155,7 @@ table {
   width: 100%;
   position: absolute;
   bottom: 0;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
   background-color: var(--elevated-bg);
 }
