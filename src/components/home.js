@@ -233,7 +233,7 @@ const Home = () => {
               </div>
               <div className='dashboardTopicsContainer'>
             {tags.map((tag) => (
-                    <li
+                    <li className='topicItem'
                         key={tag}
                     >
                         {tag}

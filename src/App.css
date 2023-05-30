@@ -2048,6 +2048,7 @@ table {
   padding-left: 27px;
   padding-right: 27px;
   text-align: center;
+  overflow: auto;
 }
 
 .greetingDateContainer {
@@ -2090,4 +2091,26 @@ table {
 
 .quoteText {
   font-size: 20px;
+}
+
+.dashboardTopicsContainer {
+  list-style-type: none;
+  padding-left: 0;
+  /* overflow: auto; */
+  margin-top: 32px;
+  text-align: left;
+}
+
+.topicItem {
+  display: inline-block;
+  width: calc(100%/3 - 19px);
+  height: 240px;
+  background-color: var(--elevated-bg);
+  border-radius: 16px;
+  margin-bottom: 32px;
+  margin-right: 28px;
+}
+
+.topicItem:nth-child(3n) {
+  margin-right: 0px;
 }
