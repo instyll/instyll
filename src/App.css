@@ -2160,7 +2160,7 @@ table {
   width: 100%;
   position: absolute;
   bottom: 0;
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
   background-color: var(--elevated-bg);
 }
