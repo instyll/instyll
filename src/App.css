@@ -1641,6 +1641,7 @@ input:checked+.sliderMin:before {
   padding-bottom: 20px;
   /* padding-top: 24px; */
   overflow: auto;
+  overflow-wrap: break-word;
 }
 
 .outlineElement {
