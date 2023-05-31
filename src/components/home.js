@@ -15,6 +15,7 @@ import DateTime from '../components/dateTime.js';
 import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
 import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
+import TopicSettingModal from '../modal/TopicSettingsModal.js';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -27,7 +28,7 @@ const Home = () => {
   const [fileNames, setFileNames] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
-  const [modalOpen, setModalOpen] = useState(false);
+  const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -55,6 +56,10 @@ const Home = () => {
     setSelectedFile(path);
     // setMarkdownSrc(fileContent);
   };
+
+  const handleTopicSettingsModalOpen = (value) => {
+    setTopicSettingsModalOpen(value);
+  }
 
   useEffect(() => {
     fetchFiles();
@@ -217,6 +222,11 @@ const Home = () => {
         maxDisplayed={500}
       ></CommandPalette>
 
+<TopicSettingModal
+show={topicSettingsModalOpen}
+onHide={() => setTopicSettingsModalOpen(false)}
+ />
+
       <div className='container'>
 
         <div className="dashboardView">
@@ -246,7 +256,8 @@ const Home = () => {
                           </div>
                           <div className='optionObjectRight'>
 
-                           <div className="moreDots">
+                           <div className="moreDots"
+                           onClick={handleTopicSettingsModalOpen}>
                            <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
                            </div>
                          </div>
