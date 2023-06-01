@@ -246,12 +246,6 @@ const Topics = () => {
                                 <h1 className="heroTitle">
                                     Topics
                                 </h1>
-                                <div className='createNewTopicButtonContainer'>
-                                    <button className="createNewTopicButton">
-                                        <img src={add} class="buttonIcon" draggable={false}></img>
-                                        <span className="buttonText">New topic</span>
-                                    </button>
-                                </div>
                                 <div className='selectSortOptionContainer'>
                                     <Select
                                         options={options}
@@ -268,6 +262,12 @@ const Topics = () => {
                                                 color: "var(--secondary-text)",
                                             })
                                         }} />
+                                </div>
+                                <div className='createNewTopicButtonContainer'>
+                                    <button className="createNewTopicButton">
+                                        <img src={add} class="buttonIcon" draggable={false}></img>
+                                        <span className="buttonText">New topic</span>
+                                    </button>
                                 </div>
                             </div>
                             <div className='dashboardTopicsContainer'>
