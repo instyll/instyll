@@ -256,12 +256,33 @@ const Topics = () => {
                                                 borderRadius: "10px",
                                                 borderColor: "var(--muted-text)",
                                                 width: "160px",
+                                                fontFamily: "var(--font)",
                                             }),
                                             input: (baseStyles, state) => ({
                                                 ...baseStyles,
                                                 color: "var(--secondary-text)",
-                                            })
-                                        }} />
+                                            }),
+                                            menu: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                borderRadius: "10px",
+                                            }),
+                                            singleValue: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                color: "var(--secondary-text)",
+                                            }),
+                                            option: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                            }) 
+                                        }}
+                                        theme={(theme) => ({
+                                            ...theme,
+                                            colors: {
+                                                ...theme.colors,
+                                                primary25: 'var(--muted-text)',
+                                                primary: 'var(--button-highlight)',
+                                            },
+                                        })}
+                                    />
                                 </div>
                                 <div className='createNewTopicButtonContainer'>
                                     <button className="createNewTopicButton">
