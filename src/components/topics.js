@@ -16,6 +16,7 @@ import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
 import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
+import Select from 'react-select';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -202,6 +203,12 @@ const Topics = () => {
     },
     ];
 
+    const options = [
+        { value: 'sortByDate', label: 'Sort by date' },
+        { value: 'sortByName', label: 'Sort by name' },
+        { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
+    ];
+
     return (
         <div className="EditorView">
 
@@ -244,6 +251,23 @@ const Topics = () => {
                                         <img src={add} class="buttonIcon" draggable={false}></img>
                                         <span className="buttonText">New topic</span>
                                     </button>
+                                </div>
+                                <div className='selectSortOptionContainer'>
+                                    <Select
+                                        options={options}
+                                        placeholder="Sort by..."
+                                        styles={{
+                                            control: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                borderRadius: "10px",
+                                                borderColor: "var(--muted-text)",
+                                                width: "160px",
+                                            }),
+                                            input: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                color: "var(--secondary-text)",
+                                            })
+                                        }} />
                                 </div>
                             </div>
                             <div className='dashboardTopicsContainer'>
