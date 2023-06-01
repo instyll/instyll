@@ -124,12 +124,14 @@ function TableOfContents(props) {
           {props.tocOpen && <span className="tocInnerText">Templates</span>}
         </p>
 
-        <p className="tocTitle" style={{
+        <Link to="/topics">
+        <p className={`tocTitle ${location.pathname === '/topics' && props.tocOpen ? 'active' : location.pathname === '/topics' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={tags} className="tocIcon" draggable={false} />
           {props.tocOpen && <span className="tocInnerText">Topics</span>}
         </p>
+        </Link>
 
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",
