@@ -344,7 +344,7 @@ body {
 .moreDots {
   height: auto;
   width: 24px;
-  margin-right: 22px;
+  margin-right: 20px;
   margin-left: auto;
   filter: var(--editorIconFilter);
 }
