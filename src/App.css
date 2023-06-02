@@ -2227,6 +2227,33 @@ table {
   vertical-align: middle;
 }
 
+.changeTopicViewButtonContainer {
+  /* display: inline-block; */
+  float: right;
+  margin-top: 26px;
+  width: fit-content;
+  margin-left: 16px;
+  vertical-align: middle;
+}
+
+.changeTopicViewButton {
+  background-color: transparent;
+  border: 1px solid var(--muted-text);
+  border-radius: 10px;
+  color: var(--secondary-text);
+  width: 38px;
+  font-size: 1em;
+  padding: 2px;
+  height: 38px;
+  font-family: var(--font);
+  transition: 0.3s;
+  vertical-align: middle;
+}
+
+.changeTopicViewButton .buttonIcon {
+  padding-right: 0px;
+}
+
 .heroTitle {
   font-family: var(--font);
   color: var(--primary-text);

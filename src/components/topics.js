@@ -24,6 +24,8 @@ import 'prism-themes/themes/prism-nord.css';
 
 import moreDots from '../icons/more.png';
 import add from '../icons/add_component2.png';
+import layoutGrid from '../icons/layoutGrid.png';
+import layoutList from '../icons/layoutList.png';
 
 const Topics = () => {
     const [dockOpen, setDockOpen] = useState(true);
@@ -299,6 +301,11 @@ const Topics = () => {
                                     <button className="createNewTopicButton">
                                         <img src={add} class="buttonIcon" draggable={false}></img>
                                         <span className="buttonText">New topic</span>
+                                    </button>
+                                </div>
+                                <div className='changeTopicViewButtonContainer'>
+                                    <button className='changeTopicViewButton'>
+                                        <img src={layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
                                 </div>
                             </div>
