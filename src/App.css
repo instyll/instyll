@@ -2215,6 +2215,10 @@ table {
   /* margin-right: 12px; */
 }
 
+.createNewTopicButton:hover {
+  border: 1px solid var(--secondary-text);
+}
+
 @media only screen and (max-width: 1100px) {
   .createNewTopicButton {
     width: 45px;
@@ -2232,7 +2236,7 @@ table {
 .createNewTopicButtonContainer {
   /* display: inline-block; */
   float: right;
-  margin-top: 26px;
+  margin-top: 25px;
   width: fit-content;
   margin-left: 16px;
   vertical-align: middle;
@@ -2241,7 +2245,7 @@ table {
 .selectSortOptionContainer {
   /* display: inline-block; */
   float: right;
-  margin-top: 26px;
+  margin-top: 25px;
   width: fit-content;
   margin-left: 16px;
   vertical-align: middle;
@@ -2250,7 +2254,7 @@ table {
 .changeTopicViewButtonContainer {
   /* display: inline-block; */
   float: right;
-  margin-top: 26px;
+  margin-top: 25px;
   width: fit-content;
   margin-left: 16px;
   vertical-align: middle;
@@ -2268,6 +2272,10 @@ table {
   font-family: var(--font);
   transition: 0.3s;
   vertical-align: middle;
+}
+
+.changeTopicViewButton:hover {
+  border: 1px solid var(--secondary-text);
 }
 
 .changeTopicViewButton .buttonIcon {
