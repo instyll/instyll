@@ -17,6 +17,7 @@ import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import Select from 'react-select';
+import CreateTopicModal from '../modal/CreateTopicModal.js';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -33,6 +34,7 @@ const Topics = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
     const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
+    const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
     const [topicGridLayout, setTopicGridLayout] = useState(true);
 
     const dispatch = useDispatch();
@@ -64,6 +66,10 @@ const Topics = () => {
 
     const handleTopicSettingsModalOpen = (value) => {
         setTopicSettingsModalOpen(value);
+    }
+
+    const handleCreateTopicModalOpen = (value) => {
+        setCreateTopicModalOpen(value);
     }
 
     const handleChangeTopicViewLayout = () => {
@@ -247,6 +253,11 @@ const Topics = () => {
                 onHide={() => setTopicSettingsModalOpen(false)}
             />
 
+            <CreateTopicModal
+                show={createTopicModalOpen}
+                onHide={() => setCreateTopicModalOpen(false)}
+            />
+
             <div className='container'>
 
                 <div className="topicView">
@@ -314,7 +325,9 @@ const Topics = () => {
                                     />
                                 </div>
                                 <div className='createNewTopicButtonContainer'>
-                                    <button className="createNewTopicButton">
+                                    <button 
+                                    className="createNewTopicButton"
+                                    onClick={setCreateTopicModalOpen}>
                                         <img src={add} class="buttonIcon" draggable={false}></img>
                                         <span className="buttonText">New topic</span>
                                     </button>
