@@ -246,24 +246,6 @@ onHide={() => setTopicSettingsModalOpen(false)}
               </div>
               <div className='dashboardTopicsContainer'>
             {tags.map((tag) => (
-                    // <li className='topicItem'
-                    //     key={tag}
-                    // >
-                    //     <div className="topicTitleContainer">
-                    //       <div className='optionObjectLeft'>
-                    //       <div className='topicTitle'>
-                    //       <h3>{tag}</h3>                           
-                    //       </div>
-                    //       </div>
-                    //       <div className='optionObjectRight'>
-
-                    //        <div className="moreDots"
-                    //        onClick={handleTopicSettingsModalOpen}>
-                    //        <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
-                    //        </div>
-                    //      </div>
-                    //     </div>
-                    // </li>
                     <TopicGridItem 
                     tag={tag} 
                     handleTopicSettingsModalOpen={handleTopicSettingsModalOpen}>
