@@ -251,7 +251,7 @@ onHide={() => setTopicSettingsModalOpen(false)}
                         <div className="topicTitleContainer">
                           <div className='optionObjectLeft'>
                           <div className='topicTitle'>
-                          <h2>{tag}</h2>                           
+                          <h3>{tag}</h3>                           
                           </div>
                           </div>
                           <div className='optionObjectRight'>

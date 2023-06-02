@@ -2165,7 +2165,7 @@ table {
   width: fit-content;
 }
 
-.topicTitle h2 {
+.topicTitle h3 {
   border-bottom: none;
   padding-bottom: 0px;
 }
