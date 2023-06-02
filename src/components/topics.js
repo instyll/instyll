@@ -33,6 +33,7 @@ const Topics = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
     const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
+    const [topicGridLayout, setTopicGridLayout] = useState(true);
 
     const dispatch = useDispatch();
 
@@ -63,6 +64,15 @@ const Topics = () => {
 
     const handleTopicSettingsModalOpen = (value) => {
         setTopicSettingsModalOpen(value);
+    }
+
+    const handleChangeTopicViewLayout = () => {
+        if (topicGridLayout) {
+            setTopicGridLayout(false);
+        }
+        else {
+            setTopicGridLayout(true);
+        }
     }
 
     useEffect(() => {
@@ -249,8 +259,9 @@ const Topics = () => {
                                     Topics
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
-                                    <button className='changeTopicViewButton'>
-                                        <img src={layoutList} class="buttonIcon" draggable={false}></img>
+                                    <button className='changeTopicViewButton'
+                                    onClick={handleChangeTopicViewLayout}>
+                                        <img src={topicGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
                                 </div>
                                 <div className='selectSortOptionContainer'>
@@ -307,7 +318,8 @@ const Topics = () => {
                                         <img src={add} class="buttonIcon" draggable={false}></img>
                                         <span className="buttonText">New topic</span>
                                     </button>
-                                </div>
+                                </div>                    
+
                             </div>
                             <div className='dashboardTopicsContainer'>
                                 {tags.map((tag) => (
