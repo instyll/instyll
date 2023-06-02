@@ -443,7 +443,8 @@ body {
 
 .addTopicButton:hover {
   /* filter: brightness(90%); */
-  background-color: var(--muted-text);
+  /* background-color: var(--muted-text); */
+  border: 1px solid var(--secondary-text);
 }
 
 .optionObject .optionsContainer {
