@@ -248,6 +248,11 @@ const Topics = () => {
                                 <h1 className="heroTitle">
                                     Topics
                                 </h1>
+                                <div className='changeTopicViewButtonContainer'>
+                                    <button className='changeTopicViewButton'>
+                                        <img src={layoutList} class="buttonIcon" draggable={false}></img>
+                                    </button>
+                                </div>
                                 <div className='selectSortOptionContainer'>
                                     <Select
                                         options={options}
@@ -301,11 +306,6 @@ const Topics = () => {
                                     <button className="createNewTopicButton">
                                         <img src={add} class="buttonIcon" draggable={false}></img>
                                         <span className="buttonText">New topic</span>
-                                    </button>
-                                </div>
-                                <div className='changeTopicViewButtonContainer'>
-                                    <button className='changeTopicViewButton'>
-                                        <img src={layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
                                 </div>
                             </div>
