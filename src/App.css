@@ -2143,12 +2143,39 @@ table {
   margin-right: 0px;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
+  .topicItem {
+    width: calc(100%/4 - 21px);
+  }
+  .topicItem:nth-child(4n) {
+    margin-right: 0px;
+  }
+  .topicItem:nth-child(5n) {
+    margin-right: 28px !important;
+  }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
   .topicItem {
     width: calc(100%/3 - 19px);
   }
   .topicItem:nth-child(3n) {
     margin-right: 0px;
+  }
+  .topicItem:nth-child(5n) {
+    margin-right: 28px !important;
+  }
+  .topicItem:nth-child(4n) {
+    margin-right: 28px !important;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .topicItem {
+    width: calc(100%/2 - 14px);
+  }
+  .topicItem:nth-child(even) {
+    margin-right: 0px !important;
   }
   .topicItem:nth-child(5n) {
     margin-right: 28px !important;
