@@ -257,6 +257,7 @@ const Topics = () => {
                                                 borderColor: "var(--muted-text)",
                                                 width: "160px",
                                                 fontFamily: "var(--font)",
+                                                backgroundColor: "transparent",
                                             }),
                                             input: (baseStyles, state) => ({
                                                 ...baseStyles,
@@ -265,6 +266,7 @@ const Topics = () => {
                                             menu: (baseStyles, state) => ({
                                                 ...baseStyles,
                                                 borderRadius: "10px",
+                                                backgroundColor: "var(--elevated-bg)",
                                             }),
                                             singleValue: (baseStyles, state) => ({
                                                 ...baseStyles,
@@ -272,14 +274,19 @@ const Topics = () => {
                                             }),
                                             option: (baseStyles, state) => ({
                                                 ...baseStyles,
-                                            }) 
+                                                color: "var(--primary-text)",
+                                            }),
+                                            indicatorSeparator: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                backgroundColor: "var(--muted-text)",
+                                            }),
                                         }}
                                         theme={(theme) => ({
                                             ...theme,
                                             colors: {
                                                 ...theme.colors,
                                                 primary25: 'var(--muted-text)',
-                                                primary: 'var(--button-highlight)',
+                                                primary: 'var(--muted-text)',
                                             },
                                         })}
                                     />
