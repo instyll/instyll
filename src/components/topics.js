@@ -280,6 +280,10 @@ const Topics = () => {
                                                 ...baseStyles,
                                                 backgroundColor: "var(--muted-text)",
                                             }),
+                                            dropdownIndicator: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                color: "var(--secondary-text)",
+                                            }),
                                         }}
                                         theme={(theme) => ({
                                             ...theme,
