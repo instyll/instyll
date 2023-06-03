@@ -71,7 +71,7 @@
   --primary-text: #c5c5c5;
   --secondary-text: #717374;
   --muted-text: rgba(180, 180, 182, 0.2);
-  --search-background: rgba(180, 180, 182, 0.1);
+  --search-background: #2a2a2b;
   --base: #1b1b1b;
   --icon-filter: none;
   --elevated-bg: #262626;
@@ -106,11 +106,14 @@ body {
 }
 
 body {
-  /* background-color: var(--base); */
-  background: var(--background-dim),
-  url(luka-verc-_yoB5-1MpNQ-unsplash.jpg); 
+  background-color: var(--base);
+
+  /* background: var(--background-dim),
+  url(luka-verc-_yoB5-1MpNQ-unsplash.jpg);  */
+
   /* test image */
-  background-size: cover;
+  background-size: contain;
+  backdrop-filter: blur(8px);
 }
 
 .App {
@@ -2119,6 +2122,9 @@ table {
   /* float: right; */
 }
 
+.homeContainer {
+}
+
 .heroGreetingWrapper {
   margin-top: 24px;
 }
@@ -2198,6 +2204,10 @@ table {
   border-left: none;
   border-right: none;
   border-top: none;
+}
+
+.backgroundControlButton:hover {
+  filter: brightness(90%);
 }
 
 .dashboardTopicsContainer {

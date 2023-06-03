@@ -30,7 +30,8 @@ const Home = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
   const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
-
+  const [selectedImage, setSelectedImage] = useState(null);
+  
   const dispatch = useDispatch();
 
   const tags = useSelector((state) => state.tags.tags);
@@ -61,6 +62,34 @@ const Home = () => {
   const handleTopicSettingsModalOpen = (value) => {
     setTopicSettingsModalOpen(value);
   }
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const imageUrl = e.target.result;
+      setSelectedImage(imageUrl);
+      document.body.style.backgroundImage = `url(${imageUrl})`;
+      document.body.style.background = `var(--background-dim), url(${imageUrl})`;
+      const searchElement = document.querySelector('.search');
+      if (searchElement) {
+        searchElement.style.border = '1px solid var(--muted-text)';
+        searchElement.style.backgroundColor = 'transparent';
+        searchElement.style.backdropFilter = 'blur(10px)';
+      }
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+  const handleBackgroundChange = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = handleImageUpload;
+    input.click();
+  };
 
   useEffect(() => {
     fetchFiles();
@@ -228,7 +257,7 @@ show={topicSettingsModalOpen}
 onHide={() => setTopicSettingsModalOpen(false)}
  />
 
-      <div className='container'>
+      <div className='homeContainer'>
 
         <div className="dashboardView">
           <div className="dashboardWrapper" style={{
@@ -243,7 +272,9 @@ onHide={() => setTopicSettingsModalOpen(false)}
                   placeholder='Start writing anything'></input>
                 </div>
                 <div className='dashboardBackgroundControlContainer'>
-                  <button className='backgroundControlButton'>
+                  <button 
+                  className='backgroundControlButton'
+                  onClick={handleBackgroundChange}>
                     Change background
                   </button>
                 </div>
