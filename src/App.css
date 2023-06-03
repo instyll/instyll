@@ -2196,6 +2196,7 @@ table {
 .topicTitle h3 {
   border-bottom: none;
   padding-bottom: 0px;
+  font-family: var(--font);
 }
 
 .moreDots .topicTitle {
