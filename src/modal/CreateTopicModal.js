@@ -15,14 +15,6 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
 
     const [newTag, setNewTag] = useState('');
 
-    const handleTagSelect = (tag) => {
-        const updatedTags = selectedTags.includes(tag)
-            ? selectedTags.filter((selectedTag) => selectedTag !== tag)
-            : [...selectedTags, tag];
-
-        onSelectTags(updatedTags);
-    };
-
     const handleNewTagChange = (event) => {
         setNewTag(event.target.value);
     };
@@ -32,6 +24,7 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
             dispatch(addTag(newTag));
             onSelectTags([newTag]); // Clear the selected tags and select the new tag only
             setNewTag('');
+            handleClose;
         }
     };
 
@@ -64,7 +57,7 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
                 boxSizing: "border-box",
                 width: "400px",
                 // height: "calc(100% - 190px)",
-                height: "400px",
+                height: "70px",
                 position: "absolute",
                 top: "50%",
                 left: "50%",
@@ -81,11 +74,7 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
                     onChange={handleNewTagChange}
                     className="topicCreationInput"
                 />
-                <button onClick={handleAddTag} className='modalDefaultButton'>Create</button>
-            </div>
-            <div className="modalActionContainer">
-                <button onClick={handleClose} className='modalDefaultButton'>Close</button>
-                <button onClick={handleAddTags} className='modalActionButton'>Add</button>
+                <button onClick={handleAddTag} className='modalActionButton'>Create</button>
             </div>
         </Modal >
     );
