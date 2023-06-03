@@ -33,6 +33,10 @@
   --editorBoxShadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
   --scrollGradient: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 92%, rgba(245, 245, 245, 1) 100%);
   --muted-translucent: rgba(228, 228, 228, 0.2);
+  --background-dim: linear-gradient(
+    rgba(255, 255, 255, 0.7), 
+    rgba(255, 255, 255, 0.7)
+  );
   --font: "Inter", sans-serif;
 }
 
@@ -64,21 +68,13 @@
 
 [data-theme="dark"] {
   --bg-color: #1b1b1b;
-  /* --bg-color: #262626; */
-  /* --bg-color: #2a2e34; */
   --primary-text: #c5c5c5;
-  /* --primary-text: #f7f7fa; */
-  /* --secondary-text: rgba(180, 180, 182, 0.4); */
   --secondary-text: #717374;
-  --muted-text: rgba(180, 180, 182, 0.2);
+  --muted-text: #424242;
   --search-background: rgba(180, 180, 182, 0.1);
-  /* --elevated-bg: #262626; */
   --base: #1b1b1b;
-  /* --elevated-bg: #31353d; */
-  /* --elevated-bg: #2a2e34; */
   --icon-filter: none;
   --elevated-bg: #262626;
-  /* --base: #2a2e34; */
   --code: #242424;
   --separator-border: rgba(180, 180, 182, 0.2) !important;
   --nonfocused-opacity: 1;
@@ -87,6 +83,10 @@
   --editorIconFilter: invert(89%) sepia(0%) saturate(70%) hue-rotate(134deg) brightness(94%) contrast(82%);
   --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.2);
   --scrollGradient: linear-gradient(180deg, rgba(27, 27, 27, 1) 97%, rgba(66, 66, 66, 1) 100%);
+  --background-dim: linear-gradient(
+    rgba(0, 0, 0, 0.7), 
+    rgba(0, 0, 0, 0.7)
+  );
   --font: "Inter", sans-serif;
 }
 
@@ -107,6 +107,10 @@ body {
 
 body {
   background-color: var(--base);
+  background: var(--background-dim),
+  url(luka-verc-_yoB5-1MpNQ-unsplash.jpg); 
+  /* test image */
+  background-size: cover;
 }
 
 .App {
@@ -598,12 +602,13 @@ button {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: var(--base);
+  /* background-color: var(--base); */
   /* width: calc(100% - 240px); */
 }
 
 .menuBar {
-  background-color: var(--base);
+  /* background-color: var(--base); */
+  /* background-color: transparent; */
   color: white;
   padding-top: 18px;
   padding-left: 10px;
@@ -2066,7 +2071,7 @@ table {
 }
 
 .dashboardGreetingContainer {
-  display: inline-block;
+  /* display: inline-block; */
   height: calc(100vh - 96px);
   padding-left: 27px;
   padding-right: 27px;
@@ -2079,10 +2084,30 @@ table {
   width: 100%;
   color: var(--primary-text);
   font-family: var(--font);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 
 .greetingDate .greetingTime {
-  display: inline-block;
+  /* display: inline-block; */
+}
+
+.greetingTime {
+  font-size: 96px;
+  font-weight: bold;
+  display: block;
+}
+
+.greetingDate {
+  font-size: 32.4px;
+  font-weight: bold;
+}
+
+.dateContainer {
+  padding-top: 16px;
 }
 
 .greetingDate {
@@ -2106,14 +2131,30 @@ table {
 .dailyQuoteContainer {
   font-family: var(--font);
   color: var(--primary-text);
-  background-color: var(--elevated-bg);
+  /* background-color: var(--elevated-bg); */
   border-radius: 16px;
-  padding: 10px 20px;
+  padding: 14px 20px;
   text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  /* width: fit-content; */
+}
+
+.dailyQuote {
+  width: fit-content;
+  margin: 0 auto;
+
 }
 
 .quoteText {
   font-size: 20px;
+}
+
+.quoteAuthor {
+  text-align: right;
 }
 
 .dashboardTopicsContainer {

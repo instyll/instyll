@@ -238,20 +238,22 @@ onHide={() => setTopicSettingsModalOpen(false)}
               <div className="heroGreetingWrapper">
                 <div className="greetingDateContainer">
                   <DateTime></DateTime>
+                  <DailyQuote></DailyQuote>
                 </div>
-                <h1 className="heroGreeting">
+
+                {/* <h1 className="heroGreeting">
                   Welcome Back, Wesley
-                </h1>
-                <DailyQuote></DailyQuote>
+                </h1> */}
               </div>
-              <div className='dashboardTopicsContainer'>
+              {/* <div className='dashboardTopicsContainer'>
             {tags.map((tag) => (
                     <TopicGridItem 
                     tag={tag} 
                     handleTopicSettingsModalOpen={handleTopicSettingsModalOpen}>
                     </TopicGridItem>
                 ))}
-            </div>
+            </div> */}
+
             </div>
 
           </div>

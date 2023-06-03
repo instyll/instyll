@@ -10,8 +10,10 @@ function DailyQuote() {
 
   return (
     <div className='dailyQuoteContainer'>
+      <div className='dailyQuote'>
       <p className='quoteText'>{selectedQuote[0]}</p>
-      <p className='quoteAuthor'>{selectedQuote[1]}</p>
+      <p className='quoteAuthor'>- {selectedQuote[1]}</p>
+      </div>
     </div>
   );
 }

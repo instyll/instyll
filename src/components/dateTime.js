@@ -31,8 +31,12 @@ const DateTime = () => {
 
   return (
     <div className="dateTime">
-      <span className="greetingDate">{currentDate} | </span>
+      <div className='timeContainer'>
       <span className="greetingTime">{currentTime}</span>
+      </div>
+      <div className='dateContainer'>
+      <span className="greetingDate">{currentDate}</span>
+      </div>
     </div>
   );
 };
