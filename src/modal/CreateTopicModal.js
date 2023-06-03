@@ -22,9 +22,7 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
     const handleAddTag = () => {
         if (newTag && !tags.includes(newTag)) {
             dispatch(addTag(newTag));
-            onSelectTags([newTag]); // Clear the selected tags and select the new tag only
             setNewTag('');
-            handleClose;
         }
     };
 
