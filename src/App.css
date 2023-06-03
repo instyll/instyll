@@ -106,9 +106,9 @@ body {
 }
 
 body {
-  /* background-color: var(--base); */
-  background: var(--background-dim),
-  url(luka-verc-_yoB5-1MpNQ-unsplash.jpg); 
+  background-color: var(--base);
+  /* background: var(--background-dim),
+  url(luka-verc-_yoB5-1MpNQ-unsplash.jpg);  */
   /* test image */
   background-size: cover;
 }
@@ -2108,6 +2108,10 @@ table {
 
 .dateContainer {
   padding-top: 16px;
+}
+
+.dateTime {
+  user-select: none;
 }
 
 .greetingDate {
