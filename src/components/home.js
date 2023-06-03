@@ -17,6 +17,7 @@ import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import TopicGridItem from '../components/topicGridItem.js';
+import { useLocation } from 'react-router-dom';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -72,12 +73,6 @@ const Home = () => {
       setSelectedImage(imageUrl);
       document.body.style.backgroundImage = `url(${imageUrl})`;
       document.body.style.background = `var(--background-dim), url(${imageUrl})`;
-      const searchElement = document.querySelector('.search');
-      if (searchElement) {
-        searchElement.style.border = '1px solid var(--muted-text)';
-        searchElement.style.backgroundColor = 'transparent';
-        searchElement.style.backdropFilter = 'blur(10px)';
-      }
     };
 
     reader.readAsDataURL(file);
@@ -91,9 +86,16 @@ const Home = () => {
     input.click();
   };
 
+  const location = useLocation();
+
   useEffect(() => {
-    fetchFiles();
-  }, []);
+    // Clean up the background image when navigating away from the component
+    return () => {
+      document.body.style.backgroundImage = '';
+      document.body.style.background = '';
+    };
+  }, [location]);
+
 
   const sampleChromeCommand = (suggestion) => {
     const { name, highlight, category, shortcut } = suggestion;
