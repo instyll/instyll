@@ -284,7 +284,7 @@ const Topics = () => {
                                                 ...baseStyles,
                                                 borderRadius: "10px",
                                                 borderColor: "var(--muted-text)",
-                                                width: "160px",
+                                                width: "180px",
                                                 fontFamily: "var(--font)",
                                                 backgroundColor: "transparent",
                                             }),

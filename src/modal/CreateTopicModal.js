@@ -54,7 +54,6 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
                 fontSize: "1em",
                 boxSizing: "border-box",
                 width: "400px",
-                // height: "calc(100% - 190px)",
                 height: "70px",
                 position: "absolute",
                 top: "50%",
