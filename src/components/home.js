@@ -242,15 +242,12 @@ onHide={() => setTopicSettingsModalOpen(false)}
                   <input className='dashboardInstantNoteStart' 
                   placeholder='Start writing anything'></input>
                 </div>
+                <div className='dashboardBackgroundControlContainer'>
+                  <button className='backgroundControlButton'>
+                    Change background
+                  </button>
+                </div>
               </div>
-              {/* <div className='dashboardTopicsContainer'>
-            {tags.map((tag) => (
-                    <TopicGridItem 
-                    tag={tag} 
-                    handleTopicSettingsModalOpen={handleTopicSettingsModalOpen}>
-                    </TopicGridItem>
-                ))}
-            </div> */}
 
             </div>
 

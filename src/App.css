@@ -70,7 +70,7 @@
   --bg-color: #1b1b1b;
   --primary-text: #c5c5c5;
   --secondary-text: #717374;
-  --muted-text: #424242;
+  --muted-text: rgba(180, 180, 182, 0.2);
   --search-background: rgba(180, 180, 182, 0.1);
   --base: #1b1b1b;
   --icon-filter: none;
@@ -106,9 +106,9 @@ body {
 }
 
 body {
-  background-color: var(--base);
-  /* background: var(--background-dim),
-  url(luka-verc-_yoB5-1MpNQ-unsplash.jpg);  */
+  /* background-color: var(--base); */
+  background: var(--background-dim),
+  url(luka-verc-_yoB5-1MpNQ-unsplash.jpg); 
   /* test image */
   background-size: cover;
 }
@@ -2178,6 +2178,26 @@ table {
   margin-right: 10px;
   width: 500px;
   user-select: none;
+}
+
+.dashboardBackgroundControlContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.backgroundControlButton {
+  font-family: var(--font);
+  color: var(--secondary-text);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: transparent;
+  border-bottom: 1px solid var(--muted-text);
+  border-left: none;
+  border-right: none;
+  border-top: none;
 }
 
 .dashboardTopicsContainer {
