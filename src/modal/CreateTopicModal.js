@@ -27,9 +27,11 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
         }
     };
 
-    const handleAddTags = () => {
-        onAddTags();
-        onHide();
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            handleAddTag();
+        }
     };
 
     const handleClose = () => {
@@ -70,6 +72,7 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
                     placeholder="New Topic"
                     value={newTag}
                     onChange={handleNewTagChange}
+                    onKeyPress={handleKeyPress}
                     className="topicCreationInput"
                 />
                 <button onClick={handleAddTag} className='modalActionButton'>Create</button>
