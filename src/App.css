@@ -106,7 +106,7 @@ body {
 }
 
 body {
-  background-color: var(--base);
+  /* background-color: var(--base); */
   background: var(--background-dim),
   url(luka-verc-_yoB5-1MpNQ-unsplash.jpg); 
   /* test image */
@@ -2155,6 +2155,25 @@ table {
 
 .quoteAuthor {
   text-align: right;
+}
+
+.dashboardInstantNoteStart {
+  font-family: var(--font);
+  color: var(--primary-text);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: transparent;
+  border-bottom: 1px solid var(--secondary-text);
+  border-top: 0px transparent;
+  border-left: 0px transparent;
+  border-right: 0px transparent;
+  outline: none;
+  font-size: 1em;
+  margin-right: 10px;
+  width: 500px;
+  user-select: none;
 }
 
 .dashboardTopicsContainer {

@@ -239,11 +239,9 @@ onHide={() => setTopicSettingsModalOpen(false)}
                 <div className="greetingDateContainer">
                   <DateTime></DateTime>
                   <DailyQuote></DailyQuote>
+                  <input className='dashboardInstantNoteStart' 
+                  placeholder='Start writing anything'></input>
                 </div>
-
-                {/* <h1 className="heroGreeting">
-                  Welcome Back, Wesley
-                </h1> */}
               </div>
               {/* <div className='dashboardTopicsContainer'>
             {tags.map((tag) => (
