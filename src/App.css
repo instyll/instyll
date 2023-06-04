@@ -1414,7 +1414,7 @@ input:checked+.sliderMin:before {
   content: "";
   position: absolute;
   top: 0;
-  left: 112%;
+  left: 113%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   /* right: 0; */
