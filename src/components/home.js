@@ -15,6 +15,7 @@ import DateTime from '../components/dateTime.js';
 import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
 import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
+import { setSelectedImage } from '../imageSlice';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import TopicGridItem from '../components/topicGridItem.js';
 import { useLocation } from 'react-router-dom';
@@ -31,11 +32,13 @@ const Home = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
   const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  // const [selectedImage, setSelectedImage] = useState(null);
   
   const dispatch = useDispatch();
 
   const tags = useSelector((state) => state.tags.tags);
+
+  const selectedImage = useSelector((state) => state.image);
 
   const fetchFiles = async () => {
     const files = await getFilesInDirectory(notesDirectory);
@@ -70,7 +73,7 @@ const Home = () => {
 
     reader.onload = (e) => {
       const imageUrl = e.target.result;
-      setSelectedImage(imageUrl);
+      dispatch(setSelectedImage(imageUrl));
       document.body.style.backgroundImage = `url(${imageUrl})`;
       document.body.style.background = `var(--background-dim), url(${imageUrl})`;
     };
@@ -96,6 +99,13 @@ const Home = () => {
     };
   }, [location]);
 
+  useEffect(() => {
+    // Restore the background image when returning to the home location
+    if (selectedImage) {
+      document.body.style.backgroundImage = `url(${selectedImage})`;
+      document.body.style.background = `var(--background-dim), url(${selectedImage})`;
+    }
+  }, [selectedImage]);
 
   const sampleChromeCommand = (suggestion) => {
     const { name, highlight, category, shortcut } = suggestion;
