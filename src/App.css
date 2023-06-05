@@ -112,7 +112,7 @@ body {
   url(luka-verc-_yoB5-1MpNQ-unsplash.jpg);  */
 
   /* test image */
-  background-size: contain;
+  /* background-size: contain; */
   backdrop-filter: blur(8px);
 }
 
@@ -2215,9 +2215,16 @@ table {
 .dashboardTopicsContainer {
   list-style-type: none;
   padding-left: 0;
-  /* overflow: auto; */
+  overflow: auto;
   /* margin-top: 32px; */
   text-align: left;
+}
+
+.canScroll {
+  /* height: calc(100vh - 96px);
+  overflow: auto;
+  width: 100%;
+  position: absolute; */
 }
 
 .topicItem {

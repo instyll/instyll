@@ -74,6 +74,7 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
                     onChange={handleNewTagChange}
                     onKeyPress={handleKeyPress}
                     className="topicCreationInput"
+                    autoFocus
                 />
                 <button onClick={handleAddTag} className='modalActionButton'>Create</button>
             </div>

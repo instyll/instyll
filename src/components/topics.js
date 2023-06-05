@@ -334,6 +334,8 @@ const Topics = () => {
                                 </div>                    
 
                             </div>
+
+                        {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
                                 {tags.map((tag) => (
                                     <li className='topicItem'
@@ -356,6 +358,7 @@ const Topics = () => {
                                     </li>
                                 ))}
                             </div>
+                        {/* </div> */}
                         </div>
 
                     </div>

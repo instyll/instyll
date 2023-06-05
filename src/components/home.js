@@ -280,7 +280,7 @@ onHide={() => setTopicSettingsModalOpen(false)}
                 <div className="greetingDateContainer">
                   <DateTime></DateTime>
                   <DailyQuote></DailyQuote>
-                  <input className='dashboardInstantNoteStart' 
+                  <input className='dashboardInstantNoteStart' autoFocus 
                   placeholder='Start writing anything'></input>
                 </div>
                 <div className='dashboardBackgroundControlContainer'>
