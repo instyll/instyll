@@ -41,6 +41,11 @@ export const MilkdownEditor: FC = () => {
             window.parent.postMessage({ type: "updateToc" }, "*");
           }
         })
+        ctx.set(strikethroughKeymap.key, {
+          ToggleStrikethrough: 'Mod-Shift-s',
+          // or you may want to bind multiple keys:
+          ToggleStrikethrough: ['Mod-Shift-s', 'Mod-s'],
+        })
         ctx.set(slash.key, {
           view: pluginViewFactory({
             component: SlashView,
