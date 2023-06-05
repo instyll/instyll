@@ -36,6 +36,14 @@ import wikiLinkPlugin from 'remark-wiki-link'
 import { chrome } from 'process';
 import { timeStamp } from 'console';
 
+
+
+import { MilkdownProvider } from '@milkdown/react';
+import { ProsemirrorAdapterProvider } from '@prosemirror-adapter/react';
+import { MilkdownEditor } from '../mdWrapper.js';
+
+
+
 // Assets
 import moreDots from '../icons/more.png';
 import exportIcon from '../icons/export.png';
@@ -469,8 +477,13 @@ class EditorView extends Component {
                                     overflow: "auto",
                                 }} id="text">
 
-                                    <MilkdownEditorWrapper
-                                    ></MilkdownEditorWrapper>
+                                    {/* <MilkdownEditorWrapper
+                                    ></MilkdownEditorWrapper> */}
+                                    <MilkdownProvider>
+                                        <ProsemirrorAdapterProvider>
+                                            <MilkdownEditor />
+                                        </ProsemirrorAdapterProvider>
+                                    </MilkdownProvider>
 
                                 </div>
 

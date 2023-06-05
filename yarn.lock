@@ -2194,6 +2194,13 @@
   dependencies:
     tslib "^2.5.0"
 
+"@milkdown/exception@7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@milkdown/exception/-/exception-7.2.3.tgz#ab0290cd5b802ddeaf1382c3d18bcce38b81bad1"
+  integrity sha512-dtFv1odbmUJi3tXkReD6IwENpQt9KsRzB+jkcgfm79bOessoMSX+/UkOoh8uOYOGxuTp/s6IW+tHAZThUU996g==
+  dependencies:
+    tslib "^2.5.0"
+
 "@milkdown/plugin-block@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-block/-/plugin-block-7.2.0.tgz#ea8461538f34d9475e1874b68813dfa1ce7c2556"
@@ -2287,6 +2294,18 @@
   dependencies:
     "@milkdown/utils" "7.2.0"
     refractor "^4.0.0"
+    tslib "^2.5.0"
+
+"@milkdown/plugin-slash@^7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-slash/-/plugin-slash-7.2.3.tgz#2d2b4cdf67dff6e6fd83e64c24c6da97c2e35a6b"
+  integrity sha512-jCjrHpP77bOG/Ff9ndIy6HVNreCyHVJuH5GjNiWOleryljUBk8Mu/AWL+HSfw071a4H4+nEkFOPDbzU/OauS+A==
+  dependencies:
+    "@milkdown/exception" "7.2.3"
+    "@milkdown/utils" "7.2.3"
+    "@types/lodash.debounce" "^4.0.7"
+    lodash.debounce "^4.0.8"
+    tippy.js "^6.3.7"
     tslib "^2.5.0"
 
 "@milkdown/plugin-trailing@^7.2.1":
@@ -2420,6 +2439,15 @@
   integrity sha512-X1PioEtMYLExh5q3u+gD+9axHUbce76IDbr0fC8q02LnJIxfI6MGUdajcXAB3Ny2aZEDzkd7w+O7Q5Eo7DMHng==
   dependencies:
     "@milkdown/exception" "7.2.1"
+    nanoid "^4.0.0"
+    tslib "^2.5.0"
+
+"@milkdown/utils@7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-7.2.3.tgz#94bf32c2758884499ad3cb739ca02bd9d882dbcb"
+  integrity sha512-UAfyzVVhxwLpJ1LlFDDOsDWHzogZro5IR03iEs+UiEX9N5jKMLPQ0PrZGOh4fdUuu/e1T2mPbOJpllmWDmyttg==
+  dependencies:
+    "@milkdown/exception" "7.2.3"
     nanoid "^4.0.0"
     tslib "^2.5.0"
 
