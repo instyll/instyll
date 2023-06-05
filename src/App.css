@@ -1796,7 +1796,7 @@ pre {
   background-color: var(--code);
   padding: 10px;
   font-size: 0.9em;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow-x: auto;
   /* This property ensures that the code block is horizontally scrollable if necessary */
 }
