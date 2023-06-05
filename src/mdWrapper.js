@@ -34,6 +34,13 @@ export const MilkdownEditor: FC = () => {
       .config(ctx => {
         ctx.set(rootCtx, root)
         ctx.set(defaultValueCtx, markdown)
+        const listener = ctx.get(listenerCtx);
+        listener.markdownUpdated((ctx, markdown, prevMarkdown) => {
+          if (markdown !== prevMarkdown) {
+            // YourMarkdownUpdater(markdown);
+            window.parent.postMessage({ type: "updateToc" }, "*");
+          }
+        })
         ctx.set(slash.key, {
           view: pluginViewFactory({
             component: SlashView,
