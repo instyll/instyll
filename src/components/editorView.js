@@ -37,7 +37,6 @@ import { chrome } from 'process';
 import { timeStamp } from 'console';
 
 
-
 import { MilkdownProvider } from '@milkdown/react';
 import { ProsemirrorAdapterProvider } from '@prosemirror-adapter/react';
 import { MilkdownEditor } from '../mdWrapper.js';
@@ -476,9 +475,7 @@ class EditorView extends Component {
                                     boxSizing: "border-box",
                                     overflow: "auto",
                                 }} id="text">
-
-                                    {/* <MilkdownEditorWrapper
-                                    ></MilkdownEditorWrapper> */}
+                                    
                                     <MilkdownProvider>
                                         <ProsemirrorAdapterProvider>
                                             <MilkdownEditor />
