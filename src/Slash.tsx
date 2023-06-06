@@ -60,7 +60,7 @@ export const SlashView = () => {
         <div data-desc="This additional wrapper is useful for keeping slash component during HMR" aria-expanded="false">
             <div ref={ref} aria-expanded="false">
                 <button
-                    className=""
+                    className="slashSuggestionItem"
                     onKeyDown={(e) => command(e)}
                     onMouseDown={(e) => { command(e)}}
                 >

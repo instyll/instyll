@@ -339,6 +339,15 @@ body {
   outline: none !important;
 }
 
+.slashSuggestionItem {
+  font-family: var(--font);
+  background-color: var(--elevated-bg);
+  border: none;
+  outline: 1px solid var(--muted-text);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .optionsContainer {
   display: block;
   width: 100%;
