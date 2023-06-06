@@ -33,8 +33,8 @@ export const SlashItem: FC<SlashItemProps> = ({
   return (
     <li
       className={clsx(
-        "cursor-pointer px-6 py-3",
-        selected && "bg-gray-200 dark:bg-gray-700"
+        "slashSuggestionItem",
+        selected && "slashSuggestionItemSelected"
       )}
       onMouseMove={() => setSelected(index)}
       onMouseDown={(e) => {

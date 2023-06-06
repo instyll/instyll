@@ -31,9 +31,9 @@ export const config: Array<ConfigItem> = [
     onSelect: (ctx: Ctx) =>
       ctx.get(commandsCtx).call(wrapInHeadingCommand.key, 1),
     renderer: (
-      <div className="flex items-center gap-2">
-        <span className="material-symbols-outlined text-nord-10 dark:text-nord-9">
-          format_h1
+      <div className="slashSuggestionItemContainer">
+        <span className="">
+          h1
         </span>
         Large Heading
       </div>
@@ -43,9 +43,9 @@ export const config: Array<ConfigItem> = [
     onSelect: (ctx: Ctx) =>
       ctx.get(commandsCtx).call(wrapInHeadingCommand.key, 2),
     renderer: (
-      <div className="flex items-center gap-2">
-        <span className="material-symbols-outlined text-nord-10 dark:text-nord-9">
-          format_h2
+      <div className="slashSuggestionItemContainer">
+        <span className="">
+          h2
         </span>
         Medium Heading
       </div>
@@ -55,9 +55,9 @@ export const config: Array<ConfigItem> = [
     onSelect: (ctx: Ctx) =>
       ctx.get(commandsCtx).call(wrapInHeadingCommand.key, 3),
     renderer: (
-      <div className="flex items-center gap-2">
-        <span className="material-symbols-outlined text-nord-10 dark:text-nord-9">
-          format_h3
+      <div className="slashSuggestionItemContainer">
+        <span className="">
+          h3
         </span>
         Small Heading
       </div>
@@ -67,8 +67,8 @@ export const config: Array<ConfigItem> = [
     onSelect: (ctx: Ctx) =>
       ctx.get(commandsCtx).call(createCodeBlockCommand.key),
     renderer: (
-      <div className="flex items-center gap-2">
-        <span className="material-symbols-outlined text-nord-10 dark:text-nord-9">
+      <div className="slashSuggestionItemContainer">
+        <span className="">
           data_object
         </span>
         Code Block
@@ -78,8 +78,8 @@ export const config: Array<ConfigItem> = [
   {
     onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(insertHrCommand.key),
     renderer: (
-      <div className="flex items-center gap-2">
-        <span className="material-symbols-outlined text-nord-10 dark:text-nord-9">
+      <div className="slashSuggestionItemContainer">
+        <span className="">
           horizontal_rule
         </span>
         Divider
