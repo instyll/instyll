@@ -5,7 +5,8 @@ import { commonmark } from '@milkdown/preset-commonmark';
 import { Milkdown, useEditor } from '@milkdown/react';
 import { nord } from '@milkdown/theme-nord';
 import { usePluginViewFactory } from '@prosemirror-adapter/react';
-import { slash, SlashView } from './Slash.tsx';
+import { Slash } from './slash-menu/Slash.tsx';
+import { useSlash } from './slash-menu/index.tsx';
 import { gfm, strikethroughKeymap } from '@milkdown/preset-gfm';
 import { math } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
@@ -27,6 +28,7 @@ const markdown =
 
 export const MilkdownEditor: FC = () => {
   const pluginViewFactory = usePluginViewFactory();
+  const slash = useSlash();
 
   useEditor((root) => {
     return Editor
@@ -46,15 +48,15 @@ export const MilkdownEditor: FC = () => {
           // or you may want to bind multiple keys:
           ToggleStrikethrough: ['Mod-Shift-s', 'Mod-s'],
         })
-        ctx.set(slash.key, {
-          view: pluginViewFactory({
-            component: SlashView,
-          })
-        })
+        // ctx.set(slash.key, {
+        //   view: pluginViewFactory({
+        //     component: SlashView,
+        //   })
+        // })
+        slash.config(ctx);
       })
       .config(nord)
       .use(commonmark)
-      .use(slash)
       .use(commonmark)
       .use(gfm)
       .use(math)
@@ -67,7 +69,7 @@ export const MilkdownEditor: FC = () => {
       .use(clipboard)
       .use(trailing)
       .use(indent)
-      .use(slash)
+      .use(slash.plugins)
   }, [])
 
   return <Milkdown />

@@ -346,6 +346,8 @@ body {
   outline: 1px solid var(--muted-text);
   padding: 5px 10px;
   border-radius: 5px;
+  font-size: 15px;
+  display: block;
 }
 
 .optionsContainer {
