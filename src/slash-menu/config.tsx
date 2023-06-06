@@ -6,6 +6,7 @@ import {
     insertHrCommand,
     wrapInHeadingCommand,
     turnIntoTextCommand,
+    wrapInBulletListCommand,
 } from "@milkdown/preset-commonmark";
 import { ReactNode } from "react";
 
@@ -36,6 +37,17 @@ export const config: Array<ConfigItem> = [
 
                 </span>
                 Text
+            </div>
+        ),
+    },
+    {
+        onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(wrapInBulletListCommand.key),
+        renderer: (
+            <div className="slashSuggestionItemContainer">
+                <span className="suggestionItemImageContainer">
+
+                </span>
+                Bulleted List
             </div>
         ),
     },
