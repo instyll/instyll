@@ -362,11 +362,18 @@ body {
   padding-bottom: 5px;  
   font-family: var(--font);
   font-size: 15px;
+  color: var(--primary-text);
   border-radius: 5px;
 }
 
 .slashSuggestionItemSelected {
   background-color: var(--muted-text);
+}
+
+.suggestionItemImageContainer {
+  height: 40px;
+  width: 40px;
+  border: 1px solid var(--secondary-text);
 }
 
 .optionsContainer {
