@@ -79,7 +79,7 @@
   --button-highlight: #5271ff;
   --button-highlight-text: #F8F8F8;
   --editorIconFilter: invert(89%) sepia(0%) saturate(70%) hue-rotate(134deg) brightness(94%) contrast(82%);
-  --editorBoxShadow: 0px 0px 6px -1px rgba(255, 255, 255, 0.2);
+  --editorBoxShadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
   --scrollGradient: linear-gradient(180deg, rgba(27, 27, 27, 1) 97%, rgba(66, 66, 66, 1) 100%);
   --background-dim: linear-gradient(rgba(0, 0, 0, 0.7),
       rgba(0, 0, 0, 0.7));
