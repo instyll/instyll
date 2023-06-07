@@ -53,6 +53,7 @@
     "lang-tex": "^0.0.3",
     "lezer-tex": "0.0.0-3",
     "lodash": "^4.17.21",
+    "mermaid": "^10.2.2",
     "mermaid.cli": "^0.5.1",
     "milkdown-plugin-placeholder": "https://github.com/HexMox/milkdown-plugin-placeholder",
     "moment": "^2.29.4",

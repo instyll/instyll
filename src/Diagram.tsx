@@ -12,6 +12,7 @@ export const Diagram: FC = () => {
   const codeInput = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState("preview");
   const codePanel = useRef<HTMLDivElement>(null);
+  const darkMode = true;
   const rendering = useRef(false);
 
   const renderMermaid = useCallback(async () => {
@@ -23,21 +24,26 @@ export const Diagram: FC = () => {
 
     mermaid.initialize({
       startOnLoad: false,
+      theme: darkMode ? "dark" : "default",
     });
     rendering.current = true;
     const { svg, bindFunctions } = await mermaid.render(id, code);
     rendering.current = false;
     container.innerHTML = svg;
+    console.log("rendered svg: " + svg)
     bindFunctions?.(container);
-  }, [code, id]);
+  }, [code, darkMode, id]);
 
   useEffect(() => {
     requestAnimationFrame(() => {
-      renderMermaid();
+        console.log("Calling renderMermaid...");
+        renderMermaid();
+        console.log("After renderMermaid");
     });
   }, [renderMermaid, value]);
 
   return (
+    <div className="nodeViewWrapper">
     <Tabs.Root
       contentEditable={false}
       className={selected ? "ring-2 ring-offset-2" : ""}
@@ -46,12 +52,12 @@ export const Diagram: FC = () => {
         setValue(value);
       }}
     >
-      <Tabs.List className="border-b border-gray-200 text-center text-gray-500 dark:border-gray-700 dark:text-gray-400">
+      <Tabs.List className="nodeViewTabGroup">
         <div className="-mb-px flex flex-wrap">
           <Tabs.Trigger
             value="preview"
             className={clsx(
-              "inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300",
+              "previewTab",
               value === "preview" ? "text-nord9" : ""
             )}
           >
@@ -60,7 +66,7 @@ export const Diagram: FC = () => {
           <Tabs.Trigger
             value="source"
             className={clsx(
-              "inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300",
+              "sourceTab",
               value === "source" ? "text-nord9" : ""
             )}
           >
@@ -94,5 +100,6 @@ export const Diagram: FC = () => {
         </button>
       </Tabs.Content>
     </Tabs.Root>
+    </div>
   );
 };

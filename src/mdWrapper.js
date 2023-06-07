@@ -85,6 +85,7 @@ export const MilkdownEditor: FC = () => {
       .use(trailing)
       .use(indent)
       .use(slash.plugins)
+      // .use(diagram)
       .use(diagramPlugins)
   }, [])
 

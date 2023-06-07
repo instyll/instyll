@@ -335,6 +335,41 @@ body {
   outline: none !important;
 }
 
+.nodeViewWrapper {
+  box-shadow: var(--editorBoxShadow);
+  border: 1px solid var(--muted-text);
+  width: fit-content;
+  border-radius: 10px;
+  transition: width 0.2s;
+}
+
+.nodeViewTabGroup {
+  /* border-bottom: 1px solid var(--muted-text); */
+  width: fit-content;
+}
+
+.previewTab {
+  font-size: var(--font);
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  padding: 20px 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.sourceTab {
+  font-size: var(--font);
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
 .slashItemContainer {
   margin: 0;
   width: 324px;
