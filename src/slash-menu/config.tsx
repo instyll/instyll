@@ -7,6 +7,7 @@ import {
     wrapInHeadingCommand,
     turnIntoTextCommand,
     wrapInBulletListCommand,
+    wrapInOrderedListCommand,
 } from "@milkdown/preset-commonmark";
 import { ReactNode } from "react";
 
@@ -48,6 +49,17 @@ export const config: Array<ConfigItem> = [
 
                 </span>
                 Bulleted List
+            </div>
+        ),
+    },
+    {
+        onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(wrapInOrderedListCommand.key),
+        renderer: (
+            <div className="slashSuggestionItemContainer">
+                <span className="suggestionItemImageContainer">
+
+                </span>
+                Numbered List
             </div>
         ),
     },
