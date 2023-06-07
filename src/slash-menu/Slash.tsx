@@ -47,7 +47,7 @@ export const Slash = () => {
   return (
     <div className="hidden">
       <div role="tooltip" ref={ref}>
-        <ul className="slashItemContainer">
+        <ul className="slashItemContainer" autoFocus tabIndex={1}>
             <span className="slashGroupHeader">Formatting</span>
           {config.map((item, i) => (
             <SlashItem

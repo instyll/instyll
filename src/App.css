@@ -339,7 +339,7 @@ body {
   margin: 0;
   width: 324px;
   height: 333px;
-  overflow: auto;
+  overflow: scroll;
   list-style: none;
   border-radius: 10px;
   background-color: var(--elevated-bg);
