@@ -338,6 +338,8 @@ body {
 .slashItemContainer {
   margin: 0;
   width: 324px;
+  height: 333px;
+  overflow: auto;
   list-style: none;
   border-radius: 10px;
   background-color: var(--elevated-bg);
