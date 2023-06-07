@@ -348,6 +348,14 @@ body {
   padding-bottom: 5px;
 }
 
+.slashGroupHeader {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--secondary-text);
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
 .slashSuggestionItemContainer {
   display: flex;
   align-items: center;

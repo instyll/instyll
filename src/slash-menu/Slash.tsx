@@ -48,6 +48,7 @@ export const Slash = () => {
     <div className="hidden">
       <div role="tooltip" ref={ref}>
         <ul className="slashItemContainer">
+            <span className="slashGroupHeader">Formatting</span>
           {config.map((item, i) => (
             <SlashItem
               key={i.toString()}
