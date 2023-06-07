@@ -8,6 +8,7 @@ import {
     turnIntoTextCommand,
     wrapInBulletListCommand,
     wrapInOrderedListCommand,
+    wrapInBlockquoteCommand,
 } from "@milkdown/preset-commonmark";
 import { ReactNode } from "react";
 
@@ -135,6 +136,22 @@ export const config: Array<ConfigItem> = [
                 Code Block
                 <br></br>
                 <span className="suggestionItemDescription">Write code in a code block.</span>
+                </div>
+            </div>
+        ),
+    },
+    {
+        onSelect: (ctx: Ctx) =>
+            ctx.get(commandsCtx).call(wrapInBlockquoteCommand.key),
+        renderer: (
+            <div className="slashSuggestionItemContainer">
+                <span className="suggestionItemImageContainer">
+
+                </span>
+                <div className="suggestionItemTitle">
+                Quote
+                <br></br>
+                <span className="suggestionItemDescription">Write down a quote.</span>
                 </div>
             </div>
         ),
