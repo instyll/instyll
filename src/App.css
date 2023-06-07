@@ -407,6 +407,7 @@ body {
   padding: 10px;
   resize: none;
   outline: none;
+  line-height: 1.4;
 }
 
 .nodeViewSubmitButton {
