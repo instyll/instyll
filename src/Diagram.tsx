@@ -53,12 +53,12 @@ export const Diagram: FC = () => {
       }}
     >
       <Tabs.List className="nodeViewTabGroup">
-        <div className="-mb-px flex flex-wrap">
+        <div className="tabsContainer">
           <Tabs.Trigger
             value="preview"
             className={clsx(
               "previewTab",
-              value === "preview" ? "text-nord9" : ""
+              value === "preview" ? "activeTab" : ""
             )}
           >
             Preview
@@ -67,7 +67,7 @@ export const Diagram: FC = () => {
             value="source"
             className={clsx(
               "sourceTab",
-              value === "source" ? "text-nord9" : ""
+              value === "source" ? "activeTab" : ""
             )}
           >
             Source
@@ -85,12 +85,12 @@ export const Diagram: FC = () => {
       </Tabs.Content>
       <Tabs.Content value="source" className="relative">
         <textarea
-          className="block h-48 w-full bg-slate-800 font-mono text-gray-50"
+          className="nodeviewCodeInput"
           ref={codeInput}
           defaultValue={code}
         />
         <button
-          className="absolute right-0 bottom-full mb-1 inline-flex items-center justify-center rounded border border-gray-600 bg-nord8 px-6 py-2 text-base font-medium leading-6 text-gray-50 shadow-sm hover:bg-blue-200 focus:ring-2 focus:ring-offset-2 dark:bg-nord9"
+          className="nodeViewSubmitButton"
           onClick={() => {
             setAttrs({ value: codeInput.current?.value || "" });
             setValue("preview");
