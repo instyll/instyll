@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import type { FC } from "react";
 

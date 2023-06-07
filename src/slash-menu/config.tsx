@@ -9,6 +9,7 @@ import {
     wrapInBulletListCommand,
     wrapInOrderedListCommand,
     wrapInBlockquoteCommand,
+    insertImageCommand,
 } from "@milkdown/preset-commonmark";
 import { insertTableCommand } from "@milkdown/preset-gfm";
 import { ReactNode } from "react";

@@ -1,16 +1,20 @@
 import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
 import type { FC } from 'react';
-
-import { commonmark } from '@milkdown/preset-commonmark';
+import { useEffect, useMemo } from "react";
+import type { Ctx, MilkdownPlugin } from "@milkdown/ctx";
+import { commonmark, listItemSchema } from '@milkdown/preset-commonmark';
 import { Milkdown, useEditor } from '@milkdown/react';
 import { nord } from '@milkdown/theme-nord';
-import { usePluginViewFactory } from '@prosemirror-adapter/react';
+import { 
+  usePluginViewFactory, useNodeViewFactory
+} 
+from '@prosemirror-adapter/react';
 import { Slash } from './slash-menu/Slash.tsx';
 import { useSlash } from './slash-menu/index.tsx';
 import { gfm, strikethroughKeymap } from '@milkdown/preset-gfm';
 import { math } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
-import { diagram } from '@milkdown/plugin-diagram';
+import { diagram, diagramSchema } from "@milkdown/plugin-diagram";
 import { history } from '@milkdown/plugin-history';
 import { block } from '@milkdown/plugin-block';
 import { BlockView } from './Block.tsx';
@@ -20,15 +24,32 @@ import { clipboard } from '@milkdown/plugin-clipboard';
 import { trailing } from '@milkdown/plugin-trailing';
 import { indent } from '@milkdown/plugin-indent';
 
-// import '@milkdown/theme-nord/style.css';
+import { Diagram } from './Diagram.tsx';
+import { $view, getMarkdown } from "@milkdown/utils";
+
 import './App.css';
 
 const markdown =
-``
+  ``
 
 export const MilkdownEditor: FC = () => {
+
   const pluginViewFactory = usePluginViewFactory();
+  const nodeViewFactory = useNodeViewFactory();
+
   const slash = useSlash();
+
+  const diagramPlugins: MilkdownPlugin[] = useMemo(() => {
+    return [
+      diagram,
+      $view(diagramSchema.node, () =>
+        nodeViewFactory({
+          component: Diagram,
+          stopEvent: () => true,
+        })
+      ),
+    ].flat();
+  }, [nodeViewFactory]);
 
   useEditor((root) => {
     return Editor
@@ -48,15 +69,9 @@ export const MilkdownEditor: FC = () => {
           // or you may want to bind multiple keys:
           ToggleStrikethrough: ['Mod-Shift-s', 'Mod-s'],
         })
-        // ctx.set(slash.key, {
-        //   view: pluginViewFactory({
-        //     component: SlashView,
-        //   })
-        // })
         slash.config(ctx);
       })
       .config(nord)
-      .use(commonmark)
       .use(commonmark)
       .use(gfm)
       .use(math)
@@ -70,6 +85,7 @@ export const MilkdownEditor: FC = () => {
       .use(trailing)
       .use(indent)
       .use(slash.plugins)
+      .use(diagramPlugins)
   }, [])
 
   return <Milkdown />
