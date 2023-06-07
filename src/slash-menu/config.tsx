@@ -10,6 +10,7 @@ import {
     wrapInOrderedListCommand,
     wrapInBlockquoteCommand,
 } from "@milkdown/preset-commonmark";
+import { insertTableCommand } from "@milkdown/preset-gfm";
 import { ReactNode } from "react";
 
 type ConfigItem = {
@@ -167,6 +168,21 @@ export const config: Array<ConfigItem> = [
                 Divider
                 <br></br>
                 <span className="suggestionItemDescription">Separate sections with a divider.</span>
+                </div>
+            </div>
+        ),
+    },
+    {
+        onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(insertTableCommand.key, 2),
+        renderer: (
+            <div className="slashSuggestionItemContainer">
+                <span className="suggestionItemImageContainer">
+
+                </span>
+                <div className="suggestionItemTitle">
+                Table
+                <br></br>
+                <span className="suggestionItemDescription">Write in tabular format.</span>
                 </div>
             </div>
         ),
