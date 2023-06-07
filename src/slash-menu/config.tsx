@@ -37,7 +37,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
+                <div className="suggestionItemTitle">
                 Text
+                <br></br>
+                <span className="suggestionItemDescription">Write normal text in paragraph size.</span>
+                </div>
             </div>
         ),
     },
@@ -48,7 +52,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
-                Bulleted List
+                <div className="suggestionItemTitle">
+                Bullet List
+                <br></br>
+                <span className="suggestionItemDescription">Create a list with bullets.</span>
+                </div>
             </div>
         ),
     },
@@ -59,7 +67,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
+                <div className="suggestionItemTitle">
                 Numbered List
+                <br></br>
+                <span className="suggestionItemDescription">Create a list with numbers.</span>
+                </div>
             </div>
         ),
     },
@@ -71,7 +83,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
+                <div className="suggestionItemTitle">
                 Heading 1
+                <br></br>
+                <span className="suggestionItemDescription">Create a large-sized section title.</span>
+                </div>
             </div>
         ),
     },
@@ -83,7 +99,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
+                <div className="suggestionItemTitle">
                 Heading 2
+                <br></br>
+                <span className="suggestionItemDescription">Create a medium-sized section title.</span>
+                </div>
             </div>
         ),
     },
@@ -95,7 +115,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
+                <div className="suggestionItemTitle">
                 Heading 3
+                <br></br>
+                <span className="suggestionItemDescription">Create a small-sized section title.</span>
+                </div>
             </div>
         ),
     },
@@ -107,7 +131,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
+                <div className="suggestionItemTitle">
                 Code Block
+                <br></br>
+                <span className="suggestionItemDescription">Write code in a code block.</span>
+                </div>
             </div>
         ),
     },
@@ -118,7 +146,11 @@ export const config: Array<ConfigItem> = [
                 <span className="suggestionItemImageContainer">
 
                 </span>
+                <div className="suggestionItemTitle">
                 Divider
+                <br></br>
+                <span className="suggestionItemDescription">Separate sections with a divider.</span>
+                </div>
             </div>
         ),
     },

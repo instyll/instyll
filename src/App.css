@@ -366,6 +366,12 @@ body {
   border-radius: 5px;
 }
 
+.suggestionItemDescription {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--secondary-text);
+}
+
 .slashSuggestionItemSelected {
   background-color: var(--muted-text);
 }
