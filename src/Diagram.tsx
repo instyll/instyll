@@ -70,7 +70,7 @@ export const Diagram: FC = () => {
               value === "source" ? "activeTab" : ""
             )}
           >
-            Source
+            Edit
           </Tabs.Trigger>
         </div>
       </Tabs.List>
