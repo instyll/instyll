@@ -354,15 +354,21 @@ body {
   font-size: 15px;
   background-color: transparent;
   border: none;
-  padding: 20px 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   margin-right: 10px;
   margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   user-select: none;
 }
 
 .previewTab.activeTab {
   font-weight: 600;
+}
+
+.previewTab:hover {
+  background-color: var(--muted-text);
 }
 
 .sourceTab {
@@ -374,11 +380,17 @@ body {
   border-radius: 5px;
   margin-right: 10px;
   margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   user-select: none;
 }
 
 .sourceTab.activeTab {
   font-weight: 600;
+}
+
+.sourceTab:hover {
+  background-color: var(--muted-text);
 }
 
 .nodeviewCodeInput {
@@ -408,7 +420,7 @@ body {
   right: 0;
   top: 0;
   margin-right: 10px;
-  margin-top: 15px;
+  margin-top: 20px;
   width: 60px;
   user-select: none;
 }
