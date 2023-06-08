@@ -78,7 +78,7 @@ export const Diagram: FC = () => {
         <div
           ref={codePanel}
           className={clsx(
-            "flex justify-center py-3",
+            "svgContainer",
             value !== "preview" ? "hidden" : ""
           )}
         />

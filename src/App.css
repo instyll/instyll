@@ -379,7 +379,6 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   margin-right: 10px;
-  margin-left: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
   user-select: none;
@@ -393,17 +392,21 @@ body {
   background-color: var(--muted-text);
 }
 
+.svgContainer {
+  text-align: center;
+}
+
 .nodeviewCodeInput {
   background-color: var(--elevated-bg);
   border: none;
   border-radius: 5px;
   height: 200px;
   color: var(--primary-text);
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   box-sizing: border-box;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 4px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 14px;
   padding: 10px;
   resize: none;
   outline: none;
@@ -420,7 +423,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 20px;
   width: 60px;
   user-select: none;
