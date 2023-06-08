@@ -368,7 +368,7 @@ body {
 }
 
 .previewTab:hover {
-  background-color: var(--muted-text);
+  color: var(--secondary-text);
 }
 
 .sourceTab {
@@ -389,7 +389,7 @@ body {
 }
 
 .sourceTab:hover {
-  background-color: var(--muted-text);
+  color: var(--secondary-text);
 }
 
 .svgContainer {
