@@ -26,7 +26,8 @@ export const Diagram: FC = () => {
 
     mermaid.initialize({
       startOnLoad: false,
-      theme: darkMode ? "dark" : "default",
+    //   theme: darkMode ? "dark" : "default",
+        theme: document.documentElement.getAttribute('data-theme') === 'dark' ? "dark" : "default",
     });
     rendering.current = true;
     const { svg, bindFunctions } = await mermaid.render(id, code);
@@ -44,15 +45,6 @@ export const Diagram: FC = () => {
         console.log("After renderMermaid");
     });
   }, [renderMermaid, value]);
-
-  useEffect(() => {
-    if (dataTheme === 'dark') {
-        setDarkmode(true);
-    }
-    else {
-        setDarkmode(false);
-    }
-  }, [setDarkmode]);
 
   return (
     <div className="nodeViewWrapper">
