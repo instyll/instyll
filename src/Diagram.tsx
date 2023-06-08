@@ -12,8 +12,10 @@ export const Diagram: FC = () => {
   const codeInput = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState("preview");
   const codePanel = useRef<HTMLDivElement>(null);
-  const darkMode = true;
+  const [darkMode, setDarkmode] = useState(false);
   const rendering = useRef(false);
+  const htmlElement = document.documentElement;
+  const dataTheme = htmlElement.getAttribute('data-theme');
 
   const renderMermaid = useCallback(async () => {
     const container = codePanel.current;
@@ -30,7 +32,8 @@ export const Diagram: FC = () => {
     const { svg, bindFunctions } = await mermaid.render(id, code);
     rendering.current = false;
     container.innerHTML = svg;
-    console.log("rendered svg: " + svg)
+    // console.log("rendered svg: " + svg)
+    console.log(darkMode)
     bindFunctions?.(container);
   }, [code, darkMode, id]);
 
@@ -41,6 +44,15 @@ export const Diagram: FC = () => {
         console.log("After renderMermaid");
     });
   }, [renderMermaid, value]);
+
+  useEffect(() => {
+    if (dataTheme === 'dark') {
+        setDarkmode(true);
+    }
+    else {
+        setDarkmode(false);
+    }
+  }, [setDarkmode]);
 
   return (
     <div className="nodeViewWrapper">
