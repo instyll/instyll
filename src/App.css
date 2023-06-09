@@ -342,6 +342,7 @@ body {
   border-radius: 10px;
   transition: width 0.2s;
   position: relative;
+  margin-bottom: 22px;
 }
 
 .nodeViewTabGroup {
