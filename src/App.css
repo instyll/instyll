@@ -514,6 +514,14 @@ body {
   border-radius: 5px;
 }
 
+.tooltipItem {
+  font-family: var(--font);
+  font-size: 15px;
+  background-color: var(--elevated-bg);
+  border: none;
+  padding: 5px 10px;
+}
+
 .optionsContainer {
   display: block;
   width: 100%;

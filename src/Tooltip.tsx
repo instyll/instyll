@@ -41,7 +41,7 @@ export const TooltipView = () => {
         <div data-desc="This additional wrapper is useful for keeping tooltip component during HMR">
             <div ref={ref}>
                 <button
-                    className="text-gray-600 bg-slate-200 px-2 py-1 rounded-lg hover:bg-slate-300 border hover:text-gray-900"
+                    className="tooltipItem"
                     onMouseDown={(e) => {
                         // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
                         e.preventDefault()
