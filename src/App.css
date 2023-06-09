@@ -109,7 +109,7 @@ body {
 
   /* test image */
   /* background-size: contain; */
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
 }
 
 .App {
