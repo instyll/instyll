@@ -521,7 +521,6 @@ body {
   border-radius: 5px;
   box-shadow: var(--editorBoxShadow);
   border: 1px solid var(--muted-text);
-  width: 470px;
 }
 
 .tooltipItem {
@@ -530,6 +529,15 @@ body {
   background-color: var(--elevated-bg);
   border: none;
   padding: 5px 10px;
+}
+
+.tooltipIcon {
+  filter: var(--icon-filter);
+  object-fit: cover;
+  width: 15px;
+  vertical-align: middle;
+  padding-right: 5px;
+  user-select: none;
 }
 
 .optionsContainer {
