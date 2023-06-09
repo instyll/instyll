@@ -531,6 +531,11 @@ body {
   padding: 5px 10px;
 }
 
+.tooltipItem:hover {
+  background-color: var(--muted-text);
+  border-radius: 2px;
+}
+
 .tooltipIcon {
   filter: var(--icon-filter);
   object-fit: cover;

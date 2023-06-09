@@ -6,6 +6,7 @@ import {
     wrapInBulletListCommand,
     wrapInOrderedListCommand,
     wrapInHeadingCommand,
+    wrapInBlockquoteCommand,
 } from "@milkdown/preset-commonmark"
 import {
     toggleStrikethroughCommand,
