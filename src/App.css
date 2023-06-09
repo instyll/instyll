@@ -493,6 +493,10 @@ body {
   border-radius: 5px;
 }
 
+.blockSVGContainer {
+
+}
+
 .blockSVG {
   width: 24px;
   height: 24px;
@@ -502,7 +506,7 @@ body {
   stroke: transparent;
   stroke-width: 0px;
   vertical-align: text-top;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .blockSVG:hover {
@@ -1861,7 +1865,7 @@ input:checked+.sliderMin:before {
 /* elements */
 h1 {
   font-size: 1.8em;
-  line-height: 1.4em;
+  line-height: 1.2em;
   /* margin-top: 0; */
   padding-bottom: 0.3em;
   border-bottom: 1px solid var(--muted-text);
@@ -1871,14 +1875,14 @@ h1 {
 h2 {
   font-size: 1.4em;
   /* margin-top: 0; */
-  line-height: 1.4em;
+  line-height: 1.2em;
   padding-bottom: 0.3em;
   border-bottom: 1px solid var(--muted-text);
 }
 
 h3 {
   font-size: 1.2em;
-  line-height: 1.4em;
+  line-height: 1.2em;
   /* margin-top: 0; */
   padding-bottom: 0.3em;
   border-bottom: 1px solid var(--muted-text);
