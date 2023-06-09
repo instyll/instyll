@@ -24,6 +24,7 @@ import italicIcon from './icons/italic.png';
 import listUnordered from './icons/listUnordered.png';
 import listOrdered from './icons/listOrdered.png';
 import strikethrough from './icons/strikethrough.png';
+import blockquote from './icons/bquote.png';
 
 export const tooltip = tooltipFactory('Text');
 
@@ -147,6 +148,17 @@ export const TooltipView = () => {
                         }}
                     >
                         <img src={strikethrough} className='tooltipIcon'></img>
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(wrapInBlockquoteCommand.key))
+                        }}
+                    >
+                        <img src={blockquote} className='tooltipIcon'></img>
                     </button>
                 </div>
             </div>
