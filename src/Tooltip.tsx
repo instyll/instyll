@@ -1,6 +1,15 @@
 import { Ctx } from "@milkdown/ctx"
 import { tooltipFactory, TooltipProvider } from "@milkdown/plugin-tooltip"
-import { toggleStrongCommand } from "@milkdown/preset-commonmark"
+import {
+    toggleStrongCommand,
+    toggleEmphasisCommand,
+    wrapInBulletListCommand,
+    wrapInOrderedListCommand,
+    wrapInHeadingCommand,
+} from "@milkdown/preset-commonmark"
+import {
+    toggleStrikethroughCommand,
+} from "@milkdown/preset-gfm";
 import { useInstance } from '@milkdown/react'
 import { usePluginViewContext } from "@prosemirror-adapter/react"
 import { useCallback, useEffect, useRef } from "react"
@@ -40,17 +49,96 @@ export const TooltipView = () => {
     return (
         <div data-desc="This additional wrapper is useful for keeping tooltip component during HMR">
             <div ref={ref}>
-                <button
-                    className="tooltipItem"
-                    onMouseDown={(e) => {
-                        // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
-                        e.preventDefault()
+                <div className="tooltipContainer">
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
 
-                        action(callCommand(toggleStrongCommand.key))
-                    }}
-                >
-                    Bold
-                </button>
+                            action(callCommand(wrapInHeadingCommand.key, 1))
+                        }}
+                    >
+                        H1
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(wrapInHeadingCommand.key, 2))
+                        }}
+                    >
+                        H2
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(wrapInHeadingCommand.key, 3))
+                        }}
+                    >
+                        H3
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(toggleStrongCommand.key))
+                        }}
+                    >
+                        Bold
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(toggleEmphasisCommand.key))
+                        }}
+                    >
+                        Italic
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(wrapInBulletListCommand.key))
+                        }}
+                    >
+                        List
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(wrapInOrderedListCommand.key))
+                        }}
+                    >
+                        List 2
+                    </button>
+                    <button
+                        className="tooltipItem"
+                        onMouseDown={(e) => {
+                            // Use `onMouseDown` with `preventDefault` to prevent the editor from losing focus.
+                            e.preventDefault()
+
+                            action(callCommand(toggleStrikethroughCommand.key))
+                        }}
+                    >
+                        Strikethrough
+                    </button>
+                </div>
             </div>
         </div>
     )

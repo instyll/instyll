@@ -514,6 +514,16 @@ body {
   border-radius: 5px;
 }
 
+.tooltipContainer {
+  display: inline-block;
+  padding: 2px;
+  background-color: var(--elevated-bg);
+  border-radius: 5px;
+  box-shadow: var(--editorBoxShadow);
+  border: 1px solid var(--muted-text);
+  width: 470px;
+}
+
 .tooltipItem {
   font-family: var(--font);
   font-size: 15px;
