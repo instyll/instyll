@@ -24,6 +24,8 @@ import { clipboard } from '@milkdown/plugin-clipboard';
 import { trailing } from '@milkdown/plugin-trailing';
 import { indent } from '@milkdown/plugin-indent';
 
+import { tooltip, TooltipView } from './Tooltip.tsx';
+
 import { Diagram } from './Diagram.tsx';
 import { $view, getMarkdown } from "@milkdown/utils";
 
@@ -79,11 +81,19 @@ export const MilkdownEditor: FC = () => {
             window.parent.postMessage({ type: "updateToc" }, "*");
           }
         })
+
         ctx.set(strikethroughKeymap.key, {
           ToggleStrikethrough: 'Mod-Shift-s',
           // or you may want to bind multiple keys:
           ToggleStrikethrough: ['Mod-Shift-s', 'Mod-s'],
         })
+
+        ctx.set(tooltip.key, {
+          view: pluginViewFactory({
+            component: TooltipView,
+          })
+        })
+
         slash.config(ctx);
       })
       .config(nord)
@@ -102,6 +112,7 @@ export const MilkdownEditor: FC = () => {
       .use(slash.plugins)
       .use(diagramPlugins)
       .use(blockPlugins)
+      .use(tooltip)
   }, [])
 
   return <Milkdown />

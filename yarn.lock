@@ -2308,6 +2308,18 @@
     tippy.js "^6.3.7"
     tslib "^2.5.0"
 
+"@milkdown/plugin-tooltip@^7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-tooltip/-/plugin-tooltip-7.2.3.tgz#a8185413cfd538de35988a5a5215836011290fdf"
+  integrity sha512-2tAx8UosUBMgSfPIvA6Ym79EnjoQOTGmjaQOaEhuCrw38K39doXG37DEyzmFjBAm3JQ9sPXsHYTodAk3HX4orw==
+  dependencies:
+    "@milkdown/exception" "7.2.3"
+    "@milkdown/utils" "7.2.3"
+    "@types/lodash.debounce" "^4.0.7"
+    lodash.debounce "^4.0.8"
+    tippy.js "^6.3.7"
+    tslib "^2.5.0"
+
 "@milkdown/plugin-trailing@^7.2.1":
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-trailing/-/plugin-trailing-7.2.1.tgz#7c9f931fa4adeced04307cbe03148e6b97519daa"
