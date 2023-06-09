@@ -17,7 +17,7 @@ import { emoji } from '@milkdown/plugin-emoji';
 import { diagram, diagramSchema } from "@milkdown/plugin-diagram";
 import { history } from '@milkdown/plugin-history';
 import { block } from '@milkdown/plugin-block';
-import { BlockView } from './Block.tsx';
+import { Block } from './Block.tsx';
 import { prism, prismConfig } from '@milkdown/plugin-prism';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { clipboard } from '@milkdown/plugin-clipboard';
@@ -39,6 +39,7 @@ export const MilkdownEditor: FC = () => {
 
   const slash = useSlash();
 
+  /* mermaid diagram plugin */
   const diagramPlugins: MilkdownPlugin[] = useMemo(() => {
     return [
       diagram,
@@ -50,6 +51,20 @@ export const MilkdownEditor: FC = () => {
       ),
     ].flat();
   }, [nodeViewFactory]);
+
+  /* block plugin */
+  const blockPlugins: MilkdownPlugin[] = useMemo(() => {
+    return [
+      block,
+      (ctx: Ctx) => () => {
+        ctx.set(block.key, {
+          view: pluginViewFactory({
+            component: Block,
+          }),
+        });
+      },
+    ].flat();
+  }, [pluginViewFactory]);
 
   useEditor((root) => {
     return Editor
@@ -85,8 +100,8 @@ export const MilkdownEditor: FC = () => {
       .use(trailing)
       .use(indent)
       .use(slash.plugins)
-      // .use(diagram)
       .use(diagramPlugins)
+      .use(blockPlugins)
   }, [])
 
   return <Milkdown />

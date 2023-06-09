@@ -493,6 +493,11 @@ body {
   border-radius: 5px;
 }
 
+.blockSVG {
+  width: 10px;
+  height: 10px;
+}
+
 .optionsContainer {
   display: block;
   width: 100%;
