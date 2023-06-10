@@ -46,6 +46,13 @@ export const Diagram: FC = () => {
     });
   }, [renderMermaid, value]);
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      setAttrs({ value: codeInput.current?.value || "" });
+      setValue("preview");
+    }
+  }
+
   return (
     <div className="nodeViewWrapper">
       <Tabs.Root
@@ -79,22 +86,14 @@ export const Diagram: FC = () => {
           </div>
         </Tabs.List>
         <Tabs.Content value="preview" >
-          {/* <div
-          ref={codePanel}
-          className={clsx(
-            "svgContainer",
-            value !== "preview" ? "hidden" : ""
-          )}
-        /> */}
-
           <div className="svgContainer" ref={codePanel} />
-
         </Tabs.Content>
         <Tabs.Content value="source" className="relative">
           <textarea
             className="nodeviewCodeInput"
             ref={codeInput}
             defaultValue={code}
+            onKeyDown={handleKeyPress}
           />
           <button
             className="nodeViewSubmitButton"
