@@ -495,7 +495,8 @@ body {
 }
 
 .blockSVGContainer {
-
+  vertical-align: middle;
+  position: relative;
 }
 
 .blockSVG {
@@ -506,7 +507,7 @@ body {
   border: none;
   stroke: transparent;
   stroke-width: 0px;
-  vertical-align: text-top;
+  /* vertical-align: text-top; */
   margin-right: 8px;
   user-select: none;
 }
