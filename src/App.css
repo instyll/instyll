@@ -309,7 +309,7 @@ body {
 .milkdown {
   font-size: 1.2em;
   font-family: var(--font);
-  line-height: 1.4em;
+  /* line-height: 1.4em; */
   white-space: pre-wrap;
   color: var(--primary-text);
   width: 100%;
@@ -320,7 +320,9 @@ body {
 
 .milkdown p {
   font-size: 16px;
-  line-height: 1.5em;
+  line-height: 24px;
+  padding-top: 0.1em;
+  margin-top: 15px;
 }
 
 .ProseMirror {
@@ -494,6 +496,11 @@ body {
   border-radius: 5px;
 }
 
+.blockSVGWrapper {
+  position: relative;
+  cursor: grab;
+}
+
 .blockSVGContainer {
   vertical-align: middle;
   position: relative;
@@ -506,9 +513,10 @@ body {
   fill: var(--muted-text);
   border: none;
   stroke: transparent;
-  stroke-width: 0px;
+  /* stroke-width: 1.5; */
   /* vertical-align: text-top; */
-  margin-right: 8px;
+  margin-right: 10px;
+  margin-top: 0.1em;
   user-select: none;
 }
 
@@ -1898,11 +1906,11 @@ input:checked+.sliderMin:before {
 /* elements */
 h1 {
   font-size: 1.8em;
-  line-height: 1.2em;
-  /* margin-top: 0; */
+  line-height: 1.1em;
   padding-bottom: 0.3em;
   border-bottom: 1px solid var(--muted-text);
   font-weight: 700;
+  vertical-align: top;
 }
 
 h2 {
@@ -1961,6 +1969,7 @@ blockquote {
 ul {
   margin-top: 0;
   line-height: 1.4em;
+  box-sizing: border-box;
 }
 
 li::marker {
