@@ -12,7 +12,7 @@ from '@prosemirror-adapter/react';
 import { Slash } from './slash-menu/Slash.tsx';
 import { useSlash } from './slash-menu/index.tsx';
 import { gfm, strikethroughKeymap } from '@milkdown/preset-gfm';
-import { math } from '@milkdown/plugin-math';
+import { math, mathBlockSchema } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
 import { diagram, diagramSchema } from "@milkdown/plugin-diagram";
 import { history } from '@milkdown/plugin-history';
@@ -25,6 +25,8 @@ import { trailing } from '@milkdown/plugin-trailing';
 import { indent } from '@milkdown/plugin-indent';
 
 import { tooltip, TooltipView } from './Tooltip.tsx';
+
+import { MathBlock } from './MathBlock.tsx';
 
 import { Diagram } from './Diagram.tsx';
 import { $view, getMarkdown } from "@milkdown/utils";
@@ -51,6 +53,19 @@ export const MilkdownEditor: FC = () => {
           stopEvent: () => true,
         })
       ),
+    ].flat();
+  }, [nodeViewFactory]);
+
+  /* math plugin */
+  const mathPlugins: MilkdownPlugin[] = useMemo(() => {
+    return [
+      $view(mathBlockSchema.node, () =>
+        nodeViewFactory({
+          component: MathBlock,
+          stopEvent: () => true,
+        })
+      ),
+      math,
     ].flat();
   }, [nodeViewFactory]);
 
@@ -112,6 +127,7 @@ export const MilkdownEditor: FC = () => {
       .use(slash.plugins)
       .use(diagramPlugins)
       .use(blockPlugins)
+      .use(mathPlugins)
       .use(tooltip)
   }, [])
 
