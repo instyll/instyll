@@ -26,8 +26,8 @@ export const Diagram: FC = () => {
 
     mermaid.initialize({
       startOnLoad: false,
-    //   theme: darkMode ? "dark" : "default",
-        theme: document.documentElement.getAttribute('data-theme') === 'dark' ? "dark" : "default",
+      //   theme: darkMode ? "dark" : "default",
+      theme: document.documentElement.getAttribute('data-theme') === 'dark' ? "dark" : "default",
     });
     rendering.current = true;
     const { svg, bindFunctions } = await mermaid.render(id, code);
@@ -40,70 +40,73 @@ export const Diagram: FC = () => {
 
   useEffect(() => {
     requestAnimationFrame(() => {
-        console.log("Calling renderMermaid...");
-        renderMermaid();
-        console.log("After renderMermaid");
+      console.log("Calling renderMermaid...");
+      renderMermaid();
+      console.log("After renderMermaid");
     });
   }, [renderMermaid, value]);
 
   return (
     <div className="nodeViewWrapper">
-    <Tabs.Root
-      contentEditable={false}
-      className={selected ? "ring-2 ring-offset-2" : ""}
-      value={value}
-      onValueChange={(value) => {
-        setValue(value);
-      }}
-    >
-      <Tabs.List className="nodeViewTabGroup">
-        <div className="tabsContainer">
-          <Tabs.Trigger
-            value="preview"
-            className={clsx(
-              "previewTab",
-              value === "preview" ? "activeTab" : ""
-            )}
-          >
-            Preview
-          </Tabs.Trigger>
-          <Tabs.Trigger
-            value="source"
-            className={clsx(
-              "sourceTab",
-              value === "source" ? "activeTab" : ""
-            )}
-          >
-            Edit
-          </Tabs.Trigger>
-        </div>
-      </Tabs.List>
-      <Tabs.Content value="preview" forceMount>
-        <div
+      <Tabs.Root
+        contentEditable={false}
+        className={selected ? "ring-2 ring-offset-2" : ""}
+        value={value}
+        onValueChange={(value) => {
+          setValue(value);
+        }}
+      >
+        <Tabs.List className="nodeViewTabGroup">
+          <div className="tabsContainer">
+            <Tabs.Trigger
+              value="preview"
+              className={clsx(
+                "previewTab",
+                value === "preview" ? "activeTab" : ""
+              )}
+            >
+              Preview
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              value="source"
+              className={clsx(
+                "sourceTab",
+                value === "source" ? "activeTab" : ""
+              )}
+            >
+              Edit
+            </Tabs.Trigger>
+          </div>
+        </Tabs.List>
+        <Tabs.Content value="preview" >
+          {/* <div
           ref={codePanel}
           className={clsx(
             "svgContainer",
             value !== "preview" ? "hidden" : ""
           )}
-        />
-      </Tabs.Content>
-      <Tabs.Content value="source" className="relative">
-        <textarea
-          className="nodeviewCodeInput"
-          ref={codeInput}
-          defaultValue={code}
-        />
-        <button
-          className="nodeViewSubmitButton"
-          onClick={() => {
-            setAttrs({ value: codeInput.current?.value || "" });
-            setValue("preview");
-          }}
-        >
-          OK
-        </button>
-      </Tabs.Content>
-    </Tabs.Root>
+        /> */}
+
+          <div className="svgContainer" ref={codePanel} />
+
+        </Tabs.Content>
+        <Tabs.Content value="source" className="relative">
+          <textarea
+            className="nodeviewCodeInput"
+            ref={codeInput}
+            defaultValue={code}
+          />
+          <button
+            className="nodeViewSubmitButton"
+            onClick={() => {
+              setAttrs({ value: codeInput.current?.value || "" });
+              setValue("preview");
+            }}
+          >
+            OK
+          </button>
+        </Tabs.Content>
+      </Tabs.Root>
     </div>
   );
 };
