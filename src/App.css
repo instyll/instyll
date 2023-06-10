@@ -150,6 +150,79 @@ body {
   bottom: 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+
+  padding-left: 340px;
+  padding-right: 340px;
+}
+
+@media only screen and (max-width: 1700px) {
+  .elevated {
+    padding-left: 260px;
+    padding-right: 260px;
+  }
+}
+
+@media only screen and (max-width: 1630px) {
+  .elevated {
+    padding-left: 240px;
+    padding-right: 240px;
+  }
+}
+
+@media only screen and (max-width: 1560px) {
+  .elevated {
+    padding-left: 210px;
+    padding-right: 210px;
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  .elevated {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+}
+
+@media only screen and (max-width: 1410px) {
+  .elevated {
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .elevated {
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .elevated {
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
+
+@media only screen and (max-width: 1240px) {
+  .elevated {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media only screen and (max-width: 1170px) {
+  .elevated {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .elevated {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .elevatedLeft {
