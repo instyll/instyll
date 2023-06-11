@@ -410,9 +410,9 @@ class EditorView extends Component {
                             <div className="elevated">
                                 <div className="optionsContainer">
                                     <div className="leftComponents" >
-                                        <img
+                                        {/* <img
 
-                                            className="back" src={back} draggable={false}></img>
+                                            className="back" src={back} draggable={false}></img> */}
                                         <div className="optionObject">
 
                                             <button className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
