@@ -665,6 +665,10 @@ body {
   text-decoration: none;
 }
 
+.linkWidgetURLIndicator {
+  font-family: var(--font);
+}
+
 .optionsContainer {
   display: block;
   width: 100%;

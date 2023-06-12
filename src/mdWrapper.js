@@ -35,6 +35,8 @@ import { tooltip, TooltipView } from './Tooltip.tsx';
 import { MathBlock } from './MathBlock.tsx';
 
 import { Diagram } from './Diagram.tsx';
+
+import { linkPlugin } from './LinkWidget.tsx';
 import { $view, getMarkdown } from "@milkdown/utils";
 
 import './App.css';
@@ -160,6 +162,7 @@ export const MilkdownEditor: FC = () => {
       .use(diagramPlugins)
       .use(blockPlugins)
       .use(mathPlugins)
+      .use(linkPlugin(widgetViewFactory))
       .use(tooltip)
   }, [])
 
