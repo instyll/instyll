@@ -44,7 +44,6 @@ export const LinkWidgetAfter: FC = () => {
             />
             &nbsp;
             <small className="linkWidgetURLIndicator">Title: </small>
-            &quot;
             <input
               size={title.length || 5}
               placeholder="Title"
@@ -61,7 +60,6 @@ export const LinkWidgetAfter: FC = () => {
               type="text"
               defaultValue={title}
             />
-            &quot;
           </>
         }
         )
