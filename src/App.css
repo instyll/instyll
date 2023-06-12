@@ -629,6 +629,34 @@ body {
   user-select: none;
 }
 
+.footnoteReferenceContainer {
+  position: relative;
+  box-shadow: var(--editorBoxShadow);
+  border: 1px solid var(--muted-text);
+  border-radius: 10px;
+  display: flex;
+  gap: 2px;
+  padding: 20px;
+}
+
+.footnoteReferenceContent {
+  white-space: normal;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.footnoteReferenceReturnToDefContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+.footnoteReferenceReturnToDefLink {
+  text-decoration: none;
+}
+
 .optionsContainer {
   display: block;
   width: 100%;

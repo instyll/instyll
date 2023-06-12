@@ -5,13 +5,19 @@ import type { Ctx, MilkdownPlugin } from "@milkdown/ctx";
 import { commonmark, listItemSchema } from '@milkdown/preset-commonmark';
 import { Milkdown, useEditor } from '@milkdown/react';
 import { nord } from '@milkdown/theme-nord';
-import { 
-  usePluginViewFactory, useNodeViewFactory
-} 
-from '@prosemirror-adapter/react';
+import {
+  usePluginViewFactory, useNodeViewFactory, useWidgetViewFactory
+}
+  from '@prosemirror-adapter/react';
 import { Slash } from './slash-menu/Slash.tsx';
 import { useSlash } from './slash-menu/index.tsx';
-import { gfm, strikethroughKeymap } from '@milkdown/preset-gfm';
+import {
+  gfm,
+  strikethroughKeymap,
+  footnoteDefinitionSchema,
+  footnoteReferenceSchema,
+} from '@milkdown/preset-gfm';
+import { FootnoteDef, FootnoteRef } from './Footnote.tsx';
 import { math, mathBlockSchema } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
 import { diagram, diagramSchema } from "@milkdown/plugin-diagram";
@@ -40,8 +46,33 @@ export const MilkdownEditor: FC = () => {
 
   const pluginViewFactory = usePluginViewFactory();
   const nodeViewFactory = useNodeViewFactory();
+  const widgetViewFactory = useWidgetViewFactory();
 
   const slash = useSlash();
+
+  /* gfm plugins */
+
+  const gfmPlugins: MilkdownPlugin[] = useMemo(() => {
+    return [
+      gfm,
+      // tableTooltip,
+      // tableTooltipCtx,
+      // (ctx: Ctx) => async () => {
+      //   ctx.set(tableTooltip.key, {
+      //     view: pluginViewFactory({
+      //       component: TableTooltip,
+      //     }),
+      //   });
+      // },
+      $view(footnoteDefinitionSchema.node, () =>
+        nodeViewFactory({ component: FootnoteDef })
+      ),
+      $view(footnoteReferenceSchema.node, () =>
+        nodeViewFactory({ component: FootnoteRef })
+      ),
+      // tableSelectorPlugin(widgetViewFactory),
+    ].flat();
+  }, [nodeViewFactory, pluginViewFactory, widgetViewFactory])
 
   /* mermaid diagram plugin */
   const diagramPlugins: MilkdownPlugin[] = useMemo(() => {
@@ -124,6 +155,7 @@ export const MilkdownEditor: FC = () => {
       .use(clipboard)
       .use(trailing)
       .use(indent)
+      .use(gfmPlugins)
       .use(slash.plugins)
       .use(diagramPlugins)
       .use(blockPlugins)
