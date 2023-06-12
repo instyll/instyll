@@ -2360,13 +2360,11 @@ table {
   flex-direction: column;
   background-color: transparent;
   box-sizing: border-box;
-  /* width: 100%; */
   bottom: 0;
   transition: 0.2s;
 }
 
 .dashboardGreetingContainer {
-  /* display: inline-block; */
   height: calc(100vh - 96px);
   padding-left: 27px;
   padding-right: 27px;
@@ -2386,10 +2384,6 @@ table {
 
 }
 
-.greetingDate .greetingTime {
-  /* display: inline-block; */
-}
-
 .greetingTime {
   font-size: 96px;
   font-weight: bold;
@@ -2407,11 +2401,6 @@ table {
 
 .dateTime {
   user-select: none;
-}
-
-.greetingDate {
-  /* padding-right: 20px; */
-  /* float: right; */
 }
 
 .homeContainer {}
@@ -2441,7 +2430,6 @@ table {
   text-align: center;
   position: relative;
   margin: 0 auto;
-  /* width: fit-content; */
 }
 
 .dailyQuote {
@@ -2509,13 +2497,6 @@ table {
   overflow: auto;
   /* margin-top: 32px; */
   text-align: left;
-}
-
-.canScroll {
-  /* height: calc(100vh - 96px);
-  overflow: auto;
-  width: 100%;
-  position: absolute; */
 }
 
 .topicItem {
