@@ -667,6 +667,27 @@ body {
 
 .linkWidgetURLIndicator {
   font-family: var(--font);
+  font-size: 15px;
+}
+
+.linkWidgetURLInput {
+  font-family: var(--font);
+  font-size: 15px;
+  padding: 5px 10px;
+  border: none;
+  background-color: var(--elevated-bg);
+  color: var(--primary-text);
+  border-radius: 5px;
+}
+
+.linkWidgetTitleInput {
+  font-family: var(--font);
+  font-size: 15px;
+  padding: 5px 10px;
+  border: none;
+  background-color: var(--elevated-bg);
+  color: var(--primary-text);
+  border-radius: 5px;
 }
 
 .optionsContainer {

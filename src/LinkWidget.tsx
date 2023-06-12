@@ -28,7 +28,7 @@ export const LinkWidgetAfter: FC = () => {
             <small className="linkWidgetURLIndicator">URL: </small>
             <input
               size={href.length}
-              placeholder="empty"
+              placeholder="URL"
               onBlur={(e) => {
                 if (loading) return;
                 editor().action((ctx) => {
@@ -38,16 +38,16 @@ export const LinkWidgetAfter: FC = () => {
                   });
                 });
               }}
-              className="rounded border-none bg-gray-50 py-0 px-2 ring-1 dark:bg-gray-900"
+              className="linkWidgetURLInput"
               type="text"
               defaultValue={href}
             />
             &nbsp;
-            <small className="font-light text-nord8">Title: </small>
+            <small className="linkWidgetURLIndicator">Title: </small>
             &quot;
             <input
               size={title.length || 5}
-              placeholder="empty"
+              placeholder="Title"
               onBlur={(e) => {
                 if (loading) return;
                 editor().action((ctx) => {
@@ -57,7 +57,7 @@ export const LinkWidgetAfter: FC = () => {
                   });
                 });
               }}
-              className="rounded border-none bg-gray-50 py-0 px-2 ring-1 dark:bg-gray-900"
+              className="linkWidgetTitleInput"
               type="text"
               defaultValue={title}
             />
