@@ -639,6 +639,10 @@ body {
   padding: 20px;
 }
 
+.footnoteReferenceNumber {
+  vertical-align: middle;
+}
+
 .footnoteReferenceContent {
   white-space: normal;
   overflow-wrap: break-word;

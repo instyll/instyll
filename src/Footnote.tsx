@@ -26,7 +26,7 @@ export const FootnoteDef: FC = () => {
       className="footnoteReferenceContainer"
       id={`footnote-${label}-def`}
     >
-      <dt className="text-nord8">{label}:</dt>
+      <dt className="footnoteReferenceNumber"><p>{label}:</p></dt>
       <dd className="footnoteReferenceContent" ref={contentRef} />
       <div
         contentEditable="false"
