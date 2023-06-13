@@ -682,6 +682,11 @@ body {
   border-radius: 5px;
   margin-right: 5px;
   margin-left: 5px;
+  background-color: var(--bg-color);
+}
+
+.linkWidgetURLInput::placeholder {
+  color: var(--secondary-text);
 }
 
 .linkWidgetTitleInput {
@@ -693,6 +698,11 @@ body {
   border-radius: 5px;
   margin-right: 5px;
   margin-left: 5px;
+  background-color: var(--bg-color);
+}
+
+.linkWidgetTitleInput::placeholder {
+  color: var(--secondary-text);
 }
 
 .optionsContainer {
