@@ -21,7 +21,7 @@ export const LinkWidgetAfter: FC = () => {
   return (
     <>
       ]
-      <span>
+      <span className="linkWidgetContainer">
         (
         {
           <>

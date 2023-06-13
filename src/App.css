@@ -665,6 +665,9 @@ body {
   text-decoration: none;
 }
 
+.linkWidgetContainer {
+}
+
 .linkWidgetURLIndicator {
   font-family: var(--font);
   font-size: 15px;
@@ -674,20 +677,22 @@ body {
   font-family: var(--font);
   font-size: 15px;
   padding: 5px 10px;
-  border: none;
-  background-color: var(--elevated-bg);
+  border: 1px solid var(--muted-text);
   color: var(--primary-text);
   border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .linkWidgetTitleInput {
   font-family: var(--font);
   font-size: 15px;
   padding: 5px 10px;
-  border: none;
-  background-color: var(--elevated-bg);
+  border: 1px solid var(--muted-text);
   color: var(--primary-text);
   border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .optionsContainer {
