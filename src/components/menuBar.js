@@ -17,6 +17,7 @@ function MenuBar(props) {
 
   const location = useLocation();
 
+  /* allow nav arrows to go to previous or next route */
   const handleGoBack = () => {
     navigate(-1); // Go back to the previous route
   };

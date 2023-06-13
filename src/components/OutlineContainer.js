@@ -7,6 +7,7 @@ import "../App.css";
 function OutlineContainer({ tocHeaders, rightPanelOpen }) {
   const [lastClickedHeader, setLastClickedHeader] = useState(null);
 
+  /* highlight last clicked header */
   const handleHeaderClick = (header) => {
     setLastClickedHeader(header);
   };

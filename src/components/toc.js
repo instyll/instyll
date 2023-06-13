@@ -23,6 +23,7 @@ import cmd from '../icons/cmd.png';
 
 function TableOfContents(props) {
 
+  /* handle theme toggle from switch */
   function toggleTheme() {
     const toggleSwitch = document.querySelector('.toggleSwitch');
     toggleSwitch.addEventListener('change', (event) => {
@@ -31,6 +32,7 @@ function TableOfContents(props) {
     });
   }
 
+  /* for minimized sidebar */
   function toggleThemeMin() {
     const toggleSwitch = document.querySelector('.toggleSwitchMin');
     toggleSwitch.addEventListener('change', (event) => {
@@ -45,7 +47,6 @@ function TableOfContents(props) {
     toggleTheme();
     toggleThemeMin();
   }, []);
-
 
   return (
     <div className="tableOfContents" style={{
@@ -67,27 +68,6 @@ function TableOfContents(props) {
             transition: "transform 0.3s",
           }}></img>
         </div>
-
-        {/* expanded switch */}
-
-        {/* <div style={{
-          display: props.tocOpen ? "initial" : "none",
-          height: props.tocOpen ? "initial" : "0px",
-        }}>
-
-          <label className="switch">
-            <input type="checkbox" className="toggleSwitch">
-            </input>
-            <span className="slider">
-              {props.tocOpen && <span className="sliderLeft">Light</span>}
-              {props.tocOpen && <span className="sliderRight">Dark</span>}
-            </span>
-          </label>
-
-        </div> */}
-
-        {/* collapsed switch */}
-
 
         <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && props.tocOpen ? 'active' : location.pathname === '/home' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
@@ -163,8 +143,6 @@ function TableOfContents(props) {
         }}>
           <img src={cmd} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
-
-       
        
         <p className="tocTitle" id="breakSection" style={{
           textAlign: props.tocOpen ? "left" : "center",

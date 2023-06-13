@@ -39,8 +39,6 @@ const Home = () => {
   
   const dispatch = useDispatch();
 
-  const tags = useSelector((state) => state.tags.tags);
-
   const selectedImage = useSelector((state) => state.image);
 
   const fetchFiles = async () => {
@@ -70,6 +68,7 @@ const Home = () => {
     setTopicSettingsModalOpen(value);
   }
 
+  /* append selected image to dashboard background */
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -84,6 +83,7 @@ const Home = () => {
     reader.readAsDataURL(file);
   };
 
+  /* handle dialogue for selecting image */
   const handleBackgroundChange = () => {
     const input = document.createElement('input');
     input.type = 'file';

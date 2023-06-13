@@ -75,6 +75,7 @@ const Topics = () => {
         setCreateTopicModalOpen(value);
     }
 
+    /* Handle grid or list layout */
     const handleChangeTopicViewLayout = () => {
         if (topicGridLayout) {
             setTopicGridLayout(false);
@@ -224,6 +225,7 @@ const Topics = () => {
     },
     ];
 
+    /* options for sorting topics */
     const options = [
         { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },

@@ -7,6 +7,7 @@ const DateTime = () => {
   const [currentDate, setCurrentDate] = useState('Loading...');
   const [currentTime, setCurrentTime] = useState('Loading...');
 
+  /* formats current date into readable string */
   useEffect(() => {
     const intervalID = setInterval(() => {
       const dateObj = new Date();

@@ -143,6 +143,7 @@ class EditorView extends Component {
         return toc;
     }
 
+    /* append newly created headers to outline */
     updateToc() {
         var toc = this.constructToc();
         this.setState({
