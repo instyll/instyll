@@ -17,6 +17,7 @@ import {
 import { insertTableCommand } from "@milkdown/preset-gfm";
 import { ReactNode } from "react";
 
+/* declare type for respective selections */
 type ConfigItem = {
     renderer: ReactNode;
     onSelect: (ctx: Ctx) => void;
@@ -36,6 +37,7 @@ const removeSlash = (ctx: Ctx) => {
 export const slash = slashFactory("slashMenu") satisfies MilkdownPlugin[];
 
 export const config: Array<ConfigItem> = [
+    /* item for paragraph text */
     {
         onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(turnIntoTextCommand.key),
         renderer: (
@@ -51,6 +53,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for unordered list */
     {
         onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(wrapInBulletListCommand.key),
         renderer: (
@@ -66,6 +69,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for ordered list */
     {
         onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(wrapInOrderedListCommand.key),
         renderer: (
@@ -81,6 +85,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for heading 1 */
     {
         onSelect: (ctx: Ctx) =>
             ctx.get(commandsCtx).call(wrapInHeadingCommand.key, 1),
@@ -97,6 +102,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for heading 2 */
     {
         onSelect: (ctx: Ctx) =>
             ctx.get(commandsCtx).call(wrapInHeadingCommand.key, 2),
@@ -113,6 +119,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for heading 3 */
     {
         onSelect: (ctx: Ctx) =>
             ctx.get(commandsCtx).call(wrapInHeadingCommand.key, 3),
@@ -129,6 +136,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for code block */
     {
         onSelect: (ctx: Ctx) =>
             ctx.get(commandsCtx).call(createCodeBlockCommand.key),
@@ -145,6 +153,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for blockquote */
     {
         onSelect: (ctx: Ctx) =>
             ctx.get(commandsCtx).call(wrapInBlockquoteCommand.key),
@@ -161,6 +170,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for horizontal rule */
     {
         onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(insertHrCommand.key),
         renderer: (
@@ -176,6 +186,7 @@ export const config: Array<ConfigItem> = [
             </div>
         ),
     },
+    /* item for basic table */
     {
         onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(insertTableCommand.key, 2),
         renderer: (

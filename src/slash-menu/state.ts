@@ -36,6 +36,7 @@ export const useSlashState = (instance: Instance) => {
     [getEditor]
   );
 
+  /* handle arrow navigation through slash menu */
   const onKeydown = useCallback(
     (e: KeyboardEvent) => {
       const key = e.key;

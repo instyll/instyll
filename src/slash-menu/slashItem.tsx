@@ -6,6 +6,7 @@ import { Instance } from "@milkdown/react";
 import { clsx } from "clsx";
 import { FC, ReactNode, useRef, useEffect } from "react";
 
+/* declare properties of slash items */
 type SlashItemProps = {
   index: number;
   instance: Instance;
