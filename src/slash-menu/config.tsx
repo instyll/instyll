@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { commandsCtx, editorViewCtx } from "@milkdown/core";
 import { Ctx, MilkdownPlugin } from "@milkdown/ctx";
 import { slashFactory } from "@milkdown/plugin-slash";

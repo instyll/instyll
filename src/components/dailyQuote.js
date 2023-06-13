@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import React from 'react';
 import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
 

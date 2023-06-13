@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Link, useLocation } from 'react-router-dom';

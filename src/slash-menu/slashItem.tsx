@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { Ctx } from "@milkdown/ctx";
 import { Instance } from "@milkdown/react";
 import { clsx } from "clsx";

@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import type { FC } from "react";
 

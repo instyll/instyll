@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import React, { useEffect, useState } from 'react';
 // import Editor from './legacyEditor.js';
 import { MilkdownEditorWrapper } from '../mdWrapper.js';

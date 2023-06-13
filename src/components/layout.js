@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import React, { Component } from 'react';
 // import Editor from './legacyEditor.js';
 import { MilkdownEditorWrapper } from '../mdWrapper.js';

@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { katexOptionsCtx } from "@milkdown/plugin-math";
 import { useInstance } from "@milkdown/react";
 import { useNodeViewContext } from "@prosemirror-adapter/react";

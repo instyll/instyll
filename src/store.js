@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { configureStore } from "@reduxjs/toolkit";
 import tagsReducer from './tagSlice';
 import imageReducer from './imageSlice';

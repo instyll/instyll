@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { config, slash } from "../slash-menu/config.tsx";
 import { rootDOMCtx } from "@milkdown/core";
 import { Instance } from "@milkdown/react";

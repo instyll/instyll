@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { config } from "../slash-menu/config.tsx";
 import { SlashItem } from "../slash-menu/slashItem.tsx";
 import { useSlashState } from "../slash-menu/state.ts";

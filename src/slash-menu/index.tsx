@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { slash } from "../slash-menu/config.tsx";
 import { Slash } from "../slash-menu/Slash.tsx";
 import { Ctx } from "@milkdown/ctx";

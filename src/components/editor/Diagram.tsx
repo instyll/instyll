@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";

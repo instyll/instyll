@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import React from 'react';
 import moreDots from '../icons/more.png';
 import '../App.css';
