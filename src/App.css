@@ -1163,7 +1163,7 @@ img {
   box-sizing: border-box;
   outline: none;
   font-size: 1em;
-  background-color: var(--search-background);
+  background-color: var(--elevated-bg);
   font-family: var(--font);
   color: var(--primary-text);
   padding-left: 48px;
@@ -2294,7 +2294,7 @@ table {
   background-color: var(--elevated-bg);
   text-align: center;
   border-radius: 10px;
-  margin-right: 10px;
+  margin-right: 12px;
   user-select: none;
   transition: 0.2s;
   vertical-align: middle;
