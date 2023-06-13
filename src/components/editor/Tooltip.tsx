@@ -16,15 +16,15 @@ import { usePluginViewContext } from "@prosemirror-adapter/react"
 import { useCallback, useEffect, useRef } from "react"
 import { callCommand } from "@milkdown/utils"
 
-import header1 from './icons/header1.png';
-import header2 from './icons/header2.png';
-import header3 from './icons/header3.png';
-import boldIcon from './icons/bold.png';
-import italicIcon from './icons/italic.png';
-import listUnordered from './icons/listUnordered.png';
-import listOrdered from './icons/listOrdered.png';
-import strikethrough from './icons/strikethrough.png';
-import blockquote from './icons/bquote.png';
+import header1 from '../../icons/header1.png';
+import header2 from '../../icons/header2.png';
+import header3 from '../../icons/header3.png';
+import boldIcon from '../../icons/bold.png';
+import italicIcon from '../../icons/italic.png';
+import listUnordered from '../../icons/listUnordered.png';
+import listOrdered from '../../icons/listOrdered.png';
+import strikethrough from '../../icons/strikethrough.png';
+import blockquote from '../../icons/bquote.png';
 
 export const tooltip = tooltipFactory('Text');
 

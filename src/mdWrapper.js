@@ -17,26 +17,26 @@ import {
   footnoteDefinitionSchema,
   footnoteReferenceSchema,
 } from '@milkdown/preset-gfm';
-import { FootnoteDef, FootnoteRef } from './Footnote.tsx';
+import { FootnoteDef, FootnoteRef } from './components/editor/Footnote.tsx';
 import { math, mathBlockSchema } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
 import { diagram, diagramSchema } from "@milkdown/plugin-diagram";
 import { history } from '@milkdown/plugin-history';
 import { block } from '@milkdown/plugin-block';
-import { Block } from './Block.tsx';
+import { Block } from './components/editor/Block.tsx';
 import { prism, prismConfig } from '@milkdown/plugin-prism';
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
 import { clipboard } from '@milkdown/plugin-clipboard';
 import { trailing } from '@milkdown/plugin-trailing';
 import { indent } from '@milkdown/plugin-indent';
 
-import { tooltip, TooltipView } from './Tooltip.tsx';
+import { tooltip, TooltipView } from './components/editor/Tooltip.tsx';
 
-import { MathBlock } from './MathBlock.tsx';
+import { MathBlock } from './components/editor/MathBlock.tsx';
 
-import { Diagram } from './Diagram.tsx';
+import { Diagram } from './components/editor/Diagram.tsx';
 
-import { linkPlugin } from './LinkWidget.tsx';
+import { linkPlugin } from './components/editor/LinkWidget.tsx';
 import { $view, getMarkdown } from "@milkdown/utils";
 
 import './App.css';
