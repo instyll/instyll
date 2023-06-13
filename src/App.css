@@ -1193,13 +1193,19 @@ img {
 
 @media only screen and (max-width: 1440px) {
   .search {
-    width: 670px;
+    width: 620px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .search {
+    width: 580px;
   }
 }
 
 @media only screen and (max-width: 1200px) {
   .search {
-    width: 500px;
+    width: 470px;
   }
 }
 
