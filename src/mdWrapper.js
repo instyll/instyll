@@ -60,22 +60,12 @@ export const MilkdownEditor: FC = () => {
   const gfmPlugins: MilkdownPlugin[] = useMemo(() => {
     return [
       gfm,
-      // tableTooltip,
-      // tableTooltipCtx,
-      // (ctx: Ctx) => async () => {
-      //   ctx.set(tableTooltip.key, {
-      //     view: pluginViewFactory({
-      //       component: TableTooltip,
-      //     }),
-      //   });
-      // },
       $view(footnoteDefinitionSchema.node, () =>
         nodeViewFactory({ component: FootnoteDef })
       ),
       $view(footnoteReferenceSchema.node, () =>
         nodeViewFactory({ component: FootnoteRef })
       ),
-      // tableSelectorPlugin(widgetViewFactory),
     ].flat();
   }, [nodeViewFactory, pluginViewFactory, widgetViewFactory])
 
@@ -126,6 +116,8 @@ export const MilkdownEditor: FC = () => {
         ctx.set(rootCtx, root)
         ctx.set(defaultValueCtx, markdown)
         const listener = ctx.get(listenerCtx);
+
+        /* listen for changes in the editor */
         listener.markdownUpdated((ctx, markdown, prevMarkdown) => {
           if (markdown !== prevMarkdown) {
             // YourMarkdownUpdater(markdown);
@@ -133,12 +125,14 @@ export const MilkdownEditor: FC = () => {
           }
         })
 
+        /* create strikethrough keybind */
         ctx.set(strikethroughKeymap.key, {
           ToggleStrikethrough: 'Mod-Shift-s',
           // or you may want to bind multiple keys:
           ToggleStrikethrough: ['Mod-Shift-s', 'Mod-s'],
         })
 
+       /* create tooltip view */
         ctx.set(tooltip.key, {
           view: pluginViewFactory({
             component: TooltipView,
