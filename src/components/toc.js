@@ -104,19 +104,6 @@ function TableOfContents(props) {
           </p>
         </Link>
 
-        {/* <p className="tocTitle" id="breakSection" style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <span className="tocInnerText">Notes</span>
-        </p> */}
-
-        <p className="tocTitle" style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <img src={recent} className="tocIcon" draggable={false} />
-          {props.tocOpen && <span className="tocInnerText">Recent</span>}
-        </p>
-
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
