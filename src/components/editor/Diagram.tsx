@@ -90,7 +90,9 @@ export const Diagram: FC = () => {
           </div>
         </Tabs.List>
         <Tabs.Content value="preview" >
-          <div className="svgContainer" ref={codePanel} />
+          <div className="svgContainer" ref={codePanel} style={{
+            paddingBottom: code.length === 0 ? "0px" : "20px", 
+          }}/>
         </Tabs.Content>
         <Tabs.Content value="source" className="relative">
           <textarea
