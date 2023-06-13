@@ -20,9 +20,9 @@ export const LinkWidgetAfter: FC = () => {
 
   return (
     <>
-      ]
+      <span className="highlight">]</span>
       <span className="linkWidgetContainer">
-        (
+        <span className="highlight">(</span>
         {
           <>
             <small className="linkWidgetURLIndicator">URL: </small>
@@ -62,7 +62,7 @@ export const LinkWidgetAfter: FC = () => {
             />
           </>
         }
-        )
+        <span className="highlight">)</span>
       </span>
     </>
   );

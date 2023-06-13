@@ -665,6 +665,10 @@ body {
   text-decoration: none;
 }
 
+.highlight {
+  color: var(--secondary-text);
+}
+
 .linkWidgetContainer {
 }
 
