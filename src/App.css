@@ -2276,7 +2276,7 @@ table {
   padding-bottom: 5px;
   border: 1px solid var(--muted-text);
   text-align: center;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
   user-select: none;
@@ -2293,7 +2293,7 @@ table {
   border: 1px solid var(--elevated-bg);
   background-color: var(--elevated-bg);
   text-align: center;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
   user-select: none;
   transition: 0.2s;
