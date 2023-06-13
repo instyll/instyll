@@ -49,6 +49,7 @@ export const Diagram: FC = () => {
     });
   }, [renderMermaid, value]);
 
+  /* submit code to render upon enter keypress */
   const handleKeyPress = (event) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       setAttrs({ value: codeInput.current?.value || "" });

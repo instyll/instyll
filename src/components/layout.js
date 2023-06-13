@@ -2,58 +2,25 @@
  * @author wou
  */
 import React, { Component } from 'react';
-// import Editor from './legacyEditor.js';
-import { MilkdownEditorWrapper } from '../mdWrapper.js';
 import '../App.css';
 import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
 import 'katex/dist/katex.min.css'
-import { Allotment } from "allotment";
 import TemplateModal from "../modal/TemplateModal";
 import "allotment/dist/style.css";
 import getFilesInDirectory from '../fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
-import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
 import MenuBar from '../components/menuBar';
 import TableOfContents from '../components/toc.js';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
-// import moment from 'moment';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
 import TopicModal from '../modal/TopicModal.js';
-import OutlineContainer from '../components/OutlineContainer.js';
-import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from '../components/home.js';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
-
-// Plugins
-import remarkMath from 'remark-math'
-import rehypeMathjax from 'rehype-mathjax'
-import remarkGfm from 'remark-gfm'
-import emoji from 'remark-emoji'
-import wikiLinkPlugin from 'remark-wiki-link'
-import { chrome } from 'process';
-import { timeStamp } from 'console';
-
-// Assets
-import moreDots from '../icons/more.png';
-import exportIcon from '../icons/export.png';
-import star from '../icons/star.png';
-import add from '../icons/add_component2.png';
-import back from '../icons/arrowback.png';
-import stats from '../icons/stats.png';
-import doc from '../icons/document.png';
-import outline from '../icons/outline.png';
-import reference from '../icons/reference.png';
-import edit from '../icons/edit.png';
-import doubleRight from '../icons/doubleright.png'
-import deleteX from '../icons/delete.png';
-import plus from '../icons/plus.png';
-import { initial } from 'lodash';
 
 class Layout extends Component {
     constructor(props) {
