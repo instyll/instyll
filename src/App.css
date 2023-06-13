@@ -1032,7 +1032,6 @@ button {
 
 #navRight {
   filter: var(--editorIconFilter);
-  padding-right: 2px;
 }
 
 .icon.disabled {
