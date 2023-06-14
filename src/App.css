@@ -755,6 +755,10 @@ body {
   border: 1px solid var(--secondary-text);
 }
 
+.nodeViewCodeBlockCopyButton .buttonIcon {
+  padding-right: 0px;
+}
+
 .nodeViewCodeBlockDownloadButton {
   font-family: var(--font);
   display: inline-flex;
@@ -772,6 +776,10 @@ body {
 
 .nodeViewCodeBlockDownloadButton:hover {
   border: 1px solid var(--secondary-text);
+}
+
+.nodeViewCodeBlockDownloadButton .buttonIcon {
+  padding-right: 0px;
 }
 
 .optionsContainer {
@@ -2137,6 +2145,7 @@ pre {
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 16px;
+  margin-top: 5px;
   font-size: 0.9em;
   border-radius: 10px;
   overflow-x: auto;
