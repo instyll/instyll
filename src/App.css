@@ -791,12 +791,13 @@ body {
 }
 
 .cm-editor .cm-gutters {
-  padding-left: 15px;
+  padding-left: 16px;
   background-color: var(--elevated-bg);
   border-right: 0px;
   font-size: 0.7em;
   line-height: 24px;
   border-bottom-left-radius: 10px;
+  color: var(--secondary-text)
 }
 
 .cm-content {
@@ -805,9 +806,17 @@ body {
   line-height: 24px;
 }
 
+.cm-scroller {
+  outline: none !important;
+}
+
+.cm-editor .cm-cursor {
+  border-left: 1.2px solid var(--primary-text);
+  z-index: 999;
+}
+
 .cm-editor .cm-activeLine {
-  background-color: var(--muted-text);
-  border-radius: 5px;
+  background-color: transparent;
 }
 
 .cm-editor .cm-activeLineGutter {
