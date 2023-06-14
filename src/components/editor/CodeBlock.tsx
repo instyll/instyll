@@ -28,19 +28,6 @@ export const CodeBlock: FC = () => {
         suppressContentEditableWarning
         className="nodeViewCodeBlockSelectorContainer"
       >
-        {/* <select
-          className="nodeViewCodeBlockSelector"
-          value={node.attrs.language || "text"}
-          onChange={(e) => {
-            setAttrs({ language: e.target.value });
-          }}
-        >
-          {langs.map((lang) => (
-            <option value={lang.at(0)} key={lang.at(0)}>
-              {lang.at(1)}
-            </option>
-          ))}
-        </select> */}
 
         <Select
           options={langs2}
