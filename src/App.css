@@ -748,6 +748,11 @@ body {
   border: 1px solid var(--muted-text);
   color: var(--secondary-text);
   font-size: 15px;
+  transition: 0.2s;
+}
+
+.nodeViewCodeBlockCopyButton:hover {
+  border: 1px solid var(--secondary-text);
 }
 
 .nodeViewCodeBlockDownloadButton {
@@ -762,6 +767,11 @@ body {
   border: 1px solid var(--muted-text);
   color: var(--secondary-text);
   font-size: 15px;
+  transition: 0.2s;
+}
+
+.nodeViewCodeBlockDownloadButton:hover {
+  border: 1px solid var(--secondary-text);
 }
 
 .optionsContainer {
@@ -2126,7 +2136,7 @@ pre {
   background-color: var(--elevated-bg);
   padding-left: 16px;
   padding-right: 16px;
-  padding-bottom: 10px;
+  padding-bottom: 16px;
   font-size: 0.9em;
   border-radius: 10px;
   overflow-x: auto;
