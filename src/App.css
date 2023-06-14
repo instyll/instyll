@@ -732,7 +732,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  margin-top: 10px;
+  margin-top: 12px;
   margin-right: 16px;
 }
 
@@ -2106,7 +2106,7 @@ code {
   box-sizing: border-box;
   padding-right: 20px;
   display: inline-block;
-  background-color: var(--code);
+  background-color: var(--elevated-bg);
   /* padding: 0px 2px; */
   padding: 0.2em 0.4em;
   font-size: 85%;
@@ -2123,7 +2123,7 @@ code {
 pre {
   box-sizing: border-box;
   width: 100%;
-  background-color: var(--code);
+  background-color: var(--elevated-bg);
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 10px;
