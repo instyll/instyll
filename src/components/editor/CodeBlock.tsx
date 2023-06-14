@@ -45,7 +45,7 @@ export const CodeBlock: FC = () => {
               width: "fit-content",
               fontFamily: "var(--font)",
               backgroundColor: "transparent",
-              fontSize: "0.9em",
+              fontSize: "15px",
               marginLeft: "10px",
               paddingTop: "10px",
             }),
@@ -65,7 +65,7 @@ export const CodeBlock: FC = () => {
             option: (baseStyles, state) => ({
               ...baseStyles,
               color: "var(--primary-text)",
-              fontSize: "0.9em",
+              fontSize: "15px",
             }),
             indicatorSeparator: (baseStyles, state) => ({
               ...baseStyles,
@@ -86,15 +86,26 @@ export const CodeBlock: FC = () => {
           })}
         />
 
-        <button
-          className="nodeViewCodeBlockCopyButton"
-          onClick={(e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText(node.textContent);
-          }}
-        >
-          Copy
-        </button>
+        <div className="nodeViewCodeBlockButtonContainer">
+          <button
+            className="nodeViewCodeBlockCopyButton"
+            onClick={(e) => {
+              e.preventDefault();
+              navigator.clipboard.writeText(node.textContent);
+            }}
+          >
+            Copy
+          </button>
+          <button
+            className="nodeViewCodeBlockDownloadButton"
+            onClick={(e) => {
+              e.preventDefault();
+              navigator.clipboard.writeText(node.textContent);
+            }}
+          >
+            Dwld
+          </button>
+        </div>
       </div>
       <pre spellCheck={false} className="!m-0 !mb-4">
         <code ref={contentRef} />

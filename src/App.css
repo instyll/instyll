@@ -728,18 +728,40 @@ body {
   color: var(--primary-text);
 }
 
+.nodeViewCodeBlockButtonContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 10px;
+  margin-right: 16px;
+}
+
 .nodeViewCodeBlockCopyButton {
   font-family: var(--font);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   padding: 5px 10px;
   background-color: var(--elevated-bg);
   border: 1px solid var(--muted-text);
-  color: var(--primary-text);
-  position: absolute;
-  right: 0;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+.nodeViewCodeBlockDownloadButton {
+  font-family: var(--font);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px 10px;
+  background-color: var(--elevated-bg);
+  border: 1px solid var(--muted-text);
+  color: var(--secondary-text);
+  font-size: 15px;
 }
 
 .optionsContainer {
@@ -2102,7 +2124,9 @@ pre {
   box-sizing: border-box;
   width: 100%;
   background-color: var(--code);
-  padding: 10px 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 10px;
   font-size: 0.9em;
   border-radius: 10px;
   overflow-x: auto;
