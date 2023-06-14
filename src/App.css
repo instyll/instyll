@@ -711,6 +711,7 @@ body {
 .nodeViewCodeBlockContainer {
   background-color: var(--elevated-bg);
   border-radius: 10px;
+  position: relative;
 }
 
 .nodeViewCodeBLockSelectorContainer {
@@ -737,6 +738,8 @@ body {
   background-color: var(--elevated-bg);
   border: 1px solid var(--muted-text);
   color: var(--primary-text);
+  position: absolute;
+  right: 0;
 }
 
 .optionsContainer {

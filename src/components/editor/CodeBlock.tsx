@@ -46,7 +46,8 @@ export const CodeBlock: FC = () => {
               fontFamily: "var(--font)",
               backgroundColor: "transparent",
               fontSize: "0.9em",
-              marginLeft: "10px"
+              marginLeft: "10px",
+              paddingTop: "10px",
             }),
             input: (baseStyles, state) => ({
               ...baseStyles,
@@ -64,6 +65,7 @@ export const CodeBlock: FC = () => {
             option: (baseStyles, state) => ({
               ...baseStyles,
               color: "var(--primary-text)",
+              fontSize: "0.9em",
             }),
             indicatorSeparator: (baseStyles, state) => ({
               ...baseStyles,
@@ -79,7 +81,7 @@ export const CodeBlock: FC = () => {
             colors: {
               ...theme.colors,
               primary25: 'var(--muted-text)',
-              primary: 'var(--muted-text)',
+              primary: 'transparent',
             },
           })}
         />
