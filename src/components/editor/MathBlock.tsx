@@ -31,6 +31,7 @@ export const MathBlock: FC = () => {
         });
     }, [code, getEditor, loading, value]);
 
+    /* submit code to render math on enter keypress */
     const handleKeyPress = (event) => {
         if (event.key === 'Enter' && !event.shiftKey) {
             setAttrs({ value: codeInput.current?.value || "" });

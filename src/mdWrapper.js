@@ -5,7 +5,11 @@ import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
 import type { FC } from 'react';
 import { useEffect, useMemo } from "react";
 import type { Ctx, MilkdownPlugin } from "@milkdown/ctx";
-import { commonmark, listItemSchema } from '@milkdown/preset-commonmark';
+import { 
+  commonmark, 
+  listItemSchema,
+  codeBlockSchema 
+} from '@milkdown/preset-commonmark';
 import { Milkdown, useEditor } from '@milkdown/react';
 import { nord } from '@milkdown/theme-nord';
 import {
@@ -40,6 +44,8 @@ import { MathBlock } from './components/editor/MathBlock.tsx';
 import { Diagram } from './components/editor/Diagram.tsx';
 
 import { linkPlugin } from './components/editor/LinkWidget.tsx';
+
+import { CodeBlock } from './components/editor/CodeBlock.tsx';
 import { $view, getMarkdown } from "@milkdown/utils";
 
 import './App.css';
@@ -161,6 +167,11 @@ export const MilkdownEditor: FC = () => {
       .use(mathPlugins)
       .use(linkPlugin(widgetViewFactory))
       .use(tooltip)
+      .use(
+        $view(codeBlockSchema.node, () =>
+          nodeViewFactory({ component: CodeBlock })
+        )
+      );
   }, [])
 
   return <Milkdown />
