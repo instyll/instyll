@@ -783,6 +783,37 @@ body {
   padding-right: 0px;
 }
 
+.cm-editor {
+  padding-right: 16px;
+  background-color: var(--elevated-bg);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cm-editor .cm-gutters {
+  padding-left: 15px;
+  background-color: var(--elevated-bg);
+  border-right: 0px;
+  font-size: 0.7em;
+  line-height: 24px;
+  border-bottom-left-radius: 10px;
+}
+
+.cm-content {
+  background-color: var(--elevated-bg);
+  font-size: 0.7em;
+  line-height: 24px;
+}
+
+.cm-editor .cm-activeLine {
+  background-color: var(--muted-text);
+  border-radius: 5px;
+}
+
+.cm-editor .cm-activeLineGutter {
+  background-color: transparent;
+}
+
 .optionsContainer {
   display: block;
   width: 100%;
