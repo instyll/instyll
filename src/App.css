@@ -669,8 +669,7 @@ body {
   color: var(--secondary-text);
 }
 
-.linkWidgetContainer {
-}
+.linkWidgetContainer {}
 
 .linkWidgetURLIndicator {
   font-family: var(--font);
@@ -707,6 +706,37 @@ body {
 
 .linkWidgetTitleInput::placeholder {
   color: var(--secondary-text);
+}
+
+.nodeViewCodeBlockContainer {
+  background-color: var(--elevated-bg);
+  border-radius: 10px;
+}
+
+.nodeViewCodeBLockSelectorContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nodeViewCodeBlockSelector {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--elevated-bg);
+  border: 1px solid var(--muted-text);
+  font-family: var(--font);
+  color: var(--primary-text);
+}
+
+.nodeViewCodeBlockCopyButton {
+  font-family: var(--font);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: var(--elevated-bg);
+  border: 1px solid var(--muted-text);
+  color: var(--primary-text);
 }
 
 .optionsContainer {
