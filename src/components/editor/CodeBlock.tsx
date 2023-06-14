@@ -5,13 +5,15 @@ import Select from 'react-select';
 
 /* define options for react-select */
 const langs2 = [
-  { value: "text", label: "Text" },
-  { value: "typescript", label: "Typescript" },
-  { value: "javascript", label: "Javascript" },
-  { value: "html", label: "HTML" },
-  { value: "css", label: "CSS" },
-  { value: "json", label: "JSON" },
-  { value: "markdown", label: "Markdown" },
+  { value: "text", label: "text" },
+  { value: "python", label: "python" },
+  { value: "java", label: "java" },
+  { value: "typescript", label: "typescript" },
+  { value: "javascript", label: "javascript" },
+  { value: "html", label: "html" },
+  { value: "css", label: "css" },
+  { value: "json", label: "json" },
+  { value: "markdown", label: "markdown" },
 ];
 
 export const CodeBlock: FC = () => {
@@ -31,7 +33,7 @@ export const CodeBlock: FC = () => {
 
         <Select
           options={langs2}
-          placeholder={node.attrs.language || "Text"}
+          placeholder={node.attrs.language || "text"}
           onChange={(e) => {
             setAttrs({ language: e?.value });
           }}
@@ -39,10 +41,12 @@ export const CodeBlock: FC = () => {
             control: (baseStyles, state) => ({
               ...baseStyles,
               borderRadius: "10px",
-              borderColor: "var(--muted-text)",
-              width: "180px",
+              border: "none",
+              width: "fit-content",
               fontFamily: "var(--font)",
               backgroundColor: "transparent",
+              fontSize: "0.9em",
+              marginLeft: "10px"
             }),
             input: (baseStyles, state) => ({
               ...baseStyles,
