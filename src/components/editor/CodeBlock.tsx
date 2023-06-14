@@ -3,6 +3,10 @@ import clsx from "clsx";
 import type { FC } from "react";
 import Select from 'react-select';
 
+import CodeMirror from '@uiw/react-codemirror';
+import { EditorView } from '@codemirror/view';
+import { indentUnit } from '@codemirror/language';
+
 import copy from '../../icons/copy.png';
 import download from '../../icons/download.png';
 
@@ -111,9 +115,11 @@ export const CodeBlock: FC = () => {
                     </button>
                 </div>
             </div>
-            <pre spellCheck={false} className="!m-0 !mb-4">
+            {/* <pre spellCheck={false} className="!m-0 !mb-4">
                 <code ref={contentRef} />
-            </pre>
+            </pre> */}
+            <CodeMirror
+            value={node.textContent}></CodeMirror>
         </div>
     );
 };

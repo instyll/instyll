@@ -712,6 +712,7 @@ body {
   background-color: var(--elevated-bg);
   border-radius: 10px;
   position: relative;
+  margin-top: 16px;
 }
 
 .nodeViewCodeBLockSelectorContainer {
