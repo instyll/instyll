@@ -3,13 +3,13 @@ import clsx from "clsx";
 import type { FC } from "react";
 
 const langs = [
-  "text",
-  "typescript",
-  "javascript",
-  "html",
-  "css",
-  "json",
-  "markdown",
+  ["text", "Text"],
+  ["typescript", "Typescript"],
+  ["javascript", "Javascript"],
+  ["html", "HTML"],
+  ["css", "CSS"],
+  ["json", "JSON"],
+  ["markdown", "Markdown"],
 ];
 
 export const CodeBlock: FC = () => {
@@ -34,8 +34,8 @@ export const CodeBlock: FC = () => {
           }}
         >
           {langs.map((lang) => (
-            <option value={lang} key={lang}>
-              {lang}
+            <option value={lang.at(0)} key={lang.at(0)}>
+              {lang.at(1)}
             </option>
           ))}
         </select>
