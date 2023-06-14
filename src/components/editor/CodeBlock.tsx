@@ -7,7 +7,7 @@ import copy from '../../icons/copy.png';
 import download from '../../icons/download.png';
 
 /* define options for react-select */
-const langs2 = [
+const langs = [
     { value: "text", label: "text" },
     { value: "python", label: "python" },
     { value: "java", label: "java" },
@@ -35,7 +35,7 @@ export const CodeBlock: FC = () => {
             >
 
                 <Select
-                    options={langs2}
+                    options={langs}
                     placeholder={node.attrs.language || "text"}
                     onChange={(e) => {
                         setAttrs({ language: e?.value });
