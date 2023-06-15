@@ -783,6 +783,10 @@ body {
   padding-right: 0px;
 }
 
+.codemirrorWrapper {
+  position: relative;
+}
+
 .cm-editor {
   padding-right: 16px;
   background-color: var(--elevated-bg);
@@ -811,9 +815,14 @@ body {
   outline: none !important;
 }
 
+.cm-wrap {
+  height: 100%;
+}
+
 .cm-editor .cm-cursor {
+  display: block;
   border-left: 1.2px solid var(--primary-text);
-  z-index: 999;
+  z-index: 9999;
 }
 
 .cm-editor .cm-activeLine {
