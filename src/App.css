@@ -820,7 +820,7 @@ body {
 }
 
 .cm-editor .cm-cursor {
-  display: block;
+  display: inline-block;
   border-left: 1.2px solid var(--primary-text);
   z-index: 9999;
 }

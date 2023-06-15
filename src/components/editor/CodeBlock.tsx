@@ -31,6 +31,7 @@ export const CodeBlock: FC = () => {
         selected ? "ProseMirror-selectednode" : "",
         "nodeViewCodeBlockContainer"
       )}
+      contentEditable="false"
     >
       <div
         contentEditable="false"
@@ -120,13 +121,13 @@ export const CodeBlock: FC = () => {
             </pre> */}
       <div className="codemirrorWrapper">
       <CodeMirror
-        // value={node.textContent}
+        value={node.textContent}
         extensions={[
           EditorView.lineWrapping, indentUnit.of("    "),
         ]}
         editable={true}
         basicSetup={{
-          foldGutter: false,
+          foldGutter: true,
           dropCursor: false,
           indentOnInput: false,
         }}>
