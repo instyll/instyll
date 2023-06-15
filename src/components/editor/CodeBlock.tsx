@@ -117,16 +117,9 @@ export const CodeBlock: FC = () => {
           </button>
         </div>
       </div>
-      {/* <pre spellCheck={false} className="!m-0 !mb-4">
-                <code ref={contentRef} />
-            </pre> */}
       <div className="codemirrorWrapper">
       <CodeMirror
         value={node.textContent}
-        // extensions={[
-        //   EditorView.lineWrapping, indentUnit.of("    "),
-        //   loadLanguage(node.attrs.language),
-        // ]}
         extensions={[
           node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript")
         ]}
