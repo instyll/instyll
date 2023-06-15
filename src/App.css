@@ -826,6 +826,11 @@ body {
   z-index: 9999;
 }
 
+.cm-selectionLayer {
+  z-index: 999 !important;
+  opacity: 0.3;
+}
+
 .cm-editor .cm-activeLine {
   background-color: transparent;
 }
