@@ -25,6 +25,7 @@ const langOptions = [
 
 export const CodeBlock: FC = () => {
   const { contentRef, selected, node, setAttrs } = useNodeViewContext();
+  
   return (
     <div
       className={clsx(
@@ -127,7 +128,7 @@ export const CodeBlock: FC = () => {
         //   loadLanguage(node.attrs.language),
         // ]}
         extensions={[
-          node.attrs.language ? loadLanguage(node.attrs.language) : loadLanguage("javascript")
+          node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript")
         ]}
         editable={true}
         basicSetup={{
