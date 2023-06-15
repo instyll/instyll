@@ -4,6 +4,7 @@ import type { FC } from "react";
 import Select from 'react-select';
 
 import CodeMirror from '@uiw/react-codemirror';
+import { loadLanguage, langNames, langs } from '@uiw/codemirror-extensions-langs';
 import { EditorView } from '@codemirror/view';
 import { indentUnit } from '@codemirror/language';
 
@@ -11,8 +12,7 @@ import copy from '../../icons/copy.png';
 import download from '../../icons/download.png';
 
 /* define options for react-select */
-const langs = [
-  { value: "text", label: "text" },
+const langOptions = [
   { value: "python", label: "python" },
   { value: "java", label: "java" },
   { value: "typescript", label: "typescript" },
@@ -40,8 +40,8 @@ export const CodeBlock: FC = () => {
       >
 
         <Select
-          options={langs}
-          placeholder={node.attrs.language || "text"}
+          options={langOptions}
+          placeholder={node.attrs.language || "javascript"}
           onChange={(e) => {
             setAttrs({ language: e?.value });
           }}
@@ -122,8 +122,12 @@ export const CodeBlock: FC = () => {
       <div className="codemirrorWrapper">
       <CodeMirror
         value={node.textContent}
+        // extensions={[
+        //   EditorView.lineWrapping, indentUnit.of("    "),
+        //   loadLanguage(node.attrs.language),
+        // ]}
         extensions={[
-          EditorView.lineWrapping, indentUnit.of("    "),
+          node.attrs.language ? loadLanguage(node.attrs.language) : loadLanguage("javascript")
         ]}
         editable={true}
         basicSetup={{

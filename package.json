@@ -43,6 +43,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@uiw/codemirror-extensions-langs": "^4.21.3",
     "@uiw/react-codemirror": "^4.19.8",
     "allotment": "^1.18.1",
     "body-scroll-lock": "^4.0.0-beta.0",
