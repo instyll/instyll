@@ -119,6 +119,7 @@ export const CodeBlock: FC = () => {
       </div>
       <div className="codemirrorWrapper">
       <CodeMirror
+      autoFocus
         value={node.textContent}
         extensions={[
           node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript")
