@@ -839,6 +839,13 @@ body {
   background-color: transparent;
 }
 
+/* autocomplete tooltips */
+.cm-tooltip-autocomplete>ul>li {
+  font-size: 0.7em;
+  color: var(--primary-text);
+  background-color: var(--elevated-bg);
+}
+
 .optionsContainer {
   display: block;
   width: 100%;
