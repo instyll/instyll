@@ -846,6 +846,11 @@ body {
   border-radius: 2px;
 }
 
+.cm-tooltip-autocomplete>ul>li[aria-selected] {
+  background-color: var(--muted-text) !important;
+  color: var(--primary-text) !important;
+}
+
 .cm-tooltip {
   background-color: var(--elevated-bg) !important;
   border-radius: 5px;
