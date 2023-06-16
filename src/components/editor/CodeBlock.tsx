@@ -1,6 +1,6 @@
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import clsx from "clsx";
-import type { FC } from "react";
+import { useState, useEffect, type FC } from "react";
 import Select from 'react-select';
 
 import CodeMirror from '@uiw/react-codemirror';
@@ -24,7 +24,21 @@ const langOptions = [
 ];
 
 export const CodeBlock: FC = () => {
+
+  const html = document.querySelector('html');
+
+  const [currTheme, setCurrTheme] = useState("light");
+
   const { contentRef, selected, node, setAttrs } = useNodeViewContext();
+
+  useEffect(() => {
+    if (document.querySelector('html')?.getAttribute("data-theme") === "dark") {
+      setCurrTheme("dark");
+    }
+    else {
+      setCurrTheme("light");
+    }
+  }, [document.querySelector('html')]);
   
   return (
     <div
@@ -120,7 +134,7 @@ export const CodeBlock: FC = () => {
       <div className="codemirrorWrapper">
       <CodeMirror
       autoFocus
-        // theme={}
+        theme={currTheme}
         value={node.textContent}
         extensions={[
           node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript"),
