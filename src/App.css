@@ -843,7 +843,13 @@ body {
 .cm-tooltip-autocomplete>ul>li {
   font-size: 0.7em;
   color: var(--primary-text);
-  background-color: var(--elevated-bg);
+  border-radius: 2px;
+}
+
+.cm-tooltip {
+  background-color: var(--elevated-bg) !important;
+  border-radius: 5px;
+  border: 1px solid var(--muted-text) !important;
 }
 
 .optionsContainer {
