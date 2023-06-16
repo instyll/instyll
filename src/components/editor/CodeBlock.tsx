@@ -120,9 +120,11 @@ export const CodeBlock: FC = () => {
       <div className="codemirrorWrapper">
       <CodeMirror
       autoFocus
+        // theme={}
         value={node.textContent}
         extensions={[
-          node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript")
+          node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript"),
+          EditorView.lineWrapping
         ]}
         editable={true}
         basicSetup={{
