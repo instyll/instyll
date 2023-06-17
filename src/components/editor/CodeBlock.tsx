@@ -3,7 +3,7 @@
  */
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import clsx from "clsx";
-import { useState, useEffect, type FC } from "react";
+import { useState, useEffect, useRef, type FC } from "react";
 import Select from 'react-select';
 
 import CodeMirror from '@uiw/react-codemirror';
@@ -33,6 +33,8 @@ export const CodeBlock: FC = () => {
   const [currTheme, setCurrTheme] = useState("light");
 
   const { contentRef, selected, node, setAttrs } = useNodeViewContext();
+
+  const editorRef = useRef(null);
 
   useEffect(() => {
     if (document.querySelector('html')?.getAttribute("data-theme") === "dark") {
@@ -148,8 +150,8 @@ export const CodeBlock: FC = () => {
           foldGutter: true,
           dropCursor: false,
           indentOnInput: false,
-        }}>
-        </CodeMirror>
+        }}
+          ref={editorRef} />
         </div>
     </div>
   );
