@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import clsx from "clsx";
 import { useState, useEffect, type FC } from "react";
