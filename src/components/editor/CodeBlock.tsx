@@ -127,10 +127,6 @@ export const CodeBlock: FC = () => {
           </button>
           <button
             className="nodeViewCodeBlockDownloadButton"
-            onClick={(e) => {
-              e.preventDefault();
-              navigator.clipboard.writeText(node.textContent);
-            }}
           >
             <img src={download} className="buttonIcon"></img>
           </button>
