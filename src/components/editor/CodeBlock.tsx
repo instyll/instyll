@@ -41,6 +41,12 @@ export const CodeBlock: FC = () => {
 
   const notify = () => toast("Copied to clipboard!");
 
+  const handleCopy = (e) => {
+    notify();
+    e.preventDefault();
+    navigator.clipboard.writeText(node.textContent);
+  }
+
   useEffect(() => {
     if (document.querySelector('html')?.getAttribute("data-theme") === "dark") {
       setCurrTheme("dark");
@@ -49,7 +55,7 @@ export const CodeBlock: FC = () => {
       setCurrTheme("light");
     }
   }, [document.querySelector('html')]);
-  
+
   return (
     <div
       className={clsx(
@@ -121,17 +127,13 @@ export const CodeBlock: FC = () => {
         />
 
         <div className="nodeViewCodeBlockButtonContainer">
+        <ToastContainer />
           <button
             className="nodeViewCodeBlockCopyButton"
-            onClick={(e) => {
-              notify
-              e.preventDefault();
-              navigator.clipboard.writeText(node.textContent);
-            }}
+            onClick={handleCopy}
           >
             <img src={copy} className="buttonIcon"></img>
           </button>
-          <ToastContainer />
           <button
             className="nodeViewCodeBlockDownloadButton"
           >
@@ -140,22 +142,22 @@ export const CodeBlock: FC = () => {
         </div>
       </div>
       <div className="codemirrorWrapper">
-      <CodeMirror
-      autoFocus
-        theme={currTheme}
-        value={node.textContent}
-        extensions={[
-          node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript"),
-          EditorView.lineWrapping
-        ]}
-        editable={true}
-        basicSetup={{
-          foldGutter: true,
-          dropCursor: false,
-          indentOnInput: false,
-        }}
+        <CodeMirror
+          autoFocus
+          theme={currTheme}
+          value={node.textContent}
+          extensions={[
+            node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript"),
+            EditorView.lineWrapping
+          ]}
+          editable={true}
+          basicSetup={{
+            foldGutter: true,
+            dropCursor: false,
+            indentOnInput: false,
+          }}
           ref={editorRef} />
-        </div>
+      </div>
     </div>
   );
 };

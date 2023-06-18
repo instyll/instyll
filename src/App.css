@@ -785,6 +785,7 @@ body {
 
 .Toastify {
   display: inline-block !important;
+  z-index: 999 !important;
 }
 
 .codemirrorWrapper {
