@@ -11,6 +11,9 @@ import { loadLanguage, langNames, langs } from '@uiw/codemirror-extensions-langs
 import { EditorView } from '@codemirror/view';
 import { indentUnit } from '@codemirror/language';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import copy from '../../icons/copy.png';
 import download from '../../icons/download.png';
 
@@ -35,6 +38,8 @@ export const CodeBlock: FC = () => {
   const { contentRef, selected, node, setAttrs } = useNodeViewContext();
 
   const editorRef = useRef(null);
+
+  const notify = () => toast("Copied to clipboard!");
 
   useEffect(() => {
     if (document.querySelector('html')?.getAttribute("data-theme") === "dark") {
@@ -119,12 +124,14 @@ export const CodeBlock: FC = () => {
           <button
             className="nodeViewCodeBlockCopyButton"
             onClick={(e) => {
+              notify
               e.preventDefault();
               navigator.clipboard.writeText(node.textContent);
             }}
           >
             <img src={copy} className="buttonIcon"></img>
           </button>
+          <ToastContainer />
           <button
             className="nodeViewCodeBlockDownloadButton"
           >
