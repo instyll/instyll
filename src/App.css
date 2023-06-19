@@ -790,6 +790,23 @@ body {
 
 .Toastify__toast {
   background-color: var(--elevated-bg) !important;
+  border-radius: 10px;
+  border: 1px solid var(--muted-text);
+}
+
+.Toastify__toast-body {
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--secondary-text);
+}
+
+.Toastify__progress-bar {
+  opacity: 0 !important;
+}
+
+.Toastify__close-button {
+  color: var(--secondary-text);
+  opacity: 1;
 }
 
 .codemirrorWrapper {
