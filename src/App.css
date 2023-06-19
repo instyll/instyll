@@ -788,6 +788,10 @@ body {
   z-index: 999 !important;
 }
 
+.Toastify__toast {
+  background-color: var(--elevated-bg) !important;
+}
+
 .codemirrorWrapper {
   position: relative;
 }
