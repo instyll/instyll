@@ -18,7 +18,7 @@ export const Diagram: FC = () => {
   const code = useMemo(() => node.attrs.value, [node.attrs.value]);
   const id = node.attrs.identity;
   const codeInput = useRef<HTMLTextAreaElement>(null);
-  const [value, setValue] = useState("preview");
+  const [value, setValue] = useState("source");
   const codePanel = useRef<HTMLDivElement>(null);
   const [darkMode, setDarkmode] = useState(false);
   const rendering = useRef(false);

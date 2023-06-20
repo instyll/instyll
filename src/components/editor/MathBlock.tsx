@@ -19,7 +19,7 @@ export const MathBlock: FC = () => {
     const code = useMemo(() => node.attrs.value, [node.attrs.value]);
     const codePanel = useRef<HTMLDivElement>(null);
     const codeInput = useRef<HTMLTextAreaElement>(null);
-    const [value, setValue] = useState("preview");
+    const [value, setValue] = useState("source");
     const [loading, getEditor] = useInstance();
 
     useEffect(() => {
