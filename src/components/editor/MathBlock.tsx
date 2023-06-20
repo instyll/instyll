@@ -9,6 +9,9 @@ import katex from "katex";
 import type { FC } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import preview from '../../icons/preview.png';
+import editBlock from '../../icons/editBlock.png';
+
 export const MathBlock: FC = () => {
     const { node, setAttrs, selected } = useNodeViewContext();
     const code = useMemo(() => node.attrs.value, [node.attrs.value]);
@@ -58,7 +61,7 @@ export const MathBlock: FC = () => {
                                 value === "preview" ? "activeTab" : "",
                             ].join(" ")}
                         >
-                            Preview
+                            <img src={preview} className="buttonIcon"></img>
                         </Tabs.Trigger>
                         <Tabs.Trigger
                             value="source"
@@ -67,7 +70,7 @@ export const MathBlock: FC = () => {
                                 value === "source" ? "activeTab" : "",
                             ].join(" ")}
                         >
-                            Edit
+                            <img src={editBlock} className="buttonIcon"></img>
                         </Tabs.Trigger>
                     </div>
                 </Tabs.List>

@@ -412,8 +412,9 @@ body {
 }
 
 .nodeViewWrapper {
-  box-shadow: var(--editorBoxShadow);
-  border: 1px solid var(--muted-text);
+  /* box-shadow: var(--editorBoxShadow); */
+  /* border: 1px solid var(--muted-text); */
+  background-color: var(--elevated-bg);
   width: 100%;
   border-radius: 10px;
   transition: width 0.2s;
@@ -432,12 +433,19 @@ body {
   background-color: transparent;
   border: none;
   padding: 5px 10px;
-  border-radius: 5px;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-right: 10px; */
+  margin-left: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   user-select: none;
+  color: var(--secondary-text);
+  border: 1px solid var(--muted-text);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.previewTab .buttonIcon {
+  padding-right: 0px;
 }
 
 .previewTab.activeTab {
@@ -445,7 +453,7 @@ body {
 }
 
 .previewTab:hover {
-  color: var(--secondary-text);
+  border: 1px solid var(--secondary-text);
 }
 
 .sourceTab {
@@ -454,11 +462,18 @@ body {
   background-color: transparent;
   border: none;
   padding: 5px 10px;
-  border-radius: 5px;
   margin-right: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   user-select: none;
+  color: var(--secondary-text);
+  border: 1px solid var(--muted-text);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.sourceTab .buttonIcon {
+  padding-right: 0px;
 }
 
 .sourceTab.activeTab {
@@ -466,7 +481,7 @@ body {
 }
 
 .sourceTab:hover {
-  color: var(--secondary-text);
+  border: 1px solid var(--secondary-text);
 }
 
 .svgContainer {

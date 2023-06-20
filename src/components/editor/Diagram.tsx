@@ -8,6 +8,9 @@ import mermaid from "mermaid";
 import type { FC } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import preview from '../../icons/preview.png';
+import editBlock from '../../icons/editBlock.png';
+
 export const Diagram: FC = () => {
   const { node, setAttrs, selected } = useNodeViewContext();
   const code = useMemo(() => node.attrs.value, [node.attrs.value]);
@@ -29,8 +32,8 @@ export const Diagram: FC = () => {
 
     mermaid.initialize({
       startOnLoad: false,
-      //   theme: darkMode ? "dark" : "default",
-      theme: document.documentElement.getAttribute('data-theme') === 'dark' ? "dark" : "default",
+      theme: "neutral",
+      // theme: document.documentElement.getAttribute('data-theme') === 'dark' ? "dark" : "default",
     });
     rendering.current = true;
     const { svg, bindFunctions } = await mermaid.render(id, code);
@@ -76,7 +79,7 @@ export const Diagram: FC = () => {
                 value === "preview" ? "activeTab" : ""
               )}
             >
-              Preview
+              <img src={preview} className="buttonIcon"></img>
             </Tabs.Trigger>
             <Tabs.Trigger
               value="source"
@@ -85,14 +88,14 @@ export const Diagram: FC = () => {
                 value === "source" ? "activeTab" : ""
               )}
             >
-              Edit
+              <img src={editBlock} className="buttonIcon"></img>
             </Tabs.Trigger>
           </div>
         </Tabs.List>
         <Tabs.Content value="preview" >
           <div className="svgContainer" ref={codePanel} style={{
-            paddingBottom: code.length === 0 ? "0px" : "20px", 
-          }}/>
+            paddingBottom: code.length === 0 ? "0px" : "20px",
+          }} />
         </Tabs.Content>
         <Tabs.Content value="source" className="relative">
           <textarea
