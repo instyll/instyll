@@ -19,14 +19,14 @@ import download from '../../icons/download.png';
 
 /* define options for react-select */
 const langOptions = [
-  { value: "python", label: "python" },
-  { value: "java", label: "java" },
-  { value: "typescript", label: "typescript" },
-  { value: "javascript", label: "javascript" },
-  { value: "html", label: "html" },
-  { value: "css", label: "css" },
-  { value: "json", label: "json" },
-  { value: "markdown", label: "markdown" },
+  { value: "python", label: "python", fileEnding: "py"},
+  { value: "java", label: "java", fileEnding: "java"},
+  { value: "typescript", label: "typescript", fileEnding: "ts"},
+  { value: "javascript", label: "javascript", fileEnding: "js"},
+  { value: "html", label: "html", fileEnding: "html"},
+  { value: "css", label: "css", fileEnding: "css"},
+  { value: "json", label: "json", fileEnding: "json"},
+  { value: "markdown", label: "markdown", fileEnding: "md"},
 ];
 
 export const CodeBlock: FC = () => {
@@ -51,13 +51,18 @@ export const CodeBlock: FC = () => {
 
   /* logic to handle downloading code block content as a file */
   const handleDownload = () => {
-    const blob = new Blob([node.textContent], { type: `text/${node.attrs.language}` });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `code.${node.attrs.language}`;
-    a.click();
-    URL.revokeObjectURL(url);
+    /* use the correct ending for each file */
+    const langExtension = langOptions.find(option => option.value === node.attrs.language);
+    if (langExtension) {
+      const fileEnding = langExtension.fileEnding;
+      const blob = new Blob([node.textContent], { type: `text/${fileEnding}` });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `snippet.${fileEnding}`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
   }
 
   useEffect(() => {
