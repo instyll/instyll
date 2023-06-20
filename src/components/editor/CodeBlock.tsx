@@ -39,12 +39,25 @@ export const CodeBlock: FC = () => {
 
   const editorRef = useRef(null);
 
+  /* Add a message to notify user when they copy */
   const notify = () => toast("Copied to clipboard!");
 
+  /* logic to handle writing code block content to clipboard */
   const handleCopy = (e) => {
     notify();
     e.preventDefault();
     navigator.clipboard.writeText(node.textContent);
+  }
+
+  /* logic to handle downloading code block content as a file */
+  const handleDownload = () => {
+    const blob = new Blob([node.textContent], { type: `text/${node.attrs.language}` });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `code.${node.attrs.language}`;
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
   useEffect(() => {
@@ -136,6 +149,7 @@ export const CodeBlock: FC = () => {
           </button>
           <button
             className="nodeViewCodeBlockDownloadButton"
+            onClick={handleDownload}
           >
             <img src={download} className="buttonIcon"></img>
           </button>
