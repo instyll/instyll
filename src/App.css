@@ -138,6 +138,19 @@ body {
   display: inline-block;
 }
 
+.nodeViewCodeBlockButtonContainer .labelTooltip {
+  z-index: 999 !important;
+  font-size: 15px;
+  font-family: var(--font);
+  /* background-color: var(--elevated-bg);
+  border: 1px solid var(--muted-text);
+  color: var(--primary-text); */
+} 
+
+/* .nodeViewCodeBlockButtonContainer .labelTooltip .labelTooltip-arrow {
+  border: 1px solid var(--muted-text);
+}  */
+
 .elevated {
   float: left;
   position: relative;

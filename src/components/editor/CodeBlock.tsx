@@ -14,19 +14,21 @@ import { indentUnit } from '@codemirror/language';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { Tooltip } from "react-tooltip";
+
 import copy from '../../icons/copy.png';
 import download from '../../icons/download.png';
 
 /* define options for react-select */
 const langOptions = [
-  { value: "python", label: "python", fileEnding: "py"},
-  { value: "java", label: "java", fileEnding: "java"},
-  { value: "typescript", label: "typescript", fileEnding: "ts"},
-  { value: "javascript", label: "javascript", fileEnding: "js"},
-  { value: "html", label: "html", fileEnding: "html"},
-  { value: "css", label: "css", fileEnding: "css"},
-  { value: "json", label: "json", fileEnding: "json"},
-  { value: "markdown", label: "markdown", fileEnding: "md"},
+  { value: "python", label: "python", fileEnding: "py" },
+  { value: "java", label: "java", fileEnding: "java" },
+  { value: "typescript", label: "typescript", fileEnding: "ts" },
+  { value: "javascript", label: "javascript", fileEnding: "js" },
+  { value: "html", label: "html", fileEnding: "html" },
+  { value: "css", label: "css", fileEnding: "css" },
+  { value: "json", label: "json", fileEnding: "json" },
+  { value: "markdown", label: "markdown", fileEnding: "md" },
 ];
 
 export const CodeBlock: FC = () => {
@@ -145,16 +147,20 @@ export const CodeBlock: FC = () => {
         />
 
         <div className="nodeViewCodeBlockButtonContainer">
-        <ToastContainer />
+          <Tooltip id="copyButtonTooltip" className="labelTooltip" />
+          <Tooltip id="downloadButtonTooltip" className="labelTooltip" />
+          <ToastContainer />
           <button
             className="nodeViewCodeBlockCopyButton"
             onClick={handleCopy}
+            data-tooltip-id="copyButtonTooltip" data-tooltip-content="Copy"
           >
             <img src={copy} className="buttonIcon"></img>
           </button>
           <button
             className="nodeViewCodeBlockDownloadButton"
             onClick={handleDownload}
+            data-tooltip-id="downloadButtonTooltip" data-tooltip-content="Download"
           >
             <img src={download} className="buttonIcon"></img>
           </button>
