@@ -36,6 +36,8 @@
   --background-dim: linear-gradient(rgba(255, 255, 255, 0.7),
       rgba(255, 255, 255, 0.7));
   --font: "Inter", sans-serif;
+  --tooltipBackground: #373738;
+  --tooltipText: #f6f6f7;
 }
 
 [data-theme="beige"] {
@@ -142,14 +144,17 @@ body {
   z-index: 999 !important;
   font-size: 15px;
   font-family: var(--font);
-  /* background-color: var(--elevated-bg);
-  border: 1px solid var(--muted-text);
-  color: var(--primary-text); */
+  background-color: var(--tooltipBackground);
+  color: var(--tooltipText);
 } 
 
-/* .nodeViewCodeBlockButtonContainer .labelTooltip .labelTooltip-arrow {
-  border: 1px solid var(--muted-text);
-}  */
+.nodeViewWrapper .labelTooltip {
+  z-index: 999 !important;
+  font-size: 15px;
+  font-family: var(--font);
+  background-color: var(--tooltipBackground);
+  color: var(--tooltipText);
+} 
 
 .elevated {
   float: left;

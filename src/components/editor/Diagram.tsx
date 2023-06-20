@@ -8,6 +8,8 @@ import mermaid from "mermaid";
 import type { FC } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { Tooltip } from "react-tooltip";
+
 import preview from '../../icons/preview.png';
 import editBlock from '../../icons/editBlock.png';
 
@@ -71,6 +73,8 @@ export const Diagram: FC = () => {
         }}
       >
         <Tabs.List className="nodeViewTabGroup">
+          <Tooltip id="previewTooltip" className="labelTooltip" />
+          <Tooltip id="editTooltip" className="labelTooltip" />
           <div className="tabsContainer">
             <Tabs.Trigger
               value="preview"
@@ -78,6 +82,7 @@ export const Diagram: FC = () => {
                 "previewTab",
                 value === "preview" ? "activeTab" : ""
               )}
+              data-tooltip-id="previewTooltip" data-tooltip-content="Preview"
             >
               <img src={preview} className="buttonIcon"></img>
             </Tabs.Trigger>
@@ -87,6 +92,7 @@ export const Diagram: FC = () => {
                 "sourceTab",
                 value === "source" ? "activeTab" : ""
               )}
+              data-tooltip-id="editTooltip" data-tooltip-content="Edit"
             >
               <img src={editBlock} className="buttonIcon"></img>
             </Tabs.Trigger>
