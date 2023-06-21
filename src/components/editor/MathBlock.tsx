@@ -93,7 +93,7 @@ export const MathBlock: FC = () => {
                     <CodeMirror
                         autoFocus
                         value={
-                            node.textContent
+                            codeValue.length === 0 ? node.textContent : codeValue
                         }
                         extensions={[
                             EditorView.lineWrapping
