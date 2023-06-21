@@ -110,7 +110,9 @@ export const Diagram: FC = () => {
         <Tabs.Content value="source" className="relative">
           <CodeMirror
             autoFocus
-            value={codeValue}
+            value={
+              codeValue.length === 0 ? node.textContent : codeValue
+            }
             extensions={[
               EditorView.lineWrapping
             ]}
@@ -121,7 +123,7 @@ export const Diagram: FC = () => {
               indentOnInput: false,
             }}
             onChange={
-              (sourceCode) => setCodeValue(sourceCode)
+                (sourceCode) => setCodeValue(sourceCode)
             }
             onKeyDown={handleKeyPress}
             ref={codeInput} />

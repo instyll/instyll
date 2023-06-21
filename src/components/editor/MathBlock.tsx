@@ -92,7 +92,9 @@ export const MathBlock: FC = () => {
                 <Tabs.Content value="source" className="relative">
                     <CodeMirror
                         autoFocus
-                        value={codeValue}
+                        value={
+                            node.textContent
+                        }
                         extensions={[
                             EditorView.lineWrapping
                         ]}
