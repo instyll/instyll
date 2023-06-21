@@ -11,6 +11,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { Tooltip } from "react-tooltip";
 
+import CodeMirror from '@uiw/react-codemirror';
+import { EditorView } from '@codemirror/view';
+
 import preview from '../../icons/preview.png';
 import editBlock from '../../icons/editBlock.png';
 
@@ -86,12 +89,27 @@ export const MathBlock: FC = () => {
                     }} />
                 </Tabs.Content>
                 <Tabs.Content value="source" className="relative">
-                    <textarea
+                    {/* <textarea
                         className="nodeviewCodeInput"
                         ref={codeInput}
                         defaultValue={code}
                         onKeyDown={handleKeyPress}
-                    />
+                    /> */}
+                    <CodeMirror
+                        autoFocus
+                        // theme={currTheme}
+                        value={code}
+                        extensions={[
+                            EditorView.lineWrapping
+                        ]}
+                        editable={true}
+                        basicSetup={{
+                            foldGutter: true,
+                            dropCursor: false,
+                            indentOnInput: false,
+                        }}
+                        onKeyDown={handleKeyPress}
+                        ref={codeInput} />
                     <button
                         className="nodeViewSubmitButton"
                         onClick={() => {
