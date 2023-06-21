@@ -21,8 +21,9 @@ export const MathBlock: FC = () => {
     const { node, setAttrs, selected } = useNodeViewContext();
     const code = useMemo(() => node.attrs.value, [node.attrs.value]);
     const codePanel = useRef<HTMLDivElement>(null);
-    const codeInput = useRef<HTMLTextAreaElement>(null);
+    const codeInput = useRef(null);
     const [value, setValue] = useState("source");
+    const [codeValue, setCodeValue] = useState("");
     const [loading, getEditor] = useInstance();
 
     useEffect(() => {
@@ -31,13 +32,13 @@ export const MathBlock: FC = () => {
 
             try {
                 katex.render(
-                    code,
+                    codeValue,
                     codePanel.current,
                     getEditor().ctx.get(katexOptionsCtx.key)
                 );
-            } catch { }
+            } catch { console.log("invalid render call") }
         });
-    }, [code, getEditor, loading, value]);
+    }, [codeValue, getEditor, loading, value]);
 
     /* submit code to render math on enter keypress */
     const handleKeyPress = (event) => {
@@ -85,7 +86,7 @@ export const MathBlock: FC = () => {
                 </Tabs.List>
                 <Tabs.Content value="preview">
                     <div className="svgContainer" ref={codePanel} style={{
-                        paddingBottom: code.length === 0 ? "0px" : "20px",
+                        paddingBottom: node.textContent.length === 0 ? "0px" : "20px",
                     }} />
                 </Tabs.Content>
                 <Tabs.Content value="source" className="relative">
@@ -97,8 +98,7 @@ export const MathBlock: FC = () => {
                     /> */}
                     <CodeMirror
                         autoFocus
-                        // theme={currTheme}
-                        value={code}
+                        value={codeValue}
                         extensions={[
                             EditorView.lineWrapping
                         ]}
@@ -108,12 +108,15 @@ export const MathBlock: FC = () => {
                             dropCursor: false,
                             indentOnInput: false,
                         }}
+                        onChange={
+                            (sourceCode) => setCodeValue(sourceCode)
+                        }
                         onKeyDown={handleKeyPress}
                         ref={codeInput} />
                     <button
                         className="nodeViewSubmitButton"
                         onClick={() => {
-                            setAttrs({ value: codeInput.current?.value || "" });
+                            setAttrs({ value: node.textContent });
                             setValue("preview");
                         }}
                     >
