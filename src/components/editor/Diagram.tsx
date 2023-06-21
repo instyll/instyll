@@ -33,7 +33,7 @@ export const Diagram: FC = () => {
     const container = codePanel.current;
     if (!container) return;
 
-    if (code.length === 0) return;
+    if (codeValue.length === 0) return;
     if (rendering.current) return;
 
     mermaid.initialize({
@@ -104,7 +104,7 @@ export const Diagram: FC = () => {
         </Tabs.List>
         <Tabs.Content value="preview" >
           <div className="svgContainer" ref={codePanel} style={{
-            paddingBottom: code.length === 0 ? "0px" : "20px",
+            paddingBottom: codeValue.length === 0 ? "0px" : "20px",
           }} />
         </Tabs.Content>
         <Tabs.Content value="source" className="relative">
@@ -128,7 +128,7 @@ export const Diagram: FC = () => {
           <button
             className="nodeViewSubmitButton"
             onClick={() => {
-              setAttrs({ value: codeInput.current?.value || "" });
+              setAttrs({ value: node.textContent || "" });
               setValue("preview");
             }}
           >
