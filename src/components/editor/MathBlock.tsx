@@ -90,12 +90,6 @@ export const MathBlock: FC = () => {
                     }} />
                 </Tabs.Content>
                 <Tabs.Content value="source" className="relative">
-                    {/* <textarea
-                        className="nodeviewCodeInput"
-                        ref={codeInput}
-                        defaultValue={code}
-                        onKeyDown={handleKeyPress}
-                    /> */}
                     <CodeMirror
                         autoFocus
                         value={codeValue}
