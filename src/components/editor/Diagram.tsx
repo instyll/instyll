@@ -10,6 +10,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Tooltip } from "react-tooltip";
 
+import CodeMirror from '@uiw/react-codemirror';
+import { EditorView } from '@codemirror/view';
+
 import preview from '../../icons/preview.png';
 import editBlock from '../../icons/editBlock.png';
 
@@ -17,13 +20,14 @@ export const Diagram: FC = () => {
   const { node, setAttrs, selected } = useNodeViewContext();
   const code = useMemo(() => node.attrs.value, [node.attrs.value]);
   const id = node.attrs.identity;
-  const codeInput = useRef<HTMLTextAreaElement>(null);
+  const codeInput = useRef(null);
   const [value, setValue] = useState("source");
   const codePanel = useRef<HTMLDivElement>(null);
   const [darkMode, setDarkmode] = useState(false);
   const rendering = useRef(false);
   const htmlElement = document.documentElement;
   const dataTheme = htmlElement.getAttribute('data-theme');
+  const [codeValue, setCodeValue] = useState("");
 
   const renderMermaid = useCallback(async () => {
     const container = codePanel.current;
@@ -38,13 +42,13 @@ export const Diagram: FC = () => {
       // theme: document.documentElement.getAttribute('data-theme') === 'dark' ? "dark" : "default",
     });
     rendering.current = true;
-    const { svg, bindFunctions } = await mermaid.render(id, code);
+    const { svg, bindFunctions } = await mermaid.render(id, codeValue);
     rendering.current = false;
     container.innerHTML = svg;
     // console.log("rendered svg: " + svg)
     console.log(darkMode)
     bindFunctions?.(container);
-  }, [code, darkMode, id]);
+  }, [codeValue, darkMode, id]);
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -104,12 +108,23 @@ export const Diagram: FC = () => {
           }} />
         </Tabs.Content>
         <Tabs.Content value="source" className="relative">
-          <textarea
-            className="nodeviewCodeInput"
-            ref={codeInput}
-            defaultValue={code}
+          <CodeMirror
+            autoFocus
+            value={codeValue}
+            extensions={[
+              EditorView.lineWrapping
+            ]}
+            editable={true}
+            basicSetup={{
+              foldGutter: true,
+              dropCursor: false,
+              indentOnInput: false,
+            }}
+            onChange={
+              (sourceCode) => setCodeValue(sourceCode)
+            }
             onKeyDown={handleKeyPress}
-          />
+            ref={codeInput} />
           <button
             className="nodeViewSubmitButton"
             onClick={() => {
