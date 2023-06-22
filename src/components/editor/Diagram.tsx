@@ -111,6 +111,7 @@ export const Diagram: FC = () => {
           <CodeMirror
             autoFocus
             value={
+              /* if the user copies pastes something use that as the code value */
               codeValue.length === 0 ? node.textContent : codeValue
             }
             extensions={[

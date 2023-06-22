@@ -92,6 +92,7 @@ export const MathBlock: FC = () => {
                 <Tabs.Content value="source" className="relative">
                     <CodeMirror
                         autoFocus
+                        /* if the user copies pastes something use that as the code value */
                         value={
                             codeValue.length === 0 ? node.textContent : codeValue
                         }
