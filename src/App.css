@@ -87,6 +87,8 @@
       rgba(0, 0, 0, 0.7));
   --muted-translucent: rgba(180, 180, 182, 0.1);
   --font: "Inter", sans-serif;
+  --tooltipBackground: #1a1a1a;
+  --tooltipText: #f6f6f7;
 }
 
 html,
