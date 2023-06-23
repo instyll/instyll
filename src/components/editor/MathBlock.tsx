@@ -13,6 +13,8 @@ import { Tooltip } from "react-tooltip";
 
 import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
+import { EditorState } from "@codemirror/state";
+import { CompletionContext, completeFromList, autocompletion } from "@codemirror/autocomplete";
 
 import preview from '../../icons/preview.png';
 import editBlock from '../../icons/editBlock.png';
@@ -25,6 +27,20 @@ export const MathBlock: FC = () => {
     const [value, setValue] = useState("source");
     const [codeValue, setCodeValue] = useState("");
     const [loading, getEditor] = useInstance();
+
+    const texOptions = require('../../legacy/TeXOptions');
+
+    /* handle TeX autocomplete */
+    const latexCompletion = (context: CompletionContext) => {
+        let word = context.matchBefore(/\S*/);
+        if (!word || word.text[0] !== "\\") {
+            return null;
+        }
+        return {
+            from: word.from,
+            options: texOptions,
+        };
+    }
 
     useEffect(() => {
         requestAnimationFrame(() => {
@@ -41,12 +57,12 @@ export const MathBlock: FC = () => {
     }, [codeValue, getEditor, loading, value]);
 
     /* submit code to render math on enter keypress */
-    const handleKeyPress = (event) => {
-        if (event.key === 'Enter' && !event.shiftKey) {
-            setAttrs({ value: codeInput.current?.value || "" });
-            setValue("preview");
-        }
-    }
+    // const handleKeyPress = (event) => {
+    //     if (event.key === 'Enter' && !event.shiftKey) {
+    //         setAttrs({ value: codeInput.current?.value || "" });
+    //         setValue("preview");
+    //     }
+    // }
 
     return (
         <div className="nodeViewWrapper">
@@ -97,7 +113,8 @@ export const MathBlock: FC = () => {
                             codeValue.length === 0 ? node.textContent : codeValue
                         }
                         extensions={[
-                            EditorView.lineWrapping
+                            EditorView.lineWrapping,
+                            autocompletion({override: [latexCompletion]})
                         ]}
                         editable={true}
                         basicSetup={{
@@ -108,7 +125,7 @@ export const MathBlock: FC = () => {
                         onChange={
                             (sourceCode) => setCodeValue(sourceCode)
                         }
-                        onKeyDown={handleKeyPress}
+                        // onKeyDown={handleKeyPress}
                         ref={codeInput} />
                     <button
                         className="nodeViewSubmitButton"
