@@ -2726,6 +2726,7 @@ table {
   color: var(--primary-text);
   position: relative;
   background-size: cover;
+  transition: 0.2s;
 }
 
 .topicItem:nth-child(5n) {
@@ -2779,7 +2780,7 @@ table {
 }
 
 .topicItem:hover {
-  filter: brightness(90%);
+  border: 1px solid var(--secondary-text);
 }
 
 .topicTextContainer {
