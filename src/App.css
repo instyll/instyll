@@ -2717,17 +2717,15 @@ table {
 
 .topicItem {
   display: inline-block;
-  width: calc(100%/5 - 23px);
-  height: 220px;
+  width: calc(100%/5 - 25px);
+  height: 80px;
   /* background-color: var(--elevated-bg); */
-  /* border: 1px solid var(--muted-text); */
+  border: 1px solid var(--muted-text);
   border-radius: 16px;
   margin-top: 28px;
   margin-right: 28px;
   color: var(--primary-text);
   position: relative;
-  /* background-image: url(testimage.jpg); */
-  background-color: var(--muted-text);
   background-size: cover;
 }
 
@@ -2737,7 +2735,7 @@ table {
 
 @media only screen and (max-width: 1400px) {
   .topicItem {
-    width: calc(100%/4 - 21px);
+    width: calc(100%/4 - 23px);
   }
 
   .topicItem:nth-child(4n) {
@@ -2751,7 +2749,7 @@ table {
 
 @media only screen and (min-width: 1001px) and (max-width: 1200px) {
   .topicItem {
-    width: calc(100%/3 - 19px);
+    width: calc(100%/3 - 21px);
   }
 
   .topicItem:nth-child(3n) {
@@ -2769,7 +2767,7 @@ table {
 
 @media only screen and (max-width: 1000px) {
   .topicItem {
-    width: calc(100%/2 - 14px);
+    width: calc(100%/2 - 16px);
   }
 
   .topicItem:nth-child(even) {
@@ -2809,7 +2807,6 @@ table {
   bottom: 0;
   border-bottom-left-radius: 13px;
   border-bottom-right-radius: 13px;
-  background-color: var(--elevated-bg);
 }
 
 .topicTitleWrapper {
