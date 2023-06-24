@@ -2719,7 +2719,6 @@ table {
   display: inline-block;
   width: calc(100%/5 - 25px);
   height: 80px;
-  /* background-color: var(--elevated-bg); */
   border: 1px solid var(--muted-text);
   border-radius: 16px;
   margin-top: 28px;
@@ -2783,10 +2782,27 @@ table {
   filter: brightness(90%);
 }
 
+.topicTextContainer {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.topicTextWrapper {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
 .topicTitle {
   border-bottom: none;
-  margin-left: 20px;
-  width: fit-content;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.topicInfo {
+  color: var(--secondary-text);
+  font-size: 12px;
 }
 
 .moreDots .topicTitle {
@@ -2796,10 +2812,6 @@ table {
 .topicTitleContainer {
   display: inline-block;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  border-bottom-left-radius: 13px;
-  border-bottom-right-radius: 13px;
 }
 
 .topicTitleWrapper {
