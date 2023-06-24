@@ -302,6 +302,7 @@ const Topics = () => {
                                                 ...baseStyles,
                                                 borderRadius: "10px",
                                                 backgroundColor: "var(--elevated-bg)",
+                                                fontFamily: "var(--font)",
                                             }),
                                             singleValue: (baseStyles, state) => ({
                                                 ...baseStyles,
