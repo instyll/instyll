@@ -30,6 +30,7 @@ import moreDots from '../icons/more.png';
 import add from '../icons/add_component2.png';
 import layoutGrid from '../icons/layoutGrid.png';
 import layoutList from '../icons/layoutList.png';
+import TopicGridItem from './topicGridItem.js';
 
 const Topics = () => {
     const [dockOpen, setDockOpen] = useState(true);
@@ -343,24 +344,8 @@ const Topics = () => {
                         {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
                                 {tags.map((tag) => (
-                                    <li className='topicItem'
-                                        key={tag}
-                                    >
-                                        <div className="topicTitleContainer">
-                                            <div className='optionObjectLeft'>
-                                                <div className='topicTitle'>
-                                                    <h3>{tag}</h3>
-                                                </div>
-                                            </div>
-                                            <div className='optionObjectRight'>
-
-                                                <div className="moreDots"
-                                                    onClick={handleTopicSettingsModalOpen}>
-                                                    <img className="optionsBarIcon" src={moreDots} draggable={false}></img>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <TopicGridItem tag={tag}>
+                                    </TopicGridItem>
                                 ))}
                             </div>
                         {/* </div> */}

@@ -2789,13 +2789,6 @@ table {
   width: fit-content;
 }
 
-.topicTitle h3 {
-  border-bottom: none;
-  padding-bottom: 0px;
-  font-family: var(--font);
-  user-select: none;
-}
-
 .moreDots .topicTitle {
   display: inline-block;
 }
