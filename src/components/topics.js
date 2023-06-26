@@ -332,14 +332,6 @@ const Topics = () => {
                                         })}
                                     />
                                 </div>
-                                {/* <div className='createNewTopicButtonContainer'>
-                                    <button 
-                                    className="createNewTopicButton"
-                                    onClick={setCreateTopicModalOpen}>
-                                        <img src={add} class="buttonIcon" draggable={false}></img>
-                                        <span className="buttonText">New topic</span>
-                                    </button>
-                                </div>                     */}
 
                             </div>
 
