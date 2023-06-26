@@ -2768,7 +2768,7 @@ table {
 .dashboardSuggestionItemChild {
   font-family: var(--font);
   margin-bottom: 6px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px;
   width: calc(100% - 25px);
   transition: 0.2s;
