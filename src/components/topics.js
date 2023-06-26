@@ -351,7 +351,10 @@ const Topics = () => {
                                     </TopicGridItem>
                                 ))}
 
-                                <div className='createNewTopicContainer'>
+                                <div 
+                                className='createNewTopicContainer'
+                                onClick={setCreateTopicModalOpen}
+                                >
                                     <div className='topicIconContainer'>
                                         <div className='topicIconWrapper'>
                                             <span>
