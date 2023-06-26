@@ -13,7 +13,6 @@ const DateTime = () => {
       const dateObj = new Date();
 
       const formattedDate = dateObj.toLocaleDateString(undefined, {
-        weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric'
@@ -34,14 +33,9 @@ const DateTime = () => {
   }, []);
 
   return (
-    <div className="dateTime">
-      <div className='timeContainer'>
-      <span className="greetingTime">{currentTime}</span>
-      </div>
-      <div className='dateContainer'>
-      <span className="greetingDate">{currentDate}</span>
-      </div>
-    </div>
+    // <div className="dateTime">
+      <h1 className="heroTitle" id="greetingDate">{currentDate}</h1>
+    // </div>
   );
 };
 

@@ -296,8 +296,9 @@ const Home = () => {
 
               <div className='topicTitleWrapper'>
                 <h1 className='heroTitle'>
-                  Dashboard
+                  Dashboard 
                 </h1>
+                <DateTime></DateTime>
               </div>
 
               <div className='dashboardSuggestionContainer'>

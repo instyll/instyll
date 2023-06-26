@@ -3102,6 +3102,11 @@ table {
   user-select: none;
 }
 
+#greetingDate {
+  color: var(--secondary-text);
+  float: right;
+}
+
 .secondaryTitle {
   font-family: var(--font);
   color: var(--primary-text);
