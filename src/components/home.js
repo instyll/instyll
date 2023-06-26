@@ -345,7 +345,7 @@ const Home = () => {
 
               <div className='topicTitleWrapper'>
                 <h2 className='secondaryTitle'>
-                  Topics
+                  Topics <span className='topicCount'>{tags.length}</span>
                 </h2>
               </div>
               <div className='dashboardTopicsContainer'>

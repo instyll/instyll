@@ -2852,6 +2852,10 @@ table {
   margin-bottom: 10px;
 }
 
+.topicCount {
+  color: var(--secondary-text);
+}
+
 .topicInfo {
   color: var(--secondary-text);
   font-size: 12px;
