@@ -2727,6 +2727,7 @@ table {
   margin-bottom: 28px;
   width: calc(100% / 3 - 21px);
   position: relative;
+
 }
 
 .dashboardSuggestionItem:nth-child(3) {
@@ -2750,17 +2751,31 @@ table {
   right: 0;
   margin-top: 20px;
   margin-right: 20px;
+  transition: 0.2s;
+}
+
+.dashboardSuggestionItemMore:hover {
+  color: var(--muted-text);
 }
 
 .dashboardSuggestionItemList {
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 15px;
+  margin-left: 15px;
   position: absolute;
+  width: calc(100% - 15px);
 }
 
 .dashboardSuggestionItemChild {
   font-family: var(--font);
-  margin-bottom: 16px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  padding: 5px;
+  width: calc(100% - 25px);
+  transition: 0.2s;
+}
+
+.dashboardSuggestionItemChild:hover {
+  background-color: var(--muted-text);
 }
 
 .dashboardSuggestionItemChild:nth-child(3n) {
