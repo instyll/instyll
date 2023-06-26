@@ -28,6 +28,7 @@ import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
 import moreDots from '../icons/more.png';
+import createTopic from '../icons/plus1.png';
 
 const Home = () => {
   const [dockOpen, setDockOpen] = useState(true);
@@ -38,6 +39,8 @@ const Home = () => {
   // const [selectedImage, setSelectedImage] = useState(null);
 
   const dispatch = useDispatch();
+
+  const tags = useSelector((state) => state.tags.tags);
 
   const selectedImage = useSelector((state) => state.image);
 
@@ -307,6 +310,7 @@ const Home = () => {
               <div className='dashboardSuggestionContainer'>
 
                 <div className='dashboardSuggestionItem'>
+
                   <div className='dashboardSuggestionTitleWrapper'>
                     <div className='dashboardSuggestionItemTitle'>
                       Recents
@@ -315,30 +319,61 @@ const Home = () => {
                       See all
                     </div>
                   </div>
+
                 </div>
 
                 <div className='dashboardSuggestionItem'>
-                <div className='dashboardSuggestionTitleWrapper'>
-                  <div className='dashboardSuggestionItemTitle'>
-                    Favorites
+
+                  <div className='dashboardSuggestionTitleWrapper'>
+                    <div className='dashboardSuggestionItemTitle'>
+                      Favorites
+                    </div>
+                    <div className='dashboardSuggestionItemMore'>
+                      See all
+                    </div>
                   </div>
-                  <div className='dashboardSuggestionItemMore'>
-                    See all
-                  </div>
-                  </div>
+
                 </div>
 
                 <div className='dashboardSuggestionItem'>
-                <div className='dashboardSuggestionTitleWrapper'>
-                  <div className='dashboardSuggestionItemTitle'>
-                    Created by me
+
+                  <div className='dashboardSuggestionTitleWrapper'>
+                    <div className='dashboardSuggestionItemTitle'>
+                      Created by me
+                    </div>
+                    <div className='dashboardSuggestionItemMore'>
+                      See all
+                    </div>
                   </div>
-                  <div className='dashboardSuggestionItemMore'>
-                    See all
-                  </div>
-                  </div>
+
                 </div>
 
+              </div>
+
+              <div className='topicTitleWrapper'>
+                <h2 className='secondaryTitle'>
+                  Topics
+                </h2>
+              </div>
+              <div className='dashboardTopicsContainer'>
+                {tags.map((tag) => (
+                  <TopicGridItem tag={tag}>
+                  </TopicGridItem>
+                ))}
+
+                <div
+                  className='createNewTopicContainer'
+                  // onClick={setCreateTopicModalOpen}
+                >
+                  <div className='topicIconContainer'>
+                    <div className='topicIconWrapper'>
+                      <span>
+                        <img src={createTopic} className='buttonIcon'>
+                        </img>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>

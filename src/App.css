@@ -2724,6 +2724,7 @@ table {
   border-radius: 16px;
   margin-top: 28px;
   margin-right: 28px;
+  margin-bottom: 28px;
   width: calc(100% / 3 - 21px);
   position: relative;
 }
@@ -3054,4 +3055,19 @@ table {
   width: fit-content;
   vertical-align: middle;
   user-select: none;
+}
+
+.secondaryTitle {
+  font-family: var(--font);
+  color: var(--primary-text);
+  /* font-size: 32.4px; */
+  border-bottom: none;
+  padding-bottom: 0px;
+  text-align: left;
+  display: inline-block;
+  width: fit-content;
+  vertical-align: middle;
+  user-select: none;
+  margin-top: 28px;
+  margin-bottom: 0px;
 }
