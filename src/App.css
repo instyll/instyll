@@ -148,7 +148,7 @@ body {
   font-family: var(--font);
   background-color: var(--tooltipBackground);
   color: var(--tooltipText);
-} 
+}
 
 .nodeViewWrapper .labelTooltip {
   z-index: 999 !important;
@@ -156,7 +156,7 @@ body {
   font-family: var(--font);
   background-color: var(--tooltipBackground);
   color: var(--tooltipText);
-} 
+}
 
 .elevated {
   float: left;
@@ -2717,6 +2717,7 @@ table {
 
 .topicItem {
   display: inline-block;
+  vertical-align: middle;
   width: calc(100%/5 - 25px);
   height: 80px;
   border: 1px solid var(--muted-text);
@@ -2790,6 +2791,10 @@ table {
   font-family: var(--font);
 }
 
+.topcIconContainer .buttonIcon {
+  padding-right: 0px;
+}
+
 .topicTextWrapper {
   display: inline-block;
   vertical-align: middle;
@@ -2830,9 +2835,19 @@ table {
   text-align: left;
 }
 
+.topicIconContainer {
+  height: 80px;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: center;
+}
+
 .createNewTopicContainer {
+  vertical-align: middle;
   display: inline-block;
   width: calc(100%/5 - 25px);
+  line-height: 80px;
   height: 80px;
   border: 1px solid var(--muted-text);
   border-radius: 16px;

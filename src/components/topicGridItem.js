@@ -7,7 +7,7 @@ import '../App.css';
 
 const TopicGridItem = ({ tag }) => {
   return (
-    <li className='topicItem' key={tag}>
+    <div className='topicItem' key={tag}>
       <div className='topicTextContainer'>
         <div className='topicTextWrapper'>
           <div className='topicTitle'>
@@ -18,7 +18,7 @@ const TopicGridItem = ({ tag }) => {
           </div>
       </div>
       </div>
-    </li>
+    </div>
   );
 };
 

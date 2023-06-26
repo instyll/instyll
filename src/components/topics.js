@@ -31,6 +31,7 @@ import add from '../icons/add_component2.png';
 import layoutGrid from '../icons/layoutGrid.png';
 import layoutList from '../icons/layoutList.png';
 import TopicGridItem from './topicGridItem.js';
+import createTopic from '../icons/plus1.png';
 
 const Topics = () => {
     const [dockOpen, setDockOpen] = useState(true);
@@ -344,26 +345,24 @@ const Topics = () => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                <div>
-                                    {tags.map((tag) => (
-                                        <TopicGridItem tag={tag}>
-                                        </TopicGridItem>
-                                    ))}
-                                    <li className='createNewTopicContainer'>
-                                        <div className='topicTextContainer'>
-                                            <div className='topicTextWrapper'>
-                                                <div className='topicTitle'>
-                                                    <span>test</span>
-                                                </div>
-                                                <div className='topicInfo'>
-                                                    <span>test</span>
-                                                </div>
-                                            </div>
+
+                                {tags.map((tag) => (
+                                    <TopicGridItem tag={tag}>
+                                    </TopicGridItem>
+                                ))}
+
+                                <div className='createNewTopicContainer'>
+                                    <div className='topicIconContainer'>
+                                        <div className='topicIconWrapper'>
+                                            <span>
+                                                <img src={createTopic} className='buttonIcon'>
+                                                </img>
+                                            </span>
                                         </div>
-                                    </li>
+                                    </div>
                                 </div>
+
                             </div>
-                            {/* </div> */}
                         </div>
 
                     </div>
