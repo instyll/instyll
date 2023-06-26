@@ -2713,6 +2713,10 @@ table {
   text-align: left;
 }
 
+.dashboardSuggestionTitleWrapper {
+  display: inline-block;
+}
+
 .dashboardSuggestionItem {
   display: inline-block;
   border: 1px solid var(--muted-text);
@@ -2721,6 +2725,7 @@ table {
   margin-top: 28px;
   margin-right: 28px;
   width: calc(100% / 3 - 21px);
+  position: relative;
 }
 
 .dashboardSuggestionItem:nth-child(3) {
@@ -2728,11 +2733,22 @@ table {
 }
 
 .dashboardSuggestionItemTitle {
+  display: inline-block;
   font-family: var(--font);
   color: var(--primary-text);
   font-weight: 600;
   margin-left: 20px;
   margin-top: 20px;
+}
+
+.dashboardSuggestionItemMore {
+  display: inline-block;
+  font-family: var(--font);
+  color: var(--secondary-text);
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
 .dashboardTopicsContainer {

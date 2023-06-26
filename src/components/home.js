@@ -307,8 +307,13 @@ const Home = () => {
               <div className='dashboardSuggestionContainer'>
 
                 <div className='dashboardSuggestionItem'>
-                  <div className='dashboardSuggestionItemTitle'>
-                    Recents
+                  <div className='dashboardSuggestionTitleWrapper'>
+                    <div className='dashboardSuggestionItemTitle'>
+                      Recents
+                    </div>
+                    <div className='dashboardSuggestionItemMore'>
+                      See all
+                    </div>
                   </div>
                 </div>
 
@@ -316,11 +321,17 @@ const Home = () => {
                   <div className='dashboardSuggestionItemTitle'>
                     Favorites
                   </div>
+                  <div className='dashboardSuggestionItemMore'>
+                    See all
+                  </div>
                 </div>
 
                 <div className='dashboardSuggestionItem'>
                   <div className='dashboardSuggestionItemTitle'>
                     Created by me
+                  </div>
+                  <div className='dashboardSuggestionItemMore'>
+                    See all
                   </div>
                 </div>
 
