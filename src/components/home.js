@@ -318,20 +318,24 @@ const Home = () => {
                 </div>
 
                 <div className='dashboardSuggestionItem'>
+                <div className='dashboardSuggestionTitleWrapper'>
                   <div className='dashboardSuggestionItemTitle'>
                     Favorites
                   </div>
                   <div className='dashboardSuggestionItemMore'>
                     See all
                   </div>
+                  </div>
                 </div>
 
                 <div className='dashboardSuggestionItem'>
+                <div className='dashboardSuggestionTitleWrapper'>
                   <div className='dashboardSuggestionItemTitle'>
                     Created by me
                   </div>
                   <div className='dashboardSuggestionItemMore'>
                     See all
+                  </div>
                   </div>
                 </div>
 
