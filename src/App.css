@@ -2860,6 +2860,10 @@ table {
   background-color: var(--elevated-bg);
 }
 
+.createNewTopicContainer:hover {
+  border: 1px solid var(--secondary-text);
+}
+
 .createNewTopicContainer:nth-child(5n) {
   margin-right: 0px;
 }
