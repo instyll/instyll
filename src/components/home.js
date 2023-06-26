@@ -36,7 +36,7 @@ const Home = () => {
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
   const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
   // const [selectedImage, setSelectedImage] = useState(null);
-  
+
   const dispatch = useDispatch();
 
   const selectedImage = useSelector((state) => state.image);
@@ -267,10 +267,10 @@ const Home = () => {
         maxDisplayed={500}
       ></CommandPalette>
 
-<TopicSettingModal
-show={topicSettingsModalOpen}
-onHide={() => setTopicSettingsModalOpen(false)}
- />
+      <TopicSettingModal
+        show={topicSettingsModalOpen}
+        onHide={() => setTopicSettingsModalOpen(false)}
+      />
 
       <div className='homeContainer'>
 
@@ -278,7 +278,7 @@ onHide={() => setTopicSettingsModalOpen(false)}
           <div className="dashboardWrapper" style={{
             width: "100%",
           }}>
-            <div className="dashboardGreetingContainer">
+            {/* <div className="dashboardGreetingContainer">
               <div className="heroGreetingWrapper">
                 <div className="greetingDateContainer">
                   <DateTime></DateTime>
@@ -293,6 +293,37 @@ onHide={() => setTopicSettingsModalOpen(false)}
                     Change background
                   </button>
                 </div>
+              </div>
+
+            </div> */}
+            <div className='dashboardGreetingContainer'>
+
+              <div className='topicTitleWrapper'>
+                <h1 className='heroTitle'>
+                  Dashboard
+                </h1>
+              </div>
+
+              <div className='dashboardSuggestionContainer'>
+
+                <div className='dashboardSuggestionItem'>
+                  <div className='dashboardSuggestionItemTitle'>
+                    Recents
+                  </div>
+                </div>
+
+                <div className='dashboardSuggestionItem'>
+                  <div className='dashboardSuggestionItemTitle'>
+                    Favorites
+                  </div>
+                </div>
+
+                <div className='dashboardSuggestionItem'>
+                  <div className='dashboardSuggestionItemTitle'>
+                    Created by me
+                  </div>
+                </div>
+
               </div>
 
             </div>

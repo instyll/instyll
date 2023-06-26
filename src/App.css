@@ -2707,6 +2707,34 @@ table {
   filter: brightness(90%);
 }
 
+.dashboardSuggestionContainer {
+  padding-left: 0;
+  overflow: auto;
+  text-align: left;
+}
+
+.dashboardSuggestionItem {
+  display: inline-block;
+  border: 1px solid var(--muted-text);
+  height: 180px;
+  border-radius: 16px;
+  margin-top: 28px;
+  margin-right: 28px;
+  width: calc(100% / 3 - 21px);
+}
+
+.dashboardSuggestionItem:nth-child(3) {
+  margin-right: 0px;
+}
+
+.dashboardSuggestionItemTitle {
+  font-family: var(--font);
+  color: var(--primary-text);
+  font-weight: 600;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
 .dashboardTopicsContainer {
   list-style-type: none;
   padding-left: 0;
