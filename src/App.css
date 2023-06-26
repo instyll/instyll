@@ -2830,6 +2830,21 @@ table {
   text-align: left;
 }
 
+.createNewTopicContainer {
+  display: inline-block;
+  width: calc(100%/5 - 25px);
+  height: 80px;
+  border: 1px solid var(--muted-text);
+  border-radius: 16px;
+  margin-top: 28px;
+  margin-right: 28px;
+  color: var(--primary-text);
+  position: relative;
+  background-size: cover;
+  transition: 0.2s;
+  background-color: var(--elevated-bg);
+}
+
 .createNewTopicButton {
   background-color: transparent;
   /* background-color: var(--elevated-bg); */

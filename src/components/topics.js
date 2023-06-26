@@ -277,7 +277,7 @@ const Topics = () => {
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
                                     <button className='changeTopicViewButton'
-                                    onClick={handleChangeTopicViewLayout}>
+                                        onClick={handleChangeTopicViewLayout}>
                                         <img src={topicGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
                                 </div>
@@ -331,25 +331,39 @@ const Topics = () => {
                                         })}
                                     />
                                 </div>
-                                <div className='createNewTopicButtonContainer'>
+                                {/* <div className='createNewTopicButtonContainer'>
                                     <button 
                                     className="createNewTopicButton"
                                     onClick={setCreateTopicModalOpen}>
                                         <img src={add} class="buttonIcon" draggable={false}></img>
                                         <span className="buttonText">New topic</span>
                                     </button>
-                                </div>                    
+                                </div>                     */}
 
                             </div>
 
-                        {/* <div className='canScroll'> */}
+                            {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                {tags.map((tag) => (
-                                    <TopicGridItem tag={tag}>
-                                    </TopicGridItem>
-                                ))}
+                                <div>
+                                    {tags.map((tag) => (
+                                        <TopicGridItem tag={tag}>
+                                        </TopicGridItem>
+                                    ))}
+                                    <li className='createNewTopicContainer'>
+                                        <div className='topicTextContainer'>
+                                            <div className='topicTextWrapper'>
+                                                <div className='topicTitle'>
+                                                    <span>test</span>
+                                                </div>
+                                                <div className='topicInfo'>
+                                                    <span>test</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </div>
                             </div>
-                        {/* </div> */}
+                            {/* </div> */}
                         </div>
 
                     </div>
