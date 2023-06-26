@@ -2845,6 +2845,56 @@ table {
   background-color: var(--elevated-bg);
 }
 
+.createNewTopicContainer:nth-child(5n) {
+  margin-right: 0px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .createNewTopicContainer {
+    width: calc(100%/4 - 23px);
+  }
+
+  .createNewTopicContainer:nth-child(4n) {
+    margin-right: 0px;
+  }
+
+  .createNewTopicContainer:nth-child(5n) {
+    margin-right: 28px !important;
+  }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
+  .createNewTopicContainer {
+    width: calc(100%/3 - 21px);
+  }
+
+  .createNewTopicContainer:nth-child(3n) {
+    margin-right: 0px;
+  }
+
+  .createNewTopicContainer:nth-child(5n) {
+    margin-right: 28px !important;
+  }
+
+  .createNewTopicContainer:nth-child(4n) {
+    margin-right: 28px !important;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .createNewTopicContainer {
+    width: calc(100%/2 - 16px);
+  }
+
+  .createNewTopicContainer:nth-child(even) {
+    margin-right: 0px !important;
+  }
+
+  .createNewTopicContainer:nth-child(5n) {
+    margin-right: 28px !important;
+  }
+}
+
 .createNewTopicButton {
   background-color: transparent;
   /* background-color: var(--elevated-bg); */
