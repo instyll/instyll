@@ -117,10 +117,6 @@ body {
   /* backdrop-filter: blur(8px); */
 }
 
-#root {
-  height: 100%;
-}
-
 .App {
   height: 100%;
 }
@@ -131,16 +127,6 @@ body {
 
 .container {
   height: 100%;
-}
-
-.layout {
-  height: 100%;
-}
-
-.EditorView {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 .scrollable {
@@ -2575,8 +2561,6 @@ table {
 /* home page */
 
 .childContainer {
-  position: relative;
-  height: 100%;
   transition: 0.2s;
 }
 
