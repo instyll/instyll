@@ -21,6 +21,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedImage } from '../imageSlice';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import TopicGridItem from '../components/topicGridItem.js';
+import CreateTopicModal from '../modal/CreateTopicModal.js';
 import { useLocation } from 'react-router-dom';
 
 import '../command-palette/commandPalette.css';
@@ -36,10 +37,11 @@ const Home = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
   const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
-  // const [selectedImage, setSelectedImage] = useState(null);
+  const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
 
   const dispatch = useDispatch();
 
+  // get topics from redux
   const tags = useSelector((state) => state.tags.tags);
 
   const selectedImage = useSelector((state) => state.image);
@@ -69,6 +71,10 @@ const Home = () => {
 
   const handleTopicSettingsModalOpen = (value) => {
     setTopicSettingsModalOpen(value);
+  }
+
+  const handleCreateTopicModalOpen = (value) => {
+    setCreateTopicModalOpen(value);
   }
 
   /* append selected image to dashboard background */
@@ -275,30 +281,17 @@ const Home = () => {
         onHide={() => setTopicSettingsModalOpen(false)}
       />
 
+      <CreateTopicModal
+        show={createTopicModalOpen}
+        onHide={() => setCreateTopicModalOpen(false)}
+      />
+
       <div className='homeContainer'>
 
         <div className="dashboardView">
           <div className="dashboardWrapper" style={{
             width: "100%",
           }}>
-            {/* <div className="dashboardGreetingContainer">
-              <div className="heroGreetingWrapper">
-                <div className="greetingDateContainer">
-                  <DateTime></DateTime>
-                  <DailyQuote></DailyQuote>
-                  <input className='dashboardInstantNoteStart' autoFocus 
-                  placeholder='Start writing anything'></input>
-                </div>
-                <div className='dashboardBackgroundControlContainer'>
-                  <button 
-                  className='backgroundControlButton'
-                  onClick={handleBackgroundChange}>
-                    Change background
-                  </button>
-                </div>
-              </div>
-
-            </div> */}
             <div className='dashboardGreetingContainer'>
 
               <div className='topicTitleWrapper'>
@@ -363,7 +356,7 @@ const Home = () => {
 
                 <div
                   className='createNewTopicContainer'
-                  // onClick={setCreateTopicModalOpen}
+                onClick={setCreateTopicModalOpen}
                 >
                   <div className='topicIconContainer'>
                     <div className='topicIconWrapper'>
