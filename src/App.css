@@ -2720,7 +2720,7 @@ table {
 .dashboardSuggestionItem {
   display: inline-block;
   border: 1px solid var(--muted-text);
-  height: 180px;
+  height: 228px;
   border-radius: 16px;
   margin-top: 28px;
   margin-right: 28px;
@@ -2750,6 +2750,32 @@ table {
   right: 0;
   margin-top: 20px;
   margin-right: 20px;
+}
+
+.dashboardSuggestionItemList {
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+
+.dashboardSuggestionItemChild {
+  font-family: var(--font);
+  margin-bottom: 16px;
+}
+
+.dashboardSuggestionItemChild:nth-child(3n) {
+  margin-bottom: 20px;
+}
+
+.documentTitle {
+  font-weight: 500;
+  color: var(--primary-text);
+  margin-bottom: 5px;
+}
+
+.documentMetadata {
+  color: var(--secondary-text);
+  font-size: 12px;
 }
 
 .dashboardTopicsContainer {

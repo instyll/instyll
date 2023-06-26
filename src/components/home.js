@@ -311,6 +311,26 @@ const Home = () => {
                     <div className='dashboardSuggestionItemMore'>
                       See all
                     </div>
+
+                    <div className='dashboardSuggestionItemList'>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                    </div>
+
                   </div>
 
                 </div>
@@ -324,6 +344,26 @@ const Home = () => {
                     <div className='dashboardSuggestionItemMore'>
                       See all
                     </div>
+
+                    <div className='dashboardSuggestionItemList'>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                    </div>
+
                   </div>
 
                 </div>
@@ -337,6 +377,26 @@ const Home = () => {
                     <div className='dashboardSuggestionItemMore'>
                       See all
                     </div>
+
+                    <div className='dashboardSuggestionItemList'>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                      <div className='dashboardSuggestionItemChild'>
+                        <div className='documentTitle'>Document</div>
+                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
+                      </div>
+
+                    </div>
+
                   </div>
 
                 </div>
@@ -356,7 +416,7 @@ const Home = () => {
 
                 <div
                   className='createNewTopicContainer'
-                onClick={setCreateTopicModalOpen}
+                  onClick={setCreateTopicModalOpen}
                 >
                   <div className='topicIconContainer'>
                     <div className='topicIconWrapper'>
