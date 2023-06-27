@@ -67,16 +67,21 @@ const options = [
     { label: "\\begin{vmatrix}", type: "text", apply: "\\begin{vmatrix}" },
     { label: "\\begin{Vmatrix}", type: "text", apply: "\\begin{Vmatrix}" },
     { label: "\\breve{}", type: "text", apply: "\\breve{}" },
+    { label: "\\Beta", type: "text", apply: "\\Beta" },
+    { label: "\\beta", type: "text", apply: "\\beta" },
 
 
     // C
     { label: "\\check{}", type: "text", apply: "\\check{}" },
+    { label: "\\Chi", type: "text", apply: "\\Chi" },
+    { label: "\\chi", type: "text", apply: "\\chi" },
 
     // D
     { label: "\\dot{}", type: "text", apply: "\\dot{}" },
     { label: "\\ddot{}", type: "text", apply: "\\ddot{}" },
     { label: "\\downarrow", type: "text", apply: "\\downarrow" },
     { label: "\\Downarrow", type: "text", apply: "\\Downarrow" },
+    { label: "\\digamma", type: "text", apply: "\\digamma" },
 
     // E
     { label: "\\end{aligned}", type: "text", apply: "\\end{aligned}" },
@@ -107,10 +112,13 @@ const options = [
     { label: "\\iint", type: "text", apply: "\\iint" },
     { label: "\\iiint", type: "text", apply: "\\iiint" },
     { label: "\\Iota", type: "text", apply: "\\Iota" },
+    { label: "\\iota", type: "text", apply: "\\iota" },
 
     // J
 
     // K
+    { label: "\\Kappa", type: "text", apply: "\\Kappa" },
+    { label: "\\kappa", type: "text", apply: "\\kappa" },
 
     // L
     { label: "\\limits", type: "text", apply: "\\limits" },
@@ -139,6 +147,7 @@ const options = [
 
     // N
     { label: "\\Nu", type: "text", apply: "\\Nu" },
+    { label: "\\nu", type: "text", apply: "\\nu" },
 
     // O
     { label: "\\oint", type: "text", apply: "\\oint" },
@@ -153,7 +162,7 @@ const options = [
     // P
     { label: "\\prime", type: "text", apply: "\\prime" },
     { label: "\\Phi", type: "text", apply: "\\Phi" },
-
+    { label: "\\phi", type: "text", apply: "\\phi" },
 
     // Q
 
@@ -173,9 +182,12 @@ const options = [
     { label: "\\rang", type: "text", apply: "\\rang" },
     { label: "\\right", type: "text", apply: "\\right" },
     { label: "\\Rho", type: "text", apply: "\\Rho" },
+    { label: "\\rho", type: "text", apply: "\\rho" },
 
     // S
     { label: "\\sum", type: "text", apply: "\\sum" },
+    { label: "\\Sigma", type: "text", apply: "\\Sigma" },
+    { label: "\\sigma", type: "text", apply: "\\sigma" },
 
     // T
     { label: "\\tilde{}", type: "text", apply: "\\tilde{}" },
@@ -201,16 +213,22 @@ const options = [
     { label: "\\varGamma", type: "text", apply: "\\varGamma" },
     { label: "\\varXi", type: "text", apply: "\\varXi" },
     { label: "\\varPhi", type: "text", apply: "\\varPhi" },
+    { label: "\\varepsilon", type: "text", apply: "\\varepsilon" },
+    { label: "\\varpi", type: "text", apply: "\\varpi" },
 
     // W
     { label: "\\widehat{}", type: "text", apply: "\\widehat{}" },
     { label: "\\widecheck{}", type: "text", apply: "\\widecheck{}" },
 
     // X
+    { label: "\\Xi", type: "text", apply: "\\Xi" },
+    { label: "\\xi", type: "text", apply: "\\xi" },
 
     // Y
 
     // Z
+    { label: "\\Zeta", type: "text", apply: "\\Zeta" },
+    { label: "\\zeta", type: "text", apply: "\\zeta" },
 ];
 
 module.exports = options;
