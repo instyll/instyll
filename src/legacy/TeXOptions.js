@@ -29,6 +29,7 @@ const options = [
     { label: "\\backsimeq", type: "text", apply: "\\backsimeq" },
     { label: "\\backslash", type: "text", apply: "\\backslash" },
     { label: "\\bar", type: "text", apply: "\\bar" },
+    { label: "\\beth", type: "text", apply: "\\beth" },
     { label: "\\barwedge", type: "text", apply: "\\barwedge" },
     { label: "\\Bbb", type: "text", apply: "\\Bbb" },
     { label: "\\Bbbk", type: "text", apply: "\\Bbbk" },
@@ -69,12 +70,14 @@ const options = [
     { label: "\\breve{}", type: "text", apply: "\\breve{}" },
     { label: "\\Beta", type: "text", apply: "\\Beta" },
     { label: "\\beta", type: "text", apply: "\\beta" },
+    { label: "\\Bbbk", type: "text", apply: "\\Bbbk" },
 
 
     // C
     { label: "\\check{}", type: "text", apply: "\\check{}" },
     { label: "\\Chi", type: "text", apply: "\\Chi" },
     { label: "\\chi", type: "text", apply: "\\chi" },
+    { label: "\\cnums", type: "text", apply: "\\cnums" },
 
     // D
     { label: "\\dot{}", type: "text", apply: "\\dot{}" },
@@ -84,6 +87,7 @@ const options = [
     { label: "\\digamma", type: "text", apply: "\\digamma" },
     { label: "\\Delta", type: "text", apply: "\\Delta" },
     { label: "\\delta", type: "text", apply: "\\delta" },
+    { label: "\\daleth", type: "text", apply: "\\daleth" },
 
     // E
     { label: "\\end{aligned}", type: "text", apply: "\\end{aligned}" },
@@ -97,19 +101,26 @@ const options = [
     { label: "\\Epsilon", type: "text", apply: "\\Epsilon" },
     { label: "\\epsilon", type: "text", apply: "\\epsilon" },
     { label: "\\eta", type: "text", apply: "\\eta" },
+    { label: "\\eth", type: "text", apply: "\\eth" },
+    { label: "\\ell", type: "text", apply: "\\ell" },
 
     // F
     { label: "\\frac{}{}", type: "text", apply: "\\frac{a}{b}" },    
     { label: "\\forall", type: "text", apply: "\\forall" },
+    { label: "\\Finv", type: "text", apply: "\\Finv" },
 
     // G
     { label: "\\grave{}", type: "text", apply: "\\grave{}" },
     { label: "\\gt", type: "text", apply: "\\gt" },
     { label: "\\Gamma", type: "text", apply: "\\Gamma" },
     { label: "\\gamma", type: "text", apply: "\\gamma" },
+    { label: "\\gimel", type: "text", apply: "\\gimel" },
+    { label: "\\Game", type: "text", apply: "\\Game" },
 
     // H
-    { label: "\\hat", type: "text", apply: "\\hat{}" },
+    { label: "\\hat{}", type: "text", apply: "\\hat{}" },
+    { label: "\\hbar", type: "text", apply: "\\hbar" },
+    { label: "\\hslash", type: "text", apply: "\\hslash" },
 
     // I
     { label: "\\infty", type: "text", apply: "\\infty" },
@@ -118,8 +129,12 @@ const options = [
     { label: "\\iiint", type: "text", apply: "\\iiint" },
     { label: "\\Iota", type: "text", apply: "\\Iota" },
     { label: "\\iota", type: "text", apply: "\\iota" },
+    { label: "\\imath", type: "text", apply: "\\imath" },
+    { label: "\\Im", type: "text", apply: "\\Im" },
+    { label: "\\image", type: "text", apply: "\\image" },
 
     // J
+    { label: "\\jmath", type: "text", apply: "\\jmath" },
 
     // K
     { label: "\\Kappa", type: "text", apply: "\\Kappa" },
@@ -156,6 +171,9 @@ const options = [
     // N
     { label: "\\Nu", type: "text", apply: "\\Nu" },
     { label: "\\nu", type: "text", apply: "\\nu" },
+    { label: "\\nabla", type: "text", apply: "\\nabla" },
+    { label: "\\N", type: "text", apply: "\\N" },
+    { label: "\\natnums", type: "text", apply: "\\natnums" },
 
     // O
     { label: "\\oint", type: "text", apply: "\\oint" },
@@ -177,6 +195,7 @@ const options = [
     { label: "\\psi", type: "text", apply: "\\psi" },
     { label: "\\Pi", type: "text", apply: "\\Pi" },
     { label: "\\pi", type: "text", apply: "\\pi" },
+    { label: "\\partial", type: "text", apply: "\\partial" },
 
     // Q
 
@@ -197,6 +216,9 @@ const options = [
     { label: "\\right", type: "text", apply: "\\right" },
     { label: "\\Rho", type: "text", apply: "\\Rho" },
     { label: "\\rho", type: "text", apply: "\\rho" },
+    { label: "\\R", type: "text", apply: "\\R" },
+    { label: "\\Re", type: "text", apply: "\\Re" },
+    { label: "\\reals", type: "text", apply: "\\reals" },
 
     // S
     { label: "\\sum", type: "text", apply: "\\sum" },
@@ -249,6 +271,8 @@ const options = [
     // W
     { label: "\\widehat{}", type: "text", apply: "\\widehat{}" },
     { label: "\\widecheck{}", type: "text", apply: "\\widecheck{}" },
+    { label: "\\wp", type: "text", apply: "\\wp" },
+    { label: "\\weierp", type: "text", apply: "\\weierp" },
 
     // X
     { label: "\\Xi", type: "text", apply: "\\Xi" },
@@ -259,6 +283,7 @@ const options = [
     // Z
     { label: "\\Zeta", type: "text", apply: "\\Zeta" },
     { label: "\\zeta", type: "text", apply: "\\zeta" },
+    { label: "\\Z", type: "text", apply: "\\Z" },
 ];
 
 module.exports = options;
