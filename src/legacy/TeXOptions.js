@@ -87,6 +87,8 @@ const options = [
     { label: "\\end{Bmatrix}", type: "text", apply: "\\end{Bmatrix}" },
     { label: "\\end{vmatrix}", type: "text", apply: "\\end{vmatrix}" },
     { label: "\\end{Vmatrix}", type: "text", apply: "\\end{Vmatrix}" },
+    { label: "\\Epsilon", type: "text", apply: "\\Epsilon" },
+    { label: "\\epsilon", type: "text", apply: "\\epsilon" },
 
     // F
     { label: "\\frac{}{}", type: "text", apply: "\\frac{a}{b}" },    
@@ -104,6 +106,7 @@ const options = [
     { label: "\\int", type: "text", apply: "\\int" },
     { label: "\\iint", type: "text", apply: "\\iint" },
     { label: "\\iiint", type: "text", apply: "\\iiint" },
+    { label: "\\Iota", type: "text", apply: "\\Iota" },
 
     // J
 
@@ -135,6 +138,7 @@ const options = [
     { label: "\\middle", type: "text", apply: "\\middle" },
 
     // N
+    { label: "\\Nu", type: "text", apply: "\\Nu" },
 
     // O
     { label: "\\oint", type: "text", apply: "\\oint" },
@@ -148,6 +152,7 @@ const options = [
 
     // P
     { label: "\\prime", type: "text", apply: "\\prime" },
+    { label: "\\Phi", type: "text", apply: "\\Phi" },
 
 
     // Q
@@ -167,6 +172,7 @@ const options = [
     { label: "\\rVert", type: "text", apply: "\\rVert" },
     { label: "\\rang", type: "text", apply: "\\rang" },
     { label: "\\right", type: "text", apply: "\\right" },
+    { label: "\\Rho", type: "text", apply: "\\Rho" },
 
     // S
     { label: "\\sum", type: "text", apply: "\\sum" },
@@ -192,6 +198,9 @@ const options = [
     { label: "\\vec{}", type: "text", apply: "\\vec{}" },
     { label: "\\vert", type: "text", apply: "\\vert" },
     { label: "\\Vert", type: "text", apply: "\\Vert" },
+    { label: "\\varGamma", type: "text", apply: "\\varGamma" },
+    { label: "\\varXi", type: "text", apply: "\\varXi" },
+    { label: "\\varPhi", type: "text", apply: "\\varPhi" },
 
     // W
     { label: "\\widehat{}", type: "text", apply: "\\widehat{}" },
