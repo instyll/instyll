@@ -83,6 +83,7 @@ const options = [
     { label: "\\Downarrow", type: "text", apply: "\\Downarrow" },
     { label: "\\digamma", type: "text", apply: "\\digamma" },
     { label: "\\Delta", type: "text", apply: "\\Delta" },
+    { label: "\\delta", type: "text", apply: "\\delta" },
 
     // E
     { label: "\\end{aligned}", type: "text", apply: "\\end{aligned}" },
@@ -150,6 +151,7 @@ const options = [
     { label: "\\mathring{}", type: "text", apply: "\\mathring{}" },
     { label: "\\middle", type: "text", apply: "\\middle" },
     { label: "\\Mu", type: "text", apply: "\\Mu" },
+    { label: "\\mu", type: "text", apply: "\\mu" },
 
     // N
     { label: "\\Nu", type: "text", apply: "\\Nu" },
@@ -165,6 +167,8 @@ const options = [
     { label: "\\overleftrightarrow{}", type: "text", apply: "\\overleftrightarrow{}" },
     { label: "\\overbrace{}", type: "text", apply: "\\overbrace{}" },
     { label: "\\omicron", type: "text", apply: "\\omicron" },
+    { label: "\\Omega", type: "text", apply: "\\Omega" },
+    { label: "\\omega", type: "text", apply: "\\omega" },
 
     // P
     { label: "\\prime", type: "text", apply: "\\prime" },
@@ -203,6 +207,8 @@ const options = [
     { label: "\\tilde{}", type: "text", apply: "\\tilde{}" },
     { label: "\\tau", type: "text", apply: "\\tau" },
     { label: "\\Theta", type: "text", apply: "\\Theta" },
+    { label: "\\theta", type: "text", apply: "\\theta" },
+    { label: "\\thetasym", type: "text", apply: "\\thetasym" },
 
     // U
     { label: "\\utilde{}", type: "text", apply: "\\utilde{}" },
@@ -236,6 +242,9 @@ const options = [
     { label: "\\varrho", type: "text", apply: "\\varrho" },
     { label: "\\vartheta", type: "text", apply: "\\vartheta" },
     { label: "\\varsigma", type: "text", apply: "\\varsigma" },
+    { label: "\\varLambda", type: "text", apply: "\\varLambda" },
+    { label: "\\varUpsilon", type: "text", apply: "\\varUpsilon" },
+    { label: "\\varphi", type: "text", apply: "\\varphi" },
 
     // W
     { label: "\\widehat{}", type: "text", apply: "\\widehat{}" },
