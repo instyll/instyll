@@ -82,6 +82,7 @@ const options = [
     { label: "\\downarrow", type: "text", apply: "\\downarrow" },
     { label: "\\Downarrow", type: "text", apply: "\\Downarrow" },
     { label: "\\digamma", type: "text", apply: "\\digamma" },
+    { label: "\\Delta", type: "text", apply: "\\Delta" },
 
     // E
     { label: "\\end{aligned}", type: "text", apply: "\\end{aligned}" },
@@ -94,6 +95,7 @@ const options = [
     { label: "\\end{Vmatrix}", type: "text", apply: "\\end{Vmatrix}" },
     { label: "\\Epsilon", type: "text", apply: "\\Epsilon" },
     { label: "\\epsilon", type: "text", apply: "\\epsilon" },
+    { label: "\\eta", type: "text", apply: "\\eta" },
 
     // F
     { label: "\\frac{}{}", type: "text", apply: "\\frac{a}{b}" },    
@@ -102,6 +104,8 @@ const options = [
     // G
     { label: "\\grave{}", type: "text", apply: "\\grave{}" },
     { label: "\\gt", type: "text", apply: "\\gt" },
+    { label: "\\Gamma", type: "text", apply: "\\Gamma" },
+    { label: "\\gamma", type: "text", apply: "\\gamma" },
 
     // H
     { label: "\\hat", type: "text", apply: "\\hat{}" },
@@ -140,10 +144,12 @@ const options = [
     { label: "\\lVert", type: "text", apply: "\\lVert" },
     { label: "\\lang", type: "text", apply: "\\lang" },
     { label: "\\left", type: "text", apply: "\\left" },
+    { label: "\\lambda", type: "text", apply: "\\lambda" },
 
     // M
     { label: "\\mathring{}", type: "text", apply: "\\mathring{}" },
     { label: "\\middle", type: "text", apply: "\\middle" },
+    { label: "\\Mu", type: "text", apply: "\\Mu" },
 
     // N
     { label: "\\Nu", type: "text", apply: "\\Nu" },
@@ -158,11 +164,15 @@ const options = [
     { label: "\\overleftarrow{}", type: "text", apply: "\\overleftarrow{}" },
     { label: "\\overleftrightarrow{}", type: "text", apply: "\\overleftrightarrow{}" },
     { label: "\\overbrace{}", type: "text", apply: "\\overbrace{}" },
+    { label: "\\omicron", type: "text", apply: "\\omicron" },
 
     // P
     { label: "\\prime", type: "text", apply: "\\prime" },
     { label: "\\Phi", type: "text", apply: "\\Phi" },
     { label: "\\phi", type: "text", apply: "\\phi" },
+    { label: "\\psi", type: "text", apply: "\\psi" },
+    { label: "\\Pi", type: "text", apply: "\\Pi" },
+    { label: "\\pi", type: "text", apply: "\\pi" },
 
     // Q
 
@@ -191,6 +201,8 @@ const options = [
 
     // T
     { label: "\\tilde{}", type: "text", apply: "\\tilde{}" },
+    { label: "\\tau", type: "text", apply: "\\tau" },
+    { label: "\\Theta", type: "text", apply: "\\Theta" },
 
     // U
     { label: "\\utilde{}", type: "text", apply: "\\utilde{}" },
@@ -205,6 +217,8 @@ const options = [
     { label: "\\Updownarrow", type: "text", apply: "\\Updownarrow" },
     { label: "\\ulcorner", type: "text", apply: "\\ulcorner" },
     { label: "\\urcorner", type: "text", apply: "\\urcorner" },
+    { label: "\\Upsilon", type: "text", apply: "\\Upsilon" },
+    { label: "\\upsilon", type: "text", apply: "\\upsilon" },
 
     // V
     { label: "\\vec{}", type: "text", apply: "\\vec{}" },
@@ -215,6 +229,13 @@ const options = [
     { label: "\\varPhi", type: "text", apply: "\\varPhi" },
     { label: "\\varepsilon", type: "text", apply: "\\varepsilon" },
     { label: "\\varpi", type: "text", apply: "\\varpi" },
+    { label: "\\varDelta", type: "text", apply: "\\varDelta" },
+    { label: "\\varPi", type: "text", apply: "\\varPi" },
+    { label: "\\varPsi", type: "text", apply: "\\varPsi" },
+    { label: "\\varkappa", type: "text", apply: "\\varkappa" },
+    { label: "\\varrho", type: "text", apply: "\\varrho" },
+    { label: "\\vartheta", type: "text", apply: "\\vartheta" },
+    { label: "\\varsigma", type: "text", apply: "\\varsigma" },
 
     // W
     { label: "\\widehat{}", type: "text", apply: "\\widehat{}" },
