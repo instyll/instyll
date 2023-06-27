@@ -71,6 +71,8 @@ const options = [
     { label: "\\Beta", type: "text", apply: "\\Beta" },
     { label: "\\beta", type: "text", apply: "\\beta" },
     { label: "\\Bbbk", type: "text", apply: "\\Bbbk" },
+    { label: "\\bcancel{}", type: "text", apply: "\\bcancel{}" },
+    { label: "\\boxed{}", type: "text", apply: "\\boxed{}" },
 
 
     // C
@@ -78,6 +80,7 @@ const options = [
     { label: "\\Chi", type: "text", apply: "\\Chi" },
     { label: "\\chi", type: "text", apply: "\\chi" },
     { label: "\\cnums", type: "text", apply: "\\cnums" },
+    { label: "\\cancel{}", type: "text", apply: "\\cancel{}" },
 
     // D
     { label: "\\dot{}", type: "text", apply: "\\dot{}" },
@@ -183,7 +186,7 @@ const options = [
     { label: "\\Overrightarrow{}", type: "text", apply: "\\Overrightarrow{}" },
     { label: "\\overleftarrow{}", type: "text", apply: "\\overleftarrow{}" },
     { label: "\\overleftrightarrow{}", type: "text", apply: "\\overleftrightarrow{}" },
-    { label: "\\overbrace{}", type: "text", apply: "\\overbrace{}" },
+    { label: "\\overbrace{}^{\\text{}}", type: "text", apply: "\\overbrace{}^{\\text{}}" },
     { label: "\\omicron", type: "text", apply: "\\omicron" },
     { label: "\\Omega", type: "text", apply: "\\Omega" },
     { label: "\\omega", type: "text", apply: "\\omega" },
@@ -224,6 +227,7 @@ const options = [
     { label: "\\sum", type: "text", apply: "\\sum" },
     { label: "\\Sigma", type: "text", apply: "\\Sigma" },
     { label: "\\sigma", type: "text", apply: "\\sigma" },
+    { label: "\\sout{}", type: "text", apply: "\\sout{}" },
 
     // T
     { label: "\\tilde{}", type: "text", apply: "\\tilde{}" },
@@ -231,13 +235,14 @@ const options = [
     { label: "\\Theta", type: "text", apply: "\\Theta" },
     { label: "\\theta", type: "text", apply: "\\theta" },
     { label: "\\thetasym", type: "text", apply: "\\thetasym" },
+    { label: "\\tag{}", type: "text", apply: "\\tag{}" },
 
     // U
     { label: "\\utilde{}", type: "text", apply: "\\utilde{}" },
     { label: "\\underleftarrow{}", type: "text", apply: "\\underleftarrow{}" },
     { label: "\\underleftrightarrow{}", type: "text", apply: "\\underleftrightarrow{}" },
     { label: "\\underline{}", type: "text", apply: "\\underline{}" },
-    { label: "\\underbrace{}", type: "text", apply: "\\underbrace{}" },
+    { label: "\\underbrace{}_{\\text{}}", type: "text", apply: "\\underbrace{}_{\\text{}}" },
     { label: "\\underbar{}", type: "text", apply: "\\underbar{}" },
     { label: "\\uparrow", type: "text", apply: "\\uparrow" },
     { label: "\\Uparrow", type: "text", apply: "\\Uparrow" },
@@ -277,6 +282,7 @@ const options = [
     // X
     { label: "\\Xi", type: "text", apply: "\\Xi" },
     { label: "\\xi", type: "text", apply: "\\xi" },
+    { label: "\\xcancel{}", type: "text", apply: "\\xcancel{}" },
 
     // Y
 
