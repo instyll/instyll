@@ -1,5 +1,6 @@
 const options = [
     /* A */
+    { label: "\\above", type: "text", apply: "\\above" },
     { label: "\\alpha", type: "text", apply: "\\alpha" },
     { label: "\\Alpha", type: "text", apply: "\\Alpha" },
     { label: "\\acute", type: "text", apply: "\\acute" },
@@ -23,6 +24,9 @@ const options = [
 
     /* B */
 
+    { label: "\\binom{}{}", type: "text", apply: "\\binom{}{}" },
+    { label: "\\brace", type: "text", apply: "\\brace" },
+    { label: "\\brack", type: "text", apply: "\\brack" },
     { label: "\\backepsilon", type: "text", apply: "\\backepsilon" },
     { label: "\\backprime", type: "text", apply: "\\backprime" },
     { label: "\\backsim", type: "text", apply: "\\backsim" },
