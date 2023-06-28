@@ -73,6 +73,7 @@ const options = [
     { label: "\\Bbbk", type: "text", apply: "\\Bbbk" },
     { label: "\\bcancel{}", type: "text", apply: "\\bcancel{}" },
     { label: "\\boxed{}", type: "text", apply: "\\boxed{}" },
+    { label: "\\because", type: "text", apply: "\\because" },
 
 
     // C
@@ -81,6 +82,7 @@ const options = [
     { label: "\\chi", type: "text", apply: "\\chi" },
     { label: "\\cnums", type: "text", apply: "\\cnums" },
     { label: "\\cancel{}", type: "text", apply: "\\cancel{}" },
+    { label: "\\complement", type: "text", apply: "\\complement" },
 
     // D
     { label: "\\dot{}", type: "text", apply: "\\dot{}" },
@@ -106,6 +108,8 @@ const options = [
     { label: "\\eta", type: "text", apply: "\\eta" },
     { label: "\\eth", type: "text", apply: "\\eth" },
     { label: "\\ell", type: "text", apply: "\\ell" },
+    { label: "\\exists", type: "text", apply: "\\exists" },
+    { label: "\\emptyset", type: "text", apply: "\\emptyset" },
 
     // F
     { label: "\\frac{}{}", type: "text", apply: "\\frac{a}{b}" },    
@@ -119,6 +123,7 @@ const options = [
     { label: "\\gamma", type: "text", apply: "\\gamma" },
     { label: "\\gimel", type: "text", apply: "\\gimel" },
     { label: "\\Game", type: "text", apply: "\\Game" },
+    { label: "\\gets", type: "text", apply: "\\gets" },
 
     // H
     { label: "\\hat{}", type: "text", apply: "\\hat{}" },
@@ -135,6 +140,11 @@ const options = [
     { label: "\\imath", type: "text", apply: "\\imath" },
     { label: "\\Im", type: "text", apply: "\\Im" },
     { label: "\\image", type: "text", apply: "\\image" },
+    { label: "\\in", type: "text", apply: "\\in" },
+    { label: "\\isin", type: "text", apply: "\\isin" },
+    { label: "\\implies", type: "text", apply: "\\implies" },
+    { label: "\\impliedby", type: "text", apply: "\\impliedby" },
+    { label: "\\iff", type: "text", apply: "\\iff" },
 
     // J
     { label: "\\jmath", type: "text", apply: "\\jmath" },
@@ -145,6 +155,7 @@ const options = [
 
     // L
     { label: "\\limits", type: "text", apply: "\\limits" },
+    { label: "\\leftrightarrow", type: "text", apply: "\\leftrightarrow" },
     { label: "\\log", type: "text", apply: "\\log" },
     { label: "\\lBrace", type: "text", apply: "\\lBrace" },
     { label: "\\llbracket", type: "text", apply: "\\llbracket" },
@@ -164,12 +175,16 @@ const options = [
     { label: "\\lang", type: "text", apply: "\\lang" },
     { label: "\\left", type: "text", apply: "\\left" },
     { label: "\\lambda", type: "text", apply: "\\lambda" },
+    { label: "\\land", type: "text", apply: "\\land" },
+    { label: "\\lor", type: "text", apply: "\\lor" },
 
     // M
     { label: "\\mathring{}", type: "text", apply: "\\mathring{}" },
     { label: "\\middle", type: "text", apply: "\\middle" },
     { label: "\\Mu", type: "text", apply: "\\Mu" },
     { label: "\\mu", type: "text", apply: "\\mu" },
+    { label: "\\mid", type: "text", apply: "\\mid" },
+    { label: "\\mapsto", type: "text", apply: "\\mapsto" },
 
     // N
     { label: "\\Nu", type: "text", apply: "\\Nu" },
@@ -177,6 +192,11 @@ const options = [
     { label: "\\nabla", type: "text", apply: "\\nabla" },
     { label: "\\N", type: "text", apply: "\\N" },
     { label: "\\natnums", type: "text", apply: "\\natnums" },
+    { label: "\\nexists", type: "text", apply: "\\nexists" },
+    { label: "\\notin", type: "text", apply: "\\notin" },
+    { label: "\\ni", type: "text", apply: "\\ni" },
+    { label: "\\notni", type: "text", apply: "\\notni" },
+    { label: "\\neg", type: "text", apply: "\\neg" },
 
     // O
     { label: "\\oint", type: "text", apply: "\\oint" },
@@ -187,6 +207,7 @@ const options = [
     { label: "\\overleftarrow{}", type: "text", apply: "\\overleftarrow{}" },
     { label: "\\overleftrightarrow{}", type: "text", apply: "\\overleftrightarrow{}" },
     { label: "\\overbrace{}^{\\text{}}", type: "text", apply: "\\overbrace{}^{\\text{}}" },
+    { label: "\\overset{}{}", type: "text", apply: "\\overset{}{}" },
     { label: "\\omicron", type: "text", apply: "\\omicron" },
     { label: "\\Omega", type: "text", apply: "\\Omega" },
     { label: "\\omega", type: "text", apply: "\\omega" },
@@ -228,6 +249,9 @@ const options = [
     { label: "\\Sigma", type: "text", apply: "\\Sigma" },
     { label: "\\sigma", type: "text", apply: "\\sigma" },
     { label: "\\sout{}", type: "text", apply: "\\sout{}" },
+    { label: "\\stackrel{}{}", type: "text", apply: "\\stackrel{}{}" },
+    { label: "\\subset", type: "text", apply: "\\subset" },
+    { label: "\\supset", type: "text", apply: "\\supset" },
 
     // T
     { label: "\\tilde{}", type: "text", apply: "\\tilde{}" },
@@ -236,6 +260,8 @@ const options = [
     { label: "\\theta", type: "text", apply: "\\theta" },
     { label: "\\thetasym", type: "text", apply: "\\thetasym" },
     { label: "\\tag{}", type: "text", apply: "\\tag{}" },
+    { label: "\\therefore", type: "text", apply: "\\therefore" },
+    { label: "\\to", type: "text", apply: "\\to" },
 
     // U
     { label: "\\utilde{}", type: "text", apply: "\\utilde{}" },
@@ -272,6 +298,7 @@ const options = [
     { label: "\\varLambda", type: "text", apply: "\\varLambda" },
     { label: "\\varUpsilon", type: "text", apply: "\\varUpsilon" },
     { label: "\\varphi", type: "text", apply: "\\varphi" },
+    { label: "\\varnothing", type: "text", apply: "\\varnothing" },
 
     // W
     { label: "\\widehat{}", type: "text", apply: "\\widehat{}" },
