@@ -53,12 +53,17 @@ const options = [
     { label: "\\bigcup", type: "text", apply: "\\bigcup" }, 
     { label: "\\bigodot", type: "text", apply: "\\bigodot" },
     { label: "\\bigoplus", type: "text", apply: "\\bigoplus" },    
-    { label: "\\bigotimes", type: "text", apply: "\\bigotimes" },    
+    { label: "\\bigotimes", type: "text", apply: "\\bigotimes" },  
+    { label: "\\bigodot", type: "text", apply: "\\bigodot" },    
+    { label: "\\bigupplus", type: "text", apply: "\\bigupplus" },    
     { label: "\\bigsqcupt", type: "text", apply: "\\bigsqcup" },    
     { label: "\\bigtriangledown", type: "text", apply: "\\bigtriangledown" },    
     { label: "\\bigtriangleup", type: "text", apply: "\\bigtriangleup" },    
     { label: "\\biguplus", type: "text", apply: "\\biguplus" },   
     { label: "\\bigvee", type: "text", apply: "\\bigvee" },   
+    { label: "\\bigwedge", type: "text", apply: "\\bigwedge" },  
+    { label: "\\bigsqcup", type: "text", apply: "\\bigsqcup" },  
+    { label: "\\bigcap", type: "text", apply: "\\bigcap" },   
     { label: "\\begin{aligned}", type: "text", apply: "\\begin{aligned}" },
     { label: "\\begin{matrix}", type: "text", apply: "\\begin{matrix}" },
     { label: "\\begin{array}{cc}", type: "text", apply: "\\begin{array}{cc}" },
@@ -77,6 +82,7 @@ const options = [
 
 
     // C
+    { label: "\\coprod", type: "text", apply: "\\coprod" },
     { label: "\\check{}", type: "text", apply: "\\check{}" },
     { label: "\\Chi", type: "text", apply: "\\Chi" },
     { label: "\\chi", type: "text", apply: "\\chi" },
@@ -135,6 +141,7 @@ const options = [
     { label: "\\int", type: "text", apply: "\\int" },
     { label: "\\iint", type: "text", apply: "\\iint" },
     { label: "\\iiint", type: "text", apply: "\\iiint" },
+    { label: "\\intop", type: "text", apply: "\\intop" },
     { label: "\\Iota", type: "text", apply: "\\Iota" },
     { label: "\\iota", type: "text", apply: "\\iota" },
     { label: "\\imath", type: "text", apply: "\\imath" },
@@ -200,6 +207,8 @@ const options = [
 
     // O
     { label: "\\oint", type: "text", apply: "\\oint" },
+    { label: "\\oiint", type: "text", apply: "\\oiint" },
+    { label: "\\oiiint", type: "text", apply: "\\oiiint" },
     { label: "\\overline", type: "text", apply: "\\overline" },
     { label: "\\overrightarrow{}", type: "text", apply: "\\overrightarrow{}" },
     { label: "\\overrightharpoon{}", type: "text", apply: "\\overrightharpoon{}" },
@@ -214,6 +223,7 @@ const options = [
 
     // P
     { label: "\\prime", type: "text", apply: "\\prime" },
+    { label: "\\prod", type: "text", apply: "\\prod" },
     { label: "\\Phi", type: "text", apply: "\\Phi" },
     { label: "\\phi", type: "text", apply: "\\phi" },
     { label: "\\psi", type: "text", apply: "\\psi" },
@@ -252,6 +262,7 @@ const options = [
     { label: "\\stackrel{}{}", type: "text", apply: "\\stackrel{}{}" },
     { label: "\\subset", type: "text", apply: "\\subset" },
     { label: "\\supset", type: "text", apply: "\\supset" },
+    { label: "\\smallint", type: "text", apply: "\\smallint" },
 
     // T
     { label: "\\tilde{}", type: "text", apply: "\\tilde{}" },
