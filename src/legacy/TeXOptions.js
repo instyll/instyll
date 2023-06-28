@@ -83,6 +83,16 @@ const options = [
 
     // C
     { label: "\\coprod", type: "text", apply: "\\coprod" },
+    { label: "\\cdot", type: "text", apply: "\\cdot" },
+    { label: "\\centerdot", type: "text", apply: "\\centerdot" },
+    { label: "\\circ", type: "text", apply: "\\circ" },
+    { label: "\\circledast", type: "text", apply: "\\circledast" },
+    { label: "\\circledcirc", type: "text", apply: "\\circledcirc" },
+    { label: "\\circleddash", type: "text", apply: "\\circleddash" },
+    { label: "\\Cup", type: "text", apply: "\\Cup" },
+    { label: "\\cup", type: "text", apply: "\\cup" },
+    { label: "\\curlyvee", type: "text", apply: "\\curlyvee" },
+    { label: "\\curlywedge", type: "text", apply: "\\curlywedge" },
     { label: "\\check{}", type: "text", apply: "\\check{}" },
     { label: "\\Chi", type: "text", apply: "\\Chi" },
     { label: "\\chi", type: "text", apply: "\\chi" },
@@ -91,6 +101,12 @@ const options = [
     { label: "\\complement", type: "text", apply: "\\complement" },
 
     // D
+    { label: "\\div", type: "text", apply: "\\div" },
+    { label: "\\divideontimes", type: "text", apply: "\\divideontimes" },
+    { label: "\\dotplus", type: "text", apply: "\\dotplus" },
+    { label: "\\doublebarwedge", type: "text", apply: "\\doublebarwedge" },
+    { label: "\\doublecap", type: "text", apply: "\\doublecap" },
+    { label: "\\doublecup", type: "text", apply: "\\doublecup" },
     { label: "\\dot{}", type: "text", apply: "\\dot{}" },
     { label: "\\ddot{}", type: "text", apply: "\\ddot{}" },
     { label: "\\downarrow", type: "text", apply: "\\downarrow" },
@@ -123,6 +139,7 @@ const options = [
     { label: "\\Finv", type: "text", apply: "\\Finv" },
 
     // G
+    { label: "\\gtrdot", type: "text", apply: "\\gtrdot" },
     { label: "\\grave{}", type: "text", apply: "\\grave{}" },
     { label: "\\gt", type: "text", apply: "\\gt" },
     { label: "\\Gamma", type: "text", apply: "\\Gamma" },
@@ -152,6 +169,7 @@ const options = [
     { label: "\\implies", type: "text", apply: "\\implies" },
     { label: "\\impliedby", type: "text", apply: "\\impliedby" },
     { label: "\\iff", type: "text", apply: "\\iff" },
+    { label: "\\intercal", type: "text", apply: "\\intercal" },
 
     // J
     { label: "\\jmath", type: "text", apply: "\\jmath" },
@@ -184,8 +202,14 @@ const options = [
     { label: "\\lambda", type: "text", apply: "\\lambda" },
     { label: "\\land", type: "text", apply: "\\land" },
     { label: "\\lor", type: "text", apply: "\\lor" },
+    { label: "\\leftthreetimes", type: "text", apply: "\\leftthreetimes" },
+    { label: "\\ldotp", type: "text", apply: "\\ldotp" },
+    { label: "\\lessdot", type: "text", apply: "\\lessdot" },
+    { label: "\\lhd", type: "text", apply: "\\lhd" },
+    { label: "\\ltimes", type: "text", apply: "\\ltimes" },
 
     // M
+    { label: "\\mp", type: "text", apply: "\\mp" },
     { label: "\\mathring{}", type: "text", apply: "\\mathring{}" },
     { label: "\\middle", type: "text", apply: "\\middle" },
     { label: "\\Mu", type: "text", apply: "\\Mu" },
@@ -220,9 +244,15 @@ const options = [
     { label: "\\omicron", type: "text", apply: "\\omicron" },
     { label: "\\Omega", type: "text", apply: "\\Omega" },
     { label: "\\omega", type: "text", apply: "\\omega" },
+    { label: "\\odot", type: "text", apply: "\\odot" },
+    { label: "\\ominus", type: "text", apply: "\\ominus" },
+    { label: "\\oplus", type: "text", apply: "\\oplus" },
+    { label: "\\otimes", type: "text", apply: "\\otimes" },
+    { label: "\\oslash", type: "text", apply: "\\oslash" },
 
     // P
     { label: "\\prime", type: "text", apply: "\\prime" },
+    { label: "\\pm", type: "text", apply: "\\pm" },
     { label: "\\prod", type: "text", apply: "\\prod" },
     { label: "\\Phi", type: "text", apply: "\\Phi" },
     { label: "\\phi", type: "text", apply: "\\phi" },
@@ -234,6 +264,7 @@ const options = [
     // Q
 
     // R
+    { label: "\\rhd", type: "text", apply: "\\rhd" },
     { label: "\\rBrace", type: "text", apply: "\\rBrace" },
     { label: "\\rrbracket", type: "text", apply: "\\rrbracket" },
     { label: "\\rgroup", type: "text", apply: "\\rgroup" },
@@ -253,11 +284,16 @@ const options = [
     { label: "\\R", type: "text", apply: "\\R" },
     { label: "\\Re", type: "text", apply: "\\Re" },
     { label: "\\reals", type: "text", apply: "\\reals" },
+    { label: "\\righthreetimes", type: "text", apply: "\\rightthreetimes" },
+    { label: "\\rtimes", type: "text", apply: "\\rtimes" },
 
     // S
     { label: "\\sum", type: "text", apply: "\\sum" },
     { label: "\\Sigma", type: "text", apply: "\\Sigma" },
     { label: "\\sigma", type: "text", apply: "\\sigma" },
+    { label: "\\setminus", type: "text", apply: "\\setminus" },
+    { label: "\\smallsetminus", type: "text", apply: "\\smallsetminus" },
+    { label: "\\sqcap", type: "text", apply: "\\sqcap" },
     { label: "\\sout{}", type: "text", apply: "\\sout{}" },
     { label: "\\stackrel{}{}", type: "text", apply: "\\stackrel{}{}" },
     { label: "\\subset", type: "text", apply: "\\subset" },
@@ -265,6 +301,7 @@ const options = [
     { label: "\\smallint", type: "text", apply: "\\smallint" },
 
     // T
+    { label: "\\times", type: "text", apply: "\\times" },
     { label: "\\tilde{}", type: "text", apply: "\\tilde{}" },
     { label: "\\tau", type: "text", apply: "\\tau" },
     { label: "\\Theta", type: "text", apply: "\\Theta" },
@@ -289,8 +326,13 @@ const options = [
     { label: "\\urcorner", type: "text", apply: "\\urcorner" },
     { label: "\\Upsilon", type: "text", apply: "\\Upsilon" },
     { label: "\\upsilon", type: "text", apply: "\\upsilon" },
+    { label: "\\unlhd", type: "text", apply: "\\unlhd" },
+    { label: "\\unrhd", type: "text", apply: "\\unrhd" },
+    { label: "\\uplus", type: "text", apply: "\\uplus" },
 
     // V
+    { label: "\\vee", type: "text", apply: "\\vee" },
+    { label: "\\veebar", type: "text", apply: "\\veebar" },
     { label: "\\vec{}", type: "text", apply: "\\vec{}" },
     { label: "\\vert", type: "text", apply: "\\vert" },
     { label: "\\Vert", type: "text", apply: "\\Vert" },
@@ -316,6 +358,8 @@ const options = [
     { label: "\\widecheck{}", type: "text", apply: "\\widecheck{}" },
     { label: "\\wp", type: "text", apply: "\\wp" },
     { label: "\\weierp", type: "text", apply: "\\weierp" },
+    { label: "\\wedge", type: "text", apply: "\\wedge" },
+    { label: "\\wr", type: "text", apply: "\\wr" },
 
     // X
     { label: "\\Xi", type: "text", apply: "\\Xi" },
