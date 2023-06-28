@@ -14,7 +14,11 @@ const options = [
     { label: "\\arccos", type: "text", apply: "\\arccos" },
     { label: "\\arcsin", type: "text", apply: "\\arcsin" },
     { label: "\\arctan", type: "text", apply: "\\arctan" },
+    { label: "\\arctg", type: "text", apply: "\\arctg" },
+    { label: "\\arcctg", type: "text", apply: "\\arcctg" },
     { label: "\\arg", type: "text", apply: "\\arg" },
+    { label: "\\argmax", type: "text", apply: "\\argmax" },
+    { label: "\\argmin", type: "text", apply: "\\argmin" },
     { label: "\\arrowvert", type: "text", apply: "\\arrowvert" },
     { label: "\\Arrowvert", type: "text", apply: "\\Arrowvert" },
     { label: "\\ast", type: "text", apply: "\\ast" },
@@ -86,6 +90,12 @@ const options = [
 
 
     // C
+    { label: "\\cosec", type: "text", apply: "\\cosec" },
+    { label: "\\cosh", type: "text", apply: "\\cosh" },
+    { label: "\\cot", type: "text", apply: "\\cot" },
+    { label: "\\cotg", type: "text", apply: "\\cotg" },
+    { label: "\\coth", type: "text", apply: "\\coth" },
+    { label: "\\csc", type: "text", apply: "\\csc" },
     { label: "\\coprod", type: "text", apply: "\\coprod" },
     { label: "\\cdot", type: "text", apply: "\\cdot" },
     { label: "\\centerdot", type: "text", apply: "\\centerdot" },
@@ -93,6 +103,8 @@ const options = [
     { label: "\\circledast", type: "text", apply: "\\circledast" },
     { label: "\\circledcirc", type: "text", apply: "\\circledcirc" },
     { label: "\\circleddash", type: "text", apply: "\\circleddash" },
+    { label: "\\ch", type: "text", apply: "\\ch" },
+    { label: "\\cos", type: "text", apply: "\\cos" },
     { label: "\\Cup", type: "text", apply: "\\Cup" },
     { label: "\\cup", type: "text", apply: "\\cup" },
     { label: "\\curlyvee", type: "text", apply: "\\curlyvee" },
@@ -119,6 +131,7 @@ const options = [
     { label: "\\Delta", type: "text", apply: "\\Delta" },
     { label: "\\delta", type: "text", apply: "\\delta" },
     { label: "\\daleth", type: "text", apply: "\\daleth" },
+    { label: "\\det", type: "text", apply: "\\det" },
 
     // E
     { label: "\\end{aligned}", type: "text", apply: "\\end{aligned}" },
@@ -151,6 +164,7 @@ const options = [
     { label: "\\gimel", type: "text", apply: "\\gimel" },
     { label: "\\Game", type: "text", apply: "\\Game" },
     { label: "\\gets", type: "text", apply: "\\gets" },
+    { label: "\\gcd", type: "text", apply: "\\gcd" },
 
     // H
     { label: "\\hat{}", type: "text", apply: "\\hat{}" },
@@ -173,7 +187,9 @@ const options = [
     { label: "\\implies", type: "text", apply: "\\implies" },
     { label: "\\impliedby", type: "text", apply: "\\impliedby" },
     { label: "\\iff", type: "text", apply: "\\iff" },
+    { label: "\\inf", type: "text", apply: "\\inf" },
     { label: "\\intercal", type: "text", apply: "\\intercal" },
+    { label: "\\injlim", type: "text", apply: "\\injlim" },
 
     // J
     { label: "\\jmath", type: "text", apply: "\\jmath" },
@@ -183,6 +199,9 @@ const options = [
     { label: "\\kappa", type: "text", apply: "\\kappa" },
 
     // L
+    { label: "\\lim", type: "text", apply: "\\lim" },
+    { label: "\\liminf", type: "text", apply: "\\liminf" },
+    { label: "\\limsup", type: "text", apply: "\\limsup" },
     { label: "\\limits", type: "text", apply: "\\limits" },
     { label: "\\leftrightarrow", type: "text", apply: "\\leftrightarrow" },
     { label: "\\log", type: "text", apply: "\\log" },
@@ -220,6 +239,8 @@ const options = [
     { label: "\\mu", type: "text", apply: "\\mu" },
     { label: "\\mid", type: "text", apply: "\\mid" },
     { label: "\\mapsto", type: "text", apply: "\\mapsto" },
+    { label: "\\max", type: "text", apply: "\\max" },
+    { label: "\\min", type: "text", apply: "\\min" },
 
     // N
     { label: "\\Nu", type: "text", apply: "\\Nu" },
@@ -264,6 +285,9 @@ const options = [
     { label: "\\Pi", type: "text", apply: "\\Pi" },
     { label: "\\pi", type: "text", apply: "\\pi" },
     { label: "\\partial", type: "text", apply: "\\partial" },
+    { label: "\\plim", type: "text", apply: "\\plim" },
+    { label: "\\Pr", type: "text", apply: "\\Pr" },
+    { label: "\\projlim", type: "text", apply: "\\projlim" },
 
     // Q
 
@@ -303,6 +327,7 @@ const options = [
     { label: "\\subset", type: "text", apply: "\\subset" },
     { label: "\\supset", type: "text", apply: "\\supset" },
     { label: "\\smallint", type: "text", apply: "\\smallint" },
+    { label: "\\sup", type: "text", apply: "\\sup" },
 
     // T
     { label: "\\times", type: "text", apply: "\\times" },
@@ -356,6 +381,10 @@ const options = [
     { label: "\\varUpsilon", type: "text", apply: "\\varUpsilon" },
     { label: "\\varphi", type: "text", apply: "\\varphi" },
     { label: "\\varnothing", type: "text", apply: "\\varnothing" },
+    { label: "\\varinjlim", type: "text", apply: "\\varinjlim" },
+    { label: "\\varprojlim", type: "text", apply: "\\varprojlim" },
+    { label: "\\varliminf", type: "text", apply: "\\varliminf" },
+    { label: "\\varlimsup", type: "text", apply: "\\varlimsup" },
 
     // W
     { label: "\\widehat{}", type: "text", apply: "\\widehat{}" },
