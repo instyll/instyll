@@ -419,7 +419,13 @@ class EditorView extends Component {
                                             className="back" src={back} draggable={false}></img> */}
                                         <div className="optionObject">
 
-                                            <button className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+                                            <button
+
+                                                style={{
+                                                    display: this.state.addedTags.length > 0 ? "none" : "initial"
+                                                }}
+
+                                                className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
 
                                                 <img src={add} class="buttonIcon" draggable={false}></img>
 
@@ -451,6 +457,18 @@ class EditorView extends Component {
                                                 </span>
                                             ))}
 
+                                            <button
+
+                                                style={{
+                                                    display: this.state.addedTags.length > 0 ? "initial" : "none"
+                                                }}
+
+                                                className="minAddTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+
+                                                <img src={plus} class="buttonIcon" draggable={false}></img>
+
+                                                </button>
+
                                         </div>
                                     </div>
                                     <div className='rightComponents'>
@@ -479,7 +497,7 @@ class EditorView extends Component {
                                     boxSizing: "border-box",
                                     overflow: "auto",
                                 }} id="text">
-                                    
+
                                     <MilkdownProvider>
                                         <ProsemirrorAdapterProvider>
                                             <MilkdownEditor />

@@ -1014,6 +1014,21 @@ body {
   margin-right: 12px;
 }
 
+.minAddTopicButton {
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  color: var(--secondary-text);
+  font-size: 1em;
+  padding: 2px;
+  height: 36px;
+  font-family: var(--font);
+  transition: 0.3s;
+  vertical-align: middle;
+  margin-right: 12px;
+  filter: var(--icon-filter);
+}
+
 @media only screen and (max-width: 1100px) {
   .addTopicButton {
     width: 45px;
