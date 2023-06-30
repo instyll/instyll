@@ -2192,8 +2192,6 @@ input:checked+.sliderMin:before {
 h1 {
   font-size: 1.8em;
   line-height: 1.1em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--muted-text);
   font-weight: 700;
   vertical-align: top;
 }
@@ -2202,16 +2200,12 @@ h2 {
   font-size: 1.4em;
   /* margin-top: 0; */
   line-height: 1.2em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--muted-text);
 }
 
 h3 {
   font-size: 1.2em;
   line-height: 1.2em;
   /* margin-top: 0; */
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--muted-text);
 }
 
 h4 {
