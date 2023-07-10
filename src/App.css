@@ -2188,6 +2188,13 @@ input:checked+.sliderMin:before {
   overflow: auto;
 }
 
+.selectPDFButtonContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .selectPDFButton {
   height: 36px;
   color: var(--secondary-text);

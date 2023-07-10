@@ -17,7 +17,7 @@ const PdfUploadButton = ({ onFileSelect }) => {
     };
 
     return (
-        <div>
+        <div className='selectPDFButtonContainer'>
             <button
                 className='selectPDFButton'
                 onClick={handleButtonClick}>
