@@ -2202,7 +2202,7 @@ input:checked+.sliderMin:before {
 .selectPDFButton {
   height: 36px;
   color: var(--secondary-text);
-  padding: 2px;
+  padding: 5px 10px;
   width: 120px;
   background-color: transparent;
   font-family: var(--font);

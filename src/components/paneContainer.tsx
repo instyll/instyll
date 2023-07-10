@@ -38,22 +38,30 @@ export default function Sample() {
     <div className="Example">
       <div className="Example__container">
         <div className="Example__container__load">
+
+          <div 
+          className='selectPDFButtonContainer'
+          style={{
+            display: file !== "./sample.pdf" ? "none" : "initial",
+          }}>
           <input onChange={onFileChange} type="file" id="fileUpload" className='hidden'/>
           <label 
           className="selectPDFButton" 
           for="fileUpload"
-          style={{
-            display: file !== "./sample.pdf" ? "none" : "initial",
-          }}
           >Select PDF
           </label>
+          </div>
+
+          
         </div>
         <div className="Example__container__document">
+
           <Document file={file} onLoadSuccess={onDocumentLoadSuccess} options={options}>
             {Array.from(new Array(numPages), (el, index) => (
               <Page key={`page_${index + 1}`} pageNumber={index + 1} />
             ))}
           </Document>
+
         </div>
       </div>
     </div>
