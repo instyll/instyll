@@ -2205,6 +2205,11 @@ input:checked+.sliderMin:before {
   font-size: 15px;
   border: 1px solid var(--muted-text);
   border-radius: 10px;
+  transition: 0.2s;
+}
+
+.selectPDFButton:hover {
+  border: 1px solid var(--secondary-text);
 }
 
 /* elements */
