@@ -402,14 +402,16 @@ class EditorView extends Component {
                     <div className="editingView">
                         <div className="elevatedLeft"
                             style={{
-                                width: this.state.tocOpen && this.state.rightPanelOpen
+                                width: 
+                                this.state.rightPanelSetting === "pane" 
+                                        && this.state.rightPanelOpen ? "calc((100% / 2) - 44px)"
+                                        : this.state.tocOpen && this.state.rightPanelOpen
                                     ? "calc((100%) - 360px)"
                                     : !this.state.tocOpen && this.state.rightPanelOpen
                                         ? "calc((100%) - 360px)"
                                         : this.state.tocOpen && !this.state.rightPanelOpen
                                             ? "calc((100%) - 100px)"
                                             : "calc((100%) - 100px)",
-                                // marginLeft: this.state.tocOpen ? "268px" : "158px",
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">
@@ -497,7 +499,9 @@ class EditorView extends Component {
                         </div>
 
                         <div className="elevatedRightPanel" style={{
-                            width: this.state.rightPanelOpen ? "240px" : "0px",
+                            width: this.state.rightPanelOpen 
+                            && this.state.rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" : 
+                            this.state.rightPanelOpen ? "240px" : "0px",
                             marginLeft: this.state.rightPanelOpen ? "20px" : "0px",
                         }}>
 
