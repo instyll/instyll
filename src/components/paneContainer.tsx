@@ -39,7 +39,14 @@ export default function Sample() {
       <div className="Example__container">
         <div className="Example__container__load">
           <input onChange={onFileChange} type="file" id="fileUpload" className='hidden'/>
-          <label className="selectPDFButton" for="fileUpload">Select PDF</label>
+          <label 
+          className="selectPDFButton" 
+          for="fileUpload"
+          style={{
+            display: file !== "./sample.pdf" ? "none" : "initial",
+          }}
+          >Select PDF
+          </label>
         </div>
         <div className="Example__container__document">
           <Document file={file} onLoadSuccess={onDocumentLoadSuccess} options={options}>
