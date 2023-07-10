@@ -2188,6 +2188,18 @@ input:checked+.sliderMin:before {
   overflow: auto;
 }
 
+.selectPDFButton {
+  height: 36px;
+  color: var(--secondary-text);
+  padding: 2px;
+  width: 120px;
+  background-color: transparent;
+  font-family: var(--font);
+  font-size: 15px;
+  border: 1px solid var(--muted-text);
+  border-radius: 10px;
+}
+
 /* elements */
 h1 {
   font-size: 1.8em;
