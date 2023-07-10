@@ -22,7 +22,7 @@ const PdfUploadButton = ({ onFileSelect }) => {
                 className='selectPDFButton'
                 onClick={handleButtonClick}>
                     <img src={pdf} className='buttonIcon'></img>
-                    Select PDF
+                    <span className='buttonText'>Select PDF</span>
                     </button>
             <input
                 type="file"
