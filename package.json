@@ -61,6 +61,7 @@
     "mermaid.cli": "^0.5.1",
     "milkdown-plugin-placeholder": "https://github.com/HexMox/milkdown-plugin-placeholder",
     "moment": "^2.29.4",
+    "pdfjs-dist": "^3.8.162",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "randomcolor": "^0.6.2",

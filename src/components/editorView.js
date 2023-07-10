@@ -23,7 +23,7 @@ import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
 import TopicModal from '../modal/TopicModal.js';
 import OutlineContainer from '../components/OutlineContainer.js';
-import PaneContainer from './paneContainer.js';
+import PaneContainer from './paneContainer.tsx';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../components/home.js';
 
@@ -514,7 +514,7 @@ class EditorView extends Component {
                             )}
                             {this.state.rightPanelSetting === "pane" && (
                                 <PaneContainer>
-                                    
+
                                 </PaneContainer>
                             )}
 

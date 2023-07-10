@@ -2195,6 +2195,10 @@ input:checked+.sliderMin:before {
   transform: translate(-50%, -50%);
 }
 
+.hidden {
+  display: none;
+}
+
 .selectPDFButton {
   height: 36px;
   color: var(--secondary-text);
@@ -2211,6 +2215,69 @@ input:checked+.sliderMin:before {
 .selectPDFButton:hover {
   border: 1px solid var(--secondary-text);
 }
+
+.pdfDisplayContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.pdfFrame {
+  width: calc(100% - 40px);
+  height: 100vh;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+
+
+.Example__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.Example__container__load {
+  margin-top: 1em;
+  color: white;
+}
+
+.Example__container__document {
+  margin: 1em 0;
+}
+
+.Example__container__document .react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Example__container__document .react-pdf__Page {
+  max-width: calc(100% - 2em);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  margin: 1em;
+}
+
+.Example__container__document .react-pdf__Page canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.Example__container__document .react-pdf__message {
+  padding: 20px;
+  color: var(--primary-text);
+}
+
+
+
+
+
 
 /* elements */
 h1 {
