@@ -23,6 +23,7 @@ import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
 import TopicModal from '../modal/TopicModal.js';
 import OutlineContainer from '../components/OutlineContainer.js';
+import PaneContainer from './paneContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../components/home.js';
 
@@ -402,16 +403,16 @@ class EditorView extends Component {
                     <div className="editingView">
                         <div className="elevatedLeft"
                             style={{
-                                width: 
-                                this.state.rightPanelSetting === "pane" 
+                                width:
+                                    this.state.rightPanelSetting === "pane"
                                         && this.state.rightPanelOpen ? "calc((100% / 2) - 44px)"
                                         : this.state.tocOpen && this.state.rightPanelOpen
-                                    ? "calc((100%) - 360px)"
-                                    : !this.state.tocOpen && this.state.rightPanelOpen
-                                        ? "calc((100%) - 360px)"
-                                        : this.state.tocOpen && !this.state.rightPanelOpen
-                                            ? "calc((100%) - 100px)"
-                                            : "calc((100%) - 100px)",
+                                            ? "calc((100%) - 360px)"
+                                            : !this.state.tocOpen && this.state.rightPanelOpen
+                                                ? "calc((100%) - 360px)"
+                                                : this.state.tocOpen && !this.state.rightPanelOpen
+                                                    ? "calc((100%) - 100px)"
+                                                    : "calc((100%) - 100px)",
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">
@@ -469,7 +470,7 @@ class EditorView extends Component {
 
                                                 <img src={plus} class="buttonIcon" draggable={false}></img>
 
-                                                </button>
+                                            </button>
 
                                         </div>
                                     </div>
@@ -499,9 +500,9 @@ class EditorView extends Component {
                         </div>
 
                         <div className="elevatedRightPanel" style={{
-                            width: this.state.rightPanelOpen 
-                            && this.state.rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" : 
-                            this.state.rightPanelOpen ? "240px" : "0px",
+                            width: this.state.rightPanelOpen
+                                && this.state.rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
+                                this.state.rightPanelOpen ? "240px" : "0px",
                             marginLeft: this.state.rightPanelOpen ? "20px" : "0px",
                         }}>
 
@@ -510,6 +511,11 @@ class EditorView extends Component {
                                     tocHeaders={this.state.tocHeaders}
                                     rightPanelOpen={this.state.rightPanelOpen}
                                 />
+                            )}
+                            {this.state.rightPanelSetting === "pane" && (
+                                <PaneContainer>
+                                    
+                                </PaneContainer>
                             )}
 
                         </div>
