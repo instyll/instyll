@@ -2243,7 +2243,7 @@ input:checked+.sliderMin:before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
+  margin: 0;
   padding: 10px;
   overflow: auto;
   position: absolute;
@@ -2252,7 +2252,7 @@ input:checked+.sliderMin:before {
 }
 
 .Example__container__load {
-  margin-top: 1em;
+  /* margin-top: 1em; */
   width: 100%;
 }
 
@@ -2284,10 +2284,15 @@ input:checked+.sliderMin:before {
 }
 
 .pdfToolbarContainer {
-  width: 100%;
+  width: calc(100% - 40px);
   text-align: right;
   border-bottom: 1px solid var(--muted-text);
   padding-bottom: 5px;
+  padding-top: 24px;
+}
+
+.pdfCurrentPage {
+  margin-right: 5px;
 }
 
 .pdfCurrentPageContainer {
