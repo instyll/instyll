@@ -67,7 +67,6 @@ export default function Sample() {
         }}
       >
 
-
         <div className='pdfExitContainer'>
           <button 
           className='pdfExitButton'
@@ -76,75 +75,11 @@ export default function Sample() {
           </button>
         </div>
 
-        {/* <div className='pdfZoomContainer'>
-          <img src={demagnify} className='buttonIcon'></img>
-        </div>
-
-        <div className='pdfZoomContainer' id="plus">
-          <img src={magnify} className='buttonIcon'></img>
-        </div>
-
-        <div className='pdfZoomSelectContainer'>
-          <Select
-            options={options}
-            placeholder=""
-            styles={{
-              control: (baseStyles, state) => ({
-                ...baseStyles,
-                borderRadius: "10px",
-                borderColor: "transparent",
-                width: "36px",
-                fontFamily: "var(--font)",
-                backgroundColor: "transparent",
-              }),
-              input: (baseStyles, state) => ({
-                ...baseStyles,
-                color: "var(--secondary-text)",
-              }),
-              menu: (baseStyles, state) => ({
-                ...baseStyles,
-                borderRadius: "10px",
-                backgroundColor: "var(--elevated-bg)",
-                fontFamily: "var(--font)",
-              }),
-              singleValue: (baseStyles, state) => ({
-                ...baseStyles,
-                color: "var(--secondary-text)",
-              }),
-              option: (baseStyles, state) => ({
-                ...baseStyles,
-                color: "var(--primary-text)",
-              }),
-              indicatorSeparator: (baseStyles, state) => ({
-                ...baseStyles,
-                display: "none !important",
-                backgroundColor: "transparent",
-              }),
-              valueContainer: (baseStyles, state) => ({
-                ...baseStyles,
-                display: "none !important",
-                backgroundColor: "transparent",
-              }),
-              dropdownIndicator: (baseStyles, state) => ({
-                ...baseStyles,
-                color: "var(--secondary-text)",
-                paddingLeft: "0px",
-              }),
-            }}
-            theme={(theme) => ({
-              ...theme,
-              colors: {
-                ...theme.colors,
-                primary25: 'var(--muted-text)',
-                primary: 'var(--muted-text)',
-              },
-            })}
-          />
-        </div> */}
-
         <div className='pdfNavContainer'
         onClick={previousPage}>
+          <div className='pdfNavWrapper'>
           <img src={back} className='buttonIcon'></img>
+          </div>
         </div>
 
         <div className='pdfCurrentPageContainer'>
@@ -158,7 +93,9 @@ export default function Sample() {
 
         <div className='pdfNavContainer'
         onClick={nextPage}>
+          <div className='pdfNavWrapper'>
           <img src={forward} className='buttonIcon'></img>
+          </div>
         </div>
 
       </div>
