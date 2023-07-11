@@ -2308,7 +2308,7 @@ input:checked+.sliderMin:before {
   padding-right: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-left: 20px;
+  margin-left: 5px;
   display: inline-block;
 }
 
@@ -2328,14 +2328,46 @@ input:checked+.sliderMin:before {
   border-left: 1px solid var(--muted-text);
 }
 
-.pdfZoomContainer {
+.pdfNavContainer {
   display: inline-block;
-  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* padding-top: 3px;
+  padding-bottom: 3px; */
+  width: fit-content;
+  /* background-color: var(--bg-color); */
+  border-radius: 5px;
+  vertical-align: text-bottom;
+  /* margin-left: 5px; */
+}
+
+.pdfNavContainer .buttonIcon {
+  padding-right: 0px;
 }
 
 .pdfZoomContainer .buttonIcon {
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.pdfExitContainer {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  margin-left: 20px;
+}
+
+.pdfExitButton {
+  padding: 5px;
+  font-family: var(--font);
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+}
+
+.pdfExitButton:hover {
+  background-color: var(--muted-text);
 }
 
 /* elements */
