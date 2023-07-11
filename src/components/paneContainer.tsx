@@ -23,6 +23,10 @@ export default function Sample() {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
+  const clearFile = () => {
+    setFile("./sample.pdf")
+  }
+
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
     setPageNumber(1);
@@ -65,7 +69,9 @@ export default function Sample() {
 
 
         <div className='pdfExitContainer'>
-          <button className='pdfExitButton'>
+          <button 
+          className='pdfExitButton'
+          onClick={clearFile}>
             Exit
           </button>
         </div>
