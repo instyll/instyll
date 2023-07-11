@@ -2243,7 +2243,7 @@ input:checked+.sliderMin:before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
+  margin-top: -30px;
   padding: 10px;
   overflow: auto;
   position: absolute;
@@ -2271,6 +2271,7 @@ input:checked+.sliderMin:before {
   /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); */
   border: 1px solid var(--muted-text);
   margin: 1em;
+  z-index: -1;
 }
 
 .Example__container__document .react-pdf__Page canvas {
@@ -2289,6 +2290,8 @@ input:checked+.sliderMin:before {
   border-bottom: 1px solid var(--muted-text);
   padding-bottom: 5px;
   padding-top: 24px;
+  z-index: 999 !important;
+  background-color: var(--elevated-bg);
 }
 
 .pdfCurrentPage {
