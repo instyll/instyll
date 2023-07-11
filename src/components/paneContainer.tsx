@@ -136,7 +136,8 @@ export default function Sample() {
           />
         </div> */}
 
-        <div className='pdfNavContainer'>
+        <div className='pdfNavContainer'
+        onClick={previousPage}>
           <img src={back} className='buttonIcon'></img>
         </div>
 
@@ -149,7 +150,8 @@ export default function Sample() {
           <span className='pdfPageInfo'>of 20</span>
         </div>
 
-        <div className='pdfNavContainer'>
+        <div className='pdfNavContainer'
+        onClick={nextPage}>
           <img src={forward} className='buttonIcon'></img>
         </div>
 

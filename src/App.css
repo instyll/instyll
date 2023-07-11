@@ -2339,6 +2339,12 @@ input:checked+.sliderMin:before {
   border-radius: 5px;
   vertical-align: text-bottom;
   /* margin-left: 5px; */
+  z-index: 999;
+  border-radius: 5px;
+}
+
+.pdfNavContainer:hover {
+  background-color: var(--muted-text);
 }
 
 .pdfNavContainer .buttonIcon {
