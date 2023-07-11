@@ -35,33 +35,51 @@ export default function Sample() {
   }
 
   return (
-    <div className="Example">
+    <div>
+
+      <div
+        className='pdfToolbarContainer'
+        style={{
+          display: file === "./sample.pdf" ? "none" : "inline-block",
+        }}
+      >
+
+        <div className='pdfCurrentPageContainer'>
+          <span className='pdfCurrentPage'>
+            1
+          </span>
+        </div>
+        <div className='pdfPageInfoContainer'>
+          <span className='pdfPageInfo'>(1 of 20)</span>
+        </div>
+
+      </div>
+
+      <div
+        className='selectPDFButtonContainer'
+        style={{
+          display: file !== "./sample.pdf" ? "none" : "initial",
+        }}>
+        <input onChange={onFileChange} type="file" id="fileUpload" className='hidden' />
+        <label
+          className="selectPDFButton"
+          for="fileUpload"
+        >Select PDF
+        </label>
+      </div>
+
       <div className="Example__container">
         <div className="Example__container__load">
 
-          <div 
-          className='selectPDFButtonContainer'
-          style={{
-            display: file !== "./sample.pdf" ? "none" : "initial",
-          }}>
-          <input onChange={onFileChange} type="file" id="fileUpload" className='hidden'/>
-          <label 
-          className="selectPDFButton" 
-          for="fileUpload"
-          >Select PDF
-          </label>
+          <div className="Example__container__document">
+
+            <Document file={file} onLoadSuccess={onDocumentLoadSuccess} options={options}>
+              {Array.from(new Array(numPages), (el, index) => (
+                <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+              ))}
+            </Document>
+
           </div>
-
-          
-        </div>
-        <div className="Example__container__document">
-
-          <Document file={file} onLoadSuccess={onDocumentLoadSuccess} options={options}>
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-            ))}
-          </Document>
-
         </div>
       </div>
     </div>
