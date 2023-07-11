@@ -143,11 +143,11 @@ export default function Sample() {
 
         <div className='pdfCurrentPageContainer'>
           <span className='pdfCurrentPage'>
-            1
+          {pageNumber || (numPages ? 1 : '--')}
           </span>
         </div>
         <div className='pdfPageInfoContainer'>
-          <span className='pdfPageInfo'>of 20</span>
+          <span className='pdfPageInfo'>of {numPages || '--'}</span>
         </div>
 
         <div className='pdfNavContainer'

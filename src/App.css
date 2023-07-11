@@ -2249,6 +2249,7 @@ input:checked+.sliderMin:before {
   position: absolute;
   height: 100%;
   width: calc(100% - 20px);
+  z-index: -1;
 }
 
 .Example__container__load {
