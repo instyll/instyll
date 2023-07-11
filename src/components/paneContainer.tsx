@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
+import Select from 'react-select';
 
 import '../App.css';
+import magnify from '../icons/magnify.png';
+import demagnify from '../icons/demagnify.png';
 
 import { PDFDocumentProxy } from 'pdfjs-dist';
 
@@ -44,13 +47,84 @@ export default function Sample() {
         }}
       >
 
+
+        <div className='pdfExitContainer'>
+          
+        </div>
+
+        <div className='pdfZoomContainer'>
+          <img src={demagnify} className='buttonIcon'></img>
+        </div>
+
+        <div className='pdfZoomContainer' id="plus">
+          <img src={magnify} className='buttonIcon'></img>
+        </div>
+
+        <div className='pdfZoomSelectContainer'>
+          <Select
+            options={options}
+            placeholder=""
+            styles={{
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+                borderRadius: "10px",
+                borderColor: "transparent",
+                width: "36px",
+                fontFamily: "var(--font)",
+                backgroundColor: "transparent",
+              }),
+              input: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "var(--secondary-text)",
+              }),
+              menu: (baseStyles, state) => ({
+                ...baseStyles,
+                borderRadius: "10px",
+                backgroundColor: "var(--elevated-bg)",
+                fontFamily: "var(--font)",
+              }),
+              singleValue: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "var(--secondary-text)",
+              }),
+              option: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "var(--primary-text)",
+              }),
+              indicatorSeparator: (baseStyles, state) => ({
+                ...baseStyles,
+                display: "none !important",
+                backgroundColor: "transparent",
+              }),
+              valueContainer: (baseStyles, state) => ({
+                ...baseStyles,
+                display: "none !important",
+                backgroundColor: "transparent",
+              }),
+              dropdownIndicator: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "var(--secondary-text)",
+                paddingLeft: "0px",
+              }),
+            }}
+            theme={(theme) => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                primary25: 'var(--muted-text)',
+                primary: 'var(--muted-text)',
+              },
+            })}
+          />
+        </div>
+
         <div className='pdfCurrentPageContainer'>
           <span className='pdfCurrentPage'>
             1
           </span>
         </div>
         <div className='pdfPageInfoContainer'>
-          <span className='pdfPageInfo'>(1 of 20)</span>
+          <span className='pdfPageInfo'>of 20</span>
         </div>
 
       </div>

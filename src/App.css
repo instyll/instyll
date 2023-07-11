@@ -2243,7 +2243,7 @@ input:checked+.sliderMin:before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -30px;
+  margin-top: -24px;
   padding: 10px;
   overflow: auto;
   position: absolute;
@@ -2269,7 +2269,7 @@ input:checked+.sliderMin:before {
 .Example__container__document .react-pdf__Page {
   max-width: calc(100% - 2em);
   /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); */
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
   margin: 1em;
   z-index: -1;
 }
@@ -2287,7 +2287,6 @@ input:checked+.sliderMin:before {
 .pdfToolbarContainer {
   width: calc(100% - 40px);
   text-align: right;
-  border-bottom: 1px solid var(--muted-text);
   padding-bottom: 5px;
   padding-top: 24px;
   z-index: 999 !important;
@@ -2300,12 +2299,16 @@ input:checked+.sliderMin:before {
 
 .pdfCurrentPageContainer {
   font-family: var(--font);
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
+  background-color: var(--bg-color);
   width: 45px;
   border-radius: 5px;
   color: var(--primary-text);
   text-align: right;
-  padding: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 20px;
   display: inline-block;
 }
 
@@ -2314,6 +2317,25 @@ input:checked+.sliderMin:before {
   color: var(--primary-text);
   padding: 5px;
   display: inline-block;
+}
+
+.pdfZoomSelectContainer {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#plus {
+  border-left: 1px solid var(--muted-text);
+}
+
+.pdfZoomContainer {
+  display: inline-block;
+  padding: 5px;
+}
+
+.pdfZoomContainer .buttonIcon {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /* elements */
