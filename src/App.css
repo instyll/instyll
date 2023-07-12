@@ -2344,6 +2344,14 @@ input:checked+.sliderMin:before {
   border-radius: 5px;
 }
 
+.pdfNavContainer.disabled {
+  opacity: 0.5;
+}
+
+.pdfNavContainer.disabled:hover {
+  background-color: transparent;
+}
+
 .pdfNavWrapper {
   height: 19px;
 }

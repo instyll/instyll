@@ -75,7 +75,7 @@ export default function Sample() {
           </button>
         </div>
 
-        <div className='pdfNavContainer'
+        <div className={`pdfNavContainer ${pageNumber <= 1 ? "disabled" : ""}`}
         onClick={previousPage}>
           <div className='pdfNavWrapper'>
           <img src={back} className='buttonIcon'></img>
@@ -91,7 +91,7 @@ export default function Sample() {
           <span className='pdfPageInfo'>of {numPages || '--'}</span>
         </div>
 
-        <div className='pdfNavContainer'
+        <div className={`pdfNavContainer ${pageNumber >= numPages ? "disabled" : ""}`}
         onClick={nextPage}>
           <div className='pdfNavWrapper'>
           <img src={forward} className='buttonIcon'></img>
