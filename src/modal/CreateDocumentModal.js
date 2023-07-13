@@ -36,7 +36,7 @@ const DocumentModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAd
                 boxSizing: "border-box",
                 width: "400px",
                 // height: "calc(100% - 190px)",
-                height: "400px",
+                height: "140px",
                 position: "absolute",
                 top: "50%",
                 left: "50%",
@@ -44,11 +44,19 @@ const DocumentModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAd
             }
         }}>
 
-            
+            <div className='createDocumentFromTemplateContainer'>
+                
+            </div>
+
+            <div className='createDocumentTitleContainer'>
+                <input className='createDocumentTitleInput' autoFocus placeholder='Name this note...'>
+
+                </input>
+            </div>
           
             <div className="modalActionContainer">
-                <button onClick={handleClose} className='modalDefaultButton'>Close</button>
-                <button onClick={handleAddTags} className='modalActionButton'>Add</button>
+                <button onClick={handleClose} className='modalDefaultButton'>Cancel</button>
+                <button onClick={handleAddTags} className='modalActionButton'>Create</button>
             </div>
         </Modal >
     );

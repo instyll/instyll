@@ -2773,6 +2773,27 @@ table {
   user-select: none;
 }
 
+/* create document modal */
+.createDocumentTitleInput {
+  font-family: var(--font);
+  font-size: 15px;
+  background-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid var(--muted-text);
+  width: 360px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0.3em;
+  outline: none;
+  color: var(--primary-text);
+}
+
+.createDocumentTitleInput::placeholder {
+  color: var(--secondary-text);
+}
+
 /* home page */
 
 .childContainer {
