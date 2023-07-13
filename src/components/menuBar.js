@@ -3,6 +3,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import DocumentModal from '../modal/CreateDocumentModal';
 import '../App.css';
 // Assets
 import logo from '../icons/keylight3.png'
@@ -12,6 +13,8 @@ import back from '../icons/arrowback.png';
 import forward from '../icons/arrowforward.png';
 
 function MenuBar(props) {
+
+  const [documentModalOpen, setDocumentModalOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,8 +29,18 @@ function MenuBar(props) {
     navigate(1); // Go forward to the next route
   };
 
+  const handleDocumentModalOpen = (value) => {
+    setDocumentModalOpen(value);
+  }
+
   return (
     <div className="menuBar">
+
+      <DocumentModal
+        show={documentModalOpen}
+        onHide={() => setDocumentModalOpen(false)}
+      />
+
       <div className="menuIconLogo" id="left">
         <img
           src={back}
@@ -56,9 +69,13 @@ function MenuBar(props) {
       </div>
       <input className="search" placeholder="Search your notes">
       </input>
-      <button className="menuAddOptionButton">
+      <button
+        className="menuAddOptionButton"
+        onClick={setDocumentModalOpen}
+      >
         <img src={create} className="buttonIcon" draggable={false}></img>
-        <span className="buttonText">New</span></button>
+        <span className="buttonText">New</span>
+      </button>
     </div>
   );
 }
