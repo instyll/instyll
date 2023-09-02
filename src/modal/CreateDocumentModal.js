@@ -36,7 +36,7 @@ const DocumentModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAd
                 boxSizing: "border-box",
                 width: "400px",
                 // height: "calc(100% - 190px)",
-                height: "140px",
+                height: "110px",
                 position: "absolute",
                 top: "50%",
                 left: "50%",
