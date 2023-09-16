@@ -144,7 +144,7 @@ function TableOfContents(props) {
           <img src={cmd} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
        
-        <p className="tocTitle" id="breakSection" style={{
+        {/* <p className="tocTitle" id="breakSection" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <span className="tocInnerText">Support</span></p>
@@ -157,7 +157,7 @@ function TableOfContents(props) {
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={feedback} className="tocIcon" draggable={false}></img>
-          {props.tocOpen && <span className="tocInnerText">Submit Feedback</span>}</p>
+          {props.tocOpen && <span className="tocInnerText">Submit Feedback</span>}</p> */}
 
         <div className="bottomToc" style={{
           // textAlign: props.tocOpen ? "left" : "center",
