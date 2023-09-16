@@ -107,7 +107,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0",
+    "concurrently": "^8.2.1",
     "electron": "^22.0.0",
     "electron-builder": "^22.10.3",
     "eslint": "^8.34.0",

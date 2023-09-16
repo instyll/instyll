@@ -14,24 +14,21 @@ import fs from 'fs';
 import CommandPalette from 'react-command-palette';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
-import DateTime from '../components/dateTime.js';
-import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
-import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import Select from 'react-select';
 import CreateTopicModal from '../modal/CreateTopicModal.js';
+import CreateGridTopicButton from './createNewGridTopicButton.js';
+import CreateListTopicButton from './createNewListTopicButton.js';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
-import moreDots from '../icons/more.png';
-import add from '../icons/add_component2.png';
 import layoutGrid from '../icons/layoutGrid.png';
 import layoutList from '../icons/layoutList.png';
 import TopicGridItem from './topicGridItem.js';
-import createTopic from '../icons/plus1.png';
+import TopicListItem from './topicListItem.js';
 
 const Topics = () => {
     const [dockOpen, setDockOpen] = useState(true);
@@ -338,25 +335,21 @@ const Topics = () => {
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
 
-                                {tags.map((tag) => (
+                                {topicGridLayout ? tags.map((tag) => (
                                     <TopicGridItem tag={tag}>
                                     </TopicGridItem>
+                                )): tags.map((tag) => (
+                                    <TopicListItem tag={tag}>
+                                    </TopicListItem>
                                 ))}
 
-                                <div 
-                                className='createNewTopicContainer'
-                                onClick={setCreateTopicModalOpen}
-                                >
-                                    <div className='topicIconContainer'>
-                                        <div className='topicIconWrapper'>
-                                            <span>
-                                                <img src={createTopic} className='buttonIcon'>
-                                                </img>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                {topicGridLayout ? 
+                                <CreateGridTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
+                                </CreateGridTopicButton>
+                                : 
+                                <CreateListTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
+                                </CreateListTopicButton>
+                                }
                             </div>
                         </div>
 
