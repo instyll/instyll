@@ -9,7 +9,6 @@ import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
-import TemplateModal from "../modal/TemplateModal";
 import "allotment/dist/style.css";
 import getFilesInDirectory from '../fileUtils';
 import chokidar from 'chokidar'

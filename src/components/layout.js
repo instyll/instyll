@@ -6,7 +6,6 @@ import '../App.css';
 import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
 import 'katex/dist/katex.min.css'
-import TemplateModal from "../modal/TemplateModal";
 import "allotment/dist/style.css";
 import getFilesInDirectory from '../fileUtils';
 import chokidar from 'chokidar'
@@ -406,9 +405,6 @@ class Layout extends Component {
                     maxDisplayed={500}
                 ></CommandPalette>
 
-                <TemplateModal
-                    show={this.state.modalOpen}
-                    onHide={() => this.setState({ modalOpen: false })} />
                 <TopicModal
                     show={this.state.topicModalOpen}
                     onHide={() => this.setState({ topicModalOpen: false })}
