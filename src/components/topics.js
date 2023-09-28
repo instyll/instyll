@@ -2,6 +2,7 @@
  * @author wou
  */
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 // import Editor from './legacyEditor.js';
 import { MilkdownEditorWrapper } from '../mdWrapper.js';
 import '../App.css';
@@ -20,6 +21,7 @@ import Select from 'react-select';
 import CreateTopicModal from '../modal/CreateTopicModal.js';
 import CreateGridTopicButton from './createNewGridTopicButton.js';
 import CreateListTopicButton from './createNewListTopicButton.js';
+import TopicNoteViewer from './topicNoteViewer.js';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -336,8 +338,10 @@ const Topics = () => {
                             <div className='dashboardTopicsContainer'>
 
                                 {topicGridLayout ? tags.map((tag) => (
-                                    <TopicGridItem tag={tag}>
-                                    </TopicGridItem>
+                                    <Link to={`/topics/${tag}`}>
+                                        <TopicGridItem tag={tag}>
+                                        </TopicGridItem>
+                                    </Link>
                                 )): tags.map((tag) => (
                                     <TopicListItem tag={tag}>
                                     </TopicListItem>

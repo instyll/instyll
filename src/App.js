@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 import Layout from './components/layout.js';
 import Topics from './components/topics.js';
+import TopicNoteViewer from './components/topicNoteViewer';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -32,6 +33,7 @@ class App extends Component {
             <Route path="/home" element={<Layout> <Home /> </Layout>} />
             <Route path="/timeline" element={<Layout> <Timeline /> </Layout>} />
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />
+            <Route path="/topics/:topicId" element={<Layout> <TopicNoteViewer /> </Layout>} />
           </Routes>
         </Router>
       </div>
