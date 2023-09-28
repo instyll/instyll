@@ -2,7 +2,7 @@
  * @author wou
  */
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import Editor from './legacyEditor.js';
 import { MilkdownEditorWrapper } from '../mdWrapper.js';
 import '../App.css';
@@ -85,6 +85,8 @@ const Topics = () => {
             setTopicGridLayout(true);
         }
     }
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchFiles();
@@ -338,10 +340,10 @@ const Topics = () => {
                             <div className='dashboardTopicsContainer'>
 
                                 {topicGridLayout ? tags.map((tag) => (
-                                    <Link to={`/topics/${tag}`}>
+                                    <div onClick={() => navigate(`/topics/${tag}`)}> 
                                         <TopicGridItem tag={tag}>
                                         </TopicGridItem>
-                                    </Link>
+                                      </div>  
                                 )): tags.map((tag) => (
                                     <TopicListItem tag={tag}>
                                     </TopicListItem>
