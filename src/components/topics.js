@@ -340,10 +340,10 @@ const Topics = () => {
                             <div className='dashboardTopicsContainer'>
 
                                 {topicGridLayout ? tags.map((tag) => (
-                                    <div onClick={() => navigate(`/topics/${tag}`)}> 
+
                                         <TopicGridItem tag={tag}>
                                         </TopicGridItem>
-                                      </div>  
+                                
                                 )): tags.map((tag) => (
                                     <TopicListItem tag={tag}>
                                     </TopicListItem>

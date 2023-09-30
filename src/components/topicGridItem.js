@@ -2,12 +2,16 @@
  * @author wou
  */
 import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import moreDots from '../icons/more.png';
 import '../App.css';
 
 const TopicGridItem = ({ tag }) => {
+
+  const navigate = useNavigate();
+
   return (
-    <div className='topicItem' key={tag}>
+    <div className='topicItem' key={tag} onClick={() => navigate(`/topics/${tag}`)}>
       <div className='topicTextContainer'>
         <div className='topicTextWrapper'>
           <div className='topicTitle'>
