@@ -13,6 +13,7 @@ import store from './store.js';
 import Layout from './components/layout.js';
 import Topics from './components/topics.js';
 import TopicNoteViewer from './components/topicNoteViewer';
+import DocumentViewer from './components/documentsViewer';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -31,7 +32,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<Layout> <EditorView /> </Layout>} />
             <Route path="/home" element={<Layout> <Home /> </Layout>} />
-            <Route path="/timeline" element={<Layout> <Timeline /> </Layout>} />
+            <Route path="/documents" element={<Layout> <DocumentViewer /> </Layout>} />
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />
             <Route path="/topics/:topicId" element={<Layout> <TopicNoteViewer /> </Layout>} />
           </Routes>
