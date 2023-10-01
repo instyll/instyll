@@ -9,6 +9,7 @@ import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
 import Select from 'react-select';
 import DocumentGridItem from './documentGridItem';
+import DocumentListItem from './documentListItem';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -60,6 +61,7 @@ const TopicNoteViewer = ({ location }) => {
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
                                     <button className='changeTopicViewButton'
+                                    onClick={handleChangeDocumentViewLayout}
                                     >
                                         <img src={documentGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
@@ -119,16 +121,13 @@ const TopicNoteViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
+                                {documentGridLayout ? 
                                 <DocumentGridItem documentInfo={documentTestInfo}>
                                 </DocumentGridItem>
-                                <DocumentGridItem documentInfo={documentTestInfo}>
-                                </DocumentGridItem>
-                                <DocumentGridItem documentInfo={documentTestInfo}>
-                                </DocumentGridItem>
-                                <DocumentGridItem documentInfo={documentTestInfo}>
-                                </DocumentGridItem>
-                                <DocumentGridItem documentInfo={documentTestInfo}>
-                                </DocumentGridItem>
+                                :
+                                <DocumentListItem documentInfo={documentTestInfo}>
+                                </DocumentListItem>
+                            }       
                             </div>
                         </div>
 
