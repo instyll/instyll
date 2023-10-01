@@ -1,25 +1,14 @@
 /**
  * @author wou
  */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import Editor from './legacyEditor.js';
-import { MilkdownEditorWrapper } from '../mdWrapper.js';
 import '../App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
-import getFilesInDirectory from '../fileUtils';
-import chokidar from 'chokidar'
-import fs from 'fs';
-import CommandPalette from 'react-command-palette';
-import sampleHeader from '../command-palette/commandPaletteHeader.js';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
-import { useSelector, useDispatch } from 'react-redux';
-import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import Select from 'react-select';
-import CreateTopicModal from '../modal/CreateTopicModal.js';
-import CreateGridTopicButton from './createNewGridTopicButton.js';
-import CreateListTopicButton from './createNewListTopicButton.js';
+import DocumentGridItem from './documentGridItem';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -27,21 +16,19 @@ import 'prism-themes/themes/prism-nord.css';
 
 import layoutGrid from '../icons/layoutGrid.png';
 import layoutList from '../icons/layoutList.png';
-import TopicGridItem from './topicGridItem.js';
-import TopicListItem from './topicListItem.js';
 import { useParams } from 'react-router-dom';
 
 const TopicNoteViewer = ({ location }) => {
-    const [topicGridLayout, setTopicGridLayout] = useState(true);
+    const [documentGridLayout, setDocumentGridLayout] = useState(true);
     const { topicId } = useParams();
 
     /* Handle grid or list layout */
-    const handleChangeTopicViewLayout = () => {
-        if (topicGridLayout) {
-            setTopicGridLayout(false);
+    const handleChangeDocumentViewLayout = () => {
+        if (documentGridLayout) {
+            setDocumentGridLayout(false);
         }
         else {
-            setTopicGridLayout(true);
+            setDocumentGridLayout(true);
         }
     }
 
@@ -51,6 +38,9 @@ const TopicNoteViewer = ({ location }) => {
         { value: 'sortByName', label: 'Sort by name' },
         { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
+
+    /* placeholder document info */
+    const documentTestInfo = ["document name", 300]
 
     return (
         <div className="EditorView">
@@ -71,7 +61,7 @@ const TopicNoteViewer = ({ location }) => {
                                 <div className='changeTopicViewButtonContainer'>
                                     <button className='changeTopicViewButton'
                                     >
-                                        <img src={topicGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
+                                        <img src={documentGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
                                 </div>
                                 <div className='selectSortOptionContainer'>
@@ -129,8 +119,16 @@ const TopicNoteViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-
-                            
+                                <DocumentGridItem documentInfo={documentTestInfo}>
+                                </DocumentGridItem>
+                                <DocumentGridItem documentInfo={documentTestInfo}>
+                                </DocumentGridItem>
+                                <DocumentGridItem documentInfo={documentTestInfo}>
+                                </DocumentGridItem>
+                                <DocumentGridItem documentInfo={documentTestInfo}>
+                                </DocumentGridItem>
+                                <DocumentGridItem documentInfo={documentTestInfo}>
+                                </DocumentGridItem>
                             </div>
                         </div>
 
