@@ -4,7 +4,7 @@ import './App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, HashRouter } from 'react-router-dom';
 import Home from './components/home.js';
 import EditorView from './components/editorView.js';
 import Timeline from './components/timeline.js';
@@ -28,7 +28,7 @@ class App extends Component {
       <Provider store={store}>
 
       <div className="App">
-        <Router>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Layout> <EditorView /> </Layout>} />
             <Route path="/home" element={<Layout> <Home /> </Layout>} />
@@ -36,7 +36,7 @@ class App extends Component {
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />
             <Route path="/topics/:topicId" element={<Layout> <TopicNoteViewer /> </Layout>} />
           </Routes>
-        </Router>
+        </HashRouter>
       </div>
 
     </Provider>

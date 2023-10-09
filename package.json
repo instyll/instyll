@@ -109,7 +109,7 @@
   "devDependencies": {
     "concurrently": "^8.2.1",
     "electron": "^22.0.0",
-    "electron-builder": "^22.10.3",
+    "electron-builder": "23.6.0",
     "eslint": "^8.34.0",
     "eslint-plugin-react": "^7.32.2",
     "wait-on": "^7.0.1"
@@ -122,7 +122,7 @@
     "electron-start": "electron .",
     "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://127.0.0.1:3000 && electron .\" ",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder -c.extraMetadata.main=build/main.js GENERATE_SOURCEMAP=false"
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/main.js"
   },
   "eslintConfig": {
     "extends": [
