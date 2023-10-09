@@ -12,3 +12,5 @@
 
 `yarn run electron-pack`
 
+Sometimes you need to disable eslint in order to avoid production build fail, in that case create `.env` and write `DISABLE_ESLINT_PLUGIN=true`
+
