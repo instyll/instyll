@@ -11,9 +11,9 @@ import Timeline from './components/timeline.js';
 import { Provider } from 'react-redux';
 import { store } from './store.js';
 import Layout from './components/layout.js';
-import Topics from './components/topics.js';
-import TopicNoteViewer from './components/topicNoteViewer';
-import DocumentViewer from './components/documentsViewer';
+import Topics from './components/topic/topics.js';
+import TopicNoteViewer from './components/topic/topicNoteViewer';
+import DocumentViewer from './components/document/documentsViewer';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';

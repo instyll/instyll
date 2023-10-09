@@ -3,22 +3,22 @@
  */
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import moreDots from '../icons/more.png';
-import '../App.css';
+import moreDots from '../../icons/more.png';
+import '../../App.css';
 
-const DocumentGridItem = ({ documentInfo }) => {
+const TopicGridItem = ({ tag }) => {
 
   const navigate = useNavigate();
 
   return (
-    <div className='documentItem' key={documentInfo[0]}>
+    <div className='topicItem' key={tag} onClick={() => navigate(`/topics/${tag}`)}>
       <div className='topicTextContainer'>
         <div className='topicTextWrapper'>
           <div className='topicTitle'>
-            <span>{documentInfo[0]}</span>
+            <span>{tag}</span>
           </div>
           <div className='topicInfo'>
-            <span>{documentInfo[1]} words</span>
+            <span>3 Notes</span>
           </div>
       </div>
       </div>
@@ -26,4 +26,4 @@ const DocumentGridItem = ({ documentInfo }) => {
   );
 };
 
-export default DocumentGridItem;
+export default TopicGridItem;

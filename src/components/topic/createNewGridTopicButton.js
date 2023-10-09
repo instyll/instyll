@@ -2,17 +2,17 @@
  * @author wou
  */
 import React from 'react';
-import "../App.css";
+import "../../App.css";
 
-import createTopic from '../icons/plus1.png';
+import createTopic from '../../icons/plus1.png';
 
-const CreateListTopicButton = ({setCreateTopicModalOpen}) => {
+const CreateGridTopicButton = ({setCreateTopicModalOpen}) => {
     return (
     <div 
-    className='createNewListTopicContainer'
+    className='createNewTopicContainer'
     onClick={setCreateTopicModalOpen}
     >
-        <div className='topicListIconContainer'>
+        <div className='topicIconContainer'>
             <div className='topicIconWrapper'>
                 <span>
                     <img src={createTopic} className='buttonIcon'>
@@ -24,4 +24,4 @@ const CreateListTopicButton = ({setCreateTopicModalOpen}) => {
     );
 };
 
-export default CreateListTopicButton;
+export default CreateGridTopicButton;

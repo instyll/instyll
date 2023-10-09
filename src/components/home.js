@@ -20,7 +20,7 @@ import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedImage } from '../imageSlice';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
-import TopicGridItem from '../components/topicGridItem.js';
+import TopicGridItem from './topic/topicGridItem.js';
 import CreateTopicModal from '../modal/CreateTopicModal.js';
 import { useLocation } from 'react-router-dom';
 

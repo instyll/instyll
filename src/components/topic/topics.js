@@ -4,31 +4,31 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import Editor from './legacyEditor.js';
-import { MilkdownEditorWrapper } from '../mdWrapper.js';
-import '../App.css';
+import { MilkdownEditorWrapper } from '../../mdWrapper.js';
+import '../../App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
-import getFilesInDirectory from '../fileUtils';
+import getFilesInDirectory from '../../fileUtils.js';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import CommandPalette from 'react-command-palette';
-import sampleHeader from '../command-palette/commandPaletteHeader.js';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
+import sampleHeader from '../../command-palette/commandPaletteHeader.js';
+import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../../constants.ts';
 import { useSelector, useDispatch } from 'react-redux';
-import TopicSettingModal from '../modal/TopicSettingsModal.js';
+import TopicSettingModal from '../../modal/TopicSettingsModal.js';
 import Select from 'react-select';
-import CreateTopicModal from '../modal/CreateTopicModal.js';
+import CreateTopicModal from '../../modal/CreateTopicModal.js';
 import CreateGridTopicButton from './createNewGridTopicButton.js';
 import CreateListTopicButton from './createNewListTopicButton.js';
 import TopicNoteViewer from './topicNoteViewer.js';
 
-import '../command-palette/commandPalette.css';
+import '../../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
-import layoutGrid from '../icons/layoutGrid.png';
-import layoutList from '../icons/layoutList.png';
+import layoutGrid from '../../icons/layoutGrid.png';
+import layoutList from '../../icons/layoutList.png';
 import TopicGridItem from './topicGridItem.js';
 import TopicListItem from './topicListItem.js';
 

@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import moreDots from '../icons/more.png';
-import '../App.css';
+import moreDots from '../../icons/more.png';
+import '../../App.css';
 
 const DocumentListItem = ({ documentInfo }) => {
 

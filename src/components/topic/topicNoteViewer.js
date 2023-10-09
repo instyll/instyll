@@ -3,20 +3,20 @@
  */
 import React, { useState } from 'react';
 // import Editor from './legacyEditor.js';
-import '../App.css';
+import '../../App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
 import Select from 'react-select';
-import DocumentGridItem from './documentGridItem';
-import DocumentListItem from './documentListItem';
+import DocumentGridItem from '../document/documentGridItem';
+import DocumentListItem from '../document/documentListItem';
 
-import '../command-palette/commandPalette.css';
+import '../../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
-import layoutGrid from '../icons/layoutGrid.png';
-import layoutList from '../icons/layoutList.png';
+import layoutGrid from '../../icons/layoutGrid.png';
+import layoutList from '../../icons/layoutList.png';
 import { useParams } from 'react-router-dom';
 
 const TopicNoteViewer = ({ location }) => {
