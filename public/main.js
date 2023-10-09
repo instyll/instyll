@@ -11,6 +11,7 @@ let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
             width: 900, height: 680,
+            icon: __dirname + '/icons/key500.png',
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false

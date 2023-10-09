@@ -9,7 +9,7 @@ import Home from './components/home.js';
 import EditorView from './components/editorView.js';
 import Timeline from './components/timeline.js';
 import { Provider } from 'react-redux';
-import store from './store.js';
+import { store } from './store.js';
 import Layout from './components/layout.js';
 import Topics from './components/topics.js';
 import TopicNoteViewer from './components/topicNoteViewer';
