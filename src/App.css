@@ -3056,10 +3056,14 @@ table {
   width: calc(100% - 2px);
   border: 1px solid var(--muted-text);
   border-radius: 16px;
-  margin-top: 28px;
+  margin-top: 20px;
   margin-right: 2px;
   color: var(--primary-text);
   transition: 0.2s;
+}
+
+.topicListItem:nth-child(1) {
+  margin-top: 28px;
 }
 
 .topicItem {
@@ -3242,7 +3246,7 @@ table {
   height: 80px;
   border: 1px solid var(--muted-text);
   border-radius: 16px;
-  margin-top: 28px;
+  margin-top: 20px;
   margin-right: 28px;
   color: var(--primary-text);
   position: relative;
