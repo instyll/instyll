@@ -935,7 +935,7 @@ body {
 .moreDots {
   height: auto;
   width: 24px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   margin-left: auto;
   filter: var(--editorIconFilter);
 }
@@ -3136,6 +3136,7 @@ table {
   display: flex;
   align-items: center;
   font-family: var(--font);
+  width: calc(100% - 44px);
 }
 
 .topicListTextContainer {
@@ -3147,6 +3148,13 @@ table {
 
 .topcIconContainer .buttonIcon {
   padding-right: 0px;
+}
+
+.topicOptionsMenuContainer {
+  position: absolute;
+  right: 0;
+  top: 35%;
+  padding-right: 20px;
 }
 
 .topicTextWrapper {

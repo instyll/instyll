@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import moreDots from '../../icons/more.png';
+import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 
 const TopicGridItem = ({ tag }) => {
@@ -20,7 +20,10 @@ const TopicGridItem = ({ tag }) => {
           <div className='topicInfo'>
             <span>3 Notes</span>
           </div>
-      </div>
+          <div className='topicOptionsMenuContainer'>
+            <img src={moreDots} className='moreDots'></img>
+          </div>
+        </div>
       </div>
     </div>
   );
