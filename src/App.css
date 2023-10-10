@@ -3148,6 +3148,7 @@ table {
   display: flex;
   align-items: center;
   font-family: var(--font);
+  position: relative;
 }
 
 .topcIconContainer .buttonIcon {
@@ -3155,6 +3156,13 @@ table {
 }
 
 .topicOptionsMenuContainer {
+  position: absolute;
+  right: 0;
+  top: 35%;
+  padding-right: 20px;
+}
+
+.topicOptionsListMenuContainer {
   position: absolute;
   right: 0;
   top: 35%;
