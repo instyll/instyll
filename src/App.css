@@ -3051,7 +3051,7 @@ table {
 
 .topicListItem {
   display: inline-block;
-  height: 60px;
+  height: 80px;
   vertical-align: middle;
   width: calc(100% - 2px);
   border: 1px solid var(--muted-text);
@@ -3140,7 +3140,7 @@ table {
 }
 
 .topicListTextContainer {
-  height: 60px;
+  height: 80px;
   display: flex;
   align-items: center;
   font-family: var(--font);
@@ -3227,7 +3227,7 @@ table {
 }
 
 .topicListIconContainer {
-  height: 60px;
+  height: 80px;
   display: flex;
   /* flex-direction: row; */
   align-items: center;
@@ -3238,8 +3238,8 @@ table {
   vertical-align: middle;
   display: inline-block;
   width: calc(100% - 2px);
-  line-height: 60px;
-  height: 60px;
+  line-height: 80px;
+  height: 80px;
   border: 1px solid var(--muted-text);
   border-radius: 16px;
   margin-top: 28px;
