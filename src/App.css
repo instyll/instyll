@@ -3160,13 +3160,7 @@ table {
   right: 0;
   top: 35%;
   padding-right: 20px;
-}
-
-.topicOptionsListMenuContainer {
-  position: absolute;
-  right: 0;
-  top: 35%;
-  padding-right: 20px;
+  z-index: 999;
 }
 
 .topicTextWrapper {

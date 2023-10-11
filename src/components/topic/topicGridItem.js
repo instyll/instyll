@@ -1,18 +1,37 @@
 /**
  * @author wou
  */
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import TopicOptionsModal from '../../modal/TopicOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 
 const TopicGridItem = ({ tag }) => {
 
+  const [topicOptionsModalOpen, setTopicOptionsModalOpen] = useState(false);
+
   const navigate = useNavigate();
 
+  const handleTopicOptionsModalOpen = (value) => {
+    setTopicOptionsModalOpen(true);
+  }
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+    console.log("stopped");
+    handleTopicOptionsModalOpen(true);
+  }
+
   return (
-    <div className='topicItem' key={tag} onClick={() => navigate(`/topics/${tag}`)}>
-      <div className='topicTextContainer'>
+    <div className='topicItem' key={tag}>
+
+      <TopicOptionsModal
+        show={topicOptionsModalOpen}
+        onHide={() => setTopicOptionsModalOpen(false)}
+      />
+
+      <div className='topicTextContainer' onClick={() => navigate(`/topics/${tag}`)}>
         <div className='topicTextWrapper'>
           <div className='topicTitle'>
             <span>{tag}</span>
@@ -20,7 +39,7 @@ const TopicGridItem = ({ tag }) => {
           <div className='topicInfo'>
             <span>3 Notes</span>
           </div>
-          <div className='topicOptionsMenuContainer'>
+          <div className='topicOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
           </div>
         </div>
