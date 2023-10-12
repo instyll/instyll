@@ -10,6 +10,7 @@ import '../../App.css';
 const TopicGridItem = ({ tag }) => {
 
   const [topicOptionsModalOpen, setTopicOptionsModalOpen] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState(null);
 
   const navigate = useNavigate();
 
@@ -21,6 +22,8 @@ const TopicGridItem = ({ tag }) => {
     e.stopPropagation();
     console.log("stopped");
     handleTopicOptionsModalOpen(true);
+    setSelectedTopic(tag);
+    // console.log(selectedTopic);
   }
 
   return (
@@ -28,6 +31,7 @@ const TopicGridItem = ({ tag }) => {
 
       <TopicOptionsModal
         show={topicOptionsModalOpen}
+        selectedTopic={selectedTopic}
         onHide={() => setTopicOptionsModalOpen(false)}
       />
 

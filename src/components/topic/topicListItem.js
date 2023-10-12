@@ -10,6 +10,7 @@ import '../../App.css';
 const TopicListItem = ({ tag }) => {
 
   const [topicOptionsModalOpen, setTopicOptionsModalOpen] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState(null);
 
   const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ const TopicListItem = ({ tag }) => {
     e.stopPropagation();
     console.log("stopped");
     handleTopicOptionsModalOpen(true);
+    setSelectedTopic(tag);
   }
 
   return (
@@ -28,6 +30,7 @@ const TopicListItem = ({ tag }) => {
 
       <TopicOptionsModal
         show={topicOptionsModalOpen}
+        selectedTopic={selectedTopic}
         onHide={() => setTopicOptionsModalOpen(false)}
       />
 

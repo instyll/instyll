@@ -17,9 +17,13 @@ const tagsSlice = createSlice({
     reducers: {
         addTag: (state, action) => {
             state.tags.push(action.payload);
+        },
+        removeTag: (state, action) => {
+            const id = action.payload;
+            state.tags = state.tags.filter(item => item !== id);
         }
     }
 });
 
-export const { addTag } = tagsSlice.actions;
+export const { addTag, removeTag } = tagsSlice.actions;
 export default tagsSlice.reducer;

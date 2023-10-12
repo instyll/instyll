@@ -4,10 +4,10 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTag } from '../tagSlice';
+import { addTag, removeTag } from '../tagSlice';
 import '../App.css';
 
-const TopicOptionsModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
+const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
 
     const dispatch = useDispatch();
 
@@ -29,12 +29,10 @@ const TopicOptionsModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, 
         }
     };
 
-    const handleKeyPress = (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission
-            handleAddTag();
-        }
-    };
+    const handleRemoveTag = (tagItem) => {
+        dispatch(removeTag(tagItem));
+        onHide();
+    }
 
     const handleClose = () => {
         onHide();
@@ -69,7 +67,7 @@ const TopicOptionsModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, 
 
 
             <div className="tagCreationContainer">
-                <button onClick={handleAddTag} className='modalDangerButton'>Delete</button>
+                <button onClick={() => handleRemoveTag(selectedTopic)} className='modalDangerButton'>Delete</button>
                 <button onClick={handleAddTag} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
