@@ -2599,6 +2599,26 @@ table {
   width: 360px;
 }
 
+.modalDangerButton {
+  font-family: var(--font);
+  padding: 5px 5px 5px 5px;
+  font-size: 1em;
+  background-color: red;
+  border: none;
+  color: var(--button-highlight-text);
+  border-radius: 5px;
+  width: 100px;
+  margin-right: 5px;
+  margin-bottom: 8px;
+  transition: 0.2s;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.modalDangerButton:hover {
+  filter: brightness(90%);
+}
+
 .modalCloseButton {
   font-family: var(--font);
   padding: 5px 5px 5px 5px;

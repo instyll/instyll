@@ -58,8 +58,8 @@ const TopicOptionsModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, 
                     border: "0px none",
                     fontSize: "1em",
                     boxSizing: "border-box",
-                    width: "400px",
-                    height: "70px",
+                    width: "140px",
+                    height: "104px",
                     position: "absolute",
                     top: "50%",
                     left: "50%",
@@ -69,16 +69,8 @@ const TopicOptionsModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, 
 
 
             <div className="tagCreationContainer">
-                <input
-                    type="text"
-                    placeholder="New Topic"
-                    value={newTag}
-                    onChange={handleNewTagChange}
-                    onKeyPress={handleKeyPress}
-                    className="topicCreationInput"
-                    autoFocus
-                />
-                <button onClick={handleAddTag} className='modalActionButton'>Create</button>
+                <button onClick={handleAddTag} className='modalDangerButton'>Delete</button>
+                <button onClick={handleAddTag} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
     );
