@@ -2,12 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     tags: [
-        'math',
-        'physics',
-        'marketing',
-        'english',
-        'daily notes',
-        'projects',
     ],
 };
 
