@@ -1,19 +1,15 @@
-/**
- * @author wou
- */
+// import { prosePluginsCtx } from '@milkdown/core';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTag, removeTag } from '../tagSlice';
-import UpdateTopicModal from './UpdateTopicModal';
+import { addTag } from '../tagSlice';
 import '../App.css';
 
-const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
+const UpdateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
 
     const dispatch = useDispatch();
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [updateTopicModalOpen, setUpdateTopicModalOpen] = useState(false);
 
     const tags = useSelector((state) => state.tags.tags);
 
@@ -31,18 +27,16 @@ const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
         }
     };
 
-    const handleRemoveTag = (tagItem) => {
-        dispatch(removeTag(tagItem));
-        onHide();
-    }
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            handleAddTag();
+        }
+    };
 
     const handleClose = () => {
         onHide();
     };
-
-    const handleUpdateTopicModalOpen = (value) => {
-        setUpdateTopicModalOpen(value);
-    }
 
     return (
         <Modal isOpen={show}
@@ -62,8 +56,8 @@ const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
                     border: "0px none",
                     fontSize: "1em",
                     boxSizing: "border-box",
-                    width: "140px",
-                    height: "104px",
+                    width: "400px",
+                    height: "70px",
                     position: "absolute",
                     top: "50%",
                     left: "50%",
@@ -72,20 +66,20 @@ const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
             }}>
 
 
-            <UpdateTopicModal
-            show={updateTopicModalOpen}
-            onHide={() => {
-                setUpdateTopicModalOpen(false)
-            }}
-            />
-
-
             <div className="tagCreationContainer">
-                <button onClick={() => handleRemoveTag(selectedTopic)} className='modalDangerButton'>Delete</button>
-                <button onClick={() => handleUpdateTopicModalOpen(true)} className='modalActionButton'>Rename</button>
+                <input
+                    type="text"
+                    placeholder="New Topic"
+                    value={newTag}
+                    onChange={handleNewTagChange}
+                    onKeyPress={handleKeyPress}
+                    className="topicCreationInput"
+                    autoFocus
+                />
+                <button onClick={handleAddTag} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
     );
 };
 
-export default TopicOptionsModal;
+export default UpdateTopicModal;
