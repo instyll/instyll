@@ -75,6 +75,7 @@ const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
             <UpdateTopicModal
             show={updateTopicModalOpen}
             selectedTag={selectedTopic}
+            handleClose={handleClose}
             onHide={() => {
                 setUpdateTopicModalOpen(false)
             }}

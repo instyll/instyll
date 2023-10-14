@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addTag, updateTag } from '../tagSlice';
 import '../App.css';
 
-const UpdateTopicModal = ({ show, onHide, selectedTag }) => {
+const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
 
     const dispatch = useDispatch();
 
@@ -26,13 +26,9 @@ const UpdateTopicModal = ({ show, onHide, selectedTag }) => {
         if (tagToUpdate) {
             dispatch(updateTag({ id: tagToUpdate, newValue: newTag}));
             setNewTag('');
-            onHide();
+            handleClose();
         }
     }
-
-    const handleClose = () => {
-        onHide();
-    };
 
     return (
         <Modal isOpen={show}
