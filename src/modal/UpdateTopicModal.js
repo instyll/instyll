@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTag } from '../tagSlice';
+import { addTag, updateTag } from '../tagSlice';
 import '../App.css';
 
-const UpdateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
+const UpdateTopicModal = ({ show, onHide, selectedTag }) => {
 
     const dispatch = useDispatch();
 
@@ -19,20 +19,16 @@ const UpdateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
         setNewTag(event.target.value);
     };
 
-    const handleAddTag = () => {
-        if (newTag && !tags.includes(newTag)) {
-            dispatch(addTag(newTag));
+    const handleEditTag = () => {
+        const tagToUpdate = selectedTag;
+        console.log(tagToUpdate)
+        console.log(newTag)
+        if (tagToUpdate) {
+            dispatch(updateTag({ id: tagToUpdate, newValue: newTag}));
             setNewTag('');
             onHide();
         }
-    };
-
-    const handleKeyPress = (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission
-            handleAddTag();
-        }
-    };
+    }
 
     const handleClose = () => {
         onHide();
@@ -72,11 +68,10 @@ const UpdateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
                     placeholder="New Topic"
                     value={newTag}
                     onChange={handleNewTagChange}
-                    onKeyPress={handleKeyPress}
                     className="topicCreationInput"
                     autoFocus
                 />
-                <button onClick={handleAddTag} className='modalActionButton'>Rename</button>
+                <button onClick={handleEditTag} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
     );
