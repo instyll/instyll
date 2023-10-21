@@ -2146,11 +2146,13 @@ input:checked+.sliderMin:before {
   color: var(--primary-text);
 }
 
-.statsContainer {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 10px;
+.statContainer {
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-bottom: 20px;
+  /* padding-top: 24px; */
   overflow: auto;
+  overflow-wrap: break-word;
 }
 
 .outlineContainer {

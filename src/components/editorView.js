@@ -23,6 +23,7 @@ import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constant
 import TopicModal from '../modal/TopicModal.js';
 import OutlineContainer from '../components/OutlineContainer.js';
 import PaneContainer from './paneContainer.tsx';
+import StatContainer from './StatContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../components/home.js';
 
@@ -118,6 +119,7 @@ class EditorView extends Component {
         }), () => {
             console.log(this.state.rightPanelOpen);
         });
+        console.log(this.state.rightPanelSetting);
     }
 
 
@@ -511,6 +513,11 @@ class EditorView extends Component {
                                 <PaneContainer>
 
                                 </PaneContainer>
+                            )}
+                            {this.state.rightPanelSetting === "stats" && (
+                                <StatContainer>
+
+                                </StatContainer>
                             )}
 
                         </div>
