@@ -1,5 +1,5 @@
-import { emojiMenuItem } from "../emoji-menu/emojiMenuItem";
-import { useSlashState } from "../emoji-menu/state";
+import { EmojiMenuItem } from "../emoji-menu/emojiMenuItem.tsx";
+import { useSlashState } from "../emoji-menu/state.ts";
 import { SlashProvider } from "@milkdown/plugin-slash";
 import { useInstance } from "@milkdown/react";
 import { usePluginViewContext } from "@prosemirror-adapter/react";

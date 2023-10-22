@@ -18,6 +18,7 @@ import {
   from '@prosemirror-adapter/react';
 import { Slash } from './slash-menu/Slash.tsx';
 import { useSlash } from './slash-menu/index.tsx';
+import { useEmojiMenu } from './emoji-menu/index.tsx';
 import {
   gfm,
   strikethroughKeymap,
@@ -26,7 +27,7 @@ import {
 } from '@milkdown/preset-gfm';
 import { FootnoteDef, FootnoteRef } from './components/editor/Footnote.tsx';
 import { math, mathBlockSchema } from '@milkdown/plugin-math';
-import { emoji } from '@milkdown/plugin-emoji';
+import { emoji, emojiAttr } from '@milkdown/plugin-emoji';
 import { diagram, diagramSchema } from "@milkdown/plugin-diagram";
 import { history } from '@milkdown/plugin-history';
 import { block } from '@milkdown/plugin-block';
@@ -60,6 +61,8 @@ export const MilkdownEditor: FC = () => {
   const widgetViewFactory = useWidgetViewFactory();
 
   const slash = useSlash();
+
+  const emojiMenu = useEmojiMenu();
 
   /* gfm plugins */
 
@@ -146,6 +149,7 @@ export const MilkdownEditor: FC = () => {
         })
 
         slash.config(ctx);
+        emojiMenu.config(ctx);
       })
       .config(nord)
       .use(commonmark)
@@ -162,6 +166,7 @@ export const MilkdownEditor: FC = () => {
       .use(indent)
       .use(gfmPlugins)
       .use(slash.plugins)
+      .use(emojiMenu.plugins)
       .use(diagramPlugins)
       .use(blockPlugins)
       .use(mathPlugins)

@@ -1,5 +1,5 @@
-import { emojiSlash } from "../emoji-menu/config";
-import { EmojiMenu } from "../emoji-menu/EmojiMenu";
+import { emojiSlash } from "../emoji-menu/config.tsx";
+import { EmojiMenu } from "../emoji-menu/emojiMenu.tsx";
 import { Ctx } from "@milkdown/ctx";
 import { usePluginViewFactory } from "@prosemirror-adapter/react";
 

@@ -1,4 +1,4 @@
-import { emojiSlash } from "../emoji-menu/config";
+import { emojiSlash } from "../emoji-menu/config.tsx";
 import { editorViewCtx, rootDOMCtx } from "@milkdown/core";
 import { Ctx } from "@milkdown/ctx";
 import { Instance } from "@milkdown/react";
