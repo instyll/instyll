@@ -1,7 +1,7 @@
 import { Ctx } from "@milkdown/ctx";
 import { Instance } from "@milkdown/react";
 import { clsx } from "clsx";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect, useRef } from "react";
 
 type EmojiItemProps = {
   index: number;
@@ -21,9 +21,17 @@ export const EmojiMenuItem: FC<EmojiItemProps> = ({
   setSelected,
 }) => {
   const [loading, getEditor] = instance;
+  const listItemRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    if (selected && listItemRef.current) {
+      listItemRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [selected]);
 
   return (
     <li
+      ref={listItemRef}
       className={clsx(
         "emojiMenuItem",
         selected && "emojiMenuItemSelected"
