@@ -25,8 +25,8 @@ export const EmojiMenuItem: FC<EmojiItemProps> = ({
   return (
     <li
       className={clsx(
-        "cursor-pointer truncate whitespace-nowrap px-6 py-3 text-sm",
-        selected && "bg-gray-200 dark:bg-gray-700"
+        "emojiMenuItem",
+        selected && "emojiMenuItemSelected"
       )}
       onMouseMove={() => setSelected(index)}
       onMouseDown={(e) => {

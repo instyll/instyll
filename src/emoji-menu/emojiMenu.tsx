@@ -4,7 +4,7 @@ import { SlashProvider } from "@milkdown/plugin-slash";
 import { useInstance } from "@milkdown/react";
 import { usePluginViewContext } from "@prosemirror-adapter/react";
 import { gemoji } from "gemoji";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const emojiSearchRegexp = /:(?<search>\S+)/;
 
@@ -17,6 +17,8 @@ export const EmojiMenu = () => {
 
   const { root, setOpened, setSelected, selected, setSearch, emojis, onPick } =
     useSlashState(instance);
+
+  const [textBlockContent, setTextBlockContent] = useState("");  
 
   useEffect(() => {
     if (!ref.current || loading) return;
@@ -31,6 +33,8 @@ export const EmojiMenu = () => {
           setSearch("");
           return false;
         }
+
+        setTextBlockContent(currentTextBlockContent);
 
         const search = currentTextBlockContent.match(emojiSearchRegexp);
         if (!search) {
@@ -76,7 +80,8 @@ export const EmojiMenu = () => {
     <div className="hidden">
       <div role="tooltip" ref={ref}>
         {emojis.length > 0 && (
-          <ul className="m-0 w-72 list-none rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900">
+          <ul className="emojiMenuContainer" autoFocus tabIndex={1}>
+            <span className="slashGroupHeader">Emojis matching {textBlockContent}</span>
             {emojis.map((item, i) => (
               <EmojiMenuItem
                 key={i.toString()}
