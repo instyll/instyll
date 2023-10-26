@@ -619,7 +619,8 @@ body {
 .zapMenuContainer {
   margin: 0;
   width: 268px;
-  height: 131px;
+  /* height: 131px; */
+  height: fit-content;
   overflow: scroll;
   list-style: none;
   border-radius: 10px;
