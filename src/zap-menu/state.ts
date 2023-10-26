@@ -11,7 +11,7 @@ export const useSlashState = (instance: Instance) => {
   const selectedRef = useRef(0);
   const [search, setSearch] = useState("");
 
-  const zapList = ["Hello", "Mathematics"];
+  const zapList = ["Hello", "Mathematics", "Good morning", "Thanks", "Thank you", "Nice", "Javascript", "Music", "Cookies"];
 
   const onPick = useCallback(
     (ctx: Ctx) => {
