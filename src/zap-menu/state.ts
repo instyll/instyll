@@ -11,15 +11,6 @@ export const useSlashState = (instance: Instance) => {
   const selectedRef = useRef(0);
   const [search, setSearch] = useState("");
 
-//   const emojis = useMemo(() => {
-//     if (search.length === 0) return [];
-//     return gemoji
-//       .filter((emoji) => {
-//         return emoji.names.some((name) => name.includes(search));
-//       })
-//       .slice(0, 10);
-//   }, [search]);
-
   const zapList = ["Hello", "Mathematics"];
 
   const onPick = useCallback(
