@@ -19,6 +19,7 @@ import {
 import { Slash } from './slash-menu/Slash.tsx';
 import { useSlash } from './slash-menu/index.tsx';
 import { useEmojiMenu } from './emoji-menu/index.tsx';
+import { useZapMenu } from './zap-menu/index.tsx';
 import {
   gfm,
   strikethroughKeymap,
@@ -63,6 +64,8 @@ export const MilkdownEditor: FC = () => {
   const slash = useSlash();
 
   const emojiMenu = useEmojiMenu();
+
+  const zapMenu = useZapMenu();
 
   /* gfm plugins */
 
@@ -150,6 +153,7 @@ export const MilkdownEditor: FC = () => {
 
         slash.config(ctx);
         emojiMenu.config(ctx);
+        zapMenu.config(ctx);
       })
       .config(nord)
       .use(commonmark)
@@ -167,6 +171,7 @@ export const MilkdownEditor: FC = () => {
       .use(gfmPlugins)
       .use(slash.plugins)
       .use(emojiMenu.plugins)
+      .use(zapMenu.plugins)
       .use(diagramPlugins)
       .use(blockPlugins)
       .use(mathPlugins)
