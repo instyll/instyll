@@ -43,6 +43,14 @@ export const ZapMenu = () => {
         }
 
         const text = search.groups!.search;
+        // const index = zapList.findIndex((zap) => {
+        //     return zapList.some((zapItem) => zapItem.includes(text));
+        // });
+
+        // if (index < 0) {
+        //     setSearch("");
+        //     return false;
+        // }
 
         setSearch(text);
         return true;
@@ -72,7 +80,7 @@ export const ZapMenu = () => {
     <div className="hidden">
       <div role="tooltip" ref={ref}>
         {zapList.length > 0 && (
-          <ul className="emojiMenuContainer" autoFocus tabIndex={1}>
+          <ul className="zapMenuContainer" autoFocus tabIndex={1}>
             <span className="slashGroupHeader">Zaps matching {textBlockContent}</span>
             {zapList.map((item, i) => (
               <ZapMenuItem
@@ -83,7 +91,7 @@ export const ZapMenu = () => {
                 selected={i === selected}
                 setSelected={setSelected}
               >
-                {item}:
+                {item}
               </ZapMenuItem>
             ))}
           </ul>

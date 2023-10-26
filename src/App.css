@@ -616,6 +616,22 @@ body {
   font-size: 16px;
 }
 
+.zapMenuContainer {
+  margin: 0;
+  width: 268px;
+  height: 131px;
+  overflow: scroll;
+  list-style: none;
+  border-radius: 10px;
+  background-color: var(--elevated-bg);
+  box-shadow: var(--editorBoxShadow);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+
 .emojiMenuItem {
   padding-left: 10px;
   padding-right: 10px;
