@@ -15,7 +15,7 @@ export const useSlashState = (instance: Instance) => {
 
   const zapList = useMemo(() => {
     if (search.length === 0) return [];
-    return zapListConst.filter(zapItem => zapItem.includes(search));
+    return zapListConst.filter(zapItem => zapItem.toLowerCase().includes(search.toLowerCase()));
   }, [search]);
 
   const onPick = useCallback(
