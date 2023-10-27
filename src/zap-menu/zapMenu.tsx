@@ -43,14 +43,6 @@ export const ZapMenu = () => {
         }
 
         const text = search.groups!.search;
-        // const index = zapList.findIndex((zap) => {
-        //     return zapList.some((zapItem) => zapItem.includes(text));
-        // });
-
-        // if (index < 0) {
-        //     setSearch("");
-        //     return false;
-        // }
 
         setSearch(text);
         return true;
