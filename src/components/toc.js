@@ -9,7 +9,7 @@ import { Link, useLocation } from 'react-router-dom';
 import tags from '../icons/tag2.png';
 import home from '../icons/home.png';
 import recent from '../icons/recent.png';
-import template from '../icons/template2.png';
+import template from '../icons/bolt.png';
 import favorites from '../icons/bookmark2.png';
 import note from '../icons/note2.png';
 import trash from '../icons/trash.png';
@@ -91,7 +91,7 @@ function TableOfContents(props) {
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={template} className="tocIcon" draggable={false} />
-          {props.tocOpen && <span className="tocInnerText">Templates</span>}
+          {props.tocOpen && <span className="tocInnerText">Zaps</span>}
         </p>
 
         <Link to="/topics">
