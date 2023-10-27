@@ -17,6 +17,15 @@ import {
 import { insertTableCommand } from "@milkdown/preset-gfm";
 import { ReactNode } from "react";
 
+import textIcon from '../icons/TEXT.png'
+import h1Icon from '../icons/H1.png'
+import h2Icon from '../icons/H2.png'
+import h3Icon from '../icons/H3.png'
+import codeIcon from '../icons/CodeIcon.png'
+import numIcon from '../icons/NumIcon.png'
+import quoteIcon from '../icons/QuoteIcon.png'
+import bulletIcon from '../icons/BulletIcon.png'
+
 /* declare type for respective selections */
 type ConfigItem = {
     renderer: ReactNode;
@@ -43,7 +52,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={textIcon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Text
@@ -59,7 +68,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={bulletIcon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Bullet List
@@ -75,7 +84,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={numIcon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Numbered List
@@ -92,7 +101,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={h1Icon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 1
@@ -109,7 +118,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={h2Icon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 2
@@ -126,7 +135,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={h3Icon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 3
@@ -143,7 +152,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={codeIcon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Code Block
@@ -160,7 +169,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={quoteIcon}></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Quote
