@@ -19,6 +19,7 @@
     border: 0px none;
     /* background: rgb(48, 51, 56); */
     background: var(--elevated-bg);
+    /* border: 1px solid var(--muted-text); */
     overflow: hidden;
     border-radius: 10px;
     outline: none;

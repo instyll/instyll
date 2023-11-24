@@ -38,7 +38,7 @@ export const Diagram: FC = () => {
 
     mermaid.initialize({
       startOnLoad: false,
-      theme: "neutral",
+      theme: "dark",
       // theme: document.documentElement.getAttribute('data-theme') === 'dark' ? "dark" : "default",
     });
     rendering.current = true;

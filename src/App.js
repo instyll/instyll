@@ -14,6 +14,7 @@ import Layout from './components/layout.js';
 import Topics from './components/topic/topics.js';
 import TopicNoteViewer from './components/topic/topicNoteViewer';
 import DocumentViewer from './components/document/documentsViewer';
+import ZapView from './components/zap/zapView';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path="/documents" element={<Layout> <DocumentViewer /> </Layout>} />
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />
             <Route path="/topics/:topicId" element={<Layout> <TopicNoteViewer /> </Layout>} />
+            <Route path="/zap" element={<Layout> <ZapView /> </Layout>}></Route>
           </Routes>
         </HashRouter>
       </div>
