@@ -15,6 +15,7 @@ import Topics from './components/topic/topics.js';
 import TopicNoteViewer from './components/topic/topicNoteViewer';
 import DocumentViewer from './components/document/documentsViewer';
 import ZapView from './components/zap/zapView';
+import Login from './Login';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
@@ -31,7 +32,8 @@ class App extends Component {
       <div className="App">
         <HashRouter>
           <Routes>
-            <Route path="/" element={<Layout> <EditorView /> </Layout>} />
+            <Route path="/" element={<Login />}/>
+            <Route path="/app" element={<Layout> <EditorView /> </Layout>} />
             <Route path="/home" element={<Layout> <Home /> </Layout>} />
             <Route path="/documents" element={<Layout> <DocumentViewer /> </Layout>} />
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />

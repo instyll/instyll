@@ -1,10 +1,13 @@
 const electron = require('electron');
+const dotenv = require("dotenv");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const isDev = require('electron-is-dev');
 const path = require('path');
 const { ipcMain } = require('electron');
 const fs = require('fs');
+
+dotenv.config();
 
 let mainWindow;
 
