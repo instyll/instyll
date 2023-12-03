@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { executeQuery } from './db.js'; // You need to create a file for database operations
+import './Login.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -23,23 +24,35 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className='loginContainer'>
+    <div className='loginWrapper'>
+      <h2 className='loginHeader'>Welcome Back</h2>
       <form>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
+          <input type="text" 
+          className='loginUsernameField'
+          value={username} 
+          placeholder='Username'
+          onChange={(e) => setUsername(e.target.value)} />
         <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
+          <input type="password" 
+          className='loginPasswordField'
+          value={password} 
+          placeholder='Password'
+          onChange={(e) => setPassword(e.target.value)} />
         <br />
-        <button type="button" onClick={handleLogin}>
-          Login
+        <div className='passwordRecoverFieldContainer'>
+        <p className='passwordRecoverField'>
+            Recover Password
+        </p>
+        </div>
+        <button type="button" className='loginActionButton' onClick={handleLogin}>
+          Sign In
         </button>
+        <div className='signUpRedirectContainer'>
+            <p className='signUpRedirect'>New User? <span className='signUpRedirectLink'>Create Account</span></p>
+        </div>
       </form>
+      </div>
     </div>
   );
 };

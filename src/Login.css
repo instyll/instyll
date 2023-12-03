@@ -1,0 +1,149 @@
+:root {
+    --bg-color: #fff;
+    --primary-text: rgb(41, 37, 36);
+    --secondary-text: #8a8a8e;
+    --muted-text: #e4e4e4;
+    /* --muted-text: #f8f8fa; */
+    --search-background: #f8f8fa;
+    --base: #fff;
+    --elevated-bg: #f8f8fa;
+    --icon-filter: brightness(20%) sepia(100) saturate(0) hue-rotate(25deg);
+    --code: #f6f8fa;
+    --separator-border: #e4e4e4 !important;
+    --nonfocused-opacity: 1;
+    --button-highlight: #5271ff;
+    --button-highlight-text: #F8F8F8;
+    --editorIconFilter: none;
+    --editorBoxShadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.15);
+    --scrollGradient: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 92%, rgba(245, 245, 245, 1) 100%);
+    --muted-translucent: rgba(228, 228, 228, 0.2);
+    --background-dim: linear-gradient(rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.7));
+    --font: "Inter", sans-serif;
+    --tooltipBackground: #373738;
+    --tooltipText: #f6f6f7;
+}
+
+.loginContainer {
+    height: 100vh;
+    width: 100%;
+    font-family: var(--font);
+    color: var(--primary-text);
+    background: linear-gradient(166deg, #DDE8FD 9.84%, rgba(191, 212, 253, 0.80) 52.19%, rgba(126, 170, 255, 0.55) 94.54%, rgba(51, 120, 255, 0.21) 128.95%, rgba(255, 255, 255, 0.12) 136.89%, rgba(0, 87, 255, 0.00) 179.24%);
+    backdrop-filter: brightness(80%);
+    text-align: center;
+    position: relative;
+}
+
+.loginWrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.loginHeader {
+    color: rgba(34, 34, 34, 0.75);
+text-align: center;
+font-family: Inter;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal; 
+}
+
+.loginUsernameField {
+    font-family: var(--font);
+    width: 455px;
+height: 55px; 
+border-radius: 16px;
+background: rgba(224, 224, 224, 0.75);
+border: transparent;
+color: rgba(0, 0, 0, 0.46);
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal; 
+padding-left: 20px;
+box-sizing: border-box;
+}
+
+.loginPasswordField {
+    font-family: var(--font);
+    width: 455px;
+height: 55px; 
+border-radius: 16px;
+background: rgba(224, 224, 224, 0.75);
+border: transparent;
+margin-top: 19px;
+color: rgba(0, 0, 0, 0.46);
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal; 
+padding-left: 20px;
+box-sizing: border-box;
+}
+
+.passwordRecoverFieldContainer {
+    text-align: right;
+}
+
+.passwordRecoverField {
+    width: 255px;
+height: 23px; 
+color: rgba(0, 0, 0, 0.46);
+text-align: right;
+font-size: 16px;
+font-style: normal;
+font-weight: 600; 
+display: inline-block;
+margin-top: 19px;
+margin-bottom: 0;
+transition: 0.2s;
+}
+
+.passwordRecoverField:hover {
+    filter: brightness(90%);
+}
+
+.loginActionButton {
+    font-family: var(--font);
+    width: 455px;
+    
+height: 55px; 
+border-radius: 16px;
+background: rgba(82, 113, 255, 0.75); 
+border: transparent;
+color: rgba(255, 255, 255, 0.80);
+text-align: center;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal; 
+margin-top: 19px;
+transition: 0.2s;
+}
+
+.loginActionButton:hover {
+    filter: brightness(90%);
+}
+
+.signUpRedirectContainer {
+    margin-top: 51px;
+}
+
+.signUpRedirect {
+    color: rgba(0, 0, 0, 0.46);
+text-align: center;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal; 
+}
+
+.signUpRedirectLink {
+    color: rgba(82, 113, 255, 0.75); 
+}
