@@ -25,6 +25,7 @@ import codeIcon from '../icons/CodeIcon.png'
 import numIcon from '../icons/NumIcon.png'
 import quoteIcon from '../icons/QuoteIcon.png'
 import bulletIcon from '../icons/BulletIcon.png'
+import aiIcon from '../icons/ai2.png'
 
 /* declare type for respective selections */
 type ConfigItem = {
@@ -46,6 +47,22 @@ const removeSlash = (ctx: Ctx) => {
 export const slash = slashFactory("slashMenu") satisfies MilkdownPlugin[];
 
 export const config: Array<ConfigItem> = [
+    /* item for gen ai */
+    {
+        onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(turnIntoTextCommand.key),
+        renderer: (
+            <div className="slashSuggestionItemContainer">
+                <span className="suggestionItemImageContainer">
+                    <img src={aiIcon} className="aiIcon"></img>
+                </span>
+                <div className="suggestionItemTitle">
+                Instyll AI
+                <br></br>
+                <span className="suggestionItemDescription">Your personal AI note-taking assistant.</span>
+                </div>
+            </div>
+        ),
+    },
     /* item for paragraph text */
     {
         onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(turnIntoTextCommand.key),

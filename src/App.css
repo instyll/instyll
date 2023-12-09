@@ -39,6 +39,7 @@
     --tooltipBackground: #373738;
     --tooltipText: #f6f6f7;
     --slash-filter: brightness(50%);
+    --slash-selection-color: rgba(228, 228, 228, 0.5);
   }
   
   [data-theme="beige"] {
@@ -72,6 +73,7 @@
     --primary-text: #c5c5c5;
     --secondary-text: #717374;
     --muted-text: rgba(180, 180, 182, 0.2);
+    --slash-selection-color: rgba(180, 180, 182, 0.2);
     --search-background: #2a2a2b;
     --base: #1b1b1b;
     --icon-filter: none;
@@ -599,7 +601,13 @@
   }
   
   .slashSuggestionItemSelected {
-    background-color: var(--muted-text);
+    background-color: var(--slash-selection-color);
+  }
+
+  .aiIcon {
+    width: 24px;
+    height: auto;
+    margin-top: 8px;
   }
   
   .emojiMenuContainer {
@@ -651,8 +659,10 @@
     margin-right: 5px;
     height: 40px;
     width: 40px;
-    border: 1px solid var(--secondary-text);
+    /* border: 1px solid var(--secondary-text); */
+    background-color: var(--muted-text);
     border-radius: 10px;
+    text-align: center;
   }
 
   .suggestionItemImageContainer img {
