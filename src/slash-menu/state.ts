@@ -6,10 +6,11 @@ import { rootDOMCtx } from "@milkdown/core";
 import { Instance } from "@milkdown/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-export const useSlashState = (instance: Instance) => {
+export const useSlashState = (instance: Instance, updateModalState: (newState: boolean) => void) => {
   const [loading, getEditor] = instance;
   const [selected, setSelected] = useState(0);
   const selectedRef = useRef(0);
+  const [modalState, setModalState] = useState(false);
 
   useEffect(() => {
     selectedRef.current = selected;
@@ -38,7 +39,8 @@ export const useSlashState = (instance: Instance) => {
 
   /* handle arrow navigation through slash menu */
   const onKeydown = useCallback(
-    (e: KeyboardEvent) => {
+    (e: KeyboardEvent, itemIndex) => {
+      itemIndex = itemIndex || -1;
       const key = e.key;
       if (key === "ArrowDown") {
         setSelected((s) => (s + 1) % config.length);
@@ -49,11 +51,16 @@ export const useSlashState = (instance: Instance) => {
         return;
       }
       if (key === "Enter") {
+        if (selectedRef.current == 0) {
+          updateModalState(true);
+        }
+        else {
         getEditor()?.action(config[selectedRef.current].onSelect);
         return;
+        }
       }
     },
-    [getEditor]
+    [getEditor, updateModalState]
   );
 
   return {

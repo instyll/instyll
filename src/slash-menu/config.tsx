@@ -15,7 +15,9 @@ import {
     insertImageCommand,
 } from "@milkdown/preset-commonmark";
 import { insertTableCommand } from "@milkdown/preset-gfm";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+
+import GenAIModal from "../modal/GenAIModal";
 
 import textIcon from '../icons/TEXT.png'
 import h1Icon from '../icons/H1.png'
@@ -33,6 +35,8 @@ type ConfigItem = {
     onSelect: (ctx: Ctx) => void;
 };
 
+
+
 const removeSlash = (ctx: Ctx) => {
     // remove slash
     const view = ctx.get(editorViewCtx);
@@ -49,7 +53,7 @@ export const slash = slashFactory("slashMenu") satisfies MilkdownPlugin[];
 export const config: Array<ConfigItem> = [
     /* item for gen ai */
     {
-        onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(turnIntoTextCommand.key),
+        onSelect: (ctx: Ctx) => ({  }),
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">

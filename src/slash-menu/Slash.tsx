@@ -7,7 +7,9 @@ import { useSlashState } from "../slash-menu/state.ts";
 import { SlashProvider } from "@milkdown/plugin-slash";
 import { useInstance } from "@milkdown/react";
 import { usePluginViewContext } from "@prosemirror-adapter/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import GenAIModal from "../modal/GenAIModal.js";
+import React from "react";
 
 export const Slash = () => {
   const { view, prevState } = usePluginViewContext();
@@ -15,8 +17,9 @@ export const Slash = () => {
   const ref = useRef<HTMLDivElement>(null);
   const instance = useInstance();
   const [loading] = instance;
+  const [modalState, setModalState] = useState(false);
   const { root, setOpened, onKeydown, setSelected, selected } =
-    useSlashState(instance);
+    useSlashState(instance, setModalState);
 
   useEffect(() => {
     if (!ref.current || loading) return;
@@ -28,6 +31,7 @@ export const Slash = () => {
         onShow: () => {
           setOpened(true);
           root?.addEventListener("keydown", onKeydown);
+         
         },
         onHide: () => {
           setSelected(0);
@@ -41,6 +45,7 @@ export const Slash = () => {
       slashProvider.current?.destroy();
       slashProvider.current = undefined;
     };
+
   }, [loading, onKeydown, root, setOpened, setSelected]);
 
   useEffect(() => {
@@ -49,6 +54,7 @@ export const Slash = () => {
 
   return (
     <div className="hidden">
+    <GenAIModal show={modalState} onHide={() => setModalState(false)}/>
       <div role="tooltip" ref={ref}>
         <ul className="slashItemContainer" autoFocus tabIndex={1}>
             <span className="slashGroupHeader">Formatting</span>
