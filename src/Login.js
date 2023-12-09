@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { executeQuery } from './db.js'; // You need to create a file for database operations
 import './Login.css';
+import './App.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');

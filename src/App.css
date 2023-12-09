@@ -38,6 +38,7 @@
     --font: "Inter", sans-serif;
     --tooltipBackground: #373738;
     --tooltipText: #f6f6f7;
+    --slash-filter: brightness(50%);
   }
   
   [data-theme="beige"] {
@@ -652,6 +653,10 @@
     width: 40px;
     border: 1px solid var(--secondary-text);
     border-radius: 10px;
+  }
+
+  .suggestionItemImageContainer img {
+    filter: var(--slash-filter);
   }
   
   .blockSVGWrapper {
