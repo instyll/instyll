@@ -3,6 +3,12 @@ import Modal from "react-modal"; // Import Modal from 'react-modal'
 
 import "../App.css";
 
+import questionIcon from '../icons/questionIcon.png'
+import explainIcon from '../icons/explainIcon.png'
+import feedbackIcon from '../icons/feedbackIcon.png'
+import tipsIcon from '../icons/tipsIcon.png'
+import promptIcon from '../icons/promptIcon.png'
+
 const GenAIModal = ({ show, onHide }) => {
   return (
     <Modal
@@ -32,7 +38,46 @@ const GenAIModal = ({ show, onHide }) => {
         },
       }}
     >
-      <div>hello</div>
+      <div className="genAIContainer">
+        <div className="genAIPreviewContainer">
+            <div className="genAIPreviewWrapper">
+                <div className="genAIPreview">
+                    <span className="genAIPreviewIcon" id="question">
+                        <img src={questionIcon}></img>
+                    </span>
+                    <span className="genAIPreviewDescription">Questions</span>
+                </div>
+                <div className="genAIPreview">
+                    <span className="genAIPreviewIcon" id="feedback">
+                        <img src={feedbackIcon}></img>
+                    </span>
+                    <span className="genAIPreviewDescription">Feedback</span>
+                </div>
+                <div className="genAIPreview">
+                    <span className="genAIPreviewIcon" id="explain">
+                        <img src={explainIcon}></img>
+                    </span>
+                    <span className="genAIPreviewDescription">Explain</span>
+                </div>
+                <div className="genAIPreview">
+                    <span className="genAIPreviewIcon" id="tips">
+                        <img src={tipsIcon}></img>
+                    </span>
+                    <span className="genAIPreviewDescription">Tips</span>
+                </div>
+            </div>
+        </div>
+        <div className="genAIPromptContainer">
+            <div className="genAIPromptWrapper">
+                <input className="genAIPromptInput" 
+                type="text" 
+                placeholder="Ask anything..."></input>
+                <button type="submit" className="genAIPromptSubmitButton">
+                    <img src={promptIcon}></img>
+                </button>
+            </div>
+        </div>
+      </div>
     </Modal>
   );
 };
