@@ -70,6 +70,7 @@ const GenAIModal = ({ show, onHide }) => {
         <div className="genAIPromptContainer">
             <div className="genAIPromptWrapper">
                 <input className="genAIPromptInput" 
+                autoFocus
                 type="text" 
                 placeholder="Ask anything..."></input>
                 <button type="submit" className="genAIPromptSubmitButton">
