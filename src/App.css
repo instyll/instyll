@@ -3673,12 +3673,17 @@
     margin-left: 8px;
     text-align: center;
     vertical-align: middle;
+    transition: 0.2s;
   }
 
   .genAIPromptSubmitButton img {
     filter: var(--icon-filter);
     width: 24px;
     height: 24px;
+  }
+
+  .genAIPromptSubmitButton:hover {
+    background-color: var(--muted-text);
   }
   
   .heroTitle {
