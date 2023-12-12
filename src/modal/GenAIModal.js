@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal"; // Import Modal from 'react-modal'
+import OpenAI from "openai";
 
 import "../App.css";
 
@@ -8,8 +9,55 @@ import explainIcon from '../icons/explainIcon.png'
 import feedbackIcon from '../icons/feedbackIcon.png'
 import tipsIcon from '../icons/tipsIcon.png'
 import promptIcon from '../icons/promptIcon.png'
+import { useState } from "react";
+
+const dotenv = require("dotenv")
+dotenv.config();
+const openai = new OpenAI({ apiKey: process.env.REACT_APP_OPENAI_API_SECRET_KEY, dangerouslyAllowBrowser: true });
 
 const GenAIModal = ({ show, onHide }) => {
+
+    const [inputText, setInputText] = useState("");
+    const [outputText, setOutputText] = useState("");
+    const [sentMessage, setSentMessage] = useState([])
+    const [receivedMessage, setReceivedMessage] = useState([])
+  
+    const handleInputChange = (e) => {
+      setInputText(e.target.value);
+    };
+    
+    let nextId = 0;
+    let nextId2 = 0;
+
+    const handlePromptSubmit = async (e) => {
+        e.preventDefault();
+        console.log(inputText)
+        setSentMessage((prevMessages) => [
+            ...prevMessages,
+            { id: nextId++, text: inputText },
+          ]);
+        try {
+          const stream = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: inputText}],
+            stream: true,
+          });
+          let accumulated = ""
+          for await (const chunk of stream) {
+            const content = chunk.choices[0]?.delta?.content || ""
+            accumulated += content
+        }
+        setReceivedMessage((prev) => [
+            ...prev,
+            { id: nextId2++, content1: accumulated }, 
+        ]);
+        setInputText("")
+        setOutputText("")
+        } catch (error) {
+          console.error("Error calling OpenAI API:", error);
+        }
+      };
+
   return (
     <Modal
       isOpen={show}
@@ -39,6 +87,7 @@ const GenAIModal = ({ show, onHide }) => {
       }}
     >
       <div className="genAIContainer">
+        { receivedMessage.length == 0 &&
         <div className="genAIPreviewContainer">
             <div className="genAIPreviewWrapper">
                 <div className="genAIPreview">
@@ -67,16 +116,39 @@ const GenAIModal = ({ show, onHide }) => {
                 </div>
             </div>
         </div>
+        }
         <div className="genAIPromptContainer">
             <div className="genAIPromptWrapper">
-                <input className="genAIPromptInput" 
+                
+                {sentMessage && 
+                sentMessage.map((sent, i) => 
+                    <div className="genAIPrompt">
+                <div key={sent.id} className="genAIPromptInputContainer">
+                    {sent.text}
+                </div>
+                <div className="genAIPromptOutputContainer">
+                {receivedMessage && receivedMessage[i] &&
+                <div key={receivedMessage[i].id}>{receivedMessage[i].content1}</div>}
+                </div>
+                </div>
+                )
+                }    
+                
+            </div>
+
+            <input className="genAIPromptInput" 
                 autoFocus
                 type="text" 
-                placeholder="Ask anything..."></input>
-                <button type="submit" className="genAIPromptSubmitButton">
+                placeholder="Ask anything..."
+                value={inputText}
+                onChange={handleInputChange}></input>
+                <button 
+                type="submit" 
+                className="genAIPromptSubmitButton"
+                onClick={handlePromptSubmit}>
                     <img src={promptIcon}></img>
                 </button>
-            </div>
+
         </div>
       </div>
     </Modal>

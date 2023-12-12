@@ -3685,6 +3685,40 @@
   .genAIPromptSubmitButton:hover {
     background-color: var(--muted-text);
   }
+
+  .genAIPromptOutputContainer {
+    width: 250px;
+    background-color: var(--muted-text);
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 16px;
+    margin-top: 20px;
+
+  }
+
+  .genAIPromptInputContainer {
+    width: 250px;
+    background-color: var(--button-highlight);
+    color: white;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 16px;
+    margin-top: 20px;
+    margin-left: 110px;
+  }
+
+  .genAIPrompt:nth-child(1) {
+    padding-top: 40px;
+  }
+
+  .genAIPromptWrapper {
+    overflow-y: scroll;
+    height: 356px;
+    margin-bottom: 20px;
+  }
   
   .heroTitle {
     font-family: var(--font);
