@@ -87,7 +87,7 @@ const GenAIModal = ({ show, onHide }) => {
       }}
     >
       <div className="genAIContainer">
-        { receivedMessage.length == 0 &&
+        { (inputText.length === 0 && receivedMessage.length === 0) &&
         <div className="genAIPreviewContainer">
             <div className="genAIPreviewWrapper">
                 <div className="genAIPreview">
