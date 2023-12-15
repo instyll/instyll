@@ -4,6 +4,7 @@ import { Ctx } from "@milkdown/ctx";
 import { Instance } from "@milkdown/react";
 import { gemoji } from "gemoji";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 export const useSlashState = (instance: Instance) => {
   const [loading, getEditor] = instance;
@@ -11,7 +12,7 @@ export const useSlashState = (instance: Instance) => {
   const selectedRef = useRef(0);
   const [search, setSearch] = useState("");
 
-  const zapListConst = ["Hello", "Photosynthesis", "Psychoneuroimmunology", "Psychophysiological", "Thank you", "Nice", "Javascript", "Music", "Cookies", "things", "books", "animals", "bearssssssss"];
+  const zapListConst = useSelector((state) => state.zaps.zaps);
 
   const zapList = useMemo(() => {
     if (search.length === 0) return [];
