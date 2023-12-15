@@ -24,6 +24,7 @@ import TopicGridItem from './topic/topicGridItem.js';
 import CreateTopicModal from '../modal/CreateTopicModal.js';
 import { useLocation } from 'react-router-dom';
 
+
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
@@ -45,6 +46,8 @@ const Home = () => {
   const tags = useSelector((state) => state.tags.tags);
 
   const selectedImage = useSelector((state) => state.image);
+
+  const user = useSelector((state) => state.user)
 
   const fetchFiles = async () => {
     const files = await getFilesInDirectory(notesDirectory);
@@ -296,7 +299,7 @@ const Home = () => {
 
               <div className='topicTitleWrapper'>
                 <h1 className='heroTitle'>
-                  Dashboard
+                  {user}
                 </h1>
                 <DateTime></DateTime>
               </div>

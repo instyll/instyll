@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { executeQuery } from './db.js'; // You need to create a file for database operations
+import { useSelector, useDispatch } from 'react-redux';
 import './Login.css';
 import './App.css';
+import { setSelectedImage } from './imageSlice.js';
+import { setSelectedUser } from './userSlice.js';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   const location = useLocation();
+
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const handleLogin = async () => {
     // Perform authentication check
@@ -17,6 +24,8 @@ const Login = () => {
 
     if (result.length > 0) {
       // Authentication successful
+        // commit to redux
+        dispatch(setSelectedUser(username));
         navigate('/app');
     } else {
       // Authentication failed

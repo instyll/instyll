@@ -6,6 +6,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import tagsReducer from './tagSlice';
 import imageReducer from './imageSlice';
+import userReducer from './userSlice';
 
 const persistConfig = {
   key: "root",
@@ -15,6 +16,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
    tags: tagsReducer,
    image: imageReducer, 
+   user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

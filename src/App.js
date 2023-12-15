@@ -34,6 +34,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<Login />}/>
             <Route path="/app" element={<Layout> <EditorView /> </Layout>} />
+            {/* <Route path="/" element={<Layout> <EditorView /> </Layout>} /> */}
             <Route path="/home" element={<Layout> <Home /> </Layout>} />
             <Route path="/documents" element={<Layout> <DocumentViewer /> </Layout>} />
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />
