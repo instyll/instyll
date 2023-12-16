@@ -14,14 +14,15 @@ import 'prism-themes/themes/prism-nord.css';
 import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
 import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import ZapItem from './zapItem';
+import CreateZapButton from './createZapButton';
 
 const ZapView = ({ location }) => {
-    const [documentGridLayout, setDocumentGridLayout] = useState(true);
-    const { topicId } = useParams();
 
-    /* options for sorting topics */
+    const dispatch = useDispatch();
 
-    /* placeholder document info */
+    const zapList = useSelector((state) => state.zaps.zaps);
 
     return (
         <div className="EditorView">
@@ -42,7 +43,14 @@ const ZapView = ({ location }) => {
                                
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                               
+                               <div className='zapViewContainer'>
+                                    {
+                                        zapList.map((zap) => (
+                                            <ZapItem zapId={zap}></ZapItem>
+                                        ))
+                                    }
+                                    <CreateZapButton></CreateZapButton>
+                               </div>
                             </div>
                         </div>
 

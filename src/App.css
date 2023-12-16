@@ -642,6 +642,187 @@
     padding-bottom: 5px;
     font-size: 16px;
   }
+
+  .zapViewContainer {
+    width: 100%;
+  }
+
+  .zapItemContainer {
+    vertical-align: middle;
+    display: inline-block;
+    width: calc(100%/5 - 25px);
+    line-height: 54px;
+    height: 54px;
+    border: 1px solid var(--muted-text);
+    border-radius: 16px;
+    margin-top: 28px;
+    margin-right: 28px;
+    color: var(--primary-text);
+    position: relative;
+    background-size: cover;
+    transition: 0.2s;
+  }
+
+  .zapItemLabel {
+    padding-left: 20px;
+  }
+
+  .zapItemButton {
+    width: 48px;
+    height: 24px;
+    background-color: var(--button-highlight);
+    border: none;
+    border-radius: 16px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 15px;
+    transition: 0.2s;
+  }
+  
+  .zapItemButton:hover {
+    filter: brightness(90%);
+  }
+
+  .zapIconContainer {
+    height: 52px;
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .createZapContainer {
+    vertical-align: middle;
+    display: inline-block;
+    width: calc(100%/5 - 25px);
+    line-height: 52px;
+    height: 52px;
+    border: 1px solid var(--muted-text);
+    border-radius: 16px;
+    margin-top: 28px;
+    margin-right: 28px;
+    color: var(--primary-text);
+    position: relative;
+    background-size: cover;
+    transition: 0.2s;
+    background-color: var(--elevated-bg);
+  }
+  
+  .createZapContainer:hover {
+    border: 1px solid var(--secondary-text);
+  }
+  
+  .createZapContainer:nth-child(5n) {
+    margin-right: 0px;
+  }
+  
+  @media only screen and (max-width: 1400px) {
+    .createZapContainer {
+      width: calc(100%/4 - 23px);
+    }
+  
+    .createZapContainer:nth-child(4n) {
+      margin-right: 0px;
+    }
+  
+    .createZapcContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  }
+  
+  @media only screen and (min-width: 1001px) and (max-width: 1200px) {
+    .createZapContainer {
+      width: calc(100%/3 - 21px);
+    }
+  
+    .createZapContainer:nth-child(3n) {
+      margin-right: 0px;
+    }
+  
+    .createZapContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  
+    .createZapContainer:nth-child(4n) {
+      margin-right: 28px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .createZapContainer {
+      width: calc(100%/2 - 16px);
+    }
+  
+    .createZapContainer:nth-child(even) {
+      margin-right: 0px !important;
+    }
+  
+    .createZapContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  }
+  
+
+
+
+
+  @media only screen and (max-width: 1400px) {
+    .zapItemContainer {
+      width: calc(100%/4 - 23px);
+    }
+  
+    .zapItemContainer:nth-child(4n) {
+      margin-right: 0px;
+    }
+  
+    .zapItemContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  }
+  
+  @media only screen and (min-width: 1001px) and (max-width: 1200px) {
+    .zapItemContainer {
+      width: calc(100%/3 - 21px);
+    }
+  
+    .zapItemContainer:nth-child(3n) {
+      margin-right: 0px;
+    }
+  
+    .zapItemContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  
+    .zapItemContainer:nth-child(4n) {
+      margin-right: 28px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .zapItemContainer {
+      width: calc(100%/2 - 16px);
+    }
+  
+    .zapItemContainer:nth-child(even) {
+      margin-right: 0px !important;
+    }
+  
+    .zapItemContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
   
   .emojiMenuItem {
     padding-left: 10px;
