@@ -36,6 +36,7 @@
     --background-dim: linear-gradient(rgba(255, 255, 255, 0.7),
         rgba(255, 255, 255, 0.7));
     --font: "Inter", sans-serif;
+    --code-font: "JetBrains Mono", monospace;
     --tooltipBackground: #373738;
     --tooltipText: #f6f6f7;
     --slash-filter: brightness(50%);
@@ -90,6 +91,7 @@
         rgba(0, 0, 0, 0.7));
     --muted-translucent: rgba(180, 180, 182, 0.1);
     --font: "Inter", sans-serif;
+    --code-font: "JetBrains Mono", monospace;
     --tooltipBackground: #1a1a1a;
     --tooltipText: #f6f6f7;
   }
@@ -1102,6 +1104,11 @@
     border-bottom-right-radius: 10px;
     padding-bottom: 10px;
     outline: none !important;
+    font-family: var(--code-font);
+  }
+
+  .cm-editor .cm-line {
+    font-family: var(--code-font);
   }
   
   .cm-editor .cm-gutters {
@@ -1111,7 +1118,8 @@
     font-size: 0.7em;
     line-height: 24px;
     border-bottom-left-radius: 10px;
-    color: var(--secondary-text)
+    color: var(--secondary-text);
+    font-family: var(--code-font);
   }
   
   .cm-content {
@@ -1152,6 +1160,7 @@
     font-size: 0.7em;
     color: var(--primary-text);
     border-radius: 2px;
+    font-family: var(--code-font);
   }
   
   .cm-tooltip-autocomplete>ul>li[aria-selected] {
