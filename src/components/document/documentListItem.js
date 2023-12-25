@@ -15,10 +15,10 @@ const DocumentListItem = ({ documentInfo }) => {
       <div className='topicListTextContainer'>
         <div className='topicListTextWrapper'>
           <div className='topicListTitle'>
-            <span>{documentInfo[0]}</span>
+            <span>{documentInfo[1]}</span>
           </div>
           <div className='topicListInfo'>
-            <span>{documentInfo[1]} words</span> 
+            <span>Created on {documentInfo[2]}</span> 
           </div>
       </div>
       </div>

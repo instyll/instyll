@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { executeQuery } from '../db.js'; // You need to create a file for database operations
+import { addDocument, removeDocument } from '../documentSlice.js';
 import Modal from 'react-modal';
 import '../App.css';
 
@@ -13,15 +14,32 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
 
     const [documentTitle, setDocumentTitle] = useState("");
 
-    const dispatch = useDispatch();
+    const userId = useSelector((state) => state.user.selectedUserId)
 
-    const userId = useSelector((state) => state.userId)
+    const dispatch = useDispatch();
+    const documents = useSelector((state) => state.documents.documents)
 
     const handleDocumentCreation = async () => {
         console.log(documentTitle)
         const query = `INSERT INTO Documents (Title, Content, UserID) VALUES ('${documentTitle}', '', '${userId}');`
         executeQuery(query)
+        // add document identifier to redux
+        const getDocumentInfo = `SELECT * FROM Documents where Title = '${documentTitle}' AND UserID = '${userId}'`
+        const documentQueryObject = await executeQuery(getDocumentInfo)
+        console.log(documentQueryObject)
+        const documentCreationDate = documentQueryObject[0].DateCreated.toString()
+        console.log(documentCreationDate)
+        const documentId = documentQueryObject[0].DocumentID
+        console.log(documents)
+        
+        dispatch(addDocument([documentId, documentTitle, documentCreationDate]))
         // open the markdown note corresponds to the documentID and close the modal
+    }
+
+    const temp = () => {
+        console.log(documents)
+        dispatch(removeDocument(0))
+        console.log("ok")
     }
 
     return (

@@ -8,6 +8,7 @@ import tagsReducer from './tagSlice';
 import imageReducer from './imageSlice';
 import userReducer from './userSlice';
 import zapReducer from './zapSlice';
+import documentReducer from './documentSlice'
 
 const persistConfig = {
   key: "root",
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
    image: imageReducer, 
    user: userReducer,
    zaps: zapReducer,
+   documents: documentReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

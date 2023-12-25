@@ -8,6 +8,7 @@ import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
 import Select from 'react-select';
+import { useSelector, useDispatch } from 'react-redux';
 import DocumentGridItem from './documentGridItem';
 import DocumentListItem from './documentListItem';
 
@@ -38,6 +39,8 @@ const DocumentViewer = ({ location }) => {
         { value: 'sortByName', label: 'Sort by name' },
         { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
+
+    const documents = useSelector((state) => state.documents.documents)
 
     /* placeholder document info */
     const documentTestInfo = ["document name", 300]
@@ -120,12 +123,16 @@ const DocumentViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                {documentGridLayout ? 
-                                <DocumentGridItem documentInfo={documentTestInfo}>
-                                </DocumentGridItem>
+                                {documentGridLayout ?
+                                documents.map((document) => (
+                                   <DocumentGridItem documentInfo={document}>
+                                   </DocumentGridItem> 
+                                )) 
                                 :
-                                <DocumentListItem documentInfo={documentTestInfo}>
-                                </DocumentListItem>
+                                documents.map((document) => (
+                                    <DocumentListItem documentInfo={document}>
+                                    </DocumentListItem> 
+                                 )) 
                             }       
                             </div>
                         </div>

@@ -15,10 +15,10 @@ const DocumentGridItem = ({ documentInfo }) => {
       <div className='topicTextContainer'>
         <div className='topicTextWrapper'>
           <div className='topicTitle'>
-            <span>{documentInfo[0]}</span>
+            <span>{documentInfo[1]}</span>
           </div>
           <div className='topicInfo'>
-            <span>{documentInfo[1]} words</span>
+            <span>Created on {documentInfo[2]}</span>
           </div>
       </div>
       </div>

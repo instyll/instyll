@@ -8,6 +8,11 @@ const config = {
   database: process.env.REACT_APP_DATABASE,
   user: process.env.REACT_APP_USER,
   password: process.env.REACT_APP_PASSWORD,
+  pool: {
+    max: 1,
+    min: 0,
+    idleTimeoutMillis: 30000
+  },
   options: {
     encrypt: true, // For Azure SQL, set to true
   },
@@ -24,7 +29,7 @@ async function executeQuery(query) {
   } catch (err) {
     console.error(err);
   } finally {
-    sql.close();
+    await sql.close();
   }
 }
 
