@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTag } from '../tagSlice';
+import { executeQuery } from '../db.js'; // You need to create a file for database operations
+import Modal from 'react-modal';
 import '../App.css';
 
-const DocumentModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
-
-   
-    const handleAddTags = () => {
-        onAddTags();
-        onHide();
-    };
+const DocumentModal = ({ show, onHide, onAddTags }) => {
 
     const handleClose = () => {
         onHide();
     };
+
+    const [documentTitle, setDocumentTitle] = useState("");
+
+    const dispatch = useDispatch();
+
+    const userId = useSelector((state) => state.userId)
+
+    const handleDocumentCreation = async () => {
+        console.log(documentTitle)
+        const query = `INSERT INTO Documents (Title, Content, UserID) VALUES ('${documentTitle}', '', '${userId}');`
+        executeQuery(query)
+        // open the markdown note corresponds to the documentID and close the modal
+    }
 
     return (
         <Modal isOpen={show} 
@@ -49,14 +57,15 @@ const DocumentModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAd
             </div>
 
             <div className='createDocumentTitleContainer'>
-                <input className='createDocumentTitleInput' autoFocus placeholder='Name this note...'>
-
+                <input className='createDocumentTitleInput' 
+                autoFocus placeholder='Name this note...' 
+                onChange={(e) => setDocumentTitle(e.target.value)}>
                 </input>
             </div>
           
             <div className="modalActionContainer">
                 <button onClick={handleClose} className='modalDefaultButton'>Cancel</button>
-                <button onClick={handleAddTags} className='modalActionButton'>Create</button>
+                <button className='modalActionButton' onClick={handleDocumentCreation}>Create</button>
             </div>
         </Modal >
     );

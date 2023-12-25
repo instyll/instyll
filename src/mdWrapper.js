@@ -4,6 +4,7 @@
 import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
 import type { FC } from 'react';
 import { useEffect, useMemo } from "react";
+import { replaceAll } from "@milkdown/utils"
 import type { Ctx, MilkdownPlugin } from "@milkdown/ctx";
 import { 
   commonmark, 

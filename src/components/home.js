@@ -47,7 +47,8 @@ const Home = () => {
 
   const selectedImage = useSelector((state) => state.image);
 
-  const user = useSelector((state) => state.user)
+  const user = useSelector((state) => state.user.selectedUser)
+  console.log(user)
 
   const fetchFiles = async () => {
     const files = await getFilesInDirectory(notesDirectory);

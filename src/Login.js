@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './Login.css';
 import './App.css';
 import { setSelectedImage } from './imageSlice.js';
-import { setSelectedUser } from './userSlice.js';
+import { setSelectedUser, setSelectedUserId } from './userSlice.js';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -20,13 +20,16 @@ const Login = () => {
   const handleLogin = async () => {
     // Perform authentication check
     const query = `SELECT * FROM UserCredentials WHERE Username = '${username}' AND HashedPassword = '${password}'`;
+    const getUserId = `SELECT UserID from UserCredentials WHERE Username = '${username}`
     const result = await executeQuery(query);
+    const userId = result[0].UserID;
 
     if (result.length > 0) {
       // Authentication successful
         // commit to redux
         dispatch(setSelectedUser(username));
-        navigate('/app');
+        dispatch(setSelectedUserId(userId));
+        navigate('/home');
     } else {
       // Authentication failed
       alert('Invalid username or password');
