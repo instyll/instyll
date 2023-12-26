@@ -20,6 +20,9 @@ const DocumentGridItem = ({ documentInfo }) => {
           <div className='topicInfo'>
             <span>{documentInfo[2]}</span>
           </div>
+          <div className='topicOptionsMenuContainer' >
+            <img src={moreDots} className='moreDots'></img>
+          </div>
       </div>
       </div>
     </div>

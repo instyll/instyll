@@ -20,6 +20,9 @@ const DocumentListItem = ({ documentInfo }) => {
           <div className='topicListInfo'>
             <span>{documentInfo[2]}</span> 
           </div>
+          <div className='topicOptionsMenuContainer' >
+            <img src={moreDots} className='moreDots'></img>
+          </div>
       </div>
       </div>
     </div>
