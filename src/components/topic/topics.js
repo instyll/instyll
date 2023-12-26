@@ -45,23 +45,6 @@ const Topics = () => {
 
     const tags = useSelector((state) => state.tags.tags);
 
-    const fetchFiles = async () => {
-        const files = await getFilesInDirectory(notesDirectory);
-        setFileNames(files);
-        const watcher = chokidar.watch(notesDirectory);
-        watcher.on('add', (path) => {
-            console.log(path);
-            console.log(fileNames)
-            const fileName = path.replace(/^.*[\\/]/, '');
-            setFileNames(prevFileNames => Array.from(new Set([...prevFileNames, fileName])));
-        });
-
-        watcher.on('unlink', (path) => {
-            const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
-            setFileNames(prevFileNames => prevFileNames.filter(name => name !== fileName));
-        });
-    }
-
     const handleClick = async (path) => {
         const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
         setSelectedFile(path);
@@ -85,12 +68,6 @@ const Topics = () => {
             setTopicGridLayout(true);
         }
     }
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        fetchFiles();
-    }, []);
 
     const sampleChromeCommand = (suggestion) => {
         const { name, highlight, category, shortcut } = suggestion;
