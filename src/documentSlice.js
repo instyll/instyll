@@ -5,6 +5,8 @@ const initialState = {
     ],
 };
 
+// document object: [DocumentID, DocumentTitle, DateCreated]
+
 const documentSlice = createSlice({
     name: 'documents',
     initialState, 
@@ -13,13 +15,15 @@ const documentSlice = createSlice({
             state.documents.push(action.payload);
         },
         removeDocument: (state, action) => {
-            const id = action.payload;
-            console.log(id)
+            const documentObject = action.payload;
+            const documentId = documentObject[0];
+            console.log(documentId)
             // state.documents = state.documents.filter(item => item !== id);
-            return {
-            ...state,
-            documents: [],
-            }
+            state.documents = state.documents.filter(item => item[0] !== documentId);
+            // return {
+            // ...state,
+            // documents: [],
+            // }
         },
         updateDocument: (state, action) => {
             const { id, newValue } = action.payload;
