@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { executeQuery } from '../db.js'; // You need to create a file for database operations
-import { addDocument, removeDocument } from '../documentSlice.js';
+import { addDocument, removeDocument, reset } from '../documentSlice.js';
 import Modal from 'react-modal';
+import parseAndFormatDate from '../DateUtils.js';
 import '../App.css';
 
 const DocumentModal = ({ show, onHide, onAddTags }) => {
@@ -26,13 +27,11 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
         // add document identifier to redux
         const getDocumentInfo = `SELECT * FROM Documents where Title = '${documentTitle}' AND UserID = '${userId}'`
         const documentQueryObject = await executeQuery(getDocumentInfo)
-        console.log(documentQueryObject)
         const documentCreationDate = documentQueryObject[0].DateCreated.toString()
-        console.log(documentCreationDate)
+        const parsedDate = parseAndFormatDate(documentCreationDate)
         const documentId = documentQueryObject[0].DocumentID
-        console.log(documents)
         
-        dispatch(addDocument([documentId, documentTitle, documentCreationDate]))
+        dispatch(addDocument([documentId, documentTitle, parsedDate]))
         // open the markdown note corresponds to the documentID and close the modal
     }
 

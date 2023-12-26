@@ -18,7 +18,7 @@ const DocumentListItem = ({ documentInfo }) => {
             <span>{documentInfo[1]}</span>
           </div>
           <div className='topicListInfo'>
-            <span>Created on {documentInfo[2]}</span> 
+            <span>{documentInfo[2]}</span> 
           </div>
       </div>
       </div>

@@ -33,5 +33,5 @@ const documentSlice = createSlice({
     }
 });
 
-export const { addDocument, removeDocument, updateDocument } = documentSlice.actions;
+export const { addDocument, removeDocument, updateDocument, reset } = documentSlice.actions;
 export default documentSlice.reducer;
