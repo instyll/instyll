@@ -22,7 +22,7 @@ import { setSelectedImage } from '../imageSlice';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import TopicGridItem from './topic/topicGridItem.js';
 import CreateTopicModal from '../modal/CreateTopicModal.js';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 import '../command-palette/commandPalette.css';
@@ -49,23 +49,6 @@ const Home = () => {
 
   const user = useSelector((state) => state.user.selectedUser)
   console.log(user)
-
-  const fetchFiles = async () => {
-    const files = await getFilesInDirectory(notesDirectory);
-    setFileNames(files);
-    const watcher = chokidar.watch(notesDirectory);
-    watcher.on('add', (path) => {
-      console.log(path);
-      console.log(fileNames)
-      const fileName = path.replace(/^.*[\\/]/, '');
-      setFileNames(prevFileNames => Array.from(new Set([...prevFileNames, fileName])));
-    });
-
-    watcher.on('unlink', (path) => {
-      const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
-      setFileNames(prevFileNames => prevFileNames.filter(name => name !== fileName));
-    });
-  }
 
   const handleClick = async (path) => {
     const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
@@ -313,9 +296,11 @@ const Home = () => {
                     <div className='dashboardSuggestionItemTitle'>
                       Recents
                     </div>
-                    <div className='dashboardSuggestionItemMore'>
-                      See all
-                    </div>
+                    <Link to="/documents">
+                      <div className='dashboardSuggestionItemMore'>
+                        See all
+                      </div>
+                    </Link>
 
                     <div className='dashboardSuggestionItemList'>
 
@@ -379,9 +364,11 @@ const Home = () => {
                     <div className='dashboardSuggestionItemTitle'>
                       Created by me
                     </div>
-                    <div className='dashboardSuggestionItemMore'>
-                      See all
-                    </div>
+                    <Link to="/documents">
+                      <div className='dashboardSuggestionItemMore'>
+                        See all
+                      </div>
+                    </Link>
 
                     <div className='dashboardSuggestionItemList'>
 
