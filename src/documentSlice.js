@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { executeQuery } from './db';
 
 const initialState = {
     documents: [
@@ -20,10 +21,9 @@ const documentSlice = createSlice({
             console.log(documentId)
             // state.documents = state.documents.filter(item => item !== id);
             state.documents = state.documents.filter(item => item[0] !== documentId);
-            // return {
-            // ...state,
-            // documents: [],
-            // }
+            // propagate removal to azure sql
+            const removeDocumentQuery = `DELETE FROM Documents WHERE DocumentID = '${documentId}'`
+            executeQuery(removeDocumentQuery)
         },
         updateDocument: (state, action) => {
             const { id, newValue } = action.payload;
