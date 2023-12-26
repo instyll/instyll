@@ -27,11 +27,11 @@ const documentSlice = createSlice({
         },
         updateDocument: (state, action) => {
             const { id, newValue } = action.payload;
-            const docIndex = state.documents.findIndex(item => item === id);
-
+            const docIndex = state.documents.findIndex(item => item[0] === id);
+            console.log(docIndex)
             if (docIndex !== -1) {
                 // If the tag exists, update its value
-                state.tags[docIndex] = newValue;
+                state.documents[docIndex][1] = newValue;
             }
         }
     }

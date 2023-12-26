@@ -60,7 +60,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument }) => {
 
             <UpdateDocumentModal
             show={updateDocumentModalOpen}
-            selectedTag={selectedDocument}
+            selectedDocument={selectedDocument}
             handleClose={handleClose}
             onHide={() => {
                 setUpdateDocumentModalOpen(false)
