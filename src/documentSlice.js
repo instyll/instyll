@@ -32,6 +32,9 @@ const documentSlice = createSlice({
             if (docIndex !== -1) {
                 // If the tag exists, update its value
                 state.documents[docIndex][1] = newValue;
+                // propagate update to azure sql
+                const updateDocumentTitleQuery = `UPDATE Documents SET Title = '${newValue}' WHERE DocumentID = ${id}`
+                executeQuery(updateDocumentTitleQuery)
             }
         }
     }
