@@ -23,6 +23,10 @@ function createWindow() {
     mainWindow.loadURL(isDev ? 'http://localhost:3000': `file://${path.join(__dirname, 
    '../build/index.html')}`);
 
+   mainWindow.once('ready-to-show', () => {
+        mainWindow.show();
+   });
+
     app.setAboutPanelOptions({
         applicationName: "instyll",
         applicationVersion: "0.0.1",

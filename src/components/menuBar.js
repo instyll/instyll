@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DocumentModal from '../modal/CreateDocumentModal';
+import classNames from 'classnames';
 import '../App.css';
 // Assets
 import logo from '../icons/keylight3.png'
@@ -34,7 +35,7 @@ function MenuBar(props) {
   }
 
   return (
-    <div className="menuBar">
+    <div className={classNames('menuBar', 'drag')}>
 
       <DocumentModal
         show={documentModalOpen}

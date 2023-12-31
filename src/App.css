@@ -1446,6 +1446,9 @@
     color: var(--primary-text);
   }
   
+  .drag {
+    -webkit-app-region: drag;
+  }
   
   /* menubar */
   
