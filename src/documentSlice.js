@@ -21,7 +21,7 @@ const documentSlice = createSlice({
             console.log(documentId)
             // state.documents = state.documents.filter(item => item !== id);
             state.documents = state.documents.filter(item => item[0] !== documentId);
-            // propagate removal to azure sql
+            // propagate to a new markdown file
         },
         updateDocument: (state, action) => {
             const { id, newValue } = action.payload;
