@@ -22,8 +22,6 @@ const documentSlice = createSlice({
             // state.documents = state.documents.filter(item => item !== id);
             state.documents = state.documents.filter(item => item[0] !== documentId);
             // propagate removal to azure sql
-            const removeDocumentQuery = `DELETE FROM Documents WHERE DocumentID = '${documentId}'`
-            executeQuery(removeDocumentQuery)
         },
         updateDocument: (state, action) => {
             const { id, newValue } = action.payload;
@@ -32,9 +30,6 @@ const documentSlice = createSlice({
             if (docIndex !== -1) {
                 // If the tag exists, update its value
                 state.documents[docIndex][1] = newValue;
-                // propagate update to azure sql
-                const updateDocumentTitleQuery = `UPDATE Documents SET Title = '${newValue}' WHERE DocumentID = ${id}`
-                executeQuery(updateDocumentTitleQuery)
             }
         }
     }

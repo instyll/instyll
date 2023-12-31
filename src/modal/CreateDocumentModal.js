@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { executeQuery } from '../db.js'; // You need to create a file for database operations
+// import { executeQuery } from '../db.js'; // You need to create a file for database operations
 import { addDocument, removeDocument, reset } from '../documentSlice.js';
+import { uuid } from 'uuidv4';
 import Modal from 'react-modal';
 import parseAndFormatDate from '../DateUtils.js';
 import '../App.css';
@@ -22,16 +23,10 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
 
     const handleDocumentCreation = async () => {
         console.log(documentTitle)
-        const query = `INSERT INTO Documents (Title, Content, UserID) VALUES ('${documentTitle}', '', '${userId}');`
-        executeQuery(query)
-        // add document identifier to redux
-        const getDocumentInfo = `SELECT * FROM Documents where Title = '${documentTitle}' AND UserID = '${userId}'`
-        const documentQueryObject = await executeQuery(getDocumentInfo)
-        const documentCreationDate = documentQueryObject[0].DateCreated.toString()
-        const parsedDate = parseAndFormatDate(documentCreationDate)
-        const documentId = documentQueryObject[0].DocumentID
-        
-        dispatch(addDocument([documentId, documentTitle, parsedDate]))
+        const date = new Date();
+        const parsedDate = parseAndFormatDate(date.toString());
+        dispatch(addDocument([uuid(), documentTitle, parsedDate]))
+        console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal
     }
 

@@ -32,7 +32,7 @@ class App extends Component {
       <div className="App">
         <HashRouter>
           <Routes>
-            <Route path="/" element={<Login />}/>
+            {/* <Route path="/" element={<Login />}/> */}
             <Route path="/app" element={<Layout> <EditorView /> </Layout>} />
             <Route path="/" element={<Layout> <EditorView /> </Layout>} />
             <Route path="/home" element={<Layout> <Home /> </Layout>} />

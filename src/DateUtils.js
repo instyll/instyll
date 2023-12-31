@@ -1,8 +1,5 @@
-/**
- * @author wou
- */
-// Functions to format date from sql timestamps
 const parseAndFormatDate = (dateString) => {
+  // Parse the date string
   const parsedDate = new Date(dateString);
 
   // Get the month, day, year, hours, and minutes
@@ -19,7 +16,7 @@ const parseAndFormatDate = (dateString) => {
 }
 
 const formatTime = (hours, minutes) => {
-     // Format the time in 12-hour clock with AM/PM
+  // Format the time in 12-hour clock with AM/PM
   const ampm = hours >= 12 ? 'PM' : 'AM';
   const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
   const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;

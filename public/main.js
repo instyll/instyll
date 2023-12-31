@@ -27,6 +27,8 @@ function createWindow() {
         mainWindow.show();
    });
 
+   mainWindow.setMenuBarVisibility(false)
+
     app.setAboutPanelOptions({
         applicationName: "instyll",
         applicationVersion: "0.0.1",

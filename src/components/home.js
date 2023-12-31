@@ -47,9 +47,6 @@ const Home = () => {
 
   const selectedImage = useSelector((state) => state.image);
 
-  const user = useSelector((state) => state.user.selectedUser)
-  console.log(user)
-
   const handleClick = async (path) => {
     const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
     setSelectedFile(path);
@@ -283,7 +280,7 @@ const Home = () => {
 
               <div className='topicTitleWrapper'>
                 <h1 className='heroTitle'>
-                  {user}
+                  Dashboard
                 </h1>
                 <DateTime></DateTime>
               </div>
