@@ -34,15 +34,16 @@ const DocumentGridItem = ({ documentInfo }) => {
         onHide={() => setDocumentOptionsModalOpen(false)}
       />
 
-      <div className='topicTextContainer'>
-        <div className='topicTextWrapper'>
+      <div className='documentTextContainer'>
+        <div className='documentTextWrapper'>
           <div className='topicTitle'>
             <span>{documentInfo[1]}</span>
           </div>
-          <div className='topicInfo'>
-            <span>{documentInfo[2]}</span>
+          <div className='appendedTagsContainer'>
+            <span className='tagItem'>projects</span>
+            <span className='tagItem'>books</span>
           </div>
-          <div className='topicOptionsMenuContainer' onClick={handleClick}>
+          <div className='documentOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
           </div>
       </div>

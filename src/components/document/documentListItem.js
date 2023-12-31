@@ -26,7 +26,7 @@ const DocumentListItem = ({ documentInfo }) => {
   }
 
   return (
-    <div className='topicListItem' key={documentInfo[0]}>
+    <div className='documentListItem' key={documentInfo[0]}>
       
       <DocumentOptionsModal
         show={documentOptionsModalOpen}
@@ -34,15 +34,16 @@ const DocumentListItem = ({ documentInfo }) => {
         onHide={() => setDocumentOptionsModalOpen(false)}
       />
       
-      <div className='topicListTextContainer'>
-        <div className='topicListTextWrapper'>
+      <div className='documentListTextContainer'>
+        <div className='documentListTextWrapper'>
           <div className='topicListTitle'>
             <span>{documentInfo[1]}</span>
           </div>
-          <div className='topicListInfo'>
-            <span>{documentInfo[2]}</span> 
+          <div className='appendedTagsContainer'>
+            <span className='tagItem'>projects</span>
+            <span className='tagItem'>books</span>
           </div>
-          <div className='topicOptionsMenuContainer' onClick={handleClick}>
+          <div className='documentOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
           </div>
       </div>
