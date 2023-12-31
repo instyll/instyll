@@ -3331,7 +3331,7 @@
     vertical-align: middle;
     width: calc(100% - 2px);
     border: 1px solid var(--muted-text);
-    border-radius: 16px;
+    border-radius: 10px;
     margin-top: 20px;
     margin-right: 2px;
     color: var(--primary-text);
@@ -3523,7 +3523,7 @@
     line-height: 80px;
     height: 80px;
     border: 1px solid var(--muted-text);
-    border-radius: 16px;
+    border-radius: 10px;
     margin-top: 20px;
     margin-right: 28px;
     color: var(--primary-text);
