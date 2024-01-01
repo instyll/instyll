@@ -9,6 +9,7 @@ import imageReducer from './imageSlice';
 import userReducer from './userSlice';
 import zapReducer from './zapSlice';
 import documentReducer from './documentSlice'
+import pathReducer from './pathSlice'
 
 const persistConfig = {
   key: "root",
@@ -21,11 +22,12 @@ const rootReducer = combineReducers({
    user: userReducer,
    zaps: zapReducer,
    documents: documentReducer,
+   path: pathReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = configureStore({
+export const store = configureStore({
     // reducer: {
     //     /* reducer for topic state */
     //     tags: tagsReducer,
@@ -38,4 +40,4 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-export { store, persistor };
+export { persistor };

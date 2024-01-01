@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { executeQuery } from './db';
+import { useSelector } from 'react-redux';
+import fs from 'fs'; 
+import path from 'path'; 
 
 const initialState = {
     documents: [
@@ -14,6 +16,10 @@ const documentSlice = createSlice({
     reducers: {
         addDocument: (state, action) => {
             state.documents.push(action.payload);
+            const documentObject = action.payload;
+            const documentTitle = documentObject[1];
+            // propagate to a new markdown file
+            // executeFileCreation(documentTitle)
         },
         removeDocument: (state, action) => {
             const documentObject = action.payload;
@@ -21,7 +27,6 @@ const documentSlice = createSlice({
             console.log(documentId)
             // state.documents = state.documents.filter(item => item !== id);
             state.documents = state.documents.filter(item => item[0] !== documentId);
-            // propagate to a new markdown file
         },
         updateDocument: (state, action) => {
             const { id, newValue } = action.payload;
@@ -32,7 +37,7 @@ const documentSlice = createSlice({
                 state.documents[docIndex][1] = newValue;
             }
         }
-    }
+    },
 });
 
 export const { addDocument, removeDocument, updateDocument, reset } = documentSlice.actions;

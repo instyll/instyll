@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    path: null
+    path: ''
 };
 
 const pathSlice = createSlice({
@@ -9,20 +9,23 @@ const pathSlice = createSlice({
     initialState, 
     reducers: {
         addPath: (state, action) => {
-            state.path.push(action.payload);
+            return {
+                ...state,
+                path: action.payload,
+              }
         },
         removePath: (state, action) => {
             const id = action.payload;
             state.path = state.path.filter(item => item !== id);
         },
         updatePath: (state, action) => {
-            const { id, newValue } = action.payload;
-            const pathIndex = state.path.findIndex(item => item === id);
+            const newValue = action.payload;
 
-            if (pathIndex !== -1) {
-                // If the tag exists, update its value
-                state.path[pathIndex] = newValue;
-            }
+                return {
+                    ...state,
+                    path: newValue
+                }
+            
         }
     }
 });

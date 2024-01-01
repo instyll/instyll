@@ -6,6 +6,7 @@ import { addDocument, removeDocument, reset } from '../documentSlice.js';
 import { uuid } from 'uuidv4';
 import Modal from 'react-modal';
 import parseAndFormatDate from '../DateUtils.js';
+import { executeFileCreation } from '../actions.js';
 import '../App.css';
 
 const DocumentModal = ({ show, onHide, onAddTags }) => {
@@ -26,6 +27,7 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
         const date = new Date();
         const parsedDate = parseAndFormatDate(date.toString());
         dispatch(addDocument([uuid(), documentTitle, parsedDate]))
+        executeFileCreation({documentTitle: documentTitle})
         console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal
     }
