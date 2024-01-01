@@ -43,7 +43,6 @@ html {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-color: rgba(248, 248, 250, 0.404);
-    backdrop-filter: blur(8px);
     height: fit-content;
     width: 500px;
     border-radius: 16px;
