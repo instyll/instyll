@@ -4,8 +4,10 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const isDev = require('electron-is-dev');
 const path = require('path');
-const { ipcMain } = require('electron');
+const { ipcMain, dialog } = require('electron');
 const fs = require('fs');
+
+require('@electron/remote/main').initialize()
 
 dotenv.config();
 
@@ -17,8 +19,8 @@ function createWindow() {
             icon: __dirname + '/icons/key500.png',
             webPreferences: {
                 nodeIntegration: true,
-                contextIsolation: false
-            }
+                contextIsolation: false,
+            },
         });
     mainWindow.loadURL(isDev ? 'http://localhost:3000': `file://${path.join(__dirname, 
    '../build/index.html')}`);
@@ -28,6 +30,14 @@ function createWindow() {
    });
 
    mainWindow.setMenuBarVisibility(false)
+
+   ipcMain.on('select-folder', (event) => {
+    const folderPath = dialog.showOpenDialogSync(mainWindow, {
+      properties: ['openDirectory'],
+    });
+
+    event.returnValue = folderPath ? folderPath[0] : null;
+  });
 
     app.setAboutPanelOptions({
         applicationName: "instyll",
@@ -47,7 +57,58 @@ app.on('activate', () => {
     if (mainWindow === null) {createWindow();}
 });
 
-ipcMain.handle('getFilesInDirectory', (event, directory) => {
-    const files = fs.readdirSync(directory);
-    return files.filter(file => fs.statSync(`${directory}/${file}`).isFile());
-});
+ipcMain.on('file-request', (event) => {  
+    // If the platform is 'win32' or 'Linux'
+    if (process.platform !== 'darwin') {
+      // Resolves to a Promise<Object>
+      dialog.showOpenDialog({
+        title: 'Select the File to be uploaded',
+        defaultPath: path.join(__dirname, '../assets/'),
+        buttonLabel: 'Upload',
+        // Restricting the user to only Text Files.
+        filters: [ 
+        { 
+           name: 'Text Files', 
+           extensions: ['txt', 'docx'] 
+        }, ],
+        // Specifying the File Selector Property
+        properties: ['openFile']
+      }).then(file => {
+        // Stating whether dialog operation was
+        // cancelled or not.
+        console.log(file.canceled);
+        if (!file.canceled) {
+          const filepath = file.filePaths[0].toString();
+          console.log(filepath);
+          event.reply('file', filepath);
+        }  
+      }).catch(err => {
+        console.log(err)
+      });
+    }
+    else {
+      // If the platform is 'darwin' (macOS)
+      dialog.showOpenDialog({
+        title: 'Select the File to be uploaded',
+        defaultPath: path.join(__dirname, '../assets/'),
+        buttonLabel: 'Upload',
+        filters: [ 
+        { 
+           name: 'Text Files', 
+           extensions: ['txt', 'docx'] 
+        }, ],
+        // Specifying the File Selector and Directory 
+        // Selector Property In macOS
+        properties: ['openFile', 'openDirectory']
+      }).then(file => {
+        console.log(file.canceled);
+        if (!file.canceled) {
+        const filepath = file.filePaths[0].toString();
+        console.log(filepath);
+        event.send('file', filepath);
+      }  
+    }).catch(err => {
+        console.log(err)
+      });
+    }
+  });
