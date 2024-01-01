@@ -22,6 +22,14 @@ const Initialize = () => {
     }
   };
 
+  const handleCreateFolder = async () => {
+    const createdFolderPath = ipcRenderer.sendSync('create-folder')
+    if (createdFolderPath) {
+        dispatch(addPath(createdFolderPath))
+        navigate('/home')
+    }
+  }
+
   return (
     <div className='initialContainer'>
         <div className='initialWrapper'>
@@ -33,7 +41,7 @@ const Initialize = () => {
                     <span className='initialSelectFolderLabelSecondary'>Create a new folder to store your notes.</span>
                 </div>
                 <button 
-                onClick={handleSelectFolder}
+                onClick={handleCreateFolder}
                 className='initialPrimaryButton'
                 >Create
                 </button>

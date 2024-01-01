@@ -39,9 +39,42 @@ function createWindow() {
     event.returnValue = folderPath ? folderPath[0] : null;
   });
 
+  const baseDir = app.getPath('home');
+
+  ipcMain.on('create-folder', (event) => {
+    // Use the dialog module to prompt the user for the folder name
+    const result = dialog.showSaveDialogSync({
+      title: 'Select a location to create the folder',
+      defaultPath: path.join(baseDir, 'Instyll'), // Default folder name
+      properties: ['createDirectory', 'showOverwriteConfirmation'],
+    });
+  
+    if (result) {
+      // The user selected a location, result will contain the path
+      const folderPath = result;
+  
+      // Check if the folder already exists
+      if (!fs.existsSync(folderPath)) {
+        // Create the folder
+        fs.mkdirSync(folderPath);
+  
+        // Send the created folder path back to the renderer process
+        event.returnValue = folderPath;
+      } else {
+        // The folder already exists, handle this case
+        console.error('Folder already exists.');
+        event.returnValue = null; // Indicate failure
+      }
+    } else {
+      // The user canceled the operation
+      console.log('Folder creation canceled by user.');
+      event.returnValue = null; // Indicate failure
+    }
+  });
+
     app.setAboutPanelOptions({
         applicationName: "instyll",
-        applicationVersion: "0.0.1",
+        applicationVersion: "0.1.0-beta",
     })
 
     mainWindow.on('closed', () => mainWindow = null);
