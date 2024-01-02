@@ -100,6 +100,11 @@ html {
     border-radius: 8px;
     box-sizing: border-box;
     width: 120px;
+    transition: 0.2s;
+}
+
+.initialPrimaryButton:hover {
+    filter: brightness(90%);
 }
 
 .initialSecondaryButton {
@@ -113,4 +118,9 @@ html {
     border-radius: 8px;
     box-sizing: border-box;
     width: 120px;
+    transition: 0.2s;
+}
+
+.initialSecondaryButton:hover {
+    filter: brightness(90%);
 }
