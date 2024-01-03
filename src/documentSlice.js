@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 // import fs from 'fs'; 
 import fs from 'fs/promises';
 import path from 'path'; 
+import { stat } from 'fs';
 
 const initialState = {
     documents: [
@@ -35,14 +36,20 @@ const documentSlice = createSlice({
         },
         updateDocument: (state, action) => {
             const documentObject = action.payload;
-            const documentPath = documentObject.path
-            const newValue = documentObject.newValue
-            const originPath = documentObject.originPath
+            const documentPath = documentObject[0]
+            console.log(documentPath)
+            const newValue = documentObject[2]
+            const originPath = documentObject[1]
             const docIndex = state.documents.findIndex(item => item[3] === documentPath);
             console.log(docIndex)
             if (docIndex !== -1) {
                 // If the doc exists, update its filename
-                state.documents[docIndex][1] = newValue;
+                state.documents[docIndex] = [
+                    ...state.documents[docIndex].slice(0, 1), 
+                    newValue,
+                    state.documents[docIndex][2],
+                    path.join(originPath, `${newValue}.md`)
+                ];
                 try {
                     fs.rename(documentPath, path.join(originPath, `${newValue}.md`))
                 } catch (error) {
