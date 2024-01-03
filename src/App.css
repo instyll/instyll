@@ -3677,6 +3677,10 @@
     min-width: 100%;
     overflow: hidden;
   }
+
+  .noteTopicStatus {
+    color: var(--secondary-text);
+  }
   
   .documentItem {
     display: inline-block;

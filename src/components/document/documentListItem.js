@@ -37,11 +37,12 @@ const DocumentListItem = ({ documentInfo }) => {
       <div className='documentListTextContainer'>
         <div className='documentListTextWrapper'>
           <div className='topicListTitle'>
-            <span>{documentInfo[1]}</span>
+            <span>{documentInfo}</span>
           </div>
           <div className='appendedTagsContainer'>
-            <span className='tagItem'>projects</span>
-            <span className='tagItem'>books</span>
+            {/* <span className='tagItem'>projects</span>
+            <span className='tagItem'>books</span> */}
+            <span className='noteTopicStatus'>No topics</span>
           </div>
           <div className='documentOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>

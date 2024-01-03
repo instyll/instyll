@@ -1,8 +1,9 @@
 /**
  * @author wou
  */
-import React, { useState } from 'react';
-// import Editor from './legacyEditor.js';
+import React, { useState, useEffect } from 'react';
+import fs from 'fs/promises';
+import path from 'path';
 import '../../App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
@@ -12,16 +13,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import DocumentGridItem from './documentGridItem';
 import DocumentListItem from './documentListItem';
 
-import 'react-calendar/dist/Calendar.css';
-import 'prism-themes/themes/prism-nord.css';
-
 import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
-import { useParams } from 'react-router-dom';
 
 const DocumentViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
-    const { topicId } = useParams();
+    const [markdownFiles, setMarkdownFiles] = useState([]);
+
+    const documentsPath = useSelector((state) => state.path.path)
 
     /* Handle grid or list layout */
     const handleChangeDocumentViewLayout = () => {
@@ -41,6 +40,22 @@ const DocumentViewer = ({ location }) => {
     ];
 
     const documents = useSelector((state) => state.documents.documents)
+
+    // fetch markdown files on component mount
+    useEffect(() => {
+        const fetchMarkdownFiles = async () => {
+            try {
+                const files = await fs.readdir(documentsPath);
+                const markdownFiles = files.filter(file => path.extname(file) === '.md');
+                setMarkdownFiles(markdownFiles);
+                console.log(markdownFiles)
+            } catch (error) {
+                console.error('Error fetching markdown files:', error);
+            }
+        };
+
+        fetchMarkdownFiles();
+    }, [documentsPath]);
 
     /* placeholder document info */
     const documentTestInfo = ["document name", 300]
@@ -63,7 +78,7 @@ const DocumentViewer = ({ location }) => {
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
                                     <button className='changeTopicViewButton'
-                                    onClick={handleChangeDocumentViewLayout}
+                                        onClick={handleChangeDocumentViewLayout}
                                     >
                                         <img src={documentGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
@@ -124,16 +139,16 @@ const DocumentViewer = ({ location }) => {
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
                                 {documentGridLayout ?
-                                documents.map((document) => (
-                                   <DocumentGridItem documentInfo={document}>
-                                   </DocumentGridItem> 
-                                )) 
-                                :
-                                documents.map((document) => (
-                                    <DocumentListItem documentInfo={document}>
-                                    </DocumentListItem> 
-                                 )) 
-                            }       
+                                    markdownFiles.map((filename) => (
+                                        <DocumentGridItem key={filename} documentInfo={removeMdExtension(filename)}>
+                                        </DocumentGridItem>
+                                    ))
+                                    :
+                                    markdownFiles.map((filename) => (
+                                        <DocumentListItem key={filename} documentInfo={removeMdExtension(filename)}>
+                                        </DocumentListItem>
+                                    ))
+                                }
                             </div>
                         </div>
 
@@ -146,6 +161,10 @@ const DocumentViewer = ({ location }) => {
 
         </div>
     );
+}
+
+const removeMdExtension = (filename) => {
+    return path.basename(filename, '.md');
 }
 
 export default DocumentViewer;

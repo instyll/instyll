@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import path from 'path';
 // import { executeQuery } from '../db.js'; // You need to create a file for database operations
 import { addDocument, removeDocument, reset } from '../documentSlice.js';
 import { uuid } from 'uuidv4';
@@ -21,12 +22,14 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
 
     const dispatch = useDispatch();
     const documents = useSelector((state) => state.documents.documents)
+    const documentsPath = useSelector((state) => state.path.path)
 
     const handleDocumentCreation = async () => {
         console.log(documentTitle)
         const date = new Date();
         const parsedDate = parseAndFormatDate(date.toString());
-        dispatch(addDocument([uuid(), documentTitle, parsedDate]))
+        const filePath = path.join(documentsPath, `${documentTitle}.md`);
+        dispatch(addDocument([uuid(), documentTitle, parsedDate, filePath]))
         executeFileCreation({documentTitle: documentTitle})
         console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal

@@ -8,7 +8,7 @@ const initialState = {
     ],
 };
 
-// document object: [DocumentID, DocumentTitle, DateCreated]
+// document object: [DocumentID, DocumentTitle, DateCreated, DocumentPath, topics: []]
 
 const documentSlice = createSlice({
     name: 'documents',
@@ -17,9 +17,8 @@ const documentSlice = createSlice({
         addDocument: (state, action) => {
             state.documents.push(action.payload);
             const documentObject = action.payload;
-            const documentTitle = documentObject[1];
-            // propagate to a new markdown file
-            // executeFileCreation(documentTitle)
+            state.documents.push(documentObject);
+
         },
         removeDocument: (state, action) => {
             const documentObject = action.payload;
