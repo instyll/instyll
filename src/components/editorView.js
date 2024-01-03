@@ -81,21 +81,11 @@ const EditorView = () => {
     console.log(documentContent)
 
     const handleDock = () => {
-        // setState({
-        //     dockOpen: state.dockOpen === true ? false : true,
-        //     rightPanelOpen: false,
-        // })
         setDockOpen((prevState) => !prevState)
         setRightPanelOpen(false);
     }
 
     const handleRightPanel = (setting) => {
-        // setState((prevState) => ({
-        //     rightPanelOpen: state.dockOpen ? (!prevState.rightPanelOpen || prevState.rightPanelSetting !== setting) : false,
-        //     rightPanelSetting: setting,
-        // }), () => {
-        //     console.log(state.rightPanelOpen);
-        // });
         // console.log(state.rightPanelSetting);
         setRightPanelOpen((prevState) => {
             // Toggle rightPanelOpen only if dock is open or if the setting is different
@@ -130,34 +120,23 @@ const EditorView = () => {
     /* append newly created headers to outline */
     const updateToc = () => {
         var toc = constructToc();
-        // setState({
-        //     tocHeaders: toc,
-        // });
         setTocHeaders(toc)
     }
 
     /* handle tags */
 
     const handleTagsSelection = (selectedTags) => {
-        // setState({ selectedTags });
         setSelectedTags()
     };
 
     const handleAddTags = () => {
         console.log('Selected Tags:', state.selectedTags);
-        // setState((prevState) => ({
-        //     addedTags: [...prevState.addedTags, ...prevState.selectedTags],
-        //     selectedTags: [],
-        // }));
         setAddedTags((prevAddedTags) => [...prevAddedTags, ...selectedTags]);
         setSelectedTags([])
     };
 
     const handleRemoveTags = (tag) => {
         console.log(tag);
-        // setState((prevState) => ({
-        //     addedTags: prevState.addedTags.filter((t) => t !== tag),
-        // }));
         setAddedTags((prevAddedTags) => prevAddedTags.filter((t) => t !== tag));
     }
 
