@@ -27,6 +27,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath }) 
     };
 
     const handleUpdateDocumentModalOpen = (value) => {
+        console.log(documentPath)
         setUpdateDocumentModalOpen(value);
     }
 

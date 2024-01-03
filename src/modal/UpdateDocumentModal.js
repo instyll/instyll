@@ -5,13 +5,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateDocument } from '../documentSlice';
 import '../App.css';
 
-const UpdateDocumentModal = ({ show, onHide, selectedDocument, handleClose }) => {
+const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, handleClose }) => {
 
     const dispatch = useDispatch();
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    const documents = useSelector((state) => state.documents.documents);
+    const originPath = useSelector((state) => state.path.path);
 
     const [newDocumentTitle, setNewDocumentTitle] = useState('');
 
@@ -23,7 +23,7 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, handleClose }) =>
         const documentToUpdate = selectedDocument;
 
         if (documentToUpdate) {
-            dispatch(updateDocument({ id: documentToUpdate[0], newValue: newDocumentTitle}));
+            dispatch(updateDocument([documentPath, originPath, newDocumentTitle]));
             setNewDocumentTitle('');
             handleClose();
         }

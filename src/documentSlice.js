@@ -34,12 +34,20 @@ const documentSlice = createSlice({
             }
         },
         updateDocument: (state, action) => {
-            const { id, newValue } = action.payload;
-            const docIndex = state.documents.findIndex(item => item[0] === id);
+            const documentObject = action.payload;
+            const documentPath = documentObject.path
+            const newValue = documentObject.newValue
+            const originPath = documentObject.originPath
+            const docIndex = state.documents.findIndex(item => item[3] === documentPath);
             console.log(docIndex)
             if (docIndex !== -1) {
-                // If the tag exists, update its value
+                // If the doc exists, update its filename
                 state.documents[docIndex][1] = newValue;
+                try {
+                    fs.rename(documentPath, path.join(originPath, `${newValue}.md`))
+                } catch (error) {
+                    console.error(`Error updating document file ${documentPath}:`, error)
+                }
             }
         }
     },
