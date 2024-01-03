@@ -1,7 +1,7 @@
 /**
  * @author wou
  */
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 // import Editor from './legacyEditor.js';
 import { MilkdownEditorWrapper } from '../mdWrapper.js';
 import '../App.css';
@@ -10,7 +10,6 @@ import Sizzle from 'sizzle'
 import 'katex/dist/katex.min.css'
 import { Allotment } from "allotment";
 import "allotment/dist/style.css";
-import getFilesInDirectory from '../fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import debounce from 'lodash/debounce';
@@ -24,7 +23,7 @@ import TopicModal from '../modal/TopicModal.js';
 import OutlineContainer from '../components/OutlineContainer.js';
 import PaneContainer from './paneContainer.tsx';
 import StatContainer from './StatContainer.js';
-import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Home from '../components/home.js';
 
 import '../command-palette/commandPalette.css';
@@ -63,69 +62,52 @@ import deleteX from '../icons/delete.png';
 import plus from '../icons/plus.png';
 import { initial } from 'lodash';
 
-class EditorView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            markdownSrc: "# Welcome to instyll",
-            size: "50%",
-            wordCount: "0",
-            charCount: "0",
-            delimiter: "word",
-            charDelimiter: "characters",
-            fileName: "README.md",
-            tocOpen: true,
-            dockOpen: true,
-            isDark: true,
-            fileNames: [],
-            selectedFile: null,
-            notesDirectory: "/home/wou/Documents/instyllnotes/",
-            tocHeaders: [],
-            cleanup: null,
-            orientation: false,
-            focused: false,
-            modalOpen: false,
-            topicModalOpen: false,
-            selectedTags: [],
-            addedTags: [],
-            rightPanelOpen: false,
-            rightPanelSetting: "",
-            isScrolled: false,
-        }
+const EditorView = () => {
 
-        this.handleDock = this.handleDock.bind(this);
-        this.fetchFiles = this.fetchFiles.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        this.updateToc = this.updateToc.bind(this);
-        this.setModalOpen = this.setModalOpen.bind(this);
-        this.setTopicModalOpen = this.setTopicModalOpen.bind(this);
-        this.handleTagsSelection = this.handleTagsSelection.bind(this);
-        this.handleAddTags = this.handleAddTags.bind(this);
-        this.handleRemoveTags = this.handleRemoveTags.bind(this);
-        this.handleRightPanel = this.handleRightPanel.bind(this);
+    const [tocOpen, setTocOpen] = useState(true);
+    const [dockOpen, setDockOpen] = useState(true);
+    const [isDark, setIsDark] = useState(true);
+    const [tocHeaders, setTocHeaders] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [topicModalOpen, setTopicModalOpen] = useState(false);
+    const [selectedTags, setSelectedTags] = useState([]);
+    const [addedTags, setAddedTags] = useState([]);
+    const [rightPanelOpen, setRightPanelOpen] = useState(false);
+    const [rightPanelSetting, setRightPanelSetting] = useState("");
+
+    const {state} = useLocation();
+    const { documentPath, documentContent } = state;
+
+    console.log(documentContent)
+
+    const handleDock = () => {
+        // setState({
+        //     dockOpen: state.dockOpen === true ? false : true,
+        //     rightPanelOpen: false,
+        // })
+        setDockOpen((prevState) => !prevState)
+        setRightPanelOpen(false);
     }
 
-    handleDock() {
-        this.setState({
-            dockOpen: this.state.dockOpen === true ? false : true,
-            rightPanelOpen: false,
-        })
-    }
-
-    handleRightPanel(setting) {
-        this.setState((prevState) => ({
-            rightPanelOpen: this.state.dockOpen ? (!prevState.rightPanelOpen || prevState.rightPanelSetting !== setting) : false,
-            rightPanelSetting: setting,
-        }), () => {
-            console.log(this.state.rightPanelOpen);
+    const handleRightPanel = (setting) => {
+        // setState((prevState) => ({
+        //     rightPanelOpen: state.dockOpen ? (!prevState.rightPanelOpen || prevState.rightPanelSetting !== setting) : false,
+        //     rightPanelSetting: setting,
+        // }), () => {
+        //     console.log(state.rightPanelOpen);
+        // });
+        // console.log(state.rightPanelSetting);
+        setRightPanelOpen((prevState) => {
+            // Toggle rightPanelOpen only if dock is open or if the setting is different
+            return dockOpen ? !prevState || rightPanelSetting !== setting : false;
         });
-        console.log(this.state.rightPanelSetting);
+    
+        setRightPanelSetting(setting);
     }
-
 
     // Get headers for sidebar outline
 
-    constructToc() {
+    const constructToc = () => {
         let headers = Sizzle("h1, h2, h3, h4, h5, h6");
         let toc = [];
         headers.forEach((header) => {
@@ -146,90 +128,57 @@ class EditorView extends Component {
     }
 
     /* append newly created headers to outline */
-    updateToc() {
-        var toc = this.constructToc();
-        this.setState({
-            tocHeaders: toc,
-        });
-    }
-
-    setModalOpen(value) {
-        this.setState({
-            modalOpen: value
-        });
-    }
-
-    setTopicModalOpen(value) {
-        this.setState({
-            topicModalOpen: value
-        });
-        console.log(this.state.topicModalOpen);
+    const updateToc = () => {
+        var toc = constructToc();
+        // setState({
+        //     tocHeaders: toc,
+        // });
+        setTocHeaders(toc)
     }
 
     /* handle tags */
 
-    handleTagsSelection = (selectedTags) => {
-        this.setState({ selectedTags });
+    const handleTagsSelection = (selectedTags) => {
+        // setState({ selectedTags });
+        setSelectedTags()
     };
 
-    handleAddTags = () => {
-        console.log('Selected Tags:', this.state.selectedTags);
-        this.setState((prevState) => ({
-            addedTags: [...prevState.addedTags, ...prevState.selectedTags],
-            selectedTags: [],
-        }));
+    const handleAddTags = () => {
+        console.log('Selected Tags:', state.selectedTags);
+        // setState((prevState) => ({
+        //     addedTags: [...prevState.addedTags, ...prevState.selectedTags],
+        //     selectedTags: [],
+        // }));
+        setAddedTags((prevAddedTags) => [...prevAddedTags, ...selectedTags]);
+        setSelectedTags([])
     };
 
-    handleRemoveTags = (tag) => {
+    const handleRemoveTags = (tag) => {
         console.log(tag);
-        this.setState((prevState) => ({
-            addedTags: prevState.addedTags.filter((t) => t !== tag),
-        }));
+        // setState((prevState) => ({
+        //     addedTags: prevState.addedTags.filter((t) => t !== tag),
+        // }));
+        setAddedTags((prevAddedTags) => prevAddedTags.filter((t) => t !== tag));
     }
 
-    async fetchFiles() {
-        const files = await getFilesInDirectory(this.state.notesDirectory);
-        this.setState({ fileNames: files });
-        const watcher = chokidar.watch(this.state.notesDirectory);
-        watcher.on('add', (path) => {
-            console.log(path);
-            console.log(this.state.fileNames)
-            const fileName = path.replace(/^.*[\\/]/, '');
-            this.setState((prevState) => ({
-                fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
-            }));
-        });
-
-        watcher.on('unlink', (path) => {
-            const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
-            this.setState((prevState) => ({
-                fileNames: prevState.fileNames.filter((fileName) => fileName !== fileName),
-            }));
-        });
-    }
-
-    handleClick = async (path) => {
-        const fileContent = await fs.promises.readFile(this.state.notesDirectory + "" + path, 'utf-8');
-        this.setState({ selectedFile: path, markdownSrc: fileContent });
-    };
-
-    componentDidMount() {
-        window.addEventListener("message", this.handleMessage);
-        this.fetchFiles();
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("message", this.handleMessage);
-    }
-
-    handleMessage = (event) => {
-        if (event.data.type === "updateToc") {
-            this.updateToc();
+    useEffect(() => {
+        const handleMessage = (event) => {
+          if (event.data.type === "updateToc") {
+            updateToc();
+          }
         }
-    }
+    
+        // Attach event listener
+        window.addEventListener('message', handleMessage);
+    
+        // Clean up the event listener when the component unmounts
+        return () => {
+          window.removeEventListener('message', handleMessage);
+        };
+      }, []);
 
 
-    sampleChromeCommand(suggestion) {
+    const sampleChromeCommand = (suggestion) => {
         const { name, highlight, category, shortcut } = suggestion;
         return (
             <div className="">
@@ -242,140 +191,138 @@ class EditorView extends Component {
         );
     }
 
-    render() {
+    const theme = {
+        modal: "my-modal",
+        overlay: "my-overlay",
+        container: "my-container",
+        header: "my-header",
+        content: "my-content",
+        input: "my-input",
+        suggestionsList: "my-suggestionsList",
+        suggestion: "my-suggestion",
+        suggestionHighlighted: "my-suggestionHighlighted",
+        suggestionsContainerOpen: "my-suggestionsContainerOpen",
+    }
 
-        const theme = {
-            modal: "my-modal",
-            overlay: "my-overlay",
-            container: "my-container",
-            header: "my-header",
-            content: "my-content",
-            input: "my-input",
-            suggestionsList: "my-suggestionsList",
-            suggestion: "my-suggestion",
-            suggestionHighlighted: "my-suggestionHighlighted",
-            suggestionsContainerOpen: "my-suggestionsContainerOpen",
+    const commands = [{
+        name: SET_THEME + "Dark",
+        category: "Command",
+        command: () => {
+            // this.setDark(true);
+            const html = document.querySelector("html");
+            html.setAttribute("data-theme", "dark");
+
+        },
+    }, {
+        name: SET_THEME + "Light",
+        category: "Command",
+        command: () => {
+
+            const html = document.querySelector("html");
+            html.setAttribute("data-theme", "light");
+
         }
+    },
+    {
+        name: DAILY + "Open Daily Note",
+        category: "Command",
+        command() { }
+    },
+    {
+        name: OPEN + "Settings",
+        category: "Navigate",
+        command: () => {
+            // this.changeLayout("vertical");
+        }
+    },
+    {
+        name: CLOSE + "Current File",
+        category: "Navigate",
+        command: () => {
+            // this.changeLayout("horizontal");
+        }
+    },
+    {
+        name: FILE + "Export as PDF",
+        category: "Action",
+        command() { }
+    },
+    {
+        name: FILE + "Export as LaTeX",
+        category: "Action",
+        command() { }
+    },
+    {
+        name: FILE + "Export as Docx",
+        category: "Action",
+        command() { }
+    },
+    {
+        name: FILE + "Export to Google Drive",
+        category: "Action",
+        command() { }
+    },
+    {
+        name: FILE + "Export to Notion",
+        category: "Action",
+        command: () => {
+            handleToc();
+        }
+    },
+    {
+        name: FILE + "Print",
+        category: "Action",
+        shortcut: "Ctrl + P",
+        command() { }
+    },
+    {
+        name: FILE + "Star",
+        category: "Action",
+        command() { }
+    },
+    {
+        name: TOGGLE + "Left Sidebar",
+        category: "Command",
+        command: () => {
 
-        const commands = [{
-            name: SET_THEME + "Dark",
-            category: "Command",
-            command: () => {
-                // this.setDark(true);
-                const html = document.querySelector("html");
-                html.setAttribute("data-theme", "dark");
+            setState({
+                tocOpen: tocOpen === true ? false : true
+            });
 
-            },
-        }, {
-            name: SET_THEME + "Light",
-            category: "Command",
-            command: () => {
+        }
+    },
+    {
+        name: TOGGLE + "Dock",
+        category: "Command",
+        command: () => {
+            handleDock();
+            setState({
+                rightPanelOpen: false,
+            })
+        }
+    },
+    {
+        name: TOGGLE + "Right Panel",
+        category: "Command",
+        command: () => {
+            setState({
+                rightPanelOpen: rightPanelOpen ? false : true,
+            })
+        }
+    },
+    {
+        name: CREATE + "New Note",
+        category: "Action",
+        command() { }
+    },
+    {
+        name: CREATE + "New Note From Template",
+        category: "Action",
+        command() { }
+    },
+    ];
 
-                const html = document.querySelector("html");
-                html.setAttribute("data-theme", "light");
-
-            }
-        },
-        {
-            name: DAILY + "Open Daily Note",
-            category: "Command",
-            command() { }
-        },
-        {
-            name: OPEN + "Settings",
-            category: "Navigate",
-            command: () => {
-                // this.changeLayout("vertical");
-            }
-        },
-        {
-            name: CLOSE + "Current File",
-            category: "Navigate",
-            command: () => {
-                // this.changeLayout("horizontal");
-            }
-        },
-        {
-            name: FILE + "Export as PDF",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export as LaTeX",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export as Docx",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export to Google Drive",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export to Notion",
-            category: "Action",
-            command: () => {
-                this.handleToc();
-            }
-        },
-        {
-            name: FILE + "Print",
-            category: "Action",
-            shortcut: "Ctrl + P",
-            command() { }
-        },
-        {
-            name: FILE + "Star",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: TOGGLE + "Left Sidebar",
-            category: "Command",
-            command: () => {
-
-                this.setState({
-                    tocOpen: this.state.tocOpen === true ? false : true
-                });
-
-            }
-        },
-        {
-            name: TOGGLE + "Dock",
-            category: "Command",
-            command: () => {
-                this.handleDock();
-                this.setState({
-                    rightPanelOpen: false,
-                })
-            }
-        },
-        {
-            name: TOGGLE + "Right Panel",
-            category: "Command",
-            command: () => {
-                this.setState({
-                    rightPanelOpen: this.state.rightPanelOpen ? false : true,
-                })
-            }
-        },
-        {
-            name: CREATE + "New Note",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: CREATE + "New Note From Template",
-            category: "Action",
-            command() { }
-        },
-        ];
-
-        return (
+    return (
             <div className="EditorView">
 
                 {/* <Router> */}
@@ -389,7 +336,7 @@ class EditorView extends Component {
                     hotKeys={['ctrl+k', 'command+k']}
                     closeOnSelect={true}
                     alwaysRenderCommands={true}
-                    renderCommand={this.sampleChromeCommand}
+                    renderCommand={sampleChromeCommand}
                     resetInputOnOpen={true}
                     theme={theme}
                     header={sampleHeader()}
@@ -401,13 +348,13 @@ class EditorView extends Component {
                         <div className="elevatedLeft"
                             style={{
                                 width:
-                                    this.state.rightPanelSetting === "pane"
-                                        && this.state.rightPanelOpen ? "calc((100% / 2) - 44px)"
-                                        : this.state.tocOpen && this.state.rightPanelOpen
+                                    rightPanelSetting === "pane"
+                                        && rightPanelOpen ? "calc((100% / 2) - 44px)"
+                                        : tocOpen && rightPanelOpen
                                             ? "calc((100%) - 360px)"
-                                            : !this.state.tocOpen && this.state.rightPanelOpen
+                                            : !tocOpen && rightPanelOpen
                                                 ? "calc((100%) - 360px)"
-                                                : this.state.tocOpen && !this.state.rightPanelOpen
+                                                : tocOpen && !rightPanelOpen
                                                     ? "calc((100%) - 100px)"
                                                     : "calc((100%) - 100px)",
                             }}>
@@ -422,10 +369,10 @@ class EditorView extends Component {
                                             <button
 
                                                 style={{
-                                                    display: this.state.addedTags.length > 0 ? "none" : "initial"
+                                                    display: addedTags.length > 0 ? "none" : "initial"
                                                 }}
 
-                                                className="addTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+                                                className="addTopicButton" onClick={() => setTopicModalOpen(true)}>
 
                                                 <img src={add} class="buttonIcon" draggable={false}></img>
 
@@ -433,14 +380,14 @@ class EditorView extends Component {
 
 
                                             <TopicModal
-                                                show={this.state.topicModalOpen}
-                                                onHide={() => this.setState({ topicModalOpen: false })}
-                                                tocOpen={this.state.tocOpen}
-                                                selectedTags={this.state.selectedTags}
-                                                onSelectTags={this.handleTagsSelection}
-                                                onAddTags={this.handleAddTags} />
+                                                show={topicModalOpen}
+                                                onHide={() => setState({ topicModalOpen: false })}
+                                                tocOpen={tocOpen}
+                                                selectedTags={selectedTags}
+                                                onSelectTags={handleTagsSelection}
+                                                onAddTags={handleAddTags} />
 
-                                            {this.state.addedTags.map((tag) => (
+                                            {addedTags.map((tag) => (
                                                 <span
                                                     key={tag}
                                                     className="tagItem"
@@ -450,7 +397,7 @@ class EditorView extends Component {
                                                         className="buttonIconSmall"
                                                         draggable={false}
                                                         onClick={
-                                                            () => this.handleRemoveTags(tag)}
+                                                            () => handleRemoveTags(tag)}
                                                         style={{
                                                             filter: "var(--editorIconFilter)",
                                                         }}></img>
@@ -460,10 +407,10 @@ class EditorView extends Component {
                                             <button
 
                                                 style={{
-                                                    display: this.state.addedTags.length > 0 ? "initial" : "none"
+                                                    display: addedTags.length > 0 ? "initial" : "none"
                                                 }}
 
-                                                className="minAddTopicButton" onClick={() => this.setTopicModalOpen(true)}>
+                                                className="minAddTopicButton" onClick={() => setTopicModalOpen(true)}>
 
                                                 <img src={plus} class="buttonIcon" draggable={false}></img>
 
@@ -487,7 +434,7 @@ class EditorView extends Component {
 
                                     <MilkdownProvider>
                                         <ProsemirrorAdapterProvider>
-                                            <MilkdownEditor />
+                                            <MilkdownEditor documentPath={documentPath} documentContents={documentContent}/>
                                         </ProsemirrorAdapterProvider>
                                     </MilkdownProvider>
 
@@ -497,24 +444,24 @@ class EditorView extends Component {
                         </div>
 
                         <div className="elevatedRightPanel" style={{
-                            width: this.state.rightPanelOpen
-                                && this.state.rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
-                                this.state.rightPanelOpen ? "240px" : "0px",
-                            marginLeft: this.state.rightPanelOpen ? "20px" : "0px",
+                            width: rightPanelOpen
+                                && rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
+                                rightPanelOpen ? "240px" : "0px",
+                            marginLeft: rightPanelOpen ? "20px" : "0px",
                         }}>
 
-                            {this.state.rightPanelSetting === "outline" && (
+                            {rightPanelSetting === "outline" && (
                                 <OutlineContainer
-                                    tocHeaders={this.state.tocHeaders}
-                                    rightPanelOpen={this.state.rightPanelOpen}
+                                    tocHeaders={tocHeaders}
+                                    rightPanelOpen={rightPanelOpen}
                                 />
                             )}
-                            {this.state.rightPanelSetting === "pane" && (
+                            {rightPanelSetting === "pane" && (
                                 <PaneContainer>
 
                                 </PaneContainer>
                             )}
-                            {this.state.rightPanelSetting === "stats" && (
+                            {rightPanelSetting === "stats" && (
                                 <StatContainer>
 
                                 </StatContainer>
@@ -523,93 +470,72 @@ class EditorView extends Component {
                         </div>
 
                         <div className="elevatedRight" style={{
-                            backgroundColor: this.state.dockOpen ? "var(--elevated-bg)" : "transparent",
-                            marginLeft: this.state.rightPanelOpen ? "20px" : "20px",
+                            backgroundColor: dockOpen ? "var(--elevated-bg)" : "transparent",
+                            marginLeft: rightPanelOpen ? "20px" : "20px",
                         }}>
 
                             <div className="elevatedRightInner">
                                 <div>
-                                    {this.state.dockOpen && (
+                                    {dockOpen && (
                                         <img
                                             src={stats}
-                                            className={`tocIconRightFirst ${this.state.rightPanelSetting === "stats" && this.state.rightPanelOpen ? "selected" : ""}`}
+                                            className={`tocIconRightFirst ${rightPanelSetting === "stats" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
-                                            onClick={() => this.handleRightPanel("stats")}
+                                            onClick={() => handleRightPanel("stats")}
                                         ></img>
                                     )}
                                 </div>
                                 <div>
-                                    {this.state.dockOpen && (
+                                    {dockOpen && (
                                         <img
                                             src={outline}
-                                            className={`tocIconRight ${this.state.rightPanelSetting === "outline" && this.state.rightPanelOpen ? "selected" : ""}`}
+                                            className={`tocIconRight ${rightPanelSetting === "outline" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
-                                            onClick={() => this.handleRightPanel("outline")}
+                                            onClick={() => handleRightPanel("outline")}
                                         ></img>
                                     )}
                                 </div>
                                 <div>
-                                    {this.state.dockOpen && (
+                                    {dockOpen && (
                                         <img
                                             src={doc}
-                                            className={`tocIconRight ${this.state.rightPanelSetting === "info" && this.state.rightPanelOpen ? "selected" : ""}`}
+                                            className={`tocIconRight ${rightPanelSetting === "info" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
-                                            onClick={() => this.handleRightPanel("info")}
+                                            onClick={() => handleRightPanel("info")}
                                         ></img>
                                     )}
                                 </div>
                                 <div>
-                                    {this.state.dockOpen && (
+                                    {dockOpen && (
                                         <img
                                             src={edit}
-                                            className={`tocIconRight ${this.state.rightPanelSetting === "style" && this.state.rightPanelOpen ? "selected" : ""}`}
+                                            className={`tocIconRight ${rightPanelSetting === "style" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
-                                            onClick={() => this.handleRightPanel("style")}
+                                            onClick={() => handleRightPanel("style")}
                                         ></img>
                                     )}
                                 </div>
                                 <div>
-                                    {this.state.dockOpen && (
+                                    {dockOpen && (
                                         <img
                                             src={reference}
-                                            className={`tocIconRight ${this.state.rightPanelSetting === "pane" && this.state.rightPanelOpen ? "selected" : ""}`}
+                                            className={`tocIconRight ${rightPanelSetting === "pane" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
-                                            onClick={() => this.handleRightPanel("pane")}
+                                            onClick={() => handleRightPanel("pane")}
                                         ></img>
                                     )}
                                 </div>
                                 <div className="bottomTocRight" style={{
-                                    borderTop: this.state.dockOpen ? "1px solid var(--muted-text)" : "none",
+                                    borderTop: dockOpen ? "1px solid var(--muted-text)" : "none",
                                 }}>
                                     <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
-                                        onClick={this.handleDock} style={{
-                                            transform: this.state.dockOpen ? "none" : "rotate(180deg)",
+                                        onClick={handleDock} style={{
+                                            transform: dockOpen ? "none" : "rotate(180deg)",
                                             transition: "transform 0.3s",
                                         }}></img>
                                 </div>
                             </div>
 
-
-                            {/* <div className="elevatedRightTopTop">
-
-              <div className="statsContainer">
-                <p className='paneTitle'>Stats</p>
-                <div className="pageInfo">
-                  <span className="leftStatComponents">
-                    <div className="infoDisplay"><div className="label">Words</div></div>
-                    <div className="infoDisplay"><div className="label">Characters</div></div>
-                  </span>
-                  <span className="rightStatComponents">
-                    <div className="infoDisplay"><span className="precount"></span>300</div>
-                    <div className="infoDisplay"><span className="precount"></span>800</div>
-                  </span>
-                </div>
-              </div>
-            </div> */}
-
-                            {/* <div className="elevatedRightTopBottom">
-
-            </div> */}
                         </div>
                     </div>
                 </div>
@@ -618,8 +544,7 @@ class EditorView extends Component {
 
             </div>
         );
-    }
-}
+};
 
 
 export default EditorView;

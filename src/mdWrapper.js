@@ -3,8 +3,9 @@
  */
 import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
 import type { FC } from 'react';
-import { useEffect, useMemo } from "react";
-import { replaceAll } from "@milkdown/utils"
+import fs from 'fs'
+import { useEffect, useMemo, useState } from "react";
+import { replaceAll, insert } from "@milkdown/utils"
 import type { Ctx, MilkdownPlugin } from "@milkdown/ctx";
 import { 
   commonmark, 
@@ -56,7 +57,7 @@ import './App.css';
 const markdown =
   ``
 
-export const MilkdownEditor: FC = () => {
+export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
 
   const pluginViewFactory = usePluginViewFactory();
   const nodeViewFactory = useNodeViewFactory();
@@ -67,6 +68,23 @@ export const MilkdownEditor: FC = () => {
   const emojiMenu = useEmojiMenu();
 
   const zapMenu = useZapMenu();
+
+  const [fileContents, setFileContents] = useState(null); // State to store file contents
+
+  // useEffect(() => {
+  //   const readMarkdown = async () => {
+  //     try {
+  //       const contents = fs.readFileSync(documentPath, 'utf-8');
+  //       console.log(contents)
+  //       setFileContents(contents);
+  //       console.log(fileContents)
+  //     } catch (error) {
+  //       console.error('Error reading file:', error);
+  //     }
+  //   };
+
+  //   readMarkdown();
+  // }, [fileContents]); 
 
   /* gfm plugins */
 
@@ -127,8 +145,10 @@ export const MilkdownEditor: FC = () => {
       .make()
       .config(ctx => {
         ctx.set(rootCtx, root)
-        ctx.set(defaultValueCtx, markdown)
+        // ctx.set(defaultValueCtx, fileContents)
         const listener = ctx.get(listenerCtx);
+        console.log(fileContents)
+        ctx.get(listenerCtx).mounted(insert(documentContents))
 
         /* listen for changes in the editor */
         listener.markdownUpdated((ctx, markdown, prevMarkdown) => {

@@ -33,8 +33,8 @@ class App extends Component {
         <HashRouter>
           <Routes>
             <Route path="/" element={<Initialize />}/>
-            <Route path="/app" element={<Layout> <EditorView /> </Layout>} />
-            <Route path="/" element={<Layout> <EditorView /> </Layout>} />
+            <Route path="/editor" element={<Layout> <EditorView /> </Layout>} />
+            {/* <Route path="/" element={<Layout> <EditorView /> </Layout>} /> */}
             <Route path="/home" element={<Layout> <Home /> </Layout>} />
             <Route path="/documents" element={<Layout> <DocumentViewer /> </Layout>} />
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />
