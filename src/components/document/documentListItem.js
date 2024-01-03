@@ -2,11 +2,12 @@
  * @author wou
  */
 import React from 'react';
+import fs from 'fs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import DocumentOptionsModal from '../../modal/DocumentOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const DocumentListItem = ({ documentInfo }) => {
 
@@ -14,6 +15,7 @@ const DocumentListItem = ({ documentInfo }) => {
 
   const [documentOptionsModalOpen, setDocumentOptionsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
+  const [fileContents, setFileContents] = useState(null); // State to store file contents
 
   const handleDocumentOptionsModalOpen = (value) => {
     setDocumentOptionsModalOpen(true);
@@ -25,6 +27,21 @@ const DocumentListItem = ({ documentInfo }) => {
     setSelectedDocument(documentInfo);
   }
 
+  useEffect(() => {
+    const readMarkdown = async () => {
+      try {
+        const contents = fs.readFileSync(documentInfo[0], 'utf-8');
+        console.log(contents)
+        setFileContents(contents);
+        console.log(fileContents)
+      } catch (error) {
+        console.error('Error reading file:', error);
+      }
+    };
+
+    readMarkdown();
+  }, [fileContents]); 
+
   return (
     <div className='documentListItem'>
       
@@ -34,7 +51,7 @@ const DocumentListItem = ({ documentInfo }) => {
         onHide={() => setDocumentOptionsModalOpen(false)}
       />
       
-      <div className='documentListTextContainer'>
+      <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
         <div className='documentListTextWrapper'>
           <div className='topicListTitle'>
             <span>{documentInfo[1]}</span>
