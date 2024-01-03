@@ -26,7 +26,7 @@ const DocumentListItem = ({ documentInfo }) => {
   }
 
   return (
-    <div className='documentListItem' key={documentInfo[0]}>
+    <div className='documentListItem'>
       
       <DocumentOptionsModal
         show={documentOptionsModalOpen}
@@ -37,7 +37,7 @@ const DocumentListItem = ({ documentInfo }) => {
       <div className='documentListTextContainer'>
         <div className='documentListTextWrapper'>
           <div className='topicListTitle'>
-            <span>{documentInfo}</span>
+            <span>{documentInfo[1]}</span>
           </div>
           <div className='appendedTagsContainer'>
             {/* <span className='tagItem'>projects</span>

@@ -3,6 +3,7 @@
  */
 import React, { useState, useEffect } from 'react';
 import fs from 'fs/promises';
+import chokidar from 'chokidar';
 import path from 'path';
 import '../../App.css';
 import "highlight.js/styles/github.css";
@@ -48,13 +49,24 @@ const DocumentViewer = ({ location }) => {
                 const files = await fs.readdir(documentsPath);
                 const markdownFiles = files.filter(file => path.extname(file) === '.md');
                 setMarkdownFiles(markdownFiles);
-                console.log(markdownFiles)
+                setForceUpdate(prev => !prev);
             } catch (error) {
                 console.error('Error fetching markdown files:', error);
             }
         };
 
-        fetchMarkdownFiles();
+        // fetchMarkdownFiles();
+
+        const watcher = chokidar.watch(documentsPath, {
+            ignored: /[\/\\]\./, // ignore dotfiles
+            persistent: true,
+        });
+
+        watcher
+            .on('add', fetchMarkdownFiles)
+            .on('unlink', fetchMarkdownFiles);
+
+        return () => watcher.close();
     }, [documentsPath]);
 
     /* placeholder document info */
@@ -140,12 +152,12 @@ const DocumentViewer = ({ location }) => {
                             <div className='dashboardTopicsContainer'>
                                 {documentGridLayout ?
                                     markdownFiles.map((filename) => (
-                                        <DocumentGridItem key={filename} documentInfo={removeMdExtension(filename)}>
+                                        <DocumentGridItem key={filename} documentInfo={[path.join(documentsPath, filename), removeMdExtension(filename)]}>
                                         </DocumentGridItem>
                                     ))
                                     :
                                     markdownFiles.map((filename) => (
-                                        <DocumentListItem key={filename} documentInfo={removeMdExtension(filename)}>
+                                        <DocumentListItem key={filename} documentInfo={[path.join(documentsPath, filename), removeMdExtension(filename)]}>
                                         </DocumentListItem>
                                     ))
                                 }

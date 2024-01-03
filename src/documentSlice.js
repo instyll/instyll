@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
-import fs from 'fs'; 
+// import fs from 'fs'; 
+import fs from 'fs/promises';
 import path from 'path'; 
 
 const initialState = {
@@ -22,10 +23,15 @@ const documentSlice = createSlice({
         },
         removeDocument: (state, action) => {
             const documentObject = action.payload;
-            const documentId = documentObject[0];
-            console.log(documentId)
-            // state.documents = state.documents.filter(item => item !== id);
-            state.documents = state.documents.filter(item => item[0] !== documentId);
+            const documentPath = documentObject[0];
+            state.documents = state.documents.filter(item => item[3] !== documentPath);
+            // also remove file from directory
+            try {
+                fs.unlink(documentPath);
+                console.log(`File deleted: ${documentPath}`);
+            } catch (error) {
+                console.error(`Error deleting file ${documentPath}:`, error);
+            }
         },
         updateDocument: (state, action) => {
             const { id, newValue } = action.payload;

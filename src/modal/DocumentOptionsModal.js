@@ -8,7 +8,7 @@ import { addDocument, removeDocument } from '../documentSlice';
 import UpdateDocumentModal from './UpdateDocumentModal';
 import '../App.css';
 
-const DocumentOptionsModal = ({ show, onHide, selectedDocument }) => {
+const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath }) => {
 
     const dispatch = useDispatch();
 
@@ -61,6 +61,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument }) => {
             <UpdateDocumentModal
             show={updateDocumentModalOpen}
             selectedDocument={selectedDocument}
+            documentPath={documentPath}
             handleClose={handleClose}
             onHide={() => {
                 setUpdateDocumentModalOpen(false)

@@ -26,18 +26,19 @@ const DocumentGridItem = ({ documentInfo }) => {
   }
 
   return (
-    <div className='documentItem' key={documentInfo[0]}>
+    <div className='documentItem'>
 
       <DocumentOptionsModal
         show={documentOptionsModalOpen}
         selectedDocument={selectedDocument}
+        documentPath={documentInfo[0]}
         onHide={() => setDocumentOptionsModalOpen(false)}
       />
 
       <div className='documentTextContainer'>
         <div className='documentTextWrapper'>
           <div className='topicTitle'>
-            <span>{documentInfo}</span>
+            <span>{documentInfo[1]}</span>
           </div>
           <div className='appendedTagsContainer'>
             {/* <span className='tagItem'>projects</span>
