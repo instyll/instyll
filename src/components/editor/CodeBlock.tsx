@@ -3,10 +3,10 @@
  */
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import clsx from "clsx";
-import { useState, useEffect, useRef, type FC } from "react";
+import { useState, useEffect, useRef, useCallback, type FC } from "react";
 import Select from 'react-select';
 
-import CodeMirror from '@uiw/react-codemirror';
+import CodeMirror, { ReactCodeMirrorRef } from '@uiw/react-codemirror';
 import { loadLanguage, langNames, langs } from '@uiw/codemirror-extensions-langs';
 import { EditorView } from '@codemirror/view';
 import { indentUnit } from '@codemirror/language';
@@ -39,7 +39,11 @@ export const CodeBlock: FC = () => {
 
   const { contentRef, selected, node, setAttrs } = useNodeViewContext();
 
-  const editorRef = useRef(null);
+  const [codeContent, setCodeContent] = useState('');
+
+  console.log("NODE CONTENT: " + node.textContent)
+
+  const editorRef = useRef<ReactCodeMirrorRef>({});
 
   /* Add a message to notify user when they copy */
   const notify = () => toast("Copied to clipboard!");
@@ -67,6 +71,11 @@ export const CodeBlock: FC = () => {
     }
   }
 
+  const handleCodeChange = (value: string) => {
+    setCodeContent(value);
+    console.log("code content: " + codeContent)
+  }
+
   useEffect(() => {
     if (document.querySelector('html')?.getAttribute("data-theme") === "dark") {
       setCurrTheme("dark");
@@ -75,6 +84,20 @@ export const CodeBlock: FC = () => {
       setCurrTheme("light");
     }
   }, [document.querySelector('html')]);
+
+  useEffect(() => {
+    const nodeViewContentDivs = document.querySelectorAll('[data-node-view-content="true"]');
+    console.log("useEffect is being looped infinite")
+    console.log("code content: " + node.textContent)
+    if (nodeViewContentDivs.length > 0) {
+      nodeViewContentDivs.forEach((element) => {
+        // Only update innerHTML if it's not already equal to codeContent
+        if (element.innerHTML !== node.textContent) {
+          element.innerHTML = node.textContent;
+        }
+      });
+    }
+  }, [node.textContent]);
 
   return (
     <div
@@ -166,7 +189,7 @@ export const CodeBlock: FC = () => {
           </button>
         </div>
       </div>
-      <div className="codemirrorWrapper">
+      <div className="codemirrorWrapper" ref={contentRef}>
         <CodeMirror
           autoFocus
           theme={currTheme}
@@ -175,14 +198,20 @@ export const CodeBlock: FC = () => {
             node.attrs.language ? [loadLanguage(node.attrs.language!)].filter(Boolean) : loadLanguage("javascript"),
             EditorView.lineWrapping
           ]}
+          onChange={(value) => handleCodeChange(value)}
           editable={true}
           basicSetup={{
             foldGutter: true,
             dropCursor: false,
             indentOnInput: false,
           }}
-          ref={editorRef} />
+        />
       </div>
+      <pre style={{ display: 'none' }}>
+        <code style={{ display: 'none' }} ref={contentRef}>
+            
+        </code>
+      </pre>
     </div>
   );
 };

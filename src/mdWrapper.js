@@ -158,7 +158,6 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
             // update the file with new markdown
             try {
               fs.writeFileSync(documentPath, markdown, 'utf-8');
-              console.log('File updated successfully.');
             } catch (error) {
               console.error('Error updating file:', error);
             }

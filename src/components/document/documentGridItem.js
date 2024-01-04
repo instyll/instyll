@@ -31,9 +31,9 @@ const DocumentGridItem = ({ documentInfo }) => {
     const readMarkdown = async () => {
       try {
         const contents = fs.readFileSync(documentInfo[0], 'utf-8');
-        console.log(contents)
+        // console.log(contents)
         setFileContents(contents);
-        console.log(fileContents)
+        // console.log(fileContents)
       } catch (error) {
         console.error('Error reading file:', error);
       }

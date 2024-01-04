@@ -24,11 +24,14 @@ export const MathBlock: FC = () => {
     const code = useMemo(() => node.attrs.value, [node.attrs.value]);
     const codePanel = useRef<HTMLDivElement>(null);
     const codeInput = useRef(null);
-    const [value, setValue] = useState("source");
+    const [value, setValue] = useState("preview");
     const [codeValue, setCodeValue] = useState("");
     const [loading, getEditor] = useInstance();
 
     const texOptions = require('../../legacy/TeXOptions');
+
+    console.log(node.attrs.value)
+    console.log("codevalue: "  + codeValue)
 
     /* handle TeX autocomplete */
     const latexCompletion = (context: CompletionContext) => {
@@ -63,6 +66,11 @@ export const MathBlock: FC = () => {
     //         setValue("preview");
     //     }
     // }
+    useEffect(() => {
+            if (codeValue.length === 0) {
+                setCodeValue(node.attrs.value);
+            }
+    }, []);
 
     return (
         <div className="nodeViewWrapper">
@@ -109,9 +117,10 @@ export const MathBlock: FC = () => {
                     <CodeMirror
                         autoFocus
                         /* if the user copies pastes something use that as the code value */
-                        value={
-                            codeValue.length === 0 ? node.textContent : codeValue
-                        }
+                        // value={
+                        //     codeValue.length === 0 ? node.textContent : codeValue
+                        // }
+                        value={codeValue.length === 0 ? node.attrs.value: codeValue}
                         extensions={[
                             EditorView.lineWrapping,
                             autocompletion({override: [latexCompletion]})
@@ -130,7 +139,8 @@ export const MathBlock: FC = () => {
                     <button
                         className="nodeViewSubmitButton"
                         onClick={() => {
-                            setAttrs({ value: node.textContent });
+                            // setAttrs({ value: node.textContent });
+                            setAttrs({ value: codeValue || "" })
                             setValue("preview");
                         }}
                     >

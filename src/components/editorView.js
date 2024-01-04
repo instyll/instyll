@@ -78,7 +78,7 @@ const EditorView = () => {
     const {state} = useLocation();
     const { documentPath, documentContent } = state;
 
-    console.log(documentContent)
+    // console.log(documentContent)
 
     const handleDock = () => {
         setDockOpen((prevState) => !prevState)
