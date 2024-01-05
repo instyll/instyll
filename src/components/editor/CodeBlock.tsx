@@ -84,14 +84,9 @@ export const CodeBlock: FC = () => {
 
   useEffect(() => {
     const nodeViewContentDivs = document.querySelectorAll('[data-node-view-content="true"]');
-    console.log("code content: " + codeContent)
-    if (nodeViewContentDivs.length > 0  && node.textContent !== codeContent) {
-      nodeViewContentDivs.forEach((element) => {
-        // Only update innerHTML if it's not already equal to codeContent
-        if (element.innerHTML !== codeContent) {
-          element.innerHTML = codeContent;
-        }
-      });
+    if (node.textContent !== codeContent) {
+        const newest = nodeViewContentDivs[nodeViewContentDivs.length - 1];
+        newest.innerHTML = codeContent;
     }
   }, [codeContent, node.textContent]);
 
@@ -186,7 +181,6 @@ export const CodeBlock: FC = () => {
         </div>
       </div>
       <div className="codemirrorWrapper">
-        <div style={{ display: 'none' }} ref={contentRef}></div>
         <CodeMirror
           autoFocus
           theme={currTheme}
@@ -204,6 +198,9 @@ export const CodeBlock: FC = () => {
           }}
           ref={editorRef}
         />
+        <div>
+        <div style={{ display: 'none' }} ref={contentRef}></div>
+        </div>
       </div>
     </div>
   );
