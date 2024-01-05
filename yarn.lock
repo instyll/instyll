@@ -2595,6 +2595,13 @@
     "@milkdown/exception" "7.2.3"
     tslib "^2.5.0"
 
+"@milkdown/exception@7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/exception/-/exception-7.2.0.tgz#630f9e32df80b998a6baaceb416e7af0bae50239"
+  integrity sha512-7v7rwK9ReBJeSMbICyhvt4VrYJfU4fLfZS1LJrL4bkrMCRW+urmOC2d3C4zaxB2WuTR6EVkA920LQjDDwD8fdA==
+  dependencies:
+    tslib "^2.5.0"
+
 "@milkdown/exception@7.2.3":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@milkdown/exception/-/exception-7.2.3.tgz#ab0290cd5b802ddeaf1382c3d18bcce38b81bad1"
@@ -2729,18 +2736,17 @@
     "@milkdown/utils" "7.2.3"
     tslib "^2.5.0"
 
-"@milkdown/preset-commonmark@^7.2.0":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@milkdown/preset-commonmark/-/preset-commonmark-7.2.3.tgz#a4ed63d90e9424f3fe7047d78cde2f7f8ea33e14"
-  integrity sha512-r3BhPtOpQQA/j5nygT3IS5OewBVEfsFKkbEGkowIZisWHywxNPnzqXAccW2JelzBc2x1WAGRSWE/kCsuIz+NBQ==
+"@milkdown/preset-commonmark@7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/preset-commonmark/-/preset-commonmark-7.2.0.tgz#1617de431750b0742d92c5989432e5fc2cb69d40"
+  integrity sha512-nY8S8F0Pdesk0b9zgixSgH2294vjfVDWU948RxE7KUhHjjH7l5/b5kS+002TQluCgNKcODTc0hhja69C9yz3Jg==
   dependencies:
-    "@milkdown/exception" "7.2.3"
-    "@milkdown/utils" "7.2.3"
+    "@milkdown/exception" "7.2.0"
+    "@milkdown/utils" "7.2.0"
     "@sindresorhus/slugify" "^2.2.0"
     remark-inline-links "^6.0.0"
     tslib "^2.5.0"
     unist-util-visit "^4.0.0"
-    vfile "^5.3.7"
 
 "@milkdown/preset-gfm@^7.2.0":
   version "7.2.3"
@@ -2802,6 +2808,15 @@
     remark-stringify "^10.0.3"
     tslib "^2.5.0"
     unified "^10.1.0"
+
+"@milkdown/utils@7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-7.2.0.tgz#b5216dd9fb57190c0e432ef6e0ffa8881fcf4602"
+  integrity sha512-gjELvC1RC36XPjlJXiyhgPpvlhfxZyYk2uLRECAcgzglm8642pEeHa5sCnqBvCyddAkKiSCizRdMSgYcmUG89Q==
+  dependencies:
+    "@milkdown/exception" "7.2.0"
+    nanoid "^4.0.0"
+    tslib "^2.5.0"
 
 "@milkdown/utils@7.2.3":
   version "7.2.3"
@@ -16394,7 +16409,7 @@ vfile-message@^3.0.0:
     "@types/unist" "^2.0.0"
     unist-util-stringify-position "^3.0.0"
 
-vfile@^5.0.0, vfile@^5.3.6, vfile@^5.3.7:
+vfile@^5.0.0, vfile@^5.3.6:
   version "5.3.7"
   resolved "https://registry.yarnpkg.com/vfile/-/vfile-5.3.7.tgz#de0677e6683e3380fafc46544cfe603118826ab7"
   integrity sha512-r7qlzkgErKjobAmyNIkkSpizsFPYiUPuJb5pNW1RB4JcYVZhs4lIbVqk8XPk033CV/1z8ss5pkax8SuhGpcG8g==

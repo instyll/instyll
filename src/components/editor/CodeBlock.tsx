@@ -39,7 +39,7 @@ export const CodeBlock: FC = () => {
 
   const { contentRef, selected, node, setAttrs } = useNodeViewContext();
 
-  const [codeContent, setCodeContent] = useState('');
+  const [codeContent, setCodeContent] = useState(node.textContent || '');
 
   console.log("NODE CONTENT: " + node.textContent)
 
@@ -72,32 +72,28 @@ export const CodeBlock: FC = () => {
   }
 
   const handleCodeChange = (value: string) => {
-    setCodeContent(value);
+    // setCodeContent(value);
+    setCodeContent((prevContent) => {
+      if (value !== prevContent) {
+        return value;
+      }
+      return prevContent;
+    });
     console.log("code content: " + codeContent)
   }
 
   useEffect(() => {
-    if (document.querySelector('html')?.getAttribute("data-theme") === "dark") {
-      setCurrTheme("dark");
-    }
-    else {
-      setCurrTheme("light");
-    }
-  }, [document.querySelector('html')]);
-
-  useEffect(() => {
     const nodeViewContentDivs = document.querySelectorAll('[data-node-view-content="true"]');
-    console.log("useEffect is being looped infinite")
-    console.log("code content: " + node.textContent)
-    if (nodeViewContentDivs.length > 0) {
+    console.log("code content: " + codeContent)
+    if (nodeViewContentDivs.length > 0  && node.textContent !== codeContent) {
       nodeViewContentDivs.forEach((element) => {
         // Only update innerHTML if it's not already equal to codeContent
-        if (element.innerHTML !== node.textContent) {
-          element.innerHTML = node.textContent;
+        if (element.innerHTML !== codeContent) {
+          element.innerHTML = codeContent;
         }
       });
     }
-  }, [node.textContent]);
+  }, [codeContent, node.textContent]);
 
   return (
     <div
@@ -114,7 +110,7 @@ export const CodeBlock: FC = () => {
       >
 
         <Select
-          options={langOptions}
+          options={langOptions} 
           placeholder={node.attrs.language || "javascript"}
           onChange={(e) => {
             setAttrs({ language: e?.value });
@@ -189,7 +185,8 @@ export const CodeBlock: FC = () => {
           </button>
         </div>
       </div>
-      <div className="codemirrorWrapper" ref={contentRef}>
+      <div className="codemirrorWrapper">
+        <div style={{ display: 'none' }} ref={contentRef}></div>
         <CodeMirror
           autoFocus
           theme={currTheme}
@@ -205,13 +202,9 @@ export const CodeBlock: FC = () => {
             dropCursor: false,
             indentOnInput: false,
           }}
+          ref={editorRef}
         />
       </div>
-      <pre style={{ display: 'none' }}>
-        <code style={{ display: 'none' }} ref={contentRef}>
-            
-        </code>
-      </pre>
     </div>
   );
 };
