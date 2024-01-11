@@ -29,7 +29,7 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
         const date = new Date();
         const parsedDate = parseAndFormatDate(date.toString());
         const filePath = path.join(documentsPath, `${documentTitle}.md`);
-        dispatch(addDocument([uuid(), documentTitle, parsedDate, filePath]))
+        dispatch(addDocument([uuid(), documentTitle, parsedDate, filePath, []])) // empty topics array
         executeFileCreation({documentTitle: documentTitle})
         console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal

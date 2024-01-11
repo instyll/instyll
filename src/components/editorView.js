@@ -2,20 +2,10 @@
  * @author wou
  */
 import React, { Component, useState, useEffect } from 'react';
-// import Editor from './legacyEditor.js';
-import { MilkdownEditorWrapper } from '../mdWrapper.js';
-import '../App.css';
-import "highlight.js/styles/github.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { addTags, removeTag } from '../documentSlice.js';
 import Sizzle from 'sizzle'
-import 'katex/dist/katex.min.css'
-import { Allotment } from "allotment";
-import "allotment/dist/style.css";
-import chokidar from 'chokidar'
-import fs from 'fs';
-import debounce from 'lodash/debounce';
 import CommandPalette from 'react-command-palette';
-import MenuBar from '../components/menuBar';
-import TableOfContents from '../components/toc.js';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 // import moment from 'moment';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
@@ -24,21 +14,12 @@ import OutlineContainer from '../components/OutlineContainer.js';
 import PaneContainer from './paneContainer.tsx';
 import StatContainer from './StatContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import Home from '../components/home.js';
 
 import '../command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
 // Plugins
-import remarkMath from 'remark-math'
-import rehypeMathjax from 'rehype-mathjax'
-import remarkGfm from 'remark-gfm'
-import emoji from 'remark-emoji'
-import wikiLinkPlugin from 'remark-wiki-link'
-import { chrome } from 'process';
-import { timeStamp } from 'console';
-
 
 import { MilkdownProvider } from '@milkdown/react';
 import { ProsemirrorAdapterProvider } from '@prosemirror-adapter/react';
@@ -61,6 +42,7 @@ import doubleRight from '../icons/doubleright.png'
 import deleteX from '../icons/delete.png';
 import plus from '../icons/plus.png';
 import { initial } from 'lodash';
+import { fail } from 'assert';
 
 const EditorView = () => {
 
@@ -77,6 +59,21 @@ const EditorView = () => {
 
     const {state} = useLocation();
     const { documentPath, documentContent } = state;
+
+    const dispatch = useDispatch();
+
+    const existingTags = useSelector((state) => {
+        const documents = state.documents.documents;
+        const documentIndex = documents.findIndex(doc => doc[3] === documentPath);
+        
+        if (documentIndex !== -1) {
+          console.log(documents[documentIndex])  
+          const fourthIndex = documents[documentIndex][4];
+          console.log(fourthIndex)
+          return fourthIndex;
+        }
+        return null; // Adjust the default value based on your needs
+      });
 
     // console.log(documentContent)
 
@@ -126,18 +123,26 @@ const EditorView = () => {
     /* handle tags */
 
     const handleTagsSelection = (selectedTags) => {
-        setSelectedTags()
+        setSelectedTags(selectedTags)
     };
 
     const handleAddTags = () => {
-        console.log('Selected Tags:', state.selectedTags);
-        setAddedTags((prevAddedTags) => [...prevAddedTags, ...selectedTags]);
-        setSelectedTags([])
+        setAddedTags([])
+        const updatedTags = [...addedTags, ...selectedTags];
+        setAddedTags(updatedTags);
+        console.log(addedTags)
+        const requestObj = [documentPath, selectedTags];
+        console.log(requestObj);
+        dispatch(addTags(requestObj));
+        setSelectedTags([]);
+        // Add tags to redux document
+        console.log("added tags: " + updatedTags);
     };
 
     const handleRemoveTags = (tag) => {
         console.log(tag);
         setAddedTags((prevAddedTags) => prevAddedTags.filter((t) => t !== tag));
+        dispatch(removeTag([documentPath, tag]))
     }
 
     useEffect(() => {
@@ -348,7 +353,7 @@ const EditorView = () => {
                                             <button
 
                                                 style={{
-                                                    display: addedTags.length > 0 ? "none" : "initial"
+                                                    display: existingTags.length > 0 ? "none" : "initial"
                                                 }}
 
                                                 className="addTopicButton" onClick={() => setTopicModalOpen(true)}>
@@ -360,13 +365,13 @@ const EditorView = () => {
 
                                             <TopicModal
                                                 show={topicModalOpen}
-                                                onHide={() => setState({ topicModalOpen: false })}
+                                                onHide={() => setTopicModalOpen(false)}
                                                 tocOpen={tocOpen}
                                                 selectedTags={selectedTags}
                                                 onSelectTags={handleTagsSelection}
                                                 onAddTags={handleAddTags} />
 
-                                            {addedTags.map((tag) => (
+                                            {existingTags.map((tag) => (
                                                 <span
                                                     key={tag}
                                                     className="tagItem"
@@ -386,7 +391,7 @@ const EditorView = () => {
                                             <button
 
                                                 style={{
-                                                    display: addedTags.length > 0 ? "initial" : "none"
+                                                    display: existingTags.length > 0 ? "initial" : "none"
                                                 }}
 
                                                 className="minAddTopicButton" onClick={() => setTopicModalOpen(true)}>

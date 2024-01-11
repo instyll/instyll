@@ -22,6 +22,45 @@ const documentSlice = createSlice({
             state.documents.push(documentObject);
 
         },
+        addTags: (state, action) => {
+            const requestObject = action.payload;
+            const documentPath = requestObject[0];
+            const requestedTags = requestObject[1];
+            const docIndex = state.documents.findIndex(item => item[3] === documentPath);
+            console.log(docIndex)
+            console.log(requestedTags)
+            if (docIndex !== -1) {
+                // If the doc exists, add topics into it
+                state.documents[docIndex] = [
+                    state.documents[docIndex][0], 
+                    state.documents[docIndex][1],
+                    state.documents[docIndex][2],
+                    state.documents[docIndex][3],
+                    [
+                        ...state.documents[docIndex][4],  // merge existing tags
+                        ...requestedTags,                 // merge new tags
+                    ],
+                ];
+            }
+        },
+        removeTag: (state, action) => {
+            const requestObject = action.payload;
+            const documentPath = requestObject[0];
+            const requestedTag = requestObject[1];
+            const docIndex = state.documents.findIndex(item => item[3] === documentPath);
+            if (docIndex !== -1) {
+                // If the doc exists, add topics into it
+                state.documents[docIndex] = [
+                    state.documents[docIndex][0], 
+                    state.documents[docIndex][1],
+                    state.documents[docIndex][2],
+                    state.documents[docIndex][3],
+                    [
+                        ...state.documents[docIndex][4].filter(item => item != requestedTag),  // merge existing tags
+                    ],
+                ];
+            }
+        },
         removeDocument: (state, action) => {
             const documentObject = action.payload;
             const documentPath = documentObject[0];
@@ -60,5 +99,5 @@ const documentSlice = createSlice({
     },
 });
 
-export const { addDocument, removeDocument, updateDocument, reset } = documentSlice.actions;
+export const { addDocument, addTags, removeTag, removeDocument, updateDocument, reset } = documentSlice.actions;
 export default documentSlice.reducer;
