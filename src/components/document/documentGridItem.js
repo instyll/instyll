@@ -8,6 +8,7 @@ import DocumentOptionsModal from '../../modal/DocumentOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const DocumentGridItem = ({ documentInfo }) => {
 
@@ -16,6 +17,19 @@ const DocumentGridItem = ({ documentInfo }) => {
   const [fileContents, setFileContents] = useState(null); // State to store file contents
 
   const navigate = useNavigate();
+
+  const existingTags = useSelector((state) => {
+    const documents = state.documents.documents;
+    const documentIndex = documents.findIndex(doc => doc[3] === documentInfo[0]);
+
+    if (documentIndex !== -1) {
+      console.log(documents[documentIndex])
+      const fourthIndex = documents[documentIndex][4];
+      console.log(fourthIndex)
+      return fourthIndex;
+    }
+    return null; 
+  });
 
   const handleDocumentOptionsModalOpen = (value) => {
     setDocumentOptionsModalOpen(true);
@@ -40,7 +54,7 @@ const DocumentGridItem = ({ documentInfo }) => {
     };
 
     readMarkdown();
-  }, [fileContents]); 
+  }, [fileContents]);
 
   return (
     <div className='documentItem'>
@@ -52,20 +66,26 @@ const DocumentGridItem = ({ documentInfo }) => {
         onHide={() => setDocumentOptionsModalOpen(false)}
       />
 
-      <div className='documentTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
+      <div className='documentTextContainer' onClick={() => navigate('/editor', { state: { documentPath: documentInfo[0], documentContent: fileContents } })}>
         <div className='documentTextWrapper'>
           <div className='topicTitle'>
             <span>{documentInfo[1]}</span>
           </div>
           <div className='appendedTagsContainer'>
-            {/* <span className='tagItem'>projects</span>
-            <span className='tagItem'>books</span> */}
-            <span className='noteTopicStatus'>No topics</span>
+            {existingTags.length > 0 ? existingTags.map((tag) => (
+              <span
+                key={tag}
+                className="tagItem"
+              >
+                {tag}
+              </span>
+            )) : 
+            <span className='noteTopicStatus'>No topics</span>}
           </div>
           <div className='documentOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
           </div>
-      </div>
+        </div>
       </div>
     </div>
   );

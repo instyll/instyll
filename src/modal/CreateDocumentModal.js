@@ -16,6 +16,8 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
         onHide();
     };
 
+    const navigate = useNavigate();
+
     const [documentTitle, setDocumentTitle] = useState("");
 
     const userId = useSelector((state) => state.user.selectedUserId)
@@ -33,6 +35,8 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
         executeFileCreation({documentTitle: documentTitle})
         console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal
+        navigate('/editor', { state: { documentPath: filePath, documentContent: '# ' + documentTitle }})
+        onHide();
     }
 
     const temp = () => {
