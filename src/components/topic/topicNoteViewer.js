@@ -2,6 +2,7 @@
  * @author wou
  */
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 // import Editor from './legacyEditor.js';
 import '../../App.css';
 import "highlight.js/styles/github.css";
@@ -22,6 +23,14 @@ import { useParams } from 'react-router-dom';
 const TopicNoteViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
     const { topicId } = useParams();
+
+    const containedNotes = useSelector((state) => {
+        const documents = state.documents.documents;
+        const filtered = documents.filter((document) => {
+            return document[4] && document[4].includes(topicId);
+        })
+        return filtered;
+    })
 
     /* Handle grid or list layout */
     const handleChangeDocumentViewLayout = () => {
@@ -122,11 +131,17 @@ const TopicNoteViewer = ({ location }) => {
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
                                 {documentGridLayout ? 
-                                <DocumentGridItem documentInfo={documentTestInfo}>
-                                </DocumentGridItem>
+                                // <DocumentGridItem documentInfo={documentTestInfo}>
+                                // </DocumentGridItem>
+                                containedNotes.map((doc) => (
+                                    <DocumentGridItem key={doc[0]} documentInfo={[doc[3], doc[1]]}>
+                                    </DocumentGridItem>
+                                ))
                                 :
-                                <DocumentListItem documentInfo={documentTestInfo}>
-                                </DocumentListItem>
+                                containedNotes.map((doc) => (
+                                    <DocumentListItem key={doc[0]} documentInfo={[doc[3], doc[1]]}>
+                                    </DocumentListItem>
+                                ))
                             }       
                             </div>
                         </div>
