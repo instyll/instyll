@@ -353,7 +353,7 @@ const EditorView = () => {
                                             <button
 
                                                 style={{
-                                                    display: existingTags.length > 0 ? "none" : "initial"
+                                                    display: existingTags && existingTags.length > 0 ? "none" : "initial"
                                                 }}
 
                                                 className="addTopicButton" onClick={() => setTopicModalOpen(true)}>
@@ -371,7 +371,7 @@ const EditorView = () => {
                                                 onSelectTags={handleTagsSelection}
                                                 onAddTags={handleAddTags} />
 
-                                            {existingTags.map((tag) => (
+                                            {existingTags && existingTags.map((tag) => (
                                                 <span
                                                     key={tag}
                                                     className="tagItem"
@@ -391,7 +391,7 @@ const EditorView = () => {
                                             <button
 
                                                 style={{
-                                                    display: existingTags.length > 0 ? "initial" : "none"
+                                                    display: existingTags && existingTags.length > 0 ? "initial" : "none"
                                                 }}
 
                                                 className="minAddTopicButton" onClick={() => setTopicModalOpen(true)}>

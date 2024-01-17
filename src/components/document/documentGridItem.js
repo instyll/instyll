@@ -72,7 +72,7 @@ const DocumentGridItem = ({ documentInfo }) => {
             <span>{documentInfo[1]}</span>
           </div>
           <div className='appendedTagsContainer'>
-            {existingTags.length > 0 ? existingTags.map((tag) => (
+            {existingTags && existingTags.length > 0 ? existingTags.map((tag) => (
               <span
                 key={tag}
                 className="tagItem"

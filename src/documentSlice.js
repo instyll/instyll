@@ -27,7 +27,7 @@ const documentSlice = createSlice({
             const documentPath = requestObject[0];
             const requestedTags = requestObject[1];
             const docIndex = state.documents.findIndex(item => item[3] === documentPath);
-            console.log(docIndex)
+            console.log("document index: " + docIndex)
             console.log(requestedTags)
             if (docIndex !== -1) {
                 // If the doc exists, add topics into it

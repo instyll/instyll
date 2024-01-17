@@ -11,17 +11,21 @@ import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
 import Select from 'react-select';
 import { useSelector, useDispatch } from 'react-redux';
+import { addDocument } from '../../documentSlice';
+import parseAndFormatDate from '../../DateUtils';
 import DocumentGridItem from './documentGridItem';
 import DocumentListItem from './documentListItem';
 
 import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
+import { uuid } from 'uuidv4';
 
 const DocumentViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
     const [markdownFiles, setMarkdownFiles] = useState([]);
 
     const documentsPath = useSelector((state) => state.path.path)
+    const dispatch = useDispatch();
 
     /* Handle grid or list layout */
     const handleChangeDocumentViewLayout = () => {
@@ -49,6 +53,18 @@ const DocumentViewer = ({ location }) => {
                 const files = await fs.readdir(documentsPath);
                 const markdownFiles = files.filter(file => path.extname(file) === '.md');
                 setMarkdownFiles(markdownFiles);
+                const date = new Date();
+                const parsedDate = parseAndFormatDate(date.toString());
+                for (const markdownObject of markdownFiles) {
+                    console.log("iterate " + markdownObject)
+                    for (let i = 0; i < documents.length; ++i) {
+                        let currDocument = documents[i];
+                        if (currDocument[3] !== path.join(documentsPath, markdownObject)) {
+                            dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, path.join(documentsPath, markdownObject), []]))
+                            break;
+                        }
+                    }
+                }
                 setForceUpdate(prev => !prev);
             } catch (error) {
                 console.error('Error fetching markdown files:', error);
@@ -68,6 +84,8 @@ const DocumentViewer = ({ location }) => {
 
         return () => watcher.close();
     }, [documentsPath]);
+
+    console.log(" exist documents: " + documents)
 
     /* placeholder document info */
     const documentTestInfo = ["document name", 300]
