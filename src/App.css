@@ -3768,6 +3768,10 @@
     transition: 0.2s;
     position: relative;
   }
+
+  .documentListItem:hover {
+    border: 1px solid var(--secondary-text);
+  }
   
   .documentListItem:nth-child(1) {
     margin-top: 28px;
