@@ -2,6 +2,8 @@
  * @author wou
  */
 import React, { useState } from 'react';
+import ScrollToHashElement from './editor/ScrollToHashElement';
+import { Link } from 'react-router-dom';
 import "../App.css";
 
 function OutlineContainer({ tocHeaders, rightPanelOpen }) {
@@ -30,13 +32,20 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
                   header.type === 'H6' ? '100px' : '5px',
               }}
             >
-              <a
+              {/* <a
                 href={`#${header.id}`}
                 className="headerNav"
                 onClick={() => handleHeaderClick(header)}
               >
                 {header.text}
-              </a>
+              </a> */}
+              {/* <ScrollToHashElement />
+              <Link to={`#${header.id}`} className='headerNav'>
+              {header.text}
+              </Link> */}
+              <button className='headerNav' onClick={() => document.getElementById(`${header.id}`).scrollIntoView()}>
+                {header.text}
+              </button>
             </div>
           ))}
         </div>

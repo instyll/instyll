@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import DocumentOptionsModal from '../../modal/DocumentOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 const DocumentGridItem = ({ documentInfo }) => {
@@ -15,6 +15,7 @@ const DocumentGridItem = ({ documentInfo }) => {
   const [documentOptionsModalOpen, setDocumentOptionsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [fileContents, setFileContents] = useState(null); // State to store file contents
+  const parentRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -57,12 +58,13 @@ const DocumentGridItem = ({ documentInfo }) => {
   }, [fileContents]);
 
   return (
-    <div className='documentItem'>
+    <div className='documentItem' ref={parentRef}>
 
       <DocumentOptionsModal
         show={documentOptionsModalOpen}
         selectedDocument={selectedDocument}
         documentPath={documentInfo[0]}
+        ovRef={parentRef}
         onHide={() => setDocumentOptionsModalOpen(false)}
       />
 

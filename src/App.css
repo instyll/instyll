@@ -2385,6 +2385,11 @@
     opacity: 1;
     color: var(--primary-text);
     line-height: 1.4em;
+    background-color: transparent;
+    font-family: var(--font);
+    border: none;
+    padding: 0;
+    font-size: 16px;
   }
   
   .headerDelim {

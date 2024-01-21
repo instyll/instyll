@@ -24,7 +24,7 @@ export const MathBlock: FC = () => {
     const code = useMemo(() => node.attrs.value, [node.attrs.value]);
     const codePanel = useRef<HTMLDivElement>(null);
     const codeInput = useRef(null);
-    const [value, setValue] = useState("preview");
+    const [value, setValue] = useState('preview');
     const [codeValue, setCodeValue] = useState("");
     const [loading, getEditor] = useInstance();
 

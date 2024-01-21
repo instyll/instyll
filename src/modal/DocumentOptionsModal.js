@@ -8,7 +8,7 @@ import { addDocument, removeDocument } from '../documentSlice';
 import UpdateDocumentModal from './UpdateDocumentModal';
 import '../App.css';
 
-const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath }) => {
+const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ovRef }) => {
 
     const dispatch = useDispatch();
 
@@ -32,14 +32,18 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath }) 
         setUpdateDocumentModalOpen(value);
     }
 
+    console.log(ovRef)
+
     return (
         <Modal isOpen={show}
             onRequestClose={onHide}
+            contentRef={node => (ovRef = node)}
+            ariaHideApp={false}
             style={{
                 overlay: {
                     backgroundColor: "rgba(0, 0, 0, 0.1)",
                     zIndex: "999",
-                    backdropFilter: "blur(8px)",
+                    // backdropFilter: "blur(8px)",
                 },
                 content: {
                     backgroundColor: "var(--elevated-bg)",
@@ -52,10 +56,11 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath }) 
                     boxSizing: "border-box",
                     width: "140px",
                     height: "104px",
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
+                    marginTop: "32px",
+                    // position: "absolute",
+                    // top: "50%",
+                    // left: "50%",
+                    // transform: "translate(-50%, -50%)",
                 }
             }}>
 
