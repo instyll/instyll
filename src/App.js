@@ -14,6 +14,7 @@ import Layout from './components/layout.js';
 import Topics from './components/topic/topics.js';
 import TopicNoteViewer from './components/topic/topicNoteViewer';
 import DocumentViewer from './components/document/documentsViewer';
+import BookmarkViewer from './components/bookmark/bookmarksViewer.js';
 import ZapView from './components/zap/zapView';
 import Initialize from './Initial.js';
 
@@ -40,6 +41,7 @@ class App extends Component {
             <Route path="/topics" element={<Layout> <Topics /> </Layout>} />
             <Route path="/topics/:topicId" element={<Layout> <TopicNoteViewer /> </Layout>} />
             <Route path="/zap" element={<Layout> <ZapView /> </Layout>}></Route>
+            <Route path="/bookmark" element={<Layout> <BookmarkViewer /> </Layout>}></Route>
           </Routes>
         </HashRouter>
       </div>

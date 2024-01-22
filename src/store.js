@@ -9,6 +9,7 @@ import imageReducer from './imageSlice';
 import userReducer from './userSlice';
 import zapReducer from './zapSlice';
 import documentReducer from './documentSlice'
+import bookmarkReducer from "./bookmarkSlice";
 import pathReducer from './pathSlice'
 
 const persistConfig = {
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
    user: userReducer,
    zaps: zapReducer,
    documents: documentReducer,
+   bookmarks: bookmarkReducer,
    path: pathReducer,
 });
 

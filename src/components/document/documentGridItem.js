@@ -32,6 +32,16 @@ const DocumentGridItem = ({ documentInfo }) => {
     return null; 
   });
 
+  const documentObj = useSelector((state) => {
+    const documents = state.documents.documents;
+    const documentIndex = documents.findIndex(doc => doc[3] === documentInfo[0]);
+
+    if (documentIndex !== -1) {
+      return documents[documentIndex];
+    }
+    return null; 
+  });
+
   const handleDocumentOptionsModalOpen = (value) => {
     setDocumentOptionsModalOpen(true);
   }
@@ -65,6 +75,7 @@ const DocumentGridItem = ({ documentInfo }) => {
         selectedDocument={selectedDocument}
         documentPath={documentInfo[0]}
         ovRef={parentRef}
+        documentObj={documentObj}
         onHide={() => setDocumentOptionsModalOpen(false)}
       />
 

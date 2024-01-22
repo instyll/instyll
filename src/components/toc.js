@@ -105,12 +105,13 @@ function TableOfContents(props) {
         </p>
         </Link>
 
+        <Link to="/bookmark">
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={favorites} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
-      
+        </Link>
 
         {/* <div className="fileSys">
           {props.fileNames.map((file, index) => (

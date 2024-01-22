@@ -5,10 +5,11 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { addDocument, removeDocument } from '../documentSlice';
+import { addBookmark } from '../bookmarkSlice';
 import UpdateDocumentModal from './UpdateDocumentModal';
 import '../App.css';
 
-const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ovRef }) => {
+const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ovRef, documentObj }) => {
 
     const dispatch = useDispatch();
 
@@ -20,6 +21,11 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
     const handleRemoveDocument = (documentItem) => {
         dispatch(removeDocument(documentItem));
         onHide();
+    }
+
+    const handleBookmark = (documentItem) => {
+        console.log(documentItem)
+        dispatch(addBookmark(documentObj));
     }
 
     const handleClose = () => {
@@ -78,6 +84,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
 
             <div className="tagCreationContainer">
                 <button onClick={() => handleRemoveDocument(selectedDocument)} className='modalDangerButton'>Delete</button>
+                <button onClick={() => handleBookmark(selectedDocument)} className='modalDangerButton'>Bookmark</button>
                 <button onClick={() => handleUpdateDocumentModalOpen(true)} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
