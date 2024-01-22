@@ -326,11 +326,13 @@ const Home = () => {
 
                   <div className='dashboardSuggestionTitleWrapper'>
                     <div className='dashboardSuggestionItemTitle'>
-                      Favorites
+                      Bookmarks
                     </div>
+                    <Link to="/bookmark">
                     <div className='dashboardSuggestionItemMore'>
                       See all
                     </div>
+                    </Link>
 
                     <div className='dashboardSuggestionItemList'>
 
