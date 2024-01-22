@@ -2847,6 +2847,10 @@
     transition: 0.2s;
     user-select: none;
   }
+
+  #bookmark {
+    margin-top: 8px;
+  }
   
   .modalActionButton:hover {
     filter: brightness(90%);

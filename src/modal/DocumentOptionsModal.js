@@ -7,11 +7,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addDocument, removeDocument } from '../documentSlice';
 import { addBookmark } from '../bookmarkSlice';
 import UpdateDocumentModal from './UpdateDocumentModal';
+import { ToastContainer, toast } from 'react-toastify'
 import '../App.css';
 
 const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ovRef, documentObj }) => {
 
     const dispatch = useDispatch();
+
+    const notify = () => toast("Note Bookmarked!");
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
@@ -26,6 +29,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
     const handleBookmark = (documentItem) => {
         console.log(documentItem)
         dispatch(addBookmark(documentObj));
+        notify();
     }
 
     const handleClose = () => {
@@ -61,7 +65,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
                     fontSize: "1em",
                     boxSizing: "border-box",
                     width: "140px",
-                    height: "104px",
+                    height: "fit-content",
                     marginTop: "32px",
                     // position: "absolute",
                     // top: "50%",
@@ -69,7 +73,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
                     // transform: "translate(-50%, -50%)",
                 }
             }}>
-
+          <ToastContainer />
 
             <UpdateDocumentModal
             show={updateDocumentModalOpen}
@@ -84,8 +88,8 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
 
             <div className="tagCreationContainer">
                 <button onClick={() => handleRemoveDocument(selectedDocument)} className='modalDangerButton'>Delete</button>
-                <button onClick={() => handleBookmark(selectedDocument)} className='modalDangerButton'>Bookmark</button>
                 <button onClick={() => handleUpdateDocumentModalOpen(true)} className='modalActionButton'>Rename</button>
+                <button onClick={() => handleBookmark(selectedDocument)} className='modalActionButton' id="bookmark">Bookmark</button>
             </div>
         </Modal >
     );
