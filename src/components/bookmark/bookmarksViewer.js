@@ -128,7 +128,7 @@ const BookmarkViewer = ({ location }) => {
                                         </DocumentGridItem>
                                     ))
                                     :
-                                    markdownFiles.map((bookmark) => (
+                                    bookmarks.map((bookmark) => (
                                         <DocumentListItem key={bookmark} documentInfo={[bookmark[3], bookmark[1]]}>
                                         </DocumentListItem>
                                     ))
