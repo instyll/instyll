@@ -29,6 +29,8 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+// document object: [DocumentID, DocumentTitle, DateCreated, DocumentPath, topics: []]
+
 export const store = configureStore({
     // reducer: {
     //     /* reducer for topic state */

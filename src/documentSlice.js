@@ -17,7 +17,6 @@ const documentSlice = createSlice({
     initialState, 
     reducers: {
         addDocument: (state, action) => {
-            state.documents.push(action.payload);
             const documentObject = action.payload;
             state.documents.push(documentObject);
 

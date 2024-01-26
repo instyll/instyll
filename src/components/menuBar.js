@@ -12,14 +12,36 @@ import search from '../icons/search.png'
 import create from '../icons/create.png'
 import back from '../icons/arrowback.png';
 import forward from '../icons/arrowforward.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSearchSelectors, createSearchAction } from 'redux-search';
 
 function MenuBar(props) {
 
   const [documentModalOpen, setDocumentModalOpen] = useState(false);
+  const [query, setQuery] = useState('');
 
   const navigate = useNavigate();
 
   const location = useLocation();
+
+  const dispatch = useDispatch();
+
+  const documents = useSelector((state) => state.documents.documents)
+  console.log("documents: " + documents)
+
+  const handleSearchQuery = (e) => {
+    setQuery(e.target.value);
+  }
+
+  const fuzzySearch = (input) => {
+    return documents.filter((doc) =>
+      doc[1].toString().toLowerCase().includes(input.toString().toLowerCase())
+    );
+  };
+
+  const filteredDocuments = query ? fuzzySearch(query) : documents;
+
+  console.log(filteredDocuments)
 
   /* allow nav arrows to go to previous or next route */
   const handleGoBack = () => {
@@ -68,7 +90,9 @@ function MenuBar(props) {
       <div className='searchWrapper'>
         <img src={search} className="searchIcon" draggable={false}></img>
       </div>
-      <input className="search" placeholder="Search your notes">
+      <input className="search" 
+      placeholder="Search your notes"
+      onChange={handleSearchQuery}>
       </input>
       <button
         className="menuAddOptionButton"
