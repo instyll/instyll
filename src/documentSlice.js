@@ -26,8 +26,7 @@ const documentSlice = createSlice({
             const documentPath = requestObject[0];
             const requestedTags = requestObject[1];
             const docIndex = state.documents.findIndex(item => item[3] === documentPath);
-            console.log("document index: " + docIndex)
-            console.log(requestedTags)
+            console.log("documents before adding tag: " + state.documents)
             if (docIndex !== -1) {
                 // If the doc exists, add topics into it
                 state.documents[docIndex] = [
@@ -41,6 +40,7 @@ const documentSlice = createSlice({
                     ],
                 ];
             }
+            console.log("documents AFTER adding tag: " + state.documents)
         },
         removeTag: (state, action) => {
             const requestObject = action.payload;

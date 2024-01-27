@@ -12,7 +12,7 @@ const TopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTa
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const tags = useSelector((state) => state.tags.tags);
-    console.log(selectedTags)
+    // console.log(selectedTags)
 
     const [newTag, setNewTag] = useState('');
 

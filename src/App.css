@@ -577,6 +577,16 @@
     padding-bottom: 10px;
     padding-left: 10px;
   }
+
+  .slashGroupHeaderSearch {
+    display: inline-block;
+    font-family: var(--font);
+    font-size: 13px;
+    color: var(--secondary-text);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+  }
   
   .slashSuggestionItemContainer {
     display: flex;
@@ -1663,6 +1673,28 @@
     z-index: 0;
     transition: 0.2s;
   }
+
+  .modalSearch {
+    width: 540px;
+    height: 46px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 1em;
+    background-color: var(--elevated-bg);
+    font-family: var(--font);
+    color: var(--primary-text);
+    padding-left: 48px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 16px;
+    border: none;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    transition: 0.2s;
+  }
   
   .search::placeholder {
     user-select: none;
@@ -1727,6 +1759,17 @@
     position: relative;
     vertical-align: middle;
     margin-right: -45px;
+    padding-left: 20px;
+    user-select: none;
+  }
+
+  .modalSearchWrapper {
+    display: inline-block;
+    z-index: 999;
+    width: 24px;
+    position: relative;
+    vertical-align: middle;
+    margin-right: -39px;
     padding-left: 20px;
     user-select: none;
   }
@@ -4022,4 +4065,36 @@
     user-select: none;
     margin-top: 28px;
     margin-bottom: 0px;
+  }
+
+  .queryContainer {
+    text-align: center;
+  }
+
+  .queryResultsContainer {
+    text-align: left;
+  }
+
+  .queryResultContainer {
+    text-align: left;
+    margin-bottom: 8px;
+    margin-left: 16px;
+    padding-left: 24px;
+    margin-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 1px solid var(--muted-text);
+    border-radius: 16px;
+    height: 32px;
+  }
+
+  .queryResultTopicContainer {
+    float: right;
+  }
+
+  .queryResultDocumentTitle {
+    width: fit-content;
+    float: left;
+    vertical-align: middle;
+    margin-top: 5px
   }

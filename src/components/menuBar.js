@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DocumentModal from '../modal/CreateDocumentModal';
+import QueryModal from '../modal/QueryModal';
 import classNames from 'classnames';
 import '../App.css';
 // Assets
@@ -18,30 +19,29 @@ import { getSearchSelectors, createSearchAction } from 'redux-search';
 function MenuBar(props) {
 
   const [documentModalOpen, setDocumentModalOpen] = useState(false);
-  const [query, setQuery] = useState('');
+  const [queryModalOpen, setQueryModalOpen] = useState(false);
+  // const [query, setQuery] = useState('');
 
   const navigate = useNavigate();
 
   const location = useLocation();
 
-  const dispatch = useDispatch();
-
   const documents = useSelector((state) => state.documents.documents)
-  console.log("documents: " + documents)
+  // console.log("documents: " + documents)
 
-  const handleSearchQuery = (e) => {
-    setQuery(e.target.value);
-  }
+  // const handleSearchQuery = (e) => {
+  //   setQuery(e.target.value);
+  // }
 
-  const fuzzySearch = (input) => {
-    return documents.filter((doc) =>
-      doc[1].toString().toLowerCase().includes(input.toString().toLowerCase())
-    );
-  };
+  // const fuzzySearch = (input) => {
+  //   return documents.filter((doc) =>
+  //     doc[1].toString().toLowerCase().includes(input.toString().toLowerCase())
+  //   );
+  // };
 
-  const filteredDocuments = query ? fuzzySearch(query) : documents;
+  // const filteredDocuments = query ? fuzzySearch(query) : documents;
 
-  console.log(filteredDocuments)
+  // console.log(filteredDocuments)
 
   /* allow nav arrows to go to previous or next route */
   const handleGoBack = () => {
@@ -62,6 +62,11 @@ function MenuBar(props) {
       <DocumentModal
         show={documentModalOpen}
         onHide={() => setDocumentModalOpen(false)}
+      />
+
+      <QueryModal 
+      show={queryModalOpen}
+      onHide={() => setQueryModalOpen(false)}
       />
 
       <div className="menuIconLogo" id="left">
@@ -92,7 +97,9 @@ function MenuBar(props) {
       </div>
       <input className="search" 
       placeholder="Search your notes"
-      onChange={handleSearchQuery}>
+      // onChange={handleSearchQuery}
+      onClick={setQueryModalOpen}
+      >
       </input>
       <button
         className="menuAddOptionButton"

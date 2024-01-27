@@ -67,9 +67,9 @@ const EditorView = () => {
         const documentIndex = documents.findIndex(doc => doc[3] === documentPath);
         
         if (documentIndex !== -1) {
-          console.log(documents[documentIndex])  
+        //   console.log(documents[documentIndex])  
           const fourthIndex = documents[documentIndex][4];
-          console.log(fourthIndex)
+        //   console.log(fourthIndex)
           return fourthIndex;
         }
         return null; // Adjust the default value based on your needs

@@ -56,13 +56,11 @@ const DocumentViewer = ({ location }) => {
                 const date = new Date();
                 const parsedDate = parseAndFormatDate(date.toString());
                 for (const markdownObject of markdownFiles) {
-                    console.log("iterate " + markdownObject)
-                    for (let i = 0; i < documents.length; ++i) {
-                        let currDocument = documents[i];
-                        if (currDocument[3] !== path.join(documentsPath, markdownObject)) {
-                            dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, path.join(documentsPath, markdownObject), []]))
-                            break;
-                        }
+                    const markdownPath = path.join(documentsPath, markdownObject);
+                    const documentExists = documents.some(doc => doc[3] === markdownPath);
+                
+                    if (!documentExists) {
+                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
                 }
                 setForceUpdate(prev => !prev);
