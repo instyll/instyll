@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-modal"; // Import Modal from 'react-modal'
 import { useSelector } from "react-redux";
 import QueryResult from "../components/queryResult";
+import { useEffect } from "react";
 
 import "../App.css";
 import search from '../icons/search.png'
@@ -14,11 +15,13 @@ dotenv.config();
 const QueryModal = ({ show, onHide }) => {
 
   const [query, setQuery] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   const documents = useSelector((state) => state.documents.documents)
 
   const handleSearchQuery = (e) => {
     setQuery(e.target.value);
+    setSelectedIndex(-1);
   }
 
   const fuzzySearch = (input) => {
@@ -28,6 +31,23 @@ const QueryModal = ({ show, onHide }) => {
   };
 
   const filteredDocuments = fuzzySearch(query);
+
+  // handle keyboard navigation
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowUp" && selectedIndex > 0) {
+        setSelectedIndex(selectedIndex-1)
+      } else if (e.key === "ArrowDown" && selectedIndex < filteredDocuments.length-1) {
+        setSelectedIndex(selectedIndex+1)
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown)
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [selectedIndex, filteredDocuments])
 
   return (
     <Modal
@@ -70,8 +90,11 @@ const QueryModal = ({ show, onHide }) => {
         </input>
         <div className="queryResultsContainer">
             <span className="slashGroupHeaderSearch">{query ? 'Suggestions' : 'Recents'}</span>
-            {filteredDocuments.map((filteredDocument) => (
-                <QueryResult documentInfo={filteredDocument}>
+            {filteredDocuments.map((filteredDocument, i) => (
+                <QueryResult 
+                key={i}
+                documentInfo={filteredDocument}
+                selected={i===selectedIndex}>
                 </QueryResult>
             ))}
         </div>

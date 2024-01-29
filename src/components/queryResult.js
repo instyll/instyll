@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 // document object: [DocumentID, DocumentTitle, DateCreated, DocumentPath, topics: []]
 
-const QueryResult = ({ documentInfo }) => {
+const QueryResult = ({ documentInfo, selected }) => {
 
     const [fileContents, setFileContents] = useState(null); // State to store file contents
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ const QueryResult = ({ documentInfo }) => {
     }
 
     return (
-        <div className='queryResultContainer' onClick={updateRouterParams}>
+        <div className={`queryResultContainer ` + (selected ? 'selected' : '')} onClick={updateRouterParams}>
             <div className='queryResultWrapper'>
                 <div className='queryResultDocumentTitle'>
                 {documentInfo[1]}

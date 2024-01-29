@@ -4089,6 +4089,10 @@
     transition: 0.2s;
   }
 
+  .queryResultContainer selected {
+    background-color: var(--muted-text);
+  }
+
   .queryResultContainer:hover {
     background-color: var(--muted-text);
   }
