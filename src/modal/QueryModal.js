@@ -40,6 +40,13 @@ const QueryModal = ({ show, onHide }) => {
         setSelectedIndex(selectedIndex-1)
       } else if (e.key === "ArrowDown" && selectedIndex < filteredDocuments.length-1) {
         setSelectedIndex(selectedIndex+1)
+      } else if (e.key === "Enter" && selectedIndex !== -1) {
+        e.preventDefault();
+        const selectedEl = document.querySelector(".queryResultContainer.selected");
+        console.log(selectedEl)
+        if (selectedEl) {
+          selectedEl.click();
+        }
       }
     }
 
