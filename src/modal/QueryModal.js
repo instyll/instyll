@@ -45,7 +45,7 @@ const QueryModal = ({ show, onHide }) => {
           color: "var(--primary-text)",
           fontFamily: "Inter",
           borderRadius: "10px",
-          boxShadow: "rgba(0, 0, 0, 0.2) 0px 2px 4px 0px",
+          // boxShadow: "rgba(0, 0, 0, 0.2) 0px 2px 4px 0px",
           border: "0px none",
           fontSize: "1em",
           boxSizing: "border-box",

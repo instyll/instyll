@@ -24,9 +24,9 @@ const DocumentGridItem = ({ documentInfo }) => {
     const documentIndex = documents.findIndex(doc => doc[3] === documentInfo[0]);
 
     if (documentIndex !== -1) {
-      console.log(documents[documentIndex])
+      // console.log(documents[documentIndex])
       const fourthIndex = documents[documentIndex][4];
-      console.log(fourthIndex)
+      // console.log(fourthIndex)
       return fourthIndex;
     }
     return null; 

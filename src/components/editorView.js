@@ -69,7 +69,7 @@ const EditorView = () => {
         if (documentIndex !== -1) {
         //   console.log(documents[documentIndex])  
           const fourthIndex = documents[documentIndex][4];
-        //   console.log(fourthIndex)
+          console.log(documents[documentIndex][1] + " tags: " + fourthIndex)
           return fourthIndex;
         }
         return null; // Adjust the default value based on your needs

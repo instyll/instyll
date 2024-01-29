@@ -60,6 +60,7 @@ const DocumentViewer = ({ location }) => {
                     const documentExists = documents.some(doc => doc[3] === markdownPath);
                 
                     if (!documentExists) {
+                        console.log("document does not exist and path is " + markdownPath)
                         dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
                 }
