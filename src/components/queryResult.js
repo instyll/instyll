@@ -26,8 +26,13 @@ const QueryResult = ({ documentInfo }) => {
         readMarkdown();
       }, [fileContents]);
 
+    const updateRouterParams = () => { // bad solution but no easy way in v6
+      navigate('/editor', { state: { documentPath: documentInfo[3], documentContent: fileContents } });
+      navigate(0)
+    }
+
     return (
-        <div className='queryResultContainer' onClick={() => navigate('/editor', { state: { documentPath: documentInfo[3], documentContent: fileContents } })}>
+        <div className='queryResultContainer' onClick={updateRouterParams}>
             <div className='queryResultWrapper'>
                 <div className='queryResultDocumentTitle'>
                 {documentInfo[1]}
