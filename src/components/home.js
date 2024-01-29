@@ -7,8 +7,6 @@ import { MilkdownEditorWrapper } from '../mdWrapper.js';
 import '../App.css';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css'
-import "allotment/dist/style.css";
-import getFilesInDirectory from '../fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import CommandPalette from 'react-command-palette';

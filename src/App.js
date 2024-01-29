@@ -7,7 +7,6 @@ import "allotment/dist/style.css";
 import { BrowserRouter as Router, Route, Routes, HashRouter } from 'react-router-dom';
 import Home from './components/home.js';
 import EditorView from './components/editorView.js';
-import Timeline from './components/timeline.js';
 import { Provider } from 'react-redux';
 import { store } from './store.js';
 import Layout from './components/layout.js';

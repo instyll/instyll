@@ -7,7 +7,6 @@ import "highlight.js/styles/github.css";
 import Sizzle from 'sizzle'
 import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
-import getFilesInDirectory from '../fileUtils';
 import chokidar from 'chokidar'
 import fs from 'fs';
 import CommandPalette from 'react-command-palette';
@@ -54,7 +53,6 @@ class Layout extends Component {
         this.handleToc = this.handleToc.bind(this);
         this.handleDock = this.handleDock.bind(this);
         this.toggleTheme = this.toggleTheme.bind(this);
-        this.fetchFiles = this.fetchFiles.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.updateToc = this.updateToc.bind(this);
         this.setModalOpen = this.setModalOpen.bind(this);
@@ -188,27 +186,6 @@ class Layout extends Component {
         }));
     }
 
-    async fetchFiles() {
-        const files = await getFilesInDirectory(this.state.notesDirectory);
-        this.setState({ fileNames: files });
-        const watcher = chokidar.watch(this.state.notesDirectory);
-        watcher.on('add', (path) => {
-            console.log(path);
-            console.log(this.state.fileNames)
-            const fileName = path.replace(/^.*[\\/]/, '');
-            this.setState((prevState) => ({
-                fileNames: Array.from(new Set([...prevState.fileNames, fileName])),
-            }));
-        });
-
-        watcher.on('unlink', (path) => {
-            const fileName = path.replace(/^.*[\\/]/, ''); // remove directory path
-            this.setState((prevState) => ({
-                fileNames: prevState.fileNames.filter((fileName) => fileName !== fileName),
-            }));
-        });
-    }
-
     handleClick = async (path) => {
         const fileContent = await fs.promises.readFile(this.state.notesDirectory + "" + path, 'utf-8');
         this.setState({ selectedFile: path, markdownSrc: fileContent });
@@ -216,7 +193,6 @@ class Layout extends Component {
 
     componentDidMount() {
         window.addEventListener("message", this.handleMessage);
-        this.fetchFiles();
     }
 
     componentDidUpdate(prevProps, prevState) {
