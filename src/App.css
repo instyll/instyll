@@ -275,7 +275,7 @@
   }
   
   .selected {
-    background-color: var(--muted-text);
+    background-color: var(--muted-text) !important;
     border-radius: 5px;
   }
   
@@ -4087,10 +4087,11 @@
     border-radius: 16px;
     height: 32px;
     transition: 0.2s;
+    background-color: var(--bg-color);
   }
 
   .queryResultContainer selected {
-    background-color: var(--muted-text);
+    background-color: var(--muted-text) !important;
   }
 
   .queryResultContainer:hover {
