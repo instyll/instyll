@@ -1,7 +1,7 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import fs from 'fs/promises';
 import chokidar from 'chokidar';
 import path from 'path';
@@ -45,6 +45,13 @@ const DocumentViewer = ({ location }) => {
     ];
 
     const documents = useSelector((state) => state.documents.documents)
+    console.log("documents: " + documents)
+
+    const documentsRef = useRef(null);
+
+    useEffect(() => {
+        documentsRef.current = documents;
+    }, [documents]);
 
     // fetch markdown files on component mount
     useEffect(() => {
@@ -57,20 +64,34 @@ const DocumentViewer = ({ location }) => {
                 const parsedDate = parseAndFormatDate(date.toString());
                 for (const markdownObject of markdownFiles) {
                     const markdownPath = path.join(documentsPath, markdownObject);
-                    const documentExists = documents.some(doc => doc[3] === markdownPath);
-                
-                    if (!documentExists) {
+                    let documentExists = false;
+                    for (let i = 0; i < documentsRef.current.length; ++i) {
+                        const currDocument = documentsRef.current[i];
+                        console.log("check " + currDocument[3])
+                        console.log("match " + markdownPath)
+                        if (currDocument[3] === markdownPath) {
+                            documentExists = true;
+                            break;
+                        }
+                    }
+                    // console.log("documents: " + documents)
+                    if (documentsRef.current.length == 0) {
+                        console.log("uyes")
+                        // if redux store is empty, then add document
+                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
+                    }
+                    else if (documentExists == false) {
                         console.log("document does not exist and path is " + markdownPath)
                         dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
                 }
-                setForceUpdate(prev => !prev);
+                // setForceUpdate(prev => !prev);
             } catch (error) {
                 console.error('Error fetching markdown files:', error);
             }
         };
 
-        // fetchMarkdownFiles();
+        fetchMarkdownFiles();
 
         const watcher = chokidar.watch(documentsPath, {
             ignored: /[\/\\]\./, // ignore dotfiles
@@ -82,9 +103,9 @@ const DocumentViewer = ({ location }) => {
             .on('unlink', fetchMarkdownFiles);
 
         return () => watcher.close();
-    }, [documentsPath]);
+    }, []);
 
-    console.log(" exist documents: " + documents)
+    // console.log(" exist documents: " + documents)
 
     /* placeholder document info */
     const documentTestInfo = ["document name", 300]
