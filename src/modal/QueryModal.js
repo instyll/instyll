@@ -62,7 +62,7 @@ const QueryModal = ({ show, onHide }) => {
       onRequestClose={onHide}
       style={{
         overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.1)",
+          // backgroundColor: "rgba(0, 0, 0, 0.1)",
         backgroundColor: "transparent",
           zIndex: "999",
           backdropFilter: "blur(10px)",
