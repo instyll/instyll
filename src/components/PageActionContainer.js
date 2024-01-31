@@ -2,6 +2,7 @@
  * @author wou
  */
 import React, { useState } from 'react';
+import PageActionItem from './PageActionItem';
 import "../App.css";
 
 import pdfIcon from '../icons/pdf1.png'
@@ -17,43 +18,16 @@ function PageActionContainer({ rightPanelOpen }) {
         <div>
             <div className='pageActionContainer'>
             <p className="paneTitle">Note Options</p>
-                <div className='pageActionItem'>
-                    <button className='pageActionButton'>
-                        <img src={pdfIcon} className='tocIcon'></img>
-                        <span className='tocInnerText'>Export to PDF</span>
-                    </button>
-                </div>
-                <div className='pageActionItem'>
-                    <button className='pageActionButton'>
-                        <img src={mathIcon} className='tocIcon'></img>
-                        <span className='tocInnerText'>Export to LaTeX</span>
-                    </button>
-                </div>
-                <div className='pageActionItem'>
-                    <button className='pageActionButton'>
-                        <img src={gitIcon} className='tocIcon'></img>
-                        <span className='tocInnerText'>Push to Git</span>
-                    </button>
-                </div>
+
+                <PageActionItem title={`Export to PDF`} icon={pdfIcon}></PageActionItem>
+                <PageActionItem title={`Export to LaTeX`} icon={mathIcon}></PageActionItem>
+                <PageActionItem title={`Push to Git`} icon={gitIcon}></PageActionItem>
+            
                 <p className="paneTitle">Actions</p>
-                <div className='pageActionItem'>
-                    <button className='pageActionButton'>
-                        <img src={renameIcon} className='tocIcon'></img>
-                        <span className='tocInnerText'>Rename</span>
-                    </button>
-                </div>
-                <div className='pageActionItem'>
-                    <button className='pageActionButton'>
-                        <img src={bookmarkIcon} className='tocIcon'></img>
-                        <span className='tocInnerText'>Bookmark</span>
-                    </button>
-                </div>
-                <div className='pageActionItem'>
-                    <button className='pageActionButton'>
-                        <img src={deleteIcon} className='tocIcon'></img>
-                        <span className='tocInnerText'>Delete</span>
-                    </button>
-                </div>
+
+                <PageActionItem title={`Rename`} icon={renameIcon}></PageActionItem>
+                <PageActionItem title={`Bookmark`} icon={bookmarkIcon}></PageActionItem> 
+                <PageActionItem title={`Delete`} icon={deleteIcon}></PageActionItem>            
             </div>
         </div>
     );
