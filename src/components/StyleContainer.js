@@ -22,18 +22,22 @@ import { useSelector } from 'react-redux';
 
 function StyleContainer({ rightPanelOpen }) {
 
+    const [selectedFont, setSelectedFont] = useState(null)
     const documentPath = useSelector((state) => state.path.path)
 
     const updateDocumentFont = (fontSelection) => {
         // change the css --font variable to mono/serif
         console.log(fontSelection)
         if (fontSelection === 'default') {
+            setSelectedFont(fontSelection)
             document.documentElement.style.setProperty('--font', `"Inter", sans-serif`)
         } 
         else if (fontSelection === 'serif') {
+            setSelectedFont(fontSelection)
             document.documentElement.style.setProperty('--font', `"PT Serif", serif`)
         }
         else if (fontSelection === 'mono') {
+            setSelectedFont(fontSelection)
             document.documentElement.style.setProperty('--font', `"JetBrains Mono", monospace`)
         }
     }
@@ -77,17 +81,17 @@ function StyleContainer({ rightPanelOpen }) {
                 <p className="paneTitle">Font</p>
                 <div className='fontOptionsContainer'>
                     <button 
-                    className='fontOptionsButton' id="default"
+                    className={`fontOptionsButton ` + (selectedFont == 'default' ? 'selected': '')} id="default"
                     onClick={() => updateDocumentFont('default')}>
                         Default
                     </button>
                     <button 
-                    className='fontOptionsButton' id='serif'
+                    className={`fontOptionsButton ` + (selectedFont == 'serif' ? 'selected': '')} id='serif'
                     onClick={() => updateDocumentFont('serif')}>
                         Serif
                     </button>
                     <button 
-                    className='fontOptionsButton' id='mono'
+                    className={`fontOptionsButton ` + (selectedFont == 'mono' ? 'selected': '')} id='mono'
                     onClick={() => updateDocumentFont('mono')}>
                         Mono
                     </button>

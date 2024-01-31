@@ -2646,7 +2646,7 @@
   }
 
   #mono {
-    font-family: monospace;
+    font-family: "JetBrains Mono", monospace;
   }
   
   .stylingContainer {
