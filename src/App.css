@@ -2492,6 +2492,24 @@
     overflow: auto;
     overflow-wrap: break-word;
   }
+
+  .statItemWrapper {
+    padding-left: 0px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 100%;
+    color: var(--primary-text);
+    font-family: var(--font);
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: transparent;
+    /* border: 1px solid var(--muted-text); */
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+    transition: 0.2s;
+  }
   
   .outlineContainer {
     padding-left: 28px;
