@@ -67,13 +67,13 @@ function StyleContainer({ rightPanelOpen }) {
                 <p className="paneTitle">Font</p>
                 <div className='fontOptionsContainer'>
                     <button className='fontOptionsButton'>
-
+                        Default
                     </button>
-                    <button className='fontOptionsButton'>
-                        
+                    <button className='fontOptionsButton' id='serif'>
+                        Serif
                     </button>
-                    <button className='fontOptionsButton'>
-                        
+                    <button className='fontOptionsButton' id='mono'>
+                        Mono
                     </button>
                 </div>
             </div>

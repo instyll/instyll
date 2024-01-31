@@ -2622,23 +2622,26 @@
     background-color: var(--muted-translucent);
     color: var(--primary-text);
     display: inline-block;
-    width: 56px;
+    width: 100%;
     box-sizing: border-box;
     border: none;
     border-radius: 8px;
     transition: 0.2s;
-  }
-
-  .fontOptionsButton:nth-child(1) {
-    margin-right: 8px;
-  }
-
-  .fontOptionsButton:nth-child(2) {
-    margin-right: 8px;
+    margin-bottom: 8px;
+    font-family: var(--font);
+    font-size: 1em;
   }
 
   .fontOptionsButton:hover {
     background-color: var(--muted-text);
+  }
+
+  #serif {
+    font-family: serif;
+  }
+
+  #mono {
+    font-family: monospace;
   }
   
   .stylingContainer {
