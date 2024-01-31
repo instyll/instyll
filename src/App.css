@@ -2447,6 +2447,41 @@
     font-family: var(--font);
     color: var(--primary-text);
   }
+
+  .pageActionContainer {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 20px;
+    padding-top: 24px;
+    overflow: auto;
+    overflow-wrap: break-word;
+  }
+
+  .pageActionItem {
+    padding-bottom: 8px;
+  }
+
+  .pageActionButton {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+    color: var(--primary-text);
+    font-family: var(--font);
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid var(--muted-text);
+    border-radius: 8px;
+    text-align: left;
+    transition: 0.2s;
+  }
+
+  .pageActionButton:hover {
+    background-color: var(--muted-text);
+  }
+
   
   .statContainer {
     padding-left: 28px;

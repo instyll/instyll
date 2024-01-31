@@ -13,6 +13,7 @@ import TopicModal from '../modal/TopicModal.js';
 import OutlineContainer from '../components/OutlineContainer.js';
 import PaneContainer from './paneContainer.tsx';
 import StatContainer from './StatContainer.js';
+import PageActionContainer from './PageActionContainer.js';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 import '../command-palette/commandPalette.css';
@@ -449,6 +450,11 @@ const EditorView = () => {
                                 <StatContainer>
 
                                 </StatContainer>
+                            )}
+                            {rightPanelSetting === "info" && (
+                                <PageActionContainer>
+
+                                </PageActionContainer>
                             )}
 
                         </div>
