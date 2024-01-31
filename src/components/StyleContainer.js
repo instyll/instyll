@@ -77,7 +77,7 @@ function StyleContainer({ rightPanelOpen }) {
                 <p className="paneTitle">Font</p>
                 <div className='fontOptionsContainer'>
                     <button 
-                    className='fontOptionsButton'
+                    className='fontOptionsButton' id="default"
                     onClick={() => updateDocumentFont('default')}>
                         Default
                     </button>

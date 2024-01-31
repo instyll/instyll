@@ -2637,8 +2637,12 @@
     background-color: var(--muted-text);
   }
 
+  #default {
+    font-family: "Inter", sans-serif;
+  }
+
   #serif {
-    font-family: serif;
+    font-family: "PT Serif", serif;
   }
 
   #mono {
@@ -3233,6 +3237,7 @@
     transition: 0.2s;
     vertical-align: middle;
     color: var(--primary-text);
+    font-family: var(--font);
   }
   
   .tagsList li.selected {
