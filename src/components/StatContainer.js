@@ -25,7 +25,7 @@ function StatContainer({ rightPanelOpen }) {
                 <StatItem title={`Created`} icon={clockIcon}></StatItem>
                 <StatItem title={`Updated`} icon={clockIcon}></StatItem>
                 <p className="paneTitle">Location</p>
-                <StatItem title={removePathPrefix(documentPath)} icon={clockIcon}></StatItem>
+                <StatItem title={removePathPrefix(documentPath)} icon={folderIcon}></StatItem>
             </div>
         </div>
     );
