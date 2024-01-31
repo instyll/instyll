@@ -26,6 +26,16 @@ function StyleContainer({ rightPanelOpen }) {
 
     const updateDocumentFont = (fontSelection) => {
         // change the css --font variable to mono/serif
+        console.log(fontSelection)
+        if (fontSelection === 'default') {
+            document.documentElement.style.setProperty('--font', `"Inter", sans-serif`)
+        } 
+        else if (fontSelection === 'serif') {
+            document.documentElement.style.setProperty('--font', `"PT Serif", serif`)
+        }
+        else if (fontSelection === 'mono') {
+            document.documentElement.style.setProperty('--font', `"JetBrains Mono", monospace`)
+        }
     }
 
     return (
@@ -66,13 +76,19 @@ function StyleContainer({ rightPanelOpen }) {
                 </div>
                 <p className="paneTitle">Font</p>
                 <div className='fontOptionsContainer'>
-                    <button className='fontOptionsButton'>
+                    <button 
+                    className='fontOptionsButton'
+                    onClick={() => updateDocumentFont('default')}>
                         Default
                     </button>
-                    <button className='fontOptionsButton' id='serif'>
+                    <button 
+                    className='fontOptionsButton' id='serif'
+                    onClick={() => updateDocumentFont('serif')}>
                         Serif
                     </button>
-                    <button className='fontOptionsButton' id='mono'>
+                    <button 
+                    className='fontOptionsButton' id='mono'
+                    onClick={() => updateDocumentFont('mono')}>
                         Mono
                     </button>
                 </div>
