@@ -14,7 +14,6 @@ import create from '../icons/create.png'
 import back from '../icons/arrowback.png';
 import forward from '../icons/arrowforward.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSearchSelectors, createSearchAction } from 'redux-search';
 
 function MenuBar(props) {
 

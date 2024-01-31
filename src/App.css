@@ -2539,6 +2539,107 @@
   .lastClickedHeader {
     font-weight: bold;
   }
+
+  .styleContainer {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 20px;
+    /* padding-top: 24px; */
+    overflow: auto;
+    overflow-wrap: break-word;
+  }
+
+  .styleTitleOptionsContainer {
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .titleOptionsButton {
+    padding: 16px;
+    background-color: var(--muted-translucent);
+    color: var(--primary-text);
+    display: inline-block;
+    width: 56px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
+  .titleOptionsButton:nth-child(1) {
+    margin-right: 8px;
+  }
+
+  .titleOptionsButton:nth-child(2) {
+    margin-right: 8px;
+  }
+
+  .titleOptionsButton:hover {
+    background-color: var(--muted-text);
+  }
+
+  .formattingOptionsContainer {
+    margin-top: 8px;
+  }
+
+  .formattingOptionButton {
+    padding: 8px;
+    width: 56px;
+    background-color: var(--muted-translucent);
+    border: none;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
+
+  .formattingOptionButton:nth-child(1) {
+    margin-right: 8px;
+  }
+
+  .formattingOptionButton:nth-child(2) {
+    margin-right: 8px;
+  }
+
+  .formattingOptionButton:nth-child(4) {
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+
+  .formattingOptionButton:nth-child(5) {
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+
+  .formattingOptionButton:hover {
+    background-color: var(--muted-text);
+  }
+
+  .fontOptionsContainer {
+    margin-top: 8px;
+  }
+
+  .fontOptionsButton {
+    padding: 16px;
+    background-color: var(--muted-translucent);
+    color: var(--primary-text);
+    display: inline-block;
+    width: 56px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
+  .fontOptionsButton:nth-child(1) {
+    margin-right: 8px;
+  }
+
+  .fontOptionsButton:nth-child(2) {
+    margin-right: 8px;
+  }
+
+  .fontOptionsButton:hover {
+    background-color: var(--muted-text);
+  }
   
   .stylingContainer {
     padding-left: 20px;
