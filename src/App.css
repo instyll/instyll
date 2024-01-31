@@ -18,6 +18,7 @@
   [data-theme="light"] {
     --bg-color: #fff;
     --primary-text: rgb(41, 37, 36);
+    --primary-text-d: rgb(41, 37, 36);
     --secondary-text: #8a8a8e;
     --muted-text: #e4e4e4;
     /* --muted-text: #f8f8fa; */
@@ -73,6 +74,7 @@
   [data-theme="dark"] {
     --bg-color: #1b1b1b;
     --primary-text: #c5c5c5;
+    --primary-text-d: #c5c5c5;
     --secondary-text: #717374;
     --muted-text: rgba(180, 180, 182, 0.2);
     --slash-selection-color: rgba(180, 180, 182, 0.2);
@@ -412,7 +414,7 @@
     font-family: var(--font);
     /* line-height: 1.4em; */
     white-space: pre-wrap;
-    color: var(--primary-text);
+    color: var(--primary-text-d);
     width: 100%;
     box-sizing: border-box;
     bottom: 0;
@@ -2628,9 +2630,16 @@
     border: none;
     border-radius: 8px;
     transition: 0.2s;
-    margin-bottom: 8px;
     font-family: var(--font);
     font-size: 1em;
+  }
+
+  .fontOptionsButton:nth-child(1) {
+    margin-bottom: 8px;
+  }
+
+  .fontOptionsButton:nth-child(2) {
+    margin-bottom: 8px;
   }
 
   .fontOptionsButton:hover {
@@ -2655,7 +2664,60 @@
     padding-bottom: 20px;
     overflow: auto;
   }
+
+  .colorOptionsContainer {
+    margin-top: 8px;
+  }
   
+  .colorOptionsButton {
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    width: 56px;
+  }
+
+  #red {
+    background-color: red;
+  }
+
+  #blue {
+    background-color: #5271ff;
+  }
+
+  #defaultColor {
+    background-color: var(--primary-text);
+  }
+
+  #green {
+    background-color: green;
+  }
+
+  #purple {
+    background-color: purple;
+  }
+
+  #pink {
+    background-color: magenta;
+  }
+
+  .colorOptionsButton:nth-child(1) {
+    margin-right: 8px;
+  }
+
+  .colorOptionsButton:nth-child(2) {
+    margin-right: 8px;
+  }
+
+  .colorOptionsButton:nth-child(4) {
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+
+  .colorOptionsButton:nth-child(5) {
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+
   .selectPDFButtonContainer {
     position: absolute;
     top: 50%;
@@ -4252,6 +4314,7 @@
     height: 32px;
     transition: 0.2s;
     background-color: var(--bg-color);
+    font-family: var(--font);
   }
 
   .queryResultContainer selected {

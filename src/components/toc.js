@@ -17,6 +17,10 @@ import calendar from '../icons/calendar.png';
 import help from '../icons/help.png';
 import feedback from '../icons/feedback.png';
 import banner from '../icons/key500.png';
+import bannerRed from '../icons/keyRed.png'
+import bannerGreen from '../icons/keyGreen.png'
+import bannerPurple from '../icons/keyPurple.png'
+import bannerPink from '../icons/keyPink.png'
 import closeTOC from '../icons/doubleleft.png';
 import settings from '../icons/settings.png';
 import cmd from '../icons/cmd.png';
@@ -48,6 +52,35 @@ function TableOfContents(props) {
     toggleThemeMin();
   }, []);
 
+  // const primaryTextD = document.documentElement.style.getPropertyValue('--primary-text-d');
+  // Map primaryTextD value to the appropriate banner image
+
+  const [primaryTextD, setPrimaryTextD] = useState(getComputedStyle(document.documentElement).getPropertyValue('--primary-text-d').trim());
+  
+    useEffect(() => {
+      const handleUpdate = () => {
+        setPrimaryTextD(getComputedStyle(document.documentElement).getPropertyValue('--primary-text-d').trim());
+      };
+  
+      window.addEventListener('colorChange', handleUpdate);
+  
+      return () => {
+        window.removeEventListener('colorChange', handleUpdate);
+      };
+    }, []);
+
+  const bannerMap = {
+    '#c5c5c5': banner,
+    'rgb(41, 37, 36)': banner,
+    'red': bannerRed,
+    'green': bannerGreen,
+    'purple': bannerPurple,
+    'magenta': bannerPink,
+  };
+
+  // Determine the src value based on primaryTextD
+  const src = bannerMap[primaryTextD] || banner;
+
   return (
     <div className="tableOfContents" style={{
       width: props.tocOpen ? "240px" : "130px",
@@ -58,7 +91,15 @@ function TableOfContents(props) {
         <div className="tocBanner" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
-          <img src={banner} className="tocBannerIcon" draggable={false}></img>
+          <img 
+          src={src}
+          // {document.documentElement.style.getPropertyValue('--primary-text-d') == '#c5c5c5' 
+          // || document.documentElement.style.getPropertyValue('--primary-text-d') == 'rgb(41, 37, 36)' 
+          // ? banner : document.documentElement.style.getPropertyValue('--primary-text-d') == 'red' 
+          // ? bannerRed : document.documentElement.style.getPropertyValue('--primary-text-d') == 'green' ? bannerGreen :
+          // document.documentElement.style.getPropertyValue('--primary-text-d') == 'purple' ? bannerPurple 
+          // : document.documentElement.style.getPropertyValue('--primary-text-d') == 'pink' ? bannerPink : banner} 
+          className="tocBannerIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>}
           <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={props.handleToc} style={{
             marginLeft: props.tocOpen ? "67px" : "23px",

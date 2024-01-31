@@ -23,6 +23,7 @@ import { useSelector } from 'react-redux';
 function StyleContainer({ rightPanelOpen }) {
 
     const [selectedFont, setSelectedFont] = useState(null)
+    const [selectedColor, setSelectedColor] = useState(null)
     const documentPath = useSelector((state) => state.path.path)
 
     const updateDocumentFont = (fontSelection) => {
@@ -39,6 +40,39 @@ function StyleContainer({ rightPanelOpen }) {
         else if (fontSelection === 'mono') {
             setSelectedFont(fontSelection)
             document.documentElement.style.setProperty('--font', `"JetBrains Mono", monospace`)
+        }
+    }
+
+    const updateDocumentColor = (colorSelection) => {
+        if (colorSelection == 'defaultColor') {
+            if (document.querySelector("html").getAttribute("data-theme") == "dark") {
+                document.documentElement.style.setProperty('--primary-text-d', `#c5c5c5`)
+                document.documentElement.style.setProperty('--button-highlight', `#5271ff`)
+            } else {
+                document.documentElement.style.setProperty('--primary-text-d', `rgb(41, 37, 36)`)
+                document.documentElement.style.setProperty('--button-highlight', `#5271ff`)
+            }
+            window.dispatchEvent(new Event('colorChange'));
+        } else if (colorSelection == 'red') {
+            document.documentElement.style.setProperty('--primary-text-d', `red`)
+            document.documentElement.style.setProperty('--button-highlight', `red`)
+            window.dispatchEvent(new Event('colorChange'));
+        } else if (colorSelection == 'blue') {
+            document.documentElement.style.setProperty('--primary-text-d', `#5271ff`)
+            document.documentElement.style.setProperty('--button-highlight', `#5271ff`)
+            window.dispatchEvent(new Event('colorChange'));
+        } else if (colorSelection == 'green') {
+            document.documentElement.style.setProperty('--primary-text-d', `green`)
+            document.documentElement.style.setProperty('--button-highlight', `green`)
+            window.dispatchEvent(new Event('colorChange'));
+        } else if (colorSelection == 'purple') {
+            document.documentElement.style.setProperty('--primary-text-d', `purple`)
+            document.documentElement.style.setProperty('--button-highlight', `purple`)
+            window.dispatchEvent(new Event('colorChange'));
+        } else if (colorSelection == 'pink') {
+            document.documentElement.style.setProperty('--primary-text-d', `magenta`)
+            document.documentElement.style.setProperty('--button-highlight', `magenta`)
+            window.dispatchEvent(new Event('colorChange'));
         }
     }
 
@@ -95,6 +129,45 @@ function StyleContainer({ rightPanelOpen }) {
                     onClick={() => updateDocumentFont('mono')}>
                         Mono
                     </button>
+                    <p className="paneTitle">Color</p>
+                    <div className='colorOptionsContainer'>
+                        <button 
+                        className='colorOptionsButton' id='defaultColor'
+                        onClick={() => updateDocumentColor('defaultColor')}
+                        >
+
+                        </button>
+                        <button 
+                        className='colorOptionsButton' id='red'
+                        onClick={() => updateDocumentColor('red')}
+                        >
+                            
+                        </button>
+                        <button 
+                        className='colorOptionsButton' id='blue'
+                        onClick={() => updateDocumentColor('blue')}
+                        >
+                            
+                        </button>
+                        <button 
+                        className='colorOptionsButton' id='green'
+                        onClick={() => updateDocumentColor('green')}
+                        >
+                            
+                        </button>
+                        <button 
+                        className='colorOptionsButton' id='purple'
+                        onClick={() => updateDocumentColor('purple')}
+                        >
+                            
+                        </button>
+                        <button 
+                        className='colorOptionsButton' id='pink'
+                        onClick={() => updateDocumentColor('pink')}
+                        >
+                            
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
