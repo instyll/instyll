@@ -3846,7 +3846,7 @@
   .selectSortOptionContainer {
     /* display: inline-block; */
     float: right;
-    margin-top: 26px;
+    margin-top: 24px;
     width: fit-content;
     margin-left: 16px;
     vertical-align: middle;
@@ -3855,7 +3855,7 @@
   .changeTopicViewButtonContainer {
     /* display: inline-block; */
     float: right;
-    margin-top: 26px;
+    margin-top: 24px;
     width: fit-content;
     margin-left: 16px;
     vertical-align: middle;
