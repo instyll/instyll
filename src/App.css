@@ -2452,13 +2452,13 @@
     padding-left: 28px;
     padding-right: 28px;
     padding-bottom: 20px;
-    padding-top: 24px;
+    /* padding-top: 24px; */
     overflow: auto;
     overflow-wrap: break-word;
   }
 
   .pageActionItem {
-    padding-bottom: 8px;
+    margin-top: 8px;
   }
 
   .pageActionButton {
