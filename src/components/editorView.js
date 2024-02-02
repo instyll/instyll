@@ -1,7 +1,7 @@
 /**
  * @author wou
  */
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTags, removeTag } from '../documentSlice.js';
 import Sizzle from 'sizzle'
@@ -78,6 +78,8 @@ const EditorView = () => {
       });
 
     // console.log(documentContent)
+
+    const documentRef = useRef();
 
     const handleDock = () => {
         setDockOpen((prevState) => !prevState)
@@ -420,7 +422,7 @@ const EditorView = () => {
 
                                     <MilkdownProvider>
                                         <ProsemirrorAdapterProvider>
-                                            <MilkdownEditor documentPath={documentPath} documentContents={documentContent}/>
+                                            <MilkdownEditor documentPath={documentPath} documentContents={documentContent} ref={documentRef}/>
                                         </ProsemirrorAdapterProvider>
                                     </MilkdownProvider>
 
@@ -453,7 +455,7 @@ const EditorView = () => {
                                 </StatContainer>
                             )}
                             {rightPanelSetting === "info" && (
-                                <PageActionContainer>
+                                <PageActionContainer documentPath={documentPath} documentRef={documentRef}>
 
                                 </PageActionContainer>
                             )}

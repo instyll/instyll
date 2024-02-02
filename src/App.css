@@ -676,6 +676,7 @@
     position: relative;
     background-size: cover;
     transition: 0.2s;
+    font-family: var(--font);
   }
 
   .zapItemLabel {
