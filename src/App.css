@@ -2540,8 +2540,8 @@
     border-radius: 10px;
   }
   
-  .lastClickedHeader {
-    font-weight: bold;
+  .headerNav.lastClickedHeader {
+    font-weight: bold !important;
   }
 
   .styleContainer {

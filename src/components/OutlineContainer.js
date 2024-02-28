@@ -22,7 +22,7 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
           {tocHeaders.map((header, index) => (
             <div
               key={index}
-              className={`outlineElement ${lastClickedHeader === header ? 'lastClickedHeader' : ''}`}
+              className={`outlineElement`}
               style={{
                 paddingLeft:
                   header.type === 'H2' ? '20px' :
@@ -32,18 +32,10 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
                   header.type === 'H6' ? '100px' : '5px',
               }}
             >
-              {/* <a
-                href={`#${header.id}`}
-                className="headerNav"
-                onClick={() => handleHeaderClick(header)}
-              >
-                {header.text}
-              </a> */}
-              {/* <ScrollToHashElement />
-              <Link to={`#${header.id}`} className='headerNav'>
-              {header.text}
-              </Link> */}
-              <button className='headerNav' onClick={() => document.getElementById(`${header.id}`).scrollIntoView()}>
+              <button className={`headerNav ${lastClickedHeader === header ? 'lastClickedHeader' : ''}`} onClick={() => {
+                document.getElementById(`${header.id}`).scrollIntoView();
+                setLastClickedHeader(header)
+                }}>
                 {header.text}
               </button>
             </div>
