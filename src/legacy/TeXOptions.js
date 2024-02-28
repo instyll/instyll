@@ -407,4 +407,4 @@ const options = [
     { label: "\\Z", type: "text", apply: "\\Z" },
 ];
 
-module.exports = options;
+export default options;

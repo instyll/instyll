@@ -61,6 +61,7 @@ const EditorView = () => {
 
     const {state} = useLocation();
     const { documentPath, documentContent } = state;
+    console.log("the loaded state " + state)
 
     const dispatch = useDispatch();
 
