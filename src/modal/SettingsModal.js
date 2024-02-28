@@ -14,14 +14,20 @@ dotenv.config();
 
 const SettingsModal = ({ show, onHide }) => {
 
+  const [selectedOption, setSelectedOption] = useState("s");
+
+  const handleSelectOption = (option) => {
+    setSelectedOption(option);
+    console.log(selectedOption)
+  }
+
   return (
     <Modal
       isOpen={show}
       onRequestClose={onHide}
       style={{
         overlay: {
-          // backgroundColor: "var(--bg-color)",
-          backgroundColor: "transparent",
+          backgroundColor: "rgba(0, 0, 0, 0.1)",
           zIndex: "999",
           backdropFilter: "blur(10px)",
         },
@@ -35,16 +41,84 @@ const SettingsModal = ({ show, onHide }) => {
           fontSize: "1em",
           boxSizing: "border-box",
           width: "600px",
-          height: "400px",
+          height: "300px",
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
+          padding: "0px",
         },
       }}
     >
       <div className="settingsContainer">
-     test
+        <div className="settingsWrapper">
+          <div className="settingsPaneContainer">
+            <div className="settingsPaneOptionsContainer">
+              <div className="settingsOptionsTitle">
+                Settings
+              </div>
+              <div>
+              <button 
+              className={`settingsPaneOption ${selectedOption === 's' ? 'selected' : ''}`}
+              onClick={() => handleSelectOption("s")}>
+                Editor
+              </button>
+              </div>
+              <div>
+              <button 
+              className={`settingsPaneOption ${selectedOption === 'f' ? 'selected' : ''}`}
+              onClick={() => handleSelectOption("f")}>
+                Files
+              </button>
+              </div>
+              <div>
+              <button 
+              className={`settingsPaneOption ${selectedOption === 'a' ? 'selected' : ''}`}
+              onClick={() => handleSelectOption("a")}>
+                Appearance
+              </button>
+              </div>
+            </div>
+          </div>
+          <div className="settingsContentContainer">
+            {
+              selectedOption == 's' ?
+              <div className="settingOptionContainer">
+                <div className="editorSettings">
+                  <span className="editorSettingsTitle">
+                    Max editor width
+                  </span>
+                  <div className="widthSelector">
+                    <div className="third">
+                      500px
+                    </div>
+                    <div className="third">
+                      600px
+                    </div>
+                    <div className="third">
+                      700px
+                    </div>
+                  </div>
+                </div>
+              </div> 
+              : selectedOption == 'f' ?
+              <div className="settingOptionContainer">
+                  <div className="editorSettings">
+                  <span className="editorSettingsTitle">
+                    File location
+                  </span>
+                </div>
+              </div> :
+              <div className="settingOptionContainer">
+                  <div className="editorSettings">
+                  <span className="editorSettingsTitle">
+                    Theme
+                  </span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
       </div>
     </Modal>
   );

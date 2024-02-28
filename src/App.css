@@ -4344,3 +4344,91 @@
     vertical-align: middle;
     margin-top: 5px
   }
+
+  .settingsWrapper {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font);
+    padding-right: 24px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    position: relative;
+  }
+
+  .settingsPaneContainer {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    height: 300px;
+    background-color: var(--elevated-bg);
+  }
+
+  .settingsPaneOptionsContainer {
+    padding: 16px;
+    display: block;
+  }
+
+  .settingsPaneOption {
+    padding: 8px;
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--primary-text);
+    background-color: transparent;
+    border: none;
+    transition: 0.2s;
+    border-radius: 8px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .settingsPaneOption:hover {
+    background-color: var(--muted-text);
+  }
+
+  .settingsOptionsTitle {
+    color: var(--secondary-text);
+    font-size: 12px;
+    font: var(--font);
+    padding-left: 6px;
+    margin-bottom: 8px;
+  }
+
+  .settingsContentContainer {
+    position: absolute;
+    right: 0;
+    width: 400px;
+    height: 300px;
+  }
+
+  .editorSettings {
+    height: 100%;
+    padding: 24px;
+    color: var(--secondary-text);
+    box-sizing: border-box;
+    margin-left: -20px;
+  }
+
+  .editorSettingsTitle {
+    font-size: 16px;
+    width: fit-content;
+  }
+
+  .settingOptionContainer {
+    height: 100%;
+  }
+
+  .widthSelector {
+    margin-top: 16px;
+  }
+
+  .third {
+    height: 48px;
+    width: 110px;
+    border-radius: 8px;
+    background-color: var(--elevated-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+  }
