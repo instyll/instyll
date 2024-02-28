@@ -2520,8 +2520,16 @@
     padding-right: 28px;
     padding-bottom: 20px;
     /* padding-top: 24px; */
-    overflow: auto;
+    /* overflow: auto; */
+    height: fit-content;
+    overflow-y: scroll;
     overflow-wrap: break-word;
+  }
+
+  .outlineWrapper {
+    height: 100vh;
+    /* overflow: scroll; */
+    overflow-y: scroll;
   }
   
   .outlineElement {
@@ -2927,7 +2935,7 @@
   /* elements */
   h1 {
     font-size: 1.8em;
-    line-height: 1.1em;
+    line-height: 1.15em;
     font-weight: 700;
     vertical-align: top;
   }

@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Link, useLocation } from 'react-router-dom';
+import SettingsModal from '../modal/SettingsModal';
 
 // assets
 import tags from '../icons/tag2.png';
@@ -26,6 +27,13 @@ import settings from '../icons/settings.png';
 import cmd from '../icons/cmd.png';
 
 function TableOfContents(props) {
+
+  // handle settings modal
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
+  function handleSettingsModal(val) {
+    setSettingsOpen(val);
+  }
 
   /* handle theme toggle from switch */
   function toggleTheme() {
@@ -86,6 +94,7 @@ function TableOfContents(props) {
       width: props.tocOpen ? "240px" : "130px",
       transition: "0.2s",
     }}>
+      <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
       <div className="tableInfo">
 
         <div className="tocBanner" style={{
@@ -172,7 +181,8 @@ function TableOfContents(props) {
           <span className="tocInnerText">Utilities</span></p>
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",
-        }}>
+        }}
+        onClick={() => setSettingsOpen(true)}>
           <img src={settings} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Settings</span>}</p>
        
