@@ -2428,6 +2428,7 @@
   }
   
   .headerNav {
+    text-align: left;
     text-decoration: none;
     opacity: 1;
     color: var(--primary-text);
