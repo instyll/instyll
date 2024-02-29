@@ -16,6 +16,8 @@ const SettingsModal = ({ show, onHide }) => {
 
   const [selectedOption, setSelectedOption] = useState("s");
 
+  const documentsPath = useSelector((state) => state.path.path);
+
   const handleSelectOption = (option) => {
     setSelectedOption(option);
     console.log(selectedOption)
@@ -99,14 +101,31 @@ const SettingsModal = ({ show, onHide }) => {
                       700px
                     </div>
                   </div>
+                  <span className="editorSettingsTitle">
+                    Editor font size
+                  </span>
+                  <div className="widthSelector">
+                    <div className="third">
+                      12px
+                    </div>
+                    <div className="third">
+                      16px
+                    </div>
+                    <div className="third">
+                      20px
+                    </div>
+                  </div>
                 </div>
               </div> 
               : selectedOption == 'f' ?
               <div className="settingOptionContainer">
                   <div className="editorSettings">
                   <span className="editorSettingsTitle">
-                    File location
+                    Files location
                   </span>
+                  <div className="widthSelector">
+                    <span className="fileLocation">{documentsPath}</span>
+                  </div>
                 </div>
               </div> :
               <div className="settingOptionContainer">
