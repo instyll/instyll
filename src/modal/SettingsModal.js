@@ -138,6 +138,14 @@ const SettingsModal = ({ show, onHide }) => {
                   <span className="editorSettingsTitle">
                     Theme
                   </span>
+                  <div className="widthSelector">
+                    <div className="second">
+                      Light
+                    </div>
+                    <div className="second">
+                      Dark
+                    </div>
+                  </div>
                 </div>
               </div>
             }

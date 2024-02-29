@@ -4445,6 +4445,18 @@
     background-color: var(--muted-text);
   }
 
+  .second {
+    height: 40px;
+    width: 168px;
+    border-radius: 8px;
+    background-color: var(--elevated-bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    transition: 0.2s;
+  }
+
   .fileLocationControlButton {
     background-color: var(--button-highlight);
     font-family: var(--font);
