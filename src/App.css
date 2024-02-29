@@ -4444,3 +4444,21 @@
   .third:hover {
     background-color: var(--muted-text);
   }
+
+  .fileLocationControlButton {
+    background-color: var(--button-highlight);
+    font-family: var(--font);
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    transition: 0.2s;
+  }
+
+  .fileLocationControl {
+    margin-top: 16px;
+  }
+
+  .fileLocationControlButton:hover {
+    opacity: 0.9;
+  }

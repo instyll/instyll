@@ -125,6 +125,11 @@ const SettingsModal = ({ show, onHide }) => {
                   </span>
                   <div className="widthSelector">
                     <span className="fileLocation">{documentsPath}</span>
+                    <div className="fileLocationControl">
+                      <button className="fileLocationControlButton">
+                        Change location
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div> :
