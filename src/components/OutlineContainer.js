@@ -15,7 +15,7 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
   };
 
   return (
-    <div>
+    <div className='outline'>
       {rightPanelOpen && (
         <div className='outlineContainer'>
           <p className="paneTitle">Outline</p>

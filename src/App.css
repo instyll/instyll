@@ -2515,6 +2515,10 @@
     text-align: left;
     transition: 0.2s;
   }
+
+  .outline {
+    height: 100vh;
+  }
   
   .outlineContainer {
     padding-left: 28px;
@@ -2522,14 +2526,14 @@
     padding-bottom: 20px;
     /* padding-top: 24px; */
     /* overflow: auto; */
-    height: fit-content;
+    box-sizing: border-box;
+    height: 100vh;
     overflow-y: scroll;
     overflow-wrap: break-word;
   }
 
   .outlineWrapper {
-    height: 100vh;
-    /* overflow: scroll; */
+    height: 100%;
     overflow-y: scroll;
   }
   
