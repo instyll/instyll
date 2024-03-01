@@ -12,7 +12,7 @@
     --nonfocused-opacity: 1;
     --button-highlight: #5271ff;
     --button-highlight-text: #F8F8F8;
-    --font: "system-ui", "Inter", sans-serif;
+    --font: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   }
   
   [data-theme="light"] {
