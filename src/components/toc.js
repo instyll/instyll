@@ -102,12 +102,6 @@ function TableOfContents(props) {
         }}>
           <img 
           src={src}
-          // {document.documentElement.style.getPropertyValue('--primary-text-d') == '#c5c5c5' 
-          // || document.documentElement.style.getPropertyValue('--primary-text-d') == 'rgb(41, 37, 36)' 
-          // ? banner : document.documentElement.style.getPropertyValue('--primary-text-d') == 'red' 
-          // ? bannerRed : document.documentElement.style.getPropertyValue('--primary-text-d') == 'green' ? bannerGreen :
-          // document.documentElement.style.getPropertyValue('--primary-text-d') == 'purple' ? bannerPurple 
-          // : document.documentElement.style.getPropertyValue('--primary-text-d') == 'pink' ? bannerPink : banner} 
           className="tocBannerIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>}
           <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={props.handleToc} style={{
@@ -163,18 +157,6 @@ function TableOfContents(props) {
           {props.tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
 
-        {/* <div className="fileSys">
-          {props.fileNames.map((file, index) => (
-            <button
-              key={index}
-              className="fileElem"
-              onClick={() => props.handleClick(file)}>
-              <img src={note} className="tocIcon"></img>
-              <span className="tocInnerText">{file.replace(/^.*[\\/]/, '')}</span>
-            </button>
-          ))}
-        </div> */}
-
         <p className="tocTitle" id="breakSection" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
@@ -186,35 +168,13 @@ function TableOfContents(props) {
           <img src={settings} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Settings</span>}</p>
        
-          <p className="tocTitle" style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <img src={trash} className="tocIcon" draggable={false}></img>
-          {props.tocOpen && <span className="tocInnerText">Recycling</span>}</p>
-       
         <p className="tocTitle" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
           <img src={cmd} className="tocIcon" draggable={false}></img>
           {props.tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
-       
-        {/* <p className="tocTitle" id="breakSection" style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <span className="tocInnerText">Support</span></p>
-        <p className="tocTitle" style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <img src={help} className="tocIcon" draggable={false}></img>
-          {props.tocOpen && <span className="tocInnerText">Get Help</span>}</p>
-        <p className="tocTitle" style={{
-          textAlign: props.tocOpen ? "left" : "center",
-        }}>
-          <img src={feedback} className="tocIcon" draggable={false}></img>
-          {props.tocOpen && <span className="tocInnerText">Submit Feedback</span>}</p> */}
 
         <div className="bottomToc" style={{
-          // textAlign: props.tocOpen ? "left" : "center",
           left: props.tocOpen ? "auto" : "0",
           right: props.tocOpen ? "auto" : "0",
           marginLeft: props.tocOpen ? "0" : "auto",
