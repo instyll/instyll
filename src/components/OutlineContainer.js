@@ -25,7 +25,7 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
               key={index}
               className={`outlineElement`}
               style={{
-                paddingLeft:
+                marginLeft:
                   header.type === 'H2' ? '20px' :
                   header.type === 'H3' ? '40px' :
                   header.type === 'H4' ? '60px' :
