@@ -14,6 +14,8 @@ export const useSlashState = (instance: Instance) => {
 
   const zapListConst = useSelector((state) => state.zaps.zaps);
 
+  console.log("search len " + search.length)
+
   const zapList = useMemo(() => {
     if (search.length === 0) return [];
     return zapListConst.filter(zapItem => zapItem.toLowerCase().includes(search.toLowerCase()));
@@ -28,7 +30,7 @@ export const useSlashState = (instance: Instance) => {
       const { selection } = state;
       view.dispatch(
         view.state.tr
-          .delete(selection.from - search.length - 1, selection.from)
+          .delete(selection.from - search.length - 3, selection.from)
           .insertText(target)
       );
     },
@@ -65,7 +67,6 @@ export const useSlashState = (instance: Instance) => {
       const editor = getEditor();
       const opened = editor?.ctx.get(zapSlash.key).opened;
       if (!opened) return;
-
       const key = e.key;
       if (key === "ArrowDown") {
         setSelected((s) => (s + 1) % zapList.length);
@@ -75,8 +76,12 @@ export const useSlashState = (instance: Instance) => {
         setSelected((s) => (s - 1 + zapList.length) % zapList.length);
         return;
       }
-      if (key === "Enter") {
+      if (key === "Tab") {
+        // e.stopImmediatePropagation();
+        e.preventDefault();
         getEditor()?.action(onPick);
+        e.preventDefault();
+        return;
       }
     };
 

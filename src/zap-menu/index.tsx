@@ -3,7 +3,7 @@ import { ZapMenu } from "../zap-menu/zapMenu.tsx";
 import { Ctx } from "@milkdown/ctx";
 import { usePluginViewFactory } from "@prosemirror-adapter/react";
 
-const inspectKeys = ["ArrowDown", "ArrowUp", "Enter"];
+const inspectKeys = ["ArrowDown", "ArrowUp", "Tab"];
 
 export const useZapMenu = () => {
   const pluginViewFactory = usePluginViewFactory();

@@ -37,11 +37,11 @@ export const ZapMenuItem: FC<ZapItemProps> = ({
         selected && "emojiMenuItemSelected"
       )}
       onMouseMove={() => setSelected(index)}
-      onMouseDown={(e) => {
-        if (loading) return;
-        e.preventDefault();
-        getEditor().action(onSelect);
-      }}
+      // onMouseDown={(e) => {
+      //   if (loading) return;
+      //   e.preventDefault();
+      //   getEditor().action(onSelect);
+      // }}
     >
       {children}
     </li>

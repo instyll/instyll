@@ -29,6 +29,15 @@ export const EmojiMenuItem: FC<EmojiItemProps> = ({
     }
   }, [selected]);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>) => {
+    if (e.key === "Enter") {
+      console.log("ok")
+      e.preventDefault();
+      if (loading) return;
+      getEditor().action(onSelect);
+    }
+  };
+
   return (
     <li
       ref={listItemRef}
@@ -37,11 +46,19 @@ export const EmojiMenuItem: FC<EmojiItemProps> = ({
         selected && "emojiMenuItemSelected"
       )}
       onMouseMove={() => setSelected(index)}
-      onMouseDown={(e) => {
+      // onMouseDown={(e) => {
+      //   if (loading) return;
+      //   e.preventDefault();
+
+      //   getEditor().action(onSelect);
+      // }}
+      onKeyDown={(e) => {
         if (loading) return;
         e.preventDefault();
+
         getEditor().action(onSelect);
       }}
+      tabIndex={0}
     >
       {children}
     </li>

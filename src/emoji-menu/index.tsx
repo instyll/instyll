@@ -3,7 +3,7 @@ import { EmojiMenu } from "../emoji-menu/emojiMenu.tsx";
 import { Ctx } from "@milkdown/ctx";
 import { usePluginViewFactory } from "@prosemirror-adapter/react";
 
-const inspectKeys = ["ArrowDown", "ArrowUp", "Enter"];
+const inspectKeys = ["ArrowDown", "ArrowUp", "Tab"];
 
 export const useEmojiMenu = () => {
   const pluginViewFactory = usePluginViewFactory();
