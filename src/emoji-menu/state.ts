@@ -29,7 +29,7 @@ export const useSlashState = (instance: Instance) => {
       const { selection } = state;
       view.dispatch(
         view.state.tr
-          .delete(selection.from - search.length - 3, selection.from)
+          .delete(selection.from - search.length - 1, selection.from)
           .insertText(target.emoji)
       );
     },
@@ -76,11 +76,8 @@ export const useSlashState = (instance: Instance) => {
         setSelected((s) => (s - 1 + emojis.length) % emojis.length);
         return;
       }
-      if (key === "Tab") {
-        e.stopImmediatePropagation();
+      if (key === "Enter") {
         getEditor()?.action(onPick);
-        e.preventDefault();
-        return;
       }
     };
 

@@ -30,7 +30,7 @@ export const useSlashState = (instance: Instance) => {
       const { selection } = state;
       view.dispatch(
         view.state.tr
-          .delete(selection.from - search.length - 3, selection.from)
+          .delete(selection.from - search.length - 1, selection.from)
           .insertText(target)
       );
     },
@@ -76,12 +76,9 @@ export const useSlashState = (instance: Instance) => {
         setSelected((s) => (s - 1 + zapList.length) % zapList.length);
         return;
       }
-      if (key === "Tab") {
+      if (key === "Enter") {
         // e.stopImmediatePropagation();
-        e.preventDefault();
         getEditor()?.action(onPick);
-        e.preventDefault();
-        return;
       }
     };
 

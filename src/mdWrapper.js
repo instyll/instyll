@@ -71,23 +71,6 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
 
   const [fileContents, setFileContents] = useState(null); // State to store file contents
 
-  // useEffect(() => {
-  //   const readMarkdown = async () => {
-  //     try {
-  //       const contents = fs.readFileSync(documentPath, 'utf-8');
-  //       console.log(contents)
-  //       setFileContents(contents);
-  //       console.log(fileContents)
-  //     } catch (error) {
-  //       console.error('Error reading file:', error);
-  //     }
-  //   };
-
-  //   readMarkdown();
-  // }, [fileContents]); 
-
-  /* gfm plugins */
-
   const gfmPlugins: MilkdownPlugin[] = useMemo(() => {
     return [
       gfm,
