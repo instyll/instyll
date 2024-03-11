@@ -176,7 +176,7 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
       .use(prism)
       .use(listener)
       .use(clipboard)
-      .use(trailing)
+      // .use(trailing)
       .use(indent)
       .use(gfmPlugins)
       .use(slash.plugins)

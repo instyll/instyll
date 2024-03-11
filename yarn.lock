@@ -2594,7 +2594,7 @@
     tslib "^2.5.0"
     unified "^10.1.0"
 
-"@milkdown/core@^7.2.0":
+"@milkdown/core@^7.3.5":
   version "7.3.5"
   resolved "https://registry.yarnpkg.com/@milkdown/core/-/core-7.3.5.tgz#0e4a3646bb7e103646a5d0d1e570b0c7971f68c0"
   integrity sha512-aynL3fsgAdZReq6I10ZGzSwQC1bbNaNDYC04KjunHfACKaBD65oeK2yG93AvEf97fzGw+mfnVXMnGt6VNbJLuQ==
@@ -2605,12 +2605,20 @@
     tslib "^2.5.0"
     unified "^11.0.3"
 
-"@milkdown/ctx@^7", "@milkdown/ctx@^7.2.1":
+"@milkdown/ctx@^7":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@milkdown/ctx/-/ctx-7.2.3.tgz#bf6bcffafe3b449e0bdee50d98fe3a0c54bd5b07"
   integrity sha512-1ONqdtApfcH4qSmx9vSHHiTwCqt2j8+69VEHVenVYIB7W/FwUI+1mND3cHiMdf3AGeknhXJ+Z7P+sJQE8Dy6/g==
   dependencies:
     "@milkdown/exception" "7.2.3"
+    tslib "^2.5.0"
+
+"@milkdown/ctx@^7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@milkdown/ctx/-/ctx-7.3.5.tgz#81b4f39a7fb61ac190c72a2f50e328db72f23cf5"
+  integrity sha512-p/hk+QS7YtBlkgQqGouhIoz/wPQ/91xBuoxT4Z6zqzWswFW2uR7sham7nTtUU2/AV1LAhlgVU4jn1MFSYtS8FQ==
+  dependencies:
+    "@milkdown/exception" "7.3.5"
     tslib "^2.5.0"
 
 "@milkdown/exception@7.2.0":
@@ -2729,13 +2737,13 @@
     refractor "^4.0.0"
     tslib "^2.5.0"
 
-"@milkdown/plugin-slash@^7.2.3":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@milkdown/plugin-slash/-/plugin-slash-7.2.3.tgz#2d2b4cdf67dff6e6fd83e64c24c6da97c2e35a6b"
-  integrity sha512-jCjrHpP77bOG/Ff9ndIy6HVNreCyHVJuH5GjNiWOleryljUBk8Mu/AWL+HSfw071a4H4+nEkFOPDbzU/OauS+A==
+"@milkdown/plugin-slash@^7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-slash/-/plugin-slash-7.3.5.tgz#8c5e45da9e059491e8628efb78bc747126b6f186"
+  integrity sha512-aYy7VypzLYd99BRqoQNRz7u498qcoYalu0JU7dXZVOGA+763VA7XtLNTIk7jVObBTwSpz3ZE77E77oeUkUEjqQ==
   dependencies:
-    "@milkdown/exception" "7.2.3"
-    "@milkdown/utils" "7.2.3"
+    "@milkdown/exception" "7.3.5"
+    "@milkdown/utils" "7.3.5"
     "@types/lodash.debounce" "^4.0.7"
     lodash.debounce "^4.0.8"
     tippy.js "^6.3.7"
@@ -2871,6 +2879,15 @@
   dependencies:
     "@milkdown/exception" "7.2.3"
     nanoid "^4.0.0"
+    tslib "^2.5.0"
+
+"@milkdown/utils@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-7.3.5.tgz#8cc5191b2aaaac1e061a5ab976a23d6f7d0011a7"
+  integrity sha512-5PLvFDhhkCDBRMRq98q1JHYkTPL/uVD3oLRPM96dbcprlMoi1jjwZ7wqVDOpcGhxoXYo1umQ5hddWjNysDkSSA==
+  dependencies:
+    "@milkdown/exception" "7.3.5"
+    nanoid "^5.0.0"
     tslib "^2.5.0"
 
 "@nextjournal/lang-clojure@^1.0.0":
@@ -3730,9 +3747,9 @@
     "@types/node" "*"
 
 "@types/lodash.debounce@^4.0.7":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.7.tgz#0285879defb7cdb156ae633cecd62d5680eded9f"
-  integrity sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.9.tgz#0f5f21c507bce7521b5e30e7a24440975ac860a5"
+  integrity sha512-Ma5JcgTREwpLRwMM+XwBR7DaWe96nC38uCBDFKZWbNKD+osjVzdpnUSwBcqCptrp16sSOLBAUb50Car5I0TCsQ==
   dependencies:
     "@types/lodash" "*"
 
@@ -3744,9 +3761,9 @@
     "@types/lodash" "*"
 
 "@types/lodash@*":
-  version "4.14.195"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.195.tgz#bafc975b252eb6cea78882ce8a7b6bf22a6de632"
-  integrity sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==
+  version "4.14.202"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.202.tgz#f09dbd2fb082d507178b2f2a5c7e74bd72ff98f8"
+  integrity sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==
 
 "@types/mathjax@^0.0.37":
   version "0.0.37"
@@ -12550,6 +12567,11 @@ nanoid@^4.0.0, nanoid@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-4.0.2.tgz#140b3c5003959adbebf521c170f282c5e7f9fb9e"
   integrity sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==
+
+nanoid@^5.0.0:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-5.0.6.tgz#7f99a033aa843e4dcf9778bdaec5eb02f4dc44d5"
+  integrity sha512-rRq0eMHoGZxlvaFOUdK1Ev83Bd1IgzzR+WJ3IbDJ7QOSdAxYjlurSPqFs9s4lJg29RT6nPwizFtJhQS6V5xgiA==
 
 native-duplexpair@^1.0.0:
   version "1.0.0"
