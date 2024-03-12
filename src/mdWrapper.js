@@ -1,4 +1,4 @@
-/**
+/**from
  * @author wou
  */
 import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
