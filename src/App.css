@@ -3007,7 +3007,7 @@
   }
   
   li::marker {
-    color: var(--secondary-text);
+    color: var(--primary-text);
   }
   
   ul li p {
