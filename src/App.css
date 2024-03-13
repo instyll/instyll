@@ -3433,11 +3433,13 @@
   }
   
   .dashboardGreetingContainer {
-    height: calc(100vh - 96px);
+    height: calc(100vh - 84px);
     padding-left: 27px;
     padding-right: 27px;
     text-align: center;
     overflow: auto;
+    box-sizing: border-box;
+    padding-bottom: 24px;
   }
   
   .greetingDateContainer {
