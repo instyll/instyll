@@ -2960,7 +2960,7 @@
   dependencies:
     tslib "^2.5.0"
 
-"@prosemirror-adapter/react@^0.2.4":
+"@prosemirror-adapter/react@^0.2.6":
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/@prosemirror-adapter/react/-/react-0.2.6.tgz#2375f74d42dad1373f139af2053810ef8fd89ed9"
   integrity sha512-JdDqAJV7FnRyIlnXPP+E0Iu80BQPvHeB+7c0ZfdcHLfVb2BLTNHk6iOoqJmBJmqqHt/KjxXXTmxRUS4EEsjVlg==
@@ -7602,6 +7602,11 @@ electron-builder@23.6.0:
     read-config-file "6.2.0"
     simple-update-notifier "^1.0.7"
     yargs "^17.5.1"
+
+electron-find@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/electron-find/-/electron-find-1.0.7.tgz#12a861fd4f264f897075fff5c2e612556bc21c83"
+  integrity sha512-C2FQJuk8567P2a2loBNwl5c8kwOTQVMB0capgHtPI7zKwZG16X0UxG+sNYZExQfnJ0PA+ecECA/4LcXxQa2TCA==
 
 electron-is-dev@^2.0.0:
   version "2.0.0"

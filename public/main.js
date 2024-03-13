@@ -1,4 +1,5 @@
 const electron = require('electron');
+const { globalShortcut } = require('electron')
 const dotenv = require("dotenv");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -77,10 +78,18 @@ function createWindow() {
         applicationVersion: "0.1.0-beta",
     })
 
+    globalShortcut.register('CommandOrControl+F', () => {
+      mainWindow.webContents.send('on-find');
+    });
+
     mainWindow.on('closed', () => mainWindow = null);
 }
 
 app.on('ready', createWindow);
+
+app.on('browser-window-created', (_, window) => {
+  require("@electron/remote/main").enable(window.webContents)
+})
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {app.quit();}
