@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import TopicOptionsModal from '../../modal/TopicOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
+import { useSelector } from 'react-redux';
 
 const TopicGridItem = ({ tag }) => {
 
@@ -13,6 +14,14 @@ const TopicGridItem = ({ tag }) => {
   const [selectedTopic, setSelectedTopic] = useState(null);
 
   const navigate = useNavigate();
+
+  const containedNotes = useSelector((state) => {
+    const documents = state.documents.documents;
+    const filtered = documents.filter((document) => {
+        return document[4] && document[4].includes(tag);
+    })
+    return filtered;
+  })
 
   const handleTopicOptionsModalOpen = (value) => {
     setTopicOptionsModalOpen(true);
@@ -41,7 +50,7 @@ const TopicGridItem = ({ tag }) => {
             <span>{tag}</span>
           </div>
           <div className='topicInfo'>
-            <span>3 Notes</span>
+            <span>{containedNotes.length} Notes</span>
           </div>
           <div className='topicOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
