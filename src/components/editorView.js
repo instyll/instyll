@@ -342,8 +342,6 @@ const EditorView = () => {
                     maxDisplayed={500}
                 ></CommandPalette>
 
-                <PageSearch></PageSearch>
-
                 <div className='container'>
                     <div className="editingView">
                         <div className="elevatedLeft"

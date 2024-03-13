@@ -146,6 +146,48 @@
   .scroll-allowed {
     height: 100%;
   }
+
+  .find-box {
+    background-color: var(--elevated-bg) !important;
+    padding: 16px !important;
+    border-radius: 8px;
+    box-shadow: none !important;
+    border: 1px solid var(--muted-text);
+  }
+
+  .find-input {
+    font-family: var(--font) !important;
+    padding: 4px;
+    border-radius: 4px !important;
+    background-color: var(--bg-color) !important;
+    border: none !important;
+  }
+
+  .find-matches {
+    font-family: var(--font) !important;
+    color: var(--secondary-text) !important;
+  }
+
+  .find-case {
+    font-family: var(--font) !important;
+    color: var(--secondary-text) !important;
+    background: none !important;
+  }
+
+  .find-back {
+    background: var(--elevated-bg) !important;
+    border: 0px solid var(--elevated-bg) !important;
+  }
+
+  .find-forward {
+    background: none !important;
+    border: 0px solid var(--elevated-bg) !important;
+  }
+
+  .find-close {
+    background: none !important;
+    border: 0px solid var(--elevated-bg) !important;
+  }
   
   .editingView {
     width: 100%;
