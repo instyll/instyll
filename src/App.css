@@ -3575,7 +3575,7 @@
     display: inline-block;
     border: 1px solid var(--muted-text);
     height: 228px;
-    border-radius: 10px;
+    border-radius: 16px;
     margin-top: 28px;
     margin-right: 28px;
     margin-bottom: 28px;
@@ -3673,7 +3673,7 @@
     vertical-align: middle;
     width: calc(100% - 2px);
     border: 1px solid var(--muted-text);
-    border-radius: 10px;
+    border-radius: 16px;
     margin-top: 20px;
     margin-right: 2px;
     color: var(--primary-text);
@@ -3690,7 +3690,7 @@
     width: calc(100%/5 - 25px);
     height: 80px;
     border: 1px solid var(--muted-text);
-    border-radius: 10px;
+    border-radius: 16px;
     margin-top: 28px;
     margin-right: 28px;
     color: var(--primary-text);
@@ -3866,7 +3866,7 @@
     line-height: 80px;
     height: 80px;
     border: 1px solid var(--muted-text);
-    border-radius: 10px;
+    border-radius: 16px;
     margin-top: 20px;
     margin-right: 28px;
     color: var(--primary-text);
@@ -3883,7 +3883,7 @@
     line-height: 80px;
     height: 80px;
     border: 1px solid var(--muted-text);
-    border-radius: 10px;
+    border-radius: 16px;
     margin-top: 28px;
     margin-right: 28px;
     color: var(--primary-text);
@@ -4031,7 +4031,7 @@
     width: calc(100%/5 - 25px);
     height: 110px;
     border: 1px solid var(--muted-text);
-    border-radius: 10px;
+    border-radius: 16px;
     margin-top: 28px;
     margin-right: 28px;
     color: var(--primary-text);
@@ -4104,7 +4104,7 @@
     vertical-align: middle;
     width: calc(100% - 2px);
     border: 1px solid var(--muted-text);
-    border-radius: 10px;
+    border-radius: 16px;
     margin-top: 20px;
     margin-right: 2px;
     color: var(--primary-text);
