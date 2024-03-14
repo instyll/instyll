@@ -50,7 +50,8 @@ const TopicGridItem = ({ tag }) => {
             <span>{tag}</span>
           </div>
           <div className='topicInfo'>
-            <span>{containedNotes.length} Notes</span>
+            {containedNotes.length == 1 && <span>{containedNotes.length} Note</span>}
+            {containedNotes.length > 1 && <span>{containedNotes.length} Notes</span>}
           </div>
           <div className='topicOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
