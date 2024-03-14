@@ -3581,7 +3581,7 @@
     margin-bottom: 28px;
     width: calc(100% / 3 - 21px);
     position: relative;
-  
+    overflow: hidden;
   }
   
   .dashboardSuggestionItem:nth-child(3) {

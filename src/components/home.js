@@ -43,6 +43,9 @@ const Home = () => {
   // get topics from redux
   const tags = useSelector((state) => state.tags.tags);
 
+  // get recent bookmarks to show 
+  const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
+
   const selectedImage = useSelector((state) => state.image);
 
   const handleClick = async (path) => {
@@ -333,22 +336,13 @@ const Home = () => {
                     </Link>
 
                     <div className='dashboardSuggestionItemList'>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
+                    {bookmarkDisplay && bookmarkDisplay.map((bookmark) => (
+                          <div className='dashboardSuggestionItemChild'>
+                            <div className='documentTitle'>{bookmark[1]}</div>
+                            <div className='documentMetadata'>In {bookmark[4]} - {bookmark[2]}</div>
+                          </div>
+                      ))
+                    }
                     </div>
 
                   </div>
