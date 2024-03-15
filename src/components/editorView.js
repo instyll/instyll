@@ -46,15 +46,15 @@ import plus from '../icons/plus.png';
 import { initial } from 'lodash';
 import { fail } from 'assert';
 
-const { ipcRenderer } = require('electron');
-const { getCurrentWebContents } = require('@electron/remote')
-const FindInPage = require('electron-find').FindInPage;
+// const { ipcRenderer } = require('electron');
+// const { getCurrentWebContents } = require('@electron/remote')
+// const FindInPage = require('electron-find').FindInPage;
 
-let findInPage = new FindInPage(getCurrentWebContents());
+// let findInPage = new FindInPage(getCurrentWebContents());
 
-ipcRenderer.on('on-find', (e, args) => {
-  findInPage.openFindWindow();
-});
+// ipcRenderer.on('on-find', (e, args) => {
+//   findInPage.openFindWindow();
+// });
 
 const EditorView = () => {
 

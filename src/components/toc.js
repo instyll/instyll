@@ -100,13 +100,14 @@ function TableOfContents(props) {
         <div className="tocBanner" style={{
           textAlign: props.tocOpen ? "left" : "center",
         }}>
-          <img 
+          {/* <img 
           src={src}
           className="tocBannerIcon" draggable={false}></img>
-          {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>}
+          {props.tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>} */}
           <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={props.handleToc} style={{
-            marginLeft: props.tocOpen ? "67px" : "23px",
-            marginTop: props.tocOpen ? "initial" : "10px",
+            marginLeft: props.tocOpen ? "67px" : "28px",
+            float: props.tocOpen ? "right" : "none",
+            marginTop: props.tocOpen ? "initial" : "36px",
             display: props.tocOpen ? "initial" : "block",
             transform: props.tocOpen ? "none" : "rotate(180deg)",
             transition: "transform 0.3s",
@@ -116,6 +117,7 @@ function TableOfContents(props) {
         <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && props.tocOpen ? 'active' : location.pathname === '/home' && props.tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: props.tocOpen ? "left" : "center",
+            marginTop: props.tocOpen ? "64px" : "32px",
           }}>
             <img src={home} className="tocIcon" draggable={false} />
             {props.tocOpen && <span className="tocInnerText">Dashboard</span>}
@@ -179,7 +181,7 @@ function TableOfContents(props) {
           right: props.tocOpen ? "auto" : "0",
           marginLeft: props.tocOpen ? "0" : "auto",
           marginRight: props.tocOpen ? "0" : "auto",
-          width: props.tocOpen ? "184px" : "69px",
+          width: props.tocOpen ? "192px" : "69px",
         }}>
 
           <div style={{
