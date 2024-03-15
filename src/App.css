@@ -1134,8 +1134,9 @@
   
   .Toastify__toast {
     background-color: var(--elevated-bg) !important;
-    border-radius: 10px;
+    border-radius: 16px !important;
     border: 1px solid var(--muted-text);
+    box-shadow: none !important;
   }
   
   .Toastify__toast-body {
