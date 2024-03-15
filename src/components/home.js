@@ -46,6 +46,8 @@ const Home = () => {
   // get recent bookmarks to show 
   const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
 
+  const recentNoteDisplay = useSelector((state) => state.documents.documents);
+
   const selectedImage = useSelector((state) => state.image);
 
   const handleClick = async (path) => {
@@ -302,20 +304,13 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
 
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
+                    {recentNoteDisplay && recentNoteDisplay.map((recentNote) => (
+                          <div className='dashboardSuggestionItemChild'>
+                            <div className='documentTitle'>{recentNote[1]}</div>
+                            <div className='documentMetadata'>In {recentNote[4]} - {recentNote[2]}</div>
+                          </div>
+                      ))
+                    }
 
                     </div>
 
