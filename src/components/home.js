@@ -48,7 +48,18 @@ const Home = () => {
 
   const recentNoteDisplay = useSelector((state) => state.documents.documents);
 
-  const selectedImage = useSelector((state) => state.image);
+  // generates 3 random notes
+  const randomNoteDisplay = useSelector((state) => {
+    const documents = state.documents.documents;
+    const len = documents.length;
+    var ind1 = Math.floor(Math.random() * len);
+    var ind2 = Math.floor(Math.random() * len);
+    var ind3 = Math.floor(Math.random() * len);
+    const doc1 = documents[ind1];
+    const doc2 = documents[ind2];
+    const doc3 = documents[ind3];
+    return [doc1, doc2, doc3];
+  });
 
   const handleClick = async (path) => {
     const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
@@ -97,14 +108,6 @@ const Home = () => {
       document.body.style.background = '';
     };
   }, [location]);
-
-  useEffect(() => {
-    // Restore the background image when returning to the home location
-    if (selectedImage) {
-      document.body.style.backgroundImage = `url(${selectedImage})`;
-      document.body.style.background = `var(--background-dim), url(${selectedImage})`;
-    }
-  }, [selectedImage]);
 
   const sampleChromeCommand = (suggestion) => {
     const { name, highlight, category, shortcut } = suggestion;
@@ -358,20 +361,13 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
 
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
+                    {randomNoteDisplay && randomNoteDisplay.map((randomNote) => (
+                          <div className='dashboardSuggestionItemChild'>
+                            <div className='documentTitle'>{randomNote[1]}</div>
+                            <div className='documentMetadata'>In {randomNote[4]} - {randomNote[2]}</div>
+                          </div>
+                      ))
+                    }
 
                     </div>
 
