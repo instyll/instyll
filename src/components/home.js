@@ -20,6 +20,7 @@ import { setSelectedImage } from '../imageSlice';
 import TopicSettingModal from '../modal/TopicSettingsModal.js';
 import TopicGridItem from './topic/topicGridItem.js';
 import CreateTopicModal from '../modal/CreateTopicModal.js';
+import DashboardDocumentItem from './dashboardDocumentItem.js';
 import { Link, useLocation } from 'react-router-dom';
 
 
@@ -308,10 +309,7 @@ const Home = () => {
                     <div className='dashboardSuggestionItemList'>
 
                     {recentNoteDisplay && recentNoteDisplay.map((recentNote) => (
-                          <div className='dashboardSuggestionItemChild'>
-                            <div className='documentTitle'>{recentNote[1]}</div>
-                            <div className='documentMetadata'>In {recentNote[4]} - {recentNote[2]}</div>
-                          </div>
+                          <DashboardDocumentItem document={recentNote}></DashboardDocumentItem>
                       ))
                     }
 
@@ -335,10 +333,7 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
                     {bookmarkDisplay && bookmarkDisplay.map((bookmark) => (
-                          <div className='dashboardSuggestionItemChild'>
-                            <div className='documentTitle'>{bookmark[1]}</div>
-                            <div className='documentMetadata'>In {bookmark[4]} - {bookmark[2]}</div>
-                          </div>
+                          <DashboardDocumentItem document={bookmark}></DashboardDocumentItem>
                       ))
                     }
                     </div>
@@ -362,10 +357,7 @@ const Home = () => {
                     <div className='dashboardSuggestionItemList'>
 
                     {randomNoteDisplay && randomNoteDisplay.map((randomNote) => (
-                          <div className='dashboardSuggestionItemChild'>
-                            <div className='documentTitle'>{randomNote[1]}</div>
-                            <div className='documentMetadata'>In {randomNote[4]} - {randomNote[2]}</div>
-                          </div>
+                         <DashboardDocumentItem document={randomNote}></DashboardDocumentItem>
                       ))
                     }
 
