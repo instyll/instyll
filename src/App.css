@@ -2011,7 +2011,7 @@
   }
   
   input:checked+.slider:before {
-    transform: translateX(92px);
+    transform: translateX(96px);
     content: 'Dark';
     color: var(--primary-text);
     text-align: center;
