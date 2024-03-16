@@ -2180,7 +2180,7 @@
     margin-top: 0;
     font-family: var(--font);
     user-select: none;
-  
+    transition: 0.2s;
   }
   
   .tocTitle:hover {
