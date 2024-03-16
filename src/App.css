@@ -3636,7 +3636,7 @@
   .dashboardSuggestionItemChild {
     font-family: var(--font);
     margin-bottom: 6px;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 5px;
     width: calc(100% - 25px);
     transition: 0.2s;
