@@ -26,9 +26,8 @@ const DashboardDocumentItem = ({document}) => {
         readMarkdown();
       }, [fileContents]);
 
-      const updateRouterParams = () => { // because react router v6 is fucking stupid
+      const updateRouterParams = () => {
         navigate('/editor', { state: { documentPath: document[3], documentContent: fileContents } });
-        navigate(0)
       }
 
     return (
