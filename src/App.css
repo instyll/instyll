@@ -131,9 +131,9 @@
     height: 100%;
   }
   
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: none;
-  }
+  } */
   
   .container {
     height: 100%;
@@ -3800,6 +3800,14 @@
     font-size: 15px;
     margin-bottom: 10px;
     line-height: 1.5em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .topicTitle span {
+    display: inline-block;
+    width: 100%;
+    text-overflow: ellipsis;
   }
   
   .topicListTitle {
