@@ -3689,7 +3689,7 @@
   .topicItem {
     display: inline-block;
     vertical-align: middle;
-    width: calc(100%/5 - 25px);
+    width: calc(100%/4 - 23px);
     height: 80px;
     border: 1px solid var(--muted-text);
     border-radius: 16px;
@@ -3701,7 +3701,7 @@
     transition: 0.2s;
   }
   
-  .topicItem:nth-child(5n) {
+  .topicItem:nth-child(4n) {
     margin-right: 0px;
   }
   
@@ -3787,7 +3787,8 @@
     display: inline-block;
     vertical-align: middle;
     margin-left: 20px;
-  }
+    width: 100%;
+  } 
   
   .topicListTextWrapper {
     display: inline-block;
@@ -3800,14 +3801,17 @@
     font-size: 15px;
     margin-bottom: 10px;
     line-height: 1.5em;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    display: inline-block;
+    width: calc(100% - 24px);
   }
 
   .topicTitle span {
     display: inline-block;
-    width: 100%;
+    overflow: hidden;
+    width: calc(100%);
+    white-space: nowrap;
     text-overflow: ellipsis;
+    vertical-align: top;
   }
   
   .topicListTitle {
@@ -3889,7 +3893,7 @@
   .createNewTopicContainer {
     vertical-align: middle;
     display: inline-block;
-    width: calc(100%/5 - 25px);
+    width: calc(100%/4 - 23px);
     line-height: 80px;
     height: 80px;
     border: 1px solid var(--muted-text);
@@ -4013,6 +4017,7 @@
   .documentTextWrapper {
     padding-left: 20px;
     margin-top: 20px;
+    width: 100%;
   }
 
   .documentOptionsMenuContainer {
@@ -4038,7 +4043,7 @@
   .documentItem {
     display: inline-block;
     vertical-align: middle;
-    width: calc(100%/5 - 25px);
+    width: calc(100%/4 - 23px);
     height: 110px;
     border: 1px solid var(--muted-text);
     border-radius: 16px;
@@ -4050,22 +4055,8 @@
     transition: 0.2s;
   }
   
-  .documentItem:nth-child(5n) {
+  .documentItem:nth-child(4n) {
     margin-right: 0px;
-  }
-  
-  @media only screen and (max-width: 1400px) {
-    .documentItem {
-      width: calc(100%/4 - 23px);
-    }
-  
-    .documentItem:nth-child(4n) {
-      margin-right: 0px;
-    }
-  
-    .documentItem:nth-child(5n) {
-      margin-right: 28px !important;
-    }
   }
   
   @media only screen and (min-width: 1001px) and (max-width: 1200px) {
@@ -4095,9 +4086,9 @@
       margin-right: 0px !important;
     }
   
-    .documentItem:nth-child(5n) {
+    /* .documentItem:nth-child(5n) {
       margin-right: 28px !important;
-    }
+    } */
   }
   
   .topicItem:hover {
