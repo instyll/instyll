@@ -43,6 +43,20 @@
     --tooltipText: #f6f6f7;
     --slash-filter: brightness(50%);
     --slash-selection-color: rgba(228, 228, 228, 0.5);
+
+    --contexify-menu-bgColor: var(--bg-color) !important;
+    --contextify-zIndex: 9999 !important;
+    --contexify-separator-color: var(--muted-text) !important;
+    --contexify-item-color: var(--primary-text) !important;
+    --contexify-activeItem-color: var(--primary-text) !important;
+    --contexify-activeItem-bgColor: var(--muted-text) !important;
+    --contexify-rightSlot-color: #6f6e77;
+    --contexify-activeRightSlot-color: #fff;
+    --contexify-arrow-color: #6f6e77;
+    --contexify-activeArrow-color: #fff;
+    --contexify-menu-shadow: none !important;
+    --contexify-menu-radius: 8px !important;
+    --contexify-menu-border: 1px solid var(--muted-text) !important;
   }
   
   [data-theme="beige"] {
@@ -97,6 +111,20 @@
     --code-font: "JetBrains Mono", monospace;
     --tooltipBackground: #1a1a1a;
     --tooltipText: #f6f6f7;
+
+    --contexify-menu-bgColor: var(--bg-color) !important;
+    --contextify-zIndex: 9999 !important;
+    --contexify-separator-color: var(--muted-text) !important;
+    --contexify-item-color: var(--primary-text) !important;
+    --contexify-activeItem-color: var(--primary-text) !important;
+    --contexify-activeItem-bgColor: var(--muted-text) !important;
+    --contexify-rightSlot-color: #6f6e77;
+    --contexify-activeRightSlot-color: #fff;
+    --contexify-arrow-color: #6f6e77;
+    --contexify-activeArrow-color: #fff;
+    --contexify-menu-shadow: none !important;
+    --contexify-menu-radius: 8px !important;
+    --contexify-menu-border: 1px solid var(--muted-text) !important;
   }
 
   
@@ -145,6 +173,10 @@
   
   .scroll-allowed {
     height: 100%;
+  }
+
+  .contexify {
+    border: 1px solid var(--muted-text) !important;
   }
 
   .find-box {
@@ -4025,7 +4057,7 @@
     right: 0;
     top: 0;
     padding-right: 20px;
-    z-index: 999;
+    z-index: 666;
     margin-top: 20px;
   }
 

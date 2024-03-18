@@ -9,6 +9,10 @@ import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
+import 'react-contexify/ReactContexify.css';
+
+const MENU_ID = 'blahblah';
 
 const DocumentGridItem = ({ documentInfo }) => {
 
@@ -16,6 +20,35 @@ const DocumentGridItem = ({ documentInfo }) => {
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [fileContents, setFileContents] = useState(null); // State to store file contents
   const parentRef = useRef(null);
+
+  // context menu
+
+  const { show } = useContextMenu({
+    id: MENU_ID,
+  });
+
+  function handleContextMenu(event){
+      show({
+        event,
+        props: {
+            key: 'value'
+        }
+      })
+  }
+
+  // I'm using a single event handler for all items
+  // but you don't have too :)
+  const handleItemClick = ({ id, event, props }) => {
+    switch (id) {
+      case "copy":
+        console.log(event, props)
+        break;
+      case "cut":
+        console.log(event, props);
+        break;
+      //etc...
+    }
+  }
 
   const navigate = useNavigate();
 
@@ -48,7 +81,12 @@ const DocumentGridItem = ({ documentInfo }) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
-    handleDocumentOptionsModalOpen(true);
+    show({
+      event,
+      props: {
+          key: 'value'
+      }
+    })
     setSelectedDocument(documentInfo);
   }
 
@@ -68,16 +106,28 @@ const DocumentGridItem = ({ documentInfo }) => {
   }, [fileContents]);
 
   return (
-    <div className='documentItem' ref={parentRef}>
+    <div className='documentItem' ref={parentRef} onContextMenu={handleContextMenu}>
 
-      <DocumentOptionsModal
+      {/* <DocumentOptionsModal
         show={documentOptionsModalOpen}
         selectedDocument={selectedDocument}
         documentPath={documentInfo[0]}
         ovRef={parentRef}
         documentObj={documentObj}
         onHide={() => setDocumentOptionsModalOpen(false)}
-      />
+      /> */}
+
+    <Menu id={MENU_ID}>
+      <Item id="copy" onClick={handleItemClick}>Copy</Item>
+      <Item id="cut" onClick={handleItemClick}>Cut</Item>
+      <Separator />
+      <Item disabled>Disabled</Item>
+      <Separator />
+      <Submenu label="Foobar">
+        <Item id="reload" onClick={handleItemClick}>Reload</Item>
+        <Item id="something" onClick={handleItemClick}>Do something else</Item>
+      </Submenu>
+    </Menu>
 
       <div className='documentTextContainer' onClick={() => navigate('/editor', { state: { documentPath: documentInfo[0], documentContent: fileContents } })}>
         <div className='documentTextWrapper'>
