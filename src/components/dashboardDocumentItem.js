@@ -32,8 +32,12 @@ const DashboardDocumentItem = ({document}) => {
 
     return (
         <div className='dashboardSuggestionItemChild' onClick={updateRouterParams}>
+            {document &&
             <div className='documentTitle'>{document[1]}</div>
-            <div className='documentMetadata'>In {document[4]} - {document[2]}</div>
+            }
+            {document &&
+                <div className='documentMetadata'>In {document[4]} - {document[2]}</div>
+            } 
         </div>
     )
 }

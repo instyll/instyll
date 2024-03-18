@@ -9191,6 +9191,11 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+hoist-non-react-statics@^1.0.5:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+  integrity sha512-r8huvKK+m+VraiRipdZYc+U4XW43j6OFG/oIafe7GfDbRpCduRoX9JI/DRxqgtBSCeL+et6N6ibZoedHS2NyOQ==
+
 hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
@@ -13957,6 +13962,14 @@ react-contexify@^6.0.0:
   integrity sha512-jMhz6yZI81Jv3UDj7TXqCkhdkCFEEmvwGCPXsQuA2ZUC8EbCuVQ6Cy8FzKMXa0y454XTDClBN2YFvvmoFlrFkg==
   dependencies:
     clsx "^1.2.1"
+
+react-contextify@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-contextify/-/react-contextify-0.1.0.tgz#f6a7843d4bab95c6fa46342a5f0440c846d15ddd"
+  integrity sha512-1cufyI0T13MKmEO/pqCh4qpG2Ok9mpmQ0EnruZ9rT9BBrFx0BGz1baeA2S5tdokNL3oK3qwEscgUfb67Ok9INw==
+  dependencies:
+    hoist-non-react-statics "^1.0.5"
+    loose-envify "^1.1.0"
 
 react-custom-scrollbars-2@^4.5.0:
   version "4.5.0"
