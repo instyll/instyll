@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
 
-const MENU_ID = 'blahblah';
+const MENU_ID = 'doc';
 
 const DocumentGridItem = ({ documentInfo }) => {
 

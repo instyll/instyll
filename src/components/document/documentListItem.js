@@ -9,10 +9,43 @@ import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
+import 'react-contexify/ReactContexify.css';
+
+const MENU_ID = 'doc';
 
 const DocumentListItem = ({ documentInfo }) => {
 
   const navigate = useNavigate();
+
+    // context menu
+
+    const { show } = useContextMenu({
+      id: MENU_ID,
+    });
+  
+    function handleContextMenu(event){
+        show({
+          event,
+          props: {
+              key: 'value'
+          }
+        })
+    }
+  
+    // I'm using a single event handler for all items
+    // but you don't have too :)
+    const handleItemClick = ({ id, event, props }) => {
+      switch (id) {
+        case "copy":
+          console.log(event, props)
+          break;
+        case "cut":
+          console.log(event, props);
+          break;
+        //etc...
+      }
+    }
 
   const existingTags = useSelector((state) => {
     const documents = state.documents.documents;
@@ -37,7 +70,12 @@ const DocumentListItem = ({ documentInfo }) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
-    handleDocumentOptionsModalOpen(true);
+    show({
+      event,
+      props: {
+          key: 'value'
+      }
+    })
     setSelectedDocument(documentInfo);
   }
 
@@ -59,11 +97,23 @@ const DocumentListItem = ({ documentInfo }) => {
   return (
     <div className='documentListItem'>
       
-      <DocumentOptionsModal
+      {/* <DocumentOptionsModal
         show={documentOptionsModalOpen}
         selectedDocument={selectedDocument}
         onHide={() => setDocumentOptionsModalOpen(false)}
-      />
+      /> */}
+
+    <Menu id={MENU_ID}>
+      <Item id="copy" onClick={handleItemClick}>Copy</Item>
+      <Item id="cut" onClick={handleItemClick}>Cut</Item>
+      <Separator />
+      <Item disabled>Disabled</Item>
+      <Separator />
+      <Submenu label="Foobar">
+        <Item id="reload" onClick={handleItemClick}>Reload</Item>
+        <Item id="something" onClick={handleItemClick}>Do something else</Item>
+      </Submenu>
+    </Menu>
       
       <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
         <div className='documentListTextWrapper'>
