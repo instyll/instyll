@@ -74,7 +74,6 @@ const TopicListItem = ({ tag }) => {
 
     <Menu id={tag}>
         <Item id="rename" onClick={handleItemClick}>Rename</Item>
-        <Item id="save" onClick={handleItemClick}>Bookmark</Item>
         <Item id="delete" onClick={handleItemClick}>Delete</Item>
     </Menu>
 
