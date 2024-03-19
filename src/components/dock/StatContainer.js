@@ -1,15 +1,15 @@
 /**
  * @author wou
  */
-import React, { useState } from 'react';
-import path from 'path'
+import path from 'path';
+import React from 'react';
+import "../../App.css";
 import StatItem from './StatItem';
-import "../App.css";
 
-import wordCountIcon from '../icons/wordCount.png'
-import clockIcon from '../icons/clock.png'
-import folderIcon from '../icons/folder.png'
 import { useSelector } from 'react-redux';
+import clockIcon from '../../icons/clock.png';
+import folderIcon from '../../icons/folder.png';
+import wordCountIcon from '../../icons/wordCount.png';
 
 function StatContainer({ rightPanelOpen }) {
 

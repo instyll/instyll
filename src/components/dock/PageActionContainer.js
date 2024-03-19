@@ -1,21 +1,16 @@
 /**
  * @author wou
  */
-import React, { useState } from 'react';
-import ReactDOMServer from "react-dom/server";
-import jsPDF from 'jspdf'
-import html2canvas from 'html2canvas';
-import html2pdf from 'html2pdf.js'
+import html2pdf from 'html2pdf.js';
 import path from 'path';
+import React from 'react';
+import "../../App.css";
 import PageActionItem from './PageActionItem';
-import "../App.css";
 
-import pdfIcon from '../icons/pdf1.png'
-import mathIcon from '../icons/math.png'
-import gitIcon from '../icons/git.png'
-import bookmarkIcon from '../icons/bookmark.png'
-import deleteIcon from '../icons/trash.png'
-import renameIcon from '../icons/rename.png'
+import bookmarkIcon from '../../icons/bookmark.png';
+import pdfIcon from '../../icons/pdf1.png';
+import renameIcon from '../../icons/rename.png';
+import deleteIcon from '../../icons/trash.png';
 
 function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
 

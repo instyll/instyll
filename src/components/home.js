@@ -3,32 +3,27 @@
  */
 import React, { useEffect, useState } from 'react';
 // import Editor from './legacyEditor.js';
-import { MilkdownEditorWrapper } from '../mdWrapper.js';
-import '../App.css';
-import "highlight.js/styles/github.css";
-import 'katex/dist/katex.min.css'
-import chokidar from 'chokidar'
 import fs from 'fs';
+import "highlight.js/styles/github.css";
+import 'katex/dist/katex.min.css';
 import CommandPalette from 'react-command-palette';
-import sampleHeader from '../command-palette/commandPaletteHeader.js';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
-import DateTime from '../components/dateTime.js';
-import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
-import DailyQuote from '../components/dailyQuote.js';
-import { useSelector, useDispatch } from 'react-redux';
-import { setSelectedImage } from '../imageSlice';
-import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
-import TopicGridItem from './topic/topicGridItem.js';
-import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
-import DashboardDocumentItem from './dashboardDocumentItem.js';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import '../App.css';
+import sampleHeader from '../command-palette/commandPaletteHeader.js';
+import DateTime from '../components/dateTime.js';
+import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
+import { setSelectedImage } from '../imageSlice';
+import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
+import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
+import DashboardDocumentItem from './dashboardDocumentItem.js';
+import TopicGridItem from './topic/topicGridItem.js';
 
 
-import '../command-palette/commandPalette.css';
-import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
+import 'react-calendar/dist/Calendar.css';
+import '../command-palette/commandPalette.css';
 
-import moreDots from '../icons/more.png';
 import createTopic from '../icons/plus1.png';
 
 const Home = () => {

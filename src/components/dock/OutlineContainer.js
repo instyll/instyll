@@ -2,9 +2,7 @@
  * @author wou
  */
 import React, { useState } from 'react';
-import ScrollToHashElement from './editor/ScrollToHashElement';
-import { Link } from 'react-router-dom';
-import "../App.css";
+import "../../App.css";
 
 function OutlineContainer({ tocHeaders, rightPanelOpen }) {
   const [lastClickedHeader, setLastClickedHeader] = useState(null);

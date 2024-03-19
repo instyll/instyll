@@ -1,25 +1,25 @@
 /**
  * @author wou
  */
-import React, { Component, useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTags, removeTag } from '../documentSlice.js';
-import Sizzle from 'sizzle'
+import React, { useEffect, useRef, useState } from 'react';
 import CommandPalette from 'react-command-palette';
+import { useDispatch, useSelector } from 'react-redux';
+import Sizzle from 'sizzle';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
+import { addTags, removeTag } from '../documentSlice.js';
 // import moment from 'moment';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
+import { useLocation } from 'react-router-dom';
+import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
 import TopicModal from '../modal/topic/TopicModal.js';
-import OutlineContainer from '../components/OutlineContainer.js';
-import PaneContainer from './paneContainer.tsx';
-import StatContainer from './StatContainer.js';
-import PageActionContainer from './PageActionContainer.js';
-import StyleContainer from './StyleContainer.js';
-import { BrowserRouter, BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import OutlineContainer from '../components/dock/OutlineContainer.js';
+import PageActionContainer from '../components/dock/PageActionContainer.js';
+import StatContainer from '../components/dock/StatContainer.js';
+import StyleContainer from '../components/dock/StyleContainer.js';
+import PaneContainer from '../components/dock/paneContainer.tsx';
 
-import '../command-palette/commandPalette.css';
-import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
+import 'react-calendar/dist/Calendar.css';
+import '../command-palette/commandPalette.css';
 
 // Plugins
 
@@ -30,21 +30,15 @@ import { MilkdownEditor } from '../mdWrapper.js';
 
 
 // Assets
-import moreDots from '../icons/more.png';
-import exportIcon from '../icons/export.png';
-import star from '../icons/star.png';
 import add from '../icons/add_component2.png';
-import back from '../icons/arrowback.png';
-import stats from '../icons/stats.png';
-import doc from '../icons/document.png';
-import outline from '../icons/outline.png';
-import reference from '../icons/reference.png';
-import edit from '../icons/edit.png';
-import doubleRight from '../icons/doubleright.png'
 import deleteX from '../icons/delete.png';
+import doc from '../icons/document.png';
+import doubleRight from '../icons/doubleright.png';
+import edit from '../icons/edit.png';
+import outline from '../icons/outline.png';
 import plus from '../icons/plus.png';
-import { initial } from 'lodash';
-import { fail } from 'assert';
+import reference from '../icons/reference.png';
+import stats from '../icons/stats.png';
 
 // const { ipcRenderer } = require('electron');
 // const { getCurrentWebContents } = require('@electron/remote')
