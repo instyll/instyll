@@ -40,8 +40,8 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
                 <div onClick={exportPDF}>
                 <PageActionItem title={`Export to PDF`} icon={pdfIcon}></PageActionItem>
                 </div>
-                <PageActionItem title={`Export to LaTeX`} icon={mathIcon}></PageActionItem>
-                <PageActionItem title={`Push to Git`} icon={gitIcon}></PageActionItem>
+                {/* <PageActionItem title={`Export to LaTeX`} icon={mathIcon}></PageActionItem>
+                <PageActionItem title={`Push to Git`} icon={gitIcon}></PageActionItem> */}
             
                 <p className="paneTitle">Actions</p>
 
