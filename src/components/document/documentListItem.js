@@ -104,15 +104,9 @@ const DocumentListItem = ({ documentInfo }) => {
       /> */}
 
     <Menu id={MENU_ID}>
-      <Item id="copy" onClick={handleItemClick}>Copy</Item>
-      <Item id="cut" onClick={handleItemClick}>Cut</Item>
-      <Separator />
-      <Item disabled>Disabled</Item>
-      <Separator />
-      <Submenu label="Foobar">
-        <Item id="reload" onClick={handleItemClick}>Reload</Item>
-        <Item id="something" onClick={handleItemClick}>Do something else</Item>
-      </Submenu>
+      <Item id="rename" onClick={handleItemClick}>Rename</Item>
+      <Item id="save" onClick={handleItemClick}>Bookmark</Item>
+      <Item id="delete" onClick={handleItemClick}>Delete</Item>
     </Menu>
       
       <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
