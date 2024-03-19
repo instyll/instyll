@@ -12,8 +12,6 @@ import { useSelector } from 'react-redux';
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
 
-const MENU_ID = 'doc';
-
 const DocumentListItem = ({ documentInfo }) => {
 
   const navigate = useNavigate();
@@ -21,7 +19,7 @@ const DocumentListItem = ({ documentInfo }) => {
     // context menu
 
     const { show } = useContextMenu({
-      id: MENU_ID,
+      id: documentInfo[0],
     });
   
     function handleContextMenu(event){
@@ -103,7 +101,7 @@ const DocumentListItem = ({ documentInfo }) => {
         onHide={() => setDocumentOptionsModalOpen(false)}
       /> */}
 
-    <Menu id={MENU_ID}>
+    <Menu id={documentInfo[0]}>
       <Item id="rename" onClick={handleItemClick}>Rename</Item>
       <Item id="save" onClick={handleItemClick}>Bookmark</Item>
       <Item id="delete" onClick={handleItemClick}>Delete</Item>

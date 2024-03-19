@@ -8,7 +8,10 @@ import DocumentOptionsModal from '../../modal/DocumentOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useState, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import UpdateDocumentModal from '../../modal/UpdateDocumentModal';
+import { useSelector, useDispatch } from 'react-redux';
+import { addBookmark } from '../../bookmarkSlice';
+import { ToastContainer, toast } from 'react-toastify'
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
 
@@ -16,7 +19,7 @@ const MENU_ID = 'doc';
 
 const DocumentGridItem = ({ documentInfo }) => {
 
-  const [documentOptionsModalOpen, setDocumentOptionsModalOpen] = useState(false);
+  const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [fileContents, setFileContents] = useState(null); // State to store file contents
   const parentRef = useRef(null);
@@ -24,7 +27,7 @@ const DocumentGridItem = ({ documentInfo }) => {
   // context menu
 
   const { show } = useContextMenu({
-    id: MENU_ID,
+    id: documentInfo[0],
   });
 
   function handleContextMenu(event){
@@ -51,6 +54,10 @@ const DocumentGridItem = ({ documentInfo }) => {
   }
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // bookmark toast
+  const notify = () => toast("Note Bookmarked!");
 
   const existingTags = useSelector((state) => {
     const documents = state.documents.documents;
@@ -75,6 +82,14 @@ const DocumentGridItem = ({ documentInfo }) => {
     return null; 
   });
 
+  // bookmark a note
+  const handleBookmark = (doc) => {
+    console.log(documentInfo)
+    // console.log(documentObj)
+    dispatch(addBookmark(documentObj));
+    notify();
+  }
+
   const handleDocumentOptionsModalOpen = (value) => {
     setDocumentOptionsModalOpen(true);
   }
@@ -89,6 +104,10 @@ const DocumentGridItem = ({ documentInfo }) => {
     })
     setSelectedDocument(documentInfo);
   }
+
+  const handleClose = () => {
+    onHide();
+  };
 
   useEffect(() => {
     const readMarkdown = async () => {
@@ -117,9 +136,19 @@ const DocumentGridItem = ({ documentInfo }) => {
         onHide={() => setDocumentOptionsModalOpen(false)}
       /> */}
 
-    <Menu id={MENU_ID}>
-      <Item id="rename" onClick={handleItemClick}>Rename</Item>
-      <Item id="save" onClick={handleItemClick}>Bookmark</Item>
+    <UpdateDocumentModal
+            show={updateDocumentModalOpen}
+            selectedDocument={selectedDocument}
+            documentPath={documentInfo[0]}
+            handleClose={handleClose}
+            onHide={() => {
+                setUpdateDocumentModalOpen(false)
+            }}
+    />
+
+    <Menu id={documentInfo[0]}>
+      <Item id="rename" onClick={() => setUpdateDocumentModalOpen(true)}>Rename</Item>
+      <Item id="save" onClick={() => handleBookmark(selectedDocument)}>Bookmark</Item>
       <Item id="delete" onClick={handleItemClick}>Delete</Item>
     </Menu>
 
