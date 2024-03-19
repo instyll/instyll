@@ -7,6 +7,10 @@ import TopicOptionsModal from '../../modal/TopicOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useSelector } from 'react-redux';
+import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
+import 'react-contexify/ReactContexify.css';
+
+const MENU_ID = 'topic';
 
 const TopicGridItem = ({ tag }) => {
 
@@ -14,6 +18,35 @@ const TopicGridItem = ({ tag }) => {
   const [selectedTopic, setSelectedTopic] = useState(null);
 
   const navigate = useNavigate();
+
+  // context menu
+
+  const { show } = useContextMenu({
+    id: MENU_ID,
+  });
+
+  function handleContextMenu(event){
+      show({
+        event,
+        props: {
+            key: 'value'
+        }
+      })
+  }
+
+  // I'm using a single event handler for all items
+  // but you don't have too :)
+  const handleItemClick = ({ id, event, props }) => {
+    switch (id) {
+      case "copy":
+        console.log(event, props)
+        break;
+      case "cut":
+        console.log(event, props);
+        break;
+      //etc...
+    }
+  }
 
   const containedNotes = useSelector((state) => {
     const documents = state.documents.documents;
@@ -29,20 +62,34 @@ const TopicGridItem = ({ tag }) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
-    console.log("stopped");
-    handleTopicOptionsModalOpen(true);
+    show({
+      event,
+      props: {
+          key: 'value'
+      }
+    })
     setSelectedTopic(tag);
-    // console.log(selectedTopic);
   }
 
   return (
     <div className='topicItem' key={tag}>
 
-      <TopicOptionsModal
+      {/* <TopicOptionsModal
         show={topicOptionsModalOpen}
         selectedTopic={selectedTopic}
         onHide={() => setTopicOptionsModalOpen(false)}
-      />
+      /> */}
+      <Menu id={MENU_ID}>
+        <Item id="copy" onClick={handleItemClick}>Copy</Item>
+        <Item id="cut" onClick={handleItemClick}>Cut</Item>
+        <Separator />
+        <Item disabled>Disabled</Item>
+        <Separator />
+        <Submenu label="Foobar">
+          <Item id="reload" onClick={handleItemClick}>Reload</Item>
+          <Item id="something" onClick={handleItemClick}>Do something else</Item>
+        </Submenu>
+      </Menu>
 
       <div className='topicTextContainer' onClick={() => navigate(`/topics/${tag}`)}>
         <div className='topicTextWrapper'>
