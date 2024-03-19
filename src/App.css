@@ -1165,7 +1165,7 @@
   }
   
   .Toastify__toast {
-    background-color: var(--elevated-bg) !important;
+    background-color: var(--bg-color) !important;
     border-radius: 16px !important;
     border: 1px solid var(--muted-text);
     box-shadow: none !important;
@@ -1174,7 +1174,7 @@
   .Toastify__toast-body {
     font-family: var(--font);
     font-size: 15px;
-    color: var(--secondary-text);
+    color: var(--primary-text);
     margin-top: 0px;
     margin-bottom: 0px;
   }
@@ -3696,7 +3696,7 @@
   .dashboardTopicsContainer {
     list-style-type: none;
     padding-left: 0;
-    overflow: auto;
+    overflow: hidden;
     /* margin-top: 32px; */
     text-align: left;
   }
