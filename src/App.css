@@ -4105,7 +4105,15 @@
     }
   
     .documentItem:nth-child(4n) {
-      margin-right: 28px !important;
+      margin-right: 28px;
+    }
+
+    .documentItem:nth-child(12n) {
+      margin-right: 0px !important;
+    }
+
+    .documentItem:nth-child(15n) {
+      margin-right: 0px !important;
     }
   }
   
