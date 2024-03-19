@@ -3,7 +3,7 @@
  */
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import TopicOptionsModal from '../../modal/TopicOptionsModal';
+import TopicOptionsModal from '../../modal/topic/TopicOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useSelector } from 'react-redux';

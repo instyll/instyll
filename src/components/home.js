@@ -17,9 +17,9 @@ import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
 import DailyQuote from '../components/dailyQuote.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedImage } from '../imageSlice';
-import TopicSettingModal from '../modal/TopicSettingsModal.js';
+import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
 import TopicGridItem from './topic/topicGridItem.js';
-import CreateTopicModal from '../modal/CreateTopicModal.js';
+import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
 import DashboardDocumentItem from './dashboardDocumentItem.js';
 import { Link, useLocation } from 'react-router-dom';
 

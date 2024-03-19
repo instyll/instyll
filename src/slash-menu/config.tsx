@@ -17,7 +17,7 @@ import {
 import { insertTableCommand } from "@milkdown/preset-gfm";
 import { ReactNode, useState } from "react";
 
-import GenAIModal from "../modal/GenAIModal";
+import GenAIModal from "../modal/openai/GenAIModal";
 
 import textIcon from '../icons/TEXT.png'
 import h1Icon from '../icons/H1.png'

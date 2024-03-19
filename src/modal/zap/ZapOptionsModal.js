@@ -1,12 +1,12 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { addZap, removeZap } from '../zapSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../App.css';
+import { removeZap } from '../../zapSlice';
 import UpdateZapModal from './UpdateZapModal';
-import '../App.css';
 
 const ZapOptionsModal = ({ show, onHide, selectedZap }) => {
 

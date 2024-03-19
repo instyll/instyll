@@ -1,14 +1,14 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { addDocument, removeDocument } from '../documentSlice';
-import { addBookmark } from '../bookmarkSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import '../../App.css';
+import { addBookmark } from '../../bookmarkSlice';
+import { removeDocument } from '../../documentSlice';
 import UpdateDocumentModal from './UpdateDocumentModal';
-import { ToastContainer, toast } from 'react-toastify'
-import '../App.css';
 
 const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ovRef, documentObj }) => {
 

@@ -2,7 +2,7 @@
  * @author wou
  */
 import React from 'react';
-import CreateZapModal from "../../modal/CreateZapModal";
+import CreateZapModal from "../../modal/zap/CreateZapModal";
 import "../../App.css";
 
 import createZap from '../../icons/plus1.png';

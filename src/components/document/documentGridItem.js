@@ -4,11 +4,11 @@
 import React from 'react';
 import fs from 'fs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import DocumentOptionsModal from '../../modal/DocumentOptionsModal';
+import DocumentOptionsModal from '../../modal/document/DocumentOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useState, useEffect, useRef } from 'react';
-import UpdateDocumentModal from '../../modal/UpdateDocumentModal';
+import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark } from '../../bookmarkSlice';
 import { removeDocument } from '../../documentSlice';

@@ -1,24 +1,23 @@
 /**
  * @author wou
  */
-import React, { Component } from 'react';
-import '../App.css';
-import "highlight.js/styles/github.css";
-import Sizzle from 'sizzle'
-import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
-import chokidar from 'chokidar'
 import fs from 'fs';
+import "highlight.js/styles/github.css";
+import 'katex/dist/katex.min.css';
+import React, { Component } from 'react';
 import CommandPalette from 'react-command-palette';
+import Sizzle from 'sizzle';
+import '../App.css';
+import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import MenuBar from '../components/menuBar';
 import TableOfContents from '../components/toc.js';
-import sampleHeader from '../command-palette/commandPaletteHeader.js';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
-import TopicModal from '../modal/TopicModal.js';
+import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
+import TopicModal from '../modal/topic/TopicModal.js';
 
-import '../command-palette/commandPalette.css';
-import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
+import 'react-calendar/dist/Calendar.css';
+import '../command-palette/commandPalette.css';
 
 class Layout extends Component {
     constructor(props) {

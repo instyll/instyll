@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import path from 'path';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 // import { executeQuery } from '../db.js'; // You need to create a file for database operations
-import { addDocument, removeDocument, reset } from '../documentSlice.js';
-import { uuid } from 'uuidv4';
 import Modal from 'react-modal';
-import parseAndFormatDate from '../DateUtils.js';
-import { executeFileCreation } from '../actions.js';
-import '../App.css';
+import { uuid } from 'uuidv4';
+import '../../App.css';
+import parseAndFormatDate from '../../DateUtils.js';
+import { executeFileCreation } from '../../actions.js';
+import { addDocument, removeDocument } from '../../documentSlice.js';
 
 const DocumentModal = ({ show, onHide, onAddTags }) => {
 

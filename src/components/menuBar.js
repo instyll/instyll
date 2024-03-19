@@ -3,7 +3,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import DocumentModal from '../modal/CreateDocumentModal';
+import DocumentModal from '../modal/document/CreateDocumentModal';
 import QueryModal from '../modal/QueryModal';
 import classNames from 'classnames';
 import '../App.css';

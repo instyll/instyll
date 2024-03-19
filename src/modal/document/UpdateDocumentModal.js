@@ -1,9 +1,9 @@
 // import { prosePluginsCtx } from '@milkdown/core';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateDocument } from '../documentSlice';
-import '../App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../App.css';
+import { updateDocument } from '../../documentSlice';
 
 const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, handleClose }) => {
 

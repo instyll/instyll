@@ -4,7 +4,7 @@
 import React from 'react';
 import fs from 'fs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import DocumentOptionsModal from '../../modal/DocumentOptionsModal';
+import DocumentOptionsModal from '../../modal/document/DocumentOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useState, useEffect } from 'react';

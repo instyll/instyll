@@ -9,7 +9,7 @@ import CommandPalette from 'react-command-palette';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 // import moment from 'moment';
 import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
-import TopicModal from '../modal/TopicModal.js';
+import TopicModal from '../modal/topic/TopicModal.js';
 import OutlineContainer from '../components/OutlineContainer.js';
 import PaneContainer from './paneContainer.tsx';
 import StatContainer from './StatContainer.js';
