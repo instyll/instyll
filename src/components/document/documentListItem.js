@@ -8,13 +8,17 @@ import DocumentOptionsModal from '../../modal/DocumentOptionsModal';
 import moreDots from '../../icons/menudots.png';
 import '../../App.css';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
+import { ToastContainer, toast } from 'react-toastify'
+import { addBookmark } from '../../bookmarkSlice';
 import 'react-contexify/ReactContexify.css';
 
 const DocumentListItem = ({ documentInfo }) => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const notify = () => toast("Note Bookmarked!");
 
     // context menu
 
@@ -62,9 +66,27 @@ const DocumentListItem = ({ documentInfo }) => {
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [fileContents, setFileContents] = useState(null); // State to store file contents
 
+  // bookmark a note
+  const handleBookmark = (doc) => {
+    console.log(documentInfo)
+    // console.log(documentObj)
+    dispatch(addBookmark(documentObj));
+    notify();
+  }
+  
   const handleDocumentOptionsModalOpen = (value) => {
     setDocumentOptionsModalOpen(true);
   }
+
+  const documentObj = useSelector((state) => {
+    const documents = state.documents.documents;
+    const documentIndex = documents.findIndex(doc => doc[3] === documentInfo[0]);
+
+    if (documentIndex !== -1) {
+      return documents[documentIndex];
+    }
+    return null; 
+  });
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -103,7 +125,7 @@ const DocumentListItem = ({ documentInfo }) => {
 
     <Menu id={documentInfo[0]}>
       <Item id="rename" onClick={handleItemClick}>Rename</Item>
-      <Item id="save" onClick={handleItemClick}>Bookmark</Item>
+      <Item id="save" onClick={handleBookmark}>Bookmark</Item>
       <Item id="delete" onClick={handleItemClick}>Delete</Item>
     </Menu>
       
@@ -128,6 +150,9 @@ const DocumentListItem = ({ documentInfo }) => {
           </div>
       </div>
       </div>
+
+      <ToastContainer />
+
     </div>
   );
 };

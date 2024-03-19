@@ -173,6 +173,9 @@ const DocumentGridItem = ({ documentInfo }) => {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
+
     </div>
   );
 };
