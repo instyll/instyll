@@ -31,7 +31,7 @@ const Initialize = () => {
   }
 
   return (
-    <div className='initialContainer'>
+    <div className='initialContainer drag'>
         <div className='initialWrapper'>
             <h1 className='initialHeading'>Welcome to Instyll</h1>
             <span className='initialVersioning'>Version 0.1.0-beta</span>
