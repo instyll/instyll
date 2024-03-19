@@ -80,15 +80,9 @@ const TopicGridItem = ({ tag }) => {
         onHide={() => setTopicOptionsModalOpen(false)}
       /> */}
       <Menu id={MENU_ID}>
-        <Item id="copy" onClick={handleItemClick}>Copy</Item>
-        <Item id="cut" onClick={handleItemClick}>Cut</Item>
-        <Separator />
-        <Item disabled>Disabled</Item>
-        <Separator />
-        <Submenu label="Foobar">
-          <Item id="reload" onClick={handleItemClick}>Reload</Item>
-          <Item id="something" onClick={handleItemClick}>Do something else</Item>
-        </Submenu>
+        <Item id="rename" onClick={handleItemClick}>Rename</Item>
+        <Item id="save" onClick={handleItemClick}>Bookmark</Item>
+        <Item id="delete" onClick={handleItemClick}>Delete</Item>
       </Menu>
 
       <div className='topicTextContainer' onClick={() => navigate(`/topics/${tag}`)}>
