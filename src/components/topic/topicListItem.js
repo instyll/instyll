@@ -10,8 +10,6 @@ import '../../App.css';
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
 
-const MENU_ID = 'topic';
-
 const TopicListItem = ({ tag }) => {
 
   const [topicOptionsModalOpen, setTopicOptionsModalOpen] = useState(false);
@@ -22,7 +20,7 @@ const TopicListItem = ({ tag }) => {
   // context menu
 
   const { show } = useContextMenu({
-    id: MENU_ID,
+    id: tag,
   });
 
   function handleContextMenu(event){
@@ -74,7 +72,7 @@ const TopicListItem = ({ tag }) => {
   return (
     <div className='topicListItem' key={tag} >
 
-    <Menu id={MENU_ID}>
+    <Menu id={tag}>
         <Item id="rename" onClick={handleItemClick}>Rename</Item>
         <Item id="save" onClick={handleItemClick}>Bookmark</Item>
         <Item id="delete" onClick={handleItemClick}>Delete</Item>

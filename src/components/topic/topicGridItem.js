@@ -10,8 +10,6 @@ import { useSelector } from 'react-redux';
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
 
-const MENU_ID = 'topic';
-
 const TopicGridItem = ({ tag }) => {
 
   const [topicOptionsModalOpen, setTopicOptionsModalOpen] = useState(false);
@@ -22,7 +20,7 @@ const TopicGridItem = ({ tag }) => {
   // context menu
 
   const { show } = useContextMenu({
-    id: MENU_ID,
+    id: tag,
   });
 
   function handleContextMenu(event){
@@ -79,7 +77,7 @@ const TopicGridItem = ({ tag }) => {
         selectedTopic={selectedTopic}
         onHide={() => setTopicOptionsModalOpen(false)}
       /> */}
-      <Menu id={MENU_ID}>
+      <Menu id={tag}>
         <Item id="rename" onClick={handleItemClick}>Rename</Item>
         <Item id="save" onClick={handleItemClick}>Bookmark</Item>
         <Item id="delete" onClick={handleItemClick}>Delete</Item>
