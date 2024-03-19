@@ -11,6 +11,7 @@ import { useState, useEffect, useRef } from 'react';
 import UpdateDocumentModal from '../../modal/UpdateDocumentModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark } from '../../bookmarkSlice';
+import { removeDocument } from '../../documentSlice';
 import { ToastContainer, toast } from 'react-toastify'
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
@@ -90,6 +91,11 @@ const DocumentGridItem = ({ documentInfo }) => {
     notify();
   }
 
+  // delete a note
+  const handleRemoveDocument = (documentItem) => {
+    dispatch(removeDocument(documentItem));
+  }
+
   const handleDocumentOptionsModalOpen = (value) => {
     setDocumentOptionsModalOpen(true);
   }
@@ -149,7 +155,7 @@ const DocumentGridItem = ({ documentInfo }) => {
     <Menu id={documentInfo[0]}>
       <Item id="rename" onClick={() => setUpdateDocumentModalOpen(true)}>Rename</Item>
       <Item id="save" onClick={() => handleBookmark(selectedDocument)}>Bookmark</Item>
-      <Item id="delete" onClick={handleItemClick}>Delete</Item>
+      <Item id="delete" onClick={() => handleRemoveDocument(selectedDocument)}>Delete</Item>
     </Menu>
 
       <div className='documentTextContainer' onClick={() => navigate('/editor', { state: { documentPath: documentInfo[0], documentContent: fileContents } })}>

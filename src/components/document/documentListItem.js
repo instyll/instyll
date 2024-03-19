@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import { ToastContainer, toast } from 'react-toastify'
 import { addBookmark } from '../../bookmarkSlice';
+import { removeDocument } from '../../documentSlice';
 import 'react-contexify/ReactContexify.css';
 
 const DocumentListItem = ({ documentInfo }) => {
@@ -73,6 +74,11 @@ const DocumentListItem = ({ documentInfo }) => {
     dispatch(addBookmark(documentObj));
     notify();
   }
+
+  // delete a note
+  const handleRemoveDocument = (documentItem) => {
+    dispatch(removeDocument(documentItem));
+  }
   
   const handleDocumentOptionsModalOpen = (value) => {
     setDocumentOptionsModalOpen(true);
@@ -126,7 +132,7 @@ const DocumentListItem = ({ documentInfo }) => {
     <Menu id={documentInfo[0]}>
       <Item id="rename" onClick={handleItemClick}>Rename</Item>
       <Item id="save" onClick={handleBookmark}>Bookmark</Item>
-      <Item id="delete" onClick={handleItemClick}>Delete</Item>
+      <Item id="delete" onClick={() => removeDocument(selectedDocument)}>Delete</Item>
     </Menu>
       
       <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
