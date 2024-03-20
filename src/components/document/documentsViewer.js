@@ -23,6 +23,9 @@ import { uuid } from 'uuidv4';
 const DocumentViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
     const [markdownFiles, setMarkdownFiles] = useState([]);
+    const [triggerRerender, setTriggerRerender] = useState(false);
+
+    console.log(triggerRerender)
 
     const documentsPath = useSelector((state) => state.path.path)
     const dispatch = useDispatch();
@@ -76,7 +79,6 @@ const DocumentViewer = ({ location }) => {
                     }
                     // console.log("documents: " + documents)
                     if (documentsRef.current.length == 0) {
-                        console.log("uyes")
                         // if redux store is empty, then add document
                         dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
@@ -96,11 +98,16 @@ const DocumentViewer = ({ location }) => {
         const watcher = chokidar.watch(documentsPath, {
             ignored: /[\/\\]\./, // ignore dotfiles
             persistent: true,
+            usePolling: true,
         });
 
         watcher
-            .on('add', fetchMarkdownFiles)
-            .on('unlink', fetchMarkdownFiles);
+        .on('add', () => {
+            fetchMarkdownFiles();
+        })
+        .on('unlink', () => {
+            fetchMarkdownFiles();
+        });
 
         return () => watcher.close();
     }, []);
