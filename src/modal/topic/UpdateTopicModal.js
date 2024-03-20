@@ -26,6 +26,7 @@ const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
         if (tagToUpdate) {
             dispatch(updateTag({ id: tagToUpdate, newValue: newTag}));
             setNewTag('');
+            onHide();
             handleClose();
         }
     }
