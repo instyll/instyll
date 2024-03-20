@@ -1,19 +1,18 @@
 /**
  * @author wou
  */
-import React from 'react';
 import fs from 'fs';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import DocumentOptionsModal from '../../modal/document/DocumentOptionsModal';
-import moreDots from '../../icons/menudots.png';
+import React, { useEffect, useState } from 'react';
+import { Item, Menu, useContextMenu } from 'react-contexify';
+import 'react-contexify/ReactContexify.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import '../../App.css';
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
-import { ToastContainer, toast } from 'react-toastify'
 import { addBookmark } from '../../bookmarkSlice';
 import { removeDocument } from '../../documentSlice';
-import 'react-contexify/ReactContexify.css';
+import moreDots from '../../icons/menudots.png';
+import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
 
 const DocumentListItem = ({ documentInfo }) => {
 
@@ -66,6 +65,7 @@ const DocumentListItem = ({ documentInfo }) => {
   const [documentOptionsModalOpen, setDocumentOptionsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [fileContents, setFileContents] = useState(null); // State to store file contents
+  const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
 
   // bookmark a note
   const handleBookmark = (doc) => {
@@ -105,6 +105,10 @@ const DocumentListItem = ({ documentInfo }) => {
     setSelectedDocument(documentInfo);
   }
 
+  const handleClose = () => {
+    setUpdateDocumentModalOpen(false);
+  };
+
   useEffect(() => {
     const readMarkdown = async () => {
       try {
@@ -129,10 +133,20 @@ const DocumentListItem = ({ documentInfo }) => {
         onHide={() => setDocumentOptionsModalOpen(false)}
       /> */}
 
+    <UpdateDocumentModal
+            show={updateDocumentModalOpen}
+            selectedDocument={selectedDocument}
+            documentPath={documentInfo[0]}
+            handleClose={handleClose}
+            onHide={() => {
+                setUpdateDocumentModalOpen(false)
+            }}
+    />
+
     <Menu id={documentInfo[0]}>
-      <Item id="rename" onClick={handleItemClick}>Rename</Item>
-      <Item id="save" onClick={handleBookmark}>Bookmark</Item>
-      <Item id="delete" onClick={() => removeDocument(selectedDocument)}>Delete</Item>
+      <Item id="rename" onClick={() => setUpdateDocumentModalOpen(true)}>Rename</Item>
+      <Item id="save" onClick={() => handleBookmark(selectedDocument)}>Bookmark</Item>
+      <Item id="delete" onClick={() => handleRemoveDocument(selectedDocument)}>Delete</Item>
     </Menu>
       
       <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
@@ -141,7 +155,7 @@ const DocumentListItem = ({ documentInfo }) => {
             <span>{documentInfo[1]}</span>
           </div>
           <div className='appendedTagsContainer'>
-          {existingTags.length > 0 ? existingTags.map((tag) => (
+          {existingTags && existingTags.length > 0 ? existingTags.map((tag) => (
               <span
                 key={tag}
                 className="tagItem"
