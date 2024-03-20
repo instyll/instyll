@@ -112,7 +112,7 @@ const DocumentGridItem = ({ documentInfo }) => {
   }
 
   const handleClose = () => {
-    onHide();
+    setUpdateDocumentModalOpen(false);
   };
 
   useEffect(() => {
