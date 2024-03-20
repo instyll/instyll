@@ -39,7 +39,7 @@ const QueryResult = ({ documentInfo, selected }) => {
                 </div>
             </div>
             <div className='queryResultTopicContainer'>
-                {documentInfo[4].map((topic) => (
+                {documentInfo[4] && documentInfo[4].map((topic) => (
                 <span className='tagItem'>{topic}</span>
             ))}
             </div>

@@ -86,7 +86,8 @@ const documentSlice = createSlice({
                     ...state.documents[docIndex].slice(0, 1), 
                     newValue,
                     state.documents[docIndex][2],
-                    path.join(originPath, `${newValue}.md`)
+                    path.join(originPath, `${newValue}.md`),
+                    state.documents[docIndex][4]
                 ];
                 try {
                     fs.rename(documentPath, path.join(originPath, `${newValue}.md`))
