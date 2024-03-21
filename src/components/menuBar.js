@@ -98,6 +98,7 @@ function MenuBar(props) {
       placeholder="Search your notes"
       // onChange={handleSearchQuery}
       onClick={setQueryModalOpen}
+      onInput={setQueryModalOpen}
       >
       </input>
       <button
