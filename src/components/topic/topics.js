@@ -44,7 +44,7 @@ const Topics = () => {
 
     useEffect(() => {
         setTopics(tags);
-    }, [])
+    }, [tags])
 
     const handleClick = async (path) => {
         const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
