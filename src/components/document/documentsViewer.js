@@ -2,7 +2,6 @@
  * @author wou
  */
 import React, { useState, useEffect, useRef } from 'react';
-import fs from 'fs/promises';
 import chokidar from 'chokidar';
 import path from 'path';
 import '../../App.css';
@@ -19,6 +18,9 @@ import DocumentListItem from './documentListItem';
 import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
 import { uuid } from 'uuidv4';
+
+const fs = require('fs');
+const fsp = fs.promises;
 
 const DocumentViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
@@ -59,6 +61,14 @@ const DocumentViewer = ({ location }) => {
                 console.log(selectedOption)
                 const sortedFiles = [...markdownFiles].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
                 setMarkdownFiles(sortedFiles);
+            } else if (selectedOption.value === 'sortByDate') {
+                // extract the date from the date string
+                const sortedFiles = [...markdownFiles].sort((a, b) => {
+                    const timeA = fs.statSync(documentsPath + "/" + a).birthtime;
+                    const timeB = fs.statSync(documentsPath +  "/" + b).birthtime;
+                    return timeA - timeB; // For ascending order
+                });
+                setMarkdownFiles(sortedFiles);
             }
         }
     }, [selectedOption])
@@ -73,7 +83,7 @@ const DocumentViewer = ({ location }) => {
     useEffect(() => {
         const fetchMarkdownFiles = async () => {
             try {
-                const files = await fs.readdir(documentsPath);
+                const files = await fsp.readdir(documentsPath);
                 const markdownFiles = files.filter(file => path.extname(file) === '.md');
                 setMarkdownFiles(markdownFiles);
                 const date = new Date();
