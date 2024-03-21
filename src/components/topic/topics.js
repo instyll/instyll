@@ -208,9 +208,8 @@ const Topics = () => {
 
     /* options for sorting topics */
     const options = [
-        { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },
-        { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
+        // { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
 
     //sort by selected option
