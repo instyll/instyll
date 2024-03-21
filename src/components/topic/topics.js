@@ -1,7 +1,7 @@
 /**
  * @author wou
  */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Editor from './legacyEditor.js';
 import "allotment/dist/style.css";
 import fs from 'fs';
@@ -35,10 +35,16 @@ const Topics = () => {
     const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
     const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
     const [topicGridLayout, setTopicGridLayout] = useState(true);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [topics, setTopics] = useState([]);
 
     const dispatch = useDispatch();
 
     const tags = useSelector((state) => state.tags.tags);
+
+    useEffect(() => {
+        setTopics(tags);
+    }, [])
 
     const handleClick = async (path) => {
         const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
@@ -207,6 +213,16 @@ const Topics = () => {
         { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
 
+    //sort by selected option
+    useEffect(() => {
+        if (selectedOption) {
+            if (selectedOption.value === 'sortByName') {
+                const sortedTopics = [...topics].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+                setTopics(sortedTopics);
+            }
+        }
+    }, [selectedOption])
+
     return (
         <div className="EditorView">
 
@@ -257,6 +273,7 @@ const Topics = () => {
                                 </div>
                                 <div className='selectSortOptionContainer'>
                                     <Select
+                                        onChange={(value) => setSelectedOption(value)}
                                         options={options}
                                         placeholder="Sort by..."
                                         styles={{
@@ -311,12 +328,12 @@ const Topics = () => {
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
 
-                                {topicGridLayout ? tags.map((tag) => (
+                                {topicGridLayout ? topics.map((tag) => (
 
                                         <TopicGridItem tag={tag}>
                                         </TopicGridItem>
                                 
-                                )): tags.map((tag) => (
+                                )): topics.map((tag) => (
                                     <TopicListItem tag={tag}>
                                     </TopicListItem>
                                 ))}
