@@ -44,7 +44,6 @@ const TopicNoteViewer = ({ location }) => {
 
     /* options for sorting topics */
     const options = [
-        { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },
         { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
