@@ -1,13 +1,14 @@
 /**
  * @author wou
  */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 // import Editor from './legacyEditor.js';
 import "allotment/dist/style.css";
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
 import Select from 'react-select';
+import fs from 'fs';
 import '../../App.css';
 import DocumentGridItem from '../document/documentGridItem';
 import DocumentListItem from '../document/documentListItem';
@@ -22,15 +23,22 @@ import layoutList from '../../icons/layoutList.png';
 
 const TopicNoteViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [notes, setNotes] = useState([])
     const { topicId } = useParams();
+    const documentsPath = useSelector((state) => state.path.path)
 
     const containedNotes = useSelector((state) => {
         const documents = state.documents.documents;
         const filtered = documents.filter((document) => {
             return document[4] && document[4].includes(topicId);
         })
-        return filtered;
+        return filtered
     })
+
+    useEffect(() => {
+        setNotes(containedNotes);
+    }, [])
 
     /* Handle grid or list layout */
     const handleChangeDocumentViewLayout = () => {
@@ -45,8 +53,26 @@ const TopicNoteViewer = ({ location }) => {
     /* options for sorting topics */
     const options = [
         { value: 'sortByName', label: 'Sort by name' },
-        { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
+        { value: 'sortByDate', label: 'Sort by date' }
     ];
+
+    // sort by selected option
+    useEffect(() => {
+        if (selectedOption) {
+            if (selectedOption.value === 'sortByName') {
+                const sortedFiles = [...containedNotes].sort((a, b) => a[1].toLowerCase().localeCompare(b[1].toLowerCase()));
+                setNotes(sortedFiles);
+            }
+            else if (selectedOption.value === 'sortByDate') {
+                const sortedFiles = [...containedNotes].sort((a, b) => {
+                    const timeA = fs.statSync(a[3]).birthtime;
+                    const timeB = fs.statSync(b[3]).birthtime;
+                    return timeA - timeB; // For ascending order
+                });
+                setNotes(sortedFiles);
+            }
+        }
+    }, [selectedOption])
 
     /* placeholder document info */
     const documentTestInfo = ["document name", 300]
@@ -76,6 +102,7 @@ const TopicNoteViewer = ({ location }) => {
                                 </div>
                                 <div className='selectSortOptionContainer'>
                                     <Select
+                                        onChange={(value) => setSelectedOption(value)}
                                         options={options}
                                         placeholder="Sort by..."
                                         styles={{
@@ -132,12 +159,12 @@ const TopicNoteViewer = ({ location }) => {
                                 {documentGridLayout ? 
                                 // <DocumentGridItem documentInfo={documentTestInfo}>
                                 // </DocumentGridItem>
-                                containedNotes.map((doc) => (
+                                notes.map((doc) => (
                                     <DocumentGridItem key={doc[0]} documentInfo={[doc[3], doc[1]]}>
                                     </DocumentGridItem>
                                 ))
                                 :
-                                containedNotes.map((doc) => (
+                                notes.map((doc) => (
                                     <DocumentListItem key={doc[0]} documentInfo={[doc[3], doc[1]]}>
                                     </DocumentListItem>
                                 ))
