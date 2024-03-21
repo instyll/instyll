@@ -68,7 +68,7 @@ const QueryModal = ({ show, onHide }) => {
           backdropFilter: "blur(10px)",
         },
         content: {
-          backgroundColor: "var(--bg-color)",
+          backgroundColor: "transparent",
           color: "var(--primary-text)",
           fontFamily: "Inter",
           borderRadius: "10px",
