@@ -24,6 +24,7 @@ const DocumentViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
     const [markdownFiles, setMarkdownFiles] = useState([]);
     const [triggerRerender, setTriggerRerender] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
 
     console.log(triggerRerender)
 
@@ -44,11 +45,23 @@ const DocumentViewer = ({ location }) => {
     const options = [
         { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },
-        { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
 
-    const documents = useSelector((state) => state.documents.documents)
+    const documents = useSelector((state) => state.documents.documents);
     console.log("documents: " + documents)
+
+    console.log(selectedOption)
+
+    // sort by selected option
+    useEffect(() => {
+        if (selectedOption) {
+            if (selectedOption.value === 'sortByName') {
+                console.log(selectedOption)
+                const sortedFiles = [...markdownFiles].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+                setMarkdownFiles(sortedFiles);
+            }
+        }
+    }, [selectedOption])
 
     const documentsRef = useRef(null);
 
@@ -142,6 +155,8 @@ const DocumentViewer = ({ location }) => {
                                 </div>
                                 <div className='selectSortOptionContainer'>
                                     <Select
+                                        value={selectedOption}
+                                        onChange={(value) => setSelectedOption(value)}
                                         options={options}
                                         placeholder="Sort by..."
                                         styles={{
