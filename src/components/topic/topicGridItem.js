@@ -110,6 +110,7 @@ const TopicGridItem = ({ tag }) => {
             <span>{tag}</span>
           </div>
           <div className='topicInfo'>
+            {containedNotes.length < 1 && <span>0 Notes</span>}
             {containedNotes.length == 1 && <span>{containedNotes.length} Note</span>}
             {containedNotes.length > 1 && <span>{containedNotes.length} Notes</span>}
           </div>
