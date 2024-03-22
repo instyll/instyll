@@ -49,6 +49,7 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
     //bookmark document
     const handleBookmarkDocument = () => {
         dispatch(addBookmark(selectedDocument))
+        notify();
     }    
 
     const selectedDocument = useSelector((state) => {
@@ -86,7 +87,9 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
                 <div onClick={() => setUpdateDocumentModalOpen(true)}>
                 <PageActionItem title={`Rename`} icon={renameIcon}></PageActionItem>
                 </div>
+                <div onClick={() => handleBookmarkDocument()}>
                 <PageActionItem title={`Bookmark`} icon={bookmarkIcon}></PageActionItem> 
+                </div>
                 <div onClick={handleDeleteDocument}>
                 <PageActionItem title={`Delete`} icon={deleteIcon}></PageActionItem>            
                 </div>
