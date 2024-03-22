@@ -4572,3 +4572,20 @@
   .fileLocationControlButton:hover {
     opacity: 0.9;
   }
+
+  .checkboxNode {
+    
+  }
+
+  .checkboxSpan {
+    
+  }
+
+  .checkboxInput {
+
+  }
+
+  .checkboxContent {
+    display: inline-block;
+    padding-left: 4px;
+  }

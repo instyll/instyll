@@ -8,26 +8,25 @@ export const ListItem: FC = () => {
   const isBullet = attrs?.listType === "bullet";
   return (
     <li
-      className={[
-        "flex-column flex items-start gap-2",
+      className={[ "checkboxNode",
         selected ? "ProseMirror-selectednode" : "",
       ].join(" ")}
     >
-      <span className="flex h-6 items-center">
+      <span className="checkboxSpan">
         {checked != null ? (
           <input
-            className="form-checkbox rounded"
+            className="checkboxInput"
             onChange={() => setAttrs({ checked: !checked })}
             type="checkbox"
             checked={checked}
           />
         ) : isBullet ? (
-          <span className="h-2 w-2 rounded-full bg-nord8 dark:bg-nord9" />
+          <span className="" />
         ) : (
-          <span className="text-nord8">{attrs?.label}</span>
+          <span className="">{attrs?.label}</span>
         )}
       </span>
-      <div className="min-w-0" ref={contentRef} />
+      <div className="checkboxContent" ref={contentRef} />
     </li>
   );
 };
