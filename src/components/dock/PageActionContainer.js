@@ -8,6 +8,8 @@ import "../../App.css";
 import PageActionItem from './PageActionItem';
 import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
 import { removeDocument } from '../../documentSlice';
+import { addBookmark } from '../../bookmarkSlice';
+import { ToastContainer, toast } from 'react-toastify';
 
 import bookmarkIcon from '../../icons/bookmark.png';
 import pdfIcon from '../../icons/pdf1.png';
@@ -15,12 +17,14 @@ import renameIcon from '../../icons/rename.png';
 import deleteIcon from '../../icons/trash.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Toast } from 'react-bootstrap';
 
 function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
 
     const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const notify = () => toast("Note Bookmarked!");
 
     const options = {
         filename: removeMdExtension(documentPath) + '.pdf',
@@ -42,6 +46,11 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
         navigate('/documents')
     }
 
+    //bookmark document
+    const handleBookmarkDocument = () => {
+        dispatch(addBookmark(selectedDocument))
+    }    
+
     const selectedDocument = useSelector((state) => {
         const documents = state.documents.documents;
         const documentIndex = documents.findIndex(doc => doc[3] === documentPath);
@@ -58,7 +67,6 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
 
     return (
         <div>
-
             <UpdateDocumentModal 
             show={updateDocumentModalOpen} 
             onHide={() => setUpdateDocumentModalOpen(false)} 
@@ -66,7 +74,6 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
             documentPath={documentPath}
             handleClose={handleClose}>
             </UpdateDocumentModal>
-
             <div className='pageActionContainer'>
             <p className="paneTitle">Note Options</p>
                 <div onClick={exportPDF}>
