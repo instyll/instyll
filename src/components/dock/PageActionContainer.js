@@ -13,11 +13,14 @@ import bookmarkIcon from '../../icons/bookmark.png';
 import pdfIcon from '../../icons/pdf1.png';
 import renameIcon from '../../icons/rename.png';
 import deleteIcon from '../../icons/trash.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
 
     const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const options = {
         filename: removeMdExtension(documentPath) + '.pdf',
@@ -32,6 +35,12 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
         const element = document.getElementById('text');
         html2pdf().set(options).from(element).save();
       };
+
+    //delete document
+    const handleDeleteDocument = () => {
+        dispatch(removeDocument([documentPath]))
+        navigate('/documents')
+    }
 
     const selectedDocument = useSelector((state) => {
         const documents = state.documents.documents;
@@ -71,7 +80,9 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
                 <PageActionItem title={`Rename`} icon={renameIcon}></PageActionItem>
                 </div>
                 <PageActionItem title={`Bookmark`} icon={bookmarkIcon}></PageActionItem> 
+                <div onClick={handleDeleteDocument}>
                 <PageActionItem title={`Delete`} icon={deleteIcon}></PageActionItem>            
+                </div>
             </div>
         </div>
     );
