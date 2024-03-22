@@ -3,16 +3,21 @@
  */
 import html2pdf from 'html2pdf.js';
 import path from 'path';
-import React from 'react';
+import React, { useState } from 'react';
 import "../../App.css";
 import PageActionItem from './PageActionItem';
+import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
+import { removeDocument } from '../../documentSlice';
 
 import bookmarkIcon from '../../icons/bookmark.png';
 import pdfIcon from '../../icons/pdf1.png';
 import renameIcon from '../../icons/rename.png';
 import deleteIcon from '../../icons/trash.png';
+import { useSelector } from 'react-redux';
 
 function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
+
+    const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
 
     const options = {
         filename: removeMdExtension(documentPath) + '.pdf',
@@ -28,8 +33,31 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
         html2pdf().set(options).from(element).save();
       };
 
+    const selectedDocument = useSelector((state) => {
+        const documents = state.documents.documents;
+        const documentIndex = documents.findIndex(doc => doc[3] === documentPath);
+    
+        if (documentIndex !== -1) {
+          return documents[documentIndex];
+        }
+        return null; 
+    })
+
+    const handleClose = () => {
+        setUpdateDocumentModalOpen(false);
+    }
+
     return (
         <div>
+
+            <UpdateDocumentModal 
+            show={updateDocumentModalOpen} 
+            onHide={() => setUpdateDocumentModalOpen(false)} 
+            selectedDocument={selectedDocument}
+            documentPath={documentPath}
+            handleClose={handleClose}>
+            </UpdateDocumentModal>
+
             <div className='pageActionContainer'>
             <p className="paneTitle">Note Options</p>
                 <div onClick={exportPDF}>
@@ -39,8 +67,9 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
                 <PageActionItem title={`Push to Git`} icon={gitIcon}></PageActionItem> */}
             
                 <p className="paneTitle">Actions</p>
-
+                <div onClick={() => setUpdateDocumentModalOpen(true)}>
                 <PageActionItem title={`Rename`} icon={renameIcon}></PageActionItem>
+                </div>
                 <PageActionItem title={`Bookmark`} icon={bookmarkIcon}></PageActionItem> 
                 <PageActionItem title={`Delete`} icon={deleteIcon}></PageActionItem>            
             </div>
