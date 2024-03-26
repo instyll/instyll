@@ -503,7 +503,7 @@
   .milkdown p {
     font-size: 16px;
     line-height: 24px;
-    padding-top: 2px;
+    padding-top: 0px;
     margin-top: 14px;
     font-weight: 500;
   }
@@ -3077,9 +3077,10 @@
   }
   
   ul {
-    margin-top: 0;
+    margin-top: 4px;
     line-height: 1.4em;
     box-sizing: border-box;
+    padding-left: 24px;
   }
   
   li::marker {
@@ -3087,10 +3088,18 @@
   }
   
   ul li p {
-    margin-top: 4px !important;
     padding-top: 0px !important;
     margin-bottom: 0;
-    line-height: 1.5;
+    /* line-height: 1.9; */
+  }
+
+  li p {
+    margin: 0 !important;
+    line-height: 2rem !important;
+  }
+
+  ol {
+    padding-left: 24px;
   }
   
   hr {
@@ -4585,7 +4594,7 @@
 
   }
 
-  .checkboxContent {
-    display: inline-block;
-    padding-left: 4px;
+  .orderedDelim {
+    font-size: 16px;
+    vertical-align: text-bottom;
   }
