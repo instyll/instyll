@@ -35,7 +35,6 @@ const BookmarkViewer = ({ location }) => {
     const options = [
         { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },
-        { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
 
     const bookmarks = useSelector((state) => state.bookmarks.bookmarks)
