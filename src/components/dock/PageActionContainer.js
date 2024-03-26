@@ -68,6 +68,7 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
 
     return (
         <div>
+
             <UpdateDocumentModal 
             show={updateDocumentModalOpen} 
             onHide={() => setUpdateDocumentModalOpen(false)} 
@@ -75,7 +76,8 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
             documentPath={documentPath}
             handleClose={handleClose}>
             </UpdateDocumentModal>
-            <div className='pageActionContainer'>
+
+          <div className='pageActionContainer'>
             <p className="paneTitle">Note Options</p>
                 <div onClick={exportPDF}>
                 <PageActionItem title={`Export to PDF`} icon={pdfIcon}></PageActionItem>
