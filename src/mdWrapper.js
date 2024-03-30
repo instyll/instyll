@@ -193,7 +193,8 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
         $view(codeBlockSchema.node, () =>
           nodeViewFactory({ component: CodeBlock })
         )
-      ).use(
+      )
+      .use(
         $view(listItemSchema.node, () =>
           nodeViewFactory({component: ListItem})
         )

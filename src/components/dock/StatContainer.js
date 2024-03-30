@@ -17,10 +17,10 @@ function StatContainer({ rightPanelOpen }) {
     const documentPath = useSelector((state) => state.path.path)
 
     // document creation time
-    const documentCreated = fs.statSync(documentPath).birthtime.toDateString();
+    const documentCreated = formatDate(fs.statSync(documentPath).birthtime.toDateString());
 
     // document update time
-    const documentUpdated = fs.statSync(documentPath).mtime.toDateString();
+    const documentUpdated = formatDate(fs.statSync(documentPath).mtime.toDateString());
 
     return (
         <div>
@@ -40,6 +40,14 @@ function StatContainer({ rightPanelOpen }) {
 
 const removePathPrefix = (docPath) => {
     return path.basename(docPath)
+}
+
+const formatDate = (dateString) => {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const date = new Date(dateString);
+    const month = months[date.getMonth()];
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${month} ${day}`;
 }
 
 export default StatContainer;
