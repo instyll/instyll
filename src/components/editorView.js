@@ -62,12 +62,22 @@ const EditorView = () => {
     const [addedTags, setAddedTags] = useState([]);
     const [rightPanelOpen, setRightPanelOpen] = useState(false);
     const [rightPanelSetting, setRightPanelSetting] = useState("");
+    const [wordCount, setWordCount] = useState(0);
+    const [charCount, setCharCount] = useState(0);
 
     const {state} = useLocation();
     const { documentPath, documentContent } = state;
     console.log("the loaded state " + state)
 
     const dispatch = useDispatch();
+
+    // read word count of the contents
+    useEffect(() => {
+        const words = documentContent.split(/\s+/);
+        const chars = documentContent.split('');
+        setWordCount(words.length);
+        setCharCount(chars.length);
+    }, [])
 
     const existingTags = useSelector((state) => {
         const documents = state.documents.documents;
@@ -455,7 +465,7 @@ const EditorView = () => {
                                 </PaneContainer>
                             )}
                             {rightPanelSetting === "stats" && (
-                                <StatContainer documentPath={documentPath}>
+                                <StatContainer documentPath={documentPath} wordCount={wordCount} charCount={charCount}>
 
                                 </StatContainer>
                             )}
@@ -532,7 +542,7 @@ const EditorView = () => {
                                     borderTop: dockOpen ? "1px solid var(--muted-text)" : "none",
                                 }}>
                                     <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
-                                        onClick={handleDock} style={{
+                                        onClick={handleDock}ƒ style={{
                                             transform: dockOpen ? "none" : "rotate(180deg)",
                                             transition: "transform 0.3s",
                                         }}></img>

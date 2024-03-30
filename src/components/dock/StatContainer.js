@@ -12,7 +12,7 @@ import clockIcon from '../../icons/clock.png';
 import folderIcon from '../../icons/folder.png';
 import wordCountIcon from '../../icons/wordCount.png';
 
-function StatContainer({ rightPanelOpen, documentPath }) {
+function StatContainer({ rightPanelOpen, documentPath, wordCount, charCount }) {
 
     const rootPath = useSelector((state) => state.path.path)
 
@@ -26,8 +26,8 @@ function StatContainer({ rightPanelOpen, documentPath }) {
         <div>
             <div className='statContainer'>
                 <p className="paneTitle">Stats</p>
-                <StatItem title={`Words`} icon={wordCountIcon}></StatItem>
-                <StatItem title={`Characters`} icon={wordCountIcon}></StatItem>
+                <StatItem title={`Words`} icon={wordCountIcon} stat={wordCount}></StatItem>
+                <StatItem title={`Characters`} icon={wordCountIcon} stat={charCount}></StatItem>
                 <p className="paneTitle">Properties</p>
                 <StatItem title={`Created`} icon={clockIcon} stat={documentCreated}></StatItem>
                 <StatItem title={`Updated`} icon={clockIcon} stat={documentUpdated}></StatItem>
