@@ -44,7 +44,7 @@ export const ListItem: FC = () => {
         display: "flex",
         flexDirection: "row",
         alignItems: "start",
-        gap: "0.6rem",
+        gap: "1rem",
         ...(selected && { outline: "1px solid #000" }),
       }}
     >
