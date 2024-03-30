@@ -5,6 +5,25 @@ import path from 'path';
 import React, { useState } from 'react';
 import "../../App.css";
 
+import { CmdKey } from '@milkdown/core';
+
+import {
+    toggleEmphasisCommand,
+    toggleStrongCommand,
+    wrapInBlockquoteCommand,
+    wrapInBulletListCommand,
+    wrapInOrderedListCommand,
+    wrapInHeadingCommand,
+} from "@milkdown/preset-commonmark"
+
+import {
+    insertTableCommand,
+    toggleStrikethroughCommand,
+} from "@milkdown/preset-gfm"
+
+import { Slice } from "@milkdown/prose/model";
+import { callCommand } from "@milkdown/utils";
+
 import { useSelector } from 'react-redux';
 import boldIcon from '../../icons/bold.png';
 import blockquoteIcon from '../../icons/bquote.png';
@@ -75,9 +94,12 @@ function StyleContainer({ rightPanelOpen }) {
     return (
         <div>
             <div className='styleContainer'>
-                <p className="paneTitle">Titles</p>
+                {/* <p className="paneTitle">Titles</p>
                 <div className='styleTitleOptionsContainer'>
-                    <button className='titleOptionsButton'>
+                    <button 
+                    className='titleOptionsButton'
+                    onClick={() => callCommand(wrapInHeadingCommand.key, 1)}
+                    >
                         <img src={heading1Icon} className='tooltipIcon'></img>
                     </button>
                     <button className='titleOptionsButton'>
@@ -107,7 +129,7 @@ function StyleContainer({ rightPanelOpen }) {
                     <button className='formattingOptionButton'>
                         <img src={blockquoteIcon} className='tooltipIcon'></img>
                     </button>
-                </div>
+                </div> */}
                 <p className="paneTitle">Font</p>
                 <div className='fontOptionsContainer'>
                     <button 
