@@ -12,9 +12,9 @@ import clockIcon from '../../icons/clock.png';
 import folderIcon from '../../icons/folder.png';
 import wordCountIcon from '../../icons/wordCount.png';
 
-function StatContainer({ rightPanelOpen }) {
+function StatContainer({ rightPanelOpen, documentPath }) {
 
-    const documentPath = useSelector((state) => state.path.path)
+    const rootPath = useSelector((state) => state.path.path)
 
     // document creation time
     const documentCreated = formatDate(fs.statSync(documentPath).birthtime.toDateString());
@@ -32,7 +32,7 @@ function StatContainer({ rightPanelOpen }) {
                 <StatItem title={`Created`} icon={clockIcon} stat={documentCreated}></StatItem>
                 <StatItem title={`Updated`} icon={clockIcon} stat={documentUpdated}></StatItem>
                 <p className="paneTitle">Location</p>
-                <StatItem title={removePathPrefix(documentPath)} icon={folderIcon}></StatItem>
+                <StatItem title={removePathPrefix(rootPath)} icon={folderIcon}></StatItem>
             </div>
         </div>
     );

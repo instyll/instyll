@@ -455,7 +455,7 @@ const EditorView = () => {
                                 </PaneContainer>
                             )}
                             {rightPanelSetting === "stats" && (
-                                <StatContainer>
+                                <StatContainer documentPath={documentPath}>
 
                                 </StatContainer>
                             )}
