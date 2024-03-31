@@ -46,7 +46,7 @@ function StyleContainer({ rightPanelOpen }) {
         console.log(fontSelection)
         if (fontSelection === 'default') {
             setSelectedFont(fontSelection)
-            document.documentElement.style.setProperty('--font', `"Inter", sans-serif`)
+            document.documentElement.style.setProperty('--font', `-apple-system, BlinkMacSystemFont, "Inter", sans-serif`)
         } 
         else if (fontSelection === 'serif') {
             setSelectedFont(fontSelection)
