@@ -348,14 +348,14 @@ const EditorView = () => {
                             style={{
                                 width:
                                     rightPanelSetting === "pane"
-                                        && rightPanelOpen ? "calc((100% / 2) - 44px)"
+                                        && rightPanelOpen ? "calc((var(--editor-width) / 2) - 44px)"
                                         : tocOpen && rightPanelOpen
-                                            ? "calc((100%) - 360px)"
+                                            ? "calc((var(--editor-width)) - 360px)"
                                             : !tocOpen && rightPanelOpen
-                                                ? "calc((100%) - 360px)"
+                                                ? "calc((var(--editor-width)) - 360px)"
                                                 : tocOpen && !rightPanelOpen
-                                                    ? "calc((100%) - 100px)"
-                                                    : "calc((100%) - 100px)",
+                                                    ? "calc((var(--editor-width)) - 100px)"
+                                                    : "calc((var(--editor-width)) - 100px)",
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">

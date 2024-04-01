@@ -37,6 +37,18 @@ const SettingsModal = ({ show, onHide }) => {
     }
   }
 
+  // handle editor width
+  const handleEditorWidth = (option) => {
+    if (option === '700px') {
+      document.documentElement.style.setProperty('--milkdown-width', '700px');
+    }
+    else if (option === '900px') {
+      document.documentElement.style.setProperty('--milkdown-width', '900px');
+    } else if (option === 'full') {
+      document.documentElement.style.setProperty('--milkdown-width', '100%');
+    }
+  }
+
   return (
     <Modal
       isOpen={show}
@@ -105,13 +117,13 @@ const SettingsModal = ({ show, onHide }) => {
                     Max editor width
                   </span>
                   <div className="widthSelector">
-                    <div className="third">
-                      500px
+                    <div className="third" onClick={() => handleEditorWidth('700px')}>
+                      700px
                     </div>
-                    <div className="third">
-                      600px
+                    <div className="third" onClick={() => handleEditorWidth('900px')}>
+                      900px
                     </div>
-                    <div className="third">
+                    <div className="third" onClick={() => handleEditorWidth('full')}>
                       Full
                     </div>
                   </div>

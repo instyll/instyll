@@ -58,6 +58,8 @@
     --contexify-menu-radius: 8px !important;
     --contexify-menu-border: 1px solid var(--muted-text) !important;
     --font-size: 1.2em;
+    --editor-width: 100%;
+    --milkdown-width: 100%;
   }
   
   [data-theme="dark"] {
@@ -101,6 +103,8 @@
     --contexify-menu-radius: 8px !important;
     --contexify-menu-border: 1px solid var(--muted-text) !important;
     --font-size: 1.2em;
+    --editor-width: 100%;
+    --milkdown-width: 100%;
   }
 
   
@@ -431,6 +435,7 @@
   
   #text {
     scroll-behavior: smooth;
+    text-align: center;
   }
   
   .elevatedRightTopTop {
@@ -470,10 +475,12 @@
     /* line-height: 1.4em; */
     white-space: pre-wrap;
     color: var(--primary-text-d);
-    width: 100%;
+    width: var(--milkdown-width);
     box-sizing: border-box;
     bottom: 0;
     display: inline-block;
+    text-align: left;
+    transition: 0.2s;
   }
   
   .milkdown p {
