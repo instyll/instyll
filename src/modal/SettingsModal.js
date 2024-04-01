@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePath } from "../pathSlice";
 import { ipcRenderer } from 'electron';
+import fs from 'fs';
+import path from 'path';
 
 import "../App.css";
 import search from '../icons/search.png'
@@ -62,11 +64,22 @@ const SettingsModal = ({ show, onHide }) => {
     }
   }
 
+  const copyFiles = (src, dest) => {
+    fs.readdirSync(src).forEach(file => {
+      const filePath = path.join(src, file);
+      const destPath = path.join(dest, file);
+      fs.copyFileSync(filePath, destPath);
+    });
+  };
+
   // handle path change
   const handleLocationChange = () => {
     const folderPath = ipcRenderer.sendSync('select-folder');
     if (folderPath) {
+        const originalPath = documentsPath;
         dispatch(updatePath(folderPath))
+        // move notes over to new location
+        copyFiles(originalPath, folderPath);
     }
   }
 
