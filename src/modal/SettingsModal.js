@@ -49,6 +49,16 @@ const SettingsModal = ({ show, onHide }) => {
     }
   }
 
+  // handle theme
+  const handleTheme = (option) => {
+    const html = document.querySelector("html");
+    if (option === 'light') {
+      html.setAttribute("data-theme", "light");
+    } else {
+      html.setAttribute("data-theme", "dark");
+    }
+  }
+
   return (
     <Modal
       isOpen={show}
@@ -165,10 +175,10 @@ const SettingsModal = ({ show, onHide }) => {
                     Theme
                   </span>
                   <div className="widthSelector">
-                    <div className="second">
+                    <div className="second" onClick={() => handleTheme('light')}>
                       Light
                     </div>
-                    <div className="second">
+                    <div className="second" onClick={() => handleTheme('dark')}>
                       Dark
                     </div>
                   </div>
