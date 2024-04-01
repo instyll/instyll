@@ -3,9 +3,11 @@
  */
 import React from "react";
 import Modal from "react-modal"; // Import Modal from 'react-modal'
-import { useSelector } from "react-redux";
 import QueryResult from "../components/queryResult";
 import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updatePath } from "../pathSlice";
+import { ipcRenderer } from 'electron';
 
 import "../App.css";
 import search from '../icons/search.png'
@@ -20,6 +22,7 @@ const SettingsModal = ({ show, onHide }) => {
   const [selectedOption, setSelectedOption] = useState("s");
 
   const documentsPath = useSelector((state) => state.path.path);
+  const dispatch = useDispatch();
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);
@@ -56,6 +59,14 @@ const SettingsModal = ({ show, onHide }) => {
       html.setAttribute("data-theme", "light");
     } else {
       html.setAttribute("data-theme", "dark");
+    }
+  }
+
+  // handle path change
+  const handleLocationChange = () => {
+    const folderPath = ipcRenderer.sendSync('select-folder');
+    if (folderPath) {
+        dispatch(updatePath(folderPath))
     }
   }
 
@@ -162,7 +173,7 @@ const SettingsModal = ({ show, onHide }) => {
                   <div className="widthSelector">
                     <span className="fileLocation">{documentsPath}</span>
                     <div className="fileLocationControl">
-                      <button className="fileLocationControlButton">
+                      <button className="fileLocationControlButton" onClick={handleLocationChange}>
                         Change location
                       </button>
                     </div>
