@@ -1,3 +1,6 @@
+/**
+ * @author wou
+ */
 import React from "react";
 import Modal from "react-modal"; // Import Modal from 'react-modal'
 import { useSelector } from "react-redux";
@@ -21,6 +24,17 @@ const SettingsModal = ({ show, onHide }) => {
   const handleSelectOption = (option) => {
     setSelectedOption(option);
     console.log(selectedOption)
+  }
+
+  // handle font size
+  const handleFontSize = (option) => {
+    if (option === '12px') {
+      document.documentElement.style.setProperty('--font-size', '1em');
+    } else if (option === '15px') {
+      document.documentElement.style.setProperty('--font-size', '1.2em');
+    } else if (option === '18px') {
+      document.documentElement.style.setProperty('--font-size', '1.4em');
+    }
   }
 
   return (
@@ -98,21 +112,21 @@ const SettingsModal = ({ show, onHide }) => {
                       600px
                     </div>
                     <div className="third">
-                      700px
+                      Full
                     </div>
                   </div>
                   <span className="editorSettingsTitle">
                     Editor font size
                   </span>
                   <div className="widthSelector">
-                    <div className="third">
+                    <div className="third" onClick={() => handleFontSize('12px')}>
                       12px
                     </div>
-                    <div className="third">
-                      16px
+                    <div className="third" onClick={() => handleFontSize('15px')}>
+                      15px
                     </div>
-                    <div className="third">
-                      20px
+                    <div className="third" onClick={() => handleFontSize('18px')}>
+                      18px
                     </div>
                   </div>
                 </div>
