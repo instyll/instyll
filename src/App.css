@@ -923,6 +923,9 @@
     background-color: var(--muted-text);
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .suggestionItemImageContainer img {

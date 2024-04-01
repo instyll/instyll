@@ -20,14 +20,16 @@ import { ReactNode, useState } from "react";
 import GenAIModal from "../modal/openai/GenAIModal";
 
 import textIcon from '../icons/TEXT.png'
-import h1Icon from '../icons/H1.png'
-import h2Icon from '../icons/H2.png'
-import h3Icon from '../icons/H3.png'
+import h1Icon from '../icons/header1.png'
+import h2Icon from '../icons/header2.png'
+import h3Icon from '../icons/header3.png'
 import codeIcon from '../icons/CodeIcon.png'
-import numIcon from '../icons/NumIcon.png'
-import quoteIcon from '../icons/QuoteIcon.png'
-import bulletIcon from '../icons/BulletIcon.png'
+import numIcon from '../icons/listOrdered.png'
+import quoteIcon from '../icons/bquote.png'
+import bulletIcon from '../icons/listUnordered.png'
 import aiIcon from '../icons/ai2.png'
+import tableIcon from '../icons/tableIcon.png'
+import dividerIcon from '../icons/dividerIcon.png'
 
 /* declare type for respective selections */
 type ConfigItem = {
@@ -57,7 +59,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={aiIcon} className="aiIcon"></img>
+                    <img src={aiIcon} className="tooltipIcon"></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Instyll AI
@@ -73,8 +75,8 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={textIcon}></img>
-                </span>
+                    <img src={textIcon} className="tooltipIcon"></img>
+                </span> 
                 <div className="suggestionItemTitle">
                 Text
                 <br></br>
@@ -89,7 +91,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={bulletIcon}></img>
+                    <img src={bulletIcon} className="tooltipIcon"></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Bullet List
@@ -105,7 +107,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={numIcon}></img>
+                    <img src={numIcon} className="tooltipIcon"></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Numbered List
@@ -122,7 +124,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={h1Icon}></img>
+                    <img src={h1Icon} className='tooltipIcon'></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 1
@@ -139,7 +141,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={h2Icon}></img>
+                    <img src={h2Icon} className='tooltipIcon'></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 2
@@ -156,7 +158,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={h3Icon}></img>
+                    <img src={h3Icon} className='tooltipIcon'></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 3
@@ -173,7 +175,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={codeIcon}></img>
+                    <img src={codeIcon} className="tooltipIcon"></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Code Block
@@ -190,7 +192,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={quoteIcon}></img>
+                    <img src={quoteIcon} className="tooltipIcon"></img>
                 </span>
                 <div className="suggestionItemTitle">
                 Quote
@@ -206,7 +208,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={dividerIcon} className="tooltipIcon" />
                 </span>
                 <div className="suggestionItemTitle">
                 Divider
@@ -222,7 +224,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-
+                    <img src={tableIcon} className="tooltipIcon" />
                 </span>
                 <div className="suggestionItemTitle">
                 Table
