@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addPath } from './pathSlice';
 import { ipcRenderer } from 'electron';
 import { useNavigate } from 'react-router-dom';
+import { VERSION } from "./version.ts";
 
 import './Initial.css'
 
@@ -34,7 +35,7 @@ const Initialize = () => {
     <div className='initialContainer drag'>
         <div className='initialWrapper'>
             <h1 className='initialHeading'>Welcome to Instyll</h1>
-            <span className='initialVersioning'>Version 0.1.0-beta</span>
+            <span className='initialVersioning'>Version {VERSION}</span>
             <div className='initialSelectFolderContainer'>
                 <div className='initialText'>
                     <span className='initialSelectFolderLabel'>Create new folder</span>
