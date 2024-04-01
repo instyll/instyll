@@ -4516,6 +4516,11 @@
   .widthSelector {
     margin-top: 16px;
     margin-bottom: 24px;
+    transition: 0.2s;
+  }
+
+  .second:hover {
+    background-color: var(--muted-text);
   }
 
   .third {
