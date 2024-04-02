@@ -1,11 +1,8 @@
-/**
- * @author wou
- */
 import "allotment/dist/style.css";
 import fs from 'fs';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import CommandPalette from 'react-command-palette';
 import Sizzle from 'sizzle';
 import '../App.css';
@@ -14,425 +11,75 @@ import MenuBar from '../components/menuBar';
 import TableOfContents from '../components/toc.js';
 import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
 import TopicModal from '../modal/topic/TopicModal.js';
+import { Command } from 'cmdk';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
 import '../command-palette/commandPalette.css';
 
-class Layout extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            markdownSrc: "# Welcome to instyll",
-            size: "50%",
-            wordCount: "0",
-            charCount: "0",
-            delimiter: "word",
-            charDelimiter: "characters",
-            fileName: "README.md",
-            tocOpen: true,
-            dockOpen: true,
-            isDark: true,
-            fileNames: [],
-            selectedFile: null,
-            notesDirectory: "/home/wou/Documents/instyllnotes/",
-            tocHeaders: [],
-            cleanup: null,
-            orientation: false,
-            focused: false,
-            modalOpen: false,
-            topicModalOpen: false,
-            selectedTags: [],
-            addedTags: [],
-            rightPanelOpen: false,
-            rightPanelSetting: "",
-            isScrolled: false,
-        }
+const Layout = ({ children }) => {
+    const [tocOpen, setTocOpen] = useState(true);
+    const [isDark, setIsDark] = useState(true);
 
-        this.handleToc = this.handleToc.bind(this);
-        this.handleDock = this.handleDock.bind(this);
-        this.toggleTheme = this.toggleTheme.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        this.updateToc = this.updateToc.bind(this);
-        this.setModalOpen = this.setModalOpen.bind(this);
-        this.setTopicModalOpen = this.setTopicModalOpen.bind(this);
-        this.handleTagsSelection = this.handleTagsSelection.bind(this);
-        this.handleAddTags = this.handleAddTags.bind(this);
-        this.handleRemoveTags = this.handleRemoveTags.bind(this);
-        this.handleRightPanel = this.handleRightPanel.bind(this);
+    // command palette toggle
+    const handleCommandPalette = () => {
+        setCommandPaletteOpen(!commandPaletteOpen);
     }
 
     // Sidebar toggle
-
-    handleToc() {
-        this.setState({
-            tocOpen: this.state.tocOpen === true ? false : true
-        })
-        console.log(this.state.tocOpen);
+    const handleToc = () => {
+        setTocOpen(!tocOpen);
+        console.log(tocOpen);
     }
 
-    handleDock() {
-        this.setState({
-            dockOpen: this.state.dockOpen === true ? false : true,
-            rightPanelOpen: false,
-        })
-    }
-
-    handleRightPanel(setting) {
-        this.setState((prevState) => ({
-            rightPanelOpen: this.state.dockOpen ? (!prevState.rightPanelOpen || prevState.rightPanelSetting !== setting) : false,
-            rightPanelSetting: setting,
-        }), () => {
-            console.log(this.state.rightPanelOpen);
-        });
-    }
-
-
-    // Get headers for sidebar outline
-
-    constructToc() {
-        let headers = Sizzle("h1, h2, h3, h4, h5, h6");
-        let toc = [];
-        // headers.forEach(header => {
-        //   let id = header.id;
-        //   toc.push({ text: header.innerText, id: id, type: header.tagName });
-        // });
-        headers.forEach((header) => {
-            const id = header.id;
-            let text = "";
-            const headerText = header.childNodes;
-            headerText.forEach((child) => {
-                if (child.nodeName === "SPAN" && child.dataset.type === "emoji") {
-                    const img = child.querySelector("img");
-                    text += img.alt;
-                } else {
-                    text += child.textContent;
-                }
-            });
-            toc.push({ text, id, type: header.tagName });
-        });
-        return toc;
-    }
-
-    updateToc() {
-        var toc = this.constructToc();
-        this.setState({
-            tocHeaders: toc,
-        });
+    const handleDock = () => {
+        setDockOpen(!dockOpen);
+        setRightPanelOpen(false);
     }
 
     // dark / light mode 
-
-    handleTheme() {
-
+    const handleTheme = () => {
         const html = document.querySelector("html");
-
-        var theme = "";
-
-        if (this.state.isDark === false) {
-            theme = "dark";
-        }
-        else {
-            theme = "light";
-        }
-
+        var theme = isDark ? "light" : "dark";
         console.log(theme);
         html.setAttribute("data-theme", theme);
     }
 
-    toggleTheme(isChecked) {
-        this.setState(
-            {
-                isDark: !isChecked,
-            },
-            () => {
-                this.handleTheme();
-            }
-        );
+    const toggleTheme = (isChecked) => {
+        setIsDark(!isChecked);
+        handleTheme();
     }
 
-    setModalOpen(value) {
-        this.setState({
-            modalOpen: value
-        });
-    }
-
-    setTopicModalOpen(value) {
-        this.setState({
-            topicModalOpen: value
-        });
-        console.log(this.state.topicModalOpen);
-    }
-
-    /* handle tags */
-
-    handleTagsSelection = (selectedTags) => {
-        this.setState({ selectedTags });
-    };
-
-    handleAddTags = () => {
-        console.log('Selected Tags:', this.state.selectedTags);
-        this.setState((prevState) => ({
-            addedTags: [...prevState.addedTags, ...prevState.selectedTags],
-            selectedTags: [],
-        }));
-    };
-
-    handleRemoveTags = (tag) => {
-        console.log(tag);
-        this.setState((prevState) => ({
-            addedTags: prevState.addedTags.filter((t) => t !== tag),
-        }));
-    }
-
-    handleClick = async (path) => {
-        const fileContent = await fs.promises.readFile(this.state.notesDirectory + "" + path, 'utf-8');
-        this.setState({ selectedFile: path, markdownSrc: fileContent });
-    };
-
-    componentDidMount() {
-        window.addEventListener("message", this.handleMessage);
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-
-        // this.updateToc();
-
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("message", this.handleMessage);
-    }
-
-    handleMessage = (event) => {
-        if (event.data.type === "updateToc") {
-            this.updateToc();
-        }
-    }
-
-
-    sampleChromeCommand(suggestion) {
-        const { name, highlight, category, shortcut } = suggestion;
-        return (
-            <div className="">
-                <span className={`my-category ${category}`}>{category}</span>
-
-                <span>{name}</span>
-
-                {/* <kbd className="my-shortcut">{shortcut}</kbd> */}
-            </div>
-        );
-    }
-
-    render() {
-
-        const { children } = this.props;
-
-        const theme = {
-            modal: "my-modal",
-            overlay: "my-overlay",
-            container: "my-container",
-            header: "my-header",
-            content: "my-content",
-            input: "my-input",
-            suggestionsList: "my-suggestionsList",
-            suggestion: "my-suggestion",
-            suggestionHighlighted: "my-suggestionHighlighted",
-            suggestionsContainerOpen: "my-suggestionsContainerOpen",
-        }
-
-        const commands = [{
-            name: SET_THEME + "Dark",
-            category: "Command",
-            command: () => {
-                // this.setDark(true);
-                const html = document.querySelector("html");
-                html.setAttribute("data-theme", "dark");
-
-            },
-        }, {
-            name: SET_THEME + "Light",
-            category: "Command",
-            command: () => {
-
-                const html = document.querySelector("html");
-                html.setAttribute("data-theme", "light");
-
-            }
-        },
-        {
-            name: DAILY + "Open Daily Note",
-            category: "Command",
-            command() { }
-        },
-        {
-            name: OPEN + "Settings",
-            category: "Navigate",
-            command: () => {
-                // this.changeLayout("vertical");
-            }
-        },
-        {
-            name: CLOSE + "Current File",
-            category: "Navigate",
-            command: () => {
-                // this.changeLayout("horizontal");
-            }
-        },
-        {
-            name: FILE + "Export as PDF",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export as LaTeX",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export as Docx",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export to Google Drive",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: FILE + "Export to Notion",
-            category: "Action",
-            command: () => {
-                this.handleToc();
-            }
-        },
-        {
-            name: FILE + "Print",
-            category: "Action",
-            shortcut: "Ctrl + P",
-            command() { }
-        },
-        {
-            name: FILE + "Star",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: TOGGLE + "Left Sidebar",
-            category: "Command",
-            command: () => {
-
-                this.setState({
-                    tocOpen: this.state.tocOpen === true ? false : true
-                });
-
-            }
-        },
-        {
-            name: TOGGLE + "Dock",
-            category: "Command",
-            command: () => {
-                this.handleDock();
-                this.setState({
-                    rightPanelOpen: false,
-                })
-            }
-        },
-        {
-            name: TOGGLE + "Right Panel",
-            category: "Command",
-            command: () => {
-                this.setState({
-                    rightPanelOpen: this.state.rightPanelOpen ? false : true,
-                })
-            }
-        },
-        {
-            name: CREATE + "New Note",
-            category: "Action",
-            command() { }
-        },
-        {
-            name: CREATE + "New Note From Template",
-            category: "Action",
-            command() { }
-        },
-        ];
-
-        return (
-            <div className="layout">
-
-                {/* <Router> */}
-
-                <CommandPalette
-                    commands={commands}
+    return (
+        <div className="layout">
+            <div className='container'>
+                <div className="navHorizontal"
                     style={{
-                        zIndex: "999",
-                    }}
-                    trigger={null}
-                    hotKeys={['ctrl+k', 'command+k']}
-                    closeOnSelect={true}
-                    alwaysRenderCommands={true}
-                    renderCommand={this.sampleChromeCommand}
-                    resetInputOnOpen={true}
-                    theme={theme}
-                    header={sampleHeader()}
-                    maxDisplayed={500}
-                ></CommandPalette>
-
-                <TopicModal
-                    show={this.state.topicModalOpen}
-                    onHide={() => this.setState({ topicModalOpen: false })}
-                    tocOpen={this.state.tocOpen}
-                    selectedTags={this.state.selectedTags}
-                    onSelectTags={this.handleTagsSelection}
-                    onAddTags={this.handleAddTags} />
-
-                <div className='container'>
-
-                    {/* navbar */}
-
-                    <div className="navHorizontal"
-                        style={{
-                            width: this.state.tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
-                            transition: "width 0.2s",
-                        }}>
-                        <MenuBar
-                            handleToc={this.handleToc}
-                            setModalOpen={this.setModalOpen}
-                            toggleFocus={this.toggleFocus}
-                            toggleTheme={this.toggleTheme}
-                            focused={this.state.focused}
-                        />
-                    </div>
-
-                    <TableOfContents
-                        fileNames={this.state.fileNames}
-                        handleClick={this.handleClick}
-                        charCount={this.state.charCount}
-                        wordCount={this.state.wordCount}
-                        tocHeaders={this.state.tocHeaders}
-                        handleTheme={this.toggleTheme}
-                        handleToc={this.handleToc}
-                        tocOpen={this.state.tocOpen}
-                        toggleTheme={this.toggleTheme}
-                        isDark={this.state.isDark}
-                    />
-
-                    <div className='childContainer' style={{
-                        width: this.state.tocOpen ? "calc((100% - 280px) )" : "calc((100% - 170px) )",
-                        marginLeft: this.state.tocOpen ? "260px" : "150px",
+                        width: tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
+                        transition: "width 0.2s",
                     }}>
-                        {children}
-                    </div>
-
-
+                    <MenuBar
+                        handleToc={handleToc}
+                    />
                 </div>
 
-            </div>
-        );
-    }
-}
+                <TableOfContents
+                    handleTheme={toggleTheme}
+                    handleToc={handleToc}
+                    tocOpen={tocOpen}
+                    toggleTheme={toggleTheme}
+                    isDark={isDark}
+                />
 
+                <div className='childContainer' style={{
+                    width: tocOpen ? "calc((100% - 280px) )" : "calc((100% - 170px) )",
+                    marginLeft: tocOpen ? "260px" : "150px",
+                }}>
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
+}
 
 export default Layout;
