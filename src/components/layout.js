@@ -2,7 +2,7 @@ import "allotment/dist/style.css";
 import fs from 'fs';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Sizzle from 'sizzle';
 import '../App.css';
 import './cmdk/theme.scss';
@@ -24,6 +24,8 @@ const Layout = ({ children }) => {
     const [cpOpen, setCpOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [page, setPage] = useState("root");
+
+    const containerRef = useRef(null);
 
     // command palette toggle
     const handleCommandPalette = () => {
@@ -95,29 +97,31 @@ const Layout = ({ children }) => {
 
                 />
 
-                <Command.Dialog open={cpOpen} onOpenChange={setCpOpen}>
-                <Command.Input />
+                <Command.Dialog open={cpOpen} onOpenChange={setCpOpen} container={containerRef.current}>
+                    <Command.Input placeholder="Type a command"/>
 
-                <Command.List>
+                        <Command.List>
 
-                    <Command.Empty>No results found.</Command.Empty>
+                            <Command.Empty>No results found.</Command.Empty>
 
-                    <Command.Group heading="Fruits">
-                    <Command.Item>Apple</Command.Item>
-                    <Command.Item>Orange</Command.Item>
-                    <Command.Separator />
-                    <Command.Item>Pear</Command.Item>
-                    <Command.Item>Blueberry</Command.Item>
-                    </Command.Group>
-
-                    <Command.Item>Fish</Command.Item>
-                </Command.List>
+                            <Command.Group >
+                            <Command.Item>Set Theme: Light</Command.Item>
+                            <Command.Item>Set Theme: Dark</Command.Item>
+                            <Command.Separator />
+                            <Command.Item>Dashboard</Command.Item>
+                            <Command.Item>Notes</Command.Item>
+                            <Command.Item>Topics</Command.Item>
+                            <Command.Item>Bookmarks</Command.Item>
+                            <Command.Item>Settings</Command.Item>
+                            </Command.Group>
+                        </Command.List>
                 </Command.Dialog>
 
                 <div className='childContainer' style={{
                     width: tocOpen ? "calc((100% - 280px) )" : "calc((100% - 170px) )",
                     marginLeft: tocOpen ? "260px" : "150px",
-                }}>
+                }}
+                ref={containerRef}>
                     {children}
                 </div>
             </div>
