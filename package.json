@@ -119,6 +119,7 @@
     "remark-mermaidjs": "^4.1.1",
     "remark-wiki-link": "^1.0.4",
     "remark-wiki-link-plus": "^1.1.1",
+    "sass": "^1.72.0",
     "sizzle": "^2.3.9",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13",

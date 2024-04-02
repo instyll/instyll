@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import CommandPalette from 'react-command-palette';
 import Sizzle from 'sizzle';
 import '../App.css';
+import './cmdk/theme.scss';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import MenuBar from '../components/menuBar';
 import TableOfContents from '../components/toc.js';
@@ -20,6 +21,7 @@ import '../command-palette/commandPalette.css';
 const Layout = ({ children }) => {
     const [tocOpen, setTocOpen] = useState(true);
     const [isDark, setIsDark] = useState(true);
+    const [cpOpen, setCpOpen] = useState(false);
 
     // command palette toggle
     const handleCommandPalette = () => {
@@ -38,17 +40,36 @@ const Layout = ({ children }) => {
     }
 
     // dark / light mode 
-    const handleTheme = () => {
+    useEffect(() => {
         const html = document.querySelector("html");
         var theme = isDark ? "light" : "dark";
-        console.log(theme);
         html.setAttribute("data-theme", theme);
-    }
+    }, [isDark])
 
     const toggleTheme = (isChecked) => {
-        setIsDark(!isChecked);
-        handleTheme();
+        console.log("is checked " + isChecked);
+        if (isDark === true) {
+            if (isChecked) {
+                setIsDark(false);
+            } else {
+                setIsDark(true);
+            }
+        }
+        // handleTheme();
     }
+
+    // command palette
+    useEffect(() => {
+        const down = (e) => {
+            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                setCpOpen((cpOpen) => !cpOpen);
+            }
+        }
+
+        document.addEventListener('keydown', down);
+        return () => document.removeEventListener('keydown', down);
+    }, [])
 
     return (
         <div className="layout">
@@ -67,9 +88,20 @@ const Layout = ({ children }) => {
                     handleTheme={toggleTheme}
                     handleToc={handleToc}
                     tocOpen={tocOpen}
-                    toggleTheme={toggleTheme}
-                    isDark={isDark}
                 />
+
+                <div className="raycast">
+                    <Command.Dialog open={cpOpen} onOpenChange={setCpOpen} label="Command Menu" >
+                        <Command.Input />
+                            <Command.List>
+                                <Command.Empty>No results found</Command.Empty>
+                                <Command.Group heading="heading">
+                                    <Command.Item>Set theme: light</Command.Item>
+                                    <Command.Item>Set theme: dark</Command.Item>
+                                </Command.Group>
+                            </Command.List>
+                    </Command.Dialog>
+                </div>
 
                 <div className='childContainer' style={{
                     width: tocOpen ? "calc((100% - 280px) )" : "calc((100% - 170px) )",
