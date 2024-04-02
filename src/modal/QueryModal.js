@@ -43,7 +43,7 @@ const QueryModal = ({ show, onHide }) => {
       } else if (e.key === "Enter" && selectedIndex !== -1) {
         e.preventDefault();
         const selectedEl = document.querySelector(".queryResultContainer.selected");
-        console.log(selectedEl)
+        // console.log(selectedEl)
         if (selectedEl) {
           selectedEl.click();
         }

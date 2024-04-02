@@ -66,14 +66,14 @@ const EditorView = () => {
 
     const {state} = useLocation();
     const { documentPath, documentContent } = state;
-    console.log("the loaded state " + state)
+    // console.log("the loaded state " + state)
 
     const dispatch = useDispatch();
 
     // read word count of the contents
     const wordCount = fs.readFileSync(documentPath, 'utf-8').split(/\s+/).length;
     const charCount = fs.readFileSync(documentPath, 'utf-8').split('').length;
-    console.log(wordCount)
+    // console.log(wordCount)
 
     const existingTags = useSelector((state) => {
         const documents = state.documents.documents;
@@ -82,7 +82,7 @@ const EditorView = () => {
         if (documentIndex !== -1) {
         //   console.log(documents[documentIndex])  
           const fourthIndex = documents[documentIndex][4];
-          console.log(documents[documentIndex][1] + " tags: " + fourthIndex)
+        //   console.log(documents[documentIndex][1] + " tags: " + fourthIndex)
           return fourthIndex;
         }
         return null; // Adjust the default value based on your needs
@@ -145,17 +145,17 @@ const EditorView = () => {
         setAddedTags([])
         const updatedTags = [...addedTags, ...selectedTags];
         setAddedTags(updatedTags);
-        console.log(addedTags)
+        // console.log(addedTags)
         const requestObj = [documentPath, selectedTags];
-        console.log(requestObj);
+        // console.log(requestObj);s
         dispatch(addTags(requestObj));
         setSelectedTags([]);
         // Add tags to redux document
-        console.log("added tags: " + updatedTags);
+        // console.log("added tags: " + updatedTags);
     };
 
     const handleRemoveTags = (tag) => {
-        console.log(tag);
+        // console.log(tag);
         setAddedTags((prevAddedTags) => prevAddedTags.filter((t) => t !== tag));
         dispatch(removeTag([documentPath, tag]))
     }

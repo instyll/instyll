@@ -40,10 +40,10 @@ const DocumentListItem = ({ documentInfo }) => {
     const handleItemClick = ({ id, event, props }) => {
       switch (id) {
         case "copy":
-          console.log(event, props)
+          // console.log(event, props)
           break;
         case "cut":
-          console.log(event, props);
+          // console.log(event, props);
           break;
         //etc...
       }
@@ -54,9 +54,9 @@ const DocumentListItem = ({ documentInfo }) => {
     const documentIndex = documents.findIndex(doc => doc[3] === documentInfo[0]);
 
     if (documentIndex !== -1) {
-      console.log(documents[documentIndex])
+      // console.log(documents[documentIndex])
       const fourthIndex = documents[documentIndex][4];
-      console.log(fourthIndex)
+      // console.log(fourthIndex)
       return fourthIndex;
     }
     return null; 
@@ -69,7 +69,7 @@ const DocumentListItem = ({ documentInfo }) => {
 
   // bookmark a note
   const handleBookmark = (doc) => {
-    console.log(documentInfo)
+    // console.log(documentInfo)
     // console.log(documentObj)
     dispatch(addBookmark(documentObj));
     notify();
@@ -113,9 +113,9 @@ const DocumentListItem = ({ documentInfo }) => {
     const readMarkdown = async () => {
       try {
         const contents = fs.readFileSync(documentInfo[0], 'utf-8');
-        console.log(contents)
+        // console.log(contents)
         setFileContents(contents);
-        console.log(fileContents)
+        // console.log(fileContents)
       } catch (error) {
         console.error('Error reading file:', error);
       }

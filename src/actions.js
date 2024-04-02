@@ -5,9 +5,9 @@ import {store} from './store'
 
 export const executeFileCreation = ({documentTitle}) => {
     const state = store.getState();
-    console.log(documentTitle)
+    // console.log(documentTitle)
     const filePath = path.join(state.path.path, `${documentTitle}.md`);
-    console.log(filePath)
+    // console.log(filePath)
     const fileContent = `# ${documentTitle}`;
     fs.writeFileSync(filePath, fileContent);
 }

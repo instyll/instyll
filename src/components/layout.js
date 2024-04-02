@@ -53,7 +53,7 @@ const Layout = ({ children }) => {
     // Sidebar toggle
     const handleToc = () => {
         setTocOpen(!tocOpen);
-        console.log(tocOpen);
+        // console.log(tocOpen);
     }
 
     const handleDock = () => {
@@ -69,7 +69,7 @@ const Layout = ({ children }) => {
     }, [isDark])
 
     const toggleTheme = (isChecked) => {
-        console.log("is checked " + isChecked);
+        // console.log("is checked " + isChecked);
         if (isDark === true) {
             if (isChecked) {
                 setIsDark(false);

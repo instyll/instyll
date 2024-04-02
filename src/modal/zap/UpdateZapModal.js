@@ -21,8 +21,8 @@ const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
 
     const handleEditZap = () => {
         const zapToUpdate = selectedZap;
-        console.log(zapToUpdate)
-        console.log(newZap)
+        // console.log(zapToUpdate)
+        // console.log(newZap)
         if (zapToUpdate) {
             dispatch(updateZap({ id: zapToUpdate, newValue: newZap}));
             setNewZap('');

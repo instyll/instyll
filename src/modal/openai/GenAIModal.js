@@ -31,7 +31,7 @@ const GenAIModal = ({ show, onHide }) => {
 
     const handlePromptSubmit = async (e) => {
         e.preventDefault();
-        console.log(inputText)
+        // console.log(inputText)
         setSentMessage((prevMessages) => [
             ...prevMessages,
             { id: nextId++, text: inputText },

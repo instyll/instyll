@@ -28,7 +28,7 @@ const DocumentViewer = ({ location }) => {
     const [triggerRerender, setTriggerRerender] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
 
-    console.log(triggerRerender)
+    // console.log(triggerRerender)s
 
     const documentsPath = useSelector((state) => state.path.path)
     const dispatch = useDispatch();
@@ -50,15 +50,15 @@ const DocumentViewer = ({ location }) => {
     ];
 
     const documents = useSelector((state) => state.documents.documents);
-    console.log("documents: " + documents)
+    // console.log("documents: " + documents)
 
-    console.log(selectedOption)
+    // console.log(selectedOption)
 
     // sort by selected option
     useEffect(() => {
         if (selectedOption) {
             if (selectedOption.value === 'sortByName') {
-                console.log(selectedOption)
+                // console.log(selectedOption)
                 const sortedFiles = [...markdownFiles].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
                 setMarkdownFiles(sortedFiles);
             } else if (selectedOption.value === 'sortByDate') {
@@ -93,8 +93,8 @@ const DocumentViewer = ({ location }) => {
                     let documentExists = false;
                     for (let i = 0; i < documentsRef.current.length; ++i) {
                         const currDocument = documentsRef.current[i];
-                        console.log("check " + currDocument[3])
-                        console.log("match " + markdownPath)
+                        // console.log("check " + currDocument[3])
+                        // console.log("match " + markdownPath)
                         if (currDocument[3] === markdownPath) {
                             documentExists = true;
                             break;
@@ -106,7 +106,7 @@ const DocumentViewer = ({ location }) => {
                         dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
                     else if (documentExists == false) {
-                        console.log("document does not exist and path is " + markdownPath)
+                        // console.log("document does not exist and path is " + markdownPath)
                         dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
                 }

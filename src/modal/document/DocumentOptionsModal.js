@@ -27,7 +27,7 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
     }
 
     const handleBookmark = (documentItem) => {
-        console.log(documentItem)
+        // console.log(documentItem)
         dispatch(addBookmark(documentObj));
         notify();
     }
@@ -37,12 +37,12 @@ const DocumentOptionsModal = ({ show, onHide, selectedDocument, documentPath, ov
     };
 
     const handleUpdateDocumentModalOpen = (value) => {
-        console.log(documents)
-        console.log(documentPath)
+        // console.log(documents)
+        // console.log(documentPath)
         setUpdateDocumentModalOpen(value);
     }
 
-    console.log(ovRef)
+    // console.log(ovRef)
 
     return (
         <Modal isOpen={show}

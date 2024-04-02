@@ -27,22 +27,22 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
     const documentsPath = useSelector((state) => state.path.path)
 
     const handleDocumentCreation = async () => {
-        console.log(documentTitle)
+        // console.log(documentTitle)
         const date = new Date();
         const parsedDate = parseAndFormatDate(date.toString());
         const filePath = path.join(documentsPath, `${documentTitle}.md`);
         dispatch(addDocument([uuid(), documentTitle, parsedDate, filePath, []])) // empty topics array
         executeFileCreation({documentTitle: documentTitle})
-        console.log(documents)
+        // console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal
         navigate('/editor', { state: { documentPath: filePath, documentContent: '# ' + documentTitle }})
         onHide();
     }
 
     const temp = () => {
-        console.log(documents)
+        // console.log(documents)
         dispatch(removeDocument(0))
-        console.log("ok")
+        // console.log("ok")
     }
 
     return (

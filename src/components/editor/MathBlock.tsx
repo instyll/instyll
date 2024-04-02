@@ -30,8 +30,8 @@ export const MathBlock: FC = () => {
 
     const texOptions = require('../../legacy/TeXOptions');
 
-    console.log(node.attrs.value)
-    console.log("codevalue: "  + codeValue)
+    // console.log(node.attrs.value)
+    // console.log("codevalue: "  + codeValue)
 
     /* handle TeX autocomplete */
     const latexCompletion = (context: CompletionContext) => {

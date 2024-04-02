@@ -43,7 +43,7 @@ function StyleContainer({ rightPanelOpen }) {
 
     const updateDocumentFont = (fontSelection) => {
         // change the css --font variable to mono/serif
-        console.log(fontSelection)
+        // console.log(fontSelection)
         if (fontSelection === 'default') {
             setSelectedFont(fontSelection)
             document.documentElement.style.setProperty('--font', `-apple-system, BlinkMacSystemFont, "Inter", sans-serif`)

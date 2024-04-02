@@ -28,7 +28,7 @@ const SettingsModal = ({ show, onHide }) => {
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);
-    console.log(selectedOption)
+    // console.log(selectedOption)
   }
 
   // handle font size

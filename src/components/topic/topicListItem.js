@@ -41,10 +41,10 @@ const TopicListItem = ({ tag }) => {
   const handleItemClick = ({ id, event, props }) => {
     switch (id) {
       case "copy":
-        console.log(event, props)
+        // console.log(event, props)
         break;
       case "cut":
-        console.log(event, props);
+        // console.log(event, props);
         break;
       //etc...
     }

@@ -41,7 +41,7 @@ export const CodeBlock: FC = () => {
 
   const [codeContent, setCodeContent] = useState(node.textContent || '');
 
-  console.log("NODE CONTENT: " + node.textContent)
+  // console.log("NODE CONTENT: " + node.textContent)
 
   const editorRef = useRef<ReactCodeMirrorRef>({});
 
@@ -79,7 +79,7 @@ export const CodeBlock: FC = () => {
       }
       return prevContent;
     });
-    console.log("code content: " + codeContent)
+    // console.log("code content: " + codeContent)
   }
 
   useEffect(() => {

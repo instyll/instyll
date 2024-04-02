@@ -40,7 +40,7 @@ export const SlashItem: FC<SlashItemProps> = ({
   }, [selected]);
 
   const onPick = () => {
-    console.log(index)
+    // console.log(index)
     if (loading) return;
 
     if (index == 0) {

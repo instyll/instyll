@@ -132,7 +132,7 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
         ctx.set(rootCtx, root)
         // ctx.set(defaultValueCtx, fileContents)
         const listener = ctx.get(listenerCtx);
-        console.log(fileContents)
+        // console.log(fileContents)
         ctx.get(listenerCtx).mounted(insert(documentContents))
 
         /* listen for changes in the editor */

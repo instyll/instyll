@@ -1,6 +1,6 @@
 {
-  "name": "instyll",
-  "version": "0.1.0",
+  "name": "Instyll",
+  "version": "0.1.0-beta",
   "private": true,
   "main": "public/main.js",
   "homepage": "./",
@@ -165,6 +165,9 @@
   },
   "build": {
     "appId": "com.instyll",
+    "mac": {
+      "icon": "build/icon.icns"
+    },
     "files": [
       "build/**/*",
       "node_modules/**/*"

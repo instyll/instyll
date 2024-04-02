@@ -45,10 +45,10 @@ const DocumentGridItem = ({ documentInfo }) => {
   const handleItemClick = ({ id, event, props }) => {
     switch (id) {
       case "copy":
-        console.log(event, props)
+        // console.log(event, props)
         break;
       case "cut":
-        console.log(event, props);
+        // console.log(event, props);
         break;
       //etc...
     }
@@ -85,7 +85,7 @@ const DocumentGridItem = ({ documentInfo }) => {
 
   // bookmark a note
   const handleBookmark = (doc) => {
-    console.log(documentInfo)
+    // console.log(documentInfo)
     // console.log(documentObj)
     dispatch(addBookmark(documentObj));
     notify();
