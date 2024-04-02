@@ -166,7 +166,7 @@
   "build": {
     "appId": "com.instyll",
     "mac": {
-      "icon": "build/icon.icns"
+      "icon": "assets/icon.icns"
     },
     "files": [
       "build/**/*",
