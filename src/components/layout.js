@@ -27,6 +27,7 @@ import bookmarksIcon from '../icons/bookmark2.png';
 import settingsIcon from '../icons/settings.png';
 import darkIcon from '../icons/focus.png'
 import closeIcon from '../icons/doubleright.png';
+import openIcon from '../icons/doubleleft.png'
 import themeIcon from '../icons/template2.png';
 
 const Layout = ({ children }) => {
@@ -132,9 +133,10 @@ const Layout = ({ children }) => {
                             <Command.Item onSelect={() => {handleSettingsModal(); setCpOpen(false)}}><img className="tocIcon" src={settingsIcon}/><span className="tocInnerText">Settings</span></Command.Item>
                             </Command.Group>
                             <Command.Group heading="Commands">
-                            <Command.Item><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
-                            <Command.Item><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
-                            <Command.Item><img className="tocIcon" src={closeIcon}/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
+                            <Command.Item onSelect={() => setIsDark(true)}><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
+                            <Command.Item onSelect={() => setIsDark(false)}><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
+                            <Command.Item onSelect={() => setTocOpen(false)}><img className="tocIcon" src={openIcon}/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
+                            <Command.Item onSelect={() => setTocOpen(true)}><img className="tocIcon" src={closeIcon}/><span className="tocInnerText">Expand Sidebar</span></Command.Item>
                             </Command.Group>
                         </Command.List>
                 </Command.Dialog>
