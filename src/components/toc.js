@@ -26,7 +26,7 @@ import closeTOC from '../icons/doubleleft.png';
 import settings from '../icons/settings.png';
 import cmd from '../icons/cmd.png';
 
-function TableOfContents({handleTheme, tocOpen, handleToc}) {
+function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
 
   // handle settings modal
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -172,7 +172,8 @@ function TableOfContents({handleTheme, tocOpen, handleToc}) {
        
         <p className="tocTitle" style={{
           textAlign: tocOpen ? "left" : "center",
-        }}>
+        }}
+        onClick={handleCp}>
           <img src={cmd} className="tocIcon" draggable={false}></img>
           {tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
 

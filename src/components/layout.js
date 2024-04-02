@@ -3,7 +3,6 @@ import fs from 'fs';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
 import React, { useState, useEffect } from 'react';
-import CommandPalette from 'react-command-palette';
 import Sizzle from 'sizzle';
 import '../App.css';
 import './cmdk/theme.scss';
@@ -12,7 +11,8 @@ import MenuBar from '../components/menuBar';
 import TableOfContents from '../components/toc.js';
 import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
 import TopicModal from '../modal/topic/TopicModal.js';
-import { Command } from 'cmdk';
+import "react-cmdk/dist/cmdk.css";
+import {Command} from 'cmdk';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -22,10 +22,12 @@ const Layout = ({ children }) => {
     const [tocOpen, setTocOpen] = useState(true);
     const [isDark, setIsDark] = useState(true);
     const [cpOpen, setCpOpen] = useState(false);
+    const [search, setSearch] = useState("");
+    const [page, setPage] = useState("root");
 
     // command palette toggle
     const handleCommandPalette = () => {
-        setCommandPaletteOpen(!commandPaletteOpen);
+        setCpOpen(true);
     }
 
     // Sidebar toggle
@@ -73,6 +75,7 @@ const Layout = ({ children }) => {
 
     return (
         <div className="layout">
+
             <div className='container'>
                 <div className="navHorizontal"
                     style={{
@@ -88,20 +91,28 @@ const Layout = ({ children }) => {
                     handleTheme={toggleTheme}
                     handleToc={handleToc}
                     tocOpen={tocOpen}
+                    handleCp={handleCommandPalette}
+
                 />
 
-                <div className="raycast">
-                    <Command.Dialog open={cpOpen} onOpenChange={setCpOpen} label="Command Menu" >
-                        <Command.Input />
-                            <Command.List>
-                                <Command.Empty>No results found</Command.Empty>
-                                <Command.Group heading="heading">
-                                    <Command.Item>Set theme: light</Command.Item>
-                                    <Command.Item>Set theme: dark</Command.Item>
-                                </Command.Group>
-                            </Command.List>
-                    </Command.Dialog>
-                </div>
+                <Command.Dialog open={cpOpen} onOpenChange={setCpOpen}>
+                <Command.Input />
+
+                <Command.List>
+
+                    <Command.Empty>No results found.</Command.Empty>
+
+                    <Command.Group heading="Fruits">
+                    <Command.Item>Apple</Command.Item>
+                    <Command.Item>Orange</Command.Item>
+                    <Command.Separator />
+                    <Command.Item>Pear</Command.Item>
+                    <Command.Item>Blueberry</Command.Item>
+                    </Command.Group>
+
+                    <Command.Item>Fish</Command.Item>
+                </Command.List>
+                </Command.Dialog>
 
                 <div className='childContainer' style={{
                     width: tocOpen ? "calc((100% - 280px) )" : "calc((100% - 170px) )",
