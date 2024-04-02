@@ -17,6 +17,14 @@ import {Command} from 'cmdk';
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
 import '../command-palette/commandPalette.css';
+import topicsIcon from '../icons/tag2.png'
+import dashboardIcon from '../icons/home.png'
+import notesIcon from '../icons/calendar.png'
+import bookmarksIcon from '../icons/bookmark2.png';
+import settingsIcon from '../icons/settings.png';
+import darkIcon from '../icons/focus.png'
+import closeIcon from '../icons/doubleright.png';
+import themeIcon from '../icons/template2.png';
 
 const Layout = ({ children }) => {
     const [tocOpen, setTocOpen] = useState(true);
@@ -104,15 +112,17 @@ const Layout = ({ children }) => {
 
                             <Command.Empty>No results found.</Command.Empty>
 
-                            <Command.Group >
-                            <Command.Item>Set Theme: Light</Command.Item>
-                            <Command.Item>Set Theme: Dark</Command.Item>
-                            <Command.Separator />
-                            <Command.Item>Dashboard</Command.Item>
-                            <Command.Item>Notes</Command.Item>
-                            <Command.Item>Topics</Command.Item>
-                            <Command.Item>Bookmarks</Command.Item>
-                            <Command.Item>Settings</Command.Item>
+                            <Command.Group heading="Navigation">
+                            <Command.Item><img className="tocIcon" src={dashboardIcon}/><span className="tocInnerText">Dashboard</span></Command.Item>
+                            <Command.Item><img className="tocIcon" src={notesIcon}/><span className="tocInnerText">Notes</span></Command.Item>
+                            <Command.Item><img className="tocIcon" src={topicsIcon}/><span className="tocInnerText">Topics</span></Command.Item>
+                            <Command.Item><img className="tocIcon" src={bookmarksIcon}/><span className="tocInnerText">Bookmarks</span></Command.Item>
+                            <Command.Item><img className="tocIcon" src={settingsIcon}/><span className="tocInnerText">Settings</span></Command.Item>
+                            </Command.Group>
+                            <Command.Group heading="Commands">
+                            <Command.Item><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
+                            <Command.Item><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
+                            <Command.Item><img className="tocIcon" src={closeIcon}/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
                             </Command.Group>
                         </Command.List>
                 </Command.Dialog>
