@@ -20,6 +20,7 @@ import '../command-palette/commandPalette.css';
 import topicsIcon from '../icons/tag2.png'
 import dashboardIcon from '../icons/home.png'
 import notesIcon from '../icons/calendar.png'
+import zapIcon from '../icons/bolt.png'
 import bookmarksIcon from '../icons/bookmark2.png';
 import settingsIcon from '../icons/settings.png';
 import darkIcon from '../icons/focus.png'
@@ -115,6 +116,7 @@ const Layout = ({ children }) => {
                             <Command.Group heading="Navigation">
                             <Command.Item><img className="tocIcon" src={dashboardIcon}/><span className="tocInnerText">Dashboard</span></Command.Item>
                             <Command.Item><img className="tocIcon" src={notesIcon}/><span className="tocInnerText">Notes</span></Command.Item>
+                            <Command.Item><img className="tocIcon" src={zapIcon}/><span className="tocInnerText">Zaps</span></Command.Item>
                             <Command.Item><img className="tocIcon" src={topicsIcon}/><span className="tocInnerText">Topics</span></Command.Item>
                             <Command.Item><img className="tocIcon" src={bookmarksIcon}/><span className="tocInnerText">Bookmarks</span></Command.Item>
                             <Command.Item><img className="tocIcon" src={settingsIcon}/><span className="tocInnerText">Settings</span></Command.Item>
