@@ -13,6 +13,8 @@ import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constant
 import TopicModal from '../modal/topic/TopicModal.js';
 import "react-cmdk/dist/cmdk.css";
 import {Command} from 'cmdk';
+import { useNavigate } from "react-router-dom";
+import SettingsModal from "../modal/SettingsModal";
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -33,12 +35,18 @@ const Layout = ({ children }) => {
     const [cpOpen, setCpOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [page, setPage] = useState("root");
+    const [settingsModalOpen, setSettingsModalOpen] = useState(false);
 
     const containerRef = useRef(null);
+    const navigate = useNavigate();
 
     // command palette toggle
     const handleCommandPalette = () => {
         setCpOpen(true);
+    }
+
+    const handleSettingsModal = () => {
+        setSettingsModalOpen(true);
     }
 
     // Sidebar toggle
@@ -106,6 +114,8 @@ const Layout = ({ children }) => {
 
                 />
 
+                <SettingsModal show={settingsModalOpen} onHide={() => setSettingsModalOpen(false)}></SettingsModal>
+
                 <Command.Dialog open={cpOpen} onOpenChange={setCpOpen} container={containerRef.current}>
                     <Command.Input placeholder="Type a command"/>
 
@@ -114,12 +124,12 @@ const Layout = ({ children }) => {
                             <Command.Empty>No results found.</Command.Empty>
 
                             <Command.Group heading="Navigation">
-                            <Command.Item><img className="tocIcon" src={dashboardIcon}/><span className="tocInnerText">Dashboard</span></Command.Item>
-                            <Command.Item><img className="tocIcon" src={notesIcon}/><span className="tocInnerText">Notes</span></Command.Item>
-                            <Command.Item><img className="tocIcon" src={zapIcon}/><span className="tocInnerText">Zaps</span></Command.Item>
-                            <Command.Item><img className="tocIcon" src={topicsIcon}/><span className="tocInnerText">Topics</span></Command.Item>
-                            <Command.Item><img className="tocIcon" src={bookmarksIcon}/><span className="tocInnerText">Bookmarks</span></Command.Item>
-                            <Command.Item><img className="tocIcon" src={settingsIcon}/><span className="tocInnerText">Settings</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/home'); setCpOpen(false)}}><img className="tocIcon" src={dashboardIcon}/><span className="tocInnerText" >Dashboard</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/documents'); setCpOpen(false)}}><img className="tocIcon" src={notesIcon}/><span className="tocInnerText">Notes</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/zap'); setCpOpen(false)}}><img className="tocIcon" src={zapIcon}/><span className="tocInnerText">Zaps</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/topics'); setCpOpen(false)}}><img className="tocIcon" src={topicsIcon}/><span className="tocInnerText">Topics</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/bookmark'); setCpOpen(false)}}><img className="tocIcon" src={bookmarksIcon}/><span className="tocInnerText">Bookmarks</span></Command.Item>
+                            <Command.Item onSelect={() => {handleSettingsModal(); setCpOpen(false)}}><img className="tocIcon" src={settingsIcon}/><span className="tocInnerText">Settings</span></Command.Item>
                             </Command.Group>
                             <Command.Group heading="Commands">
                             <Command.Item><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
