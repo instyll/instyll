@@ -15,6 +15,8 @@ import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
 import { EditorState } from "@codemirror/state";
 import { CompletionContext, completeFromList, autocompletion } from "@codemirror/autocomplete";
+import options from '../../legacy/TeXOptions';
+
 
 import preview from '../../icons/preview.png';
 import editBlock from '../../icons/editBlock.png';
@@ -28,7 +30,7 @@ export const MathBlock: FC = () => {
     const [codeValue, setCodeValue] = useState("");
     const [loading, getEditor] = useInstance();
 
-    const texOptions = require('../../legacy/TeXOptions');
+    // const texOptions = require('../../legacy/TeXOptions');
 
     // console.log(node.attrs.value)
     // console.log("codevalue: "  + codeValue)
@@ -41,7 +43,7 @@ export const MathBlock: FC = () => {
         }
         return {
             from: word.from,
-            options: texOptions,
+            options: options,
         };
     }
 

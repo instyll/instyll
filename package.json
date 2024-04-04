@@ -166,7 +166,13 @@
   "build": {
     "appId": "com.instyll",
     "mac": {
-      "icon": "assets/icon.icns"
+      "icon": "assets/icon.icns",
+      "target": [
+      {
+        "target": "dmg",
+        "arch": ["universal"]
+      }
+    ]
     },
     "files": [
       "build/**/*",
