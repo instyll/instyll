@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import path from 'path';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 // import { executeQuery } from '../db.js'; // You need to create a file for database operations
-import { addDocument, removeDocument, reset } from '../documentSlice.js';
-import { uuid } from 'uuidv4';
 import Modal from 'react-modal';
-import parseAndFormatDate from '../DateUtils.js';
-import { executeFileCreation } from '../actions.js';
-import '../App.css';
+import { uuid } from 'uuidv4';
+import '../../App.css';
+import parseAndFormatDate from '../../DateUtils.js';
+import { executeFileCreation } from '../../actions.js';
+import { addDocument, removeDocument } from '../../documentSlice.js';
 
 const DocumentModal = ({ show, onHide, onAddTags }) => {
 
@@ -27,22 +27,22 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
     const documentsPath = useSelector((state) => state.path.path)
 
     const handleDocumentCreation = async () => {
-        console.log(documentTitle)
+        // console.log(documentTitle)
         const date = new Date();
         const parsedDate = parseAndFormatDate(date.toString());
         const filePath = path.join(documentsPath, `${documentTitle}.md`);
         dispatch(addDocument([uuid(), documentTitle, parsedDate, filePath, []])) // empty topics array
         executeFileCreation({documentTitle: documentTitle})
-        console.log(documents)
+        // console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal
         navigate('/editor', { state: { documentPath: filePath, documentContent: '# ' + documentTitle }})
         onHide();
     }
 
     const temp = () => {
-        console.log(documents)
+        // console.log(documents)
         dispatch(removeDocument(0))
-        console.log("ok")
+        // console.log("ok")
     }
 
     return (

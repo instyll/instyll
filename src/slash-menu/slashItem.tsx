@@ -5,7 +5,7 @@ import { Ctx } from "@milkdown/ctx";
 import { Instance } from "@milkdown/react";
 import { clsx } from "clsx";
 import { FC, ReactNode, useRef, useEffect, useState } from "react";
-import GenAIModal from "../modal/GenAIModal";
+import GenAIModal from "../modal/openai/GenAIModal";
 import React from "react";
 import { useSlashState } from "./state";
 
@@ -40,7 +40,7 @@ export const SlashItem: FC<SlashItemProps> = ({
   }, [selected]);
 
   const onPick = () => {
-    console.log(index)
+    // console.log(index)
     if (loading) return;
 
     if (index == 0) {

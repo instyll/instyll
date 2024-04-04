@@ -1,35 +1,33 @@
-/**
- * @author wou
- */
-import React, { useState, useEffect } from 'react';
+// import { prosePluginsCtx } from '@milkdown/core';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { addZap, removeZap } from '../zapSlice';
-import UpdateZapModal from './UpdateZapModal';
-import '../App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../App.css';
+import { updateZap } from '../../zapSlice';
 
-const ZapOptionsModal = ({ show, onHide, selectedZap }) => {
+const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
 
     const dispatch = useDispatch();
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [updateZapModalOpen, setUpdateZapModalOpen] = useState(false);
 
     const zaps = useSelector((state) => state.zaps.zaps);
 
     const [newZap, setNewZap] = useState('');
 
-    const handleRemoveZap = (zapItem) => {
-        dispatch(removeZap(zapItem));
-        onHide();
-    }
-
-    const handleClose = () => {
-        onHide();
+    const handleNewZapChange = (event) => {
+        setNewZap(event.target.value);
     };
 
-    const handleUpdateZapModalOpen = (value) => {
-        setUpdateZapModalOpen(value);
+    const handleEditZap = () => {
+        const zapToUpdate = selectedZap;
+        // console.log(zapToUpdate)
+        // console.log(newZap)
+        if (zapToUpdate) {
+            dispatch(updateZap({ id: zapToUpdate, newValue: newZap}));
+            setNewZap('');
+            handleClose();
+        }
     }
 
     return (
@@ -50,8 +48,8 @@ const ZapOptionsModal = ({ show, onHide, selectedZap }) => {
                     border: "0px none",
                     fontSize: "1em",
                     boxSizing: "border-box",
-                    width: "140px",
-                    height: "104px",
+                    width: "400px",
+                    height: "70px",
                     position: "absolute",
                     top: "50%",
                     left: "50%",
@@ -60,22 +58,19 @@ const ZapOptionsModal = ({ show, onHide, selectedZap }) => {
             }}>
 
 
-            <UpdateZapModal
-            show={updateZapModalOpen}
-            selectedZap={selectedZap}
-            handleClose={handleClose}
-            onHide={() => {
-                setUpdateZapModalOpen(false)
-            }}
-            />
-
-
             <div className="tagCreationContainer">
-                <button onClick={() => handleRemoveZap(selectedZap)} className='modalDangerButton'>Delete</button>
-                <button onClick={() => handleUpdateZapModalOpen(true)} className='modalActionButton'>Rename</button>
+                <input
+                    type="text"
+                    placeholder="New Zap"
+                    value={newZap}
+                    onChange={handleNewZapChange}
+                    className="topicCreationInput"
+                    autoFocus
+                />
+                <button onClick={handleEditZap} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
     );
 };
 
-export default ZapOptionsModal;
+export default UpdateZapModal;

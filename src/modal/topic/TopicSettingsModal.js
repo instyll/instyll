@@ -1,9 +1,8 @@
 // import { prosePluginsCtx } from '@milkdown/core';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { addTag } from '../tagSlice';
-import '../App.css';
+import { useSelector } from 'react-redux';
+import '../../App.css';
 
 const TopicSettingModal = ({ show, onHide }) => {
 

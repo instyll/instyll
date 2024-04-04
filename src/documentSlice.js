@@ -26,7 +26,7 @@ const documentSlice = createSlice({
             const documentPath = requestObject[0];
             const requestedTags = requestObject[1];
             const docIndex = state.documents.findIndex(item => item[3] === documentPath);
-            console.log("documents before adding tag: " + state.documents)
+            // console.log("documents before adding tag: " + state.documents)
             if (docIndex !== -1) {
                 // If the doc exists, add topics into it
                 state.documents[docIndex] = [
@@ -40,7 +40,7 @@ const documentSlice = createSlice({
                     ],
                 ];
             }
-            console.log("documents AFTER adding tag: " + state.documents)
+            // console.log("documents AFTER adding tag: " + state.documents)
         },
         removeTag: (state, action) => {
             const requestObject = action.payload;
@@ -67,7 +67,7 @@ const documentSlice = createSlice({
             // also remove file from directory
             try {
                 fs.unlink(documentPath);
-                console.log(`File deleted: ${documentPath}`);
+                // console.log(`File deleted: ${documentPath}`);
             } catch (error) {
                 console.error(`Error deleting file ${documentPath}:`, error);
             }
@@ -75,18 +75,19 @@ const documentSlice = createSlice({
         updateDocument: (state, action) => {
             const documentObject = action.payload;
             const documentPath = documentObject[0]
-            console.log(documentPath)
+            // console.log(documentPath)
             const newValue = documentObject[2]
             const originPath = documentObject[1]
             const docIndex = state.documents.findIndex(item => item[3] === documentPath);
-            console.log(docIndex)
+            // console.log(docIndex)
             if (docIndex !== -1) {
                 // If the doc exists, update its filename
                 state.documents[docIndex] = [
                     ...state.documents[docIndex].slice(0, 1), 
                     newValue,
                     state.documents[docIndex][2],
-                    path.join(originPath, `${newValue}.md`)
+                    path.join(originPath, `${newValue}.md`),
+                    state.documents[docIndex][4]
                 ];
                 try {
                     fs.rename(documentPath, path.join(originPath, `${newValue}.md`))

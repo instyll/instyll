@@ -1,25 +1,26 @@
 /**
  * @author wou
  */
-import React, { Component, useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTags, removeTag } from '../documentSlice.js';
-import Sizzle from 'sizzle'
+import React, { useEffect, useRef, useState } from 'react';
 import CommandPalette from 'react-command-palette';
+import { useDispatch, useSelector } from 'react-redux';
+import Sizzle from 'sizzle';
+import fs from 'fs';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
+import { addTags, removeTag } from '../documentSlice.js';
 // import moment from 'moment';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
-import TopicModal from '../modal/TopicModal.js';
-import OutlineContainer from '../components/OutlineContainer.js';
-import PaneContainer from './paneContainer.tsx';
-import StatContainer from './StatContainer.js';
-import PageActionContainer from './PageActionContainer.js';
-import StyleContainer from './StyleContainer.js';
-import { BrowserRouter, BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
+import TopicModal from '../modal/topic/TopicModal.js';
+import OutlineContainer from '../components/dock/OutlineContainer.js';
+import PageActionContainer from '../components/dock/PageActionContainer.js';
+import StatContainer from '../components/dock/StatContainer.js';
+import StyleContainer from '../components/dock/StyleContainer.js';
+import PaneContainer from '../components/dock/paneContainer.tsx';
 
-import '../command-palette/commandPalette.css';
-import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
+import 'react-calendar/dist/Calendar.css';
+import '../command-palette/commandPalette.css';
 
 // Plugins
 
@@ -30,31 +31,25 @@ import { MilkdownEditor } from '../mdWrapper.js';
 
 
 // Assets
-import moreDots from '../icons/more.png';
-import exportIcon from '../icons/export.png';
-import star from '../icons/star.png';
 import add from '../icons/add_component2.png';
-import back from '../icons/arrowback.png';
-import stats from '../icons/stats.png';
-import doc from '../icons/document.png';
-import outline from '../icons/outline.png';
-import reference from '../icons/reference.png';
-import edit from '../icons/edit.png';
-import doubleRight from '../icons/doubleright.png'
 import deleteX from '../icons/delete.png';
+import doc from '../icons/document.png';
+import doubleRight from '../icons/doubleright.png';
+import edit from '../icons/edit.png';
+import outline from '../icons/outline.png';
 import plus from '../icons/plus.png';
-import { initial } from 'lodash';
-import { fail } from 'assert';
+import reference from '../icons/reference.png';
+import stats from '../icons/stats.png';
 
-const { ipcRenderer } = require('electron');
-const { getCurrentWebContents } = require('@electron/remote')
-const FindInPage = require('electron-find').FindInPage;
+// const { ipcRenderer } = require('electron');
+// const { getCurrentWebContents } = require('@electron/remote')
+// const FindInPage = require('electron-find').FindInPage;
 
-let findInPage = new FindInPage(getCurrentWebContents());
+// let findInPage = new FindInPage(getCurrentWebContents());
 
-ipcRenderer.on('on-find', (e, args) => {
-  findInPage.openFindWindow();
-});
+// ipcRenderer.on('on-find', (e, args) => {
+//   findInPage.openFindWindow();
+// });
 
 const EditorView = () => {
 
@@ -71,9 +66,14 @@ const EditorView = () => {
 
     const {state} = useLocation();
     const { documentPath, documentContent } = state;
-    console.log("the loaded state " + state)
+    // console.log("the loaded state " + state)
 
     const dispatch = useDispatch();
+
+    // read word count of the contents
+    const wordCount = fs.readFileSync(documentPath, 'utf-8').split(/\s+/).length;
+    const charCount = fs.readFileSync(documentPath, 'utf-8').split('').length;
+    // console.log(wordCount)
 
     const existingTags = useSelector((state) => {
         const documents = state.documents.documents;
@@ -82,7 +82,7 @@ const EditorView = () => {
         if (documentIndex !== -1) {
         //   console.log(documents[documentIndex])  
           const fourthIndex = documents[documentIndex][4];
-          console.log(documents[documentIndex][1] + " tags: " + fourthIndex)
+        //   console.log(documents[documentIndex][1] + " tags: " + fourthIndex)
           return fourthIndex;
         }
         return null; // Adjust the default value based on your needs
@@ -145,17 +145,17 @@ const EditorView = () => {
         setAddedTags([])
         const updatedTags = [...addedTags, ...selectedTags];
         setAddedTags(updatedTags);
-        console.log(addedTags)
+        // console.log(addedTags)
         const requestObj = [documentPath, selectedTags];
-        console.log(requestObj);
+        // console.log(requestObj);s
         dispatch(addTags(requestObj));
         setSelectedTags([]);
         // Add tags to redux document
-        console.log("added tags: " + updatedTags);
+        // console.log("added tags: " + updatedTags);
     };
 
     const handleRemoveTags = (tag) => {
-        console.log(tag);
+        // console.log(tag);
         setAddedTags((prevAddedTags) => prevAddedTags.filter((t) => t !== tag));
         dispatch(removeTag([documentPath, tag]))
     }
@@ -176,171 +176,10 @@ const EditorView = () => {
         };
       }, []);
 
-
-    const sampleChromeCommand = (suggestion) => {
-        const { name, highlight, category, shortcut } = suggestion;
-        return (
-            <div className="">
-                <span className={`my-category ${category}`}>{category}</span>
-
-                <span>{name}</span>
-
-                {/* <kbd className="my-shortcut">{shortcut}</kbd> */}
-            </div>
-        );
-    }
-
-    const theme = {
-        modal: "my-modal",
-        overlay: "my-overlay",
-        container: "my-container",
-        header: "my-header",
-        content: "my-content",
-        input: "my-input",
-        suggestionsList: "my-suggestionsList",
-        suggestion: "my-suggestion",
-        suggestionHighlighted: "my-suggestionHighlighted",
-        suggestionsContainerOpen: "my-suggestionsContainerOpen",
-    }
-
-    const commands = [{
-        name: SET_THEME + "Dark",
-        category: "Command",
-        command: () => {
-            // this.setDark(true);
-            const html = document.querySelector("html");
-            html.setAttribute("data-theme", "dark");
-
-        },
-    }, {
-        name: SET_THEME + "Light",
-        category: "Command",
-        command: () => {
-
-            const html = document.querySelector("html");
-            html.setAttribute("data-theme", "light");
-
-        }
-    },
-    {
-        name: DAILY + "Open Daily Note",
-        category: "Command",
-        command() { }
-    },
-    {
-        name: OPEN + "Settings",
-        category: "Navigate",
-        command: () => {
-            // this.changeLayout("vertical");
-        }
-    },
-    {
-        name: CLOSE + "Current File",
-        category: "Navigate",
-        command: () => {
-            // this.changeLayout("horizontal");
-        }
-    },
-    {
-        name: FILE + "Export as PDF",
-        category: "Action",
-        command() { }
-    },
-    {
-        name: FILE + "Export as LaTeX",
-        category: "Action",
-        command() { }
-    },
-    {
-        name: FILE + "Export as Docx",
-        category: "Action",
-        command() { }
-    },
-    {
-        name: FILE + "Export to Google Drive",
-        category: "Action",
-        command() { }
-    },
-    {
-        name: FILE + "Export to Notion",
-        category: "Action",
-        command: () => {
-            handleToc();
-        }
-    },
-    {
-        name: FILE + "Print",
-        category: "Action",
-        shortcut: "Ctrl + P",
-        command() { }
-    },
-    {
-        name: FILE + "Star",
-        category: "Action",
-        command() { }
-    },
-    {
-        name: TOGGLE + "Left Sidebar",
-        category: "Command",
-        command: () => {
-
-            setState({
-                tocOpen: tocOpen === true ? false : true
-            });
-
-        }
-    },
-    {
-        name: TOGGLE + "Dock",
-        category: "Command",
-        command: () => {
-            handleDock();
-            setState({
-                rightPanelOpen: false,
-            })
-        }
-    },
-    {
-        name: TOGGLE + "Right Panel",
-        category: "Command",
-        command: () => {
-            setState({
-                rightPanelOpen: rightPanelOpen ? false : true,
-            })
-        }
-    },
-    {
-        name: CREATE + "New Note",
-        category: "Action",
-        command() { }
-    },
-    {
-        name: CREATE + "New Note From Template",
-        category: "Action",
-        command() { }
-    },
-    ];
-
     return (
             <div className="EditorView">
 
                 {/* <Router> */}
-
-                <CommandPalette
-                    commands={commands}
-                    style={{
-                        zIndex: "999",
-                    }}
-                    trigger={null}
-                    hotKeys={['ctrl+k', 'command+k']}
-                    closeOnSelect={true}
-                    alwaysRenderCommands={true}
-                    renderCommand={sampleChromeCommand}
-                    resetInputOnOpen={true}
-                    theme={theme}
-                    header={sampleHeader()}
-                    maxDisplayed={500}
-                ></CommandPalette>
 
                 <div className='container'>
                     <div className="editingView">
@@ -348,14 +187,14 @@ const EditorView = () => {
                             style={{
                                 width:
                                     rightPanelSetting === "pane"
-                                        && rightPanelOpen ? "calc((100% / 2) - 44px)"
+                                        && rightPanelOpen ? "calc((var(--editor-width) / 2) - 44px)"
                                         : tocOpen && rightPanelOpen
-                                            ? "calc((100%) - 360px)"
+                                            ? "calc((var(--editor-width)) - 360px)"
                                             : !tocOpen && rightPanelOpen
-                                                ? "calc((100%) - 360px)"
+                                                ? "calc((var(--editor-width)) - 360px)"
                                                 : tocOpen && !rightPanelOpen
-                                                    ? "calc((100%) - 100px)"
-                                                    : "calc((100%) - 100px)",
+                                                    ? "calc((var(--editor-width)) - 100px)"
+                                                    : "calc((var(--editor-width)) - 100px)",
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">
@@ -461,7 +300,7 @@ const EditorView = () => {
                                 </PaneContainer>
                             )}
                             {rightPanelSetting === "stats" && (
-                                <StatContainer>
+                                <StatContainer documentPath={documentPath} wordCount={wordCount} charCount={charCount}>
 
                                 </StatContainer>
                             )}
@@ -538,7 +377,7 @@ const EditorView = () => {
                                     borderTop: dockOpen ? "1px solid var(--muted-text)" : "none",
                                 }}>
                                     <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
-                                        onClick={handleDock} style={{
+                                        onClick={handleDock}ƒ style={{
                                             transform: dockOpen ? "none" : "rotate(180deg)",
                                             transition: "transform 0.3s",
                                         }}></img>

@@ -43,7 +43,7 @@ const QueryModal = ({ show, onHide }) => {
       } else if (e.key === "Enter" && selectedIndex !== -1) {
         e.preventDefault();
         const selectedEl = document.querySelector(".queryResultContainer.selected");
-        console.log(selectedEl)
+        // console.log(selectedEl)
         if (selectedEl) {
           selectedEl.click();
         }
@@ -68,7 +68,7 @@ const QueryModal = ({ show, onHide }) => {
           backdropFilter: "blur(10px)",
         },
         content: {
-          backgroundColor: "var(--bg-color)",
+          backgroundColor: "transparent",
           color: "var(--primary-text)",
           fontFamily: "Inter",
           borderRadius: "10px",

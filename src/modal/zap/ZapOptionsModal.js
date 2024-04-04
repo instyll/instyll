@@ -1,38 +1,26 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { addTag, removeTag } from '../tagSlice';
-import UpdateTopicModal from './UpdateTopicModal';
-import '../App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../App.css';
+import { removeZap } from '../../zapSlice';
+import UpdateZapModal from './UpdateZapModal';
 
-const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
+const ZapOptionsModal = ({ show, onHide, selectedZap }) => {
 
     const dispatch = useDispatch();
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [updateTopicModalOpen, setUpdateTopicModalOpen] = useState(false);
+    const [updateZapModalOpen, setUpdateZapModalOpen] = useState(false);
 
-    const tags = useSelector((state) => state.tags.tags);
+    const zaps = useSelector((state) => state.zaps.zaps);
 
-    const [newTag, setNewTag] = useState('');
+    const [newZap, setNewZap] = useState('');
 
-    const handleNewTagChange = (event) => {
-        setNewTag(event.target.value);
-    };
-
-    const handleAddTag = () => {
-        if (newTag && !tags.includes(newTag)) {
-            dispatch(addTag(newTag));
-            setNewTag('');
-            onHide();
-        }
-    };
-
-    const handleRemoveTag = (tagItem) => {
-        dispatch(removeTag(tagItem));
+    const handleRemoveZap = (zapItem) => {
+        dispatch(removeZap(zapItem));
         onHide();
     }
 
@@ -40,8 +28,8 @@ const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
         onHide();
     };
 
-    const handleUpdateTopicModalOpen = (value) => {
-        setUpdateTopicModalOpen(value);
+    const handleUpdateZapModalOpen = (value) => {
+        setUpdateZapModalOpen(value);
     }
 
     return (
@@ -72,22 +60,22 @@ const TopicOptionsModal = ({ show, onHide, selectedTopic }) => {
             }}>
 
 
-            <UpdateTopicModal
-            show={updateTopicModalOpen}
-            selectedTag={selectedTopic}
+            <UpdateZapModal
+            show={updateZapModalOpen}
+            selectedZap={selectedZap}
             handleClose={handleClose}
             onHide={() => {
-                setUpdateTopicModalOpen(false)
+                setUpdateZapModalOpen(false)
             }}
             />
 
 
             <div className="tagCreationContainer">
-                <button onClick={() => handleRemoveTag(selectedTopic)} className='modalDangerButton'>Delete</button>
-                <button onClick={() => handleUpdateTopicModalOpen(true)} className='modalActionButton'>Rename</button>
+                <button onClick={() => handleRemoveZap(selectedZap)} className='modalDangerButton'>Delete</button>
+                <button onClick={() => handleUpdateZapModalOpen(true)} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
     );
 };
 
-export default TopicOptionsModal;
+export default ZapOptionsModal;

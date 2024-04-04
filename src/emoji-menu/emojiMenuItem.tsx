@@ -31,7 +31,7 @@ export const EmojiMenuItem: FC<EmojiItemProps> = ({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>) => {
     if (e.key === "Enter") {
-      console.log("ok")
+      // console.log("ok")
       e.preventDefault();
       if (loading) return;
       getEditor().action(onSelect);

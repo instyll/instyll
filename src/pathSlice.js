@@ -20,6 +20,7 @@ const pathSlice = createSlice({
         },
         updatePath: (state, action) => {
             const newValue = action.payload;
+            console.log(newValue)
 
                 return {
                     ...state,

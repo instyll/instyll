@@ -8,7 +8,7 @@ import { SlashProvider } from "@milkdown/plugin-slash";
 import { useInstance } from "@milkdown/react";
 import { usePluginViewContext } from "@prosemirror-adapter/react";
 import { useEffect, useRef, useState } from "react";
-import GenAIModal from "../modal/GenAIModal.js";
+import GenAIModal from "../modal/openai/GenAIModal.js";
 import React from "react";
 
 export const Slash = () => {

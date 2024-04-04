@@ -1,8 +1,15 @@
+/**
+ * @author wou
+ */
 import React from "react";
 import Modal from "react-modal"; // Import Modal from 'react-modal'
-import { useSelector } from "react-redux";
 import QueryResult from "../components/queryResult";
 import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updatePath } from "../pathSlice";
+import { ipcRenderer } from 'electron';
+import fs from 'fs';
+import path from 'path';
 
 import "../App.css";
 import search from '../icons/search.png'
@@ -17,10 +24,63 @@ const SettingsModal = ({ show, onHide }) => {
   const [selectedOption, setSelectedOption] = useState("s");
 
   const documentsPath = useSelector((state) => state.path.path);
+  const dispatch = useDispatch();
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);
-    console.log(selectedOption)
+    // console.log(selectedOption)
+  }
+
+  // handle font size
+  const handleFontSize = (option) => {
+    if (option === '12px') {
+      document.documentElement.style.setProperty('--font-size', '1em');
+    } else if (option === '15px') {
+      document.documentElement.style.setProperty('--font-size', '1.2em');
+    } else if (option === '18px') {
+      document.documentElement.style.setProperty('--font-size', '1.4em');
+    }
+  }
+
+  // handle editor width
+  const handleEditorWidth = (option) => {
+    if (option === '700px') {
+      document.documentElement.style.setProperty('--milkdown-width', '700px');
+    }
+    else if (option === '900px') {
+      document.documentElement.style.setProperty('--milkdown-width', '900px');
+    } else if (option === 'full') {
+      document.documentElement.style.setProperty('--milkdown-width', '100%');
+    }
+  }
+
+  // handle theme
+  const handleTheme = (option) => {
+    const html = document.querySelector("html");
+    if (option === 'light') {
+      html.setAttribute("data-theme", "light");
+    } else {
+      html.setAttribute("data-theme", "dark");
+    }
+  }
+
+  const copyFiles = (src, dest) => {
+    fs.readdirSync(src).forEach(file => {
+      const filePath = path.join(src, file);
+      const destPath = path.join(dest, file);
+      fs.copyFileSync(filePath, destPath);
+    });
+  };
+
+  // handle path change
+  const handleLocationChange = () => {
+    const folderPath = ipcRenderer.sendSync('select-folder');
+    if (folderPath) {
+        const originalPath = documentsPath;
+        dispatch(updatePath(folderPath))
+        // move notes over to new location
+        copyFiles(originalPath, folderPath);
+    }
   }
 
   return (
@@ -91,28 +151,28 @@ const SettingsModal = ({ show, onHide }) => {
                     Max editor width
                   </span>
                   <div className="widthSelector">
-                    <div className="third">
-                      500px
-                    </div>
-                    <div className="third">
-                      600px
-                    </div>
-                    <div className="third">
+                    <div className="third" onClick={() => handleEditorWidth('700px')}>
                       700px
+                    </div>
+                    <div className="third" onClick={() => handleEditorWidth('900px')}>
+                      900px
+                    </div>
+                    <div className="third" onClick={() => handleEditorWidth('full')}>
+                      Full
                     </div>
                   </div>
                   <span className="editorSettingsTitle">
                     Editor font size
                   </span>
                   <div className="widthSelector">
-                    <div className="third">
+                    <div className="third" onClick={() => handleFontSize('12px')}>
                       12px
                     </div>
-                    <div className="third">
-                      16px
+                    <div className="third" onClick={() => handleFontSize('15px')}>
+                      15px
                     </div>
-                    <div className="third">
-                      20px
+                    <div className="third" onClick={() => handleFontSize('18px')}>
+                      18px
                     </div>
                   </div>
                 </div>
@@ -126,7 +186,7 @@ const SettingsModal = ({ show, onHide }) => {
                   <div className="widthSelector">
                     <span className="fileLocation">{documentsPath}</span>
                     <div className="fileLocationControl">
-                      <button className="fileLocationControlButton">
+                      <button className="fileLocationControlButton" onClick={handleLocationChange}>
                         Change location
                       </button>
                     </div>
@@ -139,10 +199,10 @@ const SettingsModal = ({ show, onHide }) => {
                     Theme
                   </span>
                   <div className="widthSelector">
-                    <div className="second">
+                    <div className="second" onClick={() => handleTheme('light')}>
                       Light
                     </div>
-                    <div className="second">
+                    <div className="second" onClick={() => handleTheme('dark')}>
                       Dark
                     </div>
                   </div>

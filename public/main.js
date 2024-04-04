@@ -22,6 +22,7 @@ function createWindow() {
                 nodeIntegration: true,
                 contextIsolation: false,
             },
+            titleBarStyle: 'hiddenInset',
         });
     mainWindow.loadURL(isDev ? 'http://localhost:3000': `file://${path.join(__dirname, 
    '../build/index.html')}`);
@@ -78,9 +79,9 @@ function createWindow() {
         applicationVersion: "0.1.0-beta",
     })
 
-    globalShortcut.register('CommandOrControl+F', () => {
-      mainWindow.webContents.send('on-find');
-    });
+    // globalShortcut.register('CommandOrControl+F', () => {
+    //   mainWindow.webContents.send('on-find');
+    // });
 
     mainWindow.on('closed', () => mainWindow = null);
 }

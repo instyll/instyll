@@ -3,31 +3,27 @@
  */
 import React, { useEffect, useState } from 'react';
 // import Editor from './legacyEditor.js';
-import { MilkdownEditorWrapper } from '../mdWrapper.js';
-import '../App.css';
-import "highlight.js/styles/github.css";
-import 'katex/dist/katex.min.css'
-import chokidar from 'chokidar'
 import fs from 'fs';
+import "highlight.js/styles/github.css";
+import 'katex/dist/katex.min.css';
 import CommandPalette from 'react-command-palette';
-import sampleHeader from '../command-palette/commandPaletteHeader.js';
-import { FILE, SET_THEME, OPEN, CLOSE, TOGGLE, CREATE, DAILY } from '../constants.ts';
-import DateTime from '../components/dateTime.js';
-import { QUOTE1, QUOTE2, QUOTE3, QUOTE4 } from '../quotes.ts';
-import DailyQuote from '../components/dailyQuote.js';
-import { useSelector, useDispatch } from 'react-redux';
-import { setSelectedImage } from '../imageSlice';
-import TopicSettingModal from '../modal/TopicSettingsModal.js';
-import TopicGridItem from './topic/topicGridItem.js';
-import CreateTopicModal from '../modal/CreateTopicModal.js';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import '../App.css';
+import sampleHeader from '../command-palette/commandPaletteHeader.js';
+import DateTime from '../components/dateTime.js';
+import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
+import { setSelectedImage } from '../imageSlice';
+import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
+import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
+import DashboardDocumentItem from './dashboardDocumentItem.js';
+import TopicGridItem from './topic/topicGridItem.js';
 
 
-import '../command-palette/commandPalette.css';
-import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
+import 'react-calendar/dist/Calendar.css';
+import '../command-palette/commandPalette.css';
 
-import moreDots from '../icons/more.png';
 import createTopic from '../icons/plus1.png';
 
 const Home = () => {
@@ -46,7 +42,20 @@ const Home = () => {
   // get recent bookmarks to show 
   const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
 
-  const selectedImage = useSelector((state) => state.image);
+  const recentNoteDisplay = useSelector((state) => state.documents.documents);
+
+  // generates 3 random notes
+  const randomNoteDisplay = useSelector((state) => {
+    const documents = state.documents.documents;
+    const len = documents.length;
+    var ind1 = Math.floor(Math.random() * len);
+    var ind2 = Math.floor(Math.random() * len);
+    var ind3 = Math.floor(Math.random() * len);
+    const doc1 = documents[ind1];
+    const doc2 = documents[ind2];
+    const doc3 = documents[ind3];
+    return [doc1, doc2, doc3];
+  });
 
   const handleClick = async (path) => {
     const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
@@ -96,170 +105,10 @@ const Home = () => {
     };
   }, [location]);
 
-  useEffect(() => {
-    // Restore the background image when returning to the home location
-    if (selectedImage) {
-      document.body.style.backgroundImage = `url(${selectedImage})`;
-      document.body.style.background = `var(--background-dim), url(${selectedImage})`;
-    }
-  }, [selectedImage]);
-
-  const sampleChromeCommand = (suggestion) => {
-    const { name, highlight, category, shortcut } = suggestion;
-    return (
-      <div className="">
-        <span className={`my-category ${category}`}>{category}</span>
-        <span>{name}</span>
-        {/* <kbd className="my-shortcut">{shortcut}</kbd> */}
-      </div>
-    );
-  }
-
-  const theme = {
-    modal: "my-modal",
-    overlay: "my-overlay",
-    container: "my-container",
-    header: "my-header",
-    content: "my-content",
-    input: "my-input",
-    suggestionsList: "my-suggestionsList",
-    suggestion: "my-suggestion",
-    suggestionHighlighted: "my-suggestionHighlighted",
-    suggestionsContainerOpen: "my-suggestionsContainerOpen",
-  }
-
-  const commands = [{
-    name: SET_THEME + "Dark",
-    category: "Command",
-    command: () => {
-      const html = document.querySelector("html");
-      html.setAttribute("data-theme", "dark");
-    },
-  }, {
-    name: SET_THEME + "Light",
-    category: "Command",
-    command: () => {
-      const html = document.querySelector("html");
-      html.setAttribute("data-theme", "light");
-    }
-  },
-  {
-    name: DAILY + "Open Daily Note",
-    category: "Command",
-    command() { }
-  },
-  {
-    name: OPEN + "Settings",
-    category: "Navigate",
-    command: () => {
-      // this.changeLayout("vertical");
-    }
-  },
-  {
-    name: CLOSE + "Current File",
-    category: "Navigate",
-    command: () => {
-      // this.changeLayout("horizontal");
-    }
-  },
-  {
-    name: FILE + "Export as PDF",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export as LaTeX",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export as Docx",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export to Google Drive",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: FILE + "Export to Notion",
-    category: "Action",
-    command: () => {
-      // this.handleToc();
-    }
-  },
-  {
-    name: FILE + "Print",
-    category: "Action",
-    shortcut: "Ctrl + P",
-    command() { }
-  },
-  {
-    name: FILE + "Star",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: TOGGLE + "Left Sidebar",
-    category: "Command",
-    command: () => {
-      // this.setState({
-      //   tocOpen: this.state.tocOpen === true ? false : true
-      // });
-    }
-  },
-  {
-    name: TOGGLE + "Dock",
-    category: "Command",
-    command: () => {
-      // this.handleDock();
-      // this.setState({
-      //   rightPanelOpen: false,
-      // })
-    }
-  },
-  {
-    name: TOGGLE + "Right Panel",
-    category: "Command",
-    command: () => {
-      // this.setState({
-      //   rightPanelOpen: this.state.rightPanelOpen ? false : true,
-      // })
-    }
-  },
-  {
-    name: CREATE + "New Note",
-    category: "Action",
-    command() { }
-  },
-  {
-    name: CREATE + "New Note From Template",
-    category: "Action",
-    command() { }
-  },
-  ];
-
   return (
     <div className="EditorView">
 
       {/* <Router> */}
-
-      <CommandPalette
-        commands={commands}
-        style={{
-          zIndex: "999",
-        }}
-        trigger={null}
-        hotKeys={['ctrl+k', 'command+k']}
-        closeOnSelect={true}
-        alwaysRenderCommands={true}
-        renderCommand={sampleChromeCommand}
-        resetInputOnOpen={true}
-        theme={theme}
-        header={sampleHeader()}
-        maxDisplayed={500}
-      ></CommandPalette>
 
       <TopicSettingModal
         show={topicSettingsModalOpen}
@@ -302,20 +151,10 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
 
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
+                    {recentNoteDisplay && recentNoteDisplay.map((recentNote) => (
+                          <DashboardDocumentItem document={recentNote}></DashboardDocumentItem>
+                      ))
+                    }
 
                     </div>
 
@@ -337,10 +176,7 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
                     {bookmarkDisplay && bookmarkDisplay.map((bookmark) => (
-                          <div className='dashboardSuggestionItemChild'>
-                            <div className='documentTitle'>{bookmark[1]}</div>
-                            <div className='documentMetadata'>In {bookmark[4]} - {bookmark[2]}</div>
-                          </div>
+                          <DashboardDocumentItem document={bookmark}></DashboardDocumentItem>
                       ))
                     }
                     </div>
@@ -363,20 +199,10 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
 
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
-
-                      <div className='dashboardSuggestionItemChild'>
-                        <div className='documentTitle'>Document</div>
-                        <div className='documentMetadata'>In topic - Today at 8:30 AM</div>
-                      </div>
+                    {randomNoteDisplay && randomNoteDisplay.map((randomNote) => (
+                         <DashboardDocumentItem document={randomNote}></DashboardDocumentItem>
+                      ))
+                    }
 
                     </div>
 

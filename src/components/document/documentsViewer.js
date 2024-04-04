@@ -2,7 +2,6 @@
  * @author wou
  */
 import React, { useState, useEffect, useRef } from 'react';
-import fs from 'fs/promises';
 import chokidar from 'chokidar';
 import path from 'path';
 import '../../App.css';
@@ -20,9 +19,16 @@ import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
 import { uuid } from 'uuidv4';
 
+const fs = require('fs');
+const fsp = fs.promises;
+
 const DocumentViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
     const [markdownFiles, setMarkdownFiles] = useState([]);
+    const [triggerRerender, setTriggerRerender] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    // console.log(triggerRerender)s
 
     const documentsPath = useSelector((state) => state.path.path)
     const dispatch = useDispatch();
@@ -41,11 +47,31 @@ const DocumentViewer = ({ location }) => {
     const options = [
         { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },
-        { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
 
-    const documents = useSelector((state) => state.documents.documents)
-    console.log("documents: " + documents)
+    const documents = useSelector((state) => state.documents.documents);
+    // console.log("documents: " + documents)
+
+    // console.log(selectedOption)
+
+    // sort by selected option
+    useEffect(() => {
+        if (selectedOption) {
+            if (selectedOption.value === 'sortByName') {
+                // console.log(selectedOption)
+                const sortedFiles = [...markdownFiles].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+                setMarkdownFiles(sortedFiles);
+            } else if (selectedOption.value === 'sortByDate') {
+                // extract the date from the date string
+                const sortedFiles = [...markdownFiles].sort((a, b) => {
+                    const timeA = fs.statSync(documentsPath + "/" + a).birthtime;
+                    const timeB = fs.statSync(documentsPath +  "/" + b).birthtime;
+                    return timeA - timeB; // For ascending order
+                });
+                setMarkdownFiles(sortedFiles);
+            }
+        }
+    }, [selectedOption])
 
     const documentsRef = useRef(null);
 
@@ -57,7 +83,7 @@ const DocumentViewer = ({ location }) => {
     useEffect(() => {
         const fetchMarkdownFiles = async () => {
             try {
-                const files = await fs.readdir(documentsPath);
+                const files = await fsp.readdir(documentsPath);
                 const markdownFiles = files.filter(file => path.extname(file) === '.md');
                 setMarkdownFiles(markdownFiles);
                 const date = new Date();
@@ -67,8 +93,8 @@ const DocumentViewer = ({ location }) => {
                     let documentExists = false;
                     for (let i = 0; i < documentsRef.current.length; ++i) {
                         const currDocument = documentsRef.current[i];
-                        console.log("check " + currDocument[3])
-                        console.log("match " + markdownPath)
+                        // console.log("check " + currDocument[3])
+                        // console.log("match " + markdownPath)
                         if (currDocument[3] === markdownPath) {
                             documentExists = true;
                             break;
@@ -76,12 +102,11 @@ const DocumentViewer = ({ location }) => {
                     }
                     // console.log("documents: " + documents)
                     if (documentsRef.current.length == 0) {
-                        console.log("uyes")
                         // if redux store is empty, then add document
                         dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
                     else if (documentExists == false) {
-                        console.log("document does not exist and path is " + markdownPath)
+                        // console.log("document does not exist and path is " + markdownPath)
                         dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
                     }
                 }
@@ -96,11 +121,16 @@ const DocumentViewer = ({ location }) => {
         const watcher = chokidar.watch(documentsPath, {
             ignored: /[\/\\]\./, // ignore dotfiles
             persistent: true,
+            usePolling: true,
         });
 
         watcher
-            .on('add', fetchMarkdownFiles)
-            .on('unlink', fetchMarkdownFiles);
+        .on('add', () => {
+            fetchMarkdownFiles();
+        })
+        .on('unlink', () => {
+            fetchMarkdownFiles();
+        });
 
         return () => watcher.close();
     }, []);
@@ -135,6 +165,8 @@ const DocumentViewer = ({ location }) => {
                                 </div>
                                 <div className='selectSortOptionContainer'>
                                     <Select
+                                        value={selectedOption}
+                                        onChange={(value) => setSelectedOption(value)}
                                         options={options}
                                         placeholder="Sort by..."
                                         styles={{

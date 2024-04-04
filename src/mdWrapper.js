@@ -41,6 +41,8 @@ import { clipboard } from '@milkdown/plugin-clipboard';
 import { trailing } from '@milkdown/plugin-trailing';
 import { indent } from '@milkdown/plugin-indent';
 
+import { ListItem } from './components/editor/ListItem.tsx';
+
 import { tooltip, TooltipView } from './components/editor/Tooltip.tsx';
 
 import { MathBlock } from './components/editor/MathBlock.tsx';
@@ -130,7 +132,7 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
         ctx.set(rootCtx, root)
         // ctx.set(defaultValueCtx, fileContents)
         const listener = ctx.get(listenerCtx);
-        console.log(fileContents)
+        // console.log(fileContents)
         ctx.get(listenerCtx).mounted(insert(documentContents))
 
         /* listen for changes in the editor */
@@ -190,6 +192,11 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
       .use(
         $view(codeBlockSchema.node, () =>
           nodeViewFactory({ component: CodeBlock })
+        )
+      )
+      .use(
+        $view(listItemSchema.node, () =>
+          nodeViewFactory({component: ListItem})
         )
       );
   }, [])

@@ -1,15 +1,15 @@
+import OpenAI from "openai";
 import React from "react";
 import Modal from "react-modal"; // Import Modal from 'react-modal'
-import OpenAI from "openai";
 
-import "../App.css";
+import "../../App.css";
 
-import questionIcon from '../icons/questionIcon.png'
-import explainIcon from '../icons/explainIcon.png'
-import feedbackIcon from '../icons/feedbackIcon.png'
-import tipsIcon from '../icons/tipsIcon.png'
-import promptIcon from '../icons/promptIcon.png'
 import { useState } from "react";
+import explainIcon from '../../icons/explainIcon.png';
+import feedbackIcon from '../../icons/feedbackIcon.png';
+import promptIcon from '../../icons/promptIcon.png';
+import questionIcon from '../../icons/questionIcon.png';
+import tipsIcon from '../../icons/tipsIcon.png';
 
 const dotenv = require("dotenv")
 dotenv.config();
@@ -31,7 +31,7 @@ const GenAIModal = ({ show, onHide }) => {
 
     const handlePromptSubmit = async (e) => {
         e.preventDefault();
-        console.log(inputText)
+        // console.log(inputText)
         setSentMessage((prevMessages) => [
             ...prevMessages,
             { id: nextId++, text: inputText },
@@ -82,7 +82,7 @@ const GenAIModal = ({ show, onHide }) => {
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -50%)",
+          transform: "translate(-50%, -50%)", 
         },
       }}
     >

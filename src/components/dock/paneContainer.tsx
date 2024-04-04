@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { pdfjs, Document, Page } from 'react-pdf';
+import React, { useEffect, useState } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
-import Select from 'react-select';
 
-import '../App.css';
-import forward from '../icons/forward.png';
-import back from '../icons/back.png';
+import '../../App.css';
+import back from '../../icons/back.png';
+import forward from '../../icons/forward.png';
 
-import { PDFDocumentProxy } from 'pdfjs-dist';
 
 const options = {
   cMapUrl: 'cmaps/',

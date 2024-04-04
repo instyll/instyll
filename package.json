@@ -1,6 +1,6 @@
 {
-  "name": "instyll",
-  "version": "0.1.0",
+  "name": "Instyll",
+  "version": "0.1.0-beta",
   "private": true,
   "main": "public/main.js",
   "homepage": "./",
@@ -50,6 +50,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "chokidar": "^3.5.3",
     "classnames": "^2.5.1",
+    "cmdk": "^1.0.0",
     "cross-env": "^7.0.3",
     "crypto-browserify": "^3.12.0",
     "dotenv": "^16.3.1",
@@ -83,9 +84,11 @@
     "react-big-calendar": "^1.6.9",
     "react-bootstrap": "^2.7.2",
     "react-calendar": "^4.2.1",
+    "react-cmdk": "^1.3.9",
     "react-collapsible": "^2.10.0",
     "react-command-palette": "^0.22.1",
     "react-contexify": "^6.0.0",
+    "react-contextify": "^0.1.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-custom-scrollbars-2": "^4.5.0",
     "react-dom": "^18.2.0",
@@ -117,10 +120,12 @@
     "remark-mermaidjs": "^4.1.1",
     "remark-wiki-link": "^1.0.4",
     "remark-wiki-link-plus": "^1.1.1",
+    "sass": "^1.72.0",
     "sizzle": "^2.3.9",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.91.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.1",
@@ -160,6 +165,15 @@
   },
   "build": {
     "appId": "com.instyll",
+    "mac": {
+      "icon": "assets/icon.icns",
+      "target": [
+      {
+        "target": "dmg",
+        "arch": ["universal"]
+      }
+    ]
+    },
     "files": [
       "build/**/*",
       "node_modules/**/*"

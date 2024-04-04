@@ -1,42 +1,33 @@
 // import { prosePluginsCtx } from '@milkdown/core';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { addZap } from '../zapSlice';
-import '../App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../App.css';
+import { updateDocument } from '../../documentSlice';
 
-const CreateZapModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
+const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, handleClose }) => {
 
     const dispatch = useDispatch();
 
-    const zaps = useSelector((state) => state.zaps.zaps);
-
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    const [newZap, setNewZap] = useState('');
+    const originPath = useSelector((state) => state.path.path);
 
-    const handleNewZapChange = (event) => {
-        setNewZap(event.target.value);
+    const [newDocumentTitle, setNewDocumentTitle] = useState('');
+
+    const handleNewDocumentTitleChange = (event) => {
+        setNewDocumentTitle(event.target.value);
     };
 
-    const handleAddZap = () => {
-        if (newZap && !zaps.includes(newZap)) {
-            dispatch(addZap(newZap));
-            setNewZap('');
-            onHide();
+    const handleEditDocumentTitle = () => {
+        const documentToUpdate = selectedDocument;
+
+        if (documentToUpdate) {
+            dispatch(updateDocument([documentPath, originPath, newDocumentTitle]));
+            setNewDocumentTitle('');
+            handleClose();
         }
-    };
-
-    const handleKeyPress = (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission
-            handleAddZap();
-        }
-    };
-
-    const handleClose = () => {
-        onHide();
-    };
+    }
 
     return (
         <Modal isOpen={show}
@@ -69,17 +60,16 @@ const CreateZapModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onA
             <div className="tagCreationContainer">
                 <input
                     type="text"
-                    placeholder="New Zap"
-                    value={newZap}
-                    onChange={handleNewZapChange}
-                    onKeyPress={handleKeyPress}
+                    placeholder="Name this note..."
+                    value={newDocumentTitle}
+                    onChange={handleNewDocumentTitleChange}
                     className="topicCreationInput"
                     autoFocus
                 />
-                <button onClick={handleAddZap} className='modalActionButton'>Create</button>
+                <button onClick={handleEditDocumentTitle} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
     );
 };
 
-export default CreateZapModal;
+export default UpdateDocumentModal;

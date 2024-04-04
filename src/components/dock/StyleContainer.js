@@ -1,24 +1,39 @@
 /**
  * @author wou
  */
+import path from 'path';
 import React, { useState } from 'react';
-import path from 'path'
-import StatItem from './StatItem';
-import "../App.css";
+import "../../App.css";
 
-import wordCountIcon from '../icons/wordCount.png'
-import clockIcon from '../icons/clock.png'
-import folderIcon from '../icons/folder.png'
-import boldIcon from '../icons/bold.png'
-import italicIcon from '../icons/italic.png'
-import strikeThroughIcon from '../icons/strikethrough.png'
-import bulletListIcon from '../icons/listOrdered.png'
-import blockquoteIcon from '../icons/bquote.png'
-import numListIcon from '../icons/listUnordered.png'
-import heading1Icon from '../icons/header1.png'
-import heading2Icon from '../icons/header2.png'
-import heading3Icon from '../icons/header3.png'
+import { CmdKey } from '@milkdown/core';
+
+import {
+    toggleEmphasisCommand,
+    toggleStrongCommand,
+    wrapInBlockquoteCommand,
+    wrapInBulletListCommand,
+    wrapInOrderedListCommand,
+    wrapInHeadingCommand,
+} from "@milkdown/preset-commonmark"
+
+import {
+    insertTableCommand,
+    toggleStrikethroughCommand,
+} from "@milkdown/preset-gfm"
+
+import { Slice } from "@milkdown/prose/model";
+import { callCommand } from "@milkdown/utils";
+
 import { useSelector } from 'react-redux';
+import boldIcon from '../../icons/bold.png';
+import blockquoteIcon from '../../icons/bquote.png';
+import heading1Icon from '../../icons/header1.png';
+import heading2Icon from '../../icons/header2.png';
+import heading3Icon from '../../icons/header3.png';
+import italicIcon from '../../icons/italic.png';
+import bulletListIcon from '../../icons/listOrdered.png';
+import numListIcon from '../../icons/listUnordered.png';
+import strikeThroughIcon from '../../icons/strikethrough.png';
 
 function StyleContainer({ rightPanelOpen }) {
 
@@ -28,10 +43,10 @@ function StyleContainer({ rightPanelOpen }) {
 
     const updateDocumentFont = (fontSelection) => {
         // change the css --font variable to mono/serif
-        console.log(fontSelection)
+        // console.log(fontSelection)
         if (fontSelection === 'default') {
             setSelectedFont(fontSelection)
-            document.documentElement.style.setProperty('--font', `"Inter", sans-serif`)
+            document.documentElement.style.setProperty('--font', `-apple-system, BlinkMacSystemFont, "Inter", sans-serif`)
         } 
         else if (fontSelection === 'serif') {
             setSelectedFont(fontSelection)
@@ -79,9 +94,12 @@ function StyleContainer({ rightPanelOpen }) {
     return (
         <div>
             <div className='styleContainer'>
-                <p className="paneTitle">Titles</p>
+                {/* <p className="paneTitle">Titles</p>
                 <div className='styleTitleOptionsContainer'>
-                    <button className='titleOptionsButton'>
+                    <button 
+                    className='titleOptionsButton'
+                    onClick={() => callCommand(wrapInHeadingCommand.key, 1)}
+                    >
                         <img src={heading1Icon} className='tooltipIcon'></img>
                     </button>
                     <button className='titleOptionsButton'>
@@ -111,7 +129,7 @@ function StyleContainer({ rightPanelOpen }) {
                     <button className='formattingOptionButton'>
                         <img src={blockquoteIcon} className='tooltipIcon'></img>
                     </button>
-                </div>
+                </div> */}
                 <p className="paneTitle">Font</p>
                 <div className='fontOptionsContainer'>
                     <button 

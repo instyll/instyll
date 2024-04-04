@@ -1,30 +1,32 @@
 // import { prosePluginsCtx } from '@milkdown/core';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateDocument } from '../documentSlice';
-import '../App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../App.css';
+import { updateTag } from '../../tagSlice';
 
-const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, handleClose }) => {
+const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
 
     const dispatch = useDispatch();
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    const originPath = useSelector((state) => state.path.path);
+    const tags = useSelector((state) => state.tags.tags);
 
-    const [newDocumentTitle, setNewDocumentTitle] = useState('');
+    const [newTag, setNewTag] = useState('');
 
-    const handleNewDocumentTitleChange = (event) => {
-        setNewDocumentTitle(event.target.value);
+    const handleNewTagChange = (event) => {
+        setNewTag(event.target.value);
     };
 
-    const handleEditDocumentTitle = () => {
-        const documentToUpdate = selectedDocument;
-
-        if (documentToUpdate) {
-            dispatch(updateDocument([documentPath, originPath, newDocumentTitle]));
-            setNewDocumentTitle('');
+    const handleEditTag = () => {
+        const tagToUpdate = selectedTag;
+        console.log(tagToUpdate)
+        console.log(newTag)
+        if (tagToUpdate) {
+            dispatch(updateTag({ id: tagToUpdate, newValue: newTag}));
+            setNewTag('');
+            onHide();
             handleClose();
         }
     }
@@ -60,16 +62,16 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, han
             <div className="tagCreationContainer">
                 <input
                     type="text"
-                    placeholder="Name this note..."
-                    value={newDocumentTitle}
-                    onChange={handleNewDocumentTitleChange}
+                    placeholder="New Topic"
+                    value={newTag}
+                    onChange={handleNewTagChange}
                     className="topicCreationInput"
                     autoFocus
                 />
-                <button onClick={handleEditDocumentTitle} className='modalActionButton'>Rename</button>
+                <button onClick={handleEditTag} className='modalActionButton'>Rename</button>
             </div>
         </Modal >
     );
 };
 
-export default UpdateDocumentModal;
+export default UpdateTopicModal;

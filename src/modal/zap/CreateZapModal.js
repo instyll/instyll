@@ -1,17 +1,17 @@
 // import { prosePluginsCtx } from '@milkdown/core';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { addZap, updateZap } from '../zapSlice';
-import '../App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../App.css';
+import { addZap } from '../../zapSlice';
 
-const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
+const CreateZapModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, onAddTags }) => {
 
     const dispatch = useDispatch();
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-
     const zaps = useSelector((state) => state.zaps.zaps);
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const [newZap, setNewZap] = useState('');
 
@@ -19,16 +19,24 @@ const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
         setNewZap(event.target.value);
     };
 
-    const handleEditZap = () => {
-        const zapToUpdate = selectedZap;
-        console.log(zapToUpdate)
-        console.log(newZap)
-        if (zapToUpdate) {
-            dispatch(updateZap({ id: zapToUpdate, newValue: newZap}));
+    const handleAddZap = () => {
+        if (newZap && !zaps.includes(newZap)) {
+            dispatch(addZap(newZap));
             setNewZap('');
-            handleClose();
+            onHide();
         }
-    }
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            handleAddZap();
+        }
+    };
+
+    const handleClose = () => {
+        onHide();
+    };
 
     return (
         <Modal isOpen={show}
@@ -64,13 +72,14 @@ const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
                     placeholder="New Zap"
                     value={newZap}
                     onChange={handleNewZapChange}
+                    onKeyPress={handleKeyPress}
                     className="topicCreationInput"
                     autoFocus
                 />
-                <button onClick={handleEditZap} className='modalActionButton'>Rename</button>
+                <button onClick={handleAddZap} className='modalActionButton'>Create</button>
             </div>
         </Modal >
     );
 };
 
-export default UpdateZapModal;
+export default CreateZapModal;

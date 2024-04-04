@@ -46,15 +46,15 @@ export const Diagram: FC = () => {
     rendering.current = false;
     container.innerHTML = svg;
     // console.log("rendered svg: " + svg)
-    console.log(darkMode)
+    // console.log(darkMode)
     bindFunctions?.(container);
   }, [codeValue, darkMode, id]);
 
   useEffect(() => {
     requestAnimationFrame(() => {
-      console.log("Calling renderMermaid...");
+      // console.log("Calling renderMermaid...");
       renderMermaid();
-      console.log("After renderMermaid");
+      // console.log("After renderMermaid");
     });
   }, [renderMermaid, value]);
 

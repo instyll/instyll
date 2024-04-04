@@ -1,3 +1,35 @@
+// import { useNodeViewContext } from "@prosemirror-adapter/react";
+// import type { FC } from "react";
+
+// export const ListItem: FC = () => {
+//   const { contentRef, node, setAttrs, selected } = useNodeViewContext();
+//   const { attrs } = node;
+//   const checked = attrs?.checked;
+//   const isBullet = attrs?.listType === "bullet";
+//   return (
+//     <li
+//       className={[ "checkboxNode",
+//         selected ? "ProseMirror-selectednode" : "",
+//       ].join(" ")}
+//     >
+//       <span className="checkboxSpan">
+//         {checked != null ? (
+//           <input
+//             className="checkboxInput"
+//             onChange={() => setAttrs({ checked: !checked })}
+//             type="checkbox"
+//             checked={checked}
+//           />
+//         ) : isBullet ? (
+//           <span className="" />
+//         ) : (
+//           <span className="">{attrs?.label}</span>
+//         )}
+//       </span>
+//       <div className="checkboxContent" ref={contentRef} />
+//     </li>
+//   );
+// };
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import type { FC } from "react";
 
@@ -8,26 +40,29 @@ export const ListItem: FC = () => {
   const isBullet = attrs?.listType === "bullet";
   return (
     <li
-      className={[
-        "flex-column flex items-start gap-2",
-        selected ? "ProseMirror-selectednode" : "",
-      ].join(" ")}
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "start",
+        gap: "1rem",
+        ...(selected && { outline: "1px solid #000" }),
+      }}
     >
-      <span className="flex h-6 items-center">
+      <span style={{ display: "flex", height: "2rem", alignItems: "center" }}>
         {checked != null ? (
           <input
-            className="form-checkbox rounded"
+            style={{ appearance: "checkbox", borderRadius: "50%", marginLeft: "0px" }}
             onChange={() => setAttrs({ checked: !checked })}
             type="checkbox"
             checked={checked}
           />
         ) : isBullet ? (
-          <span className="h-2 w-2 rounded-full bg-nord8 dark:bg-nord9" />
+          <span style={{ height: "0.45rem", width: "0.45rem", borderRadius: "50%", backgroundColor: "var(--primary-text)"}} />
         ) : (
-          <span className="text-nord8">{attrs?.label}</span>
+          <span className="orderedDelim">{attrs?.label}</span>
         )}
       </span>
-      <div className="min-w-0" ref={contentRef} />
+      <div style={{ minWidth: "0" }} ref={contentRef} />
     </li>
   );
 };

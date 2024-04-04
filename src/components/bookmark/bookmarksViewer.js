@@ -2,7 +2,7 @@
  * @author wou
  */
 import React, { useState, useEffect } from 'react';
-import fs from 'fs/promises';
+// import fs from 'fs/promises';
 import chokidar from 'chokidar';
 import path from 'path';
 import '../../App.css';
@@ -18,8 +18,13 @@ import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
 import { uuid } from 'uuidv4';
 
+const fs = require('fs');
+const fsp = fs.promises;
+
 const BookmarkViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [displayBookmarks, setDisplayBookmarks] = useState([])
 
     /* Handle grid or list layout */
     const handleChangeDocumentViewLayout = () => {
@@ -35,11 +40,30 @@ const BookmarkViewer = ({ location }) => {
     const options = [
         { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },
-        { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
 
     const bookmarks = useSelector((state) => state.bookmarks.bookmarks)
-    console.log(bookmarks)
+    // console.log(bookmarks)
+    useEffect(() => {
+        setDisplayBookmarks(bookmarks);
+    }, [bookmarks])
+
+    // sort by selected option
+    useEffect(() => {
+        if (selectedOption) {
+            if (selectedOption.value === 'sortByName') {
+                const sortedBookmarks = [...bookmarks].sort((a, b) => a[1].toLowerCase().localeCompare(b[1].toLowerCase()));
+                setDisplayBookmarks(sortedBookmarks);
+            } else if (selectedOption.value === 'sortByDate') {
+                const sortedBookmarks = [...bookmarks].sort((a, b) => {
+                    const timeA = fs.statSync(a[3]).birthTime;
+                    const timeB = fs.statSync(b[3]).birthTime;
+                    return timeA - timeB;
+                })
+                setDisplayBookmarks(sortedBookmarks);
+            }
+        }
+    }, [selectedOption])
 
     /* placeholder document info */
     const documentTestInfo = ["document name", 300]
@@ -69,6 +93,7 @@ const BookmarkViewer = ({ location }) => {
                                 </div>
                                 <div className='selectSortOptionContainer'>
                                     <Select
+                                        onChange={(value) => setSelectedOption(value)}
                                         options={options}
                                         placeholder="Sort by..."
                                         styles={{
@@ -123,12 +148,12 @@ const BookmarkViewer = ({ location }) => {
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
                                 {documentGridLayout ?
-                                    bookmarks && bookmarks.map((bookmark) => (
+                                    displayBookmarks && displayBookmarks.map((bookmark) => (
                                         <DocumentGridItem key={bookmark[0]} documentInfo={[bookmark[3], bookmark[1]]}>
                                         </DocumentGridItem>
                                     ))
                                     :
-                                    bookmarks.map((bookmark) => (
+                                    displayBookmarks.map((bookmark) => (
                                         <DocumentListItem key={bookmark} documentInfo={[bookmark[3], bookmark[1]]}>
                                         </DocumentListItem>
                                     ))
