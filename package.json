@@ -4,6 +4,7 @@
   "private": true,
   "main": "public/main.js",
   "homepage": "./",
+  "author": "Instyll Labs <wou@instyll.dev>",
   "dependencies": {
     "@codemirror/autocomplete": "^6.8.1",
     "@codemirror/lang-markdown": "^6.0.5",
@@ -57,6 +58,7 @@
     "electron-find": "^1.0.7",
     "electron-is-dev": "^2.0.0",
     "gemoji": "^8.1.0",
+    "global": "^4.4.0",
     "highlight.js": "^11.7.0",
     "html2canvas": "^1.4.1",
     "html2pdf": "^0.0.11",
@@ -130,7 +132,7 @@
   "devDependencies": {
     "concurrently": "^8.2.1",
     "electron": "^22.0.0",
-    "electron-builder": "23.6.0",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.34.0",
     "eslint-plugin-react": "^7.32.2",
     "wait-on": "^7.0.1"
@@ -168,12 +170,18 @@
     "mac": {
       "icon": "assets/icon.icns",
       "target": [
-      {
-        "target": "dmg",
-        "arch": ["universal"]
-      }
-    ]
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ]
     },
+    "linux": {
+      "target": "deb"
+    },
+    "deb": {},
     "files": [
       "build/**/*",
       "node_modules/**/*"
