@@ -17,7 +17,6 @@ import renameIcon from '../../icons/rename.png';
 import deleteIcon from '../../icons/trash.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Toast } from 'react-bootstrap';
 
 function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
 
