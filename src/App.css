@@ -57,6 +57,7 @@
     --contexify-menu-shadow: none !important;
     --contexify-menu-radius: 8px !important;
     --contexify-menu-border: 1px solid var(--muted-text) !important;
+    --contexify-item-font: var(--font);
     --font-size: 1.2em;
     --editor-width: 100%;
     --milkdown-width: 100%;

@@ -159,7 +159,9 @@ const DocumentGridItem = ({ documentInfo }) => {
             }}
     />
 
-    <Menu id={documentInfo[0]}>
+    <Menu id={documentInfo[0]} style={{
+      fontFamily: "var(--font)"
+    }}>
       <Item id="rename" onClick={() => setUpdateDocumentModalOpen(true)}>Rename</Item>
       <Item id="save" onClick={() => handleBookmark(selectedDocument)}>Bookmark</Item>
       <Item id="delete" onClick={() => handleRemoveDocument(selectedDocument)}>Delete</Item>

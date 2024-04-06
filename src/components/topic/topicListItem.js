@@ -85,7 +85,9 @@ const TopicListItem = ({ tag }) => {
   return (
     <div className='topicListItem' key={tag} >
 
-    <Menu id={tag}>
+    <Menu id={tag} style={{
+      fontFamily: "var(--font)"
+    }}>
         <Item id="rename" onClick={() => setUpdateTopicModalOpen(true)}>Rename</Item>
         <Item id="delete" onClick={() => handleRemoveTag(selectedTopic)}>Delete</Item>
     </Menu>
