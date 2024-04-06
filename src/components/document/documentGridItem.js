@@ -58,7 +58,8 @@ const DocumentGridItem = ({ documentInfo }) => {
   const dispatch = useDispatch();
 
   // bookmark toast
-  const notify = () => toast("Note Bookmarked!");
+  const notifyBookmark = () => toast("Note Bookmarked!");
+  const notifyExists = () => toast("Note is already bookmarked");
 
   const existingTags = useSelector((state) => {
     const documents = state.documents.documents;
@@ -83,12 +84,18 @@ const DocumentGridItem = ({ documentInfo }) => {
     return null; 
   });
 
+  const bookmarks = useSelector((state) => state.bookmarks.bookmarks);
+
   // bookmark a note
   const handleBookmark = (doc) => {
     // console.log(documentInfo)
     // console.log(documentObj)
-    dispatch(addBookmark(documentObj));
-    notify();
+    if (!bookmarks.includes(documentObj)) {
+      dispatch(addBookmark(documentObj));
+      notifyBookmark();
+    } else {
+      notifyExists();
+    }
   }
 
   // delete a note
