@@ -48,9 +48,20 @@ const Home = () => {
   const randomNoteDisplay = useSelector((state) => {
     const documents = state.documents.documents;
     const len = documents.length;
-    var ind1 = Math.floor(Math.random() * len);
-    var ind2 = Math.floor(Math.random() * len);
-    var ind3 = Math.floor(Math.random() * len);
+    // if only 3, 2, 1 notes return
+    if (len == 3) {
+      return [documents[0], documents[1], documents[2]]
+    } else if (len == 2) {
+      return [documents[0], documents[1]]
+    } else if (len == 1) {
+      return [documents[0]]
+    }
+    // check for uniqueness
+    var indices = new Set();
+    while(indices.size < 3) {
+      indices.add(Math.floor(Math.random() * len));
+    }
+    var [ind1, ind2, ind3] = Array.from(indices);
     const doc1 = documents[ind1];
     const doc2 = documents[ind2];
     const doc3 = documents[ind3];
