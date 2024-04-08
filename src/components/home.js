@@ -33,7 +33,7 @@ const Home = () => {
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
   const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
   const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
-  const [displayRecentNotes ,setDisplayRecentNotes] = useState(false);
+  const [displayRecentNotes, setDisplayRecentNotes] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -70,7 +70,7 @@ const Home = () => {
     } else if (len == 1) {
       return [documents[0]]
     }
-    const shuffled = documents.sort(() => 0.5 - Math.random());
+    const shuffled = displayRecentNotes.sort(() => 0.5 - Math.random());
     const doc1 = shuffled[0];
     const doc2 = shuffled[1];
     const doc3 = shuffled[2];
