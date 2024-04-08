@@ -33,6 +33,7 @@ const Home = () => {
   const [notesDirectory, setNotesDirectory] = useState("/home/wou/Documents/instyllnotes/");
   const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
   const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
+  const [displayRecentNotes ,setDisplayRecentNotes] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -43,6 +44,19 @@ const Home = () => {
   const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
 
   const recentNoteDisplay = useSelector((state) => state.documents.documents);
+
+  useEffect(() => {
+    setDisplayRecentNotes(recentNoteDisplay);
+  }, [recentNoteDisplay])
+
+  useEffect(() => {
+    const sortedNotes = [...recentNoteDisplay].sort((a, b) => {
+        const timeA = fs.statSync(a[3]).birthTime;
+        const timeB = fs.statSync(b[3]).birthTime;
+        return timeA - timeB;
+    })
+    setDisplayRecentNotes(sortedNotes);
+  }, [])
 
   // generates 3 random notes
   const randomNoteDisplay = useSelector((state) => {
@@ -56,15 +70,10 @@ const Home = () => {
     } else if (len == 1) {
       return [documents[0]]
     }
-    // check for uniqueness
-    var indices = new Set();
-    while(indices.size < 3) {
-      indices.add(Math.floor(Math.random() * len));
-    }
-    var [ind1, ind2, ind3] = Array.from(indices);
-    const doc1 = documents[ind1];
-    const doc2 = documents[ind2];
-    const doc3 = documents[ind3];
+    const shuffled = documents.sort(() => 0.5 - Math.random());
+    const doc1 = shuffled[0];
+    const doc2 = shuffled[1];
+    const doc3 = shuffled[2];
     return [doc1, doc2, doc3];
   });
 
