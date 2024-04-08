@@ -51,9 +51,18 @@ const Home = () => {
 
   useEffect(() => {
     const sortedNotes = [...recentNoteDisplay].sort((a, b) => {
-        const timeA = fs.statSync(a[3]).birthTime;
-        const timeB = fs.statSync(b[3]).birthTime;
-        return timeA - timeB;
+      let timeA = 0;
+      let timeB = 0;
+  
+      if (fs.existsSync(a[3])) {
+        timeA = fs.statSync(a[3]).birthTime;
+      }
+  
+      if (fs.existsSync(b[3])) {
+        timeB = fs.statSync(b[3]).birthTime;
+      }
+  
+      return timeA - timeB;
     })
     setDisplayRecentNotes(sortedNotes);
   }, [])
