@@ -12,6 +12,7 @@ import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark } from '../../bookmarkSlice';
 import { removeDocument } from '../../documentSlice';
+import { removeBookmark } from '../../bookmarkSlice';
 import { ToastContainer, toast } from 'react-toastify'
 import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
@@ -101,6 +102,11 @@ const DocumentGridItem = ({ documentInfo }) => {
   // delete a note
   const handleRemoveDocument = (documentItem) => {
     dispatch(removeDocument(documentItem));
+    // also remove from bookmarks, if it is bookmarked
+    console.log(documentItem)
+    if (bookmarks.includes(documentObj)) {
+      dispatch(removeBookmark(documentItem));
+    }
   }
 
   const handleDocumentOptionsModalOpen = (value) => {
