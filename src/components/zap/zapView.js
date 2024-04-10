@@ -17,8 +17,11 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ZapItem from './zapItem';
 import CreateZapButton from './createZapButton';
+import CreateZapModal from '../../modal/zap/CreateZapModal';
 
 const ZapView = ({ location }) => {
+
+    const [createZapModalOpen, setCreateZapModalOpen] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -36,6 +39,12 @@ const ZapView = ({ location }) => {
                         width: "100%",
                     }}>
                         <div className="dashboardGreetingContainer">
+
+                        <CreateZapModal
+                            show={createZapModalOpen}
+                            onHide={() => setCreateZapModalOpen(false)}
+                        />
+
                             <div className="topicTitleWrapper">
                                 <h1 className="heroTitle">
                                     Zaps
@@ -49,7 +58,7 @@ const ZapView = ({ location }) => {
                                             <ZapItem zapId={zap}></ZapItem>
                                         ))
                                     }
-                                    <CreateZapButton></CreateZapButton>
+                                    <CreateZapButton setCreateZapModalOpen={() => setCreateZapModalOpen(true)}></CreateZapButton>
                                </div>
                             </div>
                         </div>

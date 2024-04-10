@@ -8,24 +8,24 @@ import "../../App.css";
 import createZap from '../../icons/plus1.png';
 import { useState } from "react";
 
-const CreateZapButton = ({ }) => {
+const CreateZapButton = ({setCreateZapModalOpen}) => {
 
-    const [zapOptionsModalOpen, setZapOptionsModalOpen] = useState(false);
+    // const [createZapModalOpen, setCreateZapModalOpen] = useState(false);
 
-    const handleZapOptionsModalOpen = (value) => {
-        setZapOptionsModalOpen(true);
+    const handleZapModalOpen = (value) => {
+        setCreateZapModalOpen(true);
     }
 
     return (
     <div 
     className='createZapContainer'
-    onClick={handleZapOptionsModalOpen}
+    onClick={setCreateZapModalOpen}
     >
 
-<CreateZapModal
-            show={zapOptionsModalOpen}
-            onHide={() => setZapOptionsModalOpen(false)}
-            />
+        {/* <CreateZapModal
+            show={createZapModalOpen}
+            onHide={() => setCreateZapModalOpen(false)}
+        /> */}
 
         <div className='zapIconContainer'>
             <div className='zapIconWrapper'>
