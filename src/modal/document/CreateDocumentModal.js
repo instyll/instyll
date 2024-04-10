@@ -1,5 +1,5 @@
 import path from 'path';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { executeQuery } from '../db.js'; // You need to create a file for database operations
@@ -80,7 +80,8 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
             <div className='createDocumentTitleContainer'>
                 <input className='createDocumentTitleInput' 
                 autoFocus placeholder='Name this note...' 
-                onChange={(e) => setDocumentTitle(e.target.value)}>
+                onChange={(e) => setDocumentTitle(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' ? handleDocumentCreation() : ''}>
                 </input>
             </div>
           
