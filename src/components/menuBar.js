@@ -55,6 +55,10 @@ function MenuBar(props) {
     setDocumentModalOpen(value);
   }
 
+  const handleClose = () => {
+    setDocumentModalOpen(false);
+  }
+
   return (
     <div className={classNames('menuBar', 'drag')}>
 
@@ -103,7 +107,7 @@ function MenuBar(props) {
       </input>
       <button
         className="menuAddOptionButton"
-        onClick={setDocumentModalOpen}
+        onClick={() => setDocumentModalOpen(true)}
       >
         <img src={create} className="buttonIcon" draggable={false}></img>
         <span className="buttonText">New</span>

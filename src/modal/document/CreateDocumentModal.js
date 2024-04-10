@@ -10,7 +10,7 @@ import parseAndFormatDate from '../../DateUtils.js';
 import { executeFileCreation } from '../../actions.js';
 import { addDocument, removeDocument } from '../../documentSlice.js';
 
-const DocumentModal = ({ show, onHide, onAddTags }) => {
+const DocumentModal = ({ show, onHide }) => {
 
     const handleClose = () => {
         onHide();
@@ -43,6 +43,14 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
         // console.log(documents)
         dispatch(removeDocument(0))
         // console.log("ok")
+    }
+
+    const handleEnterDocumentCreation = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleDocumentCreation();
+            onHide();
+        }
     }
 
     return (
@@ -81,7 +89,7 @@ const DocumentModal = ({ show, onHide, onAddTags }) => {
                 <input className='createDocumentTitleInput' 
                 autoFocus placeholder='Name this note...' 
                 onChange={(e) => setDocumentTitle(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' ? handleDocumentCreation() : ''}>
+                onKeyDown={handleEnterDocumentCreation}>
                 </input>
             </div>
           
