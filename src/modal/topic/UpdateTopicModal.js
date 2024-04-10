@@ -63,7 +63,7 @@ const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
                 <input
                     type="text"
                     placeholder="New Topic"
-                    value={newTag}
+                    defaultValue={selectedTag}
                     onChange={handleNewTagChange}
                     className="topicCreationInput"
                     autoFocus
