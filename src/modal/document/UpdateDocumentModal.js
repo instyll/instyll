@@ -19,6 +19,8 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, han
         setNewDocumentTitle(event.target.value);
     };
 
+    console.log(selectedDocument)
+
     const handleEditDocumentTitle = () => {
         const documentToUpdate = selectedDocument;
 
@@ -60,8 +62,8 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, han
             <div className="tagCreationContainer">
                 <input
                     type="text"
-                    placeholder="Name this note..."
-                    value={newDocumentTitle}
+                    placeholder={selectedDocument ? selectedDocument[1] : ''}
+                    defaultValue={selectedDocument ? selectedDocument[1] : ''}
                     onChange={handleNewDocumentTitleChange}
                     className="topicCreationInput"
                     autoFocus
