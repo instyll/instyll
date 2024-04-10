@@ -62,7 +62,7 @@ const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
                 <input
                     type="text"
                     placeholder="New Zap"
-                    value={newZap}
+                    defaultValue={selectedZap}
                     onChange={handleNewZapChange}
                     className="topicCreationInput"
                     autoFocus
