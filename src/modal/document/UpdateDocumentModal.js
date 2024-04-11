@@ -4,10 +4,12 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import '../../App.css';
 import { updateDocument } from '../../documentSlice';
+import { useNavigate } from 'react-router-dom';
 
 const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, handleClose }) => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -27,6 +29,7 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, han
         if (documentToUpdate) {
             dispatch(updateDocument([documentPath, originPath, newDocumentTitle]));
             setNewDocumentTitle('');
+            navigate('/documents')
             handleClose();
         }
     }
