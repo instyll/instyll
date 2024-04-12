@@ -21,7 +21,7 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, han
         setNewDocumentTitle(event.target.value);
     };
 
-    console.log(selectedDocument)
+    // console.log(selectedDocument)
 
     const handleEditDocumentTitle = () => {
         const documentToUpdate = selectedDocument;
