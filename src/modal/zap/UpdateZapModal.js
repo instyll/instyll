@@ -30,6 +30,14 @@ const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
         }
     }
 
+    const handleEnterEditZap = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleEditZap();
+            onHide();
+        }
+    }
+
     return (
         <Modal isOpen={show}
             onRequestClose={onHide}
@@ -66,6 +74,7 @@ const UpdateZapModal = ({ show, onHide, selectedZap, handleClose }) => {
                     onChange={handleNewZapChange}
                     className="topicCreationInput"
                     autoFocus
+                    onKeyDown={handleEnterEditZap}
                 />
                 <button onClick={handleEditZap} className='modalActionButton'>Rename</button>
             </div>
