@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 // import Editor from './legacyEditor.js';
 import fs from 'fs';
+import path from 'path';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
 import CommandPalette from 'react-command-palette';
@@ -25,6 +26,7 @@ import 'react-calendar/dist/Calendar.css';
 import '../command-palette/commandPalette.css';
 
 import createTopic from '../icons/plus1.png';
+import { removeBookmark } from '../bookmarkSlice.js';
 
 const Home = () => {
   const [dockOpen, setDockOpen] = useState(true);
@@ -37,6 +39,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const documents = useSelector((state) => state.documents.documents);
+  const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
 
   useEffect(() => {
     // clean deleted notes from redux
@@ -45,6 +48,12 @@ const Home = () => {
       fs.access(documentObjPath, fs.constants.F_OK, (err) => {
         if (err) {
           dispatch(removeDocument([documentObjPath]));
+          for (let i = 0; i < bookmarkDisplay.length; ++i) {
+            const same = path.relative(bookmarkDisplay[i][3], documentObjPath);
+            if (same.length == 0) {
+              dispatch(removeBookmark([documentObjPath]));
+            }
+          }
         }
       })
     }
@@ -52,9 +61,6 @@ const Home = () => {
 
   // get topics from redux
   const tags = useSelector((state) => state.tags.tags);
-
-  // get recent bookmarks to show 
-  const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
 
   const recentNoteDisplay = useSelector((state) => state.documents.documents);
 
