@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import '../../App.css';
 import { updateTag } from '../../tagSlice';
+import {addTags, removeTag} from '../../documentSlice';
 
 const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
 
@@ -12,6 +13,7 @@ const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const tags = useSelector((state) => state.tags.tags);
+    const documents = useSelector((state) => state.documents.documents);
 
     const [newTag, setNewTag] = useState('');
 
@@ -21,11 +23,23 @@ const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
 
     const handleEditTag = () => {
         const tagToUpdate = selectedTag;
+        const updated = newTag;
         console.log(tagToUpdate)
         console.log(newTag)
         if (tagToUpdate) {
             dispatch(updateTag({ id: tagToUpdate, newValue: newTag}));
             setNewTag('');
+            // update all documents containing the original tag with the updated tag
+            for (const documentObj of documents) {
+                // if the original tag is found in the note, remove the original tag, and add the new tag
+                const documentPath = documentObj[3];
+                if (documentObj[4].includes(tagToUpdate)) {
+                    const removeRequestObj = [documentPath, tagToUpdate];
+                    dispatch(removeTag(removeRequestObj));
+                    const updateRequestObj = [documentPath, [updated]];
+                    dispatch(addTags(updateRequestObj));
+                }
+            }
             onHide();
             handleClose();
         }
