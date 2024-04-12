@@ -2277,40 +2277,14 @@
   
   .tocTitleFirst.active {
     font-weight: 600;
+    background-color: var(--muted-text) !important;
+    border-radius: 10px;
   }
   
   .tocTitle.active {
     font-weight: 600;
-  }
-  
-  .active::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 113%;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    /* right: 0; */
-    width: 5px;
-    /* Adjust the width to your preference */
-    height: 100%;
-    background-color: var(--muted-text);
-    /* Adjust the color to your preference */
-  }
-  
-  .activeMin::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 132%;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    /* right: 0; */
-    width: 5px;
-    /* Adjust the width to your preference */
-    height: 100%;
-    background-color: var(--muted-text);
-    /* Adjust the color to your preference */
+    background-color: var(--muted-text) !important;
+    border-radius: 10px;
   }
   
   .tab {
