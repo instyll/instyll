@@ -18,7 +18,7 @@ import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
 import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
 import DashboardDocumentItem from './dashboardDocumentItem.js';
 import TopicGridItem from './topic/topicGridItem.js';
-
+import { removeDocument } from '../documentSlice.js';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -36,6 +36,19 @@ const Home = () => {
   const [displayRecentNotes, setDisplayRecentNotes] = useState([]);
 
   const dispatch = useDispatch();
+  const documents = useSelector((state) => state.documents.documents);
+
+  useEffect(() => {
+    // clean deleted notes from redux
+    for (const documentObject of documents) {
+      const documentObjPath = documentObject[3];
+      fs.access(documentObjPath, fs.constants.F_OK, (err) => {
+        if (err) {
+          dispatch(removeDocument([documentObjPath]));
+        }
+      })
+    }
+  }, [])
 
   // get topics from redux
   const tags = useSelector((state) => state.tags.tags);

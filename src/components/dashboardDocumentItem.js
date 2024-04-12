@@ -16,10 +16,12 @@ const DashboardDocumentItem = ({document}) => {
     useEffect(() => {
         const readMarkdown = async () => {
           try {
-            const contents = fs.readFileSync(document[3], 'utf-8');
-            // console.log(contents)
-            setFileContents(contents);
-            // console.log(fileContents)
+            if (document) {
+              const contents = fs.readFileSync(document[3], 'utf-8');
+              // console.log(contents)
+              setFileContents(contents);
+              // console.log(fileContents)
+            }
           } catch (error) {
             console.error('Error reading file:', error);
           }
@@ -30,7 +32,7 @@ const DashboardDocumentItem = ({document}) => {
 
       const updateRouterParams = () => {
         // check if path still exists
-        fs.access(document[3], fs.constants.F_OK, (err) => {
+        document && fs.access(document[3], fs.constants.F_OK, (err) => {
           if (err) {
             // notify
             notify();
