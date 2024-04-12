@@ -1,7 +1,7 @@
 /**
  * @author wou
  */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 // import Editor from './legacyEditor.js';
 import fs from 'fs';
 import path from 'path';
@@ -36,10 +36,17 @@ const Home = () => {
   const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
   const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
   const [displayRecentNotes, setDisplayRecentNotes] = useState([]);
+  const [displayRandomNotes, setDisplayRandomNotes] = useState([]);
 
   const dispatch = useDispatch();
   const documents = useSelector((state) => state.documents.documents);
   const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
+
+  const documentsRef = useRef(null);
+
+  useEffect(() => {
+      documentsRef.current = documents;
+  }, [documents]);
 
   useEffect(() => {
     // clean deleted notes from redux
@@ -57,19 +64,15 @@ const Home = () => {
         }
       })
     }
+    // setDisplayRecentNotes(documentsRef.current)
+    // console.log(displayRecentNotes)
   }, [])
 
   // get topics from redux
   const tags = useSelector((state) => state.tags.tags);
 
-  const recentNoteDisplay = useSelector((state) => state.documents.documents);
-
   useEffect(() => {
-    setDisplayRecentNotes(recentNoteDisplay);
-  }, [recentNoteDisplay])
-
-  useEffect(() => {
-    const sortedNotes = [...recentNoteDisplay].sort((a, b) => {
+    const sortedNotes = [...documentsRef.current].sort((a, b) => {
       let timeA = 0;
       let timeB = 0;
   
@@ -87,10 +90,10 @@ const Home = () => {
   }, [])
 
   // generates 3 random notes
-  const randomNoteDisplay = useSelector((state) => {
-    const documents = state.documents.documents;
-    const len = documents.length;
-    // if only 3, 2, 1 notes return
+  useEffect(() => {
+    const documents = documentsRef.current;
+    const len = documentsRef.current.length;
+    // if only 3, 2, 1 notes ƒdocumereturn
     if (len == 3) {
       return [documents[0], documents[1], documents[2]]
     } else if (len == 2) {
@@ -98,12 +101,12 @@ const Home = () => {
     } else if (len == 1) {
       return [documents[0]]
     }
-    const shuffled = displayRecentNotes.sort(() => 0.5 - Math.random());
+    const shuffled = [...documents].sort(() => (0.5 - Math.random()));
     const doc1 = shuffled[0];
     const doc2 = shuffled[1];
     const doc3 = shuffled[2];
-    return [doc1, doc2, doc3];
-  });
+    setDisplayRandomNotes([doc1, doc2, doc3]);
+  }, []);
 
   const handleClick = async (path) => {
     const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
@@ -199,7 +202,7 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
 
-                    {recentNoteDisplay && recentNoteDisplay.map((recentNote) => (
+                    {displayRecentNotes && displayRecentNotes.map((recentNote) => (
                           <DashboardDocumentItem document={recentNote}></DashboardDocumentItem>
                       ))
                     }
@@ -247,7 +250,7 @@ const Home = () => {
 
                     <div className='dashboardSuggestionItemList'>
 
-                    {randomNoteDisplay && randomNoteDisplay.map((randomNote) => (
+                    {displayRandomNotes && displayRandomNotes.map((randomNote) => (
                          <DashboardDocumentItem document={randomNote}></DashboardDocumentItem>
                       ))
                     }
