@@ -45,6 +45,14 @@ const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
         }
     }
 
+    const handleEnterEditTag = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleEditTag();
+            onHide();
+        }
+    }
+
     return (
         <Modal isOpen={show}
             onRequestClose={onHide}
@@ -81,6 +89,7 @@ const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
                     onChange={handleNewTagChange}
                     className="topicCreationInput"
                     autoFocus
+                    onKeyDown={handleEnterEditTag}
                 />
                 <button onClick={handleEditTag} className='modalActionButton'>Rename</button>
             </div>
