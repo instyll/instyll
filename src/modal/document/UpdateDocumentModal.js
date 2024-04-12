@@ -34,6 +34,14 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, han
         }
     }
 
+    const handleEnterDocumentEdit = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleEditDocumentTitle();
+            onHide();
+        }
+    }
+
     return (
         <Modal isOpen={show}
             onRequestClose={onHide}
@@ -70,6 +78,7 @@ const UpdateDocumentModal = ({ show, onHide, selectedDocument, documentPath, han
                     onChange={handleNewDocumentTitleChange}
                     className="topicCreationInput"
                     autoFocus
+                    onKeyDown={handleEnterDocumentEdit}
                 />
                 <button onClick={handleEditDocumentTitle} className='modalActionButton'>Rename</button>
             </div>
