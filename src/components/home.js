@@ -95,11 +95,11 @@ const Home = () => {
     const len = documentsRef.current.length;
     // if only 3, 2, 1 notes ƒdocumereturn
     if (len == 3) {
-      return [documents[0], documents[1], documents[2]]
+      setDisplayRandomNotes([documents[0], documents[1], documents[2]])
     } else if (len == 2) {
-      return [documents[0], documents[1]]
+      setDisplayRandomNotes([documents[0], documents[1]])
     } else if (len == 1) {
-      return [documents[0]]
+      setDisplayRandomNotes([documents[0]])
     }
     const shuffled = [...documents].sort(() => (0.5 - Math.random()));
     const doc1 = shuffled[0];
