@@ -122,39 +122,7 @@ const Home = () => {
     setCreateTopicModalOpen(value);
   }
 
-  /* append selected image to dashboard background */
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      const imageUrl = e.target.result;
-      dispatch(setSelectedImage(imageUrl));
-      document.body.style.backgroundImage = `url(${imageUrl})`;
-      document.body.style.background = `var(--background-dim), url(${imageUrl})`;
-    };
-
-    reader.readAsDataURL(file);
-  };
-
-  /* handle dialogue for selecting image */
-  const handleBackgroundChange = () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.onchange = handleImageUpload;
-    input.click();
-  };
-
   const location = useLocation();
-
-  useEffect(() => {
-    // Clean up the background image when navigating away from the component
-    return () => {
-      document.body.style.backgroundImage = '';
-      document.body.style.background = '';
-    };
-  }, [location]);
 
   return (
     <div className="EditorView">
