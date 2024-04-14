@@ -6,7 +6,7 @@ import { usePluginViewContext } from "@prosemirror-adapter/react";
 import { gemoji } from "gemoji";
 import { useEffect, useRef, useState } from "react";
 
-const zapSearchRegexp = /;(?<search>\S+)/;
+const zapSearchRegex = /\b(?<search>\w+)\b$/;
 
 export const ZapMenu = () => {
   const { view, prevState } = usePluginViewContext();
@@ -28,6 +28,7 @@ export const ZapMenu = () => {
       debounce: 50,
       shouldShow(this: SlashProvider, view) {
         const currentTextBlockContent = this.getContent(view);
+        console.log(currentTextBlockContent);
 
         if (!currentTextBlockContent) {
           setSearch("");
@@ -36,7 +37,7 @@ export const ZapMenu = () => {
 
         setTextBlockContent(currentTextBlockContent);
 
-        const search = currentTextBlockContent.match(zapSearchRegexp);
+        const search = currentTextBlockContent.match(zapSearchRegex);
         if (!search) {
           setSearch("");
           return false;

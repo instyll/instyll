@@ -31,7 +31,7 @@ export const useSlashState = (instance: Instance) => {
       view.dispatch(
         view.state.tr
           .delete(selection.from - search.length - 1, selection.from)
-          .insertText(target)
+          .insertText(" " + target + " ")
       );
     },
     [zapList, search.length, selected]
