@@ -73,7 +73,7 @@ export const ZapMenu = () => {
       <div role="tooltip" ref={ref}>
         {zapList.length > 0 && (
           <ul className="zapMenuContainer" autoFocus tabIndex={1}>
-            <span className="slashGroupHeader">Zaps matching {textBlockContent}</span>
+            {/* <span className="slashGroupHeader">Zaps matching {textBlockContent}</span> */}
             {zapList.map((item, i) => (
               <ZapMenuItem
                 key={i.toString()}
