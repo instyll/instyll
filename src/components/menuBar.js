@@ -15,7 +15,7 @@ import back from '../icons/arrowback.png';
 import forward from '../icons/arrowforward.png';
 import { useDispatch, useSelector } from 'react-redux';
 
-function MenuBar(props) {
+function MenuBar() {
 
   const [documentModalOpen, setDocumentModalOpen] = useState(false);
   const [queryModalOpen, setQueryModalOpen] = useState(false);

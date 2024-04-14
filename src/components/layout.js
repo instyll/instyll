@@ -15,6 +15,7 @@ import "react-cmdk/dist/cmdk.css";
 import {Command} from 'cmdk';
 import { useNavigate } from "react-router-dom";
 import SettingsModal from "../modal/SettingsModal";
+import DocumentModal from "../modal/document/CreateDocumentModal.js";
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -37,6 +38,7 @@ const Layout = ({ children }) => {
     const [search, setSearch] = useState("");
     const [page, setPage] = useState("root");
     const [settingsModalOpen, setSettingsModalOpen] = useState(false);
+    const [documentCreationModalOpen, setDocumentCreationModalOpen] = useState(false);
 
     const containerRef = useRef(null);
     const navigate = useNavigate();
@@ -86,6 +88,9 @@ const Layout = ({ children }) => {
             if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
                 setCpOpen((cpOpen) => !cpOpen);
+            } else if (e.key === 'n' && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                setDocumentCreationModalOpen(true);
             }
         }
 
@@ -106,6 +111,11 @@ const Layout = ({ children }) => {
                         handleToc={handleToc}
                     />
                 </div>
+
+                <DocumentModal
+                    show={documentCreationModalOpen}
+                    onHide={() => setDocumentCreationModalOpen(false)}
+                />
 
                 <TableOfContents
                     handleTheme={toggleTheme}
