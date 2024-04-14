@@ -36,6 +36,7 @@ const DocumentModal = ({ show, onHide }) => {
         // console.log(documents)
         // open the markdown note corresponds to the documentID and close the modal
         navigate('/editor', { state: { documentPath: filePath, documentContent: '# ' + documentTitle }})
+        navigate(0)
         onHide();
     }
 
