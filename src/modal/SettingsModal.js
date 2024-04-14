@@ -15,6 +15,7 @@ import "../App.css";
 import search from '../icons/search.png'
 
 import { useState } from "react";
+import { addDocument } from "../documentSlice";
 
 const dotenv = require("dotenv")
 dotenv.config();
@@ -24,6 +25,7 @@ const SettingsModal = ({ show, onHide }) => {
   const [selectedOption, setSelectedOption] = useState("s");
 
   const documentsPath = useSelector((state) => state.path.path);
+  const documents = useSelector((state) => state.documents.documents);
   const dispatch = useDispatch();
 
   const handleSelectOption = (option) => {
@@ -80,6 +82,12 @@ const SettingsModal = ({ show, onHide }) => {
         dispatch(updatePath(folderPath))
         // move notes over to new location
         copyFiles(originalPath, folderPath);
+        // add redux info with new path
+        for (const document of documents) {
+          const updatedDocument = [document[0], document[1], document[2], document[3].replace(originalPath, folderPath), document[4]];
+          console.log(updatedDocument)
+          dispatch(addDocument(updatedDocument));
+        }
     }
   }
 
