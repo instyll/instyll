@@ -30,6 +30,7 @@ import darkIcon from '../icons/focus.png'
 import closeIcon from '../icons/doubleright.png';
 import openIcon from '../icons/doubleleft.png'
 import themeIcon from '../icons/template2.png';
+import documentIcon from '../icons/document.png';
 
 const Layout = ({ children }) => {
     const [tocOpen, setTocOpen] = useState(true);
@@ -143,6 +144,7 @@ const Layout = ({ children }) => {
                             <Command.Item onSelect={() => {handleSettingsModal(); setCpOpen(false)}}><img className="tocIcon" src={settingsIcon}/><span className="tocInnerText">Settings</span></Command.Item>
                             </Command.Group>
                             <Command.Group heading="Commands">
+                            <Command.Item onSelect={() => setDocumentCreationModalOpen(true)}><img className="tocIcon" src={documentIcon}/><span className="tocInnerText">Create Note</span></Command.Item>
                             <Command.Item onSelect={() => setIsDark(true)}><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
                             <Command.Item onSelect={() => setIsDark(false)}><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
                             <Command.Item onSelect={() => setTocOpen(false)}><img className="tocIcon" src={openIcon}/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
