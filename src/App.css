@@ -4049,6 +4049,106 @@
   .noteTopicStatus {
     color: var(--secondary-text);
   }
+
+  .createNewDocumentContainer {
+    vertical-align: middle;
+    display: inline-block;
+    width: calc(100%/4 - 23px);
+    line-height: 100px;
+    height: 110px;
+    border: 1px solid var(--muted-text);
+    border-radius: 16px;
+    margin-top: 28px;
+    margin-right: 28px;
+    color: var(--primary-text);
+    position: relative;
+    background-size: cover;
+    transition: 0.2s;
+    background-color: var(--elevated-bg);
+  }
+
+  .createNewListDocumentContainer {
+    vertical-align: middle;
+    display: inline-block;
+    width: calc(100% - 2px);
+    line-height: 100px;
+    height: 110px;
+    border: 1px solid var(--muted-text);
+    border-radius: 16px;
+    margin-top: 28px;
+    margin-right: 28px;
+    color: var(--primary-text);
+    position: relative;
+    background-size: cover;
+    transition: 0.2s;
+    background-color: var(--elevated-bg);
+  }
+
+  .createNewListDocumentContainer:hover {
+    border: 1px solid var(--secondary-text);
+  }
+
+  .documentIconContainer {
+      height: 110px;
+      display: flex;
+      /* flex-direction: row; */
+      align-items: center;
+      justify-content: center;
+  }
+
+  .createNewDocumentContainer:hover {
+    border: 1px solid var(--secondary-text);
+  }
+  
+  .createNewDocumentContainer:nth-child(5n) {
+    margin-right: 0px;
+  }
+  
+  @media only screen and (max-width: 1400px) {
+    .createNewDocumentContainer {
+      width: calc(100%/4 - 23px);
+    }
+  
+    .createNewDocumentContainer:nth-child(4n) {
+      margin-right: 0px;
+    }
+  
+    .createNewDocumentContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  }
+  
+  @media only screen and (min-width: 1001px) and (max-width: 1200px) {
+    .createNewDocumentContainer {
+      width: calc(100%/3 - 21px);
+    }
+  
+    .createNewDocumentContainer:nth-child(3n) {
+      margin-right: 0px;
+    }
+  
+    .createNewDocumentContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  
+    .createNewDocumentContainer:nth-child(4n) {
+      margin-right: 28px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .createNewDocumentContainer {
+      width: calc(100%/2 - 16px);
+    }
+  
+    .createNewDocumentContainer:nth-child(even) {
+      margin-right: 0px !important;
+    }
+  
+    .createNewDocumentContainer:nth-child(5n) {
+      margin-right: 28px !important;
+    }
+  }
   
   .documentItem {
     display: inline-block;

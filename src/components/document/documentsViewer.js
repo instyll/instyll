@@ -14,6 +14,8 @@ import { addDocument } from '../../documentSlice';
 import parseAndFormatDate from '../../DateUtils';
 import DocumentGridItem from './documentGridItem';
 import DocumentListItem from './documentListItem';
+import CreateGridDocumentButton from './createNewGridDocumentButton';
+import CreateListDocumentButton from './createNewListDocumentButton';
 
 import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
@@ -230,7 +232,7 @@ const DocumentViewer = ({ location }) => {
                                         <DocumentListItem key={filename} documentInfo={[path.join(documentsPath, filename), removeMdExtension(filename)]}>
                                         </DocumentListItem>
                                     ))
-                                }
+                                } {documentGridLayout ? <CreateGridDocumentButton></CreateGridDocumentButton> : <CreateListDocumentButton></CreateListDocumentButton>}
                             </div>
                         </div>
 
