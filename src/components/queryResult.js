@@ -35,10 +35,8 @@ const QueryResult = ({ documentInfo, selected }) => {
       }, [documentInfo]);
 
     const updateRouterParams = () => { // bad solution but no easy way in v6
-      // navigate('/editor', { state: { documentPath: documentInfo[3], documentContent: fileContents } });
-      console.log(documentInfo[3])
-      console.log(fileContents)
-      // navigate(0)
+      navigate('/editor', { state: { documentPath: documentInfo[3], documentContent: fileContents } });
+      navigate(0)
     }
 
     return (
