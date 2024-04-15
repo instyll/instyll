@@ -90,7 +90,7 @@ const EditorView = () => {
 
     // console.log(documentContent)
 
-    const documentRef = useRef();
+    const documentRef = useRef(null);
 
     const handleDock = () => {
         setDockOpen((prevState) => !prevState)
@@ -272,7 +272,7 @@ const EditorView = () => {
 
                                     <MilkdownProvider>
                                         <ProsemirrorAdapterProvider>
-                                            <MilkdownEditor documentPath={documentPath} documentContents={documentContent} ref={documentRef}/>
+                                            <MilkdownEditor documentPath={documentPath} documentContents={documentContent}/>
                                         </ProsemirrorAdapterProvider>
                                     </MilkdownProvider>
 

@@ -3683,6 +3683,10 @@
     color: var(--primary-text);
     transition: 0.2s;
   }
+
+  .topicListItem:hover {
+    border: 1px solid var(--secondary-text);
+  }
   
   .topicListItem:nth-child(1) {
     margin-top: 28px;
@@ -3890,6 +3894,10 @@
     background-size: cover;
     transition: 0.2s;
     background-color: var(--elevated-bg);
+  }
+
+  .createNewListTopicContainer:hover {
+    border: 1px solid var(--secondary-text);
   }
   
   .createNewTopicContainer {
