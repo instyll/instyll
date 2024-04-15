@@ -16,6 +16,7 @@ import DocumentGridItem from './documentGridItem';
 import DocumentListItem from './documentListItem';
 import CreateGridDocumentButton from './createNewGridDocumentButton';
 import CreateListDocumentButton from './createNewListDocumentButton';
+import CreateDocumentModal from '../../modal/document/CreateDocumentModal';
 
 import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
@@ -29,6 +30,7 @@ const DocumentViewer = ({ location }) => {
     const [markdownFiles, setMarkdownFiles] = useState([]);
     const [triggerRerender, setTriggerRerender] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [createDocumentModalOpen, setCreateDocumentModalOpen] = useState(false);
 
     // console.log(triggerRerender)s
 
@@ -149,6 +151,8 @@ const DocumentViewer = ({ location }) => {
 
             <div className='container'>
 
+                <CreateDocumentModal show={createDocumentModalOpen} onHide={() => setCreateDocumentModalOpen(false)}></CreateDocumentModal>
+
                 <div className="topicView">
                     <div className="dashboardWrapper" style={{
                         width: "100%",
@@ -222,7 +226,7 @@ const DocumentViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                {documentGridLayout ? <CreateGridDocumentButton></CreateGridDocumentButton> : <CreateListDocumentButton></CreateListDocumentButton>}
+                                {documentGridLayout ? <CreateGridDocumentButton setCreateDocumentModalOpen={() => setCreateDocumentModalOpen(true)}></CreateGridDocumentButton> : <CreateListDocumentButton setCreateDocumentModalOpen={() => setCreateDocumentModalOpen(true)}></CreateListDocumentButton>}
                                 {documentGridLayout ?
                                     markdownFiles.map((filename) => (
                                         <DocumentGridItem key={filename} documentInfo={[path.join(documentsPath, filename), removeMdExtension(filename)]}>
