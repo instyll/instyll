@@ -174,7 +174,13 @@ const Topics = () => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-
+                                {topicGridLayout ? 
+                                    <CreateGridTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
+                                    </CreateGridTopicButton>
+                                    : 
+                                    <CreateListTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
+                                    </CreateListTopicButton>
+                                }
                                 {topicGridLayout ? topics.map((tag) => (
 
                                         <TopicGridItem tag={tag}>
@@ -184,14 +190,6 @@ const Topics = () => {
                                     <TopicListItem tag={tag}>
                                     </TopicListItem>
                                 ))}
-
-                                {topicGridLayout ? 
-                                <CreateGridTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
-                                </CreateGridTopicButton>
-                                : 
-                                <CreateListTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
-                                </CreateListTopicButton>
-                                }
                             </div>
                         </div>
 

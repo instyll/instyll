@@ -237,12 +237,7 @@ const Home = () => {
                 </h2>
               </div>
               <div className='dashboardTopicsContainer'>
-                {tags.map((tag) => (
-                  <TopicGridItem tag={tag}>
-                  </TopicGridItem>
-                ))}
-
-                <div
+              <div
                   className='createNewTopicContainer'
                   onClick={setCreateTopicModalOpen}
                 >
@@ -255,6 +250,10 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+                {tags.map((tag) => (
+                  <TopicGridItem tag={tag}>
+                  </TopicGridItem>
+                ))}
               </div>
 
             </div>

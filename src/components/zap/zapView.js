@@ -53,13 +53,12 @@ const ZapView = ({ location }) => {
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
                                <div className='zapViewContainer'>
+                               <CreateZapButton setCreateZapModalOpen={() => setCreateZapModalOpen(true)}></CreateZapButton>
                                     {
                                         zapList.map((zap) => (
                                             <ZapItem zapId={zap}></ZapItem>
                                         ))
-                                    }
-                                    <CreateZapButton setCreateZapModalOpen={() => setCreateZapModalOpen(true)}></CreateZapButton>
-                               </div>
+                                    }                               </div>
                             </div>
                         </div>
 
