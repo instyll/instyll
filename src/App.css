@@ -772,6 +772,20 @@
     justify-content: center;
   }
 
+  .zapGenerationButton {
+    background-color: var(--button-highlight);
+    border: transparent;
+    border-radius: 10px;
+    color: var(--button-highlight-text);
+    width: fit-content;
+    font-size: 1em;
+    padding: 2px 16px;
+    height: 38px;
+    font-family: var(--font);
+    transition: 0.3s;
+    vertical-align: middle;
+  }
+
   .createZapContainer {
     vertical-align: middle;
     display: inline-block;
