@@ -729,7 +729,7 @@
   .zapItemContainer {
     vertical-align: middle;
     display: inline-block;
-    width: calc(100%/5 - 25px);
+    width: calc(100%/4 - 23px);
     line-height: 54px;
     height: 54px;
     border: 1px solid var(--muted-text);
@@ -741,6 +741,10 @@
     background-size: cover;
     transition: 0.2s;
     font-family: var(--font);
+  }
+
+  .zapItemContainer:nth-child(4n) {
+    margin-right: 0px !important;
   }
 
   .zapItemLabel {
@@ -793,7 +797,7 @@
   .createZapContainer {
     vertical-align: middle;
     display: inline-block;
-    width: calc(100%/5 - 25px);
+    width: calc(100%/4 - 23px);
     line-height: 52px;
     height: 52px;
     border: 1px solid var(--muted-text);
@@ -860,9 +864,6 @@
       margin-right: 28px !important;
     }
   }
-  
-
-
 
 
   @media only screen and (max-width: 1400px) {
@@ -871,11 +872,23 @@
     }
   
     .zapItemContainer:nth-child(4n) {
-      margin-right: 0px;
+      margin-right: 0px !important;
     }
   
     .zapItemContainer:nth-child(5n) {
       margin-right: 28px !important;
+    }
+
+    .zapItemContainer:nth-child(18n) {
+      margin-right: 28px !important;
+    }
+
+    .zapItemContainer:nth-child(20n) {
+      margin-right: 0px !important;
+    }
+
+    .zapItemContainer:nth-child(36n) {
+      margin-right: 0px !important;
     }
   }
   
@@ -910,17 +923,6 @@
       margin-right: 28px !important;
     }
   }
-
-
-
-
-
-
-
-
-
-
-
   
   .emojiMenuItem {
     padding-left: 10px;
