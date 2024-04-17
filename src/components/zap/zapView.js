@@ -19,6 +19,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ZapItem from './zapItem';
 import CreateZapButton from './createZapButton';
 import CreateZapModal from '../../modal/zap/CreateZapModal';
+import { generateZaps } from '../../actions';
 
 const ZapView = ({ location }) => {
 
@@ -27,6 +28,7 @@ const ZapView = ({ location }) => {
     const dispatch = useDispatch();
 
     const zapList = useSelector((state) => state.zaps.zaps);
+    const documents = useSelector((state) => state.documents.documents);
 
     return (
         <div className="EditorView">
@@ -51,7 +53,7 @@ const ZapView = ({ location }) => {
                                     Zaps
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
-                                    <button className='zapGenerationButton'>
+                                    <button className='zapGenerationButton' onClick={() => generateZaps(documents)}>
                                     <img src={sparkleIcon} className='buttonIcon' />
                                     Generate
                                     </button>
