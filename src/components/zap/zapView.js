@@ -14,21 +14,34 @@ import 'prism-themes/themes/prism-nord.css';
 
 import layoutGrid from '../../icons/layoutGrid.png';
 import layoutList from '../../icons/layoutList.png';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ZapItem from './zapItem';
 import CreateZapButton from './createZapButton';
 import CreateZapModal from '../../modal/zap/CreateZapModal';
 import { generateZaps } from '../../actions';
+import { addZap } from '../../zapSlice';
 
 const ZapView = ({ location }) => {
 
     const [createZapModalOpen, setCreateZapModalOpen] = useState(false);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const zapList = useSelector((state) => state.zaps.zaps);
     const documents = useSelector((state) => state.documents.documents);
+
+    const addGeneratedZaps = async () => {
+        const possibleZaps = await generateZaps(documents);
+        console.log(possibleZaps)
+        for (const generatedZap of possibleZaps) {
+            if (!zapList.includes(generatedZap)) {
+                dispatch(addZap(generatedZap));
+            }
+        }
+        // navigate(0);
+    }
 
     return (
         <div className="EditorView">
@@ -53,7 +66,7 @@ const ZapView = ({ location }) => {
                                     Zaps
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
-                                    <button className='zapGenerationButton' onClick={() => generateZaps(documents)}>
+                                    <button className='zapGenerationButton' onClick={addGeneratedZaps}>
                                     <img src={sparkleIcon} className='buttonIcon' />
                                     Generate
                                     </button>

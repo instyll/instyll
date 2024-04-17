@@ -3,6 +3,7 @@ import path from 'path';
 import { useSelector } from 'react-redux';
 import {store} from './store'
 import OpenAI from "openai";
+import { words } from 'lodash';
 
 export const executeFileCreation = ({documentTitle}) => {
     const state = store.getState();
@@ -19,7 +20,7 @@ export const generateZaps = async (documents) => {
     console.log(documents)
     const documentsList = documents;
     const possibleZaps = [];
-    const promptPrefix = 'From the following tokenized text, extract a list of the words that recurr the most frequently and/or take longer to type out, and would be suitable for an autocomplete menu. Return these in a json object using the following schema: {"words": {"word": string}[]}. The tokenized text: ';
+    const promptPrefix = 'From the following tokenized text, extract a list of the words that recurr the most frequently and/or take longer to type out, and would be suitable for an autocomplete menu. Return these in a json object using the following schema: {"words": []}. The tokenized text: ';
     // for (const document of documentsList) {
         const document = documentsList[1]
         const documentPath = document[3];
@@ -31,16 +32,17 @@ export const generateZaps = async (documents) => {
                 messages: [{role: "user", content: (promptPrefix + documentTokens)}]
             })
             const responseData = await response.choices[0].message.content;
-            console.log(responseData)
-            const words = responseData.words;
-            for (const word of words) {
-                possibleZaps.push(word.word);
+            // console.log(responseData)
+            const words = JSON.parse(responseData);
+            for (const word of words.words) {
+                possibleZaps.push(word);
             }
         } catch (error) {
             console.log("Error calling OpenAI API:", error);
         }
     // }
-    console.log("possible zaps: " + possibleZaps)
+    console.log(possibleZaps)
+    return possibleZaps;
 }
 
 const readNoteContent = (documentPath) => {
