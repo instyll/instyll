@@ -786,6 +786,10 @@
     vertical-align: middle;
   }
 
+  .zapGenerationButton:hover {
+    filter: brightness(90%);
+  }
+
   .createZapContainer {
     vertical-align: middle;
     display: inline-block;
