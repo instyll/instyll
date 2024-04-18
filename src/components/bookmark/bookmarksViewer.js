@@ -85,10 +85,15 @@ const BookmarkViewer = ({ location }) => {
                                     Bookmarks
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
-                                    <button className='changeTopicViewButton'
+                                    <button className={documentGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
                                         onClick={handleChangeDocumentViewLayout}
                                     >
-                                        <img src={documentGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
+                                        <img src={layoutGrid} class="buttonIcon" draggable={false}></img>
+                                    </button>
+                                    <button className={documentGridLayout ? `changeTopicViewButton` : `changeTopicViewButton selected`}
+                                        onClick={handleChangeDocumentViewLayout}
+                                    >
+                                        <img src={layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
                                 </div>
                                 <div className='selectSortOptionContainer'>
