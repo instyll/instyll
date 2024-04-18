@@ -4305,20 +4305,25 @@
     width: fit-content;
     margin-left: 16px;
     vertical-align: middle;
+    border: 1px solid var(--muted-text);
+    border-radius: 10px;
+    box-sizing: border-box;
   }
   
   .changeTopicViewButton {
     background-color: transparent;
-    border: 1px solid var(--muted-text);
+    border: none;
     border-radius: 10px;
     color: var(--secondary-text);
     width: 38px;
     font-size: 1em;
-    padding: 2px;
-    height: 38px;
+    padding: 0px 2px;
+    height: 36px;
     font-family: var(--font);
     transition: 0.3s;
     vertical-align: middle;
+    margin-left: 0px;
+    box-sizing: border-box;
   }
   
   .changeTopicViewButton:hover {
@@ -4327,6 +4332,10 @@
   
   .changeTopicViewButton .buttonIcon {
     padding-right: 0px;
+  }
+
+  .changeTopicViewButton.selected {
+    border-radius: 8px !important;
   }
 
   .genAIPreview {
