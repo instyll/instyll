@@ -17,13 +17,12 @@ export const executeFileCreation = ({documentTitle}) => {
 // generates a list of the longest and most recurring words based on a user's notes
 export const generateZaps = async (documents) => {
     const openai = new OpenAI({ apiKey: process.env.REACT_APP_OPENAI_API_SECRET_KEY, dangerouslyAllowBrowser: true });
-    console.log(documents)
     const documentsList = documents;
     const possibleZaps = [];
     const promptPrefix = 'From the following tokenized text, extract a list of five words that recurr the most frequently and/or take longer to type out, and would be suitable for an autocomplete menu. Return these in a json object using the following schema: {"words": []}. The tokenized text: ';
     const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-    for (const document of documentsList) {
-        // const document = documentsList[1]
+    for (let i = 0; i < 3; ++i) { // limits to 3 rpm
+        const document = documentsList[i];
         const documentPath = document[3];
         const documentTokens = readNoteContent(documentPath);
         // console.log(documentTokens)
