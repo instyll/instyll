@@ -113,9 +113,15 @@ const Topics = () => {
                                     Topics
                                 </h1>
                                 <div className='changeTopicViewButtonContainer'>
-                                    <button className='changeTopicViewButton'
-                                        onClick={handleChangeTopicViewLayout}>
-                                        <img src={topicGridLayout ? layoutGrid : layoutList} class="buttonIcon" draggable={false}></img>
+                                    <button className={topicGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
+                                        onClick={handleChangeTopicViewLayout}
+                                    >
+                                        <img src={layoutGrid} class="buttonIcon" draggable={false}></img>
+                                    </button>
+                                    <button className={topicGridLayout ? `changeTopicViewButton` : `changeTopicViewButton selected`}
+                                        onClick={handleChangeTopicViewLayout}
+                                    >
+                                        <img src={layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
                                 </div>
                                 <div className='selectSortOptionContainer'>
