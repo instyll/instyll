@@ -20,9 +20,10 @@ export const generateZaps = async (documents) => {
     console.log(documents)
     const documentsList = documents;
     const possibleZaps = [];
-    const promptPrefix = 'From the following tokenized text, extract a list of the words that recurr the most frequently and/or take longer to type out, and would be suitable for an autocomplete menu. Return these in a json object using the following schema: {"words": []}. The tokenized text: ';
-    // for (const document of documentsList) {
-        const document = documentsList[1]
+    const promptPrefix = 'From the following tokenized text, extract a list of five words that recurr the most frequently and/or take longer to type out, and would be suitable for an autocomplete menu. Return these in a json object using the following schema: {"words": []}. The tokenized text: ';
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    for (const document of documentsList) {
+        // const document = documentsList[1]
         const documentPath = document[3];
         const documentTokens = readNoteContent(documentPath);
         // console.log(documentTokens)
@@ -37,10 +38,11 @@ export const generateZaps = async (documents) => {
             for (const word of words.words) {
                 possibleZaps.push(word);
             }
+            await delay(3000);
         } catch (error) {
             console.log("Error calling OpenAI API:", error);
         }
-    // }
+    }
     console.log(possibleZaps)
     return possibleZaps;
 }
