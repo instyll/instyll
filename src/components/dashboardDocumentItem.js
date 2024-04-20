@@ -10,6 +10,7 @@ const DashboardDocumentItem = ({document}) => {
 
     const navigate = useNavigate();
     const [fileContents, setFileContents] = useState(null); // State to store file contents
+    const [topicsString, setTopicsString] = useState(null); // concatenate topics
     const notify = () => toast("Note does not exist");
 
     // read markdown from a path
@@ -42,13 +43,24 @@ const DashboardDocumentItem = ({document}) => {
         })
       }
 
+    useEffect(() => {
+      let topicString = "";
+      for (const topic of document[4]) {
+        topicString += topic + ", ";
+      }
+      setTopicsString(topicString);
+    }, [])
+
     return (
         <div className='dashboardSuggestionItemChild' onClick={updateRouterParams}>
             {document &&
             <div className='documentTitle'>{document[1]}</div>
             }
-            {document &&
-                <div className='documentMetadata'>In {document[4]} - {document[2]}</div>
+            {document && document[4].length > 0 &&
+                <div className='documentMetadata'>In {topicsString} - {document[2]}</div>
+            }
+            {document && document[4].length == 0 &&
+                <div className='documentMetadata'>No topic - {document[2]}</div>
             }
             <ToastContainer /> 
         </div>
