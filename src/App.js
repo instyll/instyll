@@ -25,11 +25,9 @@ import 'prism-themes/themes/prism-nord.css';
 const App = () => {
 
   const lastSetTheme = useSelector((state) => state.theme.theme);
-  console.log(lastSetTheme)
 
   useEffect(() => {
       const html = document.querySelector("html");
-      console.log(lastSetTheme)
       html.setAttribute("data-theme", lastSetTheme);                        
     }, [])
 

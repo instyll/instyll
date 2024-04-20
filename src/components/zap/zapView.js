@@ -68,7 +68,7 @@ const ZapView = ({ location }) => {
                                 <div className='changeTopicViewButtonContainer'>
                                     <button className='zapGenerationButton' onClick={addGeneratedZaps}>
                                     <img src={sparkleIcon} className='buttonIcon' />
-                                    Generate
+                                    Generate from notes
                                     </button>
                                 </div>
                                
