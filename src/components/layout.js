@@ -16,6 +16,7 @@ import {Command} from 'cmdk';
 import { useNavigate } from "react-router-dom";
 import SettingsModal from "../modal/SettingsModal";
 import DocumentModal from "../modal/document/CreateDocumentModal.js";
+import { setTheme, updateTheme } from "../themeSlice.js";
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -31,8 +32,17 @@ import closeIcon from '../icons/doubleright.png';
 import openIcon from '../icons/doubleleft.png'
 import themeIcon from '../icons/template2.png';
 import documentIcon from '../icons/document.png';
+import { useDispatch, useSelector } from "react-redux";
 
 const Layout = ({ children }) => {
+    const lastSetTheme = useSelector((state) => state.theme.theme);
+    // console.log(lastSetTheme)
+    const themeRef = useRef(null);
+    useEffect(() => {
+        themeRef.current = lastSetTheme;
+        // console.log("ref " + themeRef.current)
+    }, [lastSetTheme])
+
     const [tocOpen, setTocOpen] = useState(true);
     const [isDark, setIsDark] = useState(true);
     const [cpOpen, setCpOpen] = useState(false);
@@ -43,6 +53,7 @@ const Layout = ({ children }) => {
 
     const containerRef = useRef(null);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     // command palette toggle
     const handleCommandPalette = () => {
@@ -64,11 +75,19 @@ const Layout = ({ children }) => {
         setRightPanelOpen(false);
     }
 
-    // dark / light mode 
+    // dark / light mode
+    useEffect(() => {
+        const html = document.querySelector("html");
+        console.log(themeRef.current)
+        html.setAttribute("data-theme", themeRef.current);
+    }, [])
+
     useEffect(() => {
         const html = document.querySelector("html");
         var theme = isDark ? "light" : "dark";
         html.setAttribute("data-theme", theme);
+        console.log("theme " + theme)
+        dispatch(updateTheme(theme))
     }, [isDark])
 
     const toggleTheme = (isChecked) => {
@@ -76,8 +95,10 @@ const Layout = ({ children }) => {
         if (isDark === true) {
             if (isChecked) {
                 setIsDark(false);
+                // dispatch(updateTheme('dark'))
             } else {
                 setIsDark(true);
+                // dispatch(updateTheme('light'))
             }
         }
         // handleTheme();

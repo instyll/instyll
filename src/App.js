@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 // import Editor from './legacyEditor.js';
 import './App.css';
 import "highlight.js/styles/github.css";
@@ -16,14 +16,22 @@ import DocumentViewer from './components/document/documentsViewer';
 import BookmarkViewer from './components/bookmark/bookmarksViewer.js';
 import ZapView from './components/zap/zapView';
 import Initialize from './Initial.js';
+import { useSelector } from 'react-redux';
 
 import './command-palette/commandPalette.css';
 import 'react-calendar/dist/Calendar.css';
 import 'prism-themes/themes/prism-nord.css';
 
-class App extends Component {
+const App = () => {
 
-  render() {
+  const lastSetTheme = useSelector((state) => state.theme.theme);
+  console.log(lastSetTheme)
+
+  useEffect(() => {
+      const html = document.querySelector("html");
+      console.log(lastSetTheme)
+      html.setAttribute("data-theme", lastSetTheme);                        
+    }, [])
 
     return (
 
@@ -48,7 +56,6 @@ class App extends Component {
     </Provider>
 
     );
-  }
 }
 
 

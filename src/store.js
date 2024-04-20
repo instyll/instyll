@@ -10,7 +10,8 @@ import userReducer from './userSlice';
 import zapReducer from './zapSlice';
 import documentReducer from './documentSlice'
 import bookmarkReducer from "./bookmarkSlice";
-import pathReducer from './pathSlice'
+import pathReducer from './pathSlice';
+import themeReducer from './themeSlice';
 
 const persistConfig = {
   key: "root",
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
    documents: documentReducer,
    bookmarks: bookmarkReducer,
    path: pathReducer,
+   theme: themeReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
