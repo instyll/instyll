@@ -45,10 +45,12 @@ const DashboardDocumentItem = ({document}) => {
 
     useEffect(() => {
       let topicString = "";
-      for (const topic of document[4]) {
-        topicString += topic + ", ";
+      if (document) {
+        for (const topic of document[4]) {
+          topicString += topic + ", ";
+        }
+        setTopicsString(topicString);
       }
-      setTopicsString(topicString);
     }, [])
 
     return (
