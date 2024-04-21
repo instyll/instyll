@@ -8,7 +8,7 @@ import { useState, useEffect, useRef } from 'react';
 
 const QueryResult = ({ documentInfo, selected }) => {
 
-    const [fileContents, setFileContents] = useState(null); // State to store file contents
+    // const [fileContents, setFileContents] = useState(null); // State to store file contents
     const navigate = useNavigate();
     const queryItemRef = useRef();
 
@@ -19,23 +19,23 @@ const QueryResult = ({ documentInfo, selected }) => {
       }
     }, [selected])
 
-    useEffect(() => {
-        const readMarkdown = async () => {
-          try {
-            const contents = fs.readFileSync(documentInfo[3], 'utf-8');
-            // console.log(contents)
-            setFileContents(contents);
-            // console.log(fileContents)
-          } catch (error) {
-            console.error('Error reading file:', error);
-          }
-        };
+    // useEffect(() => {
+    //     const readMarkdown = async () => {
+    //       try {
+    //         const contents = fs.readFileSync(documentInfo[3], 'utf-8');
+    //         // console.log(contents)
+    //         setFileContents(contents);
+    //         // console.log(fileContents)
+    //       } catch (error) {
+    //         console.error('Error reading file:', error);
+    //       }
+    //     };
     
-        readMarkdown();
-      }, [documentInfo]);
+    //     readMarkdown();
+    //   }, [documentInfo]);
 
     const updateRouterParams = () => { // bad solution but no easy way in v6
-      navigate('/editor', { state: { documentPath: documentInfo[3], documentContent: fileContents } });
+      navigate('/editor', { state: { documentPath: documentInfo[3] } });
       navigate(0)
     }
 

@@ -65,7 +65,7 @@ const EditorView = () => {
     const [rightPanelSetting, setRightPanelSetting] = useState("");
 
     const {state} = useLocation();
-    const { documentPath, documentContent } = state;
+    const { documentPath } = state;
     // console.log("the loaded state " + state)
 
     const dispatch = useDispatch();

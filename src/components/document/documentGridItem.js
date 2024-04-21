@@ -23,7 +23,7 @@ const DocumentGridItem = ({ documentInfo }) => {
 
   const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
-  const [fileContents, setFileContents] = useState(null); // State to store file contents
+  // const [fileContents, setFileContents] = useState(null); // State to store file contents
   const parentRef = useRef(null);
 
   // context menu
@@ -128,20 +128,20 @@ const DocumentGridItem = ({ documentInfo }) => {
     setUpdateDocumentModalOpen(false);
   };
 
-  useEffect(() => {
-    const readMarkdown = async () => {
-      try {
-        const contents = fs.readFileSync(documentInfo[0], 'utf-8');
-        // console.log(contents)
-        setFileContents(contents);
-        // console.log(fileContents)
-      } catch (error) {
-        console.error('Error reading file:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const readMarkdown = async () => {
+  //     try {
+  //       const contents = fs.readFileSync(documentInfo[0], 'utf-8');
+  //       // console.log(contents)
+  //       setFileContents(contents);
+  //       // console.log(fileContents)
+  //     } catch (error) {
+  //       console.error('Error reading file:', error);
+  //     }
+  //   };
 
-    readMarkdown();
-  }, [fileContents]);
+  //   readMarkdown();
+  // }, [fileContents]);
 
   return (
     <div className='documentItem' ref={parentRef} onContextMenu={handleContextMenu}>
@@ -173,7 +173,7 @@ const DocumentGridItem = ({ documentInfo }) => {
       <Item id="delete" onClick={() => handleRemoveDocument(selectedDocument)}>Delete</Item>
     </Menu>
 
-      <div className='documentTextContainer' onClick={() => navigate('/editor', { state: { documentPath: documentInfo[0], documentContent: fileContents } })}>
+      <div className='documentTextContainer' onClick={() => navigate('/editor', { state: { documentPath: documentInfo[0] } })}>
         <div className='documentTextWrapper'>
           <div className='topicTitle'>
             <span>{documentInfo[1]}</span>
