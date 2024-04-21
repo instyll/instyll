@@ -14,7 +14,7 @@ export const useSlashState = (instance: Instance) => {
 
   const zapListConst = useSelector((state) => state.zaps.zaps);
 
-  console.log("search len " + search.length)
+  // console.log("search len " + search.length)
 
   const zapList = useMemo(() => {
     if (search.length === 0) return [];

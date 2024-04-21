@@ -74,6 +74,7 @@ const EditorView = () => {
     const wordCount = fs.readFileSync(documentPath, 'utf-8').split(/\s+/).length;
     const charCount = fs.readFileSync(documentPath, 'utf-8').split('').length;
     // console.log(wordCount)
+    const content = fs.readFileSync(documentPath, 'utf-8');
 
     const existingTags = useSelector((state) => {
         const documents = state.documents.documents;
@@ -272,7 +273,7 @@ const EditorView = () => {
 
                                     <MilkdownProvider>
                                         <ProsemirrorAdapterProvider>
-                                            <MilkdownEditor documentPath={documentPath} documentContents={documentContent}/>
+                                            <MilkdownEditor documentPath={documentPath} documentContents={content}/>
                                         </ProsemirrorAdapterProvider>
                                     </MilkdownProvider>
 
