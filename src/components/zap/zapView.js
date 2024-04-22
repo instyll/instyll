@@ -21,10 +21,12 @@ import CreateZapButton from './createZapButton';
 import CreateZapModal from '../../modal/zap/CreateZapModal';
 import { generateZaps } from '../../actions';
 import { addZap } from '../../zapSlice';
+import ZapGenerationLoader from './zapGenerationLoader';
 
 const ZapView = ({ location }) => {
 
     const [createZapModalOpen, setCreateZapModalOpen] = useState(false);
+    const [loading, setIsLoading] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -33,6 +35,7 @@ const ZapView = ({ location }) => {
     const documents = useSelector((state) => state.documents.documents);
 
     const addGeneratedZaps = async () => {
+        setIsLoading(true)
         const possibleZaps = await generateZaps(documents);
         console.log(possibleZaps)
         for (const generatedZap of possibleZaps) {
@@ -41,6 +44,7 @@ const ZapView = ({ location }) => {
             }
         }
         // navigate(0);
+        setIsLoading(false);
     }
 
     return (
@@ -54,6 +58,7 @@ const ZapView = ({ location }) => {
                     <div className="dashboardWrapper" style={{
                         width: "100%",
                     }}>
+                    {loading ? <ZapGenerationLoader loading={loading}/> :
                         <div className="dashboardGreetingContainer">
 
                         <CreateZapModal
@@ -84,8 +89,8 @@ const ZapView = ({ location }) => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
+                    }
                 </div>
 
             </div>
