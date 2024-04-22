@@ -111,7 +111,7 @@ const SettingsModal = ({ show, onHide }) => {
           fontSize: "1em",
           boxSizing: "border-box",
           width: "600px",
-          height: "300px",
+          height: "360px",
           position: "absolute",
           top: "50%",
           left: "50%",
@@ -181,6 +181,17 @@ const SettingsModal = ({ show, onHide }) => {
                     </div>
                     <div className="third" onClick={() => handleFontSize('18px')}>
                       18px
+                    </div>
+                  </div>
+                  <span className="editorSettingsTitle">
+                    Editor direction
+                  </span>
+                  <div className="widthSelector">
+                    <div className="second" onClick={() => handleFontSize('12px')}>
+                      Left to right
+                    </div>
+                    <div className="second" onClick={() => handleFontSize('15px')}>
+                      Right to left
                     </div>
                   </div>
                 </div>
