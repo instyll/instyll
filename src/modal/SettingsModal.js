@@ -26,6 +26,7 @@ const SettingsModal = ({ show, onHide }) => {
   const [selectedEditorWidth, setSelectedEditorWidth] = useState(null);
   const [selectedFontSize, setSelectedFontSize] = useState(null);
   const [selectedEditorDirection, setSelectedEditorDirection] = useState(null);
+  const [selectedTheme, setSelectedTheme] = useState(null);
 
   const documentsPath = useSelector((state) => state.path.path);
   const documents = useSelector((state) => state.documents.documents);
@@ -84,8 +85,10 @@ const SettingsModal = ({ show, onHide }) => {
     const html = document.querySelector("html");
     if (option === 'light') {
       html.setAttribute("data-theme", "light");
+      setSelectedTheme('l')
     } else {
       html.setAttribute("data-theme", "dark");
+      setSelectedTheme('d')
     }
   }
 
@@ -241,10 +244,10 @@ const SettingsModal = ({ show, onHide }) => {
                     Theme
                   </span>
                   <div className="widthSelector">
-                    <div className="second" onClick={() => handleTheme('light')}>
+                    <div className={selectedTheme === 'l' ? `second selected` : 'second'} onClick={() => handleTheme('light')}>
                       Light
                     </div>
-                    <div className="second" onClick={() => handleTheme('dark')}>
+                    <div className={selectedTheme === 'd' ? `second selected` : 'second'} onClick={() => handleTheme('dark')}>
                       Dark
                     </div>
                   </div>
