@@ -210,10 +210,10 @@ const SettingsModal = ({ show, onHide }) => {
                     Editor direction
                   </span>
                   <div className="widthSelector">
-                    <div className="second" onClick={() => handleEditorDirection('ltr')}>
+                    <div className={selectedEditorDirection === 'l' ? `second selected` : 'second'} onClick={() => handleEditorDirection('ltr')}>
                       Left to right
                     </div>
-                    <div className="second" onClick={() => handleEditorDirection('rtl')}>
+                    <div className={selectedEditorDirection === 'r' ? `second selected` : 'second'} onClick={() => handleEditorDirection('rtl')}>
                       Right to left
                     </div>
                   </div>
