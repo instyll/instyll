@@ -23,10 +23,10 @@ dotenv.config();
 const SettingsModal = ({ show, onHide }) => {
 
   const [selectedOption, setSelectedOption] = useState("s");
-  const [selectedEditorWidth, setSelectedEditorWidth] = useState(null);
-  const [selectedFontSize, setSelectedFontSize] = useState(null);
-  const [selectedEditorDirection, setSelectedEditorDirection] = useState(null);
-  const [selectedTheme, setSelectedTheme] = useState(null);
+  const [selectedEditorWidth, setSelectedEditorWidth] = useState("f");
+  const [selectedFontSize, setSelectedFontSize] = useState("15");
+  const [selectedEditorDirection, setSelectedEditorDirection] = useState("l");
+  const [selectedTheme, setSelectedTheme] = useState("l");
 
   const documentsPath = useSelector((state) => state.path.path);
   const documents = useSelector((state) => state.documents.documents);
