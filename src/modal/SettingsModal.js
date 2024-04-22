@@ -23,6 +23,9 @@ dotenv.config();
 const SettingsModal = ({ show, onHide }) => {
 
   const [selectedOption, setSelectedOption] = useState("s");
+  const [selectedEditorWidth, setSelectedEditorWidth] = useState(null);
+  const [selectedFontSize, setSelectedFontSize] = useState(null);
+  const [selectedEditorDirection, setSelectedEditorDirection] = useState(null);
 
   const documentsPath = useSelector((state) => state.path.path);
   const documents = useSelector((state) => state.documents.documents);
@@ -37,9 +40,12 @@ const SettingsModal = ({ show, onHide }) => {
   const handleFontSize = (option) => {
     if (option === '12px') {
       document.documentElement.style.setProperty('--font-size', '1em');
+      setSelectedFontSize('12');
     } else if (option === '15px') {
       document.documentElement.style.setProperty('--font-size', '1.2em');
+      setSelectedFontSize('15');
     } else if (option === '18px') {
+      setSelectedFontSize('18');
       document.documentElement.style.setProperty('--font-size', '1.4em');
     }
   }
@@ -48,10 +54,13 @@ const SettingsModal = ({ show, onHide }) => {
   const handleEditorWidth = (option) => {
     if (option === '700px') {
       document.documentElement.style.setProperty('--milkdown-width', '700px');
+      setSelectedEditorWidth('700');
     }
     else if (option === '900px') {
       document.documentElement.style.setProperty('--milkdown-width', '900px');
+      setSelectedEditorWidth('900');
     } else if (option === 'full') {
+      setSelectedEditorWidth('f');
       document.documentElement.style.setProperty('--milkdown-width', '100%');
     }
   }
@@ -61,8 +70,10 @@ const SettingsModal = ({ show, onHide }) => {
     if (option === 'ltr') {
       document.documentElement.style.setProperty('--milkdown-direction', 'ltr');
       document.documentElement.style.setProperty('--milkdown-align', 'left');
+      setSelectedEditorDirection('l')
     }
     else if (option === 'rtl') {
+      setSelectedEditorDirection('r')
       document.documentElement.style.setProperty('--milkdown-direction', 'rtl');
       document.documentElement.style.setProperty('--milkdown-align', 'right');
     }
@@ -171,13 +182,13 @@ const SettingsModal = ({ show, onHide }) => {
                     Max editor width
                   </span>
                   <div className="widthSelector">
-                    <div className="third" onClick={() => handleEditorWidth('700px')}>
+                    <div className={selectedEditorWidth === '700' ? `third selected` : 'third'} onClick={() => handleEditorWidth('700px')}>
                       700px
                     </div>
-                    <div className="third" onClick={() => handleEditorWidth('900px')}>
+                    <div className={selectedEditorWidth === '900' ? `third selected` : 'third'} onClick={() => handleEditorWidth('900px')}>
                       900px
                     </div>
-                    <div className="third" onClick={() => handleEditorWidth('full')}>
+                    <div className={selectedEditorWidth === 'f' ? `third selected` : 'third'} onClick={() => handleEditorWidth('full')}>
                       Full
                     </div>
                   </div>
