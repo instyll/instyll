@@ -43,7 +43,7 @@ const BookmarkViewer = ({ location }) => {
     ];
 
     const bookmarks = useSelector((state) => state.bookmarks.bookmarks)
-    // console.log(bookmarks)
+    console.log(bookmarks)
     useEffect(() => {
         setDisplayBookmarks(bookmarks);
     }, [bookmarks])

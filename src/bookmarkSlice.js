@@ -33,8 +33,14 @@ const bookmarkSlice = createSlice({
                 console.error(`Error deleting file ${documentPath}:`, error);
             }
         },
+        removeFromBookmarkView: (state, action) => {
+            const documentObject = action.payload;
+            const documentPath = documentObject[3];
+            state.bookmarks = state.bookmarks.filter(item => item[3] !== documentPath);
+            console.log(documentObject)
+        },
     },
 });
 
-export const { addBookmark, removeBookmark } = bookmarkSlice.actions;
+export const { addBookmark, removeBookmark, removeFromBookmarkView } = bookmarkSlice.actions;
 export default bookmarkSlice.reducer;

@@ -10,7 +10,7 @@ import '../../App.css';
 import { useState, useEffect, useRef } from 'react';
 import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
 import { useSelector, useDispatch } from 'react-redux';
-import { addBookmark } from '../../bookmarkSlice';
+import { addBookmark, removeFromBookmarkView } from '../../bookmarkSlice';
 import { removeDocument } from '../../documentSlice';
 import { removeBookmark } from '../../bookmarkSlice';
 import { ToastContainer, toast } from 'react-toastify'
@@ -23,6 +23,7 @@ const DocumentGridItem = ({ documentInfo }) => {
 
   const [updateDocumentModalOpen, setUpdateDocumentModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
+  const [inBookmark, setInBookmark] = useState(false);
   // const [fileContents, setFileContents] = useState(null); // State to store file contents
   const parentRef = useRef(null);
 
@@ -86,6 +87,12 @@ const DocumentGridItem = ({ documentInfo }) => {
   });
 
   const bookmarks = useSelector((state) => state.bookmarks.bookmarks);
+  
+  useEffect(() => {
+    if (bookmarks.includes(documentObj)) {
+      setInBookmark(true);
+    }
+  }, [])
 
   // bookmark a note
   const handleBookmark = (doc) => {
@@ -97,6 +104,11 @@ const DocumentGridItem = ({ documentInfo }) => {
     } else {
       notifyExists();
     }
+  }
+
+  // remove a bookmark
+  const handleRemoveBookmark = (doc) => {
+    dispatch(removeFromBookmarkView(documentObj));
   }
 
   // delete a note
@@ -169,8 +181,9 @@ const DocumentGridItem = ({ documentInfo }) => {
       fontFamily: "var(--font)"
     }}>
       <Item id="rename" onClick={() => setUpdateDocumentModalOpen(true)}>Rename</Item>
-      <Item id="save" onClick={() => handleBookmark(selectedDocument)}>Bookmark</Item>
+      {!inBookmark && <Item id="save" onClick={() => handleBookmark(selectedDocument)}>Bookmark</Item>}
       <Item id="delete" onClick={() => handleRemoveDocument(selectedDocument)}>Delete</Item>
+      {inBookmark && <Item id="delete" onClick={() => handleRemoveBookmark(selectedDocument)}>Remove bookmark</Item>}
     </Menu>
 
       <div className='documentTextContainer' onClick={() => navigate('/editor', { state: { documentPath: documentInfo[0] } })}>
