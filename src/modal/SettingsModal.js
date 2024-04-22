@@ -196,13 +196,13 @@ const SettingsModal = ({ show, onHide }) => {
                     Editor font size
                   </span>
                   <div className="widthSelector">
-                    <div className="third" onClick={() => handleFontSize('12px')}>
+                    <div className={selectedFontSize === '12' ? `third selected` : 'third'} onClick={() => handleFontSize('12px')}>
                       12px
                     </div>
-                    <div className="third" onClick={() => handleFontSize('15px')}>
+                    <div className={selectedFontSize === '15' ? `third selected` : 'third'} onClick={() => handleFontSize('15px')}>
                       15px
                     </div>
-                    <div className="third" onClick={() => handleFontSize('18px')}>
+                    <div className={selectedFontSize === '18' ? `third selected` : 'third'} onClick={() => handleFontSize('18px')}>
                       18px
                     </div>
                   </div>
