@@ -56,6 +56,18 @@ const SettingsModal = ({ show, onHide }) => {
     }
   }
 
+  // handle editor direction
+  const handleEditorDirection = (option) => {
+    if (option === 'ltr') {
+      document.documentElement.style.setProperty('--milkdown-direction', 'ltr');
+      document.documentElement.style.setProperty('--milkdown-align', 'left');
+    }
+    else if (option === 'rtl') {
+      document.documentElement.style.setProperty('--milkdown-direction', 'rtl');
+      document.documentElement.style.setProperty('--milkdown-align', 'right');
+    }
+  }
+
   // handle theme
   const handleTheme = (option) => {
     const html = document.querySelector("html");
@@ -187,10 +199,10 @@ const SettingsModal = ({ show, onHide }) => {
                     Editor direction
                   </span>
                   <div className="widthSelector">
-                    <div className="second" onClick={() => handleFontSize('12px')}>
+                    <div className="second" onClick={() => handleEditorDirection('ltr')}>
                       Left to right
                     </div>
-                    <div className="second" onClick={() => handleFontSize('15px')}>
+                    <div className="second" onClick={() => handleEditorDirection('rtl')}>
                       Right to left
                     </div>
                   </div>

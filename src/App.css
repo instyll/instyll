@@ -61,6 +61,8 @@
     --font-size: 1.2em;
     --editor-width: 100%;
     --milkdown-width: 100%;
+    --milkdown-direction: ltr;
+    --milkdown-align: left;
   }
   
   [data-theme="dark"] {
@@ -106,6 +108,8 @@
     --font-size: 1.2em;
     --editor-width: 100%;
     --milkdown-width: 100%;
+    --milkdown-direction: ltr;
+    --milkdown-align: left;
   }
 
   
@@ -499,6 +503,8 @@
     box-sizing: border-box;
     /* background-color: var(--bg-color); */
     border-radius: 10px;
+    direction: var(--milkdown-direction);
+    text-align: var(--milkdown-align);
   }
   
   .ProseMirror:focus {
