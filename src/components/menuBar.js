@@ -1,19 +1,18 @@
 /**
  * @author wou
  */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DocumentModal from '../modal/document/CreateDocumentModal';
 import QueryModal from '../modal/QueryModal';
 import classNames from 'classnames';
 import '../App.css';
 // Assets
-import logo from '../icons/keylight3.png'
-import search from '../icons/search.png'
-import create from '../icons/create.png'
+import search from '../icons/search.png';
+import create from '../icons/create.png';
 import back from '../icons/arrowback.png';
 import forward from '../icons/arrowforward.png';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function MenuBar() {
 

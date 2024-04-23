@@ -27,7 +27,7 @@ import notesIcon from '../icons/calendar.png'
 import zapIcon from '../icons/bolt.png'
 import bookmarksIcon from '../icons/bookmark2.png';
 import settingsIcon from '../icons/settings.png';
-import darkIcon from '../icons/focus.png'
+// import darkIcon from '../icons/focus.png'
 import closeIcon from '../icons/doubleright.png';
 import openIcon from '../icons/doubleleft.png'
 import themeIcon from '../icons/template2.png';
