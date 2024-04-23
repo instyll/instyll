@@ -20,8 +20,6 @@ const DocumentModal = ({ show, onHide }) => {
 
     const [documentTitle, setDocumentTitle] = useState("");
 
-    const userId = useSelector((state) => state.user.selectedUserId)
-
     const dispatch = useDispatch();
     const documents = useSelector((state) => state.documents.documents)
     const documentsPath = useSelector((state) => state.path.path)

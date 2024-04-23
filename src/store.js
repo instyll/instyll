@@ -5,8 +5,6 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import tagsReducer from './tagSlice';
-import imageReducer from './imageSlice';
-import userReducer from './userSlice';
 import zapReducer from './zapSlice';
 import documentReducer from './documentSlice'
 import bookmarkReducer from "./bookmarkSlice";
@@ -20,8 +18,6 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
    tags: tagsReducer,
-   image: imageReducer, 
-   user: userReducer,
    zaps: zapReducer,
    documents: documentReducer,
    bookmarks: bookmarkReducer,

@@ -14,7 +14,6 @@ import '../App.css';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import DateTime from '../components/dateTime.js';
 import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
-import { setSelectedImage } from '../imageSlice';
 import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
 import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
 import DashboardDocumentItem from './dashboardDocumentItem.js';
