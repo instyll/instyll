@@ -17,6 +17,7 @@ import PageActionContainer from '../components/dock/PageActionContainer.js';
 import StatContainer from '../components/dock/StatContainer.js';
 import StyleContainer from '../components/dock/StyleContainer.js';
 import PaneContainer from '../components/dock/paneContainer.tsx';
+import { Tooltip } from "react-tooltip";
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -287,7 +288,7 @@ const EditorView = () => {
                                 && rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
                                 rightPanelOpen ? "240px" : "0px",
                             marginLeft: rightPanelOpen ? "20px" : "0px",
-                        }}>
+                        }}> 
 
                             {rightPanelSetting === "outline" && (
                                 <OutlineContainer
@@ -324,6 +325,13 @@ const EditorView = () => {
                         }}>
 
                             <div className="elevatedRightInner">
+                                {/* tooltips */}
+                                <Tooltip id="statTooltip" className="labelTooltip" />
+                                <Tooltip id="outlineTooltip" className="labelTooltip" />   
+                                <Tooltip id="actionTooltip" className="labelTooltip" /> 
+                                <Tooltip id="styleTooltip" className="labelTooltip" /> 
+                                <Tooltip id="paneTooltip" className="labelTooltip" />  
+
                                 <div>
                                     {dockOpen && (
                                         <img
@@ -331,6 +339,7 @@ const EditorView = () => {
                                             className={`tocIconRightFirst ${rightPanelSetting === "stats" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
                                             onClick={() => handleRightPanel("stats")}
+                                            data-tooltip-id="statTooltip" data-tooltip-content="Note Info"
                                         ></img>
                                     )}
                                 </div>
@@ -341,6 +350,7 @@ const EditorView = () => {
                                             className={`tocIconRight ${rightPanelSetting === "outline" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
                                             onClick={() => handleRightPanel("outline")}
+                                            data-tooltip-id="outlineTooltip" data-tooltip-content="Outline"
                                         ></img>
                                     )}
                                 </div>
@@ -351,6 +361,7 @@ const EditorView = () => {
                                             className={`tocIconRight ${rightPanelSetting === "info" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
                                             onClick={() => handleRightPanel("info")}
+                                            data-tooltip-id="actionTooltip" data-tooltip-content="Options"
                                         ></img>
                                     )}
                                 </div>
@@ -361,6 +372,7 @@ const EditorView = () => {
                                             className={`tocIconRight ${rightPanelSetting === "style" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
                                             onClick={() => handleRightPanel("style")}
+                                            data-tooltip-id="styleTooltip" data-tooltip-content="Style"
                                         ></img>
                                     )}
                                 </div>
@@ -371,6 +383,7 @@ const EditorView = () => {
                                             className={`tocIconRight ${rightPanelSetting === "pane" && rightPanelOpen ? "selected" : ""}`}
                                             draggable={false}
                                             onClick={() => handleRightPanel("pane")}
+                                            data-tooltip-id="paneTooltip" data-tooltip-content="Open PDF"
                                         ></img>
                                     )}
                                 </div>
