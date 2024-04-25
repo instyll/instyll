@@ -23,6 +23,7 @@ import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
 import DashboardDocumentItem from './dashboardDocumentItem.js';
 import TopicGridItem from './topic/topicGridItem.js';
 import { removeDocument } from '../documentSlice.js';
+import { Tooltip } from 'react-tooltip';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';

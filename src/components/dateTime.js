@@ -2,6 +2,8 @@
  * @author wou
  */
 import React, { useState, useEffect } from 'react';
+import '../App.css';
+import { Tooltip } from 'react-tooltip';
 
 const DateTime = ({createDailyNote}) => {
   const [currentDate, setCurrentDate] = useState('Loading...');
@@ -34,7 +36,10 @@ const DateTime = ({createDailyNote}) => {
 
   return (
     // <div className="dateTime">
-      <h1 className="heroTitle" id="greetingDate" onClick={createDailyNote}>{currentDate}</h1>
+     <span>
+        <Tooltip id='dateTooltip' className='labelTooltip'></Tooltip>
+        <h1 className="heroTitle" id="greetingDate" onClick={createDailyNote} data-tooltip-id='dateTooltip' data-tooltip-content='Create Daily Note'>{currentDate}</h1>
+      </span>
     // </div>
   );
 };

@@ -210,6 +210,11 @@
     width: 100%;
     display: inline-block;
   }
+
+  .labelTooltip {
+    font-size: 15px !important;
+    font-family: var(--font) !important;
+  }
   
   .nodeViewCodeBlockButtonContainer .labelTooltip {
     z-index: 999 !important;
