@@ -3531,6 +3531,11 @@
     font-size: 32.4px;
     font-weight: bold;
   }
+
+  #greetingDate:hover {
+    transition: 0.2s;
+    filter: brightness(90%);
+  }
   
   .dateContainer {
     padding-top: 16px;
