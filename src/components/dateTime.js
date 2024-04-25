@@ -3,7 +3,7 @@
  */
 import React, { useState, useEffect } from 'react';
 
-const DateTime = () => {
+const DateTime = ({createDailyNote}) => {
   const [currentDate, setCurrentDate] = useState('Loading...');
   const [currentTime, setCurrentTime] = useState('Loading...');
 
@@ -34,7 +34,7 @@ const DateTime = () => {
 
   return (
     // <div className="dateTime">
-      <h1 className="heroTitle" id="greetingDate">{currentDate}</h1>
+      <h1 className="heroTitle" id="greetingDate" onClick={createDailyNote}>{currentDate}</h1>
     // </div>
   );
 };

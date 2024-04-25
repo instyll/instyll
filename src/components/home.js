@@ -9,10 +9,14 @@ import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
 import CommandPalette from 'react-command-palette';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../App.css';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import DateTime from '../components/dateTime.js';
+import { addDocument } from '../documentSlice.js';
+import { uuid } from 'uuidv4';
+import { executeFileCreation } from '../actions.js';
+import parseAndFormatDate from '../DateUtils.js';
 import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
 import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
 import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
@@ -39,9 +43,11 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const documents = useSelector((state) => state.documents.documents);
+  const documentsPath = useSelector((state) => state.path.path)
   const bookmarkDisplay = useSelector((state) => state.bookmarks.bookmarks);
 
   const documentsRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
       documentsRef.current = documents;
@@ -107,6 +113,20 @@ const Home = () => {
     setDisplayRandomNotes([doc1, doc2, doc3]);
   }, []);
 
+  // create the daily note
+  const createDailyNote = () => {
+    const documentTitle = getOnlyDay();
+    const date = new Date();
+    const parsedDate = parseAndFormatDate(date.toString());
+    const filePath = path.join(documentsPath, `${documentTitle}.md`);
+    dispatch(addDocument([uuid(), documentTitle, parsedDate, filePath, []])) // empty topics array
+    executeFileCreation({documentTitle: documentTitle})
+    // console.log(documents)
+    // open the markdown note corresponds to the documentID and close the modal
+    navigate('/editor', { state: { documentPath: filePath, documentContent: '# ' + documentTitle }})
+    navigate(0)
+  }
+
   const handleClick = async (path) => {
     const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
     setSelectedFile(path);
@@ -150,7 +170,7 @@ const Home = () => {
                 <h1 className='heroTitle'>
                   Dashboard
                 </h1>
-                <DateTime></DateTime>
+                <DateTime createDailyNote={createDailyNote}></DateTime>
               </div>
 
               <div className='dashboardSuggestionContainer'>
@@ -267,5 +287,16 @@ const Home = () => {
     </div>
   );
 }
+
+const getOnlyDay = () => {
+  const currDate = new Date();
+  // Get the month, day, year, hours, and minutes
+  const month = currDate.toLocaleString('default', { month: 'short' });
+  const day = currDate.getDate();
+  const year = currDate.getFullYear();
+  const formattedDate = `${month}. ${day}, ${year}`;
+  return formattedDate;
+}
+
 
 export default Home;
