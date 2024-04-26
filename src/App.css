@@ -4538,9 +4538,23 @@
     vertical-align: middle;
     user-select: none;
   }
+
+  .dateButton {
+    background-color: transparent;
+    border: 1px solid var(--muted-text);
+    border-radius: 10px;
+    color: var(--secondary-text);
+    width: fit-content;
+    font-size: 1em;
+    padding: 2px 16px;
+    height: 38px;
+    font-family: var(--font);
+    transition: 0.3s;
+    vertical-align: middle;
+    margin-top: 24px;
+  }
   
   #greetingDate {
-    color: var(--secondary-text);
     float: right;
   }
   
