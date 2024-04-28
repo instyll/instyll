@@ -4549,9 +4549,13 @@
     padding: 2px 16px;
     height: 38px;
     font-family: var(--font);
-    transition: 0.3s;
+    transition: 0.2s;
     vertical-align: middle;
     margin-top: 24px;
+  }
+
+  .dateButton:hover {
+    border: 1px solid var(--secondary-text);
   }
   
   #greetingDate {
