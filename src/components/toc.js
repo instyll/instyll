@@ -147,7 +147,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         </Link>
 
         <Link to="/bookmark">
-        <p className="tocTitle" style={{
+        <p className={`tocTitle ${location.pathname === '/bookmark' && tocOpen ? 'active' : location.pathname === '/bookmark' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
           <img src={favorites} className="tocIcon" draggable={false}></img>
