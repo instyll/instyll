@@ -22,6 +22,7 @@ import { Slash } from './slash-menu/Slash.tsx';
 import { useSlash } from './slash-menu/index.tsx';
 import { useEmojiMenu } from './emoji-menu/index.tsx';
 import { useZapMenu } from './zap-menu/index.tsx';
+import { useWikiMenu } from './wiki-link/index.tsx';
 import {
   gfm,
   strikethroughKeymap,
@@ -70,6 +71,8 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
   const emojiMenu = useEmojiMenu();
 
   const zapMenu = useZapMenu();
+
+  const wikiMenu = useWikiMenu();
 
   const [fileContents, setFileContents] = useState(null); // State to store file contents
 
@@ -164,8 +167,9 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
         })
 
         slash.config(ctx);
-        emojiMenu.config(ctx);
+        // emojiMenu.config(ctx);
         zapMenu.config(ctx);
+        wikiMenu.config(ctx);
       })
       .config(nord)
       .use(commonmark)
@@ -182,8 +186,9 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
       .use(indent)
       .use(gfmPlugins)
       .use(slash.plugins)
-      .use(emojiMenu.plugins)
+      // .use(emojiMenu.plugins)
       .use(zapMenu.plugins)
+      .use(wikiMenu.plugins)
       .use(diagramPlugins)
       .use(blockPlugins)
       .use(mathPlugins)

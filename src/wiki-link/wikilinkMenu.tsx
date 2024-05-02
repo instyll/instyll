@@ -1,21 +1,21 @@
-import { ZapMenuItem } from "../zap-menu/zapMenuItem.tsx";
-import { useSlashState } from "../zap-menu/state.ts";
+import { WikiLink } from "../wiki-link/wikilink.tsx";
+import { useSlashState } from "../wiki-link/state.ts";
 import { SlashProvider } from "@milkdown/plugin-slash";
 import { useInstance } from "@milkdown/react";
 import { usePluginViewContext } from "@prosemirror-adapter/react";
 import { gemoji } from "gemoji";
 import { useEffect, useRef, useState } from "react";
 
-const zapSearchRegex = /\b(?<search>\w+)\b$/;
+const wikiSearchRegexp = /\[\[(?<search>\S+)/;
 
-export const ZapMenu = () => {
+export const WikiMenu = () => {
   const { view, prevState } = usePluginViewContext();
   const slashProvider = useRef<SlashProvider>();
   const ref = useRef<HTMLDivElement>(null);
   const instance = useInstance();
   const [loading] = instance;
 
-  const { root, setOpened, setSelected, selected, setSearch, zapList, onPick } =
+  const { root, setOpened, setSelected, selected, setSearch, wikiList, onPick } =
     useSlashState(instance);
 
   const [textBlockContent, setTextBlockContent] = useState("");  
@@ -28,7 +28,6 @@ export const ZapMenu = () => {
       debounce: 50,
       shouldShow(this: SlashProvider, view) {
         const currentTextBlockContent = this.getContent(view);
-        // console.log(currentTextBlockContent);
 
         if (!currentTextBlockContent) {
           setSearch("");
@@ -37,7 +36,7 @@ export const ZapMenu = () => {
 
         setTextBlockContent(currentTextBlockContent);
 
-        const search = currentTextBlockContent.match(zapSearchRegex);
+        const search = currentTextBlockContent.match(wikiSearchRegexp);
         if (!search) {
           setSearch("");
           return false;
@@ -72,11 +71,10 @@ export const ZapMenu = () => {
   return (
     <div className="hidden">
       <div role="tooltip" ref={ref}>
-        {zapList.length > 0 && (
-          <ul className="zapMenuContainer" autoFocus tabIndex={1}>
-            {/* <span className="slashGroupHeader">Zaps matching {textBlockContent}</span> */}
-            {zapList.map((item, i) => (
-              <ZapMenuItem
+        {wikiList.length > 0 && (
+          <ul className="emojiMenuContainer" autoFocus tabIndex={1}>
+            {wikiList.map((item, i) => (
+              <WikiLink
                 key={i.toString()}
                 index={i}
                 instance={instance}
@@ -84,8 +82,8 @@ export const ZapMenu = () => {
                 selected={i === selected}
                 setSelected={setSelected}
               >
-                {item}
-              </ZapMenuItem>
+                {item[1]}
+              </WikiLink>
             ))}
           </ul>
         )}
