@@ -1138,6 +1138,15 @@
   .linkWidgetTitleInput::placeholder {
     color: var(--secondary-text);
   }
+
+  .backlinkButton {
+    font-family: var(--font);
+    padding: 4px 8px;
+    border: none;
+    background-color: var(--button-highlight);
+    color: var(--button-highlight-text);
+    border-radius: 4px;
+  }
   
   .nodeViewCodeBlockContainer {
     background-color: var(--elevated-bg);

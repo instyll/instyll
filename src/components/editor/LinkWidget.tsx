@@ -70,7 +70,7 @@ export const LinkWidgetAfter: FC = () => {
               type="text"
               defaultValue={title}
             /> */}
-            <button onClick={goTo}>Go to</button>
+            <button onClick={goTo} className="backlinkButton">Visit backlink</button>
           </>
         }
         <span className="highlight">)</span>
