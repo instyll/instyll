@@ -5,6 +5,7 @@ import { Instance } from "@milkdown/react";
 import { gemoji } from "gemoji";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { $node } from '@milkdown/utils'
 
 export const useSlashState = (instance: Instance) => {
   const [loading, getEditor] = instance;
@@ -28,10 +29,12 @@ export const useSlashState = (instance: Instance) => {
       const view = ctx.get(editorViewCtx);
       const { state } = view;
       const { selection } = state;
+    //   const linkNode = $node('link', () => ())
       view.dispatch(
         view.state.tr
           .delete(selection.from - search.length - 1, selection.from)
-          .insertText(target[1])
+          .insertText("[" + target[1] + "]]")
+        //   .replaceSelectionWith()
       );
     },
     [wikiList, search.length, selected]
