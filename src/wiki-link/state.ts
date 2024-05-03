@@ -6,6 +6,7 @@ import { gemoji } from "gemoji";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { $node } from '@milkdown/utils'
+import { replace } from "lodash";
 
 export const useSlashState = (instance: Instance) => {
   const [loading, getEditor] = instance;
@@ -14,6 +15,11 @@ export const useSlashState = (instance: Instance) => {
   const [search, setSearch] = useState("");
 
   const wikiListConst = useSelector((state) => state.documents.documents);
+
+  const formatPath = (path) => {
+    let newPath = path.replace(/ /g, "%");
+    return newPath;
+  }
 
   // console.log("search len " + search.length)
 
@@ -33,7 +39,7 @@ export const useSlashState = (instance: Instance) => {
       view.dispatch(
         view.state.tr
           .delete(selection.from - search.length - 1, selection.from)
-          .insertText(target[1] + "]" + "(" + target[3] + ")")
+          .insertText(target[1] + "]" + "(" + formatPath(target[3]) + ")")
         //   .replaceSelectionWith()
       );
     },
