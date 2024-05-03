@@ -6,7 +6,7 @@ import { usePluginViewContext } from "@prosemirror-adapter/react";
 import { gemoji } from "gemoji";
 import { useEffect, useRef, useState } from "react";
 
-const zapSearchRegex = /\b(?<search>\w+)\b$/;
+const zapSearchRegex = /(?<!\[\[)\b(?<search>\w+)\b$/;
 
 export const ZapMenu = () => {
   const { view, prevState } = usePluginViewContext();
