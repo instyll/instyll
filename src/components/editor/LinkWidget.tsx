@@ -7,6 +7,8 @@ import { $prose } from "@milkdown/utils";
 import type { useWidgetViewFactory } from "@prosemirror-adapter/react";
 import { useWidgetViewContext } from "@prosemirror-adapter/react";
 import type { FC } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const LinkWidgetBefore: FC = () => {
   return <>[</>;
@@ -18,6 +20,14 @@ export const LinkWidgetAfter: FC = () => {
   const href = spec?.href ?? "";
   const title = spec?.title ?? "";
 
+  const navigate = useNavigate();
+
+
+  const goTo = () => {
+    navigate('/editor', {state: {documentPath: href}});
+    navigate(0)
+  }
+
   return (
     <>
       <span className="highlight">]</span>
@@ -25,7 +35,7 @@ export const LinkWidgetAfter: FC = () => {
         <span className="highlight">(</span>
         {
           <>
-            <small className="linkWidgetURLIndicator">URL: </small>
+            {/* <small className="linkWidgetURLIndicator">URL: </small>
             <input
               size={href.length}
               placeholder="URL"
@@ -59,7 +69,8 @@ export const LinkWidgetAfter: FC = () => {
               className="linkWidgetTitleInput"
               type="text"
               defaultValue={title}
-            />
+            /> */}
+            <button onClick={goTo}>Go to</button>
           </>
         }
         <span className="highlight">)</span>

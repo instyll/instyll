@@ -66,10 +66,18 @@ const EditorView = () => {
     const [rightPanelSetting, setRightPanelSetting] = useState("");
 
     const {state} = useLocation();
-    const { documentPath } = state;
+    const location = useLocation();
+    console.log("location " + location.pathname + location.hash)
+    let { documentPath } = state;
     // console.log("the loaded state " + state)
 
     const dispatch = useDispatch();
+
+    // remove any % symbol from document path
+    let documentPathTemp1 = documentPath;
+    documentPathTemp1 = documentPathTemp1.replace(/%/g, " ");
+    documentPathTemp1 = documentPathTemp1.replace(/∴/g, "");
+    documentPath = documentPathTemp1;
 
     // read word count of the contents
     const wordCount = fs.readFileSync(documentPath, 'utf-8').split(/\s+/).length;
