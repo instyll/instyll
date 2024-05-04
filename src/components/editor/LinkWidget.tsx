@@ -9,6 +9,7 @@ import { useWidgetViewContext } from "@prosemirror-adapter/react";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import fs from 'fs';
 
 export const LinkWidgetBefore: FC = () => {
   return <>[</>;
@@ -22,11 +23,12 @@ export const LinkWidgetAfter: FC = () => {
 
   const navigate = useNavigate();
 
-
   const goTo = () => {
     navigate('/editor', {state: {documentPath: href}});
     navigate(0)
   }
+
+  let checkHref = href.replace(/%/g, " ");
 
   return (
     <>
@@ -35,23 +37,28 @@ export const LinkWidgetAfter: FC = () => {
         <span className="highlight">(</span>
         {
           <>
-            {/* <small className="linkWidgetURLIndicator">URL: </small>
-            <input
-              size={href.length}
-              placeholder="URL"
-              onBlur={(e) => {
-                if (loading) return;
-                editor().action((ctx) => {
-                  const commands = ctx.get(commandsCtx);
-                  commands.call(updateLinkCommand.key, {
-                    href: e.target.value,
+            {!fs.existsSync(checkHref) &&
+
+            <>
+            <small className="linkWidgetURLIndicator">URL: </small>
+              <input
+                size={href.length}
+                placeholder="URL"
+                onBlur={(e) => {
+                  if (loading) return;
+                  editor().action((ctx) => {
+                    const commands = ctx.get(commandsCtx);
+                    commands.call(updateLinkCommand.key, {
+                      href: e.target.value,
+                    });
                   });
-                });
-              }}
-              className="linkWidgetURLInput"
-              type="text"
-              defaultValue={href}
-            />
+                }}
+                className="linkWidgetURLInput"
+                type="text"
+                defaultValue={href}
+              />
+
+
             &nbsp;
             <small className="linkWidgetURLIndicator">Title: </small>
             <input
@@ -69,9 +76,16 @@ export const LinkWidgetAfter: FC = () => {
               className="linkWidgetTitleInput"
               type="text"
               defaultValue={title}
-            /> */}
-            <button onClick={goTo} className="backlinkButton">Visit backlink</button>
-          </>
+            />
+            </>
+
+            }
+
+
+            {fs.existsSync(checkHref) &&
+              <button onClick={goTo} className="backlinkButton">Visit backlink</button>
+            }
+            </>
         }
         <span className="highlight">)</span>
       </span>
