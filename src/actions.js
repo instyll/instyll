@@ -50,3 +50,26 @@ const readNoteContent = (documentPath) => {
     const tokens = fs.readFileSync(documentPath, 'utf-8').split(/\s+/);
     return tokens;
 }
+
+export const getWordCount = (documentPath) => {
+    let count = 0;
+    const tokens = fs.readFileSync(documentPath, 'utf-8').split(/\s+/);
+    // what should be exclude from the word count: # symbols, * symbols, math, code, table
+    for (const token of tokens) {
+        if (token !== '#' && token !== '##' && token !== '###' && token !== '####' && token !== '#####' && token !== '*' && token !== '```' && token !== '$$' && token !== '|' && token !== ':-') {
+            ++count;
+        }
+    }
+    return count;
+}
+
+export const getCharCount = (documentPath) => {
+    let count = 0;
+    const tokens = fs.readFileSync(documentPath, 'utf-8').split('');
+    for (const token of tokens) {
+        if (token !== '#' && token !== '*' && token !== '`' && token !== '~' && token !== '$' && token !== '|') {
+            ++count;
+        }
+    }
+    return count;
+}

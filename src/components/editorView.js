@@ -18,6 +18,8 @@ import StatContainer from '../components/dock/StatContainer.js';
 import StyleContainer from '../components/dock/StyleContainer.js';
 import PaneContainer from '../components/dock/paneContainer.tsx';
 import { Tooltip } from "react-tooltip";
+import { getWordCount } from '../actions.js';
+import { getCharCount } from '../actions.js';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -80,8 +82,8 @@ const EditorView = () => {
     documentPath = documentPathTemp1;
 
     // read word count of the contents
-    const wordCount = fs.readFileSync(documentPath, 'utf-8').split(/\s+/).length;
-    const charCount = fs.readFileSync(documentPath, 'utf-8').split('').length;
+    const wordCount = getWordCount(documentPath);
+    const charCount = getCharCount(documentPath);
     // console.log(wordCount)
     const content = fs.readFileSync(documentPath, 'utf-8');
 
