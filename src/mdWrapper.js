@@ -6,7 +6,7 @@ import type { FC } from 'react';
 import fs from 'fs'
 import { useEffect, useMemo, useState } from "react";
 import { replaceAll, insert } from "@milkdown/utils"
-import type { Ctx, MilkdownPlugin } from "@milkdown/ctx";
+import { Ctx, MilkdownPlugin } from "@milkdown/ctx";
 import { 
   commonmark, 
   listItemSchema,
@@ -29,6 +29,8 @@ import {
   footnoteDefinitionSchema,
   footnoteReferenceSchema,
 } from '@milkdown/preset-gfm';
+import { stopLinkCommand } from './linkPlugin.ts';
+import { linkCustomKeymap } from './linkPlugin.ts';
 import { FootnoteDef, FootnoteRef } from './components/editor/Footnote.tsx';
 import { math, mathBlockSchema } from '@milkdown/plugin-math';
 import { emoji, emojiAttr } from '@milkdown/plugin-emoji';
@@ -53,7 +55,7 @@ import { Diagram } from './components/editor/Diagram.tsx';
 import { linkPlugin } from './components/editor/LinkWidget.tsx';
 
 import { CodeBlock } from './components/editor/CodeBlock.tsx';
-import { $view, getMarkdown } from "@milkdown/utils";
+import { $view, getMarkdown, $command, $useKeymap } from "@milkdown/utils";
 
 import './App.css';
 
@@ -159,6 +161,10 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
           ToggleStrikethrough: ['Mod-Shift-s', 'Mod-s'],
         })
 
+        ctx.set(linkCustomKeymap.key, {
+          StopLink: 'Space',
+        })
+
        /* create tooltip view */
         ctx.set(tooltip.key, {
           view: pluginViewFactory({
@@ -203,7 +209,9 @@ export const MilkdownEditor: FC = ({documentPath, documentContents}) => {
         $view(listItemSchema.node, () =>
           nodeViewFactory({component: ListItem})
         )
-      );
+      )
+      .use([stopLinkCommand, linkCustomKeymap])
+      ;
   }, [])
 
   return <Milkdown />

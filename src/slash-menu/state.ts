@@ -55,7 +55,7 @@ export const useSlashState = (instance: Instance, updateModalState: (newState: b
           updateModalState(true);
         }
         else {
-        getEditor()?.action(config[selectedRef.current].onSelect);
+          getEditor()?.action(config[selectedRef.current].onSelect);
         return;
         }
       }
