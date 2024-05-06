@@ -295,8 +295,11 @@ const getOnlyDay = () => {
   const month = currDate.toLocaleString('default', { month: 'short' });
   const day = currDate.getDate();
   const year = currDate.getFullYear();
-  const formattedDate = `${month}. ${day}, ${year}`;
-  return formattedDate;
+  if (month === 'May') {
+    return `${month} ${day}, ${year}`;
+  } else {
+    return `${month}. ${day}, ${year}`;
+  }
 }
 
 
