@@ -107,7 +107,8 @@ const DocumentViewer = ({ location }) => {
                     // console.log("documents: " + documents)
                     if (documentsRef.current.length == 0) {
                         // if redux store is empty, then add document
-                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
+                        const documentCreationDate = fs.statSync(markdownPath).birthtime.toDateString();
+                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parseAndFormatDate(documentCreationDate), markdownPath, []]));
                     }
                     else if (documentExists == false) {
                         // console.log("document does not exist and path is " + markdownPath)
