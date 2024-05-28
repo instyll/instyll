@@ -274,7 +274,7 @@ const EditorView = () => {
 
                                 <div style={{
                                     position: "relative",
-                                    height: "calc(100% - 55px)",
+                                    height: "calc(100%)",
                                     bottom: "0",
                                     borderRadius: "10px",
                                     transition: "0.2s",
