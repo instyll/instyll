@@ -3514,7 +3514,7 @@
   }
   
   .dashboardGreetingContainer {
-    height: calc(100vh - 84px);
+    height: 100vh;
     padding-left: 27px;
     padding-right: 27px;
     text-align: center;
