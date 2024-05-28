@@ -90,19 +90,19 @@ const Layout = ({ children }) => {
         dispatch(updateTheme(theme))
     }, [isDark])
 
-    const toggleTheme = (isChecked) => {
-        // console.log("is checked " + isChecked);
-        if (isDark === true) {
-            if (isChecked) {
-                setIsDark(false);
-                // dispatch(updateTheme('dark'))
-            } else {
-                setIsDark(true);
-                // dispatch(updateTheme('light'))
-            }
-        }
-        // handleTheme();
-    }
+    // const toggleTheme = (isChecked) => {
+    //     // console.log("is checked " + isChecked);
+    //     if (isDark === true) {
+    //         if (isChecked) {
+    //             setIsDark(false);
+    //             // dispatch(updateTheme('dark'))
+    //         } else {
+    //             setIsDark(true);
+    //             // dispatch(updateTheme('light'))
+    //         }
+    //     }
+    //     // handleTheme();
+    // }
 
     // command palette
     useEffect(() => {
@@ -124,7 +124,7 @@ const Layout = ({ children }) => {
         <div className="layout">
 
             <div className='container'>
-                <div className="navHorizontal"
+                {/* <div className="navHorizontal"
                     style={{
                         width: tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
                         transition: "width 0.2s",
@@ -132,7 +132,7 @@ const Layout = ({ children }) => {
                     <MenuBar
                         handleToc={handleToc}
                     />
-                </div>
+                </div> */}
 
                 <DocumentModal
                     show={documentCreationModalOpen}
@@ -140,7 +140,7 @@ const Layout = ({ children }) => {
                 />
 
                 <TableOfContents
-                    handleTheme={toggleTheme}
+                    // handleTheme={toggleTheme}
                     handleToc={handleToc}
                     tocOpen={tocOpen}
                     handleCp={handleCommandPalette}

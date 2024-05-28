@@ -239,7 +239,7 @@
     flex-direction: column;
     /* background-color: var(--bg-color); */
     box-sizing: border-box;
-    height: calc(100vh - 81px);
+    height: calc(100vh);
     width: 100%;
     bottom: 0;
     border-top-left-radius: 10px;
@@ -332,12 +332,12 @@
     position: relative;
     background-color: var(--elevated-bg);
     box-sizing: border-box;
-    height: calc(100vh - 95px - 22px);
+    height: calc(100vh);
     width: 80px;
     border-radius: 16px;
     display: inline-block;
     margin-left: 20px;
-    margin-top: 16px;
+    /* margin-top: 16px; */
     vertical-align: top;
     text-align: center;
   }

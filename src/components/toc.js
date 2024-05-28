@@ -31,29 +31,29 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
   }
 
   /* handle theme toggle from switch */
-  function toggleTheme() {
-    const toggleSwitch = document.querySelector('.toggleSwitch');
-    toggleSwitch.addEventListener('change', (event) => {
-      const isChecked = event.target.checked;
-      handleTheme(isChecked);
-    });
-  }
+  // function toggleTheme() {
+  //   const toggleSwitch = document.querySelector('.toggleSwitch');
+  //   toggleSwitch.addEventListener('change', (event) => {
+  //     const isChecked = event.target.checked;
+  //     handleTheme(isChecked);
+  //   });
+  // }
 
-  /* for minimized sidebar */
-  function toggleThemeMin() {
-    const toggleSwitch = document.querySelector('.toggleSwitchMin');
-    toggleSwitch.addEventListener('change', (event) => {
-      const isChecked = event.target.checked;
-      handleTheme(isChecked);
-    });
-  }
+  // /* for minimized sidebar */
+  // function toggleThemeMin() {
+  //   const toggleSwitch = document.querySelector('.toggleSwitchMin');
+  //   toggleSwitch.addEventListener('change', (event) => {
+  //     const isChecked = event.target.checked;
+  //     handleTheme(isChecked);
+  //   });
+  // }
 
   const location = useLocation();
 
-  useEffect(() => {
-    toggleTheme();
-    toggleThemeMin();
-  }, []);
+  // useEffect(() => {
+  //   toggleTheme();
+  //   toggleThemeMin();
+  // }, []);
 
   // const primaryTextD = document.documentElement.style.getPropertyValue('--primary-text-d');
   // Map primaryTextD value to the appropriate banner image
@@ -180,7 +180,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           width: tocOpen ? "192px" : "69px",
         }}>
 
-          <div style={{
+          {/* <div style={{
             display: tocOpen ? "initial" : "none",
             height: tocOpen ? "initial" : "0px",
           }}>
@@ -194,9 +194,9 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
               </span>
             </label>
 
-          </div>
+          </div> */}
 
-          <div style={{
+          {/* <div style={{
             display: tocOpen ? "none" : "initial",
             height: tocOpen ? "0px" : "initial",
           }}>
@@ -210,7 +210,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
               </span>
             </label>
 
-          </div>
+          </div> */}
 
 
         </div>
