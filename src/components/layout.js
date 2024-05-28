@@ -124,7 +124,7 @@ const Layout = ({ children }) => {
         <div className="layout">
 
             <div className='container'>
-                <div className="navHorizontal"
+                {/* <div className="navHorizontal"
                     style={{
                         width: tocOpen ? "calc(100% - 240px)" : "calc(100% - 125px)",
                         transition: "width 0.2s",
@@ -132,7 +132,7 @@ const Layout = ({ children }) => {
                     <MenuBar
                         handleToc={handleToc}
                     />
-                </div>
+                </div> */}
 
                 <DocumentModal
                     show={documentCreationModalOpen}
