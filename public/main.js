@@ -23,6 +23,7 @@ function createWindow() {
                 contextIsolation: false,
             },
             titleBarStyle: 'hiddenInset',
+            trafficLightPosition: {x: 12, y: 16}
         });
     mainWindow.loadURL(isDev ? 'http://localhost:3000': `file://${path.join(__dirname, 
    '../build/index.html')}`);
