@@ -99,7 +99,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           src={src}
           className="tocBannerIcon" draggable={false}></img>
           {tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>} */}
-          <img src={closeTOC} className="tocIcon" id="closeTOC" draggable={false} onClick={handleToc} style={{
+          <img className="tocIcon" id="closeTOC" draggable={false} onClick={handleToc} style={{
             marginLeft: tocOpen ? "67px" : "28px",
             float: tocOpen ? "right" : "none",
             marginTop: tocOpen ? "initial" : "36px",
@@ -114,7 +114,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
             textAlign: tocOpen ? "left" : "center",
             marginTop: tocOpen ? "64px" : "32px",
           }}>
-            <img src={home} className="tocIcon" draggable={false} />
+            <img className="tocIcon" draggable={false} />
             {tocOpen && <span className="tocInnerText">Dashboard</span>}
           </p>
         </Link>
@@ -123,7 +123,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           <p className={`tocTitle ${location.pathname === '/documents' && tocOpen ? 'active' : location.pathname === '/documents' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
           }}>
-            <img src={calendar} className="tocIcon" draggable={false} />
+            <img className="tocIcon" draggable={false} />
             {tocOpen && <span className="tocInnerText">Notes</span>}
           </p>
         </Link>
@@ -132,7 +132,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/zap' && tocOpen ? 'active' : location.pathname === '/zap' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <img src={template} className="tocIcon" draggable={false} />
+          <img className="tocIcon" draggable={false} />
           {tocOpen && <span className="tocInnerText">Zaps</span>}
         </p>
         </Link>
@@ -141,7 +141,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/topics' && tocOpen ? 'active' : location.pathname === '/topics' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <img src={tags} className="tocIcon" draggable={false} />
+          <img className="tocIcon" draggable={false} />
           {tocOpen && <span className="tocInnerText">Topics</span>}
         </p>
         </Link>
@@ -150,7 +150,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/bookmark' && tocOpen ? 'active' : location.pathname === '/bookmark' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <img src={favorites} className="tocIcon" draggable={false}></img>
+          <img className="tocIcon" draggable={false}></img>
           {tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
 
@@ -162,14 +162,14 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           textAlign: tocOpen ? "left" : "center",
         }}
         onClick={() => setSettingsOpen(true)}>
-          <img src={settings} className="tocIcon" draggable={false}></img>
+          <img className="tocIcon" draggable={false}></img>
           {tocOpen && <span className="tocInnerText">Settings</span>}</p>
        
         <p className="tocTitle" style={{
           textAlign: tocOpen ? "left" : "center",
         }}
         onClick={handleCp}>
-          <img src={cmd} className="tocIcon" draggable={false}></img>
+          <img className="tocIcon" draggable={false}></img>
           {tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
 
         <div className="bottomToc" style={{

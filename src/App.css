@@ -1989,7 +1989,8 @@
     width: 240px;
     height: 100%;
     bottom: 0;
-    background-color: var(--elevated-bg);
+    background-color: var(--bg-color);
+    border-right: 1px solid var(--muted-text);
     overflow: auto;
   }
   
@@ -3514,7 +3515,7 @@
   }
   
   .dashboardGreetingContainer {
-    height: calc(100vh - 84px);
+    height: 100vh;
     padding-left: 27px;
     padding-right: 27px;
     text-align: center;
