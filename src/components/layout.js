@@ -90,19 +90,19 @@ const Layout = ({ children }) => {
         dispatch(updateTheme(theme))
     }, [isDark])
 
-    const toggleTheme = (isChecked) => {
-        // console.log("is checked " + isChecked);
-        if (isDark === true) {
-            if (isChecked) {
-                setIsDark(false);
-                // dispatch(updateTheme('dark'))
-            } else {
-                setIsDark(true);
-                // dispatch(updateTheme('light'))
-            }
-        }
-        // handleTheme();
-    }
+    // const toggleTheme = (isChecked) => {
+    //     // console.log("is checked " + isChecked);
+    //     if (isDark === true) {
+    //         if (isChecked) {
+    //             setIsDark(false);
+    //             // dispatch(updateTheme('dark'))
+    //         } else {
+    //             setIsDark(true);
+    //             // dispatch(updateTheme('light'))
+    //         }
+    //     }
+    //     // handleTheme();
+    // }
 
     // command palette
     useEffect(() => {
@@ -140,7 +140,7 @@ const Layout = ({ children }) => {
                 />
 
                 <TableOfContents
-                    handleTheme={toggleTheme}
+                    // handleTheme={toggleTheme}
                     handleToc={handleToc}
                     tocOpen={tocOpen}
                     handleCp={handleCommandPalette}
