@@ -3533,6 +3533,9 @@
   
   .childContainer {
     transition: 0.2s;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
   }
   
   .dashboardView {
@@ -3553,8 +3556,6 @@
   
   .dashboardGreetingContainer {
     height: 100vh;
-    padding-left: 27px;
-    padding-right: 27px;
     text-align: center;
     overflow: auto;
     box-sizing: border-box;
