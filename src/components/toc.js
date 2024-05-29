@@ -154,10 +154,9 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           {tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
 
-        <p className="tocTitle" id="breakSection" style={{
-          textAlign: tocOpen ? "left" : "center",
-        }}>
-          <span className="tocInnerText">Utilities</span></p>
+
+
+
         <p className="tocTitle" style={{
           textAlign: tocOpen ? "left" : "center",
         }}

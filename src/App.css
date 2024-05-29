@@ -1997,8 +1997,8 @@
   .tableInfo {
     color: var(--primary-text);
     font-family: var(--font);
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
     display: block;
     height: 100%;
     overflow-x: hidden;
