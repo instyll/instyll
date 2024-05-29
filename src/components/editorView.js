@@ -330,7 +330,6 @@ const EditorView = () => {
                         </div>
 
                         <div className="elevatedRight" style={{
-                            backgroundColor: dockOpen ? "var(--elevated-bg)" : "transparent",
                             marginLeft: rightPanelOpen ? "20px" : "20px",
                         }}>
 
