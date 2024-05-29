@@ -14,6 +14,7 @@ import { Bookmark } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { Settings } from 'lucide-react';
 import { SquareTerminal } from 'lucide-react';
+import { PanelLeft } from 'lucide-react';
 
 function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
 
@@ -86,24 +87,11 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
       <div className="tableInfo">
 
-        <div className="tocBanner" style={{
-          textAlign: tocOpen ? "left" : "center",
-        }}>
-          {/* <img 
-          src={src}
-          className="tocBannerIcon" draggable={false}></img>
-          {tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>} */}
-          <img className="tocIcon" id="closeTOC" draggable={false} onClick={handleToc} style={{
-            marginLeft: tocOpen ? "67px" : "28px",
-            float: tocOpen ? "right" : "none",
-            marginTop: tocOpen ? "initial" : "36px",
-            display: tocOpen ? "initial" : "block",
-            transform: tocOpen ? "none" : "rotate(180deg)",
-            transition: "transform 0.3s",
-          }}></img>
+        <div className="tocBanner">
+         <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>
         </div>
 
-        <div className='tocSection' style={{marginTop: '48px'}}>
+        <div className='tocSection'>
         <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && tocOpen ? 'active' : location.pathname === '/home' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",

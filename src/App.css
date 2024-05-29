@@ -2218,8 +2218,20 @@
   }
   
   .tocBanner {
-    margin-top: 36px;
+    /* margin-top: 36px; */
     /* text-align: center; */
+    height: 48px;
+    position: relative;
+  }
+
+  .tocToggle {
+    position: absolute;
+    right: 0;
+    padding-right: 12px;
+    top: 50%;
+    bottom: 50%;
+    margin-bottom: auto;
+    margin-top: auto;
   }
   
   .tocBannerIcon {
