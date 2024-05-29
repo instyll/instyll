@@ -1526,7 +1526,7 @@
     object-fit: cover;
     width: 24px;
     vertical-align: middle;
-    padding-right: 5px;
+    padding-right: 4px;
     /* display: block; */
     filter: var(--editorIconFilter);
   }
