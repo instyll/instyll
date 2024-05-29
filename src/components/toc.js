@@ -83,19 +83,20 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
     <div className="tableOfContents drag" style={{
       width: tocOpen ? "240px" : "130px",
       transition: "0.2s",
+      borderRight: tocOpen ? '1px solid var(--muted-text)' : 'none'
     }}>
       <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
       <div className="tableInfo">
 
         <div className="tocBanner">
-          <button className='tocToggleButton'>
+          <button className='tocToggleButton' onClick={handleToc}>
             <div>
             <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>
             </div>
           </button>
         </div>
 
-        <div className='tocSection'>
+        {tocOpen && <div className='tocSection'>
         <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && tocOpen ? 'active' : location.pathname === '/home' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
@@ -140,9 +141,9 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           <Bookmark size={20} color={`${location.pathname === '/bookmark' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
-        </div>
+        </div>}
 
-        <div className='tocSection' style={{marginTop: '16px'}}>
+        {tocOpen && <div className='tocSection' style={{marginTop: '16px'}}>
         <p className="tocTitleFirst" style={{
           textAlign: tocOpen ? "left" : "center",
         }}
@@ -207,7 +208,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           </div> */}
 
 
-        </div>
+        </div>}
 
       </div>
     </div>

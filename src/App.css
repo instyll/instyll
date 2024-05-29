@@ -1990,7 +1990,7 @@
     height: 100%;
     bottom: 0;
     background-color: var(--bg-color);
-    border-right: 1px solid var(--muted-text);
+    /* border-right: 1px solid var(--muted-text); */
     overflow: auto;
   }
   
@@ -2239,6 +2239,10 @@
     justify-content: center;
     background-color: transparent;
     border: none;
+  }
+
+  .tocToggle {
+    margin-top: 1px;
   }
 
   .tocToggleButton:hover {
