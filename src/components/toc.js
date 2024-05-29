@@ -85,7 +85,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
   const src = bannerMap[primaryTextD] || banner;
 
   return (
-    <div className="tableOfContents" style={{
+    <div className="tableOfContents drag" style={{
       width: tocOpen ? "240px" : "130px",
       transition: "0.2s",
     }}>
