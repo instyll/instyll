@@ -2268,11 +2268,11 @@
     position: relative;
     color: var(--primary-text);
     text-align: left;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 8px;
     /* padding-top: 24px; */
-    padding-top: 6px;
+    padding-top: 8px;
     margin-bottom: 0;
     margin-top: 0;
     font-family: var(--font);
@@ -2339,10 +2339,10 @@
     /* light mode */
     /* color: #c1c1c1; */
     text-align: left;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 6px;
-    padding-top: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 8px;
+    padding-top: 8px;
     margin-bottom: 0;
     margin-top: 64px;
     position: relative;
