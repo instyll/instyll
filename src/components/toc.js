@@ -7,19 +7,13 @@ import { Link, useLocation } from 'react-router-dom';
 import SettingsModal from '../modal/SettingsModal';
 
 // assets
-import tags from '../icons/tag2.png';
-import home from '../icons/home.png';
-import template from '../icons/bolt.png';
-import favorites from '../icons/bookmark2.png';
-import calendar from '../icons/calendar.png';
-import banner from '../icons/key500.png';
-import bannerRed from '../icons/keyRed.png';
-import bannerGreen from '../icons/keyGreen.png';
-import bannerPurple from '../icons/keyPurple.png';
-import bannerPink from '../icons/keyPink.png';
-import closeTOC from '../icons/doubleleft.png';
-import settings from '../icons/settings.png';
-import cmd from '../icons/cmd.png';
+import { Home } from 'lucide-react';
+import { BookText } from 'lucide-react';
+import { Hash } from 'lucide-react';
+import { Bookmark } from 'lucide-react';
+import { Search } from 'lucide-react';
+import { Settings } from 'lucide-react';
+import { SquareTerminal } from 'lucide-react';
 
 function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
 
@@ -72,20 +66,20 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       };
     }, []);
 
-  const bannerMap = {
-    '#c5c5c5': banner,
-    'rgb(41, 37, 36)': banner,
-    'red': bannerRed,
-    'green': bannerGreen,
-    'purple': bannerPurple,
-    'magenta': bannerPink,
-  };
+  // const bannerMap = {
+  //   '#c5c5c5': banner,
+  //   'rgb(41, 37, 36)': banner,
+  //   'red': bannerRed,
+  //   'green': bannerGreen,
+  //   'purple': bannerPurple,
+  //   'magenta': bannerPink,
+  // };
 
   // Determine the src value based on primaryTextD
-  const src = bannerMap[primaryTextD] || banner;
+  // const src = bannerMap[primaryTextD] || banner;
 
   return (
-    <div className="tableOfContents" style={{
+    <div className="tableOfContents drag" style={{
       width: tocOpen ? "240px" : "130px",
       transition: "0.2s",
     }}>
@@ -109,12 +103,13 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           }}></img>
         </div>
 
+        <div className='tocSection' style={{marginTop: '48px'}}>
         <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && tocOpen ? 'active' : location.pathname === '/home' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
-            marginTop: tocOpen ? "64px" : "32px",
+            // marginTop: tocOpen ? "64px" : "32px",
           }}>
-            <img className="tocIcon" draggable={false} />
+            <Home size={20} color='var(--primary-text)' className='tocIcon' />
             {tocOpen && <span className="tocInnerText">Dashboard</span>}
           </p>
         </Link>
@@ -123,25 +118,25 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           <p className={`tocTitle ${location.pathname === '/documents' && tocOpen ? 'active' : location.pathname === '/documents' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
           }}>
-            <img className="tocIcon" draggable={false} />
+            <BookText size={20} color='var(--primary-text)' className='tocIcon' />
             {tocOpen && <span className="tocInnerText">Notes</span>}
           </p>
         </Link>
 
-        <Link to="/zap">
+        {/* <Link to="/zap">
         <p className={`tocTitle ${location.pathname === '/zap' && tocOpen ? 'active' : location.pathname === '/zap' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
           <img className="tocIcon" draggable={false} />
           {tocOpen && <span className="tocInnerText">Zaps</span>}
         </p>
-        </Link>
+        </Link> */}
 
         <Link to="/topics">
         <p className={`tocTitle ${location.pathname === '/topics' && tocOpen ? 'active' : location.pathname === '/topics' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <img className="tocIcon" draggable={false} />
+          <Hash size={20} color='var(--primary-text)' className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Topics</span>}
         </p>
         </Link>
@@ -150,35 +145,42 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/bookmark' && tocOpen ? 'active' : location.pathname === '/bookmark' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <img className="tocIcon" draggable={false}></img>
+          <Bookmark size={20} color='var(--primary-text)' className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
+        </div>
 
-        <p className="tocTitle" id="breakSection" style={{
+        <div className='tocSection' style={{marginTop: '16px'}}>
+        <p className="tocTitleFirst" style={{
           textAlign: tocOpen ? "left" : "center",
-        }}>
-          <span className="tocInnerText">Utilities</span></p>
+        }}
+        >
+          <Search size={20} color='var(--primary-text)' className='tocIcon' />
+          {tocOpen && <span className="tocInnerText">Search</span>}</p>
         <p className="tocTitle" style={{
           textAlign: tocOpen ? "left" : "center",
         }}
         onClick={() => setSettingsOpen(true)}>
-          <img className="tocIcon" draggable={false}></img>
+          <Settings size={20} color='var(--primary-text)' className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Settings</span>}</p>
        
         <p className="tocTitle" style={{
           textAlign: tocOpen ? "left" : "center",
         }}
         onClick={handleCp}>
-          <img className="tocIcon" draggable={false}></img>
+          <SquareTerminal size={20} color='var(--primary-text)' className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
+
 
         <div className="bottomToc" style={{
           left: tocOpen ? "auto" : "0",
           right: tocOpen ? "auto" : "0",
           marginLeft: tocOpen ? "0" : "auto",
           marginRight: tocOpen ? "0" : "auto",
-          width: tocOpen ? "192px" : "69px",
+          // width: tocOpen ? "192px" : "69px",
         }}>
+
+        </div>
 
           {/* <div style={{
             display: tocOpen ? "initial" : "none",

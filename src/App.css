@@ -1526,7 +1526,7 @@
     object-fit: cover;
     width: 24px;
     vertical-align: middle;
-    padding-right: 5px;
+    padding-right: 4px;
     /* display: block; */
     filter: var(--editorIconFilter);
   }
@@ -1997,8 +1997,8 @@
   .tableInfo {
     color: var(--primary-text);
     font-family: var(--font);
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 12px;
+    padding-right: 12px; */
     display: block;
     height: 100%;
     overflow-x: hidden;
@@ -2266,23 +2266,21 @@
   
   .tocTitle {
     position: relative;
-    color: var(--secondary-text);
+    color: var(--primary-text);
     text-align: left;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 6px;
-    /* padding-top: 24px; */
-    padding-top: 6px;
+    padding: 8px 4px;
+    padding-top: 8px;
     margin-bottom: 0;
     margin-top: 0;
     font-family: var(--font);
     user-select: none;
     transition: 0.2s;
+    line-height: 20px;
   }
   
   .tocTitle:hover {
     background-color: var(--muted-text);
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   .paneTitle {
@@ -2318,8 +2316,9 @@
   .bottomToc {
     position: absolute;
     bottom: 0;
-    padding-bottom: 32px;
-    padding-top: 24px;
+    padding-bottom: 16px;
+    /* width: 100%; */
+    /* padding-top: 24px; */
     /* border-top: 1px solid var(--muted-text); */
   }
   
@@ -2330,38 +2329,49 @@
     padding-top: 24px;
     border-top: 1px solid var(--muted-text);
   }
+
+  .tocSection {
+    border-top: 1px solid var(--muted-text);
+    /* margin-top: 48px; */
+    padding-left: 12px;
+    padding-right: 12px;
+  }
   
   .tocTitleFirst {
     /* dark mode */
-    color: var(--secondary-text);
+    color: var(--primary-text);
     /* font-weight: bold; */
   
     /* light mode */
     /* color: #c1c1c1; */
     text-align: left;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 6px;
-    padding-top: 6px;
+    /* padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 8px;
+    padding-top: 8px; */
+    padding: 8px 4px;
     margin-bottom: 0;
-    margin-top: 64px;
+    /* margin-top: 56px; */
     position: relative;
+    line-height: 20px;
   }
   
   .tocTitleFirst:hover {
     background-color: var(--muted-text);
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   .tocTitleFirst.active {
     font-weight: 600;
-    background-color: var(--muted-text) !important;
+    background-color: var(--primary-text) !important;
+    color: var(--button-highlight-text);
     border-radius: 10px;
   }
   
   .tocTitle.active {
     font-weight: 600;
-    background-color: var(--muted-text) !important;
+    background-color: var(--primary-text) !important;
+    color: var(--button-highlight-text);
     border-radius: 10px;
   }
   
