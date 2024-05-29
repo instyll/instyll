@@ -160,6 +160,12 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className="tocTitleFirst" style={{
           textAlign: tocOpen ? "left" : "center",
         }}
+        >
+          <img className="tocIcon" draggable={false}></img>
+          {tocOpen && <span className="tocInnerText">Search</span>}</p>
+        <p className="tocTitle" style={{
+          textAlign: tocOpen ? "left" : "center",
+        }}
         onClick={() => setSettingsOpen(true)}>
           <img className="tocIcon" draggable={false}></img>
           {tocOpen && <span className="tocInnerText">Settings</span>}</p>
@@ -171,13 +177,15 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           <img className="tocIcon" draggable={false}></img>
           {tocOpen && <span className="tocInnerText">Command Palette</span>}</p>
 
+
         <div className="bottomToc" style={{
           left: tocOpen ? "auto" : "0",
           right: tocOpen ? "auto" : "0",
           marginLeft: tocOpen ? "0" : "auto",
           marginRight: tocOpen ? "0" : "auto",
-          width: tocOpen ? "192px" : "69px",
+          // width: tocOpen ? "192px" : "69px",
         }}>
+
         </div>
 
           {/* <div style={{
