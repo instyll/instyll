@@ -1526,9 +1526,9 @@
     object-fit: cover;
     width: 24px;
     vertical-align: middle;
-    padding-right: 4px;
+    padding-right: 8px;
     /* display: block; */
-    filter: var(--editorIconFilter);
+    /* filter: var(--editorIconFilter); */
   }
   
   .tocInnerText {

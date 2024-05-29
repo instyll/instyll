@@ -109,7 +109,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
             textAlign: tocOpen ? "left" : "center",
             // marginTop: tocOpen ? "64px" : "32px",
           }}>
-            <Home size={20} color='var(--primary-text)' className='tocIcon' />
+            <Home size={20} color={`${location.pathname === '/home' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
             {tocOpen && <span className="tocInnerText">Dashboard</span>}
           </p>
         </Link>
@@ -118,7 +118,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           <p className={`tocTitle ${location.pathname === '/documents' && tocOpen ? 'active' : location.pathname === '/documents' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
           }}>
-            <BookText size={20} color='var(--primary-text)' className='tocIcon' />
+            <BookText size={20} color={`${location.pathname === '/documents' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
             {tocOpen && <span className="tocInnerText">Notes</span>}
           </p>
         </Link>
@@ -136,7 +136,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/topics' && tocOpen ? 'active' : location.pathname === '/topics' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <Hash size={20} color='var(--primary-text)' className='tocIcon' />
+          <Hash size={20} color={`${location.pathname === '/topics' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Topics</span>}
         </p>
         </Link>
@@ -145,7 +145,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/bookmark' && tocOpen ? 'active' : location.pathname === '/bookmark' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <Bookmark size={20} color='var(--primary-text)' className='tocIcon' />
+          <Bookmark size={20} color={`${location.pathname === '/bookmark' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
         </div>
