@@ -1526,9 +1526,9 @@
     object-fit: cover;
     width: 24px;
     vertical-align: middle;
-    padding-right: 4px;
+    padding-right: 8px;
     /* display: block; */
-    filter: var(--editorIconFilter);
+    /* filter: var(--editorIconFilter); */
   }
   
   .tocInnerText {
@@ -1990,7 +1990,7 @@
     height: 100%;
     bottom: 0;
     background-color: var(--bg-color);
-    border-right: 1px solid var(--muted-text);
+    /* border-right: 1px solid var(--muted-text); */
     overflow: auto;
   }
   
@@ -2218,8 +2218,36 @@
   }
   
   .tocBanner {
-    margin-top: 36px;
+    /* margin-top: 36px; */
     /* text-align: center; */
+    height: 48px;
+    position: relative;
+  }
+
+  .tocToggleButton {
+    position: absolute;
+    right: 0;
+    margin-right: 12px;
+    top: 50%;
+    bottom: 50%;
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 24px;
+    width: 24px;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+  }
+
+  .tocToggle {
+    margin-top: 1px;
+  }
+
+  .tocToggleButton:hover {
+    background-color: var(--muted-text);
+    border-radius: 4px;
   }
   
   .tocBannerIcon {
@@ -2268,8 +2296,7 @@
     position: relative;
     color: var(--primary-text);
     text-align: left;
-    padding: 8px 4px;
-    padding-top: 8px;
+    padding: 8px;
     margin-bottom: 0;
     margin-top: 0;
     font-family: var(--font);
@@ -2349,7 +2376,7 @@
     padding-right: 4px;
     padding-bottom: 8px;
     padding-top: 8px; */
-    padding: 8px 4px;
+    padding: 8px;
     margin-bottom: 0;
     /* margin-top: 56px; */
     position: relative;
@@ -2365,14 +2392,14 @@
     font-weight: 600;
     background-color: var(--primary-text) !important;
     color: var(--button-highlight-text);
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   .tocTitle.active {
     font-weight: 600;
     background-color: var(--primary-text) !important;
     color: var(--button-highlight-text);
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   .tab {
@@ -3506,6 +3533,9 @@
   
   .childContainer {
     transition: 0.2s;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
   }
   
   .dashboardView {
@@ -3526,8 +3556,6 @@
   
   .dashboardGreetingContainer {
     height: 100vh;
-    padding-left: 27px;
-    padding-right: 27px;
     text-align: center;
     overflow: auto;
     box-sizing: border-box;

@@ -14,6 +14,7 @@ import { Bookmark } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { Settings } from 'lucide-react';
 import { SquareTerminal } from 'lucide-react';
+import { PanelLeft } from 'lucide-react';
 
 function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
 
@@ -82,34 +83,26 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
     <div className="tableOfContents drag" style={{
       width: tocOpen ? "240px" : "130px",
       transition: "0.2s",
+      borderRight: tocOpen ? '1px solid var(--muted-text)' : 'none'
     }}>
       <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
       <div className="tableInfo">
 
-        <div className="tocBanner" style={{
-          textAlign: tocOpen ? "left" : "center",
-        }}>
-          {/* <img 
-          src={src}
-          className="tocBannerIcon" draggable={false}></img>
-          {tocOpen && <span className="tocBannerTextLeft">in<span className="tocBannerTextRight">styll</span></span>} */}
-          <img className="tocIcon" id="closeTOC" draggable={false} onClick={handleToc} style={{
-            marginLeft: tocOpen ? "67px" : "28px",
-            float: tocOpen ? "right" : "none",
-            marginTop: tocOpen ? "initial" : "36px",
-            display: tocOpen ? "initial" : "block",
-            transform: tocOpen ? "none" : "rotate(180deg)",
-            transition: "transform 0.3s",
-          }}></img>
+        <div className="tocBanner">
+          <button className='tocToggleButton' onClick={handleToc}>
+            <div>
+            <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>
+            </div>
+          </button>
         </div>
 
-        <div className='tocSection' style={{marginTop: '48px'}}>
+        {tocOpen && <div className='tocSection'>
         <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && tocOpen ? 'active' : location.pathname === '/home' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
             // marginTop: tocOpen ? "64px" : "32px",
           }}>
-            <Home size={20} color='var(--primary-text)' className='tocIcon' />
+            <Home size={20} color={`${location.pathname === '/home' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
             {tocOpen && <span className="tocInnerText">Dashboard</span>}
           </p>
         </Link>
@@ -118,7 +111,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           <p className={`tocTitle ${location.pathname === '/documents' && tocOpen ? 'active' : location.pathname === '/documents' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
           }}>
-            <BookText size={20} color='var(--primary-text)' className='tocIcon' />
+            <BookText size={20} color={`${location.pathname === '/documents' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
             {tocOpen && <span className="tocInnerText">Notes</span>}
           </p>
         </Link>
@@ -136,7 +129,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/topics' && tocOpen ? 'active' : location.pathname === '/topics' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <Hash size={20} color='var(--primary-text)' className='tocIcon' />
+          <Hash size={20} color={`${location.pathname === '/topics' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Topics</span>}
         </p>
         </Link>
@@ -145,12 +138,12 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         <p className={`tocTitle ${location.pathname === '/bookmark' && tocOpen ? 'active' : location.pathname === '/bookmark' && tocOpen === false ? 'activeMin' : ''}`} style={{
           textAlign: tocOpen ? "left" : "center",
         }}>
-          <Bookmark size={20} color='var(--primary-text)' className='tocIcon' />
+          <Bookmark size={20} color={`${location.pathname === '/bookmark' && tocOpen ? 'var(--button-highlight-text)' : 'var(--primary-text)'}`} className='tocIcon' />
           {tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
-        </div>
+        </div>}
 
-        <div className='tocSection' style={{marginTop: '16px'}}>
+        {tocOpen && <div className='tocSection' style={{marginTop: '16px'}}>
         <p className="tocTitleFirst" style={{
           textAlign: tocOpen ? "left" : "center",
         }}
@@ -215,7 +208,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           </div> */}
 
 
-        </div>
+        </div>}
 
       </div>
     </div>
