@@ -2282,7 +2282,7 @@
   
   .tocTitle:hover {
     background-color: var(--muted-text);
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   .paneTitle {
@@ -2350,7 +2350,7 @@
   
   .tocTitleFirst:hover {
     background-color: var(--muted-text);
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   .tocTitleFirst.active {
