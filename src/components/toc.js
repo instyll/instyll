@@ -88,7 +88,11 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       <div className="tableInfo">
 
         <div className="tocBanner">
-         <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>
+          <button className='tocToggleButton'>
+            <div>
+            <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>
+            </div>
+          </button>
         </div>
 
         <div className='tocSection'>
