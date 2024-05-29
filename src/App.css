@@ -2266,7 +2266,7 @@
   
   .tocTitle {
     position: relative;
-    color: var(--secondary-text);
+    color: var(--primary-text);
     text-align: left;
     padding-left: 5px;
     padding-right: 5px;
@@ -2333,7 +2333,7 @@
   
   .tocTitleFirst {
     /* dark mode */
-    color: var(--secondary-text);
+    color: var(--primary-text);
     /* font-weight: bold; */
   
     /* light mode */
