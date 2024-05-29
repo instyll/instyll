@@ -1997,8 +1997,8 @@
   .tableInfo {
     color: var(--primary-text);
     font-family: var(--font);
-    padding-left: 12px;
-    padding-right: 12px;
+    /* padding-left: 12px;
+    padding-right: 12px; */
     display: block;
     height: 100%;
     overflow-x: hidden;
@@ -2328,6 +2328,13 @@
     padding-top: 24px;
     border-top: 1px solid var(--muted-text);
   }
+
+  .tocSection {
+    border-top: 1px solid var(--muted-text);
+    /* margin-top: 48px; */
+    padding-left: 12px;
+    padding-right: 12px;
+  }
   
   .tocTitleFirst {
     /* dark mode */
@@ -2343,7 +2350,7 @@
     padding-top: 8px; */
     padding: 8px 4px;
     margin-bottom: 0;
-    margin-top: 64px;
+    /* margin-top: 56px; */
     position: relative;
     line-height: 20px;
   }

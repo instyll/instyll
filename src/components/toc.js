@@ -109,10 +109,11 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           }}></img>
         </div>
 
+        <div className='tocSection' style={{marginTop: '48px'}}>
         <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && tocOpen ? 'active' : location.pathname === '/home' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
-            marginTop: tocOpen ? "64px" : "32px",
+            // marginTop: tocOpen ? "64px" : "32px",
           }}>
             <img className="tocIcon" draggable={false} />
             {tocOpen && <span className="tocInnerText">Dashboard</span>}
@@ -153,11 +154,10 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           <img className="tocIcon" draggable={false}></img>
           {tocOpen && <span className="tocInnerText">Bookmarks</span>}</p>
         </Link>
+        </div>
 
-
-
-
-        <p className="tocTitle" style={{
+        <div className='tocSection' style={{marginTop: '16px'}}>
+        <p className="tocTitleFirst" style={{
           textAlign: tocOpen ? "left" : "center",
         }}
         onClick={() => setSettingsOpen(true)}>
@@ -178,6 +178,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
           marginRight: tocOpen ? "0" : "auto",
           width: tocOpen ? "192px" : "69px",
         }}>
+        </div>
 
           {/* <div style={{
             display: tocOpen ? "initial" : "none",
