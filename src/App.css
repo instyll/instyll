@@ -3555,7 +3555,7 @@
   }
   
   .dashboardGreetingContainer {
-    height: 100vh;
+    height: calc(100vh - 50px);
     text-align: center;
     overflow: auto;
     box-sizing: border-box;
@@ -3788,7 +3788,7 @@
     list-style-type: none;
     padding-left: 24px;
     padding-right: 24px;
-    overflow: hidden;
+    overflow: scroll;
     /* margin-top: 32px; */
     text-align: left;
   }

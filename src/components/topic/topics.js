@@ -107,8 +107,7 @@ const Topics = () => {
                     <div className="dashboardWrapper" style={{
                         width: "100%",
                     }}>
-                        <div className="dashboardGreetingContainer">
-                            <div className="topicTitleWrapper drag">
+                         <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     Topics
                                 </h1>
@@ -177,6 +176,7 @@ const Topics = () => {
                                 </div> */}
 
                             </div>
+                        <div className="dashboardGreetingContainer">
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
