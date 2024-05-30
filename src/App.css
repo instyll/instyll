@@ -3786,7 +3786,8 @@
   
   .dashboardTopicsContainer {
     list-style-type: none;
-    padding-left: 0;
+    padding-left: 24px;
+    padding-right: 24px;
     overflow: hidden;
     /* margin-top: 32px; */
     text-align: left;
