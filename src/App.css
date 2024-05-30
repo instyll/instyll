@@ -4597,18 +4597,24 @@
   }
 
   .dateButton {
-    background-color: transparent;
+    background-color: var(--primary-text);
     border: 1px solid var(--muted-text);
-    border-radius: 10px;
-    color: var(--secondary-text);
+    border-radius: 8px;
+    color: var(--bg-color);
     width: fit-content;
     font-size: 1em;
-    padding: 2px 16px;
-    height: 38px;
+    padding: 2px 8px;
+    height: 36px;
     font-family: var(--font);
     transition: 0.2s;
     vertical-align: middle;
-    margin-top: 24px;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 16px;
   }
 
   .dateButton:hover {
