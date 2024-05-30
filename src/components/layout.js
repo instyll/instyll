@@ -175,8 +175,8 @@ const Layout = ({ children }) => {
                 </Command.Dialog>
 
                 <div className='childContainer' style={{
-                    width: "calc((100% - 240px) )",
-                    marginLeft: '240px',
+                    width: tocOpen ? "calc((100% - 240px) )" : "calc((100% - 120px))",
+                    marginLeft: tocOpen ? '240px' : '120px',
                 }}
                 ref={containerRef}>
                     {children}
