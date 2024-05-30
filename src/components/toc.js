@@ -81,7 +81,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
 
   return (
     <div className="tableOfContents drag" style={{
-      width: tocOpen ? "240px" : "130px",
+      width: tocOpen ? "240px" : "120px",
       transition: "0.2s",
       borderRight: tocOpen ? '1px solid var(--muted-text)' : 'none'
     }}>
