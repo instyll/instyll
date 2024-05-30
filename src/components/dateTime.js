@@ -35,7 +35,7 @@ const DateTime = ({createDailyNote}) => {
       });
 
       setCurrentDay(dateObj.getDay());
-      console.log(currentDay)
+      // console.log(currentDay)
       setCurrentDate(formattedDate);
       setCurrentTime(formattedTime);
     }, 1000);

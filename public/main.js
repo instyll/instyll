@@ -21,6 +21,7 @@ function createWindow() {
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false,
+                enableRemoteModule: true
             },
             titleBarStyle: 'hiddenInset',
             trafficLightPosition: {x: 12, y: 16}

@@ -16,10 +16,16 @@ import { Settings } from 'lucide-react';
 import { SquareTerminal } from 'lucide-react';
 import { PanelLeft } from 'lucide-react';
 
+// const electron = window.require('electron');
+// const currentWindow = electron.remote.getCurrentWindow();
+const electronRemote = require('@electron/remote')
+
+
 function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
 
   // handle settings modal
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [maximized, setMaximized] = useState(false);
 
   function handleSettingsModal(val) {
     setSettingsOpen(val);
@@ -44,6 +50,22 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
   // }
 
   const location = useLocation();
+
+  useEffect(() => {
+    const currentWindow = electronRemote.getCurrentWindow();
+    const onMaximize = () => {
+      setMaximized(true)
+    };
+    const onUnmaximize = () => setMaximized(false);
+
+    currentWindow.on('enter-full-screen', onMaximize);
+    currentWindow.on('leave-full-screen', onUnmaximize)
+
+    return () => {
+        currentWindow.removeListener('maximize', onMaximize);
+        currentWindow.removeListener('unmaximize', onUnmaximize);
+    };
+  }, [])
 
   // useEffect(() => {
   //   toggleTheme();
@@ -88,13 +110,13 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
       <div className="tableInfo">
 
-        <div className="tocBanner">
+        {!maximized && <div className="tocBanner">
           <button className='tocToggleButton' onClick={handleToc}>
             <div>
             <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>
             </div>
           </button>
-        </div>
+        </div>}
 
         {tocOpen && <div className='tocSection'>
         <Link to="/home">
