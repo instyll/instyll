@@ -158,7 +158,7 @@ const DocumentViewer = ({ location }) => {
                         width: "100%",
                     }}>
                         <div className="dashboardGreetingContainer">
-                            <div className="topicTitleWrapper">
+                            <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     Notes
                                 </h1>
