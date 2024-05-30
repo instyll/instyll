@@ -3533,8 +3533,8 @@
   
   .childContainer {
     transition: 0.2s;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px;
+    padding-right: 24px; */
     box-sizing: border-box;
   }
   
@@ -3976,12 +3976,13 @@
     position: relative;
     flex-direction: column;
     background-color: transparent;
-    box-sizing: border-box;
-    /* width: 100%; */
+    /* box-sizing: border-box; */
     bottom: 0;
     transition: 0.2s;
     width: 100%;
     text-align: left;
+    border-bottom: 1px solid var(--muted-text);
+    height: 48px;
   }
   
   .topicIconContainer {
@@ -4577,7 +4578,7 @@
   .heroTitle {
     font-family: var(--font);
     color: var(--primary-text);
-    font-size: 32.4px;
+    font-size: 20px;
     border-bottom: none;
     padding-bottom: 0px;
     text-align: left;
@@ -4585,6 +4586,14 @@
     width: fit-content;
     vertical-align: middle;
     user-select: none;
+    position: absolute;
+    height: fit-content;
+    left: 0;
+    top: 50%;
+    bottom: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 16px;
   }
 
   .dateButton {

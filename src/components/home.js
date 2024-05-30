@@ -167,7 +167,7 @@ const Home = () => {
           }}>
             <div className='dashboardGreetingContainer'>
 
-              <div className='topicTitleWrapper'>
+              <div className='topicTitleWrapper drag'>
                 <h1 className='heroTitle'>
                   Dashboard
                 </h1>
