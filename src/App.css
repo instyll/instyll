@@ -4586,7 +4586,14 @@
     width: fit-content;
     vertical-align: middle;
     user-select: none;
-    margin: 0px;
+    position: absolute;
+    height: fit-content;
+    left: 0;
+    top: 50%;
+    bottom: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 12px;
   }
 
   .dateButton {
