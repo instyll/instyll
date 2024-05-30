@@ -107,12 +107,11 @@ const Topics = () => {
                     <div className="dashboardWrapper" style={{
                         width: "100%",
                     }}>
-                        <div className="dashboardGreetingContainer">
-                            <div className="topicTitleWrapper drag">
+                         <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     Topics
                                 </h1>
-                                <div className='changeTopicViewButtonContainer'>
+                                {/* <div className='changeTopicViewButtonContainer'>
                                     <button className={topicGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
                                         onClick={handleChangeTopicViewLayout}
                                     >
@@ -123,8 +122,8 @@ const Topics = () => {
                                     >
                                         <img src={layoutList} class="buttonIcon" draggable={false}></img>
                                     </button>
-                                </div>
-                                <div className='selectSortOptionContainer'>
+                                </div> */}
+                                {/* <div className='selectSortOptionContainer'>
                                     <Select
                                         onChange={(value) => setSelectedOption(value)}
                                         options={options}
@@ -174,9 +173,10 @@ const Topics = () => {
                                             },
                                         })}
                                     />
-                                </div>
+                                </div> */}
 
                             </div>
+                        <div className="dashboardGreetingContainer">
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>

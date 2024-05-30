@@ -79,12 +79,12 @@ const BookmarkViewer = ({ location }) => {
                     <div className="dashboardWrapper" style={{
                         width: "100%",
                     }}>
-                        <div className="dashboardGreetingContainer">
+                         <div className="dashboardGreetingContainer">
                             <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     Bookmarks
                                 </h1>
-                                <div className='changeTopicViewButtonContainer'>
+                                {/* <div className='changeTopicViewButtonContainer'>
                                     <button className={documentGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
                                         onClick={handleChangeDocumentViewLayout}
                                     >
@@ -146,7 +146,7 @@ const BookmarkViewer = ({ location }) => {
                                             },
                                         })}
                                     />
-                                </div>
+                                </div> */}
 
                             </div>
 
