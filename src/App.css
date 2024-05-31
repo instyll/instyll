@@ -3945,7 +3945,6 @@
   .topicListTitle {
     border-bottom: none;
     font-size: 15px;
-    display: table-cell;
   }
   
   .topicCount {
@@ -4168,11 +4167,10 @@
     /* min-width: 100%; */
     overflow: hidden;
     /* float: right; */
-    display: table-cell;
   }
 
   .documentDateContainer {
-    display: table-cell;
+
   }
 
   .noteTopicStatus {
@@ -4350,6 +4348,7 @@
     display: table;
     width: 100%;
     box-sizing: border-box;
+    table-layout: fixed;
   }
 
   .documentListItem {
@@ -4364,6 +4363,7 @@
     transition: 0.2s;
     position: relative;
     display: table-row;
+    table-layout: fixed;
   }
 
   .documentListItem:hover {
@@ -4379,8 +4379,13 @@
     /* align-items: center; */
     font-family: var(--font);
     width: 100%;
+    display: flex;
   }
   
+  .documentListRightWrapper {
+    display: flex;
+    margin-left: auto;
+  }
   
   .selectSortOptionContainer {
     /* display: inline-block; */

@@ -177,20 +177,22 @@ const DocumentListItem = ({ documentInfo }) => {
             <span>{documentInfo[1]}</span>
           </div>
 
-          <div className='appendedTagsContainer'>
-          {existingTags && existingTags.length > 0 ? existingTags.map((tag) => (
-              <span
-                key={tag}
-                className="tagItem"
-              >
-                {tag}
-              </span>
-            )) : 
-            <span className='noteTopicStatus'>No topics</span>}
-          </div>
+          <div className='documentListRightWrapper'>
+            <div className='appendedTagsContainer'>
+            {existingTags && existingTags.length > 0 ? existingTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="tagItem"
+                >
+                  {tag}
+                </span>
+              )) : 
+              <span className='noteTopicStatus'>No topics</span>}
+            </div>
 
-          <div className='documentDateContainer'>
-            {documentCreationDate}
+            <div className='documentDateContainer'>
+              {documentCreationDate}
+            </div>
           </div>
          
           {/* <div className='documentOptionsMenuContainer' onClick={handleClick}>
