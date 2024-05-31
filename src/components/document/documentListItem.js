@@ -63,6 +63,19 @@ const DocumentListItem = ({ documentInfo }) => {
     return null; 
   });
 
+  const documentCreationDate = useSelector((state) => {
+    const documents = state.documents.documents;
+    const documentIndex = documents.findIndex(doc => doc[3] === documentInfo[0]);
+
+    if (documentIndex !== -1) {
+      // console.log(documents[documentIndex])
+      const date = documents[documentIndex][2];
+      // console.log(fourthIndex)
+      return date;
+    }
+    return null; 
+  });
+
   const [documentOptionsModalOpen, setDocumentOptionsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [fileContents, setFileContents] = useState(null); // State to store file contents
@@ -174,9 +187,10 @@ const DocumentListItem = ({ documentInfo }) => {
             )) : 
             <span className='noteTopicStatus'>No topics</span>}
           </div>
-          <div className='documentOptionsMenuContainer' onClick={handleClick}>
+          <div className='documentDateContainer'>{documentCreationDate}</div>
+          {/* <div className='documentOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
-          </div>
+          </div> */}
       </div>
       </div>
 

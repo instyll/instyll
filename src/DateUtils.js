@@ -10,7 +10,7 @@ const parseAndFormatDate = (dateString) => {
   const minutes = parsedDate.getMinutes();
 
   // Format the date and time
-  const formattedDate = `${month}. ${day}, ${year} | ${formatTime(hours, minutes)}`;
+  const formattedDate = `${month}. ${day}, ${year}`;
 
   return formattedDate;
 }
