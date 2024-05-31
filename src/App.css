@@ -3945,7 +3945,7 @@
   .topicListTitle {
     border-bottom: none;
     font-size: 15px;
-    margin-bottom: 10px;
+    display: table-cell;
   }
   
   .topicCount {
@@ -4167,7 +4167,12 @@
     /* padding-top: 10px; */
     /* min-width: 100%; */
     overflow: hidden;
-    float: right;
+    /* float: right; */
+    display: table-cell;
+  }
+
+  .documentDateContainer {
+    display: table-cell;
   }
 
   .noteTopicStatus {
@@ -4341,18 +4346,24 @@
     border: 1px solid var(--secondary-text);
   }
 
+  #notesview {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .documentListItem {
-    display: inline-block;
     height: 48px;
     vertical-align: middle;
-    width: calc(100% - 2px);
-    border: 1px solid var(--muted-text);
+    width: 100%;
+    /* border: 1px solid var(--muted-text); */
     border-radius: 8px;
     margin-top: 8px;
     margin-right: 2px;
     color: var(--primary-text);
     transition: 0.2s;
     position: relative;
+    display: table-row;
   }
 
   .documentListItem:hover {
@@ -4365,15 +4376,9 @@
 
   .documentListTextContainer {
     height: 48px;
-    display: flex;
     /* align-items: center; */
     font-family: var(--font);
     width: 100%;
-    display: inline-block;
-  }
-
-  .documentListTextWrapper {
-
   }
   
   

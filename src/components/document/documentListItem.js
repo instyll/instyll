@@ -172,10 +172,11 @@ const DocumentListItem = ({ documentInfo }) => {
     </Menu>
       
       <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
-        <div className='documentListTextWrapper'>
+
           <div className='topicListTitle'>
             <span>{documentInfo[1]}</span>
           </div>
+
           <div className='appendedTagsContainer'>
           {existingTags && existingTags.length > 0 ? existingTags.map((tag) => (
               <span
@@ -187,13 +188,15 @@ const DocumentListItem = ({ documentInfo }) => {
             )) : 
             <span className='noteTopicStatus'>No topics</span>}
           </div>
-          <div className='documentDateContainer'>{documentCreationDate}</div>
+
+          <div className='documentDateContainer'>
+            {documentCreationDate}
+          </div>
+         
           {/* <div className='documentOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
           </div> */}
       </div>
-      </div>
-
       <ToastContainer />
 
     </div>
