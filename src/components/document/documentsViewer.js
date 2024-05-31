@@ -231,13 +231,7 @@ const DocumentViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                {documentGridLayout ? <CreateGridDocumentButton setCreateDocumentModalOpen={() => setCreateDocumentModalOpen(true)}></CreateGridDocumentButton> : <CreateListDocumentButton setCreateDocumentModalOpen={() => setCreateDocumentModalOpen(true)}></CreateListDocumentButton>}
-                                {documentGridLayout ?
-                                    markdownFiles.map((filename) => (
-                                        <DocumentGridItem key={filename} documentInfo={[path.join(documentsPath, filename), removeMdExtension(filename)]}>
-                                        </DocumentGridItem>
-                                    ))
-                                    :
+                                {
                                     markdownFiles.map((filename) => (
                                         <DocumentListItem key={filename} documentInfo={[path.join(documentsPath, filename), removeMdExtension(filename)]}>
                                         </DocumentListItem>
