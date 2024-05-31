@@ -63,6 +63,19 @@ const DocumentListItem = ({ documentInfo }) => {
     return null; 
   });
 
+  const documentCreationDate = useSelector((state) => {
+    const documents = state.documents.documents;
+    const documentIndex = documents.findIndex(doc => doc[3] === documentInfo[0]);
+
+    if (documentIndex !== -1) {
+      // console.log(documents[documentIndex])
+      const date = documents[documentIndex][2];
+      // console.log(fourthIndex)
+      return date;
+    }
+    return null; 
+  });
+
   const [documentOptionsModalOpen, setDocumentOptionsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [fileContents, setFileContents] = useState(null); // State to store file contents
@@ -159,27 +172,33 @@ const DocumentListItem = ({ documentInfo }) => {
     </Menu>
       
       <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
-        <div className='documentListTextWrapper'>
+
           <div className='topicListTitle'>
             <span>{documentInfo[1]}</span>
           </div>
-          <div className='appendedTagsContainer'>
-          {existingTags && existingTags.length > 0 ? existingTags.map((tag) => (
-              <span
-                key={tag}
-                className="tagItem"
-              >
-                {tag}
-              </span>
-            )) : 
-            <span className='noteTopicStatus'>No topics</span>}
-          </div>
-          <div className='documentOptionsMenuContainer' onClick={handleClick}>
-            <img src={moreDots} className='moreDots'></img>
-          </div>
-      </div>
-      </div>
 
+          <div className='documentListRightWrapper'>
+            <div className='appendedTagsContainer'>
+            {existingTags && existingTags.length > 0 ? existingTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="tagItem"
+                >
+                  {tag}
+                </span>
+              )) : 
+              <span className='noteTopicStatus'>No topics</span>}
+            </div>
+
+            <div className='documentDateContainer'>
+              {documentCreationDate}
+            </div>
+          </div>
+         
+          {/* <div className='documentOptionsMenuContainer' onClick={handleClick}>
+            <img src={moreDots} className='moreDots'></img>
+          </div> */}
+      </div>
       <ToastContainer />
 
     </div>
