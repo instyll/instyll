@@ -4167,6 +4167,7 @@
     /* min-width: 100%; */
     overflow: hidden;
     /* float: right; */
+    padding-right: 16px;
   }
 
   .documentDateContainer {
@@ -4362,8 +4363,6 @@
     color: var(--primary-text);
     transition: 0.2s;
     position: relative;
-    display: table-row;
-    table-layout: fixed;
   }
 
   .documentListItem:hover {
@@ -4380,11 +4379,13 @@
     font-family: var(--font);
     width: 100%;
     display: flex;
+    align-items: center;
   }
   
   .documentListRightWrapper {
     display: flex;
     margin-left: auto;
+    align-items: center;
   }
   
   .selectSortOptionContainer {
