@@ -3471,15 +3471,15 @@
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border: 1px solid var(--elevated-bg);
-    background-color: var(--elevated-bg);
+    /* border: 1px solid var(--elevated-bg); */
+    background-color: var(--primary-text);
     text-align: center;
-    border-radius: 10px;
+    border-radius: 4px;
     margin-right: 12px;
     user-select: none;
     transition: 0.2s;
     vertical-align: middle;
-    color: var(--primary-text);
+    color: var(--bg-color);
     font-family: var(--font);
   }
   
@@ -4167,7 +4167,7 @@
     /* min-width: 100%; */
     overflow: hidden;
     /* float: right; */
-    padding-right: 16px;
+    padding-right: 24px;
   }
 
   .documentDateContainer {
