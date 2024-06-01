@@ -20,6 +20,7 @@ import CreateDocumentModal from '../../modal/document/CreateDocumentModal';
 import { uuid } from 'uuidv4';
 
 import { SquarePen } from 'lucide-react';
+import { PanelRight } from 'lucide-react';
 
 const fs = require('fs');
 const fsp = fs.promises;
@@ -162,9 +163,14 @@ const DocumentViewer = ({ location }) => {
                                     Notes
                                 </h1>
                                 <div className='noteCreationButtonContainer'>
-                                    <button className='noteCreationButton'>
+                                    <button className='noteCreationButton' onClick={() => setCreateDocumentModalOpen(true)}>
                                         <SquarePen size={20} color='var(--bg-color)' className='tocIcon'/>
                                         <span className='tocInnerText'>New Note</span>
+                                    </button>
+                                </div>
+                                <div className='genAIInteractionToggleContainer'>
+                                    <button className='tocToggleButton'>
+                                        <div><PanelRight size={20} color='var(--primary-text)' className='tocToggle'/></div>
                                     </button>
                                 </div>
                                 {/* <div className='changeTopicViewButtonContainer'>
