@@ -17,10 +17,9 @@ import DocumentListItem from './documentListItem';
 import CreateGridDocumentButton from './createNewGridDocumentButton';
 import CreateListDocumentButton from './createNewListDocumentButton';
 import CreateDocumentModal from '../../modal/document/CreateDocumentModal';
-
-import layoutGrid from '../../icons/layoutGrid.png';
-import layoutList from '../../icons/layoutList.png';
 import { uuid } from 'uuidv4';
+
+import { SquarePen } from 'lucide-react';
 
 const fs = require('fs');
 const fsp = fs.promises;
@@ -162,7 +161,10 @@ const DocumentViewer = ({ location }) => {
                                     Notes
                                 </h1>
                                 <div className='noteCreationButtonContainer'>
-                                    <button className='noteCreationButton'>New Note</button>
+                                    <button className='noteCreationButton'>
+                                        <SquarePen size={20} color='var(--bg-color)' className='tocIcon'/>
+                                        <span className='tocInnerText'>New Note</span>
+                                    </button>
                                 </div>
                                 {/* <div className='changeTopicViewButtonContainer'>
                                     <button className={documentGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
