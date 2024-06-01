@@ -110,7 +110,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
       <div className="tableInfo">
 
-        <div className="tocBanner">
+        <div className="tocBanner" style={{borderBottom: tocOpen ? 'initial' : '1px solid var(--muted-text)'}}>
           {!maximized && <button className='tocToggleButton' onClick={handleToc}>
             <div>
             <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>

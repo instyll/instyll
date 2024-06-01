@@ -177,6 +177,7 @@ const Layout = ({ children }) => {
                 <div className='childContainer' style={{
                     width: tocOpen ? "calc((100% - 240px) )" : "calc((100% - 120px))",
                     marginLeft: tocOpen ? '240px' : '120px',
+                    // paddingRight: tocOpen ? 'initial' : '120px',
                 }}
                 ref={containerRef}>
                     {children}
