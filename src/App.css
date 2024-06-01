@@ -4411,6 +4411,38 @@
     border-radius: 10px;
     box-sizing: border-box;
   }
+
+  .noteCreationButtonContainer {
+    float: right;
+    /* margin-top: 24px; */
+    width: fit-content;
+    margin-left: 16px;
+    vertical-align: middle;
+    /* border: 1px solid var(--muted-text); */
+    /* border-radius: 10px; */
+    box-sizing: border-box;
+  }
+
+  .noteCreationButton {
+    background-color: var(--primary-text);
+    border: 1px solid var(--muted-text);
+    border-radius: 8px;
+    color: var(--bg-color);
+    width: fit-content;
+    font-size: 1em;
+    padding: 2px 8px;
+    height: 36px;
+    font-family: var(--font);
+    transition: 0.2s;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 16px;
+  }
   
   .changeTopicViewButton {
     background-color: transparent;
