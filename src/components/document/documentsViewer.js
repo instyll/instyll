@@ -161,7 +161,7 @@ const DocumentViewer = ({ location }) => {
                                     Notes
                                 </h1>
                                 <div className='noteCreationButtonContainer'>
-                                    <button className='noteCreationButton'>
+                                    <button className='noteCreationButton' onClick={() => setCreateDocumentModalOpen(true)}>
                                         <SquarePen size={20} color='var(--bg-color)' className='tocIcon'/>
                                         <span className='tocInnerText'>New Note</span>
                                     </button>
