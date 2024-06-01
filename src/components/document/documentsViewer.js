@@ -161,6 +161,9 @@ const DocumentViewer = ({ location }) => {
                                 <h1 className="heroTitle">
                                     Notes
                                 </h1>
+                                <div className='noteCreationButtonContainer'>
+                                    <button className='noteCreationButton'>New Note</button>
+                                </div>
                                 {/* <div className='changeTopicViewButtonContainer'>
                                     <button className={documentGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
                                         onClick={handleChangeDocumentViewLayout}
