@@ -31,6 +31,7 @@ const DocumentViewer = ({ location }) => {
     const [triggerRerender, setTriggerRerender] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
     const [createDocumentModalOpen, setCreateDocumentModalOpen] = useState(false);
+    const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
     // console.log(triggerRerender)s
 
@@ -55,7 +56,9 @@ const DocumentViewer = ({ location }) => {
 
     const documents = useSelector((state) => state.documents.documents);
     // console.log("documents: " + documents)
-
+    const handleToggleGenAIContainer = () => {
+        setGenAIContainerOpen(!genAIContainerOpen)
+    }
     // console.log(selectedOption)
 
     // sort by selected option
@@ -155,7 +158,7 @@ const DocumentViewer = ({ location }) => {
 
                 <div className="topicView">
                     <div className="dashboardWrapper" style={{
-                        width: "100%",
+                        width: genAIContainerOpen ? "calc(100% - 320px)" : "100%",
                     }}>
                          <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
@@ -168,7 +171,7 @@ const DocumentViewer = ({ location }) => {
                                     </button>
                                 </div>
                                 <div className='genAIInteractionToggleContainer'>
-                                    <button className='tocToggleButton'>
+                                    <button className='tocToggleButton' onClick={handleToggleGenAIContainer}>
                                         <div><PanelRight size={20} color='var(--primary-text)' className='tocToggle'/></div>
                                     </button>
                                 </div>
