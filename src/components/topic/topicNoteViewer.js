@@ -93,7 +93,7 @@ const TopicNoteViewer = ({ location }) => {
                                 <h1 className="heroTitle">
                                     {topicId}
                                 </h1>
-                                <div className='changeTopicViewButtonContainer'>
+                                {/* <div className='changeTopicViewButtonContainer'>
                                     <button className={documentGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
                                         onClick={handleChangeDocumentViewLayout}
                                     >
@@ -155,20 +155,13 @@ const TopicNoteViewer = ({ location }) => {
                                             },
                                         })}
                                     />
-                                </div>
+                                </div> */}
 
                             </div>
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                {documentGridLayout ? 
-                                // <DocumentGridItem documentInfo={documentTestInfo}>
-                                // </DocumentGridItem>
-                                notes.map((doc) => (
-                                    <DocumentGridItem key={doc[0]} documentInfo={[doc[3], doc[1]]}>
-                                    </DocumentGridItem>
-                                ))
-                                :
+                                {
                                 notes.map((doc) => (
                                     <DocumentListItem key={doc[0]} documentInfo={[doc[3], doc[1]]}>
                                     </DocumentListItem>
