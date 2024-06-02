@@ -22,8 +22,7 @@ import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
 import '../../command-palette/commandPalette.css';
 
-import layoutGrid from '../../icons/layoutGrid.png';
-import layoutList from '../../icons/layoutList.png';
+import { PanelRight } from 'lucide-react';
 import TopicGridItem from './topicGridItem.js';
 import TopicListItem from './topicListItem.js';
 
@@ -37,6 +36,7 @@ const Topics = () => {
     const [topicGridLayout, setTopicGridLayout] = useState(true);
     const [selectedOption, setSelectedOption] = useState(null);
     const [topics, setTopics] = useState([]);
+    const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -76,6 +76,11 @@ const Topics = () => {
         // { value: 'sortByNumberOfNotes', label: 'Sort by contents' }
     ];
 
+    // gen ai toggle
+    const handleToggleGenAIContainer = () => {
+        setGenAIContainerOpen(!genAIContainerOpen)
+    }
+
     //sort by selected option
     useEffect(() => {
         if (selectedOption) {
@@ -105,12 +110,17 @@ const Topics = () => {
 
                 <div className="topicView">
                     <div className="dashboardWrapper" style={{
-                        width: "100%",
+                        width: genAIContainerOpen ? "calc(100% - 320px)" : "100%",
                     }}>
                          <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     Topics
                                 </h1>
+                                <div className='genAIInteractionToggleContainer'>
+                                    <button className='tocToggleButton' onClick={handleToggleGenAIContainer}>
+                                        <div><PanelRight size={20} color='var(--primary-text)' className='tocToggle'/></div>
+                                    </button>
+                                </div>
                                 {/* <div className='changeTopicViewButtonContainer'>
                                     <button className={topicGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
                                         onClick={handleChangeTopicViewLayout}
