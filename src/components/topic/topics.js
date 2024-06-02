@@ -23,6 +23,7 @@ import 'react-calendar/dist/Calendar.css';
 import '../../command-palette/commandPalette.css';
 
 import { PanelRight } from 'lucide-react';
+import { SquarePen } from 'lucide-react';
 import TopicGridItem from './topicGridItem.js';
 import TopicListItem from './topicListItem.js';
 
@@ -116,6 +117,12 @@ const Topics = () => {
                                 <h1 className="heroTitle">
                                     Topics
                                 </h1>
+                                <div className='noteCreationButtonContainer'>
+                                    <button className='noteCreationButton' onClick={() => setCreateTopicModalOpen(true)}>
+                                        <SquarePen size={20} color='var(--bg-color)' className='tocIcon'/>
+                                        <span className='tocInnerText'>New Topic</span>
+                                    </button>
+                                </div>
                                 <div className='genAIInteractionToggleContainer'>
                                     <button className='tocToggleButton' onClick={handleToggleGenAIContainer}>
                                         <div><PanelRight size={20} color='var(--primary-text)' className='tocToggle'/></div>
