@@ -4412,7 +4412,7 @@
     box-sizing: border-box;
   }
 
-  .noteCreationButtonContainer {
+  .creationButtonContainer {
     float: right;
     /* margin-top: 24px; */
     width: fit-content;
@@ -4430,7 +4430,7 @@
     box-sizing: border-box;
   }
 
-  .noteCreationButton {
+  .creationButton {
     background-color: var(--primary-text);
     border: 1px solid var(--muted-text);
     border-radius: 8px;
