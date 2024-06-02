@@ -245,6 +245,13 @@ const DocumentViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer' id='notesview'>
+                                <div className='listViewHeaderContainer'>
+                                    <div className='listViewheaderTitle'>Title</div>
+                                    <div className='listViewHeaderRightWrapper'>
+                                        <div className='listViewHeaderTopics'>Topics</div>
+                                        <div className='listViewHeaderDate'>Created</div>
+                                    </div>
+                                </div>
                                 {
                                     markdownFiles.map((filename) => (
                                         <DocumentListItem key={filename} documentInfo={[path.join(documentsPath, filename), removeMdExtension(filename)]}>
