@@ -3795,23 +3795,24 @@
   
   .topicListItem {
     display: inline-block;
-    height: 80px;
+    height: 48px;
     vertical-align: middle;
-    width: calc(100% - 2px);
-    border: 1px solid var(--muted-text);
-    border-radius: 16px;
-    margin-top: 20px;
-    margin-right: 2px;
+    width: 100%;
+    border-radius: 8px;
+    /* margin-top: 8px; */
     color: var(--primary-text);
     transition: 0.2s;
+    padding-left: 8px;
+    padding-right: 9px;
+    box-sizing: border-box;
   }
 
   .topicListItem:hover {
-    border: 1px solid var(--secondary-text);
+    background-color: var(--muted-text);
   }
   
   .topicListItem:nth-child(1) {
-    margin-top: 28px;
+    margin-top: 16px;
   }
   
   .topicItem {
@@ -3892,7 +3893,7 @@
   }
   
   .topicListTextContainer {
-    height: 80px;
+    height: 48px;
     display: flex;
     align-items: center;
     font-family: var(--font);
