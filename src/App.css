@@ -3792,6 +3792,33 @@
     /* margin-top: 32px; */
     text-align: left;
   }
+
+  .listViewHeaderContainer {
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: var(--secondary-text);
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .listViewHeaderRightWrapper {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .listViewHeaderTopics {
+    padding-right: 128px;
+    width: 120px;
+  }
+
+  .listViewHeaderDate {
+    width: 120px;
+    text-align: left;
+    padding-left: 24px;
+    box-sizing: border-box;
+  }
   
   .topicListItem {
     display: inline-block;
@@ -4169,10 +4196,13 @@
     overflow: hidden;
     /* float: right; */
     padding-right: 24px;
+    width: 220px;
+    text-align: left;
   }
 
   .documentDateContainer {
-
+    text-align: right;
+    width: 128px;
   }
 
   .noteTopicStatus {

@@ -152,12 +152,7 @@ const BookmarkViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                {documentGridLayout ?
-                                    displayBookmarks && displayBookmarks.map((bookmark) => (
-                                        <DocumentGridItem key={bookmark[0]} documentInfo={[bookmark[3], bookmark[1]]}>
-                                        </DocumentGridItem>
-                                    ))
-                                    :
+                                {
                                     displayBookmarks.map((bookmark) => (
                                         <DocumentListItem key={bookmark} documentInfo={[bookmark[3], bookmark[1]]}>
                                         </DocumentListItem>
