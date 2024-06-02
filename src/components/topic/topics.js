@@ -117,8 +117,8 @@ const Topics = () => {
                                 <h1 className="heroTitle">
                                     Topics
                                 </h1>
-                                <div className='noteCreationButtonContainer'>
-                                    <button className='noteCreationButton' onClick={() => setCreateTopicModalOpen(true)}>
+                                <div className='creationButtonContainer'>
+                                    <button className='creationButton' onClick={() => setCreateTopicModalOpen(true)}>
                                         <SquarePen size={20} color='var(--bg-color)' className='tocIcon'/>
                                         <span className='tocInnerText'>New Topic</span>
                                     </button>
