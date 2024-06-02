@@ -106,19 +106,20 @@ const TopicListItem = ({ tag }) => {
        />
 
       <div className='topicListTextContainer' onClick={() => navigate(`/topics/${tag}`)}>
-        <div className='topicListTextWrapper'>
+
           <div className='topicListTitle'>
             <span>{tag}</span>
           </div>
-          <div className='topicListInfo'>
-            {containedNotes.length == 1 && <span>{containedNotes.length} Note</span>}
-            {containedNotes.length > 1 && <span>{containedNotes.length} Notes</span>}
+          <div className='documentListRightWrapper'>
+            <div className='topicListInfo'>
+              {containedNotes.length == 1 && <span>{containedNotes.length} Note</span>}
+              {containedNotes.length > 1 && <span>{containedNotes.length} Notes</span>}
+            </div>
           </div>
-          <div className='topicOptionsMenuContainer' onClick={handleClick}>
+          {/* <div className='topicOptionsMenuContainer' onClick={handleClick}>
             <img src={moreDots} className='moreDots'></img>
-          </div>
+          </div> */}
         </div>
-      </div>
     </div>
   );
 };
