@@ -197,19 +197,7 @@ const Topics = () => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer'>
-                                {topicGridLayout ? 
-                                    <CreateGridTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
-                                    </CreateGridTopicButton>
-                                    : 
-                                    <CreateListTopicButton setCreateTopicModalOpen={setCreateTopicModalOpen}>
-                                    </CreateListTopicButton>
-                                }
-                                {topicGridLayout ? topics.map((tag) => (
-
-                                        <TopicGridItem tag={tag}>
-                                        </TopicGridItem>
-                                
-                                )): topics.map((tag) => (
+                                {topics.map((tag) => (
                                     <TopicListItem tag={tag}>
                                     </TopicListItem>
                                 ))}
