@@ -89,7 +89,7 @@ const TopicNoteViewer = ({ location }) => {
                         width: "100%",
                     }}>
                         <div className="dashboardGreetingContainer">
-                            <div className="topicTitleWrapper">
+                            <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     {topicId}
                                 </h1>
