@@ -91,8 +91,8 @@ html {
 
 .initialPrimaryButton {
     float: right;
-    background-color: var(--button-highlight);
-    color: var(--button-highlight-text);
+    background-color: var(--primary-text);
+    color: var(--bg-color);
     border: none;
     padding: 8px;
     font-family: var(--font);
