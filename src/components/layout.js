@@ -158,22 +158,21 @@ const Layout = ({ children }) => {
                             <Command.Empty>No results found.</Command.Empty>
 
                             <Command.Group heading="Navigation">
-                            <Command.Item onSelect={() => {navigate('/home'); setCpOpen(false)}}><Home size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText" >Dashboard</span></Command.Item>
-                            <Command.Item onSelect={() => {navigate('/documents'); setCpOpen(false)}}><BookText size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Notes</span></Command.Item>
-                            <Command.Item onSelect={() => {navigate('/topics'); setCpOpen(false)}}><Hash size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Topics</span></Command.Item>
-                            <Command.Item onSelect={() => {navigate('/bookmark'); setCpOpen(false)}}><Bookmark size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Bookmarks</span></Command.Item>
-                            <Command.Item onSelect={() => {handleSettingsModal(); setCpOpen(false)}}><Settings size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Settings</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/home'); setCpOpen(false)}}><Home size={20} className="tocIcon"/><span className="tocInnerText" >Dashboard</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/documents'); setCpOpen(false)}}><BookText size={20} className="tocIcon"/><span className="tocInnerText">Notes</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/topics'); setCpOpen(false)}}><Hash size={20} className="tocIcon"/><span className="tocInnerText">Topics</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/bookmark'); setCpOpen(false)}}><Bookmark size={20} className="tocIcon"/><span className="tocInnerText">Bookmarks</span></Command.Item>
+                            <Command.Item onSelect={() => {handleSettingsModal(); setCpOpen(false)}}><Settings size={20} className="tocIcon"/><span className="tocInnerText">Settings</span></Command.Item>
                             </Command.Group>
                             <Command.Group heading="Commands">
-                            <Command.Item onSelect={() => setDocumentCreationModalOpen(true)}><PenSquare size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Create Note</span></Command.Item>
-                            <Command.Item onSelect={() => setIsDark(true)}><Sun size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
-                            <Command.Item onSelect={() => setIsDark(false)}><Moon size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
-                            <Command.Item onSelect={() => setTocOpen(false)}><ArrowLeftFromLine size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
-                            <Command.Item onSelect={() => setTocOpen(true)}><ArrowRightFromLine size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Expand Sidebar</span></Command.Item>
+                            <Command.Item onSelect={() => setDocumentCreationModalOpen(true)}><PenSquare size={20} className="tocIcon"/><span className="tocInnerText">Create Note</span></Command.Item>
+                            <Command.Item onSelect={() => setIsDark(true)}><Sun size={20} className="tocIcon"/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
+                            <Command.Item onSelect={() => setIsDark(false)}><Moon size={20} className="tocIcon"/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
+                            <Command.Item onSelect={() => setTocOpen(false)}><ArrowLeftFromLine size={20} className="tocIcon"/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
+                            <Command.Item onSelect={() => setTocOpen(true)}><ArrowRightFromLine size={20} className="tocIcon"/><span className="tocInnerText">Expand Sidebar</span></Command.Item>
                             </Command.Group>
                         </Command.List>
                 </Command.Dialog>
-
                 <div className='childContainer' style={{
                     width: tocOpen ? "calc((100% - 240px) )" : "calc((100% - 120px))",
                     marginLeft: tocOpen ? '240px' : '120px',
