@@ -193,10 +193,17 @@ const Topics = () => {
                                 </div> */}
 
                             </div>
+                        <div className='dashboardTopicsContainer' id='topicsview'>
+                            <div className='listViewHeaderContainer'>
+                                        <div className='listViewheaderTitle'>Title</div>
+                                        <div className='listViewHeaderRightWrapper'>
+                                            <div className='listViewHeaderNumberOfNotes'>Notes</div>
+                                        </div>
+                                </div>
                         <div className="dashboardGreetingContainer">
 
                             {/* <div className='canScroll'> */}
-                            <div className='dashboardTopicsContainer'>
+                            {/* <div className='dashboardTopicsContainer'> */}
                                 {topics.map((tag) => (
                                     <TopicListItem tag={tag}>
                                     </TopicListItem>

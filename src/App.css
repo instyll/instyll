@@ -3818,6 +3818,10 @@
     padding-left: 24px;
     box-sizing: border-box;
   }
+
+  .listViewHeaderNumberOfNotes {
+    
+  }
   
   .topicListItem {
     display: inline-block;
@@ -4380,6 +4384,10 @@
     width: 100%;
     box-sizing: border-box;
     table-layout: fixed;
+  }
+
+  #topicsview {
+    box-sizing: border-box;
   }
 
   .documentListItem {
