@@ -343,8 +343,9 @@
   }
   
   .selected {
-    background-color: var(--muted-text) !important;
-    border-radius: 5px;
+    background-color: var(--primary-text) !important;
+    border-radius: 4px;
+    color: var(--bg-color);
   }
   
   .elevatedRightPanel {
@@ -2391,14 +2392,14 @@
   .tocTitleFirst.active {
     font-weight: 600;
     background-color: var(--primary-text) !important;
-    color: var(--button-highlight-text);
+    color: var(--bg-color);
     border-radius: 8px;
   }
   
   .tocTitle.active {
     font-weight: 600;
     background-color: var(--primary-text) !important;
-    color: var(--button-highlight-text);
+    color: var(--bg-color);
     border-radius: 8px;
   }
   
@@ -4792,7 +4793,8 @@
     left: 0;
     width: 200px;
     height: 360px;
-    background-color: var(--elevated-bg);
+    background-color: var(--bg-color);
+    border-right: 1px solid var(--muted-text);
   }
 
   .settingsPaneOptionsContainer {
@@ -4815,6 +4817,10 @@
 
   .settingsPaneOption:hover {
     background-color: var(--muted-text);
+  }
+
+  .settingsPaneOption.selected {
+    color: var(--bg-color);
   }
 
   .settingsOptionsTitle {
