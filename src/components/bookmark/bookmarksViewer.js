@@ -14,9 +14,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import DocumentGridItem from '../document/documentGridItem';
 import DocumentListItem from '../document/documentListItem';
 
-import layoutGrid from '../../icons/layoutGrid.png';
-import layoutList from '../../icons/layoutList.png';
-import { uuid } from 'uuidv4';
+import { ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const fs = require('fs');
 const fsp = fs.promises;
@@ -79,7 +78,6 @@ const BookmarkViewer = ({ location }) => {
                     <div className="dashboardWrapper" style={{
                         width: "100%",
                     }}>
-                         <div className="dashboardGreetingContainer">
                             <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     Bookmarks
@@ -151,20 +149,36 @@ const BookmarkViewer = ({ location }) => {
                             </div>
 
                             {/* <div className='canScroll'> */}
-                            <div className='dashboardTopicsContainer'>
-                                {
-                                    displayBookmarks.map((bookmark) => (
-                                        <DocumentListItem key={bookmark} documentInfo={[bookmark[3], bookmark[1]]}>
-                                        </DocumentListItem>
-                                    ))
-                                }
+                            <div className='dashboardTopicsContainer' id='notesview'>
+                                <div className='listViewHeaderContainer'>
+                                            <div className='listViewheaderTitle'>
+                                                <span className='tocInnerText'>Title</span>
+                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                            </div>
+                                            <div className='listViewHeaderRightWrapper'>
+                                                <div className='listViewHeaderTopics'>
+                                                    <span className='tocInnerText'>Topics</span>
+                                                    <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                                </div>
+                                                <div className='listViewHeaderDate'>
+                                                    <span className='tocInnerText'>Created</span>
+                                                    <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                                </div>
+                                            </div>
+                                    </div>
+                                <div className='dashboardGreetingContainer'>
+                                    {
+                                        displayBookmarks.map((bookmark) => (
+                                            <DocumentListItem key={bookmark} documentInfo={[bookmark[3], bookmark[1]]}>
+                                            </DocumentListItem>
+                                        ))
+                                    }
+                                </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
-            </div>
 
             {/* </Router> */}
 
