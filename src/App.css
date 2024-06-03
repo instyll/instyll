@@ -2392,14 +2392,14 @@
   .tocTitleFirst.active {
     font-weight: 600;
     background-color: var(--primary-text) !important;
-    color: var(--button-highlight-text);
+    color: var(--bg-color);
     border-radius: 8px;
   }
   
   .tocTitle.active {
     font-weight: 600;
     background-color: var(--primary-text) !important;
-    color: var(--button-highlight-text);
+    color: var(--bg-color);
     border-radius: 8px;
   }
   
