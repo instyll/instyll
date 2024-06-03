@@ -24,6 +24,8 @@ import '../../command-palette/commandPalette.css';
 
 import { PanelRight } from 'lucide-react';
 import { SquarePen } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import TopicGridItem from './topicGridItem.js';
 import TopicListItem from './topicListItem.js';
 
@@ -195,9 +197,15 @@ const Topics = () => {
                             </div>
                         <div className='dashboardTopicsContainer' id='topicsview'>
                             <div className='listViewHeaderContainer'>
-                                        <div className='listViewheaderTitle'>Title</div>
+                                        <div className='listViewheaderTitle'>
+                                            <span className='tocInnerText'>Title</span>
+                                            <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                        </div>
                                         <div className='listViewHeaderRightWrapper'>
-                                            <div className='listViewHeaderNumberOfNotes'>Notes</div>
+                                            <div className='listViewHeaderNumberOfNotes'>
+                                                <span className='tocInnerText'>Notes</span>
+                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                            </div>
                                         </div>
                                 </div>
                         <div className="dashboardGreetingContainer">
