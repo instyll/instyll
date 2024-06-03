@@ -18,6 +18,7 @@ import CreateGridDocumentButton from './createNewGridDocumentButton';
 import CreateListDocumentButton from './createNewListDocumentButton';
 import CreateDocumentModal from '../../modal/document/CreateDocumentModal';
 import { uuid } from 'uuidv4';
+import { formatDate } from '../../actions';
 
 import { SquarePen } from 'lucide-react';
 import { PanelRight } from 'lucide-react';
@@ -95,8 +96,6 @@ const DocumentViewer = ({ location }) => {
                 const files = await fsp.readdir(documentsPath);
                 const markdownFiles = files.filter(file => path.extname(file) === '.md');
                 setMarkdownFiles(markdownFiles);
-                const date = new Date();
-                const parsedDate = parseAndFormatDate(date.toString());
                 for (const markdownObject of markdownFiles) {
                     const markdownPath = path.join(documentsPath, markdownObject);
                     let documentExists = false;
@@ -109,14 +108,15 @@ const DocumentViewer = ({ location }) => {
                             break;
                         }
                     }
+                    const documentCreated = formatDate(fs.statSync(markdownPath).birthtime.toDateString());
                     // console.log("documents: " + documents)
                     if (documentsRef.current.length == 0) {
                         // if redux store is empty, then add document
-                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
+                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), documentCreated, markdownPath, []]));
                     }
                     else if (documentExists == false) {
                         // console.log("document does not exist and path is " + markdownPath)
-                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), parsedDate, markdownPath, []]));
+                        dispatch(addDocument([uuid(), removeMdExtension(markdownObject), documentCreated, markdownPath, []]));
                     }
                 }
                 // setForceUpdate(prev => !prev);

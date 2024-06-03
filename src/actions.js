@@ -73,3 +73,12 @@ export const getCharCount = (documentPath) => {
     }
     return count;
 }
+
+export const formatDate = (dateString) => {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const date = new Date(dateString);
+    const month = months[date.getMonth()];
+    const day = String(date.getDate()).padStart(2, '0');
+    const yr = date.getFullYear()
+    return `${month} ${day} ${yr}`;
+}
