@@ -21,18 +21,19 @@ import { setTheme, updateTheme } from "../themeSlice.js";
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
 import '../command-palette/commandPalette.css';
-import topicsIcon from '../icons/tag2.png'
-import dashboardIcon from '../icons/home.png'
-import notesIcon from '../icons/calendar.png'
-import zapIcon from '../icons/bolt.png'
-import bookmarksIcon from '../icons/bookmark2.png';
-import settingsIcon from '../icons/settings.png';
-// import darkIcon from '../icons/focus.png'
-import closeIcon from '../icons/doubleright.png';
-import openIcon from '../icons/doubleleft.png'
-import themeIcon from '../icons/template2.png';
-import documentIcon from '../icons/document.png';
 import { useDispatch, useSelector } from "react-redux";
+
+import { Home } from 'lucide-react';
+import { BookText } from 'lucide-react';
+import { Hash } from 'lucide-react';
+import { Bookmark } from 'lucide-react';
+import { Search } from 'lucide-react';
+import { Settings } from 'lucide-react';
+import { ArrowLeftFromLine } from "lucide-react";
+import { ArrowRightFromLine } from "lucide-react";
+import { Sun } from "lucide-react";
+import { Moon } from "lucide-react";
+import { PenSquare } from "lucide-react";
 
 const Layout = ({ children }) => {
     const lastSetTheme = useSelector((state) => state.theme.theme);
@@ -157,19 +158,18 @@ const Layout = ({ children }) => {
                             <Command.Empty>No results found.</Command.Empty>
 
                             <Command.Group heading="Navigation">
-                            <Command.Item onSelect={() => {navigate('/home'); setCpOpen(false)}}><img className="tocIcon" src={dashboardIcon}/><span className="tocInnerText" >Dashboard</span></Command.Item>
-                            <Command.Item onSelect={() => {navigate('/documents'); setCpOpen(false)}}><img className="tocIcon" src={notesIcon}/><span className="tocInnerText">Notes</span></Command.Item>
-                            <Command.Item onSelect={() => {navigate('/zap'); setCpOpen(false)}}><img className="tocIcon" src={zapIcon}/><span className="tocInnerText">Zaps</span></Command.Item>
-                            <Command.Item onSelect={() => {navigate('/topics'); setCpOpen(false)}}><img className="tocIcon" src={topicsIcon}/><span className="tocInnerText">Topics</span></Command.Item>
-                            <Command.Item onSelect={() => {navigate('/bookmark'); setCpOpen(false)}}><img className="tocIcon" src={bookmarksIcon}/><span className="tocInnerText">Bookmarks</span></Command.Item>
-                            <Command.Item onSelect={() => {handleSettingsModal(); setCpOpen(false)}}><img className="tocIcon" src={settingsIcon}/><span className="tocInnerText">Settings</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/home'); setCpOpen(false)}}><Home size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText" >Dashboard</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/documents'); setCpOpen(false)}}><BookText size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Notes</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/topics'); setCpOpen(false)}}><Hash size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Topics</span></Command.Item>
+                            <Command.Item onSelect={() => {navigate('/bookmark'); setCpOpen(false)}}><Bookmark size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Bookmarks</span></Command.Item>
+                            <Command.Item onSelect={() => {handleSettingsModal(); setCpOpen(false)}}><Settings size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Settings</span></Command.Item>
                             </Command.Group>
                             <Command.Group heading="Commands">
-                            <Command.Item onSelect={() => setDocumentCreationModalOpen(true)}><img className="tocIcon" src={documentIcon}/><span className="tocInnerText">Create Note</span></Command.Item>
-                            <Command.Item onSelect={() => setIsDark(true)}><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
-                            <Command.Item onSelect={() => setIsDark(false)}><img className="tocIcon" src={themeIcon}/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
-                            <Command.Item onSelect={() => setTocOpen(false)}><img className="tocIcon" src={openIcon}/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
-                            <Command.Item onSelect={() => setTocOpen(true)}><img className="tocIcon" src={closeIcon}/><span className="tocInnerText">Expand Sidebar</span></Command.Item>
+                            <Command.Item onSelect={() => setDocumentCreationModalOpen(true)}><PenSquare size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Create Note</span></Command.Item>
+                            <Command.Item onSelect={() => setIsDark(true)}><Sun size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Set Theme: Light</span></Command.Item>
+                            <Command.Item onSelect={() => setIsDark(false)}><Moon size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Set Theme: Dark</span></Command.Item>
+                            <Command.Item onSelect={() => setTocOpen(false)}><ArrowLeftFromLine size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Collapse Sidebar</span></Command.Item>
+                            <Command.Item onSelect={() => setTocOpen(true)}><ArrowRightFromLine size={20} color="var(--primary-text)" className="tocIcon"/><span className="tocInnerText">Expand Sidebar</span></Command.Item>
                             </Command.Group>
                         </Command.List>
                 </Command.Dialog>
