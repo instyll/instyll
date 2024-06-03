@@ -21,6 +21,8 @@ import { uuid } from 'uuidv4';
 
 import { SquarePen } from 'lucide-react';
 import { PanelRight } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const fs = require('fs');
 const fsp = fs.promises;
@@ -243,10 +245,19 @@ const DocumentViewer = ({ location }) => {
                             </div>
                             <div className='dashboardTopicsContainer' id='notesview'>
                                 <div className='listViewHeaderContainer'>
-                                        <div className='listViewheaderTitle'>Title</div>
+                                        <div className='listViewheaderTitle'>
+                                            <span className='tocInnerText'>Title</span>
+                                            <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                        </div>
                                         <div className='listViewHeaderRightWrapper'>
-                                            <div className='listViewHeaderTopics'>Topics</div>
-                                            <div className='listViewHeaderDate'>Created</div>
+                                            <div className='listViewHeaderTopics'>
+                                                <span className='tocInnerText'>Topics</span>
+                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                            </div>
+                                            <div className='listViewHeaderDate'>
+                                                <span className='tocInnerText'>Created</span>
+                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                            </div>
                                         </div>
                                 </div>
                         <div className="dashboardGreetingContainer">
