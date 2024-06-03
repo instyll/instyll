@@ -3555,7 +3555,7 @@
   }
   
   .dashboardGreetingContainer {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 50px - 34px);
     text-align: center;
     overflow: auto;
     box-sizing: border-box;
@@ -3800,7 +3800,6 @@
     padding-right: 8px;
     color: var(--secondary-text);
     margin-top: 16px;
-    margin-bottom: 8px;
   }
 
   .listViewHeaderRightWrapper {
@@ -3818,6 +3817,10 @@
     text-align: left;
     padding-left: 24px;
     box-sizing: border-box;
+  }
+
+  .listViewHeaderNumberOfNotes {
+    
   }
   
   .topicListItem {
@@ -4381,6 +4384,10 @@
     width: 100%;
     box-sizing: border-box;
     table-layout: fixed;
+  }
+
+  #topicsview {
+    box-sizing: border-box;
   }
 
   .documentListItem {
