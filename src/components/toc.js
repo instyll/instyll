@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Link, useLocation } from 'react-router-dom';
 import SettingsModal from '../modal/SettingsModal';
+import QueryModal from '../modal/QueryModal';
 
 // assets
 import { Home } from 'lucide-react';
@@ -26,6 +27,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
   // handle settings modal
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [maximized, setMaximized] = useState(false);
+  const [queryModalOpen, setQueryModalOpen] = useState(false);
 
   function handleSettingsModal(val) {
     setSettingsOpen(val);
@@ -108,6 +110,10 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       borderRight: tocOpen ? '1px solid var(--muted-text)' : 'none'
     }}>
       <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
+      <QueryModal 
+      show={queryModalOpen}
+      onHide={() => setQueryModalOpen(false)}
+      />
       <div className="tableInfo">
 
         <div className="tocBanner" style={{borderBottom: tocOpen ? 'initial' : '1px solid var(--muted-text)'}}>
@@ -166,7 +172,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         </div>}
 
         {tocOpen && <div className='tocSection' style={{marginTop: '16px'}}>
-        <p className="tocTitleFirst" style={{
+        <p className="tocTitleFirst" onClick={() => setQueryModalOpen(true)} style={{
           textAlign: tocOpen ? "left" : "center",
         }}
         >
