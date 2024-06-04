@@ -1,11 +1,12 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
 import { Link, useLocation } from 'react-router-dom';
 import SettingsModal from '../modal/SettingsModal';
 import QueryModal from '../modal/QueryModal';
+import { Command } from 'cmdk';
 
 // assets
 import { Home } from 'lucide-react';
@@ -16,13 +17,14 @@ import { Search } from 'lucide-react';
 import { Settings } from 'lucide-react';
 import { SquareTerminal } from 'lucide-react';
 import { PanelLeft } from 'lucide-react';
+import { useSelector } from 'react-redux';
 
 // const electron = window.require('electron');
 // const currentWindow = electron.remote.getCurrentWindow();
 const electronRemote = require('@electron/remote')
 
 
-function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
+function TableOfContents({handleTheme, tocOpen, handleToc, handleCp, searchRef}) {
 
   // handle settings modal
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -52,6 +54,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
   // }
 
   const location = useLocation();
+  const documents = useSelector((state) => state.documents.documents);
 
   useEffect(() => {
     const currentWindow = electronRemote.getCurrentWindow();
@@ -67,6 +70,18 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
         currentWindow.removeListener('maximize', onMaximize);
         currentWindow.removeListener('unmaximize', onUnmaximize);
     };
+  }, [])
+
+  useEffect(() => {
+    const down = (e) => {
+        if (e.key === 's' && (e.metaKey || e.ctrlKey)) {
+            e.preventDefault();
+            setQueryModalOpen((queryModalOpen) => !queryModalOpen);
+        }
+    }  
+
+    document.addEventListener('keydown', down);
+    return () => document.removeEventListener('keydown', down);
   }, [])
 
   // useEffect(() => {
@@ -91,6 +106,8 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       };
     }, []);
 
+  const containerRef = searchRef;
+
   // const bannerMap = {
   //   '#c5c5c5': banner,
   //   'rgb(41, 37, 36)': banner,
@@ -108,12 +125,9 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp}) {
       width: tocOpen ? "240px" : "120px",
       transition: "0.2s",
       borderRight: tocOpen ? '1px solid var(--muted-text)' : 'none'
-    }}>
+    }} >
       <SettingsModal show={settingsOpen} onHide={() => setSettingsOpen(false)}></SettingsModal>
-      <QueryModal 
-      show={queryModalOpen}
-      onHide={() => setQueryModalOpen(false)}
-      />
+      <QueryModal show={queryModalOpen} onOpenChange={() => setQueryModalOpen()} containerRef={containerRef}></QueryModal>
       <div className="tableInfo">
 
         <div className="tocBanner" style={{borderBottom: tocOpen ? 'initial' : '1px solid var(--muted-text)'}}>

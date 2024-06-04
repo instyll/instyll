@@ -145,7 +145,7 @@ const Layout = ({ children }) => {
                     handleToc={handleToc}
                     tocOpen={tocOpen}
                     handleCp={handleCommandPalette}
-
+                    searchRef={containerRef}
                 />
 
                 <SettingsModal show={settingsModalOpen} onHide={() => setSettingsModalOpen(false)}></SettingsModal>
