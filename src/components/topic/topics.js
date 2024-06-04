@@ -97,6 +97,14 @@ const Topics = () => {
         }
     }
 
+    const handleSortByNum = () => {
+        if (selectedOption === 'sortByNumberOfNotesAscending') {
+            setSelectedOption('sortByNumberOfNotesDescending');
+        } else {
+            setSelectedOption('sortByNumberOfNotesAscending');
+        }
+    }
+
     //sort by selected option
     useEffect(() => {
         if (selectedOption) {
@@ -105,6 +113,12 @@ const Topics = () => {
                 setTopics(sortedTopics);
                 console.log(topics)
             } else if (selectedOption === 'sortByNameDescending') {
+                const sortedTopics = [...topics].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
+                setTopics(sortedTopics);                
+            } else if (selectedOption === 'sortByNumberOfNotesAscending') {
+                const sortedTopics = [...topics].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
+                setTopics(sortedTopics);                
+            } else {
                 const sortedTopics = [...topics].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
                 setTopics(sortedTopics);                
             }
@@ -216,12 +230,11 @@ const Topics = () => {
                             <div className='listViewHeaderContainer'>
                                         <div className='listViewheaderTitle' onClick={handleSortByName}>
                                             <span className='tocInnerText'>Title</span>
-                                            <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                            {selectedOption.startsWith('sortByName') && <>{selectedOption === 'sortByNameAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}</>}
                                         </div>
                                         <div className='listViewHeaderRightWrapper'>
                                             <div className='listViewHeaderNumberOfNotes'>
                                                 <span className='tocInnerText'>Notes</span>
-                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
                                             </div>
                                         </div>
                                 </div>
