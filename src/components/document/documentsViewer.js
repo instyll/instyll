@@ -274,7 +274,7 @@ const DocumentViewer = ({ location }) => {
                                 <div className='listViewHeaderContainer'>
                                         <div className='listViewheaderTitle' onClick={handleSortByTitle}>
                                             <span className='tocInnerText'>Title</span>
-                                            {selectedOption === 'sortByNameAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}
+                                            {selectedOption.startsWith('sortByName') && <>{selectedOption === 'sortByNameAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}</>}
                                         </div>
                                         <div className='listViewHeaderRightWrapper'>
                                             <div className='listViewHeaderTopics'>
@@ -283,7 +283,7 @@ const DocumentViewer = ({ location }) => {
                                             </div>
                                             <div className='listViewHeaderDate' onClick={handleSortByDate}>
                                                 <span className='tocInnerText'>Created</span>
-                                                {selectedOption === 'sortByDateAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}
+                                                {selectedOption.startsWith('sortByDate') && <>{selectedOption === 'sortByDateAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}</>}
                                             </div>
                                         </div>
                                 </div>
