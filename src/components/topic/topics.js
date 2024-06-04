@@ -1,7 +1,7 @@
 /**
  * @author wou
  */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 // import Editor from './legacyEditor.js';
 import "allotment/dist/style.css";
 import fs from 'fs';
@@ -37,7 +37,7 @@ const Topics = () => {
     const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
     const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
     const [topicGridLayout, setTopicGridLayout] = useState(true);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState('');
     const [topics, setTopics] = useState([]);
     const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
@@ -48,6 +48,10 @@ const Topics = () => {
     useEffect(() => {
         setTopics(tags);
     }, [tags])
+
+    useEffect(() => {
+        setSelectedOption('sortByNameAscending');
+    }, [])
 
     const handleClick = async (path) => {
         const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
@@ -84,12 +88,25 @@ const Topics = () => {
         setGenAIContainerOpen(!genAIContainerOpen)
     }
 
+    // sort toggle
+    const handleSortByName = () => {
+        if (selectedOption === 'sortByNameAscending') {
+            setSelectedOption('sortByNameDescending');
+        } else {
+            setSelectedOption('sortByNameAscending');
+        }
+    }
+
     //sort by selected option
     useEffect(() => {
         if (selectedOption) {
-            if (selectedOption.value === 'sortByName') {
+            if (selectedOption === 'sortByNameAscending') {
                 const sortedTopics = [...topics].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
                 setTopics(sortedTopics);
+                console.log(topics)
+            } else if (selectedOption === 'sortByNameDescending') {
+                const sortedTopics = [...topics].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
+                setTopics(sortedTopics);                
             }
         }
     }, [selectedOption])
@@ -197,7 +214,7 @@ const Topics = () => {
                             </div>
                         <div className='dashboardTopicsContainer' id='topicsview'>
                             <div className='listViewHeaderContainer'>
-                                        <div className='listViewheaderTitle'>
+                                        <div className='listViewheaderTitle' onClick={handleSortByName}>
                                             <span className='tocInnerText'>Title</span>
                                             <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
                                         </div>
