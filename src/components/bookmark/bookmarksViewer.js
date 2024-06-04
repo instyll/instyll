@@ -22,7 +22,7 @@ const fsp = fs.promises;
 
 const BookmarkViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState('sortByNameAscending');
     const [displayBookmarks, setDisplayBookmarks] = useState([])
 
     /* Handle grid or list layout */
@@ -40,6 +40,22 @@ const BookmarkViewer = ({ location }) => {
         { value: 'sortByDate', label: 'Sort by date' },
         { value: 'sortByName', label: 'Sort by name' },
     ];
+
+    const handleSortByTitle = () => {
+        if (selectedOption === 'sortByNameAscending') {
+            setSelectedOption('sortByNameDescending');
+        } else {
+            setSelectedOption('sortByNameAscending');
+        }
+    }
+
+    const handleSortByDate = () => {
+        if (selectedOption === 'sortByDateAscending') {
+            setSelectedOption('sortByDateDescending');
+        } else {
+            setSelectedOption('sortByDateAscending');
+        }
+    }
 
     const bookmarks = useSelector((state) => state.bookmarks.bookmarks)
     console.log(bookmarks)
@@ -150,21 +166,21 @@ const BookmarkViewer = ({ location }) => {
 
                             {/* <div className='canScroll'> */}
                             <div className='dashboardTopicsContainer' id='notesview'>
-                                <div className='listViewHeaderContainer'>
-                                            <div className='listViewheaderTitle'>
-                                                <span className='tocInnerText'>Title</span>
-                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                            <div className='listViewHeaderContainer'>
+                                        <div className='listViewheaderTitle' onClick={handleSortByTitle}>
+                                            <span className='tocInnerText'>Title</span>
+                                            {selectedOption.startsWith('sortByName') && <>{selectedOption === 'sortByNameAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}</>}
+                                        </div>
+                                        <div className='listViewHeaderRightWrapper'>
+                                            <div className='listViewHeaderTopics'>
+                                                <span className='tocInnerText'>Topics</span>
+                                                {/* <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> */}
                                             </div>
-                                            <div className='listViewHeaderRightWrapper'>
-                                                <div className='listViewHeaderTopics'>
-                                                    <span className='tocInnerText'>Topics</span>
-                                                    <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
-                                                </div>
-                                                <div className='listViewHeaderDate'>
-                                                    <span className='tocInnerText'>Created</span>
-                                                    <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
-                                                </div>
+                                            <div className='listViewHeaderDate' onClick={handleSortByDate}>
+                                                <span className='tocInnerText'>Created</span>
+                                                {selectedOption.startsWith('sortByDate') && <>{selectedOption === 'sortByDateAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}</>}
                                             </div>
+                                        </div>
                                     </div>
                                 <div className='dashboardGreetingContainer'>
                                     {
