@@ -171,7 +171,7 @@ const DocumentListItem = ({ documentInfo }) => {
       <Item id="delete" onClick={() => handleRemoveDocument(selectedDocument)}>Delete</Item>
     </Menu>
       
-      <div className='documentListTextContainer' onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
+      <div className='documentListTextContainer' onContextMenu={handleContextMenu} onClick={() => navigate('/editor', { state: {documentPath: documentInfo[0], documentContent: fileContents}})}>
 
           <div className='topicListTitle'>
             <span>{documentInfo[1]}</span>
