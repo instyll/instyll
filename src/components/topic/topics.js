@@ -1,7 +1,7 @@
 /**
  * @author wou
  */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 // import Editor from './legacyEditor.js';
 import "allotment/dist/style.css";
 import fs from 'fs';
@@ -37,7 +37,7 @@ const Topics = () => {
     const [topicSettingsModalOpen, setTopicSettingsModalOpen] = useState(false);
     const [createTopicModalOpen, setCreateTopicModalOpen] = useState(false);
     const [topicGridLayout, setTopicGridLayout] = useState(true);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState('');
     const [topics, setTopics] = useState([]);
     const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
@@ -48,6 +48,10 @@ const Topics = () => {
     useEffect(() => {
         setTopics(tags);
     }, [tags])
+
+    useEffect(() => {
+        setSelectedOption('sortByNameAscending');
+    }, [])
 
     const handleClick = async (path) => {
         const fileContent = await fs.promises.readFile(notesDirectory + "" + path, 'utf-8');
@@ -84,12 +88,39 @@ const Topics = () => {
         setGenAIContainerOpen(!genAIContainerOpen)
     }
 
+    // sort toggle
+    const handleSortByName = () => {
+        if (selectedOption === 'sortByNameAscending') {
+            setSelectedOption('sortByNameDescending');
+        } else {
+            setSelectedOption('sortByNameAscending');
+        }
+    }
+
+    const handleSortByNum = () => {
+        if (selectedOption === 'sortByNumberOfNotesAscending') {
+            setSelectedOption('sortByNumberOfNotesDescending');
+        } else {
+            setSelectedOption('sortByNumberOfNotesAscending');
+        }
+    }
+
     //sort by selected option
     useEffect(() => {
         if (selectedOption) {
-            if (selectedOption.value === 'sortByName') {
+            if (selectedOption === 'sortByNameAscending') {
                 const sortedTopics = [...topics].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
                 setTopics(sortedTopics);
+                console.log(topics)
+            } else if (selectedOption === 'sortByNameDescending') {
+                const sortedTopics = [...topics].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
+                setTopics(sortedTopics);                
+            } else if (selectedOption === 'sortByNumberOfNotesAscending') {
+                const sortedTopics = [...topics].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
+                setTopics(sortedTopics);                
+            } else {
+                const sortedTopics = [...topics].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
+                setTopics(sortedTopics);                
             }
         }
     }, [selectedOption])
@@ -197,14 +228,13 @@ const Topics = () => {
                             </div>
                         <div className='dashboardTopicsContainer' id='topicsview'>
                             <div className='listViewHeaderContainer'>
-                                        <div className='listViewheaderTitle'>
+                                        <div className='listViewheaderTitle' onClick={handleSortByName}>
                                             <span className='tocInnerText'>Title</span>
-                                            <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                            {selectedOption.startsWith('sortByName') && <>{selectedOption === 'sortByNameAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}</>}
                                         </div>
                                         <div className='listViewHeaderRightWrapper'>
                                             <div className='listViewHeaderNumberOfNotes'>
                                                 <span className='tocInnerText'>Notes</span>
-                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
                                             </div>
                                         </div>
                                 </div>
