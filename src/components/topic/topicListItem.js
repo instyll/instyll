@@ -105,7 +105,7 @@ const TopicListItem = ({ tag }) => {
       handleClose={handleClose}
        />
 
-      <div className='topicListTextContainer' onClick={() => navigate(`/topics/${tag}`)}>
+      <div className='topicListTextContainer' onContextMenu={handleContextMenu} onClick={() => navigate(`/topics/${tag}`)}>
 
           <div className='topicListTitle'>
             <span>{tag}</span>
