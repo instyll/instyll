@@ -32,7 +32,7 @@ const DocumentViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
     const [markdownFiles, setMarkdownFiles] = useState([]);
     const [triggerRerender, setTriggerRerender] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState('sortByNameAscending');
     const [createDocumentModalOpen, setCreateDocumentModalOpen] = useState(false);
     const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
@@ -57,6 +57,14 @@ const DocumentViewer = ({ location }) => {
         { value: 'sortByName', label: 'Sort by name' },
     ];
 
+    const handleSortByTitle = () => {
+        if (selectedOption === 'sortByNameAscending') {
+            setSelectedOption('sortByNameDescending');
+        } else {
+            setSelectedOption('sortByNameAscending');
+        }
+    }
+
     const documents = useSelector((state) => state.documents.documents);
     // console.log("documents: " + documents)
     const handleToggleGenAIContainer = () => {
@@ -67,11 +75,15 @@ const DocumentViewer = ({ location }) => {
     // sort by selected option
     useEffect(() => {
         if (selectedOption) {
-            if (selectedOption.value === 'sortByName') {
-                // console.log(selectedOption)
+            if (selectedOption === 'sortByNameAscending') {
+                console.log(selectedOption)
                 const sortedFiles = [...markdownFiles].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
                 setMarkdownFiles(sortedFiles);
-            } else if (selectedOption.value === 'sortByDate') {
+            }
+            else if (selectedOption === 'sortByNameDescending') {
+                const sortedFiles = [...markdownFiles].sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()));
+                setMarkdownFiles(sortedFiles);
+            } else if (selectedOption === 'sortByDateAscending') {
                 // extract the date from the date string
                 const sortedFiles = [...markdownFiles].sort((a, b) => {
                     const timeA = fs.statSync(documentsPath + "/" + a).birthtime;
@@ -245,7 +257,7 @@ const DocumentViewer = ({ location }) => {
                             </div>
                             <div className='dashboardTopicsContainer' id='notesview'>
                                 <div className='listViewHeaderContainer'>
-                                        <div className='listViewheaderTitle'>
+                                        <div className='listViewheaderTitle' onClick={handleSortByTitle}>
                                             <span className='tocInnerText'>Title</span>
                                             <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
                                         </div>
@@ -256,7 +268,7 @@ const DocumentViewer = ({ location }) => {
                                             </div>
                                             <div className='listViewHeaderDate'>
                                                 <span className='tocInnerText'>Created</span>
-                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon' onClick={() => setSelectedOption('sortByDate')}/>
                                             </div>
                                         </div>
                                 </div>
