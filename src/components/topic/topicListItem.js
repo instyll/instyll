@@ -114,6 +114,7 @@ const TopicListItem = ({ tag }) => {
             <div className='topicListInfo'>
               {containedNotes.length == 1 && <span>{containedNotes.length} Note</span>}
               {containedNotes.length > 1 && <span>{containedNotes.length} Notes</span>}
+              {containedNotes.length == 0 && <span>{containedNotes.length} Notes</span>}
             </div>
           </div>
           {/* <div className='topicOptionsMenuContainer' onClick={handleClick}>
