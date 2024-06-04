@@ -259,7 +259,7 @@ const DocumentViewer = ({ location }) => {
                                 <div className='listViewHeaderContainer'>
                                         <div className='listViewheaderTitle' onClick={handleSortByTitle}>
                                             <span className='tocInnerText'>Title</span>
-                                            <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                            {selectedOption === 'sortByNameAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}
                                         </div>
                                         <div className='listViewHeaderRightWrapper'>
                                             <div className='listViewHeaderTopics'>
