@@ -65,6 +65,14 @@ const DocumentViewer = ({ location }) => {
         }
     }
 
+    const handleSortByDate = () => {
+        if (selectedOption === 'sortByDateAscending') {
+            setSelectedOption('sortByDateDescending');
+        } else {
+            setSelectedOption('sortByDateAscending');
+        }
+    }
+
     const documents = useSelector((state) => state.documents.documents);
     // console.log("documents: " + documents)
     const handleToggleGenAIContainer = () => {
@@ -89,6 +97,13 @@ const DocumentViewer = ({ location }) => {
                     const timeA = fs.statSync(documentsPath + "/" + a).birthtime;
                     const timeB = fs.statSync(documentsPath +  "/" + b).birthtime;
                     return timeA - timeB; // For ascending order
+                });
+                setMarkdownFiles(sortedFiles);
+            } else {
+                const sortedFiles = [...markdownFiles].sort((a, b) => {
+                    const timeA = fs.statSync(documentsPath + "/" + a).birthtime;
+                    const timeB = fs.statSync(documentsPath +  "/" + b).birthtime;
+                    return timeB - timeA; // For desccending order
                 });
                 setMarkdownFiles(sortedFiles);
             }
@@ -264,11 +279,11 @@ const DocumentViewer = ({ location }) => {
                                         <div className='listViewHeaderRightWrapper'>
                                             <div className='listViewHeaderTopics'>
                                                 <span className='tocInnerText'>Topics</span>
-                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/>
+                                                {/* <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> */}
                                             </div>
-                                            <div className='listViewHeaderDate'>
+                                            <div className='listViewHeaderDate' onClick={handleSortByDate}>
                                                 <span className='tocInnerText'>Created</span>
-                                                <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon' onClick={() => setSelectedOption('sortByDate')}/>
+                                                {selectedOption === 'sortByDateAscending' ? <ChevronUp size={20} color='var(--secondary-text)' className='tocIcon'/> : <ChevronDown size={20} color='var(--secondary-text)' className='tocIcon'/>}
                                             </div>
                                         </div>
                                 </div>
