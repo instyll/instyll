@@ -197,16 +197,7 @@ const EditorView = () => {
                     <div className="editingView">
                         <div className="elevatedLeft"
                             style={{
-                                width:
-                                    rightPanelSetting === "pane"
-                                        && rightPanelOpen ? "calc((var(--editor-width) / 2) - 44px)"
-                                        : tocOpen && rightPanelOpen
-                                            ? "calc((var(--editor-width)) - 360px)"
-                                            : !tocOpen && rightPanelOpen
-                                                ? "calc((var(--editor-width)) - 360px)"
-                                                : tocOpen && !rightPanelOpen
-                                                    ? "calc((var(--editor-width)) - 100px)"
-                                                    : "calc((var(--editor-width)) - 100px)",
+                                width: '100%',
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">
@@ -292,7 +283,7 @@ const EditorView = () => {
 
                             </div>
                         </div>
-
+{/* 
                         <div className="elevatedRightPanel" style={{
                             width: rightPanelOpen
                                 && rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
@@ -327,87 +318,8 @@ const EditorView = () => {
                                 </StyleContainer>
                             )}
 
-                        </div>
+                        </div> */}
 
-                        <div className="elevatedRight" style={{
-                            marginLeft: rightPanelOpen ? "20px" : "20px",
-                        }}>
-
-                            <div className="elevatedRightInner">
-                                {/* tooltips */}
-                                <Tooltip id="statTooltip" className="labelTooltip" />
-                                <Tooltip id="outlineTooltip" className="labelTooltip" />   
-                                <Tooltip id="actionTooltip" className="labelTooltip" /> 
-                                <Tooltip id="styleTooltip" className="labelTooltip" /> 
-                                <Tooltip id="paneTooltip" className="labelTooltip" />  
-
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={stats}
-                                            className={`tocIconRightFirst ${rightPanelSetting === "stats" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("stats")}
-                                            data-tooltip-id="statTooltip" data-tooltip-content="Note Info"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={outline}
-                                            className={`tocIconRight ${rightPanelSetting === "outline" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("outline")}
-                                            data-tooltip-id="outlineTooltip" data-tooltip-content="Outline"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={doc}
-                                            className={`tocIconRight ${rightPanelSetting === "info" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("info")}
-                                            data-tooltip-id="actionTooltip" data-tooltip-content="Options"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={edit}
-                                            className={`tocIconRight ${rightPanelSetting === "style" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("style")}
-                                            data-tooltip-id="styleTooltip" data-tooltip-content="Style"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={reference}
-                                            className={`tocIconRight ${rightPanelSetting === "pane" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("pane")}
-                                            data-tooltip-id="paneTooltip" data-tooltip-content="Open PDF"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div className="bottomTocRight" style={{
-                                    borderTop: dockOpen ? "1px solid var(--muted-text)" : "none",
-                                }}>
-                                    <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
-                                        onClick={handleDock}ƒ style={{
-                                            transform: dockOpen ? "none" : "rotate(180deg)",
-                                            transition: "transform 0.3s",
-                                        }}></img>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 
