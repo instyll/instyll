@@ -44,6 +44,7 @@ import outline from '../icons/outline.png';
 import plus from '../icons/plus.png';
 import reference from '../icons/reference.png';
 import stats from '../icons/stats.png';
+import { Plus } from 'lucide-react';
 
 // const { ipcRenderer } = require('electron');
 // const { getCurrentWebContents } = require('@electron/remote')
@@ -223,8 +224,7 @@ const EditorView = () => {
 
                                                 className="addTopicButton" onClick={() => setTopicModalOpen(true)}>
 
-                                                <img src={add} class="buttonIcon" draggable={false}></img>
-
+                                                <Plus size={20} className='buttonIcon'/>
                                                 <span className="buttonText">Add topic</span></button>
 
 

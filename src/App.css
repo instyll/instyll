@@ -492,6 +492,7 @@
     display: inline-block;
     text-align: left;
     transition: 0.2s;
+    max-width: 70ch;
   }
   
   .milkdown p {
@@ -503,14 +504,14 @@
   }
   
   .ProseMirror {
-    padding-left: 128px;
-    padding-right: 128px;
     /* padding-top: 5px; */
     box-sizing: border-box;
     /* background-color: var(--bg-color); */
     border-radius: 10px;
     direction: var(--milkdown-direction);
     text-align: var(--milkdown-align);
+    /* padding-left: 24rem;
+    padding-right: 24rem; */
   }
   
   .ProseMirror:focus {
@@ -1336,7 +1337,7 @@
   
   .optionsContainer {
     display: block;
-    width: 100%;
+    width: 70ch;
     height: 55px;
     padding-bottom: 5px;
     /* position: relative; */
@@ -1410,15 +1411,17 @@
   
   
   .addTopicButton {
-    background-color: transparent;
+    background-color: var(--bg-color);
     /* background-color: var(--elevated-bg); */
-    border: 1px solid var(--muted-text);
-    /* border: none; */
+    /* border: 1px solid var(--muted-text); */
+    border: none;
     border-radius: 10px;
-    color: var(--secondary-text);
+    color: var(--primary-text);
+    font-weight: 500;
     width: 110px;
     font-size: 1em;
     padding: 2px;
+    box-sizing: border-box;
     height: 36px;
     font-family: var(--font);
     transition: 0.3s;
@@ -1591,7 +1594,7 @@
   .leftComponents {
     float: left;
     text-align: left;
-    padding-left: 56px;
+    padding-left: 128px;
     vertical-align: middle;
   }
   
