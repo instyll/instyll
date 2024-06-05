@@ -301,7 +301,7 @@ const EditorView = () => {
                             width: genAIContainerOpen ? '320px' : '0px'
                         }}> 
 
-                            {rightPanelSetting === "outline" && (
+                            {/* {rightPanelSetting === "outline" && (
                                 <OutlineContainer
                                     tocHeaders={tocHeaders}
                                     rightPanelOpen={rightPanelOpen}
@@ -326,7 +326,10 @@ const EditorView = () => {
                                 <StyleContainer>
 
                                 </StyleContainer>
-                            )}
+                            )} */}
+                            <div className='elevatedRightPanelTabSelector'>
+                                
+                            </div>
 
                         </div>
                 </div>

@@ -354,12 +354,21 @@
     position: relative;
     background-color: var(--bg-color);
     box-sizing: border-box;
-    height: calc(100vh - 95px - 22px);
-    border-radius: 16px;
+    height: 100vh;
     display: inline-block;
     vertical-align: top;
     text-align: center;
     overflow: hidden;
+    border-left: 1px solid var(--muted-text);
+  }
+
+  .elevatedRightPanelTabSelector {
+    height: 48px;
+    /* box-sizing: border-box; */
+    border-bottom: 1px solid var(--muted-text);
+    width: 100%;
+    position: absolute;
+    top: 0;
   }
   
   .elevatedRightInner {
