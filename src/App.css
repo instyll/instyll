@@ -355,15 +355,11 @@
     background-color: var(--bg-color);
     box-sizing: border-box;
     height: calc(100vh - 95px - 22px);
-    width: 240px;
     border-radius: 16px;
     display: inline-block;
-    margin-left: 28px;
-    margin-top: 16px;
     vertical-align: top;
     text-align: center;
     overflow: hidden;
-    transform: translateZ(0px);
   }
   
   .elevatedRightInner {

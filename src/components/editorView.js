@@ -60,7 +60,7 @@ const EditorView = () => {
     const [selectedTags, setSelectedTags] = useState([]);
     const [addedTags, setAddedTags] = useState([]);
     const [rightPanelOpen, setRightPanelOpen] = useState(false);
-    const [rightPanelSetting, setRightPanelSetting] = useState("");
+    const [rightPanelSetting, setRightPanelSetting] = useState("outline");
     const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
     const {state} = useLocation();
@@ -295,12 +295,10 @@ const EditorView = () => {
 
                             </div>
                         </div>
-{/* 
-                        <div className="elevatedRightPanel" style={{
-                            width: rightPanelOpen
-                                && rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
-                                rightPanelOpen ? "240px" : "0px",
-                            marginLeft: rightPanelOpen ? "20px" : "0px",
+
+                    </div>
+                    <div className="elevatedRightPanel" style={{
+                            width: genAIContainerOpen ? '320px' : '0px'
                         }}> 
 
                             {rightPanelSetting === "outline" && (
@@ -330,9 +328,7 @@ const EditorView = () => {
                                 </StyleContainer>
                             )}
 
-                        </div> */}
-
-                    </div>
+                        </div>
                 </div>
 
                 {/* </Router> */}
