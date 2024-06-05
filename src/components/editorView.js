@@ -6,6 +6,7 @@ import CommandPalette from 'react-command-palette';
 import { useDispatch, useSelector } from 'react-redux';
 import Sizzle from 'sizzle';
 import fs from 'fs';
+import path from 'path';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import { addTags, removeTag } from '../documentSlice.js';
 // import moment from 'moment';
@@ -86,6 +87,8 @@ const EditorView = () => {
     const charCount = getCharCount(documentPath);
     // console.log(wordCount)
     const content = fs.readFileSync(documentPath, 'utf-8');
+
+    const noteTitle = path.basename(documentPath, '.md')
 
     const existingTags = useSelector((state) => {
         const documents = state.documents.documents;
@@ -197,7 +200,7 @@ const EditorView = () => {
                     <div className="editingView">
                     <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
-                                    {documentPath}
+                                    {noteTitle}
                                 </h1>
                          </div>
                         <div className="elevatedLeft"
