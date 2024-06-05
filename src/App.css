@@ -239,7 +239,7 @@
     flex-direction: column;
     /* background-color: var(--bg-color); */
     box-sizing: border-box;
-    height: calc(100vh);
+    height: calc(100vh - 56px);
     width: 100%;
     bottom: 0;
     border-top-left-radius: 10px;

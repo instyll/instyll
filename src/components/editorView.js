@@ -195,6 +195,11 @@ const EditorView = () => {
 
                 <div className='container'>
                     <div className="editingView">
+                    <div className="topicTitleWrapper drag">
+                                <h1 className="heroTitle">
+                                    {documentPath}
+                                </h1>
+                         </div>
                         <div className="elevatedLeft"
                             style={{
                                 width: '100%',
