@@ -244,6 +244,7 @@
     bottom: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    align-items: center;
   
     /* padding-left: 340px;
     padding-right: 340px; */
@@ -1476,7 +1477,7 @@
     padding-top: 16px;
     vertical-align: middle;
     display: inline-block;
-    padding-left: 5px;
+    /* padding-left: 5px; */
     padding-right: 5px;
   }
   
@@ -1594,7 +1595,6 @@
   .leftComponents {
     float: left;
     text-align: left;
-    padding-left: 128px;
     vertical-align: middle;
   }
   
