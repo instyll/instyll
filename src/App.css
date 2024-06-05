@@ -239,11 +239,12 @@
     flex-direction: column;
     /* background-color: var(--bg-color); */
     box-sizing: border-box;
-    height: calc(100vh);
+    height: calc(100vh - 56px);
     width: 100%;
     bottom: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    align-items: center;
   
     /* padding-left: 340px;
     padding-right: 340px; */
@@ -492,6 +493,7 @@
     display: inline-block;
     text-align: left;
     transition: 0.2s;
+    max-width: 70ch;
   }
   
   .milkdown p {
@@ -503,14 +505,14 @@
   }
   
   .ProseMirror {
-    padding-left: 32px;
-    padding-right: 32px;
     /* padding-top: 5px; */
     box-sizing: border-box;
     /* background-color: var(--bg-color); */
     border-radius: 10px;
     direction: var(--milkdown-direction);
     text-align: var(--milkdown-align);
+    /* padding-left: 24rem;
+    padding-right: 24rem; */
   }
   
   .ProseMirror:focus {
@@ -1336,9 +1338,11 @@
   
   .optionsContainer {
     display: block;
-    width: 100%;
+    width: 70ch;
     height: 55px;
     padding-bottom: 5px;
+    margin-top: 4px;
+    font-size: 1.2em;
     /* position: relative; */
     /* margin-left: auto; */
   }
@@ -1410,15 +1414,17 @@
   
   
   .addTopicButton {
-    background-color: transparent;
+    background-color: var(--bg-color);
     /* background-color: var(--elevated-bg); */
-    border: 1px solid var(--muted-text);
-    /* border: none; */
+    /* border: 1px solid var(--muted-text); */
+    border: none;
     border-radius: 10px;
-    color: var(--secondary-text);
+    color: var(--primary-text);
+    font-weight: 500;
     width: 110px;
-    font-size: 1em;
+    font-size: 16px;
     padding: 2px;
+    box-sizing: border-box;
     height: 36px;
     font-family: var(--font);
     transition: 0.3s;
@@ -1461,8 +1467,8 @@
   
   .addTopicButton:hover {
     /* filter: brightness(90%); */
-    /* background-color: var(--muted-text); */
-    border: 1px solid var(--secondary-text);
+    background-color: var(--muted-text);
+    /* border: 1px solid var(--secondary-text); */
   }
   
   .optionObject .optionsContainer {
@@ -1473,7 +1479,7 @@
     padding-top: 16px;
     vertical-align: middle;
     display: inline-block;
-    padding-left: 5px;
+    /* padding-left: 5px; */
     padding-right: 5px;
   }
   
@@ -1518,7 +1524,6 @@
   }
   
   .buttonIconSmall:hover {
-    background-color: var(--muted-text);
     border-radius: 24px;
   }
   
@@ -1591,7 +1596,6 @@
   .leftComponents {
     float: left;
     text-align: left;
-    padding-left: 27px;
     vertical-align: middle;
   }
   
@@ -3482,6 +3486,7 @@
     vertical-align: middle;
     color: var(--bg-color);
     font-family: var(--font);
+    font-size: 14px;
   }
   
   .tagsList li.selected {

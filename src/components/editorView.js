@@ -6,6 +6,7 @@ import CommandPalette from 'react-command-palette';
 import { useDispatch, useSelector } from 'react-redux';
 import Sizzle from 'sizzle';
 import fs from 'fs';
+import path from 'path';
 import sampleHeader from '../command-palette/commandPaletteHeader.js';
 import { addTags, removeTag } from '../documentSlice.js';
 // import moment from 'moment';
@@ -43,6 +44,8 @@ import outline from '../icons/outline.png';
 import plus from '../icons/plus.png';
 import reference from '../icons/reference.png';
 import stats from '../icons/stats.png';
+import { Plus } from 'lucide-react';
+import { X } from 'lucide-react';
 
 // const { ipcRenderer } = require('electron');
 // const { getCurrentWebContents } = require('@electron/remote')
@@ -86,6 +89,8 @@ const EditorView = () => {
     const charCount = getCharCount(documentPath);
     // console.log(wordCount)
     const content = fs.readFileSync(documentPath, 'utf-8');
+
+    const noteTitle = path.basename(documentPath, '.md')
 
     const existingTags = useSelector((state) => {
         const documents = state.documents.documents;
@@ -195,18 +200,14 @@ const EditorView = () => {
 
                 <div className='container'>
                     <div className="editingView">
+                    <div className="topicTitleWrapper drag">
+                                <h1 className="heroTitle">
+                                    {noteTitle}
+                                </h1>
+                         </div>
                         <div className="elevatedLeft"
                             style={{
-                                width:
-                                    rightPanelSetting === "pane"
-                                        && rightPanelOpen ? "calc((var(--editor-width) / 2) - 44px)"
-                                        : tocOpen && rightPanelOpen
-                                            ? "calc((var(--editor-width)) - 360px)"
-                                            : !tocOpen && rightPanelOpen
-                                                ? "calc((var(--editor-width)) - 360px)"
-                                                : tocOpen && !rightPanelOpen
-                                                    ? "calc((var(--editor-width)) - 100px)"
-                                                    : "calc((var(--editor-width)) - 100px)",
+                                width: '100%',
                             }}>
                             <div className="elevated">
                                 <div className="optionsContainer">
@@ -224,8 +225,7 @@ const EditorView = () => {
 
                                                 className="addTopicButton" onClick={() => setTopicModalOpen(true)}>
 
-                                                <img src={add} class="buttonIcon" draggable={false}></img>
-
+                                                <Plus size={20} className='buttonIcon'/>
                                                 <span className="buttonText">Add topic</span></button>
 
 
@@ -243,14 +243,16 @@ const EditorView = () => {
                                                     className="tagItem"
                                                 >
                                                     {tag}
-                                                    <img src={deleteX}
+                                                    {/* <img src={deleteX}
                                                         className="buttonIconSmall"
                                                         draggable={false}
                                                         onClick={
                                                             () => handleRemoveTags(tag)}
                                                         style={{
                                                             filter: "var(--editorIconFilter)",
-                                                        }}></img>
+                                                        }}></img> */}
+                                                        <X size={12} className='buttonIconSmall' onClick={
+                                                            () => handleRemoveTags(tag)}/>
                                                 </span>
                                             ))}
 
@@ -261,8 +263,7 @@ const EditorView = () => {
                                                 }}
 
                                                 className="minAddTopicButton" onClick={() => setTopicModalOpen(true)}>
-
-                                                <img src={plus} class="buttonIcon" draggable={false}></img>
+                                                <Plus size={20} className='buttonIcon' color='var(--primary-text)' />
 
                                             </button>
 
@@ -292,7 +293,7 @@ const EditorView = () => {
 
                             </div>
                         </div>
-
+{/* 
                         <div className="elevatedRightPanel" style={{
                             width: rightPanelOpen
                                 && rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
@@ -327,87 +328,8 @@ const EditorView = () => {
                                 </StyleContainer>
                             )}
 
-                        </div>
+                        </div> */}
 
-                        <div className="elevatedRight" style={{
-                            marginLeft: rightPanelOpen ? "20px" : "20px",
-                        }}>
-
-                            <div className="elevatedRightInner">
-                                {/* tooltips */}
-                                <Tooltip id="statTooltip" className="labelTooltip" />
-                                <Tooltip id="outlineTooltip" className="labelTooltip" />   
-                                <Tooltip id="actionTooltip" className="labelTooltip" /> 
-                                <Tooltip id="styleTooltip" className="labelTooltip" /> 
-                                <Tooltip id="paneTooltip" className="labelTooltip" />  
-
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={stats}
-                                            className={`tocIconRightFirst ${rightPanelSetting === "stats" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("stats")}
-                                            data-tooltip-id="statTooltip" data-tooltip-content="Note Info"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={outline}
-                                            className={`tocIconRight ${rightPanelSetting === "outline" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("outline")}
-                                            data-tooltip-id="outlineTooltip" data-tooltip-content="Outline"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={doc}
-                                            className={`tocIconRight ${rightPanelSetting === "info" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("info")}
-                                            data-tooltip-id="actionTooltip" data-tooltip-content="Options"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={edit}
-                                            className={`tocIconRight ${rightPanelSetting === "style" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("style")}
-                                            data-tooltip-id="styleTooltip" data-tooltip-content="Style"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div>
-                                    {dockOpen && (
-                                        <img
-                                            src={reference}
-                                            className={`tocIconRight ${rightPanelSetting === "pane" && rightPanelOpen ? "selected" : ""}`}
-                                            draggable={false}
-                                            onClick={() => handleRightPanel("pane")}
-                                            data-tooltip-id="paneTooltip" data-tooltip-content="Open PDF"
-                                        ></img>
-                                    )}
-                                </div>
-                                <div className="bottomTocRight" style={{
-                                    borderTop: dockOpen ? "1px solid var(--muted-text)" : "none",
-                                }}>
-                                    <img src={doubleRight} className="tocIconRightLast" id="closeDock" draggable={false}
-                                        onClick={handleDock}ƒ style={{
-                                            transform: dockOpen ? "none" : "rotate(180deg)",
-                                            transition: "transform 0.3s",
-                                        }}></img>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 
