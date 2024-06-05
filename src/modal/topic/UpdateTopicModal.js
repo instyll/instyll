@@ -60,7 +60,6 @@ const UpdateTopicModal = ({ show, onHide, selectedTag, handleClose }) => {
                 overlay: {
                     backgroundColor: "rgba(0, 0, 0, 0.1)",
                     zIndex: "999",
-                    backdropFilter: "blur(8px)",
                 },
                 content: {
                     backgroundColor: "var(--elevated-bg)",

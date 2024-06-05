@@ -125,7 +125,6 @@ const SettingsModal = ({ show, onHide }) => {
         overlay: {
           backgroundColor: "rgba(0, 0, 0, 0.1)",
           zIndex: "999",
-          backdropFilter: "blur(10px)",
         },
         content: {
           backgroundColor: "var(--bg-color)",
