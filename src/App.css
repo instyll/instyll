@@ -1343,7 +1343,7 @@
     height: 55px;
     padding-bottom: 5px;
     margin-top: 4px;
-    font-size: 1.2em;
+    font-size: var(--font-size);
     /* position: relative; */
     /* margin-left: auto; */
   }
