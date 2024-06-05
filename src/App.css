@@ -3293,9 +3293,9 @@
     font-family: var(--font);
     padding: 5px 5px 5px 5px;
     font-size: 1em;
-    background-color: var(--button-highlight);
+    background-color: var(--primary-text);
     border: none;
-    color: var(--button-highlight-text);
+    color: var(--bg-color);
     border-radius: 5px;
     width: 100px;
     margin-right: 5px;
@@ -3463,7 +3463,7 @@
     padding-bottom: 5px;
     border: 1px solid var(--muted-text);
     text-align: center;
-    border-radius: 10px;
+    border-radius: 4px;
     margin-right: 10px;
     margin-bottom: 10px;
     user-select: none;
@@ -3491,9 +3491,9 @@
   }
   
   .tagsList li.selected {
-    background-color: var(--button-highlight) !important;
-    color: var(--button-highlight-text);
-    border: 1px solid var(--button-highlight);
+    background-color: var(--primary-text) !important;
+    color: var(--bg-color);
+    border: 1px solid var(--primary-text);
   }
   
   .topicCreationInput {
