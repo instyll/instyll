@@ -35,17 +35,9 @@ import { MilkdownEditor } from '../mdWrapper.js';
 
 
 // Assets
-import add from '../icons/add_component2.png';
-import deleteX from '../icons/delete.png';
-import doc from '../icons/document.png';
-import doubleRight from '../icons/doubleright.png';
-import edit from '../icons/edit.png';
-import outline from '../icons/outline.png';
-import plus from '../icons/plus.png';
-import reference from '../icons/reference.png';
-import stats from '../icons/stats.png';
 import { Plus } from 'lucide-react';
 import { X } from 'lucide-react';
+import { PanelRight } from 'lucide-react';
 
 // const { ipcRenderer } = require('electron');
 // const { getCurrentWebContents } = require('@electron/remote')
@@ -69,6 +61,7 @@ const EditorView = () => {
     const [addedTags, setAddedTags] = useState([]);
     const [rightPanelOpen, setRightPanelOpen] = useState(false);
     const [rightPanelSetting, setRightPanelSetting] = useState("");
+    const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
     const {state} = useLocation();
     const location = useLocation();
@@ -122,6 +115,10 @@ const EditorView = () => {
         });
     
         setRightPanelSetting(setting);
+    }
+
+    const handleToggleGenAIContainer = () => {
+        setGenAIContainerOpen(!genAIContainerOpen)
     }
 
     // Get headers for sidebar outline
@@ -199,11 +196,16 @@ const EditorView = () => {
                 {/* <Router> */}
 
                 <div className='container'>
-                    <div className="editingView">
+                    <div className="editingView" style={{width: genAIContainerOpen ? 'calc(100% - 320px)' : '100%'}}>
                     <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     {noteTitle}
                                 </h1>
+                                <div className='genAIInteractionToggleContainer'>
+                                    <button className='tocToggleButton' onClick={handleToggleGenAIContainer}>
+                                        <div><PanelRight size={20} color='var(--primary-text)' className='tocToggle'/></div>
+                                    </button>
+                                </div>
                          </div>
                         <div className="elevatedLeft"
                             style={{
