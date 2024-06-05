@@ -209,6 +209,7 @@
   .editingView {
     width: 100%;
     display: inline-block;
+    transition: 0.2s;
   }
 
   .labelTooltip {
