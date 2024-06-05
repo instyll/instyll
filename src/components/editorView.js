@@ -45,6 +45,7 @@ import plus from '../icons/plus.png';
 import reference from '../icons/reference.png';
 import stats from '../icons/stats.png';
 import { Plus } from 'lucide-react';
+import { X } from 'lucide-react';
 
 // const { ipcRenderer } = require('electron');
 // const { getCurrentWebContents } = require('@electron/remote')
@@ -242,14 +243,16 @@ const EditorView = () => {
                                                     className="tagItem"
                                                 >
                                                     {tag}
-                                                    <img src={deleteX}
+                                                    {/* <img src={deleteX}
                                                         className="buttonIconSmall"
                                                         draggable={false}
                                                         onClick={
                                                             () => handleRemoveTags(tag)}
                                                         style={{
                                                             filter: "var(--editorIconFilter)",
-                                                        }}></img>
+                                                        }}></img> */}
+                                                        <X size={12} className='buttonIconSmall' onClick={
+                                                            () => handleRemoveTags(tag)}/>
                                                 </span>
                                             ))}
 

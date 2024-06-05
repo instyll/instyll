@@ -1341,6 +1341,8 @@
     width: 70ch;
     height: 55px;
     padding-bottom: 5px;
+    margin-top: 4px;
+    font-size: 1.2em;
     /* position: relative; */
     /* margin-left: auto; */
   }
@@ -1420,7 +1422,7 @@
     color: var(--primary-text);
     font-weight: 500;
     width: 110px;
-    font-size: 1em;
+    font-size: 16px;
     padding: 2px;
     box-sizing: border-box;
     height: 36px;
@@ -1465,8 +1467,8 @@
   
   .addTopicButton:hover {
     /* filter: brightness(90%); */
-    /* background-color: var(--muted-text); */
-    border: 1px solid var(--secondary-text);
+    background-color: var(--muted-text);
+    /* border: 1px solid var(--secondary-text); */
   }
   
   .optionObject .optionsContainer {
@@ -1522,7 +1524,6 @@
   }
   
   .buttonIconSmall:hover {
-    background-color: var(--muted-text);
     border-radius: 24px;
   }
   
@@ -3485,6 +3486,7 @@
     vertical-align: middle;
     color: var(--bg-color);
     font-family: var(--font);
+    font-size: 16px;
   }
   
   .tagsList li.selected {
