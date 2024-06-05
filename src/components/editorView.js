@@ -38,6 +38,12 @@ import { MilkdownEditor } from '../mdWrapper.js';
 import { Plus } from 'lucide-react';
 import { X } from 'lucide-react';
 import { PanelRight } from 'lucide-react';
+import { AlignJustify } from 'lucide-react';
+import { Info } from 'lucide-react';
+import { File } from 'lucide-react';
+import { Pen } from 'lucide-react';
+import { Columns2 } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 // const { ipcRenderer } = require('electron');
 // const { getCurrentWebContents } = require('@electron/remote')
@@ -60,7 +66,7 @@ const EditorView = () => {
     const [selectedTags, setSelectedTags] = useState([]);
     const [addedTags, setAddedTags] = useState([]);
     const [rightPanelOpen, setRightPanelOpen] = useState(false);
-    const [rightPanelSetting, setRightPanelSetting] = useState("");
+    const [rightPanelSetting, setRightPanelSetting] = useState("outline");
     const [genAIContainerOpen, setGenAIContainerOpen] = useState(false);
 
     const {state} = useLocation();
@@ -295,15 +301,13 @@ const EditorView = () => {
 
                             </div>
                         </div>
-{/* 
-                        <div className="elevatedRightPanel" style={{
-                            width: rightPanelOpen
-                                && rightPanelSetting === "pane" ? "calc((100% / 2) - 76px)" :
-                                rightPanelOpen ? "240px" : "0px",
-                            marginLeft: rightPanelOpen ? "20px" : "0px",
+
+                    </div>
+                    <div className="elevatedRightPanel" style={{
+                            width: genAIContainerOpen ? '320px' : '0px'
                         }}> 
 
-                            {rightPanelSetting === "outline" && (
+                            {/* {rightPanelSetting === "outline" && (
                                 <OutlineContainer
                                     tocHeaders={tocHeaders}
                                     rightPanelOpen={rightPanelOpen}
@@ -328,11 +332,19 @@ const EditorView = () => {
                                 <StyleContainer>
 
                                 </StyleContainer>
-                            )}
+                            )} */}
+                            <div className='elevatedRightPanelTabSelector'>
+                                <div className='elevatedRightPanelTabWrapper'>
+                                    <div className='elevatedRightPanelTab'><Info size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><AlignJustify size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><File size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><Pen size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><Columns2 size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><Sparkles size={20}/></div>
+                                </div>
+                            </div>
 
-                        </div> */}
-
-                    </div>
+                        </div>
                 </div>
 
                 {/* </Router> */}

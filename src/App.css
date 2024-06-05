@@ -354,16 +354,36 @@
     position: relative;
     background-color: var(--bg-color);
     box-sizing: border-box;
-    height: calc(100vh - 95px - 22px);
-    width: 240px;
-    border-radius: 16px;
+    height: 100vh;
     display: inline-block;
-    margin-left: 28px;
-    margin-top: 16px;
     vertical-align: top;
     text-align: center;
     overflow: hidden;
-    transform: translateZ(0px);
+    border-left: 1px solid var(--muted-text);
+  }
+
+  .elevatedRightPanelTabSelector {
+    height: 48px;
+    /* box-sizing: border-box; */
+    border-bottom: 1px solid var(--muted-text);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--primary-text);
+  }
+
+  .elevatedRightPanelTab {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    /* background-color: var(--muted-text); */
+    margin-left: 8px;
+    margin-right: 8px;
+    box-sizing: border-box;
   }
   
   .elevatedRightInner {
