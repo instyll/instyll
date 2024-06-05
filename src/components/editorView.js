@@ -263,8 +263,7 @@ const EditorView = () => {
                                                 }}
 
                                                 className="minAddTopicButton" onClick={() => setTopicModalOpen(true)}>
-
-                                                <img src={plus} class="buttonIcon" draggable={false}></img>
+                                                <Plus size={20} className='buttonIcon' color='var(--primary-text)' />
 
                                             </button>
 
