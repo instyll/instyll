@@ -18,8 +18,7 @@ import 'react-calendar/dist/Calendar.css';
 import '../../command-palette/commandPalette.css';
 
 import { useParams } from 'react-router-dom';
-import layoutGrid from '../../icons/layoutGrid.png';
-import layoutList from '../../icons/layoutList.png';
+import { ChevronRight } from 'lucide-react';
 
 const TopicNoteViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);
@@ -91,7 +90,7 @@ const TopicNoteViewer = ({ location }) => {
                         <div className="dashboardGreetingContainer">
                             <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
-                                    {topicId}
+                                    Topics <ChevronRight size={20} color='var(--secondary-text)' style={{verticalAlign: 'text-bottom'}}/> {topicId}
                                 </h1>
                                 {/* <div className='changeTopicViewButtonContainer'>
                                     <button className={documentGridLayout ? `changeTopicViewButton selected` : `changeTopicViewButton`}
