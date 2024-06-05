@@ -59,7 +59,7 @@ const DocumentModal = ({ show, onHide }) => {
             overlay: {
                 backgroundColor: "rgba(0, 0, 0, 0.1)",
                 zIndex: "999",
-                backdropFilter: "blur(8px)",
+                // backdropFilter: "blur(8px)",
             },
             content: {
                 backgroundColor: "var(--elevated-bg)",

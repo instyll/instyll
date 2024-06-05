@@ -45,7 +45,6 @@ const CreateTopicModal = ({ show, onHide, tocOpen, selectedTags, onSelectTags, o
                 overlay: {
                     backgroundColor: "rgba(0, 0, 0, 0.1)",
                     zIndex: "999",
-                    backdropFilter: "blur(8px)",
                 },
                 content: {
                     backgroundColor: "var(--elevated-bg)",
