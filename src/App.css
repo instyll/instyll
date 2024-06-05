@@ -503,8 +503,8 @@
   }
   
   .ProseMirror {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 64px;
+    padding-right: 64px;
     /* padding-top: 5px; */
     box-sizing: border-box;
     /* background-color: var(--bg-color); */
@@ -1591,7 +1591,7 @@
   .leftComponents {
     float: left;
     text-align: left;
-    padding-left: 27px;
+    padding-left: 56px;
     vertical-align: middle;
   }
   
