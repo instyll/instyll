@@ -38,6 +38,12 @@ import { MilkdownEditor } from '../mdWrapper.js';
 import { Plus } from 'lucide-react';
 import { X } from 'lucide-react';
 import { PanelRight } from 'lucide-react';
+import { AlignJustify } from 'lucide-react';
+import { Info } from 'lucide-react';
+import { File } from 'lucide-react';
+import { Pen } from 'lucide-react';
+import { Columns2 } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 // const { ipcRenderer } = require('electron');
 // const { getCurrentWebContents } = require('@electron/remote')
@@ -328,7 +334,14 @@ const EditorView = () => {
                                 </StyleContainer>
                             )} */}
                             <div className='elevatedRightPanelTabSelector'>
-                                
+                                <div className='elevatedRightPanelTabWrapper'>
+                                    <div className='elevatedRightPanelTab'><Info size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><AlignJustify size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><File size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><Pen size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><Columns2 size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><Sparkles size={20}/></div>
+                                </div>
                             </div>
 
                         </div>

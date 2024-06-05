@@ -369,6 +369,21 @@
     width: 100%;
     position: absolute;
     top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--primary-text);
+  }
+
+  .elevatedRightPanelTab {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    /* background-color: var(--muted-text); */
+    margin-left: 8px;
+    margin-right: 8px;
+    box-sizing: border-box;
   }
   
   .elevatedRightInner {
