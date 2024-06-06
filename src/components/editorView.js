@@ -304,7 +304,7 @@ const EditorView = () => {
 
                     </div>
                     <div className="elevatedRightPanel" style={{
-                            width: genAIContainerOpen ? '320px' : '0px',
+                            // width: genAIContainerOpen ? '320px' : '0px',
                             display: genAIContainerOpen ? 'inline-block' : 'none'
                         }}> 
 

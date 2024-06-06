@@ -360,6 +360,9 @@
     text-align: center;
     overflow: hidden;
     border-left: 1px solid var(--muted-text);
+    width: 320px;
+    transition: 0.3s;
+    z-index: -1;
   }
 
   .elevatedRightPanelTabSelector {
@@ -515,6 +518,18 @@
     text-align: left;
     transition: 0.2s;
     width: 70ch;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .milkdown {
+      width: 50ch;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .milkdown {
+      width: 40ch;
+    }
   }
   
   .milkdown p {
@@ -1366,6 +1381,18 @@
     font-size: var(--font-size);
     /* position: relative; */
     /* margin-left: auto; */
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .optionsContainer {
+      width: 50ch;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .optionsContainer {
+      width: 40ch;
+    }
   }
   
   .moreDots {
