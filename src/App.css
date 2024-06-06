@@ -671,8 +671,8 @@
   }
   
   .nodeViewSubmitButton {
-    background-color: var(--button-highlight);
-    color: var(--button-highlight-text);
+    background-color: var(--primary-text);
+    color: var(--bg-color);
     font-size: 15px;
     border: none;
     border-radius: 5px;
