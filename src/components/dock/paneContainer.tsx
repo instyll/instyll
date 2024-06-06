@@ -4,8 +4,8 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 
 import '../../App.css';
-import back from '../../icons/back.png';
-import forward from '../../icons/forward.png';
+import { ChevronLeft } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 
 const options = {
@@ -76,7 +76,7 @@ export default function Sample() {
         <div className={`pdfNavContainer ${pageNumber <= 1 ? "disabled" : ""}`}
         onClick={previousPage}>
           <div className='pdfNavWrapper'>
-          <img src={back} className='buttonIcon'></img>
+          <ChevronLeft size={20} className='buttonIcon'/>
           </div>
         </div>
 
@@ -92,7 +92,7 @@ export default function Sample() {
         <div className={`pdfNavContainer ${pageNumber >= numPages ? "disabled" : ""}`}
         onClick={nextPage}>
           <div className='pdfNavWrapper'>
-          <img src={forward} className='buttonIcon'></img>
+          <ChevronRight size={20} className='buttonIcon'/>
           </div>
         </div>
 

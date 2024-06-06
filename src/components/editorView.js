@@ -202,7 +202,7 @@ const EditorView = () => {
                 {/* <Router> */}
 
                 <div className='container'>
-                    <div className="editingView" style={{width: genAIContainerOpen ? 'calc(100% - 320px)' : '100%'}}>
+                    <div className="editingView" style={{width: genAIContainerOpen && rightPanelSetting !== 'pane' ? 'calc(100% - 320px)' : genAIContainerOpen && rightPanelSetting === 'pane' ? 'calc(100% - 480px)' : '100%'}}>
                     <div className="topicTitleWrapper drag">
                                 <h1 className="heroTitle">
                                     {noteTitle}
@@ -304,7 +304,7 @@ const EditorView = () => {
 
                     </div>
                     <div className="elevatedRightPanel" style={{
-                            // width: genAIContainerOpen ? '320px' : '0px',
+                            width: genAIContainerOpen && rightPanelSetting !== 'pane' ? '320px' : genAIContainerOpen && rightPanelSetting === 'pane' ? '480px' : '0px',
                             display: genAIContainerOpen ? 'inline-block' : 'none'
                         }}> 
                         <div className='elevatedRightPanelTabSelector'>
