@@ -18,8 +18,8 @@ import { CompletionContext, completeFromList, autocompletion } from "@codemirror
 import options from '../../legacy/TeXOptions';
 
 
-import preview from '../../icons/preview.png';
-import editBlock from '../../icons/editBlock.png';
+import { Eye } from "lucide-react";
+import { PenSquare } from "lucide-react";
 
 export const MathBlock: FC = () => {
     const { node, setAttrs, selected } = useNodeViewContext();
@@ -96,7 +96,7 @@ export const MathBlock: FC = () => {
                             ].join(" ")}
                             data-tooltip-id="previewTooltip" data-tooltip-content="Preview"
                         >
-                            <img src={preview} className="buttonIcon"></img>
+                            <Eye size={16} className="buttonIcon"/>
                         </Tabs.Trigger>
                         <Tabs.Trigger
                             value="source"
@@ -106,7 +106,7 @@ export const MathBlock: FC = () => {
                             ].join(" ")}
                             data-tooltip-id="editTooltip" data-tooltip-content="Edit"
                         >
-                            <img src={editBlock} className="buttonIcon"></img>
+                            <PenSquare size={16} className="buttonIcon"/>
                         </Tabs.Trigger>
                     </div>
                 </Tabs.List>
