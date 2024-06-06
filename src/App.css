@@ -3137,6 +3137,7 @@
   
   .pdfNavWrapper {
     height: 19px;
+    color: var(--primary-text);
   }
   
   .pdfNavWrapper .buttonIcon {
