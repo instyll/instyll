@@ -3026,13 +3026,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -24px;
     padding: 10px;
     overflow: auto;
     position: absolute;
     height: 100%;
     width: calc(100% - 20px);
-    z-index: -1;
+    margin-top: 48px;
+    z-index: 2;
   }
   
   .Example__container__load {
@@ -3072,9 +3072,9 @@
     width: calc(100% - 40px);
     text-align: right;
     padding-bottom: 5px;
-    padding-top: 24px;
+    margin-top: 48px;
+    padding-top: 16px;
     z-index: 999 !important;
-    background-color: var(--elevated-bg);
   }
   
   .pdfCurrentPage {
@@ -3084,7 +3084,7 @@
   .pdfCurrentPageContainer {
     font-family: var(--font);
     /* border: 1px solid var(--muted-text); */
-    background-color: var(--bg-color);
+    background-color: var(--muted-text);
     width: 45px;
     border-radius: 5px;
     color: var(--primary-text);
