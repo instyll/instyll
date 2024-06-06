@@ -3051,7 +3051,7 @@
   }
   
   .Example__container__document .react-pdf__Page {
-    max-width: calc(100% - 2em);
+    max-width: calc(100%);
     /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); */
     /* border: 1px solid var(--muted-text); */
     margin: 1em;
