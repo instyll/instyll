@@ -523,7 +523,7 @@
     /* line-height: 1.4em; */
     white-space: pre-wrap;
     color: var(--primary-text-d);
-    width: var(--milkdown-width);
+    /* width: var(--milkdown-width); */
     box-sizing: border-box;
     bottom: 0;
     display: inline-block;
@@ -532,13 +532,19 @@
     width: 70ch;
   }
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1380px) {
+    .milkdown {
+      width: 60ch;
+    }
+  }
+
+  @media only screen and (max-width: 1240px) {
     .milkdown {
       width: 50ch;
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1100px) {
     .milkdown {
       width: 40ch;
     }
@@ -1395,18 +1401,24 @@
     /* margin-left: auto; */
   }
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1380px) {
+    .optionsContainer {
+      width: 60ch;
+    }
+  }
+
+  @media only screen and (max-width: 1240px) {
     .optionsContainer {
       width: 50ch;
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1100px) {
     .optionsContainer {
       width: 40ch;
     }
   }
-  
+
   .moreDots {
     height: auto;
     width: 24px;
