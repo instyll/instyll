@@ -79,20 +79,20 @@ function PageActionContainer({ rightPanelOpen, documentPath, documentRef}) {
           <div className='pageActionContainer'>
             <p className="paneTitle">Note Options</p>
                 <div onClick={exportPDF}>
-                <PageActionItem title={`Export to PDF`} icon={pdfIcon}></PageActionItem>
+                <PageActionItem title={`Export to PDF`} icon={1}></PageActionItem>
                 </div>
                 {/* <PageActionItem title={`Export to LaTeX`} icon={mathIcon}></PageActionItem>
                 <PageActionItem title={`Push to Git`} icon={gitIcon}></PageActionItem> */}
             
                 <p className="paneTitle">Actions</p>
                 <div onClick={() => setUpdateDocumentModalOpen(true)}>
-                <PageActionItem title={`Rename`} icon={renameIcon}></PageActionItem>
+                <PageActionItem title={`Rename`} icon={2}></PageActionItem>
                 </div>
                 <div onClick={() => handleBookmarkDocument()}>
-                <PageActionItem title={`Bookmark`} icon={bookmarkIcon}></PageActionItem> 
+                <PageActionItem title={`Bookmark`} icon={3}></PageActionItem> 
                 </div>
                 <div onClick={handleDeleteDocument}>
-                <PageActionItem title={`Delete`} icon={deleteIcon}></PageActionItem>            
+                <PageActionItem title={`Delete`} icon={4}></PageActionItem>            
                 </div>
             </div>
         </div>
