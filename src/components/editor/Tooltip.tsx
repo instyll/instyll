@@ -19,15 +19,15 @@ import { usePluginViewContext } from "@prosemirror-adapter/react"
 import { useCallback, useEffect, useRef } from "react"
 import { callCommand } from "@milkdown/utils"
 
-import header1 from '../../icons/header1.png';
-import header2 from '../../icons/header2.png';
-import header3 from '../../icons/header3.png';
-import boldIcon from '../../icons/bold.png';
-import italicIcon from '../../icons/italic.png';
-import listUnordered from '../../icons/listUnordered.png';
-import listOrdered from '../../icons/listOrdered.png';
-import strikethrough from '../../icons/strikethrough.png';
-import blockquote from '../../icons/bquote.png';
+import { Heading1 } from "lucide-react";
+import { Heading2 } from "lucide-react";
+import { Heading3 } from "lucide-react";
+import { Bold } from "lucide-react";
+import { Italic } from "lucide-react";
+import { List } from "lucide-react";
+import { ListOrdered } from "lucide-react";
+import { Strikethrough } from "lucide-react";
+import { Quote } from "lucide-react";
 
 export const tooltip = tooltipFactory('Text');
 
@@ -73,7 +73,8 @@ export const TooltipView = () => {
                             action(callCommand(wrapInHeadingCommand.key, 1))
                         }}
                     >
-                        <img src={header1} className='tooltipIcon'></img>
+                        {/* <img src={header1} className='tooltipIcon'></img> */}
+                        <Heading1 size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -84,7 +85,7 @@ export const TooltipView = () => {
                             action(callCommand(wrapInHeadingCommand.key, 2))
                         }}
                     >
-                        <img src={header2} className='tooltipIcon'></img>
+                        <Heading2 size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -95,7 +96,7 @@ export const TooltipView = () => {
                             action(callCommand(wrapInHeadingCommand.key, 3))
                         }}
                     >
-                        <img src={header3} className='tooltipIcon'></img>
+                        <Heading3 size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -106,7 +107,7 @@ export const TooltipView = () => {
                             action(callCommand(toggleStrongCommand.key))
                         }}
                     >
-                        <img src={boldIcon} className='tooltipIcon'></img>
+                        <Bold size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -117,7 +118,7 @@ export const TooltipView = () => {
                             action(callCommand(toggleEmphasisCommand.key))
                         }}
                     >
-                        <img src={italicIcon} className='tooltipIcon'></img>
+                        <Italic size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -128,7 +129,7 @@ export const TooltipView = () => {
                             action(callCommand(wrapInBulletListCommand.key))
                         }}
                     >
-                        <img src={listUnordered} className='tooltipIcon'></img>
+                        <List size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -139,7 +140,7 @@ export const TooltipView = () => {
                             action(callCommand(wrapInOrderedListCommand.key))
                         }}
                     >
-                        <img src={listOrdered} className='tooltipIcon'></img>
+                        <ListOrdered size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -150,7 +151,7 @@ export const TooltipView = () => {
                             action(callCommand(toggleStrikethroughCommand.key))
                         }}
                     >
-                        <img src={strikethrough} className='tooltipIcon'></img>
+                        <Strikethrough size={16} className="tooltipIcon"/>
                     </button>
                     <button
                         className="tooltipItem"
@@ -161,7 +162,7 @@ export const TooltipView = () => {
                             action(callCommand(wrapInBlockquoteCommand.key))
                         }}
                     >
-                        <img src={blockquote} className='tooltipIcon'></img>
+                        <Quote size={16} className="tooltipIcon"/>
                     </button>
                 </div>
             </div>
