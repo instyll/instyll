@@ -360,7 +360,7 @@
     text-align: center;
     overflow: hidden;
     border-left: 1px solid var(--muted-text);
-    width: 320px;
+    /* width: 320px; */
     transition: 0.3s;
   }
 
