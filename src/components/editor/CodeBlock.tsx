@@ -16,8 +16,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Tooltip } from "react-tooltip";
 
-import copy from '../../icons/copy.png';
-import download from '../../icons/download.png';
+import { Copy } from "lucide-react";
+import { Download } from "lucide-react";
 
 /* define options for react-select */
 const langOptions = [
@@ -169,14 +169,14 @@ export const CodeBlock: FC = () => {
             onClick={handleCopy}
             data-tooltip-id="copyButtonTooltip" data-tooltip-content="Copy"
           >
-            <img src={copy} className="buttonIcon"></img>
+            <Copy size={16} className="buttonIcon"/>
           </button>
           <button
             className="nodeViewCodeBlockDownloadButton"
             onClick={handleDownload}
             data-tooltip-id="downloadButtonTooltip" data-tooltip-content="Download"
           >
-            <img src={download} className="buttonIcon"></img>
+            <Download size={16} className="buttonIcon"/>
           </button>
         </div>
       </div>
