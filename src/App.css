@@ -396,6 +396,10 @@
   .elevatedRightPanelTab:hover {
     background-color: var(--muted-text);
   }
+
+  .elevatedRightPanelTab.active {
+    background-color: var(--muted-text);
+  }
   
   .elevatedRightInner {
     color: var(--primary-text);
