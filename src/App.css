@@ -2673,12 +2673,13 @@
   }
 
   .pageActionContainer {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-bottom: 20px;
     /* padding-top: 24px; */
     overflow: auto;
     overflow-wrap: break-word;
+    margin-top: 48px;
   }
 
   .pageActionItem {
@@ -2709,12 +2710,13 @@
 
   
   .statContainer {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-bottom: 20px;
     /* padding-top: 24px; */
     overflow: auto;
     overflow-wrap: break-word;
+    margin-top: 48px;
   }
 
   .statItemWrapper {
@@ -2740,8 +2742,8 @@
   }
   
   .outlineContainer {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-bottom: 20px;
     /* padding-top: 24px; */
     /* overflow: auto; */
@@ -2749,6 +2751,7 @@
     height: 100vh;
     overflow-y: scroll;
     overflow-wrap: break-word;
+    margin-top: 48px;
   }
 
   .outlineWrapper {
@@ -2777,12 +2780,13 @@
   }
 
   .styleContainer {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-bottom: 20px;
     /* padding-top: 24px; */
     overflow: auto;
     overflow-wrap: break-word;
+    margin-top: 48px;
   }
 
   .styleTitleOptionsContainer {

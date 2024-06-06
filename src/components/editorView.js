@@ -307,8 +307,19 @@ const EditorView = () => {
                             // width: genAIContainerOpen ? '320px' : '0px',
                             display: genAIContainerOpen ? 'inline-block' : 'none'
                         }}> 
+                        <div className='elevatedRightPanelTabSelector'>
+                                <div className='elevatedRightPanelTabWrapper'>
+                                    <div className='elevatedRightPanelTab'><Info size={20} className='tabIcon' onClick={() => setRightPanelSetting('stats')}/></div>
+                                    <div className='elevatedRightPanelTab'><AlignJustify size={20} className='tabIcon' onClick={() => setRightPanelSetting('outline')}/></div>
+                                    <div className='elevatedRightPanelTab'><File size={20} className='tabIcon' onClick={() => setRightPanelSetting('info')}/></div>
+                                    <div className='elevatedRightPanelTab'><Pen size={20} className='tabIcon' onClick={() => setRightPanelSetting('style')}/></div>
+                                    <div className='elevatedRightPanelTab'><Columns2 size={20} className='tabIcon' onClick={() => setRightPanelSetting('pane')}/></div>
+                                    <div className='elevatedRightPanelTab'><Sparkles size={20} className='tabIcon' onClick={() => setRightPanelSetting('genai')}/></div>
+                                </div>
+                            </div>
 
-                            {/* {rightPanelSetting === "outline" && (
+
+                            {rightPanelSetting === "outline" && (
                                 <OutlineContainer
                                     tocHeaders={tocHeaders}
                                     rightPanelOpen={rightPanelOpen}
@@ -333,17 +344,7 @@ const EditorView = () => {
                                 <StyleContainer>
 
                                 </StyleContainer>
-                            )} */}
-                            <div className='elevatedRightPanelTabSelector'>
-                                <div className='elevatedRightPanelTabWrapper'>
-                                    <div className='elevatedRightPanelTab'><Info size={20} className='tabIcon'/></div>
-                                    <div className='elevatedRightPanelTab'><AlignJustify size={20} className='tabIcon'/></div>
-                                    <div className='elevatedRightPanelTab'><File size={20} className='tabIcon'/></div>
-                                    <div className='elevatedRightPanelTab'><Pen size={20} className='tabIcon'/></div>
-                                    <div className='elevatedRightPanelTab'><Columns2 size={20} className='tabIcon'/></div>
-                                    <div className='elevatedRightPanelTab'><Sparkles size={20} className='tabIcon'/></div>
-                                </div>
-                            </div>
+                            )}
 
                         </div>
                 </div>
