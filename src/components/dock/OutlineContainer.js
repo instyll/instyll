@@ -14,7 +14,6 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
 
   return (
     <div className='outline'>
-      {rightPanelOpen && (
         <div className='outlineContainer'>
           <p className="paneTitle">Outline</p>
           <div className='outlineWrapper'>
@@ -41,7 +40,6 @@ function OutlineContainer({ tocHeaders, rightPanelOpen }) {
           ))}
           </div>
         </div>
-      )}
     </div>
   );
 }
