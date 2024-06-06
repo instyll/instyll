@@ -1090,7 +1090,7 @@
   .tooltipContainer {
     display: inline-block;
     padding: 2px;
-    background-color: var(--elevated-bg);
+    background-color: var(--bg-color);
     border-radius: 5px;
     box-shadow: var(--editorBoxShadow);
     border: 1px solid var(--muted-text);
@@ -1099,7 +1099,7 @@
   .tooltipItem {
     font-family: var(--font);
     font-size: 15px;
-    background-color: var(--elevated-bg);
+    background-color: var(--bg-color);
     border: none;
     padding: 5px 10px;
   }
