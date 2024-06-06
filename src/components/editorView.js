@@ -336,12 +336,12 @@ const EditorView = () => {
                             )} */}
                             <div className='elevatedRightPanelTabSelector'>
                                 <div className='elevatedRightPanelTabWrapper'>
-                                    <div className='elevatedRightPanelTab'><Info size={20}/></div>
-                                    <div className='elevatedRightPanelTab'><AlignJustify size={20}/></div>
-                                    <div className='elevatedRightPanelTab'><File size={20}/></div>
-                                    <div className='elevatedRightPanelTab'><Pen size={20}/></div>
-                                    <div className='elevatedRightPanelTab'><Columns2 size={20}/></div>
-                                    <div className='elevatedRightPanelTab'><Sparkles size={20}/></div>
+                                    <div className='elevatedRightPanelTab'><Info size={20} className='tabIcon'/></div>
+                                    <div className='elevatedRightPanelTab'><AlignJustify size={20} className='tabIcon'/></div>
+                                    <div className='elevatedRightPanelTab'><File size={20} className='tabIcon'/></div>
+                                    <div className='elevatedRightPanelTab'><Pen size={20} className='tabIcon'/></div>
+                                    <div className='elevatedRightPanelTab'><Columns2 size={20} className='tabIcon'/></div>
+                                    <div className='elevatedRightPanelTab'><Sparkles size={20} className='tabIcon'/></div>
                                 </div>
                             </div>
 
