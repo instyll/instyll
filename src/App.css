@@ -2796,6 +2796,58 @@
     font-weight: bold !important;
   }
 
+  .dockGenAIContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 20px;
+    /* padding-top: 24px; */
+    overflow: auto;
+    overflow-wrap: break-word;
+    margin-top: 48px;
+    position: relative;
+    height: calc(100% - 48px);
+  }
+
+  .dockGenAIInputWrapper {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 32px;
+    width: calc(100% - 24px - 24px);
+    box-sizing: border-box;
+  }
+
+  .dockGenAIInput {
+    width: 100%;
+    resize: none;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--elevated-bg);
+    min-height: 64px;
+    font-family: var(--font);
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 16px 20px;
+    line-height: 20px;
+    color: var(--primary-text);
+    outline: none;
+  }
+
+  .dockGenAIInputSubmitButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 24px;
+    width: 24px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .styleContainer {
     padding-left: 24px;
     padding-right: 24px;
@@ -4983,8 +5035,8 @@
   }
 
   .fileLocationControlButton {
-    background-color: var(--button-highlight);
-    color: var(--button-highlight-text);
+    background-color: var(--primary-text);
+    color: var(--bg-color);
     font-family: var(--font);
     font-size: 16px;
     border: none;

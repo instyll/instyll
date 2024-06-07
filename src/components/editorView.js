@@ -18,6 +18,7 @@ import PageActionContainer from '../components/dock/PageActionContainer.js';
 import StatContainer from '../components/dock/StatContainer.js';
 import StyleContainer from '../components/dock/StyleContainer.js';
 import PaneContainer from '../components/dock/paneContainer.tsx';
+import DockGenAIContainer from './dock/DockGenAIContainer.js';
 import { Tooltip } from "react-tooltip";
 import { getWordCount } from '../actions.js';
 import { getCharCount } from '../actions.js';
@@ -344,7 +345,11 @@ const EditorView = () => {
 
                                 </StyleContainer>
                             )}
+                            {rightPanelSetting === "genai" && (
+                                <DockGenAIContainer>
 
+                                </DockGenAIContainer>
+                            )}
                         </div>
                 </div>
 
