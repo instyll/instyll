@@ -91,7 +91,7 @@ const Home = () => {
         timeB = fs.statSync(b[3]).mtime;
       }
   
-      return timeA - timeB;
+      return timeB - timeA;
     })
     setDisplayRecentNotes(sortedNotes);
   }, [])
