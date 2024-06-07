@@ -3930,6 +3930,11 @@
     text-align: left;
   }
 
+  .recentNotesContainer {
+    height: 48px;
+    text-align: left;
+  }
+
   .listViewHeaderContainer {
     display: flex;
     box-sizing: border-box;
@@ -4843,6 +4848,21 @@
     bottom: 50%;
     margin-top: auto;
     margin-bottom: auto;
+    padding-left: 16px;
+  }
+
+  .title {
+    font-family: var(--font);
+    color: var(--primary-text);
+    font-size: 20px;
+    border-bottom: none;
+    padding-bottom: 0px;
+    text-align: left;
+    display: inline-block;
+    width: fit-content;
+    vertical-align: middle;
+    user-select: none;
+    height: fit-content;
     padding-left: 16px;
   }
 

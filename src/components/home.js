@@ -31,6 +31,7 @@ import '../command-palette/commandPalette.css';
 
 import createTopic from '../icons/plus1.png';
 import { removeBookmark } from '../bookmarkSlice.js';
+import DocumentListItem from './document/documentListItem';
 
 const Home = () => {
   const [dockOpen, setDockOpen] = useState(true);
@@ -83,11 +84,11 @@ const Home = () => {
       let timeB = 0;
   
       if (fs.existsSync(a[3])) {
-        timeA = fs.statSync(a[3]).birthTime;
+        timeA = fs.statSync(a[3]).mtime;
       }
   
       if (fs.existsSync(b[3])) {
-        timeB = fs.statSync(b[3]).birthTime;
+        timeB = fs.statSync(b[3]).mtime;
       }
   
       return timeA - timeB;
@@ -275,6 +276,14 @@ const Home = () => {
                   </TopicGridItem>
                 ))}
               </div> */}
+              <div className='recentNotesContainer'>
+                <h1 className='title'>Recent Notes</h1>
+                <div className='recentNoteListWrapper'>
+                  {displayRecentNotes.map((recentNote) => (
+                    <DocumentListItem documentInfo={[recentNote[3], recentNote[1]]}></DocumentListItem>
+                  ))}
+                </div>
+              </div>
 
             </div>
 
