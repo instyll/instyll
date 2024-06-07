@@ -4983,8 +4983,8 @@
   }
 
   .fileLocationControlButton {
-    background-color: var(--button-highlight);
-    color: var(--button-highlight-text);
+    background-color: var(--primary-text);
+    color: var(--bg-color);
     font-family: var(--font);
     font-size: 16px;
     border: none;
