@@ -2806,6 +2806,7 @@
     margin-top: 48px;
     position: relative;
     height: calc(100% - 48px);
+    position: relative;
   }
 
   .dockGenAIInputWrapper {
@@ -3966,6 +3967,17 @@
     box-sizing: border-box;
     display: flex;
     margin-left: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: relative
+  }
+
+  .assistantPanelInputWrapper {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 16px;
+    width: calc(100% - 24px - 24px);
+    box-sizing: border-box;
   }
   
   .topicListItem {

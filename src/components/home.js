@@ -174,7 +174,7 @@ const Home = () => {
                 <DateTime createDailyNote={createDailyNote}></DateTime>
               </div>
 
-              <div className='dashboardSuggestionContainer'>
+              {/* <div className='dashboardSuggestionContainer'>
 
                 <div className='dashboardSuggestionItem'>
 
@@ -274,7 +274,7 @@ const Home = () => {
                   <TopicGridItem tag={tag}>
                   </TopicGridItem>
                 ))}
-              </div>
+              </div> */}
 
             </div>
 

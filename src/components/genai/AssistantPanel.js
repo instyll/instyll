@@ -1,11 +1,21 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import '../../App.css'
+import TextareaAutosize from 'react-textarea-autosize'
 
-const AssistantPanel = () => {
+import { ArrowUp } from "lucide-react";
+
+const AssistantPanel = ({placeholder}) => {
     return (
         <div className="assistantPanelContainer">
-
+            <div className="assistantPanelInputWrapper">
+                <TextareaAutosize className="dockGenAIInput" placeholder={placeholder}></TextareaAutosize>
+                <button className="dockGenAIInputSubmitButton">
+                    <div>
+                        <ArrowUp size={16} style={{marginTop: '2px'}}/>
+                    </div>
+                </button>
+            </div>        
         </div>
     )
 }
