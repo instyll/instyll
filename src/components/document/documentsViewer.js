@@ -17,6 +17,7 @@ import DocumentListItem from './documentListItem';
 import CreateGridDocumentButton from './createNewGridDocumentButton';
 import CreateListDocumentButton from './createNewListDocumentButton';
 import CreateDocumentModal from '../../modal/document/CreateDocumentModal';
+import AssistantPanel from '../genai/AssistantPanel';
 import { uuid } from 'uuidv4';
 import { formatDate } from '../../actions';
 
@@ -300,6 +301,9 @@ const DocumentViewer = ({ location }) => {
                         </div>
 
                     </div>
+                    {genAIContainerOpen &&
+                        <AssistantPanel />
+                    }
                 </div>
 
             </div>

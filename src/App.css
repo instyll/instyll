@@ -3958,6 +3958,15 @@
   .listViewHeaderNumberOfNotes {
 
   }
+
+  .assistantPanelContainer {
+    width: 320px;
+    height: 100vh;
+    border-left: 1px solid var(--muted-text);
+    box-sizing: border-box;
+    display: flex;
+    margin-left: auto;
+  }
   
   .topicListItem {
     display: inline-block;
