@@ -23,6 +23,7 @@ import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
 import DashboardDocumentItem from './dashboardDocumentItem.js';
 import TopicGridItem from './topic/topicGridItem.js';
 import { removeDocument } from '../documentSlice.js';
+import DashboardPanel from './genai/DashboardPanel';
 import { Tooltip } from 'react-tooltip';
 
 import 'prism-themes/themes/prism-nord.css';
@@ -31,6 +32,7 @@ import '../command-palette/commandPalette.css';
 
 import createTopic from '../icons/plus1.png';
 import { removeBookmark } from '../bookmarkSlice.js';
+import DocumentListItem from './document/documentListItem';
 
 const Home = () => {
   const [dockOpen, setDockOpen] = useState(true);
@@ -83,14 +85,14 @@ const Home = () => {
       let timeB = 0;
   
       if (fs.existsSync(a[3])) {
-        timeA = fs.statSync(a[3]).birthTime;
+        timeA = fs.statSync(a[3]).mtime;
       }
   
       if (fs.existsSync(b[3])) {
-        timeB = fs.statSync(b[3]).birthTime;
+        timeB = fs.statSync(b[3]).mtime;
       }
   
-      return timeA - timeB;
+      return timeB - timeA;
     })
     setDisplayRecentNotes(sortedNotes);
   }, [])
@@ -165,7 +167,7 @@ const Home = () => {
           <div className="dashboardWrapper" style={{
             width: "100%",
           }}>
-            <div className='dashboardGreetingContainer'>
+            <div className='dashboardContainer'>
 
               <div className='topicTitleWrapper drag'>
                 <h1 className='heroTitle'>
@@ -275,6 +277,17 @@ const Home = () => {
                   </TopicGridItem>
                 ))}
               </div> */}
+              <div className='dashboardGenAIInteractionContainer'>
+                <DashboardPanel />
+              </div>
+              <div className='recentNotesContainer'>
+                <h1 className='title'>Recent Notes</h1>
+                <div className='recentNoteListWrapper'>
+                  {displayRecentNotes.slice(0, 5).map((recentNote) => (
+                    <DocumentListItem documentInfo={[recentNote[3], recentNote[1]]}></DocumentListItem>
+                  ))}
+                </div>
+              </div>
 
             </div>
 
