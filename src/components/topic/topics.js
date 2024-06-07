@@ -252,7 +252,7 @@ const Topics = () => {
 
                     </div>
                     {genAIContainerOpen &&
-                        <AssistantPanel />
+                        <AssistantPanel placeholder={`Find a topic or chat with your topics`}/>
                     }
                 </div>
 

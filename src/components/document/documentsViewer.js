@@ -302,7 +302,7 @@ const DocumentViewer = ({ location }) => {
 
                     </div>
                     {genAIContainerOpen &&
-                        <AssistantPanel />
+                        <AssistantPanel placeholder={`Find a note or chat with your notes`}/>
                     }
                 </div>
 

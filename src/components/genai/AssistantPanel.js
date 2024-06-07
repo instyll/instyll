@@ -5,11 +5,11 @@ import TextareaAutosize from 'react-textarea-autosize'
 
 import { ArrowUp } from "lucide-react";
 
-const AssistantPanel = () => {
+const AssistantPanel = ({placeholder}) => {
     return (
         <div className="assistantPanelContainer">
             <div className="assistantPanelInputWrapper">
-                <TextareaAutosize className="dockGenAIInput"></TextareaAutosize>
+                <TextareaAutosize className="dockGenAIInput" placeholder={placeholder}></TextareaAutosize>
                 <button className="dockGenAIInputSubmitButton">
                     <div>
                         <ArrowUp size={16} style={{marginTop: '2px'}}/>
