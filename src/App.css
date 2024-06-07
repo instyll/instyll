@@ -2822,7 +2822,7 @@
     border-radius: 8px;
     border: none;
     background-color: var(--elevated-bg);
-    min-height: 56px;
+    min-height: 64px;
     font-family: var(--font);
     font-size: 14px;
     box-sizing: border-box;
@@ -2830,6 +2830,22 @@
     line-height: 20px;
     color: var(--primary-text);
     outline: none;
+  }
+
+  .dockGenAIInputSubmitButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 24px;
+    width: 24px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .styleContainer {
