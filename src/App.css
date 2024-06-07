@@ -3955,7 +3955,8 @@
   }
 
   .dashboardPanelContainer {
-    height: 320px;
+    min-height: 160px;
+    height: fit-content;
     background-color: var(--bg-color);
     box-sizing: border-box;
     border-radius: 16px;
@@ -3965,7 +3966,7 @@
   .dashboardGenAIInputWrapper {
     position: absolute;
     bottom: 0;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     width: calc(100%);
     box-sizing: border-box;
   }
