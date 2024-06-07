@@ -23,6 +23,7 @@ import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
 import DashboardDocumentItem from './dashboardDocumentItem.js';
 import TopicGridItem from './topic/topicGridItem.js';
 import { removeDocument } from '../documentSlice.js';
+import DashboardPanel from './genai/DashboardPanel';
 import { Tooltip } from 'react-tooltip';
 
 import 'prism-themes/themes/prism-nord.css';
@@ -276,6 +277,9 @@ const Home = () => {
                   </TopicGridItem>
                 ))}
               </div> */}
+              <div className='dashboardGenAIInteractionContainer'>
+                <DashboardPanel />
+              </div>
               <div className='recentNotesContainer'>
                 <h1 className='title'>Recent Notes</h1>
                 <div className='recentNoteListWrapper'>

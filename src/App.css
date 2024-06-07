@@ -3935,6 +3935,65 @@
     text-align: left;
   }
 
+  .recentNoteListWrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dashboardGenAIInteractionContainer {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+  }
+
+  .dashboardPanelContainer {
+    height: 320px;
+    background-color: var(--bg-color);
+    box-sizing: border-box;
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .dashboardGenAIInputWrapper {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 32px;
+    width: calc(100%);
+    box-sizing: border-box;
+  }
+
+  .dashboardGenAIInput {
+    width: 100%;
+    resize: none;
+    border-radius: 16px;
+    border: none;
+    background-color: var(--elevated-bg);
+    min-height: 128px;
+    font-family: var(--font);
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 16px 20px;
+    line-height: 20px;
+    color: var(--primary-text);
+    outline: none;
+  }
+
+  .dashboardGenAIInputSubmitButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 24px;
+    width: 24px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .listViewHeaderContainer {
     display: flex;
     box-sizing: border-box;
@@ -4864,6 +4923,7 @@
     user-select: none;
     height: fit-content;
     padding-left: 16px;
+    margin-bottom: 0px;
   }
 
   .dateButton {
