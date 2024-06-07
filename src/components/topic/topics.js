@@ -17,6 +17,7 @@ import CreateTopicModal from '../../modal/topic/CreateTopicModal.js';
 import TopicSettingModal from '../../modal/topic/TopicSettingsModal.js';
 import CreateGridTopicButton from './createNewGridTopicButton.js';
 import CreateListTopicButton from './createNewListTopicButton.js';
+import AssistantPanel from '../genai/AssistantPanel';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
@@ -250,6 +251,9 @@ const Topics = () => {
                         </div>
 
                     </div>
+                    {genAIContainerOpen &&
+                        <AssistantPanel />
+                    }
                 </div>
 
             </div>
