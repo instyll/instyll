@@ -3698,6 +3698,14 @@
     box-sizing: border-box;
     padding-bottom: 24px;
   }
+
+  .dashboardContainer {
+    height: calc(100vh - 4px);
+    text-align: center;
+    overflow: auto;
+    box-sizing: border-box;
+    padding-bottom: 24px;
+  }
   
   .greetingDateContainer {
     display: inline-block;

@@ -167,7 +167,7 @@ const Home = () => {
           <div className="dashboardWrapper" style={{
             width: "100%",
           }}>
-            <div className='dashboardGreetingContainer'>
+            <div className='dashboardContainer'>
 
               <div className='topicTitleWrapper drag'>
                 <h1 className='heroTitle'>
