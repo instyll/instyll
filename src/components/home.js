@@ -283,7 +283,7 @@ const Home = () => {
               <div className='recentNotesContainer'>
                 <h1 className='title'>Recent Notes</h1>
                 <div className='recentNoteListWrapper'>
-                  {displayRecentNotes.map((recentNote) => (
+                  {displayRecentNotes.slice(0, 5).map((recentNote) => (
                     <DocumentListItem documentInfo={[recentNote[3], recentNote[1]]}></DocumentListItem>
                   ))}
                 </div>
