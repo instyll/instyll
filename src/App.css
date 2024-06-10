@@ -3978,7 +3978,7 @@
   .dashboardGenAIInputWrapper {
     position: absolute;
     bottom: 0;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     width: calc(100%);
     box-sizing: border-box;
   }
