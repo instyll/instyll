@@ -2787,11 +2787,18 @@
     transition: 0.2s;
     font-family: var(--font);
     box-sizing: border-box;
+    color: var(--primary-text);
+    font-weight: 600;
   }
   
   .outlineElement:hover {
     background-color: var(--muted-text);
     border-radius: 8px;
+  }
+
+  .headerNav {
+    color: var(--primary-text);
+    font-weight: 500;
   }
   
   .headerNav.lastClickedHeader {
