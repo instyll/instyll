@@ -1,39 +1,23 @@
 import "allotment/dist/style.css";
-import fs from 'fs';
+import { Command } from 'cmdk';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
-import React, { useState, useEffect, useRef } from 'react';
-import Sizzle from 'sizzle';
-import '../App.css';
-import './cmdk/theme.scss';
-import sampleHeader from '../command-palette/commandPaletteHeader.js';
-import MenuBar from '../components/menuBar';
-import TableOfContents from '../components/toc.js';
-import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
-import TopicModal from '../modal/topic/TopicModal.js';
+import React, { useEffect, useRef, useState } from 'react';
 import "react-cmdk/dist/cmdk.css";
-import {Command} from 'cmdk';
 import { useNavigate } from "react-router-dom";
+import '../App.css';
+import TableOfContents from '../components/toc.js';
 import SettingsModal from "../modal/SettingsModal";
 import DocumentModal from "../modal/document/CreateDocumentModal.js";
-import { setTheme, updateTheme } from "../themeSlice.js";
+import { updateTheme } from "../themeSlice.js";
+import './cmdk/theme.scss';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
-import '../command-palette/commandPalette.css';
 import { useDispatch, useSelector } from "react-redux";
+import '../command-palette/commandPalette.css';
 
-import { Home } from 'lucide-react';
-import { BookText } from 'lucide-react';
-import { Hash } from 'lucide-react';
-import { Bookmark } from 'lucide-react';
-import { Search } from 'lucide-react';
-import { Settings } from 'lucide-react';
-import { ArrowLeftFromLine } from "lucide-react";
-import { ArrowRightFromLine } from "lucide-react";
-import { Sun } from "lucide-react";
-import { Moon } from "lucide-react";
-import { PenSquare } from "lucide-react";
+import { ArrowLeftFromLine, ArrowRightFromLine, BookText, Bookmark, Hash, Home, Moon, PenSquare, Settings, Sun } from 'lucide-react';
 
 const Layout = ({ children }) => {
     const lastSetTheme = useSelector((state) => state.theme.theme);

@@ -7,38 +7,17 @@ import { slashFactory } from "@milkdown/plugin-slash";
 import {
     createCodeBlockCommand,
     insertHrCommand,
-    wrapInHeadingCommand,
     turnIntoTextCommand,
-    wrapInBulletListCommand,
-    wrapInOrderedListCommand,
     wrapInBlockquoteCommand,
-    insertImageCommand,
+    wrapInBulletListCommand,
+    wrapInHeadingCommand,
+    wrapInOrderedListCommand
 } from "@milkdown/preset-commonmark";
 import { insertTableCommand } from "@milkdown/preset-gfm";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
-import textIcon from '../icons/TEXT.png'
-import h1Icon from '../icons/header1.png'
-import h2Icon from '../icons/header2.png'
-import h3Icon from '../icons/header3.png'
-import codeIcon from '../icons/CodeIcon.png'
-import numIcon from '../icons/listOrdered.png'
-import quoteIcon from '../icons/bquote.png'
-import bulletIcon from '../icons/listUnordered.png'
-import aiIcon from '../icons/ai2.png'
-import tableIcon from '../icons/tableIcon.png'
-import dividerIcon from '../icons/dividerIcon.png'
 
-import { CaseLower } from "lucide-react";
-import { Heading1 } from "lucide-react";
-import { Heading2 } from "lucide-react";
-import { Heading3 } from "lucide-react";
-import { Code } from "lucide-react";
-import { List } from "lucide-react";
-import { ListOrdered } from "lucide-react";
-import { Quote } from "lucide-react";
-import { Minus } from "lucide-react";
-import { Table } from "lucide-react";
+import { CaseLower, Code, Heading1, Heading2, Heading3, List, ListOrdered, Minus, Quote, Table } from "lucide-react";
 
 /* declare type for respective selections */
 type ConfigItem = {

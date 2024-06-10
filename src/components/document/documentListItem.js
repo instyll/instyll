@@ -11,7 +11,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import '../../App.css';
 import { addBookmark } from '../../bookmarkSlice';
 import { removeDocument } from '../../documentSlice';
-import moreDots from '../../icons/menudots.png';
 import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
 
 const DocumentListItem = ({ documentInfo }) => {

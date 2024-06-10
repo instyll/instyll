@@ -1,18 +1,15 @@
 /**
  * @author wou
  */
-import React from "react";
-import Modal from "react-modal"; // Import Modal from 'react-modal'
-import QueryResult from "../components/queryResult";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { updatePath } from "../pathSlice";
 import { ipcRenderer } from 'electron';
 import fs from 'fs';
 import path from 'path';
+import React from "react";
+import Modal from "react-modal"; // Import Modal from 'react-modal'
+import { useDispatch, useSelector } from "react-redux";
+import { updatePath } from "../pathSlice";
 
 import "../App.css";
-import search from '../icons/search.png'
 
 import { useState } from "react";
 import { addDocument } from "../documentSlice";

@@ -4,17 +4,13 @@
 import html2pdf from 'html2pdf.js';
 import path from 'path';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import "../../App.css";
-import PageActionItem from './PageActionItem';
-import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
-import { removeDocument } from '../../documentSlice';
 import { addBookmark } from '../../bookmarkSlice';
-import { ToastContainer, toast } from 'react-toastify';
+import { removeDocument } from '../../documentSlice';
+import UpdateDocumentModal from '../../modal/document/UpdateDocumentModal';
+import PageActionItem from './PageActionItem';
 
-import bookmarkIcon from '../../icons/bookmark.png';
-import pdfIcon from '../../icons/pdf1.png';
-import renameIcon from '../../icons/rename.png';
-import deleteIcon from '../../icons/trash.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 

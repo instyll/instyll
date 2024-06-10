@@ -1,38 +1,29 @@
 /**
  * @author wou
  */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // import Editor from './legacyEditor.js';
 import fs from 'fs';
-import path from 'path';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
-import CommandPalette from 'react-command-palette';
+import path from 'path';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import '../App.css';
-import sampleHeader from '../command-palette/commandPaletteHeader.js';
-import DateTime from '../components/dateTime.js';
-import { addDocument } from '../documentSlice.js';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { uuid } from 'uuidv4';
-import { executeFileCreation } from '../actions.js';
+import '../App.css';
 import parseAndFormatDate from '../DateUtils.js';
-import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../constants.ts';
+import { executeFileCreation } from '../actions.js';
+import DateTime from '../components/dateTime.js';
+import { addDocument, removeDocument } from '../documentSlice.js';
 import CreateTopicModal from '../modal/topic/CreateTopicModal.js';
 import TopicSettingModal from '../modal/topic/TopicSettingsModal.js';
-import DashboardDocumentItem from './dashboardDocumentItem.js';
-import TopicGridItem from './topic/topicGridItem.js';
-import { removeDocument } from '../documentSlice.js';
 import DashboardPanel from './genai/DashboardPanel';
-import { Tooltip } from 'react-tooltip';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
 import '../command-palette/commandPalette.css';
 
-import createTopic from '../icons/plus1.png';
 import { removeBookmark } from '../bookmarkSlice.js';
-import DocumentListItem from './document/documentListItem';
 
 const Home = () => {
   const [dockOpen, setDockOpen] = useState(true);

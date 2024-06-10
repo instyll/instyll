@@ -1,33 +1,23 @@
 /**
  * @author wou
  */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Editor from './legacyEditor.js';
 import "allotment/dist/style.css";
 import fs from 'fs';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
-import CommandPalette from 'react-command-palette';
 import { useDispatch, useSelector } from 'react-redux';
-import Select from 'react-select';
 import '../../App.css';
-import sampleHeader from '../../command-palette/commandPaletteHeader.js';
-import { CLOSE, CREATE, DAILY, FILE, OPEN, SET_THEME, TOGGLE } from '../../constants.ts';
 import CreateTopicModal from '../../modal/topic/CreateTopicModal.js';
 import TopicSettingModal from '../../modal/topic/TopicSettingsModal.js';
-import CreateGridTopicButton from './createNewGridTopicButton.js';
-import CreateListTopicButton from './createNewListTopicButton.js';
 import AssistantPanel from '../genai/AssistantPanel';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
 import '../../command-palette/commandPalette.css';
 
-import { PanelRight } from 'lucide-react';
-import { SquarePen } from 'lucide-react';
-import { ChevronUp } from 'lucide-react';
-import { ChevronDown } from 'lucide-react';
-import TopicGridItem from './topicGridItem.js';
+import { ChevronDown, ChevronUp, PanelRight, SquarePen } from 'lucide-react';
 import TopicListItem from './topicListItem.js';
 
 const Topics = () => {

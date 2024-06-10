@@ -5,35 +5,11 @@ import path from 'path';
 import React, { useState } from 'react';
 import "../../App.css";
 
-import { CmdKey } from '@milkdown/core';
 
-import {
-    toggleEmphasisCommand,
-    toggleStrongCommand,
-    wrapInBlockquoteCommand,
-    wrapInBulletListCommand,
-    wrapInOrderedListCommand,
-    wrapInHeadingCommand,
-} from "@milkdown/preset-commonmark"
 
-import {
-    insertTableCommand,
-    toggleStrikethroughCommand,
-} from "@milkdown/preset-gfm"
 
-import { Slice } from "@milkdown/prose/model";
-import { callCommand } from "@milkdown/utils";
 
 import { useSelector } from 'react-redux';
-import boldIcon from '../../icons/bold.png';
-import blockquoteIcon from '../../icons/bquote.png';
-import heading1Icon from '../../icons/header1.png';
-import heading2Icon from '../../icons/header2.png';
-import heading3Icon from '../../icons/header3.png';
-import italicIcon from '../../icons/italic.png';
-import bulletListIcon from '../../icons/listOrdered.png';
-import numListIcon from '../../icons/listUnordered.png';
-import strikeThroughIcon from '../../icons/strikethrough.png';
 
 function StyleContainer({ rightPanelOpen }) {
 

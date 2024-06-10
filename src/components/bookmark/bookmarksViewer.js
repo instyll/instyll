@@ -1,21 +1,16 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import fs from 'fs/promises';
-import chokidar from 'chokidar';
-import path from 'path';
-import '../../App.css';
-import "highlight.js/styles/github.css";
-import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
-import Select from 'react-select';
-import { useSelector, useDispatch } from 'react-redux';
-import DocumentGridItem from '../document/documentGridItem';
+import "highlight.js/styles/github.css";
+import 'katex/dist/katex.min.css';
+import { useSelector } from 'react-redux';
+import '../../App.css';
 import DocumentListItem from '../document/documentListItem';
 
-import { ChevronUp } from 'lucide-react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const fs = require('fs');
 const fsp = fs.promises;
