@@ -7,7 +7,7 @@ const DashboardPanel = () => {
     return (
         <div className="dashboardPanelContainer">
              <div className="dashboardGenAIInputWrapper">
-                <TextareaAutosize className="dashboardGenAIInput"></TextareaAutosize>
+                <TextareaAutosize className="dashboardGenAIInput" placeholder="Create a note, find a note, or ask a question"></TextareaAutosize>
                 <button className="dashboardGenAIInputSubmitButton">
                     <div>
                         <ArrowUp size={16} style={{marginTop: '2px'}}/>

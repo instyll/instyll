@@ -30,7 +30,6 @@ export const SlashItem: FC<SlashItemProps> = ({
   keyEvent,
 }) => {
   const [loading, getEditor] = instance;
-  const [genModalOpen, setGenModalOpen] = useState(false);
   const listItemRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
@@ -42,10 +41,6 @@ export const SlashItem: FC<SlashItemProps> = ({
   const onPick = () => {
     // console.log(index)
     if (loading) return;
-
-    if (index == 0) {
-      setGenModalOpen(true);
-    }
 
     getEditor().action((ctx) => {
         onSelect(ctx);
@@ -69,7 +64,6 @@ export const SlashItem: FC<SlashItemProps> = ({
       {children}
  
     </li>
-    <GenAIModal show={genModalOpen} onHide={() => setGenModalOpen(false)}/>
     </div>
   );
 };

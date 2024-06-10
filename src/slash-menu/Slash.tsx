@@ -8,7 +8,6 @@ import { SlashProvider } from "@milkdown/plugin-slash";
 import { useInstance } from "@milkdown/react";
 import { usePluginViewContext } from "@prosemirror-adapter/react";
 import { useEffect, useRef, useState } from "react";
-import GenAIModal from "../modal/openai/GenAIModal.js";
 import React from "react";
 
 export const Slash = () => {
@@ -54,7 +53,6 @@ export const Slash = () => {
 
   return (
     <div className="hidden">
-    <GenAIModal show={modalState} onHide={() => setModalState(false)}/>
       <div role="tooltip" ref={ref}>
         <ul className="slashItemContainer" autoFocus tabIndex={1}>
             <span className="slashGroupHeader">Formatting</span>

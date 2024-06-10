@@ -697,8 +697,9 @@
     overflow: scroll;
     list-style: none;
     border-radius: 10px;
-    background-color: var(--elevated-bg);
-    box-shadow: var(--editorBoxShadow);
+    background-color: var(--bg-color);
+    /* box-shadow: var(--editorBoxShadow); */
+    border: 1px solid var(--muted-text);
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
@@ -1046,8 +1047,9 @@
     height: 40px;
     width: 40px;
     /* border: 1px solid var(--secondary-text); */
-    background-color: var(--muted-text);
-    border-radius: 10px;
+    /* background-color: var(--muted-text); */
+    border: 1px solid var(--muted-text);
+    border-radius: 8px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -3939,8 +3941,13 @@
   }
 
   .recentNotesContainer {
-    height: 48px;
+    height: 400px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    border: 1px solid var(--muted-text);
+    border-radius: 8px;
   }
 
   .recentNoteListWrapper {
@@ -3952,10 +3959,17 @@
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 16px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 128px);
+    border: 1px solid var(--muted-text);
+    border-radius: 16px;
   }
 
   .dashboardPanelContainer {
-    min-height: 160px;
+    min-height: calc(100vh - 240px);
     height: fit-content;
     background-color: var(--bg-color);
     box-sizing: border-box;
@@ -3966,7 +3980,7 @@
   .dashboardGenAIInputWrapper {
     position: absolute;
     bottom: 0;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     width: calc(100%);
     box-sizing: border-box;
   }
@@ -4933,6 +4947,10 @@
     height: fit-content;
     padding-left: 16px;
     margin-bottom: 0px;
+  }
+
+  .titleRight { 
+    margin-left: auto;
   }
 
   .dateButton {
