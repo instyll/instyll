@@ -697,8 +697,9 @@
     overflow: scroll;
     list-style: none;
     border-radius: 10px;
-    background-color: var(--elevated-bg);
-    box-shadow: var(--editorBoxShadow);
+    background-color: var(--bg-color);
+    /* box-shadow: var(--editorBoxShadow); */
+    border: 1px solid var(--muted-text);
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
@@ -1046,8 +1047,9 @@
     height: 40px;
     width: 40px;
     /* border: 1px solid var(--secondary-text); */
-    background-color: var(--muted-text);
-    border-radius: 10px;
+    /* background-color: var(--muted-text); */
+    border: 1px solid var(--muted-text);
+    border-radius: 8px;
     text-align: center;
     display: flex;
     justify-content: center;
