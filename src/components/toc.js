@@ -1,22 +1,14 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect, useRef } from 'react';
-import '../App.css';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import SettingsModal from '../modal/SettingsModal';
+import '../App.css';
 import QueryModal from '../modal/QueryModal';
-import { Command } from 'cmdk';
+import SettingsModal from '../modal/SettingsModal';
 
 // assets
-import { Home } from 'lucide-react';
-import { BookText } from 'lucide-react';
-import { Hash } from 'lucide-react';
-import { Bookmark } from 'lucide-react';
-import { Search } from 'lucide-react';
-import { Settings } from 'lucide-react';
-import { SquareTerminal } from 'lucide-react';
-import { PanelLeft } from 'lucide-react';
+import { BookText, Bookmark, Hash, Home, PanelLeft, Search, Settings, SquareTerminal } from 'lucide-react';
 import { useSelector } from 'react-redux';
 
 // const electron = window.require('electron');

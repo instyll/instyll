@@ -1,30 +1,22 @@
 /**
  * @author wou
  */
-import React, { useState, useEffect, useRef } from 'react';
-import chokidar from 'chokidar';
-import path from 'path';
-import '../../App.css';
-import "highlight.js/styles/github.css";
-import 'katex/dist/katex.min.css'
 import "allotment/dist/style.css";
-import Select from 'react-select';
-import { useSelector, useDispatch } from 'react-redux';
+import chokidar from 'chokidar';
+import "highlight.js/styles/github.css";
+import 'katex/dist/katex.min.css';
+import path from 'path';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { uuid } from 'uuidv4';
+import '../../App.css';
+import { formatDate } from '../../actions';
 import { addDocument } from '../../documentSlice';
-import parseAndFormatDate from '../../DateUtils';
-import DocumentGridItem from './documentGridItem';
-import DocumentListItem from './documentListItem';
-import CreateGridDocumentButton from './createNewGridDocumentButton';
-import CreateListDocumentButton from './createNewListDocumentButton';
 import CreateDocumentModal from '../../modal/document/CreateDocumentModal';
 import AssistantPanel from '../genai/AssistantPanel';
-import { uuid } from 'uuidv4';
-import { formatDate } from '../../actions';
+import DocumentListItem from './documentListItem';
 
-import { SquarePen } from 'lucide-react';
-import { PanelRight } from 'lucide-react';
-import { ChevronUp } from 'lucide-react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronUp, PanelRight, SquarePen } from 'lucide-react';
 
 const fs = require('fs');
 const fsp = fs.promises;

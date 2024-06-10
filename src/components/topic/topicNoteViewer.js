@@ -5,20 +5,18 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 // import Editor from './legacyEditor.js';
 import "allotment/dist/style.css";
+import fs from 'fs';
 import "highlight.js/styles/github.css";
 import 'katex/dist/katex.min.css';
-import Select from 'react-select';
-import fs from 'fs';
 import '../../App.css';
-import DocumentGridItem from '../document/documentGridItem';
 import DocumentListItem from '../document/documentListItem';
 
 import 'prism-themes/themes/prism-nord.css';
 import 'react-calendar/dist/Calendar.css';
 import '../../command-palette/commandPalette.css';
 
-import { useParams } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import { useParams } from 'react-router-dom';
 
 const TopicNoteViewer = ({ location }) => {
     const [documentGridLayout, setDocumentGridLayout] = useState(true);

@@ -2,15 +2,13 @@
  * @author wou
  */
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import TopicOptionsModal from '../../modal/topic/TopicOptionsModal';
-import moreDots from '../../icons/menudots.png';
-import '../../App.css';
-import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
-import { removeTag } from '../../tagSlice';
-import UpdateTopicModal from '../../modal/topic/UpdateTopicModal';
+import { Item, Menu, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import '../../App.css';
+import UpdateTopicModal from '../../modal/topic/UpdateTopicModal';
+import { removeTag } from '../../tagSlice';
 
 const TopicListItem = ({ tag }) => {
 

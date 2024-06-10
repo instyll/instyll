@@ -1,18 +1,13 @@
 /**
  * @author wou
  */
+import fs from 'fs';
 import path from 'path';
 import React from 'react';
 import "../../App.css";
 import StatItem from './StatItem';
-import fs from 'fs';
 
 import { useSelector } from 'react-redux';
-import clockIcon from '../../icons/clock.png';
-import folderIcon from '../../icons/folder.png';
-import wordCountIcon from '../../icons/wordCount.png';
-import { Clock } from 'lucide-react';
-import { BookA } from 'lucide-react';
 
 function StatContainer({ rightPanelOpen, documentPath, wordCount, charCount }) {
 
