@@ -1202,8 +1202,8 @@
     font-family: var(--font);
     padding: 4px 8px;
     border: none;
-    background-color: var(--button-highlight);
-    color: var(--button-highlight-text);
+    background-color: var(--primary-text);
+    color: var(--bg-color);
     border-radius: 4px;
   }
   
