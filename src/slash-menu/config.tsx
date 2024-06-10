@@ -31,6 +31,17 @@ import aiIcon from '../icons/ai2.png'
 import tableIcon from '../icons/tableIcon.png'
 import dividerIcon from '../icons/dividerIcon.png'
 
+import { CaseLower } from "lucide-react";
+import { Heading1 } from "lucide-react";
+import { Heading2 } from "lucide-react";
+import { Heading3 } from "lucide-react";
+import { Code } from "lucide-react";
+import { List } from "lucide-react";
+import { ListOrdered } from "lucide-react";
+import { Quote } from "lucide-react";
+import { Minus } from "lucide-react";
+import { Table } from "lucide-react";
+
 /* declare type for respective selections */
 type ConfigItem = {
     renderer: ReactNode;
@@ -53,29 +64,13 @@ const removeSlash = (ctx: Ctx) => {
 export const slash = slashFactory("slashMenu") satisfies MilkdownPlugin[];
 
 export const config: Array<ConfigItem> = [
-    /* item for gen ai */
-    {
-        onSelect: (ctx: Ctx) => ({  }),
-        renderer: (
-            <div className="slashSuggestionItemContainer">
-                <span className="suggestionItemImageContainer">
-                    <img src={aiIcon} className="tooltipIcon"></img>
-                </span>
-                <div className="suggestionItemTitle">
-                Instyll AI
-                <br></br>
-                <span className="suggestionItemDescription">Your personal AI note-taking assistant.</span>
-                </div>
-            </div>
-        ),
-    },
     /* item for paragraph text */
     {
         onSelect: (ctx: Ctx) => ctx.get(commandsCtx).call(turnIntoTextCommand.key),
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={textIcon} className="tooltipIcon"></img>
+                    <CaseLower size={16} className="tooltipIcon"/>
                 </span> 
                 <div className="suggestionItemTitle">
                 Text
@@ -91,7 +86,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={bulletIcon} className="tooltipIcon"></img>
+                    <List size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Bullet List
@@ -107,7 +102,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={numIcon} className="tooltipIcon"></img>
+                    <ListOrdered size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Numbered List
@@ -124,7 +119,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={h1Icon} className='tooltipIcon'></img>
+                    <Heading1 size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 1
@@ -141,7 +136,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={h2Icon} className='tooltipIcon'></img>
+                    <Heading2 size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 2
@@ -158,7 +153,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={h3Icon} className='tooltipIcon'></img>
+                    <Heading3 size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Heading 3
@@ -175,7 +170,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={codeIcon} className="tooltipIcon"></img>
+                    <Code size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Code Block
@@ -192,7 +187,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={quoteIcon} className="tooltipIcon"></img>
+                    <Quote size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Quote
@@ -208,7 +203,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={dividerIcon} className="tooltipIcon" />
+                    <Minus size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Divider
@@ -224,7 +219,7 @@ export const config: Array<ConfigItem> = [
         renderer: (
             <div className="slashSuggestionItemContainer">
                 <span className="suggestionItemImageContainer">
-                    <img src={tableIcon} className="tooltipIcon" />
+                    <Table size={16} className="tooltipIcon"/>
                 </span>
                 <div className="suggestionItemTitle">
                 Table
