@@ -51,13 +51,8 @@ export const useSlashState = (instance: Instance, updateModalState: (newState: b
         return;
       }
       if (key === "Enter") {
-        if (selectedRef.current == 0) {
-          updateModalState(true);
-        }
-        else {
-          getEditor()?.action(config[selectedRef.current].onSelect);
+        getEditor()?.action(config[selectedRef.current].onSelect);
         return;
-        }
       }
     },
     [getEditor, updateModalState]
