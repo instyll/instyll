@@ -3961,11 +3961,13 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    width: 100%;
+    width: calc(100% - 128px);
+    border: 1px solid var(--muted-text);
+    border-radius: 16px;
   }
 
   .dashboardPanelContainer {
-    min-height: 160px;
+    min-height: calc(100vh - 240px);
     height: fit-content;
     background-color: var(--bg-color);
     box-sizing: border-box;
