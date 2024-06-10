@@ -131,11 +131,11 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp, searchRef})
       <div className="tableInfo">
 
         <div className="tocBanner" style={{borderBottom: tocOpen ? 'initial' : '1px solid var(--muted-text)'}}>
-          {!maximized && <button className='tocToggleButton' onClick={handleToc}>
+          <button className='tocToggleButton' onClick={handleToc}>
             <div>
             <PanelLeft size={20} color='var(--primary-text)' className='tocToggle'/>
             </div>
-          </button>}
+          </button>
         </div>
 
         {tocOpen && <div className='tocSection'>

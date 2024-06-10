@@ -1202,8 +1202,8 @@
     font-family: var(--font);
     padding: 4px 8px;
     border: none;
-    background-color: var(--button-highlight);
-    color: var(--button-highlight-text);
+    background-color: var(--primary-text);
+    color: var(--bg-color);
     border-radius: 4px;
   }
   
@@ -2712,6 +2712,7 @@
     width: 100%;
     color: var(--primary-text);
     font-family: var(--font);
+    font-weight: 500;
     font-size: 1em;
     box-sizing: border-box;
     background-color: transparent;
@@ -2787,11 +2788,18 @@
     transition: 0.2s;
     font-family: var(--font);
     box-sizing: border-box;
+    color: var(--primary-text);
+    font-weight: 600;
   }
   
   .outlineElement:hover {
     background-color: var(--muted-text);
     border-radius: 8px;
+  }
+
+  .headerNav {
+    color: var(--primary-text);
+    font-weight: 500;
   }
   
   .headerNav.lastClickedHeader {
