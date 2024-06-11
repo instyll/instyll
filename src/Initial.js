@@ -21,7 +21,7 @@ const Initialize = () => {
     const folderPath = ipcRenderer.sendSync('select-folder');
     if (folderPath) {
         dispatch(addPath(folderPath))
-        navigate("/home")
+        navigate("/documents")
     }
   };
 
@@ -29,13 +29,13 @@ const Initialize = () => {
     const createdFolderPath = ipcRenderer.sendSync('create-folder')
     if (createdFolderPath) {
         dispatch(addPath(createdFolderPath))
-        navigate('/home')
+        navigate('/documents')
     }
   }
 
   useEffect(() => {
     if (path) {
-      navigate("/home")
+      navigate("/documents")
     } 
   }, [])
 
