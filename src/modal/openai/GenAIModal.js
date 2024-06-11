@@ -45,7 +45,7 @@ const GenAIModal = ({ show, onHide }) => {
           let accumulated = ""
           for await (const chunk of stream) {
             const content = chunk.choices[0]?.delta?.content || ""
-            accumulated += content
+            accumulated += content;
         }
         setReceivedMessage((prev) => [
             ...prev,

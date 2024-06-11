@@ -57,7 +57,7 @@
     "mermaid.cli": "^0.5.1",
     "milkdown-plugin-placeholder": "https://github.com/HexMox/milkdown-plugin-placeholder",
     "moment": "^2.29.4",
-    "openai": "^4.20.1",
+    "openai": "^4.50.0",
     "prism-themes": "^1.9.0",
     "react": "^18.2.0",
     "react-calendar": "^4.2.1",
