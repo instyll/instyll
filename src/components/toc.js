@@ -131,7 +131,7 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp, searchRef})
         </div>
 
         {tocOpen && <div className='tocSection'>
-        <Link to="/home">
+        {/* <Link to="/home">
           <p className={`tocTitleFirst ${location.pathname === '/home' && tocOpen ? 'active' : location.pathname === '/home' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
             // marginTop: tocOpen ? "64px" : "32px",
@@ -139,10 +139,10 @@ function TableOfContents({handleTheme, tocOpen, handleToc, handleCp, searchRef})
             <Home size={20} color={`${location.pathname === '/home' && tocOpen ? 'var(--bg-color)' : 'var(--primary-text)'}`} className='tocIcon' />
             {tocOpen && <span className="tocInnerText">Dashboard</span>}
           </p>
-        </Link>
+        </Link> */}
 
         <Link to="/documents">
-          <p className={`tocTitle ${location.pathname === '/documents' && tocOpen ? 'active' : location.pathname === '/documents' && tocOpen === false ? 'activeMin' : ''}`} style={{
+          <p className={`tocTitleFirst ${location.pathname === '/documents' && tocOpen ? 'active' : location.pathname === '/documents' && tocOpen === false ? 'activeMin' : ''}`} style={{
             textAlign: tocOpen ? "left" : "center",
           }}>
             <BookText size={20} color={`${location.pathname === '/documents' && tocOpen ? 'var(--bg-color)' : 'var(--primary-text)'}`} className='tocIcon' />
